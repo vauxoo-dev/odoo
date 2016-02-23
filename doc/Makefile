@@ -6,6 +6,7 @@ SPHINXOPTS    = -q -t solutions
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+TRAVISDIR     = ../out
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -13,12 +14,14 @@ PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+GIT_SETTED = $(shell git config user.email)
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext deploy html-es clone-gh-pages set-travis-git-config push-gh-pages pull-gh-pages
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
+	@echo "  html-es       to make standalone HTML files in Spanish"
 	@echo "  dirhtml    to make HTML files named index.html in directories"
 	@echo "  singlehtml to make a single large HTML file"
 	@echo "  pickle     to make pickle files"
@@ -37,6 +40,52 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  server     Serve compiled docuementation throught 8000 port"
+	@echo "  clone-gh-pages     Clone your gh-pages from the repository given to prepare the deploy"
+	@echo "  pull-gh-pages      Update your gh-pages from the repository given to prepare the deploy"
+	@echo "  set-travis-git-config   helper to set the travis user when auto deploy"
+	@echo "  deploy          Compile html and deploy to gh-pages and or master on a github repository."
+	@echo "                  Considere that you need to have this global variables setted."
+	@echo "                  ---------------------------------------------------------------------------------------------------------"
+	@echo "                  GH_REF Reference to github project (without transport protocol defined) i.e.: github.com/user/project.git"
+	@echo "                  GH_BRANCH 'master' for personal pages and 'gh-pages' for project pages"
+	@echo "                  GH_COMMITER_EMAIL commiter email to commit the autocompiled element."
+	@echo "                  GH_COMMITER_NAME commiter email to commit the autocompiled element."
+	@echo "                  GH_TOKEN definition:"
+	@echo "                  rtfd: https://help.github.com/articles/creating-an-access-token-for-command-line-use/"
+	@echo "                  Considere that you can secure it for travis porpose your token rtfd: "
+	@echo "                  https://docs.travis-ci.com/user/encryption-keys/"
+	@echo "  push-gh-pages   Helper to push to gh-pages with global variables on .travis.yml"
+
+pull-gh-pages:
+	(cd $(BUILDDIR)/travis; git pull origin $(GH_BRANCH))
+	@echo "Succesfully Updated $(GH_BRANCH)"
+
+clone-gh-pages:
+	git clone https://$(GH_REF) --branch=$(GH_BRANCH) $(BUILDDIR)/travis;
+	@echo "Succesfully Clonned from gh-pages"
+
+set-travis-git-config:
+	(cd $(BUILDDIR)/travis; git config user.email $(GH_COMMITER_EMAIL); git config user.name $(GH_COMMITER_NAME))
+	@echo "Git parameters Setted."
+
+push-gh-pages:
+	(cd $(BUILDDIR)/travis; git add .; git commit -m "Automatically built in travis, Build number: $(TRAVIS_BUILD_NUMBER) ")
+	(cd $(BUILDDIR)/travis; git push --force --quiet "https://$(GH_TOKEN)@$(GH_REF)" $(GH_BRANCH):$(GH_BRANCH) > /dev/null 2>&1)
+	@echo "Succesfully pushed"
+
+deploy:
+	test -d $(BUILDDIR)/travis && $(MAKE) pull-gh-pages || $(MAKE) clone-gh-pages
+	$(MAKE) html-es
+	touch $(BUILDDIR)/travis/.nojekyll;
+	rsync -rv --exclude=.git $(BUILDDIR)/html/* $(BUILDDIR)/travis/
+	$(if $(findstring @,$(GIT_SETTED)), @echo 'Using global parameters already Setted', $(MAKE) set-travis-git-config)
+	$(MAKE) push-gh-pages
+	@echo 'Commited and deployed'
+
+html-es:
+	sphinx-intl build
+	$(MAKE) -e SPHINXOPTS="-D language='es'" html
 
 clean:
 	-rm -rf $(BUILDDIR)/*
@@ -157,3 +206,6 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+serve:
+	(cd $(BUILDDIR)/html; python -m SimpleHTTPServer 8000)

@@ -1,0 +1,37 @@
+branches:
+  only:
+  - 9.0-doc-es
+language: python
+cache:
+  apt: true
+  pip: true
+  directories:
+    - $HOME/.cache/pip
+addons:
+  apt:
+    packages:
+      - expect-dev  # provides unbuffer utility
+      - python-lxml  # because pip installation is slow
+      - python-simplejson
+      - python-serial
+      - python-yaml
+python:
+- 2.7
+install:
+- pip install -r doc/requirements.txt
+- pip install -r requirements.txt
+script:
+- cd doc
+- make deploy -s
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+env:
+  global:
+    - GH_REF: github.com/vauxoo/odoo.git
+    - GH_BRANCH: gh-pages
+    - GH_COMMITER_EMAIL: cowardvasallwrite@vauxoo.com
+    - GH_COMMITER_NAME: "Travis Robot."
+    - secure: Jw1fhDbF8fl+Irgw7UfR6xM/crawybr0SY9J73y01mDpJWdodhgJvUOfDGViZH4o/IY+U83wG8PxphW4mcrwlnQekWTWufhe8dDyb1noodUmWbvJv826GRc9hJwItj9C0wTDSyF+1V6lBNIUYke79RyPwGJtyoU4X48U8kln8Nw=
+
