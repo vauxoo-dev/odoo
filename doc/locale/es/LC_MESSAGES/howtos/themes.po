@@ -1,0 +1,1278 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: 2016-02-26 20:44-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../../howtos/themes.rst:5
+msgid "Theme Tutorial"
+msgstr "Haciendo un Tema"
+
+#: ../../howtos/themes.rst:9
+msgid ""
+"Odoo celebrates freedom. Freedom for the designer to go further and freedom "
+"for the user to customize everything according to their needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:12
+msgid ""
+"Ready to create your own theme? Great. Here are some things you should know "
+"before you begin. This tutorial is a guide to creating an Odoo theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:18
+msgid "An introduction for web designers"
+msgstr ""
+
+#: ../../howtos/themes.rst:20
+msgid ""
+"If you are a web designer using Odoo for the first time, you are in the right "
+"place. This introduction will outline the basics of Odoo theme creation."
+msgstr ""
+
+#: ../../howtos/themes.rst:25
+msgid ""
+"Odoo’s team has created a framework that’s powerful and easy to use. There’s "
+"no need to know special syntaxes to use this set of tools."
+msgstr ""
+
+#: ../../howtos/themes.rst:28
+msgid "From common CMS to Odoo"
+msgstr ""
+
+#: ../../howtos/themes.rst:32
+msgid ""
+"If you always think and work in the same way, you’ll probably get the same "
+"results. If you want something completely new,  then try something different."
+msgstr ""
+
+#: ../../howtos/themes.rst:36
+msgid "Where is my header.php file?"
+msgstr ""
+
+#: ../../howtos/themes.rst:38
+msgid ""
+"This is usually the first question from a web designer used to working with "
+"Wordpress or Joomla and coming to Odoo for the first time."
+msgstr ""
+
+#: ../../howtos/themes.rst:46
+msgid ""
+"Indeed, when using common CMSs, you have to code several files (like header."
+"php, page.php, post.php, etc.) in order to create a basic structure for your "
+"website. With those systems, this base structure acts as a design foundation "
+"that you have to update over time to ensure compatibility within your CMS. "
+"So, even after you have spent hours coding the files, you have not even "
+"started on the design yet."
+msgstr ""
+
+#: ../../howtos/themes.rst:48
+msgid "This **does not** apply to creating Odoo themes."
+msgstr ""
+
+#: ../../howtos/themes.rst:54
+msgid ""
+"We think that theme design should be simple (and powerful). When we created "
+"our Website Builder, we decided to start from scratch instead of relying on "
+"what already existed. This approach gave us the freedom to focus on the "
+"things that are really important for designers: styles, content and the logic "
+"behind them. No more struggling with technical stuff."
+msgstr ""
+
+#: ../../howtos/themes.rst:57
+msgid "Odoo default theme structure"
+msgstr ""
+
+#: ../../howtos/themes.rst:61
+msgid ""
+"Odoo comes with a default theme structure. It is a very basic “theme” that "
+"provides minimal structure and layout. When you create a new theme, you are "
+"actually extending this. Indeed it’s always enabled in your setup and it acts "
+"exactly like the CMS’s base structure we mentioned above, except that you "
+"don’t have to create or maintain it. It will upgrade automatically within "
+"your Odoo installation and, since it is included in the Website Builder "
+"module, everything is smoothly integrated by default."
+msgstr ""
+
+#: ../../howtos/themes.rst:66
+msgid ""
+"As a result, you are totally free to focus on design while this structure "
+"does the job of providing integrations and functionality."
+msgstr ""
+
+#: ../../howtos/themes.rst:74
+msgid "**Main features:**"
+msgstr ""
+
+#: ../../howtos/themes.rst:76
+msgid "Basic layouts for pages, blog and eCommerce"
+msgstr ""
+
+#: ../../howtos/themes.rst:77
+msgid "Website Builder integration"
+msgstr ""
+
+#: ../../howtos/themes.rst:78
+msgid "Basic Snippets"
+msgstr ""
+
+#: ../../howtos/themes.rst:79
+msgid "Automatic Less/Sass compiling"
+msgstr ""
+
+#: ../../howtos/themes.rst:80
+msgid "Automatic Js and CSS minification and combination"
+msgstr ""
+
+#: ../../howtos/themes.rst:84
+msgid "**Main technologies:**"
+msgstr ""
+
+#: ../../howtos/themes.rst:86
+msgid "Twitter Bootstrap"
+msgstr ""
+
+#: ../../howtos/themes.rst:87
+msgid "jQuery"
+msgstr ""
+
+#: ../../howtos/themes.rst:88
+msgid "jQuery UI"
+msgstr ""
+
+#: ../../howtos/themes.rst:89
+msgid "underscore.js"
+msgstr ""
+
+#: ../../howtos/themes.rst:92
+msgid "Thinking \"modular\""
+msgstr ""
+
+#: ../../howtos/themes.rst:94
+msgid ""
+"An Odoo theme is not a folder containing HTML or PHP files, it’s a modular "
+"framework written in XML. Never worked with XML files before? Don’t worry, "
+"after following the tutorial, you’ll be able to create your first theme with "
+"only basic knowledge of HTML."
+msgstr ""
+
+#: ../../howtos/themes.rst:96
+msgid ""
+"Using classical web design workflows, you usually code the layout of the "
+"entire page. The result of this is a “static” web page. You can update the "
+"content, of course, but your client will need you to work on making even "
+"basic changes."
+msgstr ""
+
+#: ../../howtos/themes.rst:98
+msgid ""
+"Creating themes for Odoo is a total change of perspective. Instead of "
+"defining the complete layout for a page, you can create blocks (snippets) at "
+"let the user choose where to “drag&drop” them, creating the page layout on "
+"their own. We call this modular design."
+msgstr ""
+
+#: ../../howtos/themes.rst:101
+msgid ""
+"Imagine an Odoo theme as a “list” of elements and options that you have to "
+"create and style. As a designer, your goal is to style these elements in "
+"order to achieve a wonderful result, regardless of where the end user chooses "
+"to place them."
+msgstr ""
+
+#: ../../howtos/themes.rst:104
+msgid "Let’s take a tour of our “list” elements:"
+msgstr ""
+
+#: ../../howtos/themes.rst:111
+msgid "Snippets (or building-blocks)"
+msgstr ""
+
+#: ../../howtos/themes.rst:113
+msgid ""
+"A piece of HTML code.  The user  will  drag&drop, modify and combine them "
+"using our built-in Website Builder interface. You can define sets of options "
+"and styles for each snippet. The user will choose from them according to "
+"their needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:118
+msgid "Pages"
+msgstr ""
+
+#: ../../howtos/themes.rst:120
+msgid ""
+"These are normal web pages, except that they will be editable by the final "
+"user and that you can define an empty area that the user can “fill” by "
+"dragging snippets into it."
+msgstr ""
+
+#: ../../howtos/themes.rst:130
+msgid "Styles"
+msgstr ""
+
+#: ../../howtos/themes.rst:132
+msgid ""
+"Styles are defined using standard CSS files (or Less/Sass). You can define a "
+"style as **default** or **optional**. The default styles are always active in "
+"your theme, the optional styles can be enabled or disabled by the user."
+msgstr ""
+
+#: ../../howtos/themes.rst:137
+msgid "Functionalities"
+msgstr ""
+
+#: ../../howtos/themes.rst:139
+msgid ""
+"Thanks to Odoo’s modularity, everything can be personalized even more. This "
+"means there are endless possibilities for your creativity. Adding "
+"functionalities is easy and it’s simple to provide the end user with "
+"customizable options."
+msgstr ""
+
+#: ../../howtos/themes.rst:144
+msgid "Odoo's XML files, an overview"
+msgstr ""
+
+#: ../../howtos/themes.rst:146
+msgid ""
+"Any Odoo XML file starts with encoding specifications. After that, you have "
+"to write your code inside a ``<data>`` tag, placed into an ``</openerp>`` tag."
+msgstr ""
+
+#: ../../howtos/themes.rst:159
+msgid ""
+"Almost every element and option that you create has to be placed inside a "
+"``<template>`` tag, like in this example."
+msgstr ""
+
+#: ../../howtos/themes.rst:171
+msgid ""
+"don't misunderstand what ``template`` means. A template tag only defines a "
+"piece of html code or options - but it does not necessarily coincide with a "
+"visual arrangement of elements."
+msgstr ""
+
+#: ../../howtos/themes.rst:175
+msgid ""
+"The previous code defines a title, but it will not be displayed anywhere "
+"because that *template* is not associated with any part of the **Odoo default "
+"structure**.  In order to do that you can use **xpath**, **qWeb** or a "
+"combination of both.  Keep reading the tutorial to learn to how properly "
+"extend it with your own code."
+msgstr ""
+
+#: ../../howtos/themes.rst:181
+msgid ""
+"Keep reading the tutorial to learn to how properly extend it with your own "
+"code."
+msgstr ""
+
+#: ../../howtos/themes.rst:184 ../../howtos/themes.rst:359
+#: ../../howtos/themes.rst:470 ../../howtos/themes.rst:566
+#: ../../howtos/themes.rst:837
+msgid "Update your theme"
+msgstr ""
+
+#: ../../howtos/themes.rst:188
+msgid ""
+"Since XML files are only loaded when you install the theme, you will have to "
+"force reloading every time you make changes on an xml file."
+msgstr ""
+
+#: ../../howtos/themes.rst:190
+msgid "To do that, click on the Upgrade button in the module’s page."
+msgstr ""
+
+#: ../../howtos/themes.rst:201
+msgid "Create a theme module"
+msgstr ""
+
+#: ../../howtos/themes.rst:203
+msgid ""
+"Odoo’s themes are packaged like modules. Even if you are designing a very "
+"simple website for your company or client, you need to package the theme like "
+"an Odoo module."
+msgstr ""
+
+#: ../../howtos/themes.rst:207
+msgid "``main folder``"
+msgstr ""
+
+#: ../../howtos/themes.rst:206
+msgid ""
+"Create a folder and name it like this: ``theme_`` followed by your theme's "
+"name."
+msgstr ""
+
+#: ../../howtos/themes.rst:212
+msgid "``__openerp__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:210
+msgid ""
+"Create an empty document and save it to your folder as ``__openerp__.py``. "
+"This will contain the configuration info for your theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:216
+msgid "``__init__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:215
+msgid ""
+"Create another empty file and name it ``__init__.py``. It's a mandatory "
+"system file. Create and leave it blank."
+msgstr ""
+
+#: ../../howtos/themes.rst:222
+msgid "``views`` and ``static`` folders"
+msgstr ""
+
+#: ../../howtos/themes.rst:219
+msgid ""
+"Create them in the main folder. In ``views`` you'll place your xml files that "
+"define your snippets, your pages and your options. ``static`` folder is the "
+"right place for your style , images and custom js code."
+msgstr ""
+
+#: ../../howtos/themes.rst:226
+msgid ""
+"Use two underscore characters at the beginning and two at the end of openerp "
+"and init file names."
+msgstr ""
+
+#: ../../howtos/themes.rst:229
+msgid "The final result should be something like this:"
+msgstr ""
+
+#: ../../howtos/themes.rst:234
+msgid "Edit ``__openerp__.py``"
+msgstr ""
+
+#: ../../howtos/themes.rst:236
+msgid "Open the ``__openerp__.py`` you created and copy/paste the following:"
+msgstr ""
+
+#: ../../howtos/themes.rst:252
+msgid ""
+"Replace the first four property’s values with anything you like. These values "
+"will be used to identify your new theme in Odoo’s backend."
+msgstr ""
+
+#: ../../howtos/themes.rst:255
+msgid ""
+"The ``data`` property will contain the xml files list. Right now it’s empty, "
+"but we will add any new files created."
+msgstr ""
+
+#: ../../howtos/themes.rst:257
+msgid "``application: True`` is mandatory."
+msgstr ""
+
+#: ../../howtos/themes.rst:259
+msgid ""
+"``category`` defines your module category (always “Theme”) and, after a "
+"slash, the subcategory. You can use one subcategory from the Odoo Apps "
+"categories list. (https://www.odoo.com/apps/themes)"
+msgstr ""
+
+#: ../../howtos/themes.rst:262
+msgid ""
+"``depends`` specifies the modules needed by our theme to work properly. For "
+"our tutorial theme, we only need website. If you need blogging or eCommerce "
+"features as well, you have to add those modules too."
+msgstr ""
+
+#: ../../howtos/themes.rst:273
+msgid "Installing your theme"
+msgstr ""
+
+#: ../../howtos/themes.rst:275
+msgid ""
+"To install your theme, you just place your theme folder inside addons in your "
+"Odoo installation."
+msgstr ""
+
+#: ../../howtos/themes.rst:277
+msgid ""
+"After that, navigate to the Settings page, look for your theme and click on "
+"the install button."
+msgstr ""
+
+#: ../../howtos/themes.rst:280
+msgid "Structure of an Odoo page"
+msgstr ""
+
+#: ../../howtos/themes.rst:282
+msgid ""
+"An Odoo page is the visual result of a combination of 2 kind of elements, "
+"**cross-pages** and **unique**. By default, Odoo provides you with a "
+"**Header** and a **Footer** (cross-pages) and a unique main element that "
+"contains the content that makes your page unique."
+msgstr ""
+
+#: ../../howtos/themes.rst:287
+msgid ""
+"Cross-pages elements will be the same on every page. Unique elements are "
+"related to a specific page only."
+msgstr ""
+
+#: ../../howtos/themes.rst:291
+msgid ""
+"To inspect the default layout, simply create a new page using the Website "
+"Builder.  Click on :menuselection:`Content --> New Page` and add a page "
+"name.  Inspect the page using your browser."
+msgstr ""
+
+#: ../../howtos/themes.rst:304
+msgid "Extend the default Header"
+msgstr ""
+
+#: ../../howtos/themes.rst:306
+msgid ""
+"By default, Odoo header contains a responsive navigation menu and the "
+"company’s logo. You can easily add new elements or style the existing one."
+msgstr ""
+
+#: ../../howtos/themes.rst:308
+msgid ""
+"To do so, create a **layout.xml** file in your **views** folder and add the "
+"default Odoo xml markup."
+msgstr ""
+
+#: ../../howtos/themes.rst:319
+msgid ""
+"Create a new template into the ``<data>`` tag, copy-pasting the following "
+"code."
+msgstr ""
+
+#: ../../howtos/themes.rst:342
+msgid ""
+"The first xpath will add the id ``my_header`` to the header. It’s the best "
+"option if you want to target css rules to that element and avoid these "
+"affecting other content on the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:347
+msgid ""
+"Be careful replacing default elements attributes. As your theme will extend "
+"the default one, your changes will take priority in any future Odoo’s update."
+msgstr ""
+
+#: ../../howtos/themes.rst:350
+msgid ""
+"The second xpath will add a welcome message just after the navigation menu."
+msgstr ""
+
+#: ../../howtos/themes.rst:352
+msgid ""
+"The last step is to add layout.xml to the list of xml files used by the "
+"theme. To do that, edit your ``__openerp__.py`` file like this"
+msgstr ""
+
+#: ../../howtos/themes.rst:363
+msgid ""
+"Great! We successfully added an id to the header and an element after the "
+"navigation menu. These changes will be applied to each page of the website."
+msgstr ""
+
+#: ../../howtos/themes.rst:371
+msgid "Create a specific page layout"
+msgstr ""
+
+#: ../../howtos/themes.rst:373
+msgid ""
+"Imagine that we want to create a specific layout for a Services page. For "
+"this page, we need to add a list of services to the top and give the client "
+"the possibility of setting the rest of the page’s layout using snippets."
+msgstr ""
+
+#: ../../howtos/themes.rst:376
+msgid ""
+"Inside your *views* folder, create a **pages.xml** file and add the default "
+"Odoo markup.  Inside ``<data>`` create a ``<template>`` tag, set the ``page`` "
+"attribute to ``True`` and add your code into it."
+msgstr ""
+
+#: ../../howtos/themes.rst:397
+msgid ""
+"The page title will be the template ID. In our case *Services* (from "
+"``website.services``)"
+msgstr ""
+
+#: ../../howtos/themes.rst:399
+msgid ""
+"We successfully created a new page layout, but we haven't told the system "
+"**how to use it**. To do that, we can use **QWeb**. Wrap the html code into a "
+"``<t>`` tag, like in this example."
+msgstr ""
+
+#: ../../howtos/themes.rst:421
+msgid ""
+"Using ``<t t-call=\"website.layout\">`` we will extend the Odoo default page "
+"layout with our code."
+msgstr ""
+
+#: ../../howtos/themes.rst:424
+msgid ""
+"As you can see, we wrapped our code into two ``<div>``,  one with ID ``wrap`` "
+"and the other one with class ``container``. This is to provide a minimal "
+"layout."
+msgstr ""
+
+#: ../../howtos/themes.rst:426
+msgid ""
+"The next step is to add an empty area that the user can fill with snippets. "
+"To achieve this, just create a ``div`` with ``oe_structure`` class just "
+"before closing the ``div#wrap`` element."
+msgstr ""
+
+#: ../../howtos/themes.rst:459
+msgid ""
+"You can create as many snippet areas as you like and place them anywhere in "
+"your pages."
+msgstr ""
+
+#: ../../howtos/themes.rst:461
+msgid ""
+"Our page is almost ready. Now all we have to do is add **pages.xml** in our "
+"**__openerp__.py** file"
+msgstr ""
+
+#: ../../howtos/themes.rst:474
+msgid ""
+"Great, our Services page is ready and you’ll be able to access it by "
+"navigating to ``/yourwebsite/page/services``."
+msgstr ""
+
+#: ../../howtos/themes.rst:476
+msgid ""
+"You will notice that it's possible to drag/drop snippets underneath the *Our "
+"Services* list."
+msgstr ""
+
+#: ../../howtos/themes.rst:482
+msgid ""
+"Now let's go back to our *pages.xml* and, after our page template, copy/paste "
+"the following code."
+msgstr ""
+
+#: ../../howtos/themes.rst:494
+msgid "This code will add a link to the main menu."
+msgstr ""
+
+#: ../../howtos/themes.rst:499
+msgid ""
+"The **sequence** attribute defines the link’s position in the top menu. In "
+"our example, we set the value to ``99`` in order to place it last. I you want "
+"to place it in a particular position, you have to replace the value according "
+"to your needs."
+msgstr ""
+
+#: ../../howtos/themes.rst:502
+msgid ""
+"As you can see inspecting the *data.xml* file in the ``website`` module, the "
+"**Home** link is set to ``10`` and the **Contact** us one is set to ``60`` by "
+"default. If, for example, you want to place your link in the **middle**, you "
+"can set your link’s sequence value to ``40``."
+msgstr ""
+
+#: ../../howtos/themes.rst:506
+msgid "Add Styles"
+msgstr ""
+
+#: ../../howtos/themes.rst:508
+msgid ""
+"Odoo includes Bootstrap by default. This means that you can take advantage of "
+"all Bootstrap styles and layout functionalities out of the box."
+msgstr ""
+
+#: ../../howtos/themes.rst:510
+msgid ""
+"Of course Bootstrap is not enough if you want to provide a unique design. The "
+"following steps will guide you through how to add custom styles to your "
+"theme. The final result won't be pretty, but will provide you with enough "
+"information to build upon on your own."
+msgstr ""
+
+#: ../../howtos/themes.rst:513
+msgid ""
+"Let’s start by creating an empty file called **style.less** and place it in a "
+"folder called **less** in your static folder. The following rules will style "
+"our *Services* page. Copy and paste it, then save the file."
+msgstr ""
+
+#: ../../howtos/themes.rst:534
+msgid "Our file is ready but it is not included in our theme yet."
+msgstr ""
+
+#: ../../howtos/themes.rst:536
+msgid ""
+"Let’s navigate to the view folder and create an XML file called *assets.xml*. "
+"Add the default Odoo xml markup and copy/paste the following code. Remember "
+"to replace ``theme folder`` with your theme’s main folder name."
+msgstr ""
+
+#: ../../howtos/themes.rst:546
+msgid ""
+"We just created a template specifying our less file. As you can see, our "
+"template has a special attribute called ``inherit_id``.  This attribute tells "
+"Odoo that our template is referring to another one in order to operate."
+msgstr ""
+
+#: ../../howtos/themes.rst:551
+msgid ""
+"In this case, we are referring to ``assets_frontend`` template, located in "
+"the ``website`` module. ``assets_frontend`` specifies the list of assets "
+"loaded by the website builder and our goal is to add our less file to this "
+"list."
+msgstr ""
+
+#: ../../howtos/themes.rst:556
+msgid ""
+"This can be achieved using xpath with the attributes ``expr="
+"\"link[last()]\"`` and ``position=\"after\"``, which means \"*take my style "
+"file and place it after the last link in the list of the assets*\"."
+msgstr ""
+
+#: ../../howtos/themes.rst:561
+msgid ""
+"Placing it after the last one, we ensure that our file will be loaded at the "
+"end and take priority."
+msgstr ""
+
+#: ../../howtos/themes.rst:564
+msgid "Finally add **assets.xml** in your **__openerp__.py** file."
+msgstr ""
+
+#: ../../howtos/themes.rst:571
+msgid ""
+"Our less file is now included in our theme, it will be automatically "
+"compiled, minified and combined with all Odoo’s assets."
+msgstr ""
+
+#: ../../howtos/themes.rst:577
+msgid "Create Snippets"
+msgstr ""
+
+#: ../../howtos/themes.rst:579
+msgid ""
+"Since snippets are how users design and layout pages, they are the most "
+"important element of your design. Let’s create a snippet for our Service "
+"page. The snippet will display three testimonials and it will be editable by "
+"the end user using the Website Builder UI. Navigate to the view folder and "
+"create an XML file called **snippets.xml**. Add the default Odoo xml markup "
+"and copy/paste the following code. The template contains the HTML markup that "
+"will be displayed by the snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:611
+msgid ""
+"As you can see, we used Bootstrap default classes for our three columns. It’s "
+"not just about layout, these classes **will be triggered by the Website "
+"Builder to make them resizable by the user**."
+msgstr ""
+
+#: ../../howtos/themes.rst:613
+msgid ""
+"The previous code will create the snippet’s content, but we still need to "
+"place it into the editor bar, so the user will be able to drag&drop it into "
+"the page. Copy/paste this template in your **snippets.xml** file."
+msgstr ""
+
+#: ../../howtos/themes.rst:626
+msgid ""
+"Using xpath, we are targeting a particular element with id "
+"``snippet_structure``. This means that the snippet will appear in the "
+"Structure tab. If you want to change the destination tab, you have just to "
+"replace the ``id`` value in the xpath expression."
+msgstr ""
+
+#: ../../howtos/themes.rst:638
+msgid "Tab Name"
+msgstr ""
+
+#: ../../howtos/themes.rst:638
+msgid "Xpath expression"
+msgstr ""
+
+#: ../../howtos/themes.rst:640
+msgid "Structure"
+msgstr ""
+
+#: ../../howtos/themes.rst:640
+msgid "``//div[@id='snippet_structure']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:641
+msgid "Content"
+msgstr ""
+
+#: ../../howtos/themes.rst:641
+msgid "``//div[@id='snippet_content']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:642
+msgid "Feature"
+msgstr ""
+
+#: ../../howtos/themes.rst:642
+msgid "``//div[@id='snippet_feature']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:643
+msgid "Effect"
+msgstr ""
+
+#: ../../howtos/themes.rst:643
+msgid "``//div[@id='snippet_effect']``"
+msgstr ""
+
+#: ../../howtos/themes.rst:646
+msgid ""
+"The ``<t>`` tag will call our snippet's template and will assign a thumbnail "
+"placed in the img folder. You can now drag your snippet from the snippet bar, "
+"drop it in your page and see the result."
+msgstr ""
+
+#: ../../howtos/themes.rst:653
+msgid "Snippet options"
+msgstr ""
+
+#: ../../howtos/themes.rst:655
+msgid ""
+"Options allow publishers to edit a snippet’s appearance using the Website "
+"Builder’s UI. Using Website Builder functionalities, you can create snippet "
+"options easily and automatically add them to the UI."
+msgstr ""
+
+#: ../../howtos/themes.rst:659
+msgid "Options group properties"
+msgstr ""
+
+#: ../../howtos/themes.rst:661
+msgid ""
+"Options are wrapped in groups. Groups can have properties that define how the "
+"included options will interact with the user interface."
+msgstr ""
+
+#: ../../howtos/themes.rst:663
+msgid "``data-selector=\" css selector(s) \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:664
+msgid "Bind all the options included into the group to a particular element."
+msgstr ""
+
+#: ../../howtos/themes.rst:665
+msgid "``data-js=\" custom method name \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:666
+msgid "Is used to bind custom Javascript methods."
+msgstr ""
+
+#: ../../howtos/themes.rst:667
+msgid "``data-drop-in=\" css selector(s) \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:668
+msgid "Defines the list of elements where the snippet can be dropped into."
+msgstr ""
+
+#: ../../howtos/themes.rst:670
+msgid "``data-drop-near=\" css selector(s) \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:670
+msgid "Defines the list of elements that the snippet can be dropped beside."
+msgstr ""
+
+#: ../../howtos/themes.rst:673
+msgid "Default option methods"
+msgstr ""
+
+#: ../../howtos/themes.rst:675
+msgid ""
+"Options apply standard CSS classes to the snippet. Depending on the method "
+"that you choose, the UI will behave differently."
+msgstr ""
+
+#: ../../howtos/themes.rst:678
+msgid "``data-select_class=\" class name \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:678
+msgid ""
+"More data-select_class in the same group defines a list of classes that the "
+"user can choose to apply. Only one option can be enabled at a time."
+msgstr ""
+
+#: ../../howtos/themes.rst:681
+msgid "``data-toggle_class=\" class name \"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:681
+msgid ""
+"The data-toggle_class is used to apply one or more CSS classes from the list "
+"to a snippet. Multiple selections can be applied at once."
+msgstr ""
+
+#: ../../howtos/themes.rst:683
+msgid "Let's demonstrate how default options work with a basic example."
+msgstr ""
+
+#: ../../howtos/themes.rst:685
+msgid ""
+"We start by adding a new file in our views folder - name it **options.xml** "
+"and add the default Odoo XML markup. Create a new template copy/pasting the "
+"following"
+msgstr ""
+
+#: ../../howtos/themes.rst:707
+msgid ""
+"The previous template will inherit the default **snippet_options template** "
+"adding our options after the **background** options (xpath expr attribute). "
+"To place your options in a particular order, inspect the **snippet_options "
+"template** from the **website module** and add your options before/after the "
+"desired position."
+msgstr ""
+
+#: ../../howtos/themes.rst:710
+msgid ""
+"As you can see, we wrapped all our options inside a DIV tag that will group "
+"our options and that will target them to the right selector (``data-selector="
+"\".snippet_testimonial\"``)."
+msgstr ""
+
+#: ../../howtos/themes.rst:714
+msgid ""
+"To define our options we applied ``data-select_class`` attributes to the "
+"``li`` elements. When the user selects an option, the class contained in the "
+"attribute will automatically be applied to the element."
+msgstr ""
+
+#: ../../howtos/themes.rst:718
+msgid ""
+"Since ``select_class`` method avoids multiple selections, the last \"empty\" "
+"option will reset the snippet to default."
+msgstr ""
+
+#: ../../howtos/themes.rst:721
+msgid "Add **options.xml** to ``__openerp__.py`` and update your theme."
+msgstr ""
+
+#: ../../howtos/themes.rst:725
+msgid ""
+"Dropping our snippet onto the page, you will notice that our new options are "
+"automatically added to the customize menu. Inspecting the page, you will also "
+"notice that the class will be applied to the element when selecting an option."
+msgstr ""
+
+#: ../../howtos/themes.rst:729
+msgid ""
+"Let’s create some css rules in order to provide a visual feedback for our "
+"options. Open our **style.less** file and add the following"
+msgstr ""
+
+#: ../../howtos/themes.rst:757
+msgid "Great! We successfully created options for our snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:759
+msgid ""
+"Any time the publisher clicks on an option, the system will add the class "
+"specified in the data-select_class attribute."
+msgstr ""
+
+#: ../../howtos/themes.rst:761
+msgid ""
+"By replacing ``data-select_class`` with ``data-toggle_class`` you will be "
+"able to select more classes at the same time."
+msgstr ""
+
+#: ../../howtos/themes.rst:766
+msgid "Javascript Options"
+msgstr ""
+
+#: ../../howtos/themes.rst:768
+msgid ""
+"``data-select_class`` and ``data-toggle_class`` are great if you need to "
+"perform simple class change operations. But what if your snippet’s "
+"customization needs something more?"
+msgstr ""
+
+#: ../../howtos/themes.rst:771
+msgid ""
+"As we said before, ``data-js`` propriety can be assigned to an options group "
+"in order to define a custom method. Let’s create one for our *testimonials "
+"snippet* by adding a ``data-js`` attribute to the option’s group div that we "
+"created earlier."
+msgstr ""
+
+#: ../../howtos/themes.rst:779
+msgid ""
+"Done. From now on, the Website Builder will look for a "
+"``snippet_testimonial_options`` method each time the publisher enters in edit "
+"mode."
+msgstr ""
+
+#: ../../howtos/themes.rst:783
+msgid ""
+"Let's go one step further by creating a javascript file, name it "
+"**tutorial_editor.js** and place it into the **static** folder.  Copy/paste "
+"the following code"
+msgstr ""
+
+#: ../../howtos/themes.rst:795
+msgid ""
+"Great, we successfully created our javascript editor file. This file will "
+"contain all the javascript functions used by our snippets in edit mode. Let’s "
+"create a new function for our testimonial snippet using the "
+"``snippet_testimonial_options`` method that we created before."
+msgstr ""
+
+#: ../../howtos/themes.rst:811
+msgid ""
+"As you will notice, we used a method called ``on_focus`` to trigger our "
+"function. The Website Builder provides several events you can use to trigger "
+"your custom functions."
+msgstr ""
+
+#: ../../howtos/themes.rst:814
+msgid "Event"
+msgstr ""
+
+#: ../../howtos/themes.rst:814
+msgid "Description"
+msgstr ""
+
+#: ../../howtos/themes.rst:816
+msgid "``start``"
+msgstr ""
+
+#: ../../howtos/themes.rst:816
+msgid ""
+"Fires when the publisher selects the snippet for the first time in an editing "
+"session or when the snippet is drag-dropped into the page"
+msgstr ""
+
+#: ../../howtos/themes.rst:817
+msgid "``on_focus``"
+msgstr ""
+
+#: ../../howtos/themes.rst:817
+msgid ""
+"Fires each time the snippet is selected by the user or when the snippet is "
+"drag-dropped into the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:818
+msgid "``on_blur``"
+msgstr ""
+
+#: ../../howtos/themes.rst:818
+msgid "This event occurs when a snippet loses focus."
+msgstr ""
+
+#: ../../howtos/themes.rst:819
+msgid "``on_clone``"
+msgstr ""
+
+#: ../../howtos/themes.rst:819
+msgid ""
+"Fires just after a snippet is duplicated. A new js variable is created "
+"($clone) containing the cloned element."
+msgstr ""
+
+#: ../../howtos/themes.rst:820
+msgid "``on_remove``"
+msgstr ""
+
+#: ../../howtos/themes.rst:820
+msgid "It occurs just before that the snippet is removed."
+msgstr ""
+
+#: ../../howtos/themes.rst:821
+msgid "``drop_and_build_snippet``"
+msgstr ""
+
+#: ../../howtos/themes.rst:821
+msgid ""
+"Fires just after that the snippet is drag and dropped into a drop zone. When "
+"this event is triggered, the content is already inserted in the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:822
+msgid "``clean_for_save``"
+msgstr ""
+
+#: ../../howtos/themes.rst:822
+msgid "It trigger before the publisher save the page."
+msgstr ""
+
+#: ../../howtos/themes.rst:825
+msgid ""
+"Let’s add our new javascript files to the editor assets list. Go back to "
+"**assets.xml** and create a new template like the previous one. This time we "
+"have to inherit ``assets_editor`` instead of ``assets_frontend``."
+msgstr ""
+
+#: ../../howtos/themes.rst:842
+msgid ""
+"Let’s test our new javascript function. Enter in Edit mode and drop into the "
+"page. You should now see the javascript alert that we bound on the "
+"``on_focus`` event. If you close it, then click outside of your snippet and "
+"then click in it again, the event will trigger again."
+msgstr ""
+
+#: ../../howtos/themes.rst:852
+msgid "Editing Reference Guide"
+msgstr ""
+
+#: ../../howtos/themes.rst:854
+msgid ""
+"Basically all the elements in a page can be edited by the publisher. Besides "
+"that, some element types and css classes will trigger special Website Builder "
+"functionalities when edited."
+msgstr ""
+
+#: ../../howtos/themes.rst:858
+msgid "Layout"
+msgstr ""
+
+#: ../../howtos/themes.rst:861
+msgid "``<section />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:861
+msgid ""
+"Any section element can be edited like a block of content. The publisher can "
+"move or duplicate it. It’s also possible to set a background image or color. "
+"Section is the standard main container of any snippet."
+msgstr ""
+
+#: ../../howtos/themes.rst:864
+msgid "``.row > .col-md-*``"
+msgstr ""
+
+#: ../../howtos/themes.rst:864
+msgid ""
+"Any medium  bootstrap columns  directly descending from a .row element, will "
+"be resizable by the publisher."
+msgstr ""
+
+#: ../../howtos/themes.rst:867
+msgid "``contenteditable=\"False\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:867
+msgid "This attribute will prevent editing to the element and all its children."
+msgstr ""
+
+#: ../../howtos/themes.rst:870
+msgid "``contenteditable=\"True\"``"
+msgstr ""
+
+#: ../../howtos/themes.rst:870
+msgid ""
+"Apply it to an element inside a contenteditable=\"False\" element in order to "
+"create an exception and make the element and its children editable."
+msgstr ""
+
+#: ../../howtos/themes.rst:873
+msgid "``<a href=”#” />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:873
+msgid ""
+"In Edit Mode, any link can be edited and styled. Using the “Link Modal” it’s "
+"also possible to replace it with a button."
+msgstr ""
+
+#: ../../howtos/themes.rst:876
+msgid "Media"
+msgstr ""
+
+#: ../../howtos/themes.rst:878
+msgid "``<span class=”fa” />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:878
+msgid ""
+"Pictogram elements. Editing this element will open the Pictogram library to "
+"replace the icon. It’s also possible to transform the elements using CSS."
+msgstr ""
+
+#: ../../howtos/themes.rst:881
+msgid "``<img />``"
+msgstr ""
+
+#: ../../howtos/themes.rst:881
+msgid ""
+"Once clicked, the Image Library will open and you can replace images. "
+"Transformation is also possible for this kind of element."
+msgstr ""
+
+#: ../../howtos/themes.rst:891
+msgid ""
+"This html structure will create an ``<iframe>`` element editable by the "
+"publisher."
+msgstr ""
+
+#: ../../howtos/themes.rst:896
+msgid "SEO best practice"
+msgstr ""
+
+#: ../../howtos/themes.rst:899
+msgid "Facilitate content insertion"
+msgstr ""
+
+#: ../../howtos/themes.rst:901
+msgid ""
+"Modern search engine algorithms increasingly focus on content, which means "
+"there is less focus on **keyword saturation** and more focus on whether or "
+"not the content is **actually relevant to the keywords**."
+msgstr ""
+
+#: ../../howtos/themes.rst:903
+msgid ""
+"As content is so important for SEO, you should concentrate on giving "
+"publishers the tools to easily insert it. It is important that your snippets "
+"are “content-responsive”, meaning that they should fit the publisher’s "
+"content regardless of size."
+msgstr ""
+
+#: ../../howtos/themes.rst:905
+msgid ""
+"Let’s have a look to this example of a classic two column snippet, "
+"implemented in two different ways."
+msgstr ""
+
+#: ../../howtos/themes.rst:914
+msgid "Bad"
+msgstr ""
+
+#: ../../howtos/themes.rst:916
+msgid ""
+"Using fixed image, the publisher will be forced to limit the text in order to "
+"follow the layout."
+msgstr ""
+
+#: ../../howtos/themes.rst:925
+msgid "Good"
+msgstr ""
+
+#: ../../howtos/themes.rst:927
+msgid ""
+"Using background images that fit the column height, the publisher will be "
+"free to add the content regardless of the image’s height."
+msgstr ""
+
+#: ../../howtos/themes.rst:932
+msgid "Page segmentation"
+msgstr ""
+
+#: ../../howtos/themes.rst:934
+msgid ""
+"Basically, page segmentation means that a page is divided into several "
+"separate parts and these parts are treated as separate entries by search "
+"engines. When you design pages or snippets, you should be sure to use the "
+"right tags in order to facilitate search engine indexing."
+msgstr ""
+
+#: ../../howtos/themes.rst:938
+msgid "``<article>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:938
+msgid ""
+"Specifies an independent block of content. Within it should be a piece of "
+"self-contained content that should make sense on its own. You can nest "
+"``<article>`` elements within one another. In this case, it’s implied that "
+"the nested elements are related to the outer ``<article>`` element."
+msgstr ""
+
+#: ../../howtos/themes.rst:941
+msgid "``<header>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:941
+msgid ""
+"Indicates the header section of a self-contained block of content (an "
+"``<article>``)."
+msgstr ""
+
+#: ../../howtos/themes.rst:944
+msgid "``<section>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:944
+msgid ""
+"Is the snippet default tag and it specifies a subsection of a block of "
+"content. It can be used to split ``<article>`` content into several parts. "
+"It’s advisable to use a heading element (``<h1>`` – ``<h6>``) to define the "
+"section’s topic."
+msgstr ""
+
+#: ../../howtos/themes.rst:954
+msgid "``<hgroup>``"
+msgstr ""
+
+#: ../../howtos/themes.rst:947
+msgid ""
+"Is used to wrap a section of headings (``<h1>`` - ``<h6>``). A great example "
+"would be an article with both a headline and sub-headline at the top:"
+msgstr ""
+
+#: ../../howtos/themes.rst:957
+msgid "Describe your page"
+msgstr ""
+
+#: ../../howtos/themes.rst:960
+msgid "Define keywords"
+msgstr ""
+
+#: ../../howtos/themes.rst:961
+msgid ""
+"You should use appropriate, relevant keywords and synonyms for those "
+"keywords. You can define them for each page using the built-in “Promote” "
+"function found in the bar at the top."
+msgstr ""
+
+#: ../../howtos/themes.rst:964
+msgid "Define a title and a description"
+msgstr ""
+
+#: ../../howtos/themes.rst:966
+msgid ""
+"Define them using the “Promote” function. Keep your page titles short and "
+"include the main keyword phrase for the page. Good titles evoke an emotional "
+"response, ask a question or promise something."
+msgstr ""
+
+#: ../../howtos/themes.rst:969
+msgid ""
+"Descriptions, while not important to search engine rankings, are extremely "
+"important in gaining user click-through. These are an opportunity to "
+"advertise content and to let people searching know exactly whether the given "
+"page contains the information they're looking for. It is important that "
+"titles and descriptions on each page are unique."
+msgstr ""

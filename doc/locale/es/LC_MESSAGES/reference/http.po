@@ -1,0 +1,496 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/http.rst:5
+msgid "Web Controllers"
+msgstr ""
+
+#: ../../reference/http.rst:10
+msgid "Routing"
+msgstr ""
+
+#: openerp.http.route:1
+msgid ""
+"Decorator marking the decorated method as being a handler for requests. "
+"The method must be part of a subclass of ``Controller``."
+msgstr ""
+
+#: openerp.http.route:4
+msgid ""
+"string or array. The route part that will determine which http requests "
+"will match the decorated method. Can be a single string or an array of "
+"strings. See werkzeug's routing documentation for the format of route "
+"expression ( http://werkzeug.pocoo.org/docs/routing/ )."
+msgstr ""
+
+#: openerp.http.route:9
+msgid "The type of request, can be ``'http'`` or ``'json'``."
+msgstr ""
+
+#: openerp.http.route:10
+msgid ""
+"The type of authentication method, can on of the following:  * ``user``: "
+"The user must be authenticated and the current request   will perform "
+"using the rights of the user. * ``public``: The user may or may not be "
+"authenticated. If she isn't,   the current request will perform using the"
+" shared Public user. * ``none``: The method is always active, even if "
+"there is no   database. Mainly used by the framework and authentication"
+"   modules. There request code will not have any facilities to access   "
+"the database nor have any configuration indicating the current   database"
+" nor the current user."
+msgstr ""
+
+#: openerp.http.route:10
+msgid "The type of authentication method, can on of the following:"
+msgstr ""
+
+#: openerp.http.route:12
+msgid ""
+"``user``: The user must be authenticated and the current request will "
+"perform using the rights of the user."
+msgstr ""
+
+#: openerp.http.route:14
+msgid ""
+"``public``: The user may or may not be authenticated. If she isn't, the "
+"current request will perform using the shared Public user."
+msgstr ""
+
+#: openerp.http.route:16
+msgid ""
+"``none``: The method is always active, even if there is no database. "
+"Mainly used by the framework and authentication modules. There request "
+"code will not have any facilities to access the database nor have any "
+"configuration indicating the current database nor the current user."
+msgstr ""
+
+#: openerp.http.route:21
+msgid ""
+"A sequence of http methods this route applies to. If not specified, all "
+"methods are allowed."
+msgstr ""
+
+#: openerp.http.route:23
+msgid "The Access-Control-Allow-Origin cors directive value."
+msgstr ""
+
+#: openerp.http.route:24
+msgid ""
+"Whether CSRF protection should be enabled for the route.  Defaults to "
+"``True``. See :ref:`CSRF Protection <csrf>` for more."
+msgstr ""
+
+#: openerp.http.route:24
+msgid "Whether CSRF protection should be enabled for the route."
+msgstr ""
+
+#: openerp.http.route:26
+msgid "Defaults to ``True``. See :ref:`CSRF Protection <csrf>` for more."
+msgstr ""
+
+#: openerp.http.route:31
+msgid "CSRF Protection"
+msgstr ""
+
+#: openerp.http.route:36
+msgid ""
+"Odoo implements token-based `CSRF protection "
+"<https://en.wikipedia.org/wiki/CSRF>`_."
+msgstr ""
+
+#: openerp.http.route:39
+msgid ""
+"CSRF protection is enabled by default and applies to *UNSAFE* HTTP "
+"methods as defined by :rfc:`7231` (all methods other than ``GET``, "
+"``HEAD``, ``TRACE`` and ``OPTIONS``)."
+msgstr ""
+
+#: openerp.http.route:43
+msgid ""
+"CSRF protection is implemented by checking requests using unsafe methods "
+"for a value called ``csrf_token`` as part of the request's form data. "
+"That value is removed from the form as part of the validation and does "
+"not have to be taken in account by your own form processing."
+msgstr ""
+
+#: openerp.http.route:49
+msgid ""
+"When adding a new controller for an unsafe method (mostly POST for e.g. "
+"forms):"
+msgstr ""
+
+#: openerp.http.route:52
+msgid ""
+"if the form is generated in Python, a csrf token is available via "
+":meth:`request.csrf_token() <openerp.http.WebRequest.csrf_token`, the "
+":data:`~openerp.http.request` object is available by default in QWeb "
+"(python) templates, it may have to be added explicitly if you are not "
+"using QWeb."
+msgstr ""
+
+#: openerp.http.route:59
+msgid ""
+"if the form is generated in Javascript, the CSRF token is added by "
+"default to the QWeb (js) rendering context as ``csrf_token`` and is "
+"otherwise available as ``csrf_token`` on the ``web.core`` module:"
+msgstr ""
+
+#: openerp.http.route:68
+msgid ""
+"if the endpoint can be called by external parties (not from Odoo) as e.g."
+" it is a REST API or a `webhook "
+"<https://en.wikipedia.org/wiki/Webhook>`_, CSRF protection must be "
+"disabled on the endpoint. If possible, you may want to implement other "
+"methods of request validation (to ensure it is not called by an unrelated"
+" third-party)."
+msgstr ""
+
+#: ../../reference/http.rst:17
+msgid "Request"
+msgstr ""
+
+#: ../../reference/http.rst:19
+msgid ""
+"The request object is automatically set on :data:`openerp.http.request` "
+"at the start of the request"
+msgstr ""
+
+#: openerp.http.WebRequest:1
+msgid ""
+"Parent class for all Odoo Web request types, mostly deals with "
+"initialization and setup of the request object (the dispatching itself "
+"has to be handled by the subclasses)"
+msgstr ""
+
+#: openerp.http.WebRequest:5
+msgid "a wrapped werkzeug Request object"
+msgstr ""
+
+#: openerp.http.WebRequest:10
+msgid ""
+"the original :class:`werkzeug.wrappers.Request` object provided to the "
+"request"
+msgstr ""
+
+#: openerp.http.WebRequest:15
+msgid ""
+":class:`~collections.Mapping` of request parameters, not generally useful"
+" as they're provided directly to the handler method as keyword arguments"
+msgstr ""
+
+#: openerp.http.WebRequest.env:1
+msgid ""
+"The :class:`~openerp.api.Environment` bound to current request. Raises a "
+":class:`RuntimeError` if the current requests is not bound to a database."
+msgstr ""
+
+#: openerp.http.WebRequest.context:1
+msgid ":class:`~collections.Mapping` of context values for the current request"
+msgstr ""
+
+#: openerp.http.WebRequest.session:1
+msgid ""
+"a :class:`OpenERPSession` holding the HTTP session data for the current "
+"http session"
+msgstr ""
+
+#: openerp.http.WebRequest.cr:1
+msgid ":class:`~openerp.sql_db.Cursor` initialized for the current method call."
+msgstr ""
+
+#: openerp.http.WebRequest.cr:4
+msgid ""
+"Accessing the cursor when the current request uses the ``none`` "
+"authentication will raise an exception."
+msgstr ""
+
+#: openerp.http.WebRequest.debug:1
+msgid "Indicates whether the current request is in \"debug\" mode"
+msgstr ""
+
+#: openerp.http.WebRequest.session_id:1
+msgid ""
+"opaque identifier for the :class:`OpenERPSession` instance of the current"
+" request"
+msgstr ""
+
+#: openerp.http.WebRequest.session_id:6
+msgid "Use the ``sid`` attribute on :attr:`.session`"
+msgstr ""
+
+#: openerp.http.WebRequest.registry:1
+msgid ""
+"The registry to the database linked to this request. Can be ``None`` if "
+"the current request uses the ``none`` authentication."
+msgstr ""
+
+#: openerp.http.WebRequest.registry:6
+msgid "use :attr:`.env`"
+msgstr ""
+
+#: openerp.http.WebRequest.db:1
+msgid ""
+"The database linked to this request. Can be ``None`` if the current "
+"request uses the ``none`` authentication."
+msgstr ""
+
+#: openerp.http.WebRequest.httpsession:1
+msgid "HTTP session data"
+msgstr ""
+
+#: openerp.http.WebRequest.httpsession:5
+msgid "Use :attr:`.session` instead."
+msgstr ""
+
+#: openerp.http.WebRequest.csrf_token:1
+msgid "Generates and returns a CSRF token for the current session"
+msgstr ""
+
+#: openerp.http.WebRequest.csrf_token:3
+msgid ""
+"the CSRF token should only be valid for the specified duration (in "
+"second), by default 1h, ``None`` for the token to be valid as long as the"
+" current user's session is."
+msgstr ""
+
+#: openerp.http.WebRequest.csrf_token:8
+msgid "ASCII token string"
+msgstr ""
+
+#: openerp.http.HttpRequest:1
+msgid "Handler for the ``http`` request type."
+msgstr ""
+
+#: openerp.http.HttpRequest:3
+msgid ""
+"matched routing parameters, query string parameters, form_ parameters and"
+" files are passed to the handler method as keyword arguments."
+msgstr ""
+
+#: openerp.http.HttpRequest:6
+msgid "In case of name conflict, routing parameters have priority."
+msgstr ""
+
+#: openerp.http.HttpRequest:8
+msgid "The handler method's result can be:"
+msgstr ""
+
+#: openerp.http.HttpRequest:10
+msgid ""
+"a falsy value, in which case the HTTP response will be an `HTTP 204`_ (No"
+" Content)"
+msgstr ""
+
+#: openerp.http.HttpRequest:12
+msgid "a werkzeug Response object, which is returned as-is"
+msgstr ""
+
+#: openerp.http.HttpRequest:13
+msgid ""
+"a ``str`` or ``unicode``, will be wrapped in a Response object and "
+"interpreted as HTML"
+msgstr ""
+
+#: openerp.http.HttpRequest.make_response:1
+msgid ""
+"Helper for non-HTML responses, or HTML responses with custom response "
+"headers or cookies."
+msgstr ""
+
+#: openerp.http.HttpRequest.make_response:4
+msgid ""
+"While handlers can just return the HTML markup of a page they want to "
+"send as a string if non-HTML data is returned they need to create a "
+"complete response object, or the returned data will not be correctly "
+"interpreted by the clients."
+msgstr ""
+
+#: openerp.http.HttpRequest.make_response:9
+msgid "response body"
+msgstr ""
+
+#: openerp.http.HttpRequest.make_response:10
+msgid "HTTP headers to set on the response"
+msgstr ""
+
+#: openerp.http.HttpRequest.make_response:12
+msgid "cookies to set on the client"
+msgstr ""
+
+#: openerp.http.HttpRequest.not_found:1
+msgid ""
+"Shortcut for a `HTTP 404 "
+"<http://tools.ietf.org/html/rfc7231#section-6.5.4>`_ (Not Found) response"
+msgstr ""
+
+#: openerp.http.HttpRequest.render:1
+msgid "Lazy render of a QWeb template."
+msgstr ""
+
+#: openerp.http.HttpRequest.render:3
+msgid ""
+"The actual rendering of the given template will occur at then end of the "
+"dispatching. Meanwhile, the template and/or qcontext can be altered or "
+"even replaced by a static response."
+msgstr ""
+
+#: openerp.http.HttpRequest.render:7 openerp.http.Response:7
+msgid "template to render"
+msgstr ""
+
+#: openerp.http.HttpRequest.render:8 openerp.http.Response:8
+msgid "Rendering context to use"
+msgstr ""
+
+#: openerp.http.HttpRequest.render:9
+msgid ""
+"whether the template rendering should be deferred until the last possible"
+" moment"
+msgstr ""
+
+#: openerp.http.HttpRequest.render:11
+msgid "forwarded to werkzeug's Response object"
+msgstr ""
+
+#: openerp.http.JsonRequest:1
+msgid ""
+"Request handler for `JSON-RPC 2 <http://www.jsonrpc.org/specification>`_ "
+"over HTTP"
+msgstr ""
+
+#: openerp.http.JsonRequest:4
+msgid "``method`` is ignored"
+msgstr ""
+
+#: openerp.http.JsonRequest:5
+msgid ""
+"``params`` must be a JSON object (not an array) and is passed as keyword "
+"arguments to the handler method"
+msgstr ""
+
+#: openerp.http.JsonRequest:7
+msgid ""
+"the handler method's result is returned as JSON-RPC ``result`` and "
+"wrapped in the `JSON-RPC Response "
+"<http://www.jsonrpc.org/specification#response_object>`_"
+msgstr ""
+
+#: openerp.http.JsonRequest:11
+msgid "Sucessful request::"
+msgstr ""
+
+#: openerp.http.JsonRequest:23
+msgid "Request producing a error::"
+msgstr ""
+
+#: ../../reference/http.rst:31
+msgid "Response"
+msgstr ""
+
+#: openerp.http.Response:1
+msgid "Response object passed through controller route chain."
+msgstr ""
+
+#: openerp.http.Response:3
+msgid ""
+"In addition to the :class:`werkzeug.wrappers.Response` parameters, this "
+"class's constructor can take the following additional parameters for QWeb"
+" Lazy Rendering."
+msgstr ""
+
+#: openerp.http.Response:9
+msgid ""
+"User id to use for the ir.ui.view render call, ``None`` to use the "
+"request's user (the default)"
+msgstr ""
+
+#: openerp.http.Response:12
+msgid ""
+"these attributes are available as parameters on the Response object and "
+"can be altered at any time before rendering"
+msgstr ""
+
+#: openerp.http.Response:15
+msgid ""
+"Also exposes all the attributes and methods of "
+":class:`werkzeug.wrappers.Response`."
+msgstr ""
+
+#: openerp.http.Response.render:1
+msgid "Renders the Response's template, returns the result"
+msgstr ""
+
+#: openerp.http.Response.flatten:1
+msgid ""
+"Forces the rendering of the response's template, sets the result as "
+"response body and unsets :attr:`.template`"
+msgstr ""
+
+#: ../../reference/http.rst:44
+msgid "Controllers"
+msgstr ""
+
+#: ../../reference/http.rst:46
+msgid ""
+"Controllers need to provide extensibility, much like "
+":class:`~openerp.models.Model`, but can't use the same mechanism as the "
+"pre-requisites (a database with loaded modules) may not be available yet "
+"(e.g. no database created, or no database selected)."
+msgstr ""
+
+#: ../../reference/http.rst:51
+msgid ""
+"Controllers thus provide their own extension mechanism, separate from "
+"that of models:"
+msgstr ""
+
+#: ../../reference/http.rst:54
+msgid "Controllers are created by :ref:`inheriting <python:tut-inheritance>` from"
+msgstr ""
+
+#: ../../reference/http.rst:58
+msgid "and defining methods decorated with :func:`~openerp.http.route`::"
+msgstr ""
+
+#: ../../reference/http.rst:65
+msgid ""
+"To *override* a controller, :ref:`inherit <python:tut-inheritance>` from "
+"its class and override relevant methods, re-exposing them if necessary::"
+msgstr ""
+
+#: ../../reference/http.rst:74
+msgid ""
+"decorating with :func:`~openerp.http.route` is necessary to keep the "
+"method (and route) visible: if the method is redefined without "
+"decorating, it will be \"unpublished\""
+msgstr ""
+
+#: ../../reference/http.rst:77
+msgid ""
+"the decorators of all methods are combined, if the overriding method's "
+"decorator has no argument all previous ones will be kept, any provided "
+"argument will override previously defined ones e.g.::"
+msgstr ""
+
+#: ../../reference/http.rst:86
+msgid ""
+"will change ``/some_url`` from public authentication to user (requiring a"
+" log-in)"
+msgstr ""
+

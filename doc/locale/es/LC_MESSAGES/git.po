@@ -1,0 +1,411 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../git.rst:5
+msgid "Bazaar to git"
+msgstr ""
+
+#: ../../git.rst:8
+msgid "Initializing a working copy"
+msgstr ""
+
+#: ../../git.rst:10
+msgid "Use the easy-setup shell script::"
+msgstr ""
+
+#: ../../git.rst:14
+msgid "it will will ask a few questions and create a local copy."
+msgstr ""
+
+#: ../../git.rst:17
+msgid "Git concepts"
+msgstr ""
+
+#: ../../git.rst:20
+msgid "Remotes"
+msgstr ""
+
+#: ../../git.rst:22
+msgid ""
+"Remotes are \"remote repositories\" which can be fetched from and pushed "
+"to. Remotes can be listed with ``git remote``\\ [#remote-default]_ and a "
+"local repository can have any number of remotes. The setup script creates"
+" 2 remotes:"
+msgstr ""
+
+#: ../../git.rst:28
+msgid "``odoo``"
+msgstr ""
+
+#: ../../git.rst:27
+msgid ""
+"the official repository and main branches, roughly corresponds to the old"
+" \"mainline\" branches in bazaar. You should never need to push to it, "
+"and by default your local copy is configured to forbid it."
+msgstr ""
+
+#: ../../git.rst:32
+msgid "``odoo-dev``"
+msgstr ""
+
+#: ../../git.rst:31
+msgid ""
+"a grab-bag of development branches, you can push your work to it so other"
+" coworkers can work with you."
+msgstr ""
+
+#: ../../git.rst:35
+msgid "Branches"
+msgstr ""
+
+#: ../../git.rst:37
+msgid ""
+"The working copy and each remote contain multiple branches. Local "
+"branches can be listed by ``git branch``, remote branches can be listed "
+"with ``git branch -r``. Both types can be listed with ``git branch -a``."
+msgstr ""
+
+#: ../../git.rst:41
+msgid ""
+"Work is only possible on local branches, even though it's possible to "
+"check out a remote branch work on it will be lost."
+msgstr ""
+
+#: ../../git.rst:45
+msgid "Staging"
+msgstr ""
+
+#: ../../git.rst:47
+msgid ""
+"``bzr commit`` takes all alterations to the working copy and creates a "
+"commit from them. Git has an intermediate step called \"staging\". ``git "
+"commit`` will create a commit from what has been staged, not from the "
+"working copy\\ [#commit-no-staging]_. Staging is done with ``git add``. A"
+" commit with nothing staged is a null operation."
+msgstr ""
+
+#: ../../git.rst:55
+msgid ""
+"It's possible for a single file to have changes in both the index and "
+"working copy: if a file is altered, staged and altered again, the second "
+"set of change has to be staged separately"
+msgstr ""
+
+#: ../../git.rst:60
+msgid "SHA1"
+msgstr ""
+
+#: ../../git.rst:62
+msgid ""
+"Git has no sequential identifier, each commit is uniquely identified by a"
+" SHA (40 hexadecimal characters) roughly corresponding to a bazaar "
+"revision-id. Providing the full sha is rarely necessary, any unique "
+"leading substring is sufficient, e.g. ``dae86e`` will probably stand in "
+"for ``dae86e1950b1277e545cee180551750029cfe735``."
+msgstr ""
+
+#: ../../git.rst:69
+msgid "Basic development workflow"
+msgstr ""
+
+#: ../../git.rst:71
+msgid "update your remotes with ``git fetch --all``"
+msgstr ""
+
+#: ../../git.rst:72
+msgid ""
+"create your development branch with ``git checkout -b <branch_name> "
+"<source_branch>``. For instance if you wanted to add support for full-"
+"text search in master you could use ``git checkout -b master-fts-xxx "
+"odoo/master``"
+msgstr ""
+
+#: ../../git.rst:75
+msgid ""
+"do your changes, stage them with ``git add`` and commit them with ``git "
+"commit``"
+msgstr ""
+
+#: ../../git.rst:77
+msgid "if your branch is long-lived, you may want to update it to its parent"
+msgstr ""
+
+#: ../../git.rst:79
+msgid "update the remotes with ``git fetch --all``"
+msgstr ""
+
+#: ../../git.rst:80
+msgid ""
+"merge the remote branch into the local one with ``git merge --no-ff "
+"odoo/master``"
+msgstr ""
+
+#: ../../git.rst:83
+msgid ""
+"to push the branch to the development repository, use ``git push -u dev "
+"<branchname>``, this will automatically create a branch called "
+"``<branchname>`` on dev. Next time around you do not have to use ``-u``"
+msgstr ""
+
+#: ../../git.rst:86
+msgid "once the feature is done, create a pull request"
+msgstr ""
+
+#: ../../git.rst:105
+msgid "Tasks"
+msgstr ""
+
+#: ../../git.rst:108
+msgid "Converting your feature branches from bazaar"
+msgstr ""
+
+#: ../../git.rst:110
+msgid "`The readme`_ has some instructions."
+msgstr ""
+
+#: ../../git.rst:113
+msgid "Viewing history: ``git log``"
+msgstr ""
+
+#: ../../git.rst:115
+msgid ""
+"``git log`` fulfills the same role as ``bzr log`` and is fairly similar, "
+"with a few differences:"
+msgstr ""
+
+#: ../../git.rst:118
+msgid ""
+"``git log`` has no ``-r`` argument, its first argument (optional) is a "
+"revision spec"
+msgstr ""
+
+#: ../../git.rst:120
+msgid ""
+"``git log`` always operates on ranges, if a single commit is provided "
+"(via hash, tag, branch or other) it will list the specified commit *and "
+"all of its ancestors*. To see a single commit, use ``git show``."
+msgstr ""
+
+#: ../../git.rst:123
+msgid ""
+"``git log``'s second positional argument is a path (file or directory). "
+"Because both are optional, if both a revision and a file match the "
+"revision will be selected. It is recommended to use ``--`` before a file "
+"path::"
+msgstr ""
+
+#: ../../git.rst:130
+msgid ""
+"``git log`` will actually work if given a directory, instead of pegging "
+"the CPU forever"
+msgstr ""
+
+#: ../../git.rst:132
+msgid ""
+"``git log`` works with removed files or directories without having to "
+"provide a revision during which the file or directory still existed"
+msgstr ""
+
+#: ../../git.rst:134
+msgid ""
+"``git log`` has *lots* of options to customize the output, e.g. ``-p`` "
+"will display the changes to each file\\ [#log-patch-empty]_, ``--name-"
+"status`` will list the changed files and how they changed SVN-style (with"
+" a ``M`` or ``D`` prefix), ``--name-only`` will just list the changed "
+"files, ``--stat`` generates a diffstat view, ``--grep`` filters by "
+"grepping on the commit message, …"
+msgstr ""
+
+#: ../../git.rst:142
+msgid "Reverting uncommitted changes"
+msgstr ""
+
+#: ../../git.rst:144
+msgid ""
+"Do *not* use ``git revert``, it does something completely different than "
+"``bzr revert``"
+msgstr ""
+
+#: ../../git.rst:147
+msgid ""
+"If you have altered files which you want to revert, use ``git checkout --"
+" <path>``. To revert every file in the directory, use ``git checkout -- "
+".``"
+msgstr ""
+
+#: ../../git.rst:149
+msgid ""
+"If you have staged a file and you want to unstage it, use ``git reset "
+"HEAD <file>``. This will not revert the file's changes, the file will be "
+"marked as modified again"
+msgstr ""
+
+#: ../../git.rst:154
+msgid "Diffing: ``git diff``"
+msgstr ""
+
+#: ../../git.rst:156
+msgid ""
+"``git diff`` is fairly similar to ``bzr diff``: it compares the working "
+"copy with stored content and can be restricted to a given file path. "
+"However:"
+msgstr ""
+
+#: ../../git.rst:159
+msgid ""
+"``git diff`` compares the working copy and the staging area, not the "
+"latest commit"
+msgstr ""
+
+#: ../../git.rst:161
+msgid "``git diff --staged`` compares the staging area and the latest commit"
+msgstr ""
+
+#: ../../git.rst:162
+msgid ""
+"``git diff HEAD`` ignores the staging area and compares the working copy "
+"with the latest commit. More generally ``git diff <commit>`` will diff "
+"the working copy and the specified commit"
+msgstr ""
+
+#: ../../git.rst:165
+msgid ""
+"to diff between commits, simply pass the commit identifiers (no ``-r`` "
+"argument)"
+msgstr ""
+
+#: ../../git.rst:167
+msgid ""
+"``git diff --stat`` provides a diffstat-view of the diff, and can be "
+"combined with other flags. It can be used as an intermediate between "
+"``git status`` and ``git status -s``"
+msgstr ""
+
+#: ../../git.rst:172
+msgid "Update to a previous revision"
+msgstr ""
+
+#: ../../git.rst:174
+msgid ""
+"``git checkout`` takes an arbitrary commit, the equivalent to ``bzr "
+"update -r<rev>`` is thus ``git checkout <rev>``."
+msgstr ""
+
+#: ../../git.rst:178
+msgid "File from the past"
+msgstr ""
+
+#: ../../git.rst:180
+msgid ""
+"``bzr cat -r<revision> <filename>`` shows the file ``<filename>`` as it "
+"was at ``<revision>``. The Git equivalent is ``git show "
+"<revision>:<filename>``"
+msgstr ""
+
+#: ../../git.rst:184
+msgid "Incorrect last commit: fix it"
+msgstr ""
+
+#: ../../git.rst:186
+msgid ""
+"If the last commit has to be fixed a bit (error, missing data, "
+"incomplete/incorrect commit message) it can be fixed with ``git commit "
+"--amend``. Instead of creating a new commit, it adds whatever is being "
+"committed to the previous commit."
+msgstr ""
+
+#: ../../git.rst:192
+msgid "Incorrect last commit: remove it"
+msgstr ""
+
+#: ../../git.rst:194
+msgid ""
+"If the last commit has to be removed entirely (similar to ``bzr "
+"uncommit``), use ``git reset HEAD~1``."
+msgstr ""
+
+#: ../../git.rst:197
+msgid ""
+"do not use this command or the previous one on commits you have already "
+"pushed"
+msgstr ""
+
+#: ../../git.rst:201
+msgid "Useful tips"
+msgstr ""
+
+#: ../../git.rst:204
+msgid "Partial operations"
+msgstr ""
+
+#: ../../git.rst:206
+msgid ""
+"``checkout``, ``add``, ``commit``, ``reset`` and ``stash`` can take a "
+"``-p`` flag, which allows operating (staging, reverting, ...) on a subset"
+" of the file. It opens a UI allowing the selection (or not) of each patch"
+" hunk, and even the splitting of hunk if they're too big."
+msgstr ""
+
+#: ../../git.rst:211
+msgid ""
+"Allows reverting only part of the changes to a file, or cleanly splitting"
+" refactorings and fixes mixed in a file."
+msgstr ""
+
+#: ../../git.rst:215
+msgid "short status"
+msgstr ""
+
+#: ../../git.rst:217
+msgid ""
+"The default ``status`` command is very verbose (though useful, it "
+"provides instructions for reverting things). The ``-s`` flag provides an "
+"SVN-like display instead with just a listing of files and :abbr:`A "
+"(Added)`, :abbr:`M (Modified)` or :abbr:`D (Deleted)` flags next to them."
+" Each file can have 2 flags, the first is for the index (difference "
+"between the last commit and the index) and the and the second is for the "
+"working copy (difference between the index and the working copy)."
+msgstr ""
+
+#: ../../git.rst:226
+msgid "``checkout`` shortcut"
+msgstr ""
+
+#: ../../git.rst:228
+msgid ""
+"``checkout -`` will behave like ``cd -``, it will switch to the "
+"previously checked-out branch/commit"
+msgstr ""
+
+#: ../../git.rst:231
+msgid ""
+"by default, ``git remote`` will only give the names of the various "
+"remotes. ``git remote -v`` will give the name and URL of each remote."
+msgstr ""
+
+#: ../../git.rst:235
+msgid "the ``-a`` option will automatically stage modified and deleted files"
+msgstr ""
+
+#: ../../git.rst:238
+msgid ""
+"but only the changes performed by this actual commit, for a merge the "
+"merged changes are not considered part of the merge commit"
+msgstr ""
+

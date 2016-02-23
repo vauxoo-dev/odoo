@@ -1,0 +1,490 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/cmdline.rst:7
+msgid "Command-line interface: odoo.py"
+msgstr ""
+
+#: ../../reference/cmdline.rst:12
+msgid "Running the server"
+msgstr ""
+
+#: ../../reference/cmdline.rst:18
+msgid "database used when installing or updating modules."
+msgstr ""
+
+#: ../../reference/cmdline.rst:22
+msgid ""
+"comma-separated list of modules to install before running the server "
+"(requires :option:`-d`)."
+msgstr ""
+
+#: ../../reference/cmdline.rst:27
+msgid ""
+"comma-separated list of modules to update before running the server "
+"(requires :option:`-d`)."
+msgstr ""
+
+#: ../../reference/cmdline.rst:32
+msgid ""
+"comma-separated list of directories in which modules are stored. These "
+"directories are scanned for modules (nb: when and why?)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:37
+msgid ""
+"if ``count`` is not 0 (the default), enables multiprocessing and sets up "
+"the specified number of HTTP workers (sub-processes processing HTTP and "
+"RPC requests)."
+msgstr ""
+
+#: ../../reference/cmdline.rst:41
+msgid "multiprocessing mode is only available on Unix-based systems"
+msgstr ""
+
+#: ../../reference/cmdline.rst:43
+msgid "A number of options allow limiting and recyling workers:"
+msgstr ""
+
+#: ../../reference/cmdline.rst:47
+msgid ""
+"Number of requests a worker will process before being recycled and "
+"restarted."
+msgstr ""
+
+#: ../../reference/cmdline.rst:50
+msgid "Defaults to 8196."
+msgstr ""
+
+#: ../../reference/cmdline.rst:54
+msgid ""
+"Maximum allowed virtual memory per worker. If the limit is exceeded, the "
+"worker is killed and recycled at the end of the current request."
+msgstr ""
+
+#: ../../reference/cmdline.rst:57
+msgid "Defaults to 640MB."
+msgstr ""
+
+#: ../../reference/cmdline.rst:61
+msgid ""
+"Hard limit on virtual memory, any worker exceeding the limit will be "
+"immediately killed without waiting for the end of the current request "
+"processing."
+msgstr ""
+
+#: ../../reference/cmdline.rst:65
+msgid "Defaults to 768MB."
+msgstr ""
+
+#: ../../reference/cmdline.rst:69
+msgid ""
+"Prevents the worker from using more than <limit> CPU seconds for each "
+"request. If the limit is exceeded, the worker is killed."
+msgstr ""
+
+#: ../../reference/cmdline.rst:72
+msgid "Defaults to 60."
+msgstr ""
+
+#: ../../reference/cmdline.rst:76
+msgid ""
+"Prevents the worker from taking longer than <limit> seconds to process a "
+"request. If the limit is exceeded, the worker is killed."
+msgstr ""
+
+#: ../../reference/cmdline.rst:79
+msgid ""
+"Differs from :option:`--limit-time-cpu` in that this is a \"wall time\" "
+"limit including e.g. SQL queries."
+msgstr ""
+
+#: ../../reference/cmdline.rst:82
+msgid "Defaults to 120."
+msgstr ""
+
+#: ../../reference/cmdline.rst:86
+msgid ""
+"number of workers dedicated to cron jobs. Defaults to 2. The workers are "
+"threads in multithreading mode and processes in multiprocessing mode."
+msgstr ""
+
+#: ../../reference/cmdline.rst:89
+msgid ""
+"For multiprocessing mode, this is in addition to the HTTP worker "
+"processes."
+msgstr ""
+
+#: ../../reference/cmdline.rst:94
+msgid "provide an alternate configuration file"
+msgstr ""
+
+#: ../../reference/cmdline.rst:98
+msgid ""
+"saves the server configuration to the current configuration file "
+"(:file:`{$HOME}/.openerp_serverrc` by default, overridable using "
+":option:`-c`)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:104
+msgid ""
+"enables the use of ``X-Forwarded-*`` headers through `Werkzeug's proxy "
+"support`_."
+msgstr ""
+
+#: ../../reference/cmdline.rst:107
+msgid "proxy mode *must not* be enabled outside of a reverse proxy scenario"
+msgstr ""
+
+#: ../../reference/cmdline.rst:112
+msgid "runs tests after installing modules"
+msgstr ""
+
+#: ../../reference/cmdline.rst:116
+msgid ""
+"when an unexpected error is raised (not a warning or an access error), "
+"automatically starts :mod:`python:pdb` before logging and returning the "
+"error"
+msgstr ""
+
+#: ../../reference/cmdline.rst:123
+msgid "database"
+msgstr ""
+
+#: ../../reference/cmdline.rst:127
+msgid "database username, used to connect to PostgreSQL."
+msgstr ""
+
+#: ../../reference/cmdline.rst:131
+msgid "database password, if using `password authentication`_."
+msgstr ""
+
+#: ../../reference/cmdline.rst:135
+msgid "host for the database server"
+msgstr ""
+
+#: ../../reference/cmdline.rst:137
+msgid "``localhost`` on Windows"
+msgstr ""
+
+#: ../../reference/cmdline.rst:138
+msgid "UNIX socket otherwise"
+msgstr ""
+
+#: ../../reference/cmdline.rst:142
+msgid "port the database listens on, defaults to 5432"
+msgstr ""
+
+#: ../../reference/cmdline.rst:146
+msgid ""
+"hides databases that do not match ``<filter>``. The filter is a `regular "
+"expression`_, with the additions that:"
+msgstr ""
+
+#: ../../reference/cmdline.rst:149
+msgid "``%h`` is replaced by the whole hostname the request is made on."
+msgstr ""
+
+#: ../../reference/cmdline.rst:150
+#, python-format
+msgid ""
+"``%d`` is replaced by the subdomain the request is made on, with the "
+"exception of ``www`` (so domain ``odoo.com`` and ``www.odoo.com`` both "
+"match the database ``odoo``)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:156
+msgid ""
+"when creating new databases from the database-management screens, use the"
+" specified `template database`_. Defaults to ``template1``."
+msgstr ""
+
+#: ../../reference/cmdline.rst:160
+msgid "built-in HTTP"
+msgstr ""
+
+#: ../../reference/cmdline.rst:164
+msgid ""
+"do not start the HTTP or long-polling workers (may still start cron "
+"workers)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:167
+msgid ""
+"has no effect if :option:`--test-enable` is set, as tests require an "
+"accessible HTTP server"
+msgstr ""
+
+#: ../../reference/cmdline.rst:172
+msgid ""
+"TCP/IP address on which the HTTP server listens, defaults to ``0.0.0.0`` "
+"(all addresses)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:177
+msgid "Port on which the HTTP server listens, defaults to 8069."
+msgstr ""
+
+#: ../../reference/cmdline.rst:181
+msgid ""
+"TCP port for long-polling connections in multiprocessing or gevent mode, "
+"defaults to 8072. Not used in default (threaded) mode."
+msgstr ""
+
+#: ../../reference/cmdline.rst:185
+msgid "logging"
+msgstr ""
+
+#: ../../reference/cmdline.rst:187
+msgid ""
+"By default, Odoo displays all logging of level_ ``info`` except for "
+"workflow logging (``warning`` only), and log output is sent to "
+"``stdout``. Various options are available to redirect logging to other "
+"destinations and to customize the amout of logging output"
+msgstr ""
+
+#: ../../reference/cmdline.rst:194
+msgid ""
+"sends logging output to the specified file instead of stdout. On Unix, "
+"the file `can be managed by external log rotation programs "
+"<https://docs.python.org/2/library/logging.handlers.html#watchedfilehandler>`_"
+" and will automatically be reopened when replaced"
+msgstr ""
+
+#: ../../reference/cmdline.rst:201
+msgid ""
+"enables `log rotation "
+"<https://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler>`_"
+" daily, keeping 30 backups. Log rotation frequency and number of backups "
+"is not configurable."
+msgstr ""
+
+#: ../../reference/cmdline.rst:207
+msgid ""
+"logs to the system's event logger: `syslog on unices "
+"<https://docs.python.org/2/library/logging.handlers.html#sysloghandler>`_"
+" and `the Event Log on Windows "
+"<https://docs.python.org/2/library/logging.handlers.html#nteventloghandler>`_."
+msgstr ""
+
+#: ../../reference/cmdline.rst:210
+msgid "Neither is configurable"
+msgstr ""
+
+#: ../../reference/cmdline.rst:214
+msgid ""
+"logs to the ``ir.logging`` model (``ir_logging`` table) of the specified "
+"database. The database can be the name of a database in the \"current\" "
+"PostgreSQL, or `a PostgreSQL URI`_ for e.g. log aggregation"
+msgstr ""
+
+#: ../../reference/cmdline.rst:220
+msgid ""
+":samp:`{LOGGER}:{LEVEL}`, enables ``LOGGER`` at the provided ``LEVEL`` "
+"e.g. ``openerp.models:DEBUG`` will enable all logging messages at or "
+"above ``DEBUG`` level in the models."
+msgstr ""
+
+#: ../../reference/cmdline.rst:224
+msgid "The colon ``:`` is mandatory"
+msgstr ""
+
+#: ../../reference/cmdline.rst:225
+msgid "The logger can be omitted to configure the root (default) handler"
+msgstr ""
+
+#: ../../reference/cmdline.rst:226
+msgid "If the level is omitted, the logger is set to ``INFO``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:228
+msgid "The option can be repeated to configure multiple loggers e.g."
+msgstr ""
+
+#: ../../reference/cmdline.rst:236
+msgid ""
+"enable DEBUG logging for RPC requests, equivalent to ``--log-"
+"handler=openerp.http.rpc.request:DEBUG``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:241
+msgid ""
+"enable DEBUG logging for RPC responses, equivalent to ``--log-"
+"handler=openerp.http.rpc.response:DEBUG``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:246
+msgid ""
+"enables DEBUG logging of HTTP requests and responses, equivalent to "
+"``--log-handler=openerp.http:DEBUG``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:251
+msgid ""
+"enables DEBUG logging of SQL querying, equivalent to ``--log-"
+"handler=openerp.sql_db:DEBUG``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:256
+msgid ""
+"Shortcut to more easily set predefined levels on specific loggers. "
+"\"real\" levels (``critical``, ``error``, ``warn``, ``debug``) are set on"
+" the ``openerp`` and ``werkzeug`` loggers (except for ``debug`` which is "
+"only set on ``openerp``)."
+msgstr ""
+
+#: ../../reference/cmdline.rst:261
+msgid ""
+"Odoo also provides debugging pseudo-levels which apply to different sets "
+"of loggers:"
+msgstr ""
+
+#: ../../reference/cmdline.rst:266
+msgid "``debug_sql``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:265
+msgid "sets the SQL logger to ``debug``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:267
+msgid "equivalent to ``--log-sql``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:270
+msgid "``debug_rpc``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:269
+msgid "sets the ``openerp`` and HTTP request loggers to ``debug``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:271
+msgid "equivalent to ``--log-level debug --log-request``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:276
+msgid "``debug_rpc_answer``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:273
+msgid "sets the ``openerp`` and HTTP request and response loggers to ``debug``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:276
+msgid "equivalent to ``--log-level debug --log-request --log-response``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:280
+msgid ""
+"In case of conflict between :option:`--log-level` and :option:`--log-"
+"handler`, the latter is used"
+msgstr ""
+
+#: ../../reference/cmdline.rst:287
+msgid "Scaffolding"
+msgstr ""
+
+#: ../../reference/cmdline.rst:291
+msgid ""
+"Scaffolding is the automated creation of a skeleton structure to simplify"
+" bootstrapping (of new modules, in the case of Odoo). While not necessary"
+" it avoids the tedium of setting up basic structures and looking up what "
+"all starting requirements are."
+msgstr ""
+
+#: ../../reference/cmdline.rst:296
+msgid "Scaffolding is available via the :command:`odoo.py scaffold` subcommand."
+msgstr ""
+
+#: ../../reference/cmdline.rst:300
+msgid ""
+"a template directory, files are passed through jinja2_ then copied to the"
+" ``destination`` directory"
+msgstr ""
+
+#: ../../reference/cmdline.rst:305
+msgid ""
+"the name of the module to create, may munged in various manners to "
+"generate programmatic names (e.g. module directory name, model names, …)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:310
+msgid ""
+"directory in which to create the new module, defaults to the current "
+"directory"
+msgstr ""
+
+#: ../../reference/cmdline.rst:316
+msgid "Configuration file"
+msgstr ""
+
+#: ../../reference/cmdline.rst:318
+msgid ""
+"Most of the command-line options can also be specified via a "
+"configuration file. Most of the time, they use similar names with the "
+"prefix ``-`` removed and other ``-`` are replaced by ``_`` e.g. :option"
+":`--db-template` becomes ``db_template``."
+msgstr ""
+
+#: ../../reference/cmdline.rst:323
+msgid "Some conversions don't match the pattern:"
+msgstr ""
+
+#: ../../reference/cmdline.rst:325
+msgid ":option:`--db-filter` becomes ``dbfilter``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:326
+msgid ":option:`--no-xmlrpc` corresponds to the ``xmlrpc`` boolean"
+msgstr ""
+
+#: ../../reference/cmdline.rst:327
+msgid ""
+"logging presets (all options starting with ``--log-`` except for :option"
+":`--log-handler` and :option:`--log-db`) just add content to "
+"``log_handler``, use that directly in the configuration file"
+msgstr ""
+
+#: ../../reference/cmdline.rst:330
+msgid ":option:`--smtp` is stored as ``smtp_server``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:331
+msgid ":option:`--database` is stored as ``dbname``"
+msgstr ""
+
+#: ../../reference/cmdline.rst:332
+msgid ":option:`--debug` is stored as ``debug_mode`` (a boolean)"
+msgstr ""
+
+#: ../../reference/cmdline.rst:333
+msgid ""
+":option:`--i18n-import` and :option:`--i18n-export` aren't available at "
+"all from configuration files"
+msgstr ""
+
+#: ../../reference/cmdline.rst:336
+msgid ""
+"The default configuration file is :file:`{$HOME}/.openerp_serverrc` which"
+" can be overridden using :option:`--config <odoo.py -c>`. Specifying "
+":option:`--save <odoo.py -s>` will save the current configuration state "
+"back to that file."
+msgstr ""
+

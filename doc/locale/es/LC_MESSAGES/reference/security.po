@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/security.rst:7
+msgid "Security in Odoo"
+msgstr ""
+
+#: ../../reference/security.rst:9
+msgid ""
+"Aside from manually managing access using custom code, Odoo provides two "
+"main data-driven mechanisms to manage or restrict access to data."
+msgstr ""
+
+#: ../../reference/security.rst:12
+msgid ""
+"Both mechanisms are linked to specific users through *groups*: a user "
+"belongs to any number of groups, and security mechanisms are associated "
+"to groups, thus applying security mechamisms to users."
+msgstr ""
+
+#: ../../reference/security.rst:19
+msgid "Access Control"
+msgstr ""
+
+#: ../../reference/security.rst:21
+msgid ""
+"Managed by the ``ir.model.access`` records, defines access to a whole "
+"model."
+msgstr ""
+
+#: ../../reference/security.rst:23
+msgid ""
+"Each access control has a model to which it grants permissions, the "
+"permissions it grants and optionally a group."
+msgstr ""
+
+#: ../../reference/security.rst:26
+msgid ""
+"Access controls are additive, for a given model a user has access all "
+"permissions granted to any of its groups: if the user belongs to one "
+"group which allows writing and another which allows deleting, they can "
+"both write and delete."
+msgstr ""
+
+#: ../../reference/security.rst:31
+msgid ""
+"If no group is specified, the access control applies to all users, "
+"otherwise it only applies to the members of the given group."
+msgstr ""
+
+#: ../../reference/security.rst:34
+msgid ""
+"Available permissions are creation (``perm_create``), searching and "
+"reading (``perm_read``), updating existing records (``perm_write``) and "
+"deleting existing records (``perm_unlink``)"
+msgstr ""
+
+#: ../../reference/security.rst:41
+msgid "Record Rules"
+msgstr ""
+
+#: ../../reference/security.rst:43
+msgid ""
+"Record rules are conditions that records must satisfy for an operation "
+"(create, read, update or delete) to be allowed. It is applied record-by-"
+"record after access control has been applied."
+msgstr ""
+
+#: ../../reference/security.rst:47
+msgid "A record rule has:"
+msgstr ""
+
+#: ../../reference/security.rst:49
+msgid "a model on which it applies"
+msgstr ""
+
+#: ../../reference/security.rst:50
+msgid ""
+"a set of permissions to which it applies (e.g. if ``perm_read`` is set, "
+"the rule will only be checked when reading a record)"
+msgstr ""
+
+#: ../../reference/security.rst:52
+msgid ""
+"a set of user groups to which the rule applies, if no group is specified "
+"the rule is *global*"
+msgstr ""
+
+#: ../../reference/security.rst:54
+msgid ""
+"a :ref:`domain <reference/orm/domains>` used to check whether a given "
+"record matches the rule (and is accessible) or does not (and is not "
+"accessible). The domain is evaluated with two variables in context: "
+"``user`` is the current user's record and ``time`` is the `time module`_"
+msgstr ""
+
+#: ../../reference/security.rst:59
+msgid ""
+"Global rules and group rules (rules restricted to specific groups versus "
+"groups applying to all users) are used quite differently:"
+msgstr ""
+
+#: ../../reference/security.rst:62
+msgid ""
+"Global rules are subtractive, they *must all* be matched for a record to "
+"be accessible"
+msgstr ""
+
+#: ../../reference/security.rst:64
+msgid ""
+"Group rules are additive, if *any* of them matches (and all global rules "
+"match) then the record is accessible"
+msgstr ""
+
+#: ../../reference/security.rst:67
+msgid ""
+"This means the first *group rule* restricts access, but any further "
+"*group rule* expands it, while *global rules* can only ever restrict "
+"access (or have no effect)."
+msgstr ""
+
+#: ../../reference/security.rst:71
+msgid "record rules do not apply to the Administrator user"
+msgstr ""
+
+#: ../../reference/security.rst:74
+msgid "although access rules do"
+msgstr ""
+
+#: ../../reference/security.rst:79
+msgid "Field Access"
+msgstr ""
+
+#: ../../reference/security.rst:83
+msgid ""
+"An ORM :class:`~openerp.fields.Field` can have a ``groups`` attribute "
+"providing a list of groups (as a comma-separated string of "
+":term:`external identifiers`)."
+msgstr ""
+
+#: ../../reference/security.rst:87
+msgid ""
+"If the current user is not in one of the listed groups, he will not have "
+"access to the field:"
+msgstr ""
+
+#: ../../reference/security.rst:90
+msgid "restricted fields are automatically removed from requested views"
+msgstr ""
+
+#: ../../reference/security.rst:91
+msgid ""
+"restricted fields are removed from "
+":meth:`~openerp.models.Model.fields_get` responses"
+msgstr ""
+
+#: ../../reference/security.rst:93
+msgid ""
+"attempts to (explicitly) read from or write to restricted fields results "
+"in an access error"
+msgstr ""
+
+#: ../../reference/security.rst:102
+msgid "Workflow transition rules"
+msgstr ""
+
+#: ../../reference/security.rst:104
+msgid ""
+"Workflow transitions can be restricted to a specific group. Users outside"
+" the group can not trigger the transition."
+msgstr ""
+

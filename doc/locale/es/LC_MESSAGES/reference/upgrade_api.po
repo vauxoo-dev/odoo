@@ -1,0 +1,562 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/upgrade_api.rst:11
+msgid "Upgrade API"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:14
+msgid "Introduction"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:16
+msgid ""
+"This document describes the API used to upgrade an Odoo database to a "
+"higher version."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:19
+msgid ""
+"It allows a database to be upgraded without ressorting to the html form "
+"at https://upgrade.odoo.com Although the database will follow the same "
+"process described on that form."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:24
+msgid "The required steps are:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:26
+msgid "creating a request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:27
+msgid "uploading a database dump"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:28
+msgid "running the upgrade process"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:29
+msgid "obtaining the status of the database request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:30
+msgid "downloading the upgraded database dump"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:33
+msgid "The methods"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:38
+msgid "Creating a database upgrade request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:40
+msgid "This action creates a database request with the following information:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:42
+msgid "your contract reference"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:43
+msgid "your email address"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:44
+msgid "the target version (the Odoo version you want to upgrade to)"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:45
+msgid "the purpose of your request (test or production)"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:46
+msgid "the database dump name (required but purely informative)"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:47
+msgid "optionally the server timezone (for Odoo source version < 6.1)"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:50
+msgid "The ``create`` method"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:54
+msgid "Creates a database upgrade request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:56
+msgid "(required) your enterprise contract reference"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:57
+msgid "(required) your email address"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:58
+msgid ""
+"(required) the Odoo version you want to upgrade to. Valid choices: 6.0, "
+"6.1, 7.0, 8.0"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:59
+msgid ""
+"(required) the purpose of your upgrade database request. Valid choices: "
+"test, production."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:60
+msgid "(required) a purely informative name for you database dump file"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:61
+msgid ""
+"(optional) the timezone used by your server. Only for Odoo source version"
+" < 6.1"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:62 ../../reference/upgrade_api.rst:215
+#: ../../reference/upgrade_api.rst:286 ../../reference/upgrade_api.rst:352
+msgid "request result"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:65
+msgid ""
+"The *create* method returns a json dictionary containing the following "
+"keys:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:68
+msgid "``failures``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:70
+msgid "The list of errors."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:72
+msgid ""
+"A list of dictionaries, each dictionary giving information about one "
+"particular error. Each dictionary can contain various keys depending of "
+"the type of error but you will always get the ``reason`` and the "
+"``message`` keys:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:76
+msgid "``reason``: the error type"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:77
+msgid "``message``: a human friendly message"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:79
+msgid "Some possible keys:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:81
+msgid "``code``: a faulty value"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:82
+msgid "``value``: a faulty value"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:83
+msgid "``expected``: a list of valid values"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:85
+msgid "See a sample output aside."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:116
+msgid "``request``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:118
+msgid ""
+"If the *create* method is successful, the value associated to the "
+"*request* key will be a dictionary containing various information about "
+"the created request:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:121
+msgid "The most important keys are:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:123
+msgid "``id``: the request id"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:124
+msgid "``key``: your private key for this request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:126
+msgid ""
+"These 2 values will be requested by the other methods (upload, process "
+"and status)"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:128
+msgid ""
+"The other keys will be explained in the section describing the "
+":ref:`status method <upgrade-api-status-method>`."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:132
+msgid "Sample script"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:134
+msgid "Here are 2 examples of database upgrade request creation using:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:136
+msgid "one in the python programming language using the pycurl library"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:137
+msgid ""
+"one in the bash programming language using `curl <http://curl.haxx.se>`_ "
+"(tool for transfering data using http) and `jq "
+"<https://stedolan.github.io/jq>`_ (JSON processor):"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:202
+msgid "Uploading your database dump"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:204
+msgid "This action upload your database dump."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:207
+msgid "The ``upload`` method"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:211
+msgid "Uploads a database dump"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:213 ../../reference/upgrade_api.rst:284
+#: ../../reference/upgrade_api.rst:350
+msgid "(required) your private key"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:214 ../../reference/upgrade_api.rst:285
+#: ../../reference/upgrade_api.rst:351
+msgid "(required) your request id"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:218 ../../reference/upgrade_api.rst:289
+#: ../../reference/upgrade_api.rst:355
+msgid ""
+"The request id and the private key are obtained using the :ref:`create "
+"method <upgrade-api-create-method>`"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:221 ../../reference/upgrade_api.rst:292
+msgid ""
+"The result is a json dictionary containing the list of ``failures``, "
+"which should be empty if everything went fine."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:273
+msgid "Asking to process your request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:275
+msgid "This action ask the Upgrade Platform to process your database dump."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:278
+msgid "The ``process`` method"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:282
+msgid "Process a database dump"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:339
+msgid "Obtaining your request status"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:341
+msgid "This action ask the status of your database upgrade request."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:344
+msgid "The ``status`` method"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:348
+msgid "Ask the status of a database upgrade request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:358
+msgid ""
+"The result is a json dictionary containing various information about your"
+" database upgrade request."
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:401
+msgid "Sample output"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:403
+msgid ""
+"The ``request`` key contains various useful information about your "
+"request:"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:405
+msgid "``id``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:406
+msgid "the request id"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:407
+msgid "``key``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:408
+msgid "your private key"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:409
+msgid "``email``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:410
+msgid "the email address you supplied when creating the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:411
+msgid "``target``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:412
+msgid "the target Odoo version you supplied when creating the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:413
+msgid "``aim``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:414
+msgid ""
+"the purpose (test, production) of your database upgrade request you "
+"supplied when creating the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:415
+msgid "``filename``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:416
+msgid "the filename you supplied when creating the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:417
+msgid "``timezone``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:418
+msgid "the timezone you supplied when creating the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:419
+msgid "``state``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:420
+msgid "the state of your request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:421
+msgid "``issue_stage``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:422
+msgid "the stage of the issue we have create on Odoo main server"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:423
+msgid "``issue``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:424
+msgid "the id of the issue we have create on Odoo main server"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:425
+msgid "``status_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:426
+msgid "the URL to access your database upgrade request html page"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:427
+msgid "``notes_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:428
+msgid "the URL to get the notes about your database upgrade"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:429
+msgid "``original_sql_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:430
+msgid "the URL used to get your uploaded (not upgraded) database as an SQL stream"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:431
+msgid "``original_dump_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:432
+msgid ""
+"the URL used to get your uploaded (not upgraded) database as an archive "
+"file"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:433
+msgid "``upgraded_sql_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:434
+msgid "the URL used to get your upgraded database as an SQL stream"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:435
+msgid "``upgraded_dump_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:436
+msgid "the URL used to get your upgraded database as an archive file"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:437
+msgid "``modules_url``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:438
+msgid "the URL used to get your custom modules"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:439
+msgid "``filesize``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:440
+msgid "the size of your uploaded database file"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:441
+msgid "``database_uuid``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:442
+msgid "the Unique ID of your database"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:443
+msgid "``created_at``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:444
+msgid "the date when you created the request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:445
+msgid "``estimated_time``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:446
+msgid "an estimation of the time it takes to upgrade your database"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:447
+msgid "``processed_at``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:448
+msgid "time when your database upgrade was started"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:449
+msgid "``elapsed``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:450
+msgid "the time it takes to upgrade your database"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:451
+msgid "``filestore``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:452
+msgid "your attachments were converted to the filestore"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:453
+msgid "``customer_message``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:454
+msgid "an important message related to your request"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:455
+msgid "``database_version``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:456
+msgid "the guessed Odoo version of your uploaded (not upgraded) database"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:457
+msgid "``postgresql``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:458
+msgid "the guessed Postgresql version of your uploaded (not upgraded) database"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:460
+msgid "``compressions``"
+msgstr ""
+
+#: ../../reference/upgrade_api.rst:460
+msgid "the compression methods used by your uploaded database"
+msgstr ""
+

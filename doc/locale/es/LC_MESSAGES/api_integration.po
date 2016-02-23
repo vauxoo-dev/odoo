@@ -1,0 +1,639 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: 2016-02-26 20:46-0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+"Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: ../../api_integration.rst:9
+msgid "Web Service API"
+msgstr "Servicios Web (API)"
+
+#: ../../api_integration.rst:11
+msgid ""
+"Odoo is usually extended internally via modules, but many of its features "
+"and all of its data are also available from the outside for external "
+"analysis or integration with various tools. Part of the :ref:`reference/orm/"
+"model` API is easily available over XML-RPC_ and accessible from a variety "
+"of languages."
+msgstr ""
+
+#: ../../api_integration.rst:27
+msgid "Connection"
+msgstr ""
+
+#: ../../api_integration.rst:92
+msgid "Configuration"
+msgstr ""
+
+#: ../../api_integration.rst:94
+msgid ""
+"If you already have an Odoo server installed, you can just use its "
+"parameters"
+msgstr ""
+
+#: ../../api_integration.rst:99
+msgid ""
+"For Odoo Online instances (<domain>.odoo.com), users are created without a "
+"*local* password (as a person you are logged in via the Odoo Online "
+"authentication system, not by the instance itself). To use XML-RPC on Odoo "
+"Online instances, you will need to set a password on the user account you "
+"want to use:"
+msgstr ""
+
+#: ../../api_integration.rst:105
+msgid "Log in your instance with an administrator account"
+msgstr ""
+
+#: ../../api_integration.rst:106
+msgid "Go to :menuselection:`Settings --> Users --> Users`"
+msgstr ""
+
+#: ../../api_integration.rst:107
+msgid "Click on the user you want to use for XML-RPC access"
+msgstr ""
+
+#: ../../api_integration.rst:108
+msgid "Click the :guilabel:`Change Password` button"
+msgstr ""
+
+#: ../../api_integration.rst:109
+msgid ""
+"Set a :guilabel:`New Password` value then click :guilabel:`Change Password`."
+msgstr ""
+
+#: ../../api_integration.rst:112
+msgid ""
+"The *server url* is the instance's domain (e.g. *https://mycompany.odoo."
+"com*), the *database name* is the name of the instance (e.g. *mycompany*). "
+"The *username* is the configured user's login as shown by the *Change "
+"Password* screen."
+msgstr ""
+
+#: ../../api_integration.rst:150
+msgid "demo"
+msgstr ""
+
+#: ../../api_integration.rst:152
+msgid ""
+"To make exploration simpler, you can also ask https://demo.odoo.com for a "
+"test database:"
+msgstr ""
+
+#: ../../api_integration.rst:184
+msgid ""
+"These examples use the `Ripcord <https://code.google.com/p/ripcord/>`_ "
+"library, which provides a simple XML-RPC API. Ripcord requires that `XML-"
+"RPC support be enabled <http://php.net/manual/en/xmlrpc.installation.php>`_ "
+"in your PHP installation."
+msgstr ""
+
+#: ../../api_integration.rst:190
+msgid ""
+"Since calls are performed over `HTTPS <http://en.wikipedia.org/wiki/"
+"HTTP_Secure>`_, it also requires that the `OpenSSL extension <http://php."
+"net/manual/en/openssl.installation.php>`_ be enabled."
+msgstr ""
+
+#: ../../api_integration.rst:213
+msgid ""
+"These examples use the `Apache XML-RPC library <https://ws.apache.org/"
+"xmlrpc/>`_"
+msgstr ""
+
+#: ../../api_integration.rst:216
+msgid ""
+"The examples do not include imports as these imports couldn't be pasted in "
+"the code."
+msgstr ""
+
+#: ../../api_integration.rst:220
+msgid "Logging in"
+msgstr ""
+
+#: ../../api_integration.rst:222
+msgid ""
+"Odoo requires users of the API to be authenticated before they can query "
+"most data."
+msgstr ""
+
+#: ../../api_integration.rst:225
+msgid ""
+"The ``xmlrpc/2/common`` endpoint provides meta-calls which don't require "
+"authentication, such as the authentication itself or fetching version "
+"information. To verify if the connection information is correct before "
+"trying to authenticate, the simplest call is to ask for the server's "
+"version. The authentication itself is done through the ``authenticate`` "
+"function and returns a user identifier (``uid``) used in authenticated "
+"calls instead of the login."
+msgstr ""
+
+#: ../../api_integration.rst:293
+msgid "Calling methods"
+msgstr ""
+
+#: ../../api_integration.rst:295
+msgid ""
+"The second endpoint is ``xmlrpc/2/object``, is used to call methods of odoo "
+"models via the ``execute_kw`` RPC function."
+msgstr ""
+
+#: ../../api_integration.rst:298
+msgid "Each call to ``execute_kw`` takes the following parameters:"
+msgstr ""
+
+#: ../../api_integration.rst:300
+msgid "the database to use, a string"
+msgstr ""
+
+#: ../../api_integration.rst:301
+msgid "the user id (retrieved through ``authenticate``), an integer"
+msgstr ""
+
+#: ../../api_integration.rst:302
+msgid "the user's password, a string"
+msgstr ""
+
+#: ../../api_integration.rst:303
+msgid "the model name, a string"
+msgstr ""
+
+#: ../../api_integration.rst:304
+msgid "the method name, a string"
+msgstr ""
+
+#: ../../api_integration.rst:305
+msgid "an array/list of parameters passed by position"
+msgstr ""
+
+#: ../../api_integration.rst:306
+msgid "a mapping/dict of parameters to pass by keyword (optional)"
+msgstr ""
+
+#: ../../api_integration.rst:310
+msgid ""
+"For instance to see if we can read the ``res.partner`` model we can call "
+"``check_access_rights`` with ``operation`` passed by position and "
+"``raise_exception`` passed by keyword (in order to get a true/false result "
+"rather than true/error):"
+msgstr ""
+
+#: ../../api_integration.rst:361
+msgid "List records"
+msgstr ""
+
+#: ../../api_integration.rst:363
+msgid ""
+"Records can be listed and filtered via :meth:`~openerp.models.Model.search`."
+msgstr ""
+
+#: ../../api_integration.rst:365
+msgid ""
+":meth:`~openerp.models.Model.search` takes a mandatory :ref:`domain "
+"<reference/orm/domains>` filter (possibly empty), and returns the database "
+"identifiers of all records matching the filter. To list customer companies "
+"for instance:"
+msgstr ""
+
+#: ../../api_integration.rst:408
+msgid "Pagination"
+msgstr ""
+
+#: ../../api_integration.rst:410
+msgid ""
+"By default a search will return the ids of all records matching the "
+"condition, which may be a huge number. ``offset`` and ``limit`` parameters "
+"are available to only retrieve a subset of all matched records."
+msgstr ""
+
+#: ../../api_integration.rst:456
+msgid "Count records"
+msgstr ""
+
+#: ../../api_integration.rst:458
+msgid ""
+"Rather than retrieve a possibly gigantic list of records and count them, :"
+"meth:`~openerp.models.Model.search_count` can be used to retrieve only the "
+"number of records matching the query. It takes the same :ref:`domain "
+"<reference/orm/domains>` filter as :meth:`~openerp.models.Model.search` and "
+"no other parameter."
+msgstr ""
+
+#: ../../api_integration.rst:503
+msgid ""
+"calling ``search`` then ``search_count`` (or the other way around) may not "
+"yield coherent results if other users are using the server: stored data "
+"could have changed between the calls"
+msgstr ""
+
+#: ../../api_integration.rst:508
+msgid "Read records"
+msgstr ""
+
+#: ../../api_integration.rst:510
+msgid ""
+"Record data is accessible via the :meth:`~openerp.models.Model.read` "
+"method, which takes a list of ids (as returned by :meth:`~openerp.models."
+"Model.search`) and optionally a list of fields to fetch. By default, it "
+"will fetch all the fields the current user can read, which tends to be a "
+"huge amount."
+msgstr ""
+
+#: ../../api_integration.rst:578
+msgid "Conversedly, picking only three fields deemed interesting."
+msgstr ""
+
+#: ../../api_integration.rst:618
+msgid "even if the ``id`` field is not requested, it is always returned"
+msgstr ""
+
+#: ../../api_integration.rst:621
+msgid "Listing record fields"
+msgstr ""
+
+#: ../../api_integration.rst:623
+msgid ""
+":meth:`~openerp.models.Model.fields_get` can be used to inspect a model's "
+"fields and check which ones seem to be of interest."
+msgstr ""
+
+#: ../../api_integration.rst:626
+msgid ""
+"Because it returns a large amount of meta-information (it is also used by "
+"client programs) it should be filtered before printing, the most "
+"interesting items for a human user are ``string`` (the field's label), "
+"``help`` (a help text if available) and ``type`` (to know which values to "
+"expect, or to send when updating a record):"
+msgstr ""
+
+#: ../../api_integration.rst:705
+msgid "Search and read"
+msgstr ""
+
+#: ../../api_integration.rst:707
+msgid ""
+"Because it is a very common task, Odoo provides a :meth:`~openerp.models."
+"Model.search_read` shortcut which as its name notes is equivalent to a :"
+"meth:`~openerp.models.Model.search` followed by a :meth:`~openerp.models."
+"Model.read`, but avoids having to perform two requests and keep ids around."
+msgstr ""
+
+#: ../../api_integration.rst:713
+msgid ""
+"Its arguments are similar to :meth:`~openerp.models.Model.search`'s, but it "
+"can also take a list of ``fields`` (like :meth:`~openerp.models.Model."
+"read`, if that list is not provided it will fetch all fields of matched "
+"records):"
+msgstr ""
+
+#: ../../api_integration.rst:794
+msgid "Create records"
+msgstr ""
+
+#: ../../api_integration.rst:796
+msgid ""
+"Records of a model are created using :meth:`~openerp.models.Model.create`. "
+"The method will create a single record and return its database identifier."
+msgstr ""
+
+#: ../../api_integration.rst:799
+msgid ""
+":meth:`~openerp.models.Model.create` takes a mapping of fields to values, "
+"used to initialize the record. For any field which has a default value and "
+"is not set through the mapping argument, the default value will be used."
+msgstr ""
+
+#: ../../api_integration.rst:839
+msgid ""
+"while most value types are what would be expected (integer for :class:"
+"`~openerp.fields.Integer`, string for :class:`~openerp.fields.Char` or :"
+"class:`~openerp.fields.Text`),"
+msgstr ""
+
+#: ../../api_integration.rst:843
+msgid ""
+":class:`~openerp.fields.Date`, :class:`~openerp.fields.Datetime` and :class:"
+"`~openerp.fields.Binary` fields use string values"
+msgstr ""
+
+#: ../../api_integration.rst:845
+msgid ""
+":class:`~openerp.fields.One2many` and :class:`~openerp.fields.Many2many` "
+"use a special command protocol detailed in :meth:`the documentation to the "
+"write method <openerp.models.Model.write>`."
+msgstr ""
+
+#: ../../api_integration.rst:850
+msgid "Update records"
+msgstr ""
+
+#: ../../api_integration.rst:852
+msgid ""
+"Records can be updated using :meth:`~openerp.models.Model.write`, it takes "
+"a list of records to update and a mapping of updated fields to values "
+"similar to :meth:`~openerp.models.Model.create`."
+msgstr ""
+
+#: ../../api_integration.rst:856
+msgid ""
+"Multiple records can be updated simultanously, but they will all get the "
+"same values for the fields being set. It is not currently possible to "
+"perform \"computed\" updates (where the value being set depends on an "
+"existing value of a record)."
+msgstr ""
+
+#: ../../api_integration.rst:911
+msgid "Delete records"
+msgstr ""
+
+#: ../../api_integration.rst:913
+msgid ""
+"Records can be deleted in bulk by providing their ids to :meth:`~openerp."
+"models.Model.unlink`."
+msgstr ""
+
+#: ../../api_integration.rst:962
+msgid "Inspection and introspection"
+msgstr ""
+
+#: ../../api_integration.rst:969
+msgid ""
+"While we previously used :meth:`~openerp.models.Model.fields_get` to query "
+"a model and have been using an arbitrary model from the start, Odoo stores "
+"most model metadata inside a few meta-models which allow both querying the "
+"system and altering models and fields (with some limitations) on the fly "
+"over XML-RPC."
+msgstr ""
+
+#: ../../api_integration.rst:978
+msgid "``ir.model``"
+msgstr ""
+
+#: ../../api_integration.rst:980
+msgid "Provides information about Odoo models via its various fields"
+msgstr ""
+
+#: ../../api_integration.rst:982 ../../api_integration.rst:1131
+#: ../../api_integration.rst:1429
+msgid "``name``"
+msgstr ""
+
+#: ../../api_integration.rst:983
+msgid "a human-readable description of the model"
+msgstr ""
+
+#: ../../api_integration.rst:984 ../../api_integration.rst:1427
+msgid "``model``"
+msgstr ""
+
+#: ../../api_integration.rst:985
+msgid "the name of each model in the system"
+msgstr ""
+
+#: ../../api_integration.rst:987 ../../api_integration.rst:1138
+msgid "``state``"
+msgstr ""
+
+#: ../../api_integration.rst:987
+msgid ""
+"whether the model was generated in Python code (``base``) or by creating an "
+"``ir.model`` record (``manual``)"
+msgstr ""
+
+#: ../../api_integration.rst:990
+msgid "``field_id``"
+msgstr ""
+
+#: ../../api_integration.rst:990
+msgid ""
+"list of the model's fields through a :class:`~openerp.fields.One2many` to :"
+"ref:`reference/webservice/inspection/fields`"
+msgstr ""
+
+#: ../../api_integration.rst:993
+msgid "``view_ids``"
+msgstr ""
+
+#: ../../api_integration.rst:993
+msgid ""
+":class:`~openerp.fields.One2many` to the :ref:`reference/views` defined for "
+"the model"
+msgstr ""
+
+#: ../../api_integration.rst:997
+msgid "``access_ids``"
+msgstr ""
+
+#: ../../api_integration.rst:996
+msgid ""
+":class:`~openerp.fields.One2many` relation to the :ref:`reference/security/"
+"acl` set on the model"
+msgstr ""
+
+#: ../../api_integration.rst:999
+msgid "``ir.model`` can be used to"
+msgstr ""
+
+#: ../../api_integration.rst:1001
+msgid ""
+"query the system for installed models (as a precondition to operations on "
+"the model or to explore the system's content)"
+msgstr ""
+
+#: ../../api_integration.rst:1003
+msgid ""
+"get information about a specific model (generally by listing the fields "
+"associated with it)"
+msgstr ""
+
+#: ../../api_integration.rst:1005
+msgid "create new models dynamically over RPC"
+msgstr ""
+
+#: ../../api_integration.rst:1009
+msgid "\"custom\" model names must start with ``x_``"
+msgstr ""
+
+#: ../../api_integration.rst:1010
+msgid ""
+"the ``state`` must be provided and ``manual``, otherwise the model will not "
+"be loaded"
+msgstr ""
+
+#: ../../api_integration.rst:1012
+msgid "it is not possible to add new *methods* to a custom model, only fields"
+msgstr ""
+
+#: ../../api_integration.rst:1016
+msgid ""
+"a custom model will initially contain only the \"built-in\" fields "
+"available on all models:"
+msgstr ""
+
+#: ../../api_integration.rst:1123
+msgid "``ir.model.fields``"
+msgstr ""
+
+#: ../../api_integration.rst:1125
+msgid ""
+"Provides information about the fields of Odoo models and allows adding "
+"custom fields without using Python code"
+msgstr ""
+
+#: ../../api_integration.rst:1129
+msgid "``model_id``"
+msgstr ""
+
+#: ../../api_integration.rst:1129
+msgid ""
+":class:`~openerp.fields.Many2one` to :ref:`reference/webservice/inspection/"
+"models` to which the field belongs"
+msgstr ""
+
+#: ../../api_integration.rst:1132
+msgid "the field's technical name (used in ``read`` or ``write``)"
+msgstr ""
+
+#: ../../api_integration.rst:1133
+msgid "``field_description``"
+msgstr ""
+
+#: ../../api_integration.rst:1134
+msgid "the field's user-readable label (e.g. ``string`` in ``fields_get``)"
+msgstr ""
+
+#: ../../api_integration.rst:1135
+msgid "``ttype``"
+msgstr ""
+
+#: ../../api_integration.rst:1136
+msgid "the :ref:`type <reference/orm/fields>` of field to create"
+msgstr ""
+
+#: ../../api_integration.rst:1138
+msgid ""
+"whether the field was created via Python code (``base``) or via ``ir.model."
+"fields`` (``manual``)"
+msgstr ""
+
+#: ../../api_integration.rst:1140
+msgid "``required``, ``readonly``, ``translate``"
+msgstr ""
+
+#: ../../api_integration.rst:1141
+msgid "enables the corresponding flag on the field"
+msgstr ""
+
+#: ../../api_integration.rst:1143
+msgid "``groups``"
+msgstr ""
+
+#: ../../api_integration.rst:1143
+msgid ""
+":ref:`field-level access control <reference/security/fields>`, a :class:"
+"`~openerp.fields.Many2many` to ``res.groups``"
+msgstr ""
+
+#: ../../api_integration.rst:1147
+msgid ""
+"``selection``, ``size``, ``on_delete``, ``relation``, ``relation_field``, "
+"``domain``"
+msgstr ""
+
+#: ../../api_integration.rst:1146
+msgid ""
+"type-specific properties and customizations, see :ref:`the fields "
+"documentation <reference/orm/fields>` for details"
+msgstr ""
+
+#: ../../api_integration.rst:1149
+msgid ""
+"Like custom models, only new fields created with ``state=\"manual\"`` are "
+"activated as actual fields on the model."
+msgstr ""
+
+#: ../../api_integration.rst:1152
+msgid ""
+"computed fields can not be added via ``ir.model.fields``, some field meta-"
+"information (defaults, onchange) can not be set either"
+msgstr ""
+
+#: ../../api_integration.rst:1299
+msgid "Workflow manipulations"
+msgstr ""
+
+#: ../../api_integration.rst:1301
+msgid ""
+":ref:`reference/workflows` can be moved along by sending them *signals*. "
+"Instead of using the top-level ``execute_kw``, signals are sent using "
+"``exec_workflow``."
+msgstr ""
+
+#: ../../api_integration.rst:1305
+msgid ""
+"Signals are sent to a specific record, and possibly trigger a transition on "
+"the workflow instance associated with the record."
+msgstr ""
+
+#: ../../api_integration.rst:1310
+msgid "this example needs ``account`` module installed"
+msgstr ""
+
+#: ../../api_integration.rst:1421
+msgid "Report printing"
+msgstr ""
+
+#: ../../api_integration.rst:1423
+msgid ""
+"Available reports can be listed by searching the ``ir.actions.report.xml`` "
+"model, fields of interest being"
+msgstr ""
+
+#: ../../api_integration.rst:1427
+msgid ""
+"the model on which the report applies, can be used to look for available "
+"reports on a specific model"
+msgstr ""
+
+#: ../../api_integration.rst:1430
+msgid "human-readable report name"
+msgstr ""
+
+#: ../../api_integration.rst:1432
+msgid "``report_name``"
+msgstr ""
+
+#: ../../api_integration.rst:1432
+msgid "the technical name of the report, used to print it"
+msgstr ""
+
+#: ../../api_integration.rst:1434
+msgid "Reports can be printed over RPC with the following information:"
+msgstr ""
+
+#: ../../api_integration.rst:1436
+msgid "the name of the report (``report_name``)"
+msgstr ""
+
+#: ../../api_integration.rst:1437
+msgid "the ids of the records to include in the report"
+msgstr ""
+
+#: ../../api_integration.rst:1502
+msgid ""
+"the report is sent as PDF binary data encoded in base64_, it must be "
+"decoded and may need to be saved to disk before use"
+msgstr ""

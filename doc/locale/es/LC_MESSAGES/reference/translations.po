@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/translations.rst:8
+msgid "Translating Modules"
+msgstr ""
+
+#: ../../reference/translations.rst:11
+msgid "Exporting translatable term"
+msgstr ""
+
+#: ../../reference/translations.rst:13
+msgid ""
+"A number of terms in your modules are \"implicitly translatable\" as a "
+"result, even if you haven't done any specific work towards translation "
+"you can export your module's translatable terms and may find content to "
+"work with."
+msgstr ""
+
+#: ../../reference/translations.rst:19
+msgid ""
+"Translations export is performed via the administration interface by "
+"logging into the backend interface and opening :menuselection:`Settings "
+"--> Translations --> Import / Export --> Export Translations`"
+msgstr ""
+
+#: ../../reference/translations.rst:23
+msgid "leave the language to the default (new language/empty template)"
+msgstr ""
+
+#: ../../reference/translations.rst:24
+msgid "select the `PO File`_ format"
+msgstr ""
+
+#: ../../reference/translations.rst:25
+msgid "select your module"
+msgstr ""
+
+#: ../../reference/translations.rst:26
+msgid "click :guilabel:`Export` and download the file"
+msgstr ""
+
+#: ../../reference/translations.rst:32
+msgid ""
+"This gives you a file called :file:`{yourmodule}.pot` which should be "
+"moved to the :file:`{yourmodule}/i18n/` directory. The file is a *PO "
+"Template* which simply lists translatable strings and from which actual "
+"translations (PO files) can be created. PO files can be created using "
+"msginit_, with a dedicated translation tool like POEdit_ or by simply "
+"copying the template to a new file called :file:`{language}.po`. "
+"Translation files should be put in :file:`{yourmodule}/i18n/`, next to "
+":file:`{yourmodule}.pot`, and will be automatically loaded by Odoo when "
+"the corresponding language is installed (via :menuselection:`Settings -->"
+" Translations --> Load a Translation`)"
+msgstr ""
+
+#: ../../reference/translations.rst:42
+msgid ""
+"translations for all loaded languages are also installed or updated when "
+"installing or updating a module"
+msgstr ""
+
+#: ../../reference/translations.rst:46
+msgid "Implicit exports"
+msgstr ""
+
+#: ../../reference/translations.rst:48
+msgid ""
+"Odoo automatically exports translatable strings from \"data\"-type "
+"content:"
+msgstr ""
+
+#: ../../reference/translations.rst:50
+msgid ""
+"in non-QWeb views, all text nodes are exported as well as the content of "
+"the ``string``, ``help``, ``sum``, ``confirm`` and ``placeholder`` "
+"attributes"
+msgstr ""
+
+#: ../../reference/translations.rst:53
+msgid ""
+"QWeb templates (both server-side and client-side), all text nodes are "
+"exported except inside ``t-translation=\"off\"`` blocks, the content of "
+"the ``title``, ``alt``, ``label`` and ``placeholder`` attributes are also"
+" exported"
+msgstr ""
+
+#: ../../reference/translations.rst:57
+msgid ""
+"for :class:`~openerp.fields.Field`, unless their model is marked with "
+"``_translate = False``:"
+msgstr ""
+
+#: ../../reference/translations.rst:60
+msgid "their ``string`` and ``help`` attributes are exported"
+msgstr ""
+
+#: ../../reference/translations.rst:61
+msgid "if ``selection`` is present and a list (or tuple), it's exported"
+msgstr ""
+
+#: ../../reference/translations.rst:62
+msgid ""
+"if their ``translate`` attribute is set to ``True``, all of their "
+"existing values (across all records) are exported"
+msgstr ""
+
+#: ../../reference/translations.rst:64
+msgid ""
+"help/error messages of :attr:`~openerp.models.Model._constraints` and "
+":attr:`~openerp.models.Model._sql_constraints` are exported"
+msgstr ""
+
+#: ../../reference/translations.rst:68
+msgid "Explicit exports"
+msgstr ""
+
+#: ../../reference/translations.rst:70
+msgid ""
+"When it comes to more \"imperative\" situations in Python code or "
+"Javascript code, Odoo cannot automatically export translatable terms so "
+"they must be marked explicitly for export. This is done by wrapping a "
+"literal string in a function call."
+msgstr ""
+
+#: ../../reference/translations.rst:75
+msgid "In Python, the wrapping function is :func:`openerp._`::"
+msgstr ""
+
+#: ../../reference/translations.rst:79
+msgid ""
+"In JavaScript, the wrapping function is generally "
+":js:func:`openerp.web._t`:"
+msgstr ""
+
+#: ../../reference/translations.rst:87
+msgid ""
+"Only literal strings can be marked for exports, not expressions or "
+"variables. For situations where strings are formatted, this means the "
+"format string must be marked, not the formatted string::"
+msgstr ""
+

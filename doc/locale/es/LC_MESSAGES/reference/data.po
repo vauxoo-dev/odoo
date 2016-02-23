@@ -1,0 +1,1292 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/data.rst:7
+msgid "Data Files"
+msgstr ""
+
+#: ../../reference/data.rst:9
+msgid ""
+"Odoo is greatly data-driven, and a big part of modules definition is thus"
+" the definition of the various records it manages: UI (menus and views), "
+"security (access rights and access rules), reports and plain data are all"
+" defined via records."
+msgstr ""
+
+#: ../../reference/data.rst:15
+msgid "Structure"
+msgstr ""
+
+#: ../../reference/data.rst:17
+msgid ""
+"The main way to define data in Odoo is via XML data files: The broad "
+"structure of an XML data file is the following:"
+msgstr ""
+
+#: ../../reference/data.rst:20
+msgid "Any number of operation elements within the root element ``odoo``"
+msgstr ""
+
+#: ../../reference/data.rst:30
+msgid ""
+"Data files are executed sequentially, operations can only refer to the "
+"result of operations defined previously"
+msgstr ""
+
+#: ../../reference/data.rst:34
+msgid "Core operations"
+msgstr ""
+
+#: ../../reference/data.rst:39
+msgid "``record``"
+msgstr ""
+
+#: ../../reference/data.rst:41
+msgid ""
+"``record`` appropriately defines or updates a database record, it has the"
+" following attributes:"
+msgstr ""
+
+#: ../../reference/data.rst:44 ../../reference/data.rst:134
+msgid "``model`` (required)"
+msgstr ""
+
+#: ../../reference/data.rst:45
+msgid "name of the model to create (or update)"
+msgstr ""
+
+#: ../../reference/data.rst:51 ../../reference/data.rst:136
+#: ../../reference/data.rst:200 ../../reference/data.rst:210
+msgid "``id``"
+msgstr ""
+
+#: ../../reference/data.rst:47
+msgid ""
+"the :term:`external identifier` for this record. It is strongly "
+"recommended to provide one"
+msgstr ""
+
+#: ../../reference/data.rst:50
+msgid ""
+"for record creation, allows subsequent definitions to either modify or "
+"refer to this record"
+msgstr ""
+
+#: ../../reference/data.rst:52
+msgid "for record modification, the record to modify"
+msgstr ""
+
+#: ../../reference/data.rst:53
+msgid "``context``"
+msgstr ""
+
+#: ../../reference/data.rst:54
+msgid "context to use when creating the record"
+msgstr ""
+
+#: ../../reference/data.rst:58
+msgid "``forcecreate``"
+msgstr ""
+
+#: ../../reference/data.rst:56
+msgid "in update mode whether the record should be created if it doesn't exist"
+msgstr ""
+
+#: ../../reference/data.rst:58
+msgid "Requires an :term:`external id`, defaults to ``True``."
+msgstr ""
+
+#: ../../reference/data.rst:61
+msgid "``field``"
+msgstr ""
+
+#: ../../reference/data.rst:63
+msgid ""
+"Each record can be composed of ``field`` tags, defining values to set "
+"when creating the record. A ``record`` with no ``field`` will use all "
+"default values (creation) or do nothing (update)."
+msgstr ""
+
+#: ../../reference/data.rst:67
+msgid ""
+"A ``field`` has a mandatory ``name`` attribute, the name of the field to "
+"set, and various methods to define the value itself:"
+msgstr ""
+
+#: ../../reference/data.rst:72
+msgid "Nothing"
+msgstr ""
+
+#: ../../reference/data.rst:71
+msgid ""
+"if no value is provided for the field, an implicit ``False`` will be set "
+"on the field. Can be used to clear a field, or avoid using a default "
+"value for the field."
+msgstr ""
+
+#: ../../reference/data.rst:79 ../../reference/data.rst:140
+msgid "``search``"
+msgstr ""
+
+#: ../../reference/data.rst:75
+msgid ""
+"for :ref:`relational fields <reference/orm/fields/relational>`, should be"
+" a :ref:`domain <reference/orm/domains>` on the field's model."
+msgstr ""
+
+#: ../../reference/data.rst:78
+msgid ""
+"Will evaluate the domain, search the field's model using it and set the "
+"search's result as the field's value. Will only use the first result if "
+"the field is a :class:`~openerp.fields.Many2one`"
+msgstr ""
+
+#: ../../reference/data.rst:85
+msgid "``ref``"
+msgstr ""
+
+#: ../../reference/data.rst:82
+msgid ""
+"if a ``ref`` attribute is provided, its value must be a valid "
+":term:`external id`, which will be looked up and set as the field's "
+"value."
+msgstr ""
+
+#: ../../reference/data.rst:85
+msgid ""
+"Mostly for :class:`~openerp.fields.Many2one` and "
+":class:`~openerp.fields.Reference` fields"
+msgstr ""
+
+#: ../../reference/data.rst:116
+msgid "``type``"
+msgstr ""
+
+#: ../../reference/data.rst:88
+msgid ""
+"if a ``type`` attribute is provided, it is used to interpret and convert "
+"the field's content. The field's content can be provided through an "
+"external file using the ``file`` attribute, or through the node's body."
+msgstr ""
+
+#: ../../reference/data.rst:92
+msgid "Available types are:"
+msgstr ""
+
+#: ../../reference/data.rst:96
+msgid "``xml``, ``html``"
+msgstr ""
+
+#: ../../reference/data.rst:95
+#, python-format
+msgid ""
+"extracts the ``field``'s children as a single document, evaluates any "
+":term:`external id` specified with the form ``%(external_id)s``. ``%%`` "
+"can be used to output actual *%* signs."
+msgstr ""
+
+#: ../../reference/data.rst:99
+msgid "``file``"
+msgstr ""
+
+#: ../../reference/data.rst:99
+msgid ""
+"ensures that the field content is a valid file path in the current model,"
+" saves the pair :samp:`{module},{path}` as the field value"
+msgstr ""
+
+#: ../../reference/data.rst:102
+msgid "``char``"
+msgstr ""
+
+#: ../../reference/data.rst:102
+msgid "sets the field content directly as the field's value without alterations"
+msgstr ""
+
+#: ../../reference/data.rst:105
+msgid "``base64``"
+msgstr ""
+
+#: ../../reference/data.rst:105
+msgid ""
+"base64_-encodes the field's content, useful combined with the ``file`` "
+"*attribute* to load e.g. image data into attachments"
+msgstr ""
+
+#: ../../reference/data.rst:108
+msgid "``int``"
+msgstr ""
+
+#: ../../reference/data.rst:108
+msgid ""
+"converts the field's content to an integer and sets it as the field's "
+"value"
+msgstr ""
+
+#: ../../reference/data.rst:111
+msgid "``float``"
+msgstr ""
+
+#: ../../reference/data.rst:111
+msgid "converts the field's content to a float and sets it as the field's value"
+msgstr ""
+
+#: ../../reference/data.rst:116
+msgid "``list``, ``tuple``"
+msgstr ""
+
+#: ../../reference/data.rst:114
+msgid ""
+"should contain any number of ``value`` elements with the same properties "
+"as ``field``, each element resolves to an item of a generated tuple or "
+"list, and the generated collection is set as the field's value"
+msgstr ""
+
+#: ../../reference/data.rst:126
+msgid "``eval``"
+msgstr ""
+
+#: ../../reference/data.rst:119
+msgid ""
+"for cases where the previous methods are unsuitable, the ``eval`` "
+"attributes simply evaluates whatever Python expression it is provided and"
+" sets the result as the field's value."
+msgstr ""
+
+#: ../../reference/data.rst:123
+msgid ""
+"The evaluation context contains various modules (``time``, ``datetime``, "
+"``timedelta``, ``relativedelta``), a function to resolve :term:`external "
+"identifiers` (``ref``) and the model object for the current field if "
+"applicable (``obj``)"
+msgstr ""
+
+#: ../../reference/data.rst:129
+msgid "``delete``"
+msgstr ""
+
+#: ../../reference/data.rst:131
+msgid ""
+"The ``delete`` tag can remove any number of records previously defined. "
+"It has the following attributes:"
+msgstr ""
+
+#: ../../reference/data.rst:135
+msgid "the model in which a specified record should be deleted"
+msgstr ""
+
+#: ../../reference/data.rst:137
+msgid "the :term:`external id` of a record to remove"
+msgstr ""
+
+#: ../../reference/data.rst:139
+msgid ""
+"a :ref:`domain <reference/orm/domains>` to find records of the model to "
+"remove"
+msgstr ""
+
+#: ../../reference/data.rst:142
+msgid "``id`` and ``search`` are exclusive"
+msgstr ""
+
+#: ../../reference/data.rst:145
+msgid "``function``"
+msgstr ""
+
+#: ../../reference/data.rst:147
+msgid ""
+"The ``function`` tag calls a method on a model, with provided parameters."
+" It has two mandatory parameters ``model`` and ``name`` specifying "
+"respectively the model and the name of the method to call."
+msgstr ""
+
+#: ../../reference/data.rst:151
+msgid ""
+"Parameters can be provided using ``eval`` (should evaluate to a sequence "
+"of parameters to call the method with) or ``value`` elements (see "
+"``list`` values)."
+msgstr ""
+
+#: ../../reference/data.rst:156
+msgid "``workflow``"
+msgstr ""
+
+#: ../../reference/data.rst:158
+msgid ""
+"The ``workflow`` tag sends a signal to an existing workflow. The workflow"
+" can be specified via a ``ref`` attribute (the :term:`external id` of an "
+"existing workflow) or a ``value`` tag returning the id of a workflow."
+msgstr ""
+
+#: ../../reference/data.rst:162
+msgid ""
+"The tag also has two mandatory attributes ``model`` (the model linked to "
+"the workflow) and ``action`` (the name of the signal to send to the "
+"workflow)."
+msgstr ""
+
+#: ../../reference/data.rst:168
+msgid "Shortcuts"
+msgstr ""
+
+#: ../../reference/data.rst:170
+msgid ""
+"Because some important structural models of Odoo are complex and "
+"involved, data files provide shorter alternatives to defining them using "
+":ref:`record tags <reference/data/record>`:"
+msgstr ""
+
+#: ../../reference/data.rst:175
+msgid "``menuitem``"
+msgstr ""
+
+#: ../../reference/data.rst:177
+msgid "Defines an ``ir.ui.menu`` record with a number of defaults and fallbacks:"
+msgstr ""
+
+#: ../../reference/data.rst:186
+msgid "Parent menu"
+msgstr ""
+
+#: ../../reference/data.rst:180
+msgid ""
+"If a ``parent`` attribute is set, it should be the :term:`external id` of"
+" an other menu item, used as the new item's parent"
+msgstr ""
+
+#: ../../reference/data.rst:182
+msgid ""
+"If no ``parent`` is provided, tries to interpret the ``name`` attribute "
+"as a ``/``-separated sequence of menu names and find a place in the menu "
+"hierarchy. In that interpretation, intermediate menus are automatically "
+"created"
+msgstr ""
+
+#: ../../reference/data.rst:186
+msgid ""
+"Otherwise the menu is defined as a \"top-level\" menu item (*not* a menu "
+"with no parent)"
+msgstr ""
+
+#: ../../reference/data.rst:189
+msgid "Menu name"
+msgstr ""
+
+#: ../../reference/data.rst:189
+msgid ""
+"If no ``name`` attribute is specified, tries to get the menu name from a "
+"linked action if any. Otherwise uses the record's ``id``"
+msgstr ""
+
+#: ../../reference/data.rst:194
+msgid "Groups"
+msgstr ""
+
+#: ../../reference/data.rst:192
+msgid ""
+"A ``groups`` attribute is interpreted as a comma-separated sequence of "
+":term:`external identifiers` for ``res.groups`` models. If an "
+":term:`external identifier` is prefixed with a minus (``-``), the group "
+"is *removed* from the menu's groups"
+msgstr ""
+
+#: ../../reference/data.rst:197
+msgid "``action``"
+msgstr ""
+
+#: ../../reference/data.rst:197
+msgid ""
+"if specified, the ``action`` attribute should be the :term:`external id` "
+"of an action to execute when the menu is open"
+msgstr ""
+
+#: ../../reference/data.rst:200
+msgid "the menu item's :term:`external id`"
+msgstr ""
+
+#: ../../reference/data.rst:205
+msgid "``template``"
+msgstr ""
+
+#: ../../reference/data.rst:207
+msgid ""
+"Creates a :ref:`QWeb view <reference/views/qweb>` requiring only the "
+"``arch`` section of the view, and allowing a few *optional* attributes:"
+msgstr ""
+
+#: ../../reference/data.rst:211
+msgid "the view's :term:`external identifier`"
+msgstr ""
+
+#: ../../reference/data.rst:213
+msgid "``name``, ``inherit_id``, ``priority``"
+msgstr ""
+
+#: ../../reference/data.rst:213
+msgid ""
+"same as the corresponding field on ``ir.ui.view`` (nb: ``inherit_id`` "
+"should be an :term:`external identifier`)"
+msgstr ""
+
+#: ../../reference/data.rst:216
+msgid "``primary``"
+msgstr ""
+
+#: ../../reference/data.rst:216
+msgid ""
+"if set to ``True`` and combined with a ``inherit_id``, defines the view "
+"as a primary"
+msgstr ""
+
+#: ../../reference/data.rst:218
+msgid "``groups``"
+msgstr ""
+
+#: ../../reference/data.rst:219
+msgid "comma-separated list of group :term:`external identifiers`"
+msgstr ""
+
+#: ../../reference/data.rst:221
+msgid "``page``"
+msgstr ""
+
+#: ../../reference/data.rst:221
+msgid ""
+"if set to ``\"True\"``, the template is a website page (linkable to, "
+"deletable)"
+msgstr ""
+
+#: ../../reference/data.rst:226
+msgid "``optional``"
+msgstr ""
+
+#: ../../reference/data.rst:224
+msgid ""
+"``enabled`` or ``disabled``, whether the view can be disabled (in the "
+"website interface) and its default status. If unset, the view is always "
+"enabled."
+msgstr ""
+
+#: ../../reference/data.rst:229
+msgid "``report``"
+msgstr ""
+
+#: ../../reference/data.rst:231
+msgid "Creates a ``ir.actions.report.xml`` record with a few default values."
+msgstr ""
+
+#: ../../reference/data.rst:233
+msgid ""
+"Mostly just proxies attributes to the corresponding fields on "
+"``ir.actions.report.xml``, but also automatically creates the item in the"
+" :guilabel:`More` menu of the report's ``model``."
+msgstr ""
+
+#: ../../reference/data.rst:240
+msgid "CSV data files"
+msgstr ""
+
+#: ../../reference/data.rst:242
+msgid ""
+"XML data files are flexible and self-descriptive, but very verbose when "
+"creating a number of simple records of the same model in bulk."
+msgstr ""
+
+#: ../../reference/data.rst:245
+msgid ""
+"For this case, data files can also use csv_, this is often the case for "
+":ref:`access rights <reference/security/acl>`:"
+msgstr ""
+
+#: ../../reference/data.rst:248
+msgid "the file name is :file:`{model_name}.csv`"
+msgstr ""
+
+#: ../../reference/data.rst:249
+msgid ""
+"the first row lists the fields to write, with the special field ``id`` "
+"for :term:`external identifiers` (used for creation or update)"
+msgstr ""
+
+#: ../../reference/data.rst:251
+msgid "each row thereafter creates a new record"
+msgstr ""
+
+#: ../../reference/data.rst:253
+msgid ""
+"Here's the first lines of the data file defining US states "
+"``res.country.state.csv``"
+msgstr ""
+
+#: ../../reference/data.rst:260
+msgid "rendered in a more readable format:"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "id"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "country_id:id"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "name"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "code"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_1"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "au"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Australian Capital Territory"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "ACT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_2"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "New South Wales"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NSW"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_3"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Northern Territory"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_4"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Queensland"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "QLD"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_5"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "South Australia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "SA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_6"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Tasmania"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "TAS"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_7"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Victoria"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "VIC"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_au_8"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Western Australia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "WA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_1"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "us"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Alabama"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "AL"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_2"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Alaska"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "AK"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_3"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Arizona"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "AZ"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_4"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Arkansas"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "AR"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_5"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "California"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "CA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_6"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Colorado"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "CO"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_7"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Connecticut"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "CT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_8"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Delaware"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "DE"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_9"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "District of Columbia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "DC"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_10"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Florida"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "FL"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_11"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Georgia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "GA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_12"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Hawaii"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "HI"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_13"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Idaho"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "ID"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_14"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Illinois"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "IL"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_15"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Indiana"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "IN"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_16"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Iowa"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "IA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_17"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Kansas"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "KS"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_18"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Kentucky"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "KY"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_19"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Louisiana"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "LA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_20"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Maine"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "ME"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_21"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Montana"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_22"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Nebraska"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NE"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_23"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Nevada"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NV"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_24"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "New Hampshire"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NH"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_25"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "New Jersey"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NJ"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_26"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "New Mexico"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NM"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_27"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "New York"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NY"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_28"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "North Carolina"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "NC"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_29"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "North Dakota"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "ND"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_30"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Ohio"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "OH"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_31"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Oklahoma"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "OK"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_32"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Oregon"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "OR"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_33"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Maryland"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MD"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_34"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Massachusetts"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_35"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Michigan"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MI"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_36"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Minnesota"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MN"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_37"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Mississippi"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MS"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_38"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Missouri"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "MO"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_39"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Pennsylvania"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "PA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_40"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Rhode Island"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "RI"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_41"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "South Carolina"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "SC"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_42"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "South Dakota"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "SD"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_43"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Tennessee"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "TN"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_44"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Texas"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "TX"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_45"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Utah"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "UT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_46"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Vermont"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "VT"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_47"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Virginia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "VA"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_48"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Washington"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_49"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "West Virginia"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "WV"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_50"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Wisconsin"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "WI"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "state_us_51"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "Wyoming"
+msgstr ""
+
+#: ../../../openerp/addons/base/res/res.country.state.csv:1
+msgid "WY"
+msgstr ""
+
+#: ../../reference/data.rst:267
+msgid "For each row (record):"
+msgstr ""
+
+#: ../../reference/data.rst:269
+msgid ""
+"the first column is the :term:`external id` of the record to create or "
+"update"
+msgstr ""
+
+#: ../../reference/data.rst:271
+msgid ""
+"the second column is the :term:`external id` of the country object to "
+"link to (country objects must have been defined beforehand)"
+msgstr ""
+
+#: ../../reference/data.rst:273
+msgid "the third column is the ``name`` field for ``res.country.state``"
+msgstr ""
+
+#: ../../reference/data.rst:274
+msgid "the fourth column is the ``code`` field for ``res.country.state``"
+msgstr ""
+

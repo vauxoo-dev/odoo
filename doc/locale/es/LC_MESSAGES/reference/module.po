@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/module.rst:5
+msgid "Modules"
+msgstr ""
+
+#: ../../reference/module.rst:12
+msgid "Manifest"
+msgstr ""
+
+#: ../../reference/module.rst:14
+msgid ""
+"The manifest file serves to declare a python package as an Odoo module "
+"and to specify module metadata."
+msgstr ""
+
+#: ../../reference/module.rst:17
+msgid ""
+"It is a file called ``__openerp__.py`` and contains a single Python "
+"dictionary, where each key specifies module metadatum."
+msgstr ""
+
+#: ../../reference/module.rst:41
+msgid "Available manifest fields are:"
+msgstr ""
+
+#: ../../reference/module.rst:43
+msgid "``name`` (``str``, required)"
+msgstr ""
+
+#: ../../reference/module.rst:44
+msgid "the human-readable name of the module"
+msgstr ""
+
+#: ../../reference/module.rst:45
+msgid "``version`` (``str``)"
+msgstr ""
+
+#: ../../reference/module.rst:46
+msgid "this module's version, should follow `semantic versioning`_ rules"
+msgstr ""
+
+#: ../../reference/module.rst:47
+msgid "``description`` (``str``)"
+msgstr ""
+
+#: ../../reference/module.rst:48
+msgid "extended description for the module, in reStructuredText"
+msgstr ""
+
+#: ../../reference/module.rst:49
+msgid "``author`` (``str``)"
+msgstr ""
+
+#: ../../reference/module.rst:50
+msgid "name of the module author"
+msgstr ""
+
+#: ../../reference/module.rst:51
+msgid "``website`` (``str``)"
+msgstr ""
+
+#: ../../reference/module.rst:52
+msgid "website URL for the module author"
+msgstr ""
+
+#: ../../reference/module.rst:53
+msgid "``license`` (``str``, defaults: ``LGPL-3``)"
+msgstr ""
+
+#: ../../reference/module.rst:54
+msgid "distribution license for the module"
+msgstr ""
+
+#: ../../reference/module.rst:61
+msgid "``category`` (``str``, default: ``Uncategorized``)"
+msgstr ""
+
+#: ../../reference/module.rst:56
+msgid "classification category within Odoo, rough business domain for the module."
+msgstr ""
+
+#: ../../reference/module.rst:58
+msgid ""
+"Although using `existing categories`_ is recommended, the field is "
+"freeform and unknown categories are created on-the-fly. Category "
+"hierarchies can be created using the separator ``/`` e.g. ``Foo / Bar`` "
+"will create a category ``Foo``, a category ``Bar`` as child category of "
+"``Foo``, and will set ``Bar`` as the module's category."
+msgstr ""
+
+#: ../../reference/module.rst:68
+msgid "``depends`` (``list(str)``)"
+msgstr ""
+
+#: ../../reference/module.rst:64
+msgid ""
+"Odoo modules which must be loaded before this one, either because this "
+"module uses features they create or because it alters resources they "
+"define."
+msgstr ""
+
+#: ../../reference/module.rst:68
+msgid ""
+"When a module is installed, all of its dependencies are installed before "
+"it. Likewise dependencies are loaded before a module is loaded."
+msgstr ""
+
+#: ../../reference/module.rst:71
+msgid "``data`` (``list(str)``)"
+msgstr ""
+
+#: ../../reference/module.rst:71
+msgid ""
+"List of data files which must always be installed or updated with the "
+"module. A list of paths from the module root directory"
+msgstr ""
+
+#: ../../reference/module.rst:74
+msgid "``demo`` (``list(str)``)"
+msgstr ""
+
+#: ../../reference/module.rst:74
+msgid ""
+"List of data files which are only installed or updated in *demonstration "
+"mode*"
+msgstr ""
+
+#: ../../reference/module.rst:86
+msgid "``auto_install`` (``bool``, default: ``False``)"
+msgstr ""
+
+#: ../../reference/module.rst:77
+msgid ""
+"If ``True``, this module will automatically be installed if all of its "
+"dependencies are installed."
+msgstr ""
+
+#: ../../reference/module.rst:80
+msgid ""
+"It is generally used for \"link modules\" implementing synergic "
+"integration between two otherwise independent modules."
+msgstr ""
+
+#: ../../reference/module.rst:83
+msgid ""
+"For instance ``sale_crm`` depends on both ``sale`` and ``crm`` and is set"
+" to ``auto_install``. When both ``sale`` and ``crm`` are installed, it "
+"automatically adds CRM campaigns tracking to sale orders without either "
+"``sale`` or ``crm`` being aware of one another"
+msgstr ""
+

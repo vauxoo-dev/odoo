@@ -1,0 +1,2280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: ../../reference/views.rst:8
+msgid "Views"
+msgstr ""
+
+#: ../../reference/views.rst:13
+msgid "Common Structure"
+msgstr ""
+
+#: ../../reference/views.rst:15
+msgid ""
+"View objects expose a number of fields, they are optional unless "
+"specified otherwise."
+msgstr ""
+
+#: ../../reference/views.rst:19 ../../reference/views.rst:354
+msgid "``name`` (mandatory)"
+msgstr ""
+
+#: ../../reference/views.rst:19
+msgid ""
+"only useful as a mnemonic/description of the view when looking for one in"
+" a list of some sort"
+msgstr ""
+
+#: ../../reference/views.rst:21
+msgid "``model``"
+msgstr ""
+
+#: ../../reference/views.rst:22
+msgid "the model linked to the view, if applicable (it doesn't for QWeb views)"
+msgstr ""
+
+#: ../../reference/views.rst:29
+msgid "``priority``"
+msgstr ""
+
+#: ../../reference/views.rst:24
+msgid ""
+"client programs can request views by ``id``, or by ``(model, type)``. For"
+" the latter, all the views for the right type and model will be searched,"
+" and the one with the lowest ``priority`` number will be returned (it is "
+"the \"default view\")."
+msgstr ""
+
+#: ../../reference/views.rst:29
+msgid ""
+"``priority`` also defines the order of application during :ref:`view "
+"inheritance <reference/views/inheritance>`"
+msgstr ""
+
+#: ../../reference/views.rst:31
+msgid "``arch``"
+msgstr ""
+
+#: ../../reference/views.rst:32
+msgid "the description of the view's layout"
+msgstr ""
+
+#: ../../reference/views.rst:34
+msgid "``groups_id``"
+msgstr ""
+
+#: ../../reference/views.rst:34
+msgid ""
+":class:`~openerp.fields.Many2many` field to the groups allowed to "
+"view/use the current view"
+msgstr ""
+
+#: ../../reference/views.rst:37
+msgid "``inherit_id``"
+msgstr ""
+
+#: ../../reference/views.rst:37
+msgid ""
+"the current view's parent view, see :ref:`reference/views/inheritance`, "
+"unset by default"
+msgstr ""
+
+#: ../../reference/views.rst:42 ../../reference/views.rst:416
+#: ../../reference/views.rst:979
+msgid "``mode``"
+msgstr ""
+
+#: ../../reference/views.rst:40
+msgid ""
+"inheritance mode, see :ref:`reference/views/inheritance`. If "
+"``inherit_id`` is unset the ``mode`` can only be ``primary``. If "
+"``inherit_id`` is set, ``extension`` by default but can be explicitly set"
+" to ``primary``"
+msgstr ""
+
+#: ../../reference/views.rst:46
+msgid "``application``"
+msgstr ""
+
+#: ../../reference/views.rst:45
+msgid ""
+"website feature defining togglable views. By default, views are always "
+"applied"
+msgstr ""
+
+#: ../../reference/views.rst:51
+msgid "Inheritance"
+msgstr ""
+
+#: ../../reference/views.rst:54
+msgid "View matching"
+msgstr ""
+
+#: ../../reference/views.rst:56
+msgid ""
+"if a view is requested by ``(model, type)``, the view with the right "
+"model and type, ``mode=primary`` and the lowest priority is matched"
+msgstr ""
+
+#: ../../reference/views.rst:58
+msgid ""
+"when a view is requested by ``id``, if its mode is not ``primary`` its "
+"*closest* parent with mode ``primary`` is matched"
+msgstr ""
+
+#: ../../reference/views.rst:62
+msgid "View resolution"
+msgstr ""
+
+#: ../../reference/views.rst:64
+msgid ""
+"Resolution generates the final ``arch`` for a requested/matched "
+"``primary`` view:"
+msgstr ""
+
+#: ../../reference/views.rst:67
+msgid ""
+"if the view has a parent, the parent is fully resolved then the current "
+"view's inheritance specs are applied"
+msgstr ""
+
+#: ../../reference/views.rst:69
+msgid "if the view has no parent, its ``arch`` is used as-is"
+msgstr ""
+
+#: ../../reference/views.rst:70
+msgid ""
+"the current view's children with mode ``extension`` are looked up  and "
+"their inheritance specs are applied depth-first (a child view is applied,"
+" then its children, then its siblings)"
+msgstr ""
+
+#: ../../reference/views.rst:74
+msgid "The result of applying children views yields the final ``arch``"
+msgstr ""
+
+#: ../../reference/views.rst:77
+msgid "Inheritance specs"
+msgstr ""
+
+#: ../../reference/views.rst:79
+msgid "There are three types of inheritance specs:"
+msgstr ""
+
+#: ../../reference/views.rst:81
+msgid ""
+"An ``xpath`` element with an ``expr`` attribute. ``expr`` is an XPath_ "
+"expression\\ [#hasclass]_ applied to the current ``arch``, the first node"
+" it finds is the match"
+msgstr ""
+
+#: ../../reference/views.rst:84
+msgid ""
+"a ``field`` element with a ``name`` attribute, matches the first "
+"``field`` with the same ``name``"
+msgstr ""
+
+#: ../../reference/views.rst:86
+msgid ""
+"any other element, the first element with the same name and identical "
+"attributes (ignoring ``position``) is matched"
+msgstr ""
+
+#: ../../reference/views.rst:89
+msgid ""
+"The inheritance spec may have an optional ``position`` attribute "
+"specifying how the matched node should be altered:"
+msgstr ""
+
+#: ../../reference/views.rst:92
+msgid "``inside`` (default)"
+msgstr ""
+
+#: ../../reference/views.rst:93
+msgid "the content of the inheritance spec is appended to the matched node"
+msgstr ""
+
+#: ../../reference/views.rst:94
+msgid "``replace``"
+msgstr ""
+
+#: ../../reference/views.rst:95
+msgid "the content of the inheritance spec replaces the matched node"
+msgstr ""
+
+#: ../../reference/views.rst:97
+msgid "``after``"
+msgstr ""
+
+#: ../../reference/views.rst:97
+msgid ""
+"the content of the inheritance spec is added to the matched node's "
+"parent, after the matched node"
+msgstr ""
+
+#: ../../reference/views.rst:100
+msgid "``before``"
+msgstr ""
+
+#: ../../reference/views.rst:100
+msgid ""
+"the content of the inheritance spec is added to the matched node's "
+"parent, before the matched node"
+msgstr ""
+
+#: ../../reference/views.rst:111
+msgid "``attributes``"
+msgstr ""
+
+#: ../../reference/views.rst:103
+msgid ""
+"the content of the inheritance spec should be ``attribute`` elements with"
+" a ``name`` attribute and an optional body:"
+msgstr ""
+
+#: ../../reference/views.rst:106
+msgid ""
+"if the ``attribute`` element has a body, a new attributed named after its"
+" ``name`` is created on the matched node with the ``attribute`` element's"
+" text as value"
+msgstr ""
+
+#: ../../reference/views.rst:109
+msgid ""
+"if the ``attribute`` element has no body, the attribute named after its "
+"``name`` is removed from the matched node. If no such attribute exists, "
+"an error is raised"
+msgstr ""
+
+#: ../../reference/views.rst:113
+msgid "A view's specs are applied sequentially."
+msgstr ""
+
+#: ../../reference/views.rst:118
+msgid "Lists"
+msgstr ""
+
+#: ../../reference/views.rst:120
+msgid ""
+"The root element of list views is ``<tree>``\\ [#treehistory]_. The list "
+"view's root can have the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:134
+msgid "``editable``"
+msgstr ""
+
+#: ../../reference/views.rst:124
+msgid ""
+"by default, selecting a list view's row opens the corresponding "
+":ref:`form view <reference/views/form>`. The ``editable`` attributes "
+"makes the list view itself editable in-place."
+msgstr ""
+
+#: ../../reference/views.rst:128
+msgid ""
+"Valid values are ``top`` and ``bottom``, making *new* records appear "
+"respectively at the top or bottom of the list."
+msgstr ""
+
+#: ../../reference/views.rst:131
+msgid ""
+"The architecture for the inline :ref:`form view <reference/views/form>` "
+"is derived from the list view. Most attributes valid on a :ref:`form view"
+" <reference/views/form>`'s fields and buttons are thus accepted by list "
+"views although they may not have any meaning if the list view is non-"
+"editable"
+msgstr ""
+
+#: ../../reference/views.rst:142 ../../reference/views.rst:817
+msgid "``default_order``"
+msgstr ""
+
+#: ../../reference/views.rst:137
+msgid ""
+"overrides the ordering of the view, replacing the model's default order. "
+"The value is a comma-separated list of fields, postfixed by ``desc`` to "
+"sort in reverse order:"
+msgstr ""
+
+#: ../../reference/views.rst:145
+msgid "``colors``"
+msgstr ""
+
+#: ../../reference/views.rst:145 ../../reference/views.rst:148
+msgid "replaced by ``decoration-{$name}``"
+msgstr ""
+
+#: ../../reference/views.rst:148
+msgid "``fonts``"
+msgstr ""
+
+#: ../../reference/views.rst:161
+msgid "``decoration-{$name}``"
+msgstr ""
+
+#: ../../reference/views.rst:151
+msgid ""
+"allow changing the style of a row's text based on the corresponding "
+"record's attributes."
+msgstr ""
+
+#: ../../reference/views.rst:154
+msgid ""
+"Values are Python expressions. For each record, the expression is "
+"evaluated with the record's attributes as context values and if ``true``,"
+" the corresponding style is applied to the row. Other context values are "
+"``uid`` (the id of the current user) and ``current_date`` (the current "
+"date as a string of the form ``yyyy-MM-dd``)."
+msgstr ""
+
+#: ../../reference/views.rst:160
+msgid ""
+"``{$name}`` can be ``bf`` (``font-weight: bold``), ``it`` (``font-style: "
+"italic``), or any bootstrap contextual color (``danger``, ``info``, "
+"``muted``, ``primary``, ``success`` or ``warning``)."
+msgstr ""
+
+#: ../../reference/views.rst:164
+msgid "``create``, ``edit``, ``delete``"
+msgstr ""
+
+#: ../../reference/views.rst:164
+msgid ""
+"allows *dis*\\ abling the corresponding action in the view by setting the"
+" corresponding attribute to ``false``"
+msgstr ""
+
+#: ../../reference/views.rst:170
+msgid "``on_write``"
+msgstr ""
+
+#: ../../reference/views.rst:167
+msgid ""
+"only makes sense on an ``editable`` list. Should be the name of a method "
+"on the list's model. The method will be called with the ``id`` of a "
+"record after having created or edited that record (in database)."
+msgstr ""
+
+#: ../../reference/views.rst:171
+msgid "The method should return a list of ids of other records to load or update."
+msgstr ""
+
+#: ../../reference/views.rst:177 ../../reference/views.rst:191
+#: ../../reference/views.rst:252 ../../reference/views.rst:1123
+msgid "``string``"
+msgstr ""
+
+#: ../../reference/views.rst:173
+msgid "alternative translatable label for the view"
+msgstr ""
+
+#: ../../reference/views.rst:177
+msgid "not displayed anymore"
+msgstr ""
+
+#: ../../reference/views.rst:181
+msgid "Possible children elements of the list view are:"
+msgstr ""
+
+#: ../../reference/views.rst:242 ../../reference/views.rst:348
+msgid "``button``"
+msgstr ""
+
+#: ../../reference/views.rst:186
+msgid "displays a button in a list cell"
+msgstr ""
+
+#: ../../reference/views.rst:188
+msgid "``icon``"
+msgstr ""
+
+#: ../../reference/views.rst:189
+msgid "icon to use to display the button"
+msgstr ""
+
+#: ../../reference/views.rst:191
+msgid "if there is no ``icon``, the button's text"
+msgstr ""
+
+#: ../../reference/views.rst:192
+msgid "if there is an ``icon``, ``alt`` text for the icon"
+msgstr ""
+
+#: ../../reference/views.rst:214 ../../reference/views.rst:749
+#: ../../reference/views.rst:773 ../../reference/views.rst:1027
+msgid "``type``"
+msgstr ""
+
+#: ../../reference/views.rst:194
+msgid "type of button, indicates how it clicking it affects Odoo:"
+msgstr ""
+
+#: ../../reference/views.rst:198
+msgid "``workflow`` (default)"
+msgstr ""
+
+#: ../../reference/views.rst:197
+msgid ""
+"sends a signal to a workflow. The button's ``name`` is the workflow "
+"signal, the row's record is passed as argument to the signal"
+msgstr ""
+
+#: ../../reference/views.rst:207 ../../reference/views.rst:1066
+msgid "``object``"
+msgstr ""
+
+#: ../../reference/views.rst:201
+msgid ""
+"call a method on the list's model. The button's ``name`` is the method, "
+"which is called with the current row's record id and the current context."
+msgstr ""
+
+#: ../../reference/views.rst:214
+msgid "``action``"
+msgstr ""
+
+#: ../../reference/views.rst:210
+msgid ""
+"load an execute an ``ir.actions``, the button's ``name`` is the database "
+"id of the action. The context is expanded with the list's model (as "
+"``active_model``), the current row's record (``active_id``) and all the "
+"records currently loaded in the list (``active_ids``, may be just a "
+"subset of the database records matching the current search)"
+msgstr ""
+
+#: ../../reference/views.rst:216 ../../reference/views.rst:249
+#: ../../reference/views.rst:1121 ../../reference/views.rst:1181
+msgid "``name``"
+msgstr ""
+
+#: ../../reference/views.rst:217 ../../reference/views.rst:219
+msgid "see ``type``"
+msgstr ""
+
+#: ../../reference/views.rst:218
+msgid "``args``"
+msgstr ""
+
+#: ../../reference/views.rst:227 ../../reference/views.rst:280
+#: ../../reference/views.rst:310 ../../reference/views.rst:394
+msgid "``attrs``"
+msgstr ""
+
+#: ../../reference/views.rst:221
+msgid "dynamic attributes based on record values."
+msgstr ""
+
+#: ../../reference/views.rst:223
+msgid ""
+"A mapping of attributes to domains, domains are evaluated in the context "
+"of the current row's record, if ``True`` the corresponding attribute is "
+"set on the cell."
+msgstr ""
+
+#: ../../reference/views.rst:227
+msgid ""
+"Possible attributes are ``invisible`` (hides the button) and ``readonly``"
+" (disables the button but still shows it)"
+msgstr ""
+
+#: ../../reference/views.rst:234
+msgid "``states``"
+msgstr ""
+
+#: ../../reference/views.rst:230
+msgid ""
+"shorthand for ``invisible`` ``attrs``: a list of states, comma separated,"
+" requires that the model has a ``state`` field and that it is used in the"
+" view."
+msgstr ""
+
+#: ../../reference/views.rst:234
+msgid ""
+"Makes the button ``invisible`` if the record is *not* in one of the "
+"listed states"
+msgstr ""
+
+#: ../../reference/views.rst:236 ../../reference/views.rst:399
+#: ../../reference/views.rst:1150 ../../reference/views.rst:1177
+msgid "``context``"
+msgstr ""
+
+#: ../../reference/views.rst:237
+msgid "merged into the view's context when performing the button's Odoo call"
+msgstr ""
+
+#: ../../reference/views.rst:240
+msgid "``confirm``"
+msgstr ""
+
+#: ../../reference/views.rst:239
+msgid ""
+"confirmation message to display (and for the user to accept) before "
+"performing the button's Odoo call"
+msgstr ""
+
+#: ../../reference/views.rst:284 ../../reference/views.rst:425
+#: ../../reference/views.rst:841 ../../reference/views.rst:1161
+msgid "``field``"
+msgstr ""
+
+#: ../../reference/views.rst:245
+msgid ""
+"defines a column where the corresponding field should be displayed for "
+"each record. Can use the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:249
+msgid ""
+"the name of the field to display in the current model. A given name can "
+"only be used once per view"
+msgstr ""
+
+#: ../../reference/views.rst:252
+msgid ""
+"the title of the field's column (by default, uses the ``string`` of the "
+"model's field)"
+msgstr ""
+
+#: ../../reference/views.rst:256
+msgid "``invisible``"
+msgstr ""
+
+#: ../../reference/views.rst:255
+msgid ""
+"fetches and stores the field, but doesn't display the column in the "
+"table. Necessary for fields which shouldn't be displayed but are used by "
+"e.g. ``@colors``"
+msgstr ""
+
+#: ../../reference/views.rst:258 ../../reference/views.rst:384
+#: ../../reference/views.rst:1152 ../../reference/views.rst:1187
+msgid "``groups``"
+msgstr ""
+
+#: ../../reference/views.rst:259
+msgid "lists the groups which should be able to see the field"
+msgstr ""
+
+#: ../../reference/views.rst:270 ../../reference/views.rst:364
+#: ../../reference/views.rst:856 ../../reference/views.rst:1156
+msgid "``widget``"
+msgstr ""
+
+#: ../../reference/views.rst:261
+msgid ""
+"alternate representations for a field's display. Possible list view "
+"values are:"
+msgstr ""
+
+#: ../../reference/views.rst:264
+msgid "``progressbar``"
+msgstr ""
+
+#: ../../reference/views.rst:265
+msgid "displays ``float`` fields as a progress bar."
+msgstr ""
+
+#: ../../reference/views.rst:267
+msgid "``many2onebutton``"
+msgstr ""
+
+#: ../../reference/views.rst:267
+msgid ""
+"replaces the m2o field's value by a checkmark if the field is filled, and"
+" a cross if it is not"
+msgstr ""
+
+#: ../../reference/views.rst:270
+msgid "``handle``"
+msgstr ""
+
+#: ../../reference/views.rst:270
+msgid ""
+"for ``sequence`` fields, instead of displaying the field's value just "
+"displays a dra&drop icon"
+msgstr ""
+
+#: ../../reference/views.rst:275
+msgid "``sum``, ``avg``"
+msgstr ""
+
+#: ../../reference/views.rst:273
+msgid ""
+"displays the corresponding aggregate at the bottom of the column. The "
+"aggregation is only computed on *currently displayed* records. The "
+"aggregation operation must match the corresponding field's "
+"``group_operator``"
+msgstr ""
+
+#: ../../reference/views.rst:278
+msgid ""
+"dynamic attributes based on record values. Only effects the current "
+"field, so e.g. ``invisible`` will hide the field but leave the same field"
+" of other records visible, it will not hide the column itself"
+msgstr ""
+
+#: ../../reference/views.rst:282
+msgid ""
+"if the list view is ``editable``, any field attribute from the :ref:`form"
+" view <reference/views/form>` is also valid and will be used when setting"
+" up the inline form view"
+msgstr ""
+
+#: ../../reference/views.rst:289
+msgid "Forms"
+msgstr ""
+
+#: ../../reference/views.rst:291
+msgid ""
+"Form views are used to display the data from a single record. Their root "
+"element is ``<form>``. They are composed of regular HTML_ with additional"
+" structural and semantic components."
+msgstr ""
+
+#: ../../reference/views.rst:296
+msgid "Structural components"
+msgstr ""
+
+#: ../../reference/views.rst:298
+msgid ""
+"Structural components provide structure or \"visual\" features with "
+"little logic. They are used as elements or sets of elements in form "
+"views."
+msgstr ""
+
+#: ../../reference/views.rst:310
+msgid "``notebook``"
+msgstr ""
+
+#: ../../reference/views.rst:302
+msgid ""
+"defines a tabbed section. Each tab is defined through a ``page`` child "
+"element. Pages can have the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:305 ../../reference/views.rst:1171
+msgid "``string`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:306
+msgid "the title of the tab"
+msgstr ""
+
+#: ../../reference/views.rst:307
+msgid "``accesskey``"
+msgstr ""
+
+#: ../../reference/views.rst:308
+msgid "an HTML accesskey_"
+msgstr ""
+
+#: ../../reference/views.rst:310
+msgid "standard dynamic attributes based on record values"
+msgstr ""
+
+#: ../../reference/views.rst:325 ../../reference/views.rst:1218
+msgid "``group``"
+msgstr ""
+
+#: ../../reference/views.rst:313
+msgid ""
+"used to define column layouts in forms. By default, groups define 2 "
+"columns and most direct children of groups take a single column. "
+"``field`` direct children of groups display a label by default, and the "
+"label and the field itself have a colspan of 1 each."
+msgstr ""
+
+#: ../../reference/views.rst:318
+msgid ""
+"The number of columns in a ``group`` can be customized using the ``col`` "
+"attribute, the number of columns taken by an element can be customized "
+"using ``colspan``."
+msgstr ""
+
+#: ../../reference/views.rst:322
+msgid ""
+"Children are laid out horizontally (tries to fill the next column before "
+"changing row)."
+msgstr ""
+
+#: ../../reference/views.rst:325
+msgid ""
+"Groups can have a ``string`` attribute, which is displayed as the group's"
+" title"
+msgstr ""
+
+#: ../../reference/views.rst:329
+msgid "``newline``"
+msgstr ""
+
+#: ../../reference/views.rst:328
+msgid ""
+"only useful within ``group`` elements, ends the current row early and "
+"immediately switches to a new row (without filling any remaining column "
+"beforehand)"
+msgstr ""
+
+#: ../../reference/views.rst:332 ../../reference/views.rst:1214
+msgid "``separator``"
+msgstr ""
+
+#: ../../reference/views.rst:332
+msgid ""
+"small horizontal spacing, with a ``string`` attribute behaves as a "
+"section title"
+msgstr ""
+
+#: ../../reference/views.rst:335
+msgid "``sheet``"
+msgstr ""
+
+#: ../../reference/views.rst:335
+msgid ""
+"can be used as a direct child to ``form`` for a narrower and more "
+"responsive form layout"
+msgstr ""
+
+#: ../../reference/views.rst:339
+msgid "``header``"
+msgstr ""
+
+#: ../../reference/views.rst:338
+msgid ""
+"combined with ``sheet``, provides a full-width location above the sheet "
+"itself, generally used to display workflow buttons and status widgets"
+msgstr ""
+
+#: ../../reference/views.rst:342
+msgid "Semantic components"
+msgstr ""
+
+#: ../../reference/views.rst:344
+msgid ""
+"Semantic components tie into and allow interaction with the Odoo system. "
+"Available semantic components are:"
+msgstr ""
+
+#: ../../reference/views.rst:348
+msgid ""
+"call into the Odoo system, similar to :ref:`list view buttons "
+"<reference/views/list/button>`"
+msgstr ""
+
+#: ../../reference/views.rst:351
+msgid ""
+"renders (and allow edition of, possibly) a single field of the current "
+"record. Possible attributes are:"
+msgstr ""
+
+#: ../../reference/views.rst:355
+msgid "the name of the field to render"
+msgstr ""
+
+#: ../../reference/views.rst:357
+msgid ""
+"fields have a default rendering based on their type (e.g. "
+":class:`~openerp.fields.Char`, :class:`~openerp.fields.Many2one`). The "
+"``widget`` attributes allows using a different rendering method and "
+"context."
+msgstr ""
+
+#: ../../reference/views.rst:367
+msgid "``options``"
+msgstr ""
+
+#: ../../reference/views.rst:367
+msgid ""
+"JSON object specifying configuration option for the field's widget "
+"(including default widgets)"
+msgstr ""
+
+#: ../../reference/views.rst:382 ../../reference/views.rst:819
+msgid "``class``"
+msgstr ""
+
+#: ../../reference/views.rst:370
+msgid "HTML class to set on the generated element, common field classes are:"
+msgstr ""
+
+#: ../../reference/views.rst:372
+msgid "``oe_inline``"
+msgstr ""
+
+#: ../../reference/views.rst:373
+msgid "prevent the usual line break following fields"
+msgstr ""
+
+#: ../../reference/views.rst:374
+msgid "``oe_left``, ``oe_right``"
+msgstr ""
+
+#: ../../reference/views.rst:375
+msgid "floats_ the field to the corresponding direction"
+msgstr ""
+
+#: ../../reference/views.rst:376
+msgid "``oe_read_only``, ``oe_edit_only``"
+msgstr ""
+
+#: ../../reference/views.rst:377
+msgid "only displays the field in the corresponding form mode"
+msgstr ""
+
+#: ../../reference/views.rst:379
+msgid "``oe_no_button``"
+msgstr ""
+
+#: ../../reference/views.rst:379
+msgid ""
+"avoids displaying the navigation button in a "
+":class:`~openerp.fields.Many2one`"
+msgstr ""
+
+#: ../../reference/views.rst:382
+msgid "``oe_avatar``"
+msgstr ""
+
+#: ../../reference/views.rst:382
+msgid ""
+"for image fields, displays images as \"avatar\" (square, 90x90 maximum "
+"size, some image decorations)"
+msgstr ""
+
+#: ../../reference/views.rst:385
+msgid "only displays the field for specific users"
+msgstr ""
+
+#: ../../reference/views.rst:392
+msgid "``on_change``"
+msgstr ""
+
+#: ../../reference/views.rst:387
+msgid ""
+"calls the specified method when this field's value is edited, can "
+"generate update other fields or display warnings for the user"
+msgstr ""
+
+#: ../../reference/views.rst:392
+msgid "Use :func:`openerp.api.onchange` on the model"
+msgstr ""
+
+#: ../../reference/views.rst:395
+msgid "dynamic meta-parameters based on record values"
+msgstr ""
+
+#: ../../reference/views.rst:397 ../../reference/views.rst:1161
+#: ../../reference/views.rst:1174
+msgid "``domain``"
+msgstr ""
+
+#: ../../reference/views.rst:397
+msgid ""
+"for relational fields only, filters to apply when displaying existing "
+"records for selection"
+msgstr ""
+
+#: ../../reference/views.rst:400
+msgid "for relational fields only, context to pass when fetching possible values"
+msgstr ""
+
+#: ../../reference/views.rst:402
+msgid "``readonly``"
+msgstr ""
+
+#: ../../reference/views.rst:402
+msgid ""
+"display the field in both readonly and edition mode, but never make it "
+"editable"
+msgstr ""
+
+#: ../../reference/views.rst:405
+msgid "``required``"
+msgstr ""
+
+#: ../../reference/views.rst:405
+msgid ""
+"generates an error and prevents saving the record if the field doesn't "
+"have a value"
+msgstr ""
+
+#: ../../reference/views.rst:408
+msgid "``nolabel``"
+msgstr ""
+
+#: ../../reference/views.rst:408
+msgid ""
+"don't automatically display the field's label, only makes sense if the "
+"field is a direct child of a ``group`` element"
+msgstr ""
+
+#: ../../reference/views.rst:412
+msgid "``placeholder``"
+msgstr ""
+
+#: ../../reference/views.rst:411
+msgid ""
+"help message to display in *empty* fields. Can replace field labels in "
+"complex forms. *Should not* be an example of data as users are liable to "
+"confuse placeholder text with filled fields"
+msgstr ""
+
+#: ../../reference/views.rst:415
+msgid ""
+"for :class:`~openerp.fields.One2many`, display mode (view type) to use "
+"for the field's linked records. One of ``tree``, ``form``, ``kanban`` or "
+"``graph``. The default is ``tree`` (a list display)"
+msgstr ""
+
+#: ../../reference/views.rst:418 ../../reference/views.rst:1184
+msgid "``help``"
+msgstr ""
+
+#: ../../reference/views.rst:419
+msgid "tooltip displayed for users when hovering the field or its label"
+msgstr ""
+
+#: ../../reference/views.rst:421
+msgid "``filename``"
+msgstr ""
+
+#: ../../reference/views.rst:421
+msgid ""
+"for binary fields, name of the related field providing the name of the "
+"file"
+msgstr ""
+
+#: ../../reference/views.rst:425
+msgid "``password``"
+msgstr ""
+
+#: ../../reference/views.rst:424
+msgid ""
+"indicates that a :class:`~openerp.fields.Char` field stores a password "
+"and that its data shouldn't be displayed"
+msgstr ""
+
+#: ../../reference/views.rst:432
+msgid "Business Views guidelines"
+msgstr ""
+
+#: ../../reference/views.rst:436
+msgid ""
+"Business views are targeted at regular users, not advanced users.  "
+"Examples are: Opportunities, Products, Partners, Tasks, Projects, etc."
+msgstr ""
+
+#: ../../reference/views.rst:442
+msgid "In general, a business view is composed of"
+msgstr ""
+
+#: ../../reference/views.rst:444
+msgid "a status bar on top (with technical or business flow),"
+msgstr ""
+
+#: ../../reference/views.rst:445
+msgid "a sheet in the middle (the form itself),"
+msgstr ""
+
+#: ../../reference/views.rst:446
+msgid "a bottom part with History and Comments."
+msgstr ""
+
+#: ../../reference/views.rst:448
+msgid "Technically, the new form views are structured as follows in XML::"
+msgstr ""
+
+#: ../../reference/views.rst:457
+msgid "The Status Bar"
+msgstr ""
+
+#: ../../reference/views.rst:459
+msgid ""
+"The purpose of the status bar is to show the status of the current record"
+" and the action buttons."
+msgstr ""
+
+#: ../../reference/views.rst:466
+msgid "The Buttons"
+msgstr ""
+
+#: ../../reference/views.rst:468
+msgid ""
+"The order of buttons follows the business flow. For instance, in a sale "
+"order, the logical steps are:"
+msgstr ""
+
+#: ../../reference/views.rst:471
+msgid "Send the quotation"
+msgstr ""
+
+#: ../../reference/views.rst:472
+msgid "Confirm the quotation"
+msgstr ""
+
+#: ../../reference/views.rst:473
+msgid "Create the final invoice"
+msgstr ""
+
+#: ../../reference/views.rst:474
+msgid "Send the goods"
+msgstr ""
+
+#: ../../reference/views.rst:476
+msgid ""
+"Highlighted buttons (in red by default) emphasize the logical next step, "
+"to help the user. It is usually the first active button. On the other "
+"hand, :guilabel:`cancel` buttons *must* remain grey (normal).  For "
+"instance, in Invoice the button :guilabel:`Refund` must never be red."
+msgstr ""
+
+#: ../../reference/views.rst:481
+msgid ""
+"Technically, buttons are highlighted by adding the class "
+"\"oe_highlight\"::"
+msgstr ""
+
+#: ../../reference/views.rst:486
+msgid "The Status"
+msgstr ""
+
+#: ../../reference/views.rst:488
+msgid ""
+"Uses the ``statusbar`` widget, and shows the current state in red. States"
+" common to all flows (for instance, a sale order begins as a quotation, "
+"then we send it, then it becomes a full sale order, and finally it is "
+"done) should be visible at all times but exceptions or states depending "
+"on particular sub-flow should only be visible when current."
+msgstr ""
+
+#: ../../reference/views.rst:500
+msgid ""
+"The states are shown following the order used in the field (the list in a"
+" selection field, etc). States that are always visible are specified with"
+" the attribute ``statusbar_visible``."
+msgstr ""
+
+#: ../../reference/views.rst:504
+msgid ""
+"``statusbar_colors`` can be used to give a custom color to specific "
+"states."
+msgstr ""
+
+#: ../../reference/views.rst:513
+msgid "The Sheet"
+msgstr ""
+
+#: ../../reference/views.rst:515
+msgid "All business views should look like a printed sheet:"
+msgstr ""
+
+#: ../../reference/views.rst:520
+msgid ""
+"Elements inside a ``<form>`` or ``<page>`` do not define groups, elements"
+" inside them are laid out according to normal HTML rules. They content "
+"can be explicitly grouped using ``<group>`` or regular ``<div>`` "
+"elements."
+msgstr ""
+
+#: ../../reference/views.rst:523
+msgid ""
+"By default, the element ``<group>`` defines two columns inside, unless an"
+" attribute ``col=\"n\"`` is used.  The columns have the same width (1/n "
+"th of the group's width). Use a ``<group>`` element to produce a column "
+"of fields."
+msgstr ""
+
+#: ../../reference/views.rst:526
+msgid ""
+"To give a title to a section, add a ``string`` attribute to a ``<group>``"
+" element::"
+msgstr ""
+
+#: ../../reference/views.rst:530
+msgid "this replaces the former use of ``<separator string=\"XXX\"/>``."
+msgstr ""
+
+#: ../../reference/views.rst:531
+msgid ""
+"The ``<field>`` element does not produce a label, except as direct "
+"children of a ``<group>`` element\\ [#backwards-compatibility]_.  Use "
+":samp:`<label for=\"{field_name}>` to produce a label of a field."
+msgstr ""
+
+#: ../../reference/views.rst:536
+msgid "Sheet Headers"
+msgstr ""
+
+#: ../../reference/views.rst:538
+msgid ""
+"Some sheets have headers with one or more fields, and the labels of those"
+" fields are only shown in edit mode."
+msgstr ""
+
+#: ../../reference/views.rst:544 ../../reference/views.rst:650
+msgid "View mode"
+msgstr ""
+
+#: ../../reference/views.rst:545 ../../reference/views.rst:649
+msgid "Edit mode"
+msgstr ""
+
+#: ../../reference/views.rst:551
+msgid ""
+"Use HTML text, ``<div>``, ``<h1>``, ``<h2>``… to produce nice headers, "
+"and ``<label>`` with the class ``oe_edit_only`` to only display the "
+"field's label in edit mode. The class ``oe_inline`` will make fields "
+"inline (instead of blocks): content following the field will be displayed"
+" on the same line rather than on the line below it. The form above is "
+"produced by the following XML::"
+msgstr ""
+
+#: ../../reference/views.rst:568
+msgid "Button Box"
+msgstr ""
+
+#: ../../reference/views.rst:570
+msgid ""
+"Many relevant actions or links can be displayed in the form. For example,"
+" in Opportunity form, the actions \"Schedule a Call\" and \"Schedule a "
+"Meeting\" have an important place in the use of the CRM. Instead of "
+"placing them in the \"More\" menu, put them directly in the sheet as "
+"buttons (on the top) to make them more visible and more easily "
+"accessible."
+msgstr ""
+
+#: ../../reference/views.rst:579
+msgid ""
+"Technically, the buttons are placed inside a ``<div>`` to group them as a"
+" block on the top of the sheet."
+msgstr ""
+
+#: ../../reference/views.rst:590
+msgid "Groups and Titles"
+msgstr ""
+
+#: ../../reference/views.rst:592
+msgid ""
+"A column of fields is now produced with a ``<group>`` element, with an "
+"optional title."
+msgstr ""
+
+#: ../../reference/views.rst:605
+msgid ""
+"It is recommended to have two columns of fields on the form. For this, "
+"simply put the ``<group>`` elements that contain the fields inside a top-"
+"level ``<group>`` element."
+msgstr ""
+
+#: ../../reference/views.rst:609
+msgid ""
+"To make :ref:`view extension <reference/views/inheritance>` simpler, it "
+"is recommended to put a ``name`` attribute on ``<group>`` elements, so "
+"new fields can easily be added at the right place."
+msgstr ""
+
+#: ../../reference/views.rst:614
+msgid "Special Case: Subtotals"
+msgstr ""
+
+#: ../../reference/views.rst:616
+msgid "Some classes are defined to render subtotals like in invoice forms:"
+msgstr ""
+
+#: ../../reference/views.rst:631
+msgid "Placeholders and Inline Fields"
+msgstr ""
+
+#: ../../reference/views.rst:633
+msgid ""
+"Sometimes field labels make the form too complex. One can omit field "
+"labels, and instead put a placeholder inside the field. The placeholder "
+"text is visible only when the field is empty. The placeholder should tell"
+" what to place inside the field, it *must not* be an example as they are "
+"often confused with filled data."
+msgstr ""
+
+#: ../../reference/views.rst:639
+msgid ""
+"One can also group fields together by rendering them \"inline\" inside an"
+" explicit block element like ``<div>``. This allows grouping semantically"
+" related fields as if they were a single (composite) fields."
+msgstr ""
+
+#: ../../reference/views.rst:643
+msgid ""
+"The following example, taken from the *Leads* form, shows both "
+"placeholders and inline fields (zip and city)."
+msgstr ""
+
+#: ../../reference/views.rst:673
+msgid "Images"
+msgstr ""
+
+#: ../../reference/views.rst:675
+msgid ""
+"Images, like avatars, should be displayed on the right of the sheet.  The"
+" product form looks like:"
+msgstr ""
+
+#: ../../reference/views.rst:681
+msgid "The form above contains a <sheet> element that starts with:"
+msgstr ""
+
+#: ../../reference/views.rst:688
+msgid "Tags"
+msgstr ""
+
+#: ../../reference/views.rst:690
+msgid ""
+"Most :class:`~openerp.fields.Many2many` fields, like categories, are "
+"better rendered as a list of tags. Use the widget ``many2many_tags`` for "
+"this:"
+msgstr ""
+
+#: ../../reference/views.rst:701
+msgid "Configuration forms guidelines"
+msgstr ""
+
+#: ../../reference/views.rst:703
+msgid ""
+"Examples of configuration forms: Stages, Leave Type, etc.  This concerns "
+"all menu items under Configuration of each application (like "
+"Sales/Configuration)."
+msgstr ""
+
+#: ../../reference/views.rst:709
+msgid "no header (because no state, no workflow, no button)"
+msgstr ""
+
+#: ../../reference/views.rst:710 ../../reference/views.rst:735
+msgid "no sheet"
+msgstr ""
+
+#: ../../reference/views.rst:713
+msgid "Dialog forms guidelines"
+msgstr ""
+
+#: ../../reference/views.rst:715
+msgid "Example: \"Schedule a Call\" from an opportunity."
+msgstr ""
+
+#: ../../reference/views.rst:720
+msgid ""
+"avoid separators (the title is already in the popup title bar, so another"
+" separator is not relevant)"
+msgstr ""
+
+#: ../../reference/views.rst:722
+msgid ""
+"avoid cancel buttons (user generally close the popup window to get the "
+"same effect)"
+msgstr ""
+
+#: ../../reference/views.rst:724
+msgid "action buttons must be highlighted (red)"
+msgstr ""
+
+#: ../../reference/views.rst:725
+msgid ""
+"when there is a text area, use a placeholder instead of a label or a "
+"separator"
+msgstr ""
+
+#: ../../reference/views.rst:727
+msgid "like in regular form views, put buttons in the <header> element"
+msgstr ""
+
+#: ../../reference/views.rst:730
+msgid "Configuration Wizards guidelines"
+msgstr ""
+
+#: ../../reference/views.rst:732
+msgid "Example: Settings / Configuration / Sales."
+msgstr ""
+
+#: ../../reference/views.rst:734
+msgid "always in line (no popup)"
+msgstr ""
+
+#: ../../reference/views.rst:736
+msgid "keep the cancel button (users cannot close the window)"
+msgstr ""
+
+#: ../../reference/views.rst:737
+msgid "the button \"Apply\" must be red"
+msgstr ""
+
+#: ../../reference/views.rst:743
+msgid "Graphs"
+msgstr ""
+
+#: ../../reference/views.rst:745
+msgid ""
+"The graph view is used to visualize aggregations over a number of records"
+" or record groups. Its root element is ``<graph>`` which can take the "
+"following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:750
+msgid "one of ``bar`` (default), ``pie`` and ``line``, the type of graph to use"
+msgstr ""
+
+#: ../../reference/views.rst:753
+msgid "``stacked``"
+msgstr ""
+
+#: ../../reference/views.rst:752
+msgid ""
+"only used for ``bar`` charts. If present and set to ``True``, stacks bars"
+" within a group"
+msgstr ""
+
+#: ../../reference/views.rst:755
+msgid ""
+"The only allowed element within a graph view is ``field`` which can have "
+"the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:760 ../../reference/views.rst:836
+msgid "``name`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:759
+msgid ""
+"the name of a field to use in a graph view. If used for grouping (rather "
+"than aggregating)"
+msgstr ""
+
+#: ../../reference/views.rst:763
+msgid ""
+"indicates whether the field should be used as a grouping criteria or as "
+"an aggregated value within a group. Possible values are:"
+msgstr ""
+
+#: ../../reference/views.rst:768
+msgid "``row`` (default)"
+msgstr ""
+
+#: ../../reference/views.rst:767
+msgid ""
+"groups by the specified field. All graph types support at least one level"
+" of grouping, some may support more. For pivot views, each group gets its"
+" own row."
+msgstr ""
+
+#: ../../reference/views.rst:770
+msgid "``col``"
+msgstr ""
+
+#: ../../reference/views.rst:771
+msgid "only used by pivot tables, creates column-wise groups"
+msgstr ""
+
+#: ../../reference/views.rst:773
+msgid "``measure``"
+msgstr ""
+
+#: ../../reference/views.rst:773
+msgid "field to aggregate within a group"
+msgstr ""
+
+#: ../../reference/views.rst:778
+msgid "``interval``"
+msgstr ""
+
+#: ../../reference/views.rst:776
+msgid ""
+"on date and datetime fields, groups by the specified interval (``day``, "
+"``week``, ``month``, ``quarter`` or ``year``) instead of grouping on the "
+"specific datetime (fixed second resolution) or date (fixed day "
+"resolution)."
+msgstr ""
+
+#: ../../reference/views.rst:782
+msgid ""
+"graph view aggregations are performed on database content, non-stored "
+"function fields can not be used in graph views"
+msgstr ""
+
+#: ../../reference/views.rst:786
+msgid "Pivots"
+msgstr ""
+
+#: ../../reference/views.rst:788
+msgid ""
+"The pivot view is used to visualize aggregations as a `pivot table`_. Its"
+" root element is ``<pivot>`` which can take the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:791
+msgid "``disable_linking``"
+msgstr ""
+
+#: ../../reference/views.rst:792
+msgid "Set to ``True`` to remove table cell's links to list view."
+msgstr ""
+
+#: ../../reference/views.rst:794
+msgid "``display_quantity``"
+msgstr ""
+
+#: ../../reference/views.rst:794
+msgid "Set to ``true`` to display the Quantity column by default."
+msgstr ""
+
+#: ../../reference/views.rst:796
+msgid ""
+"The elements allowed within a pivot view are the same as for the graph "
+"view."
+msgstr ""
+
+#: ../../reference/views.rst:801
+msgid "Kanban"
+msgstr ""
+
+#: ../../reference/views.rst:803
+msgid ""
+"The kanban view is a `kanban board`_ visualisation: it displays records "
+"as \"cards\", halfway between a :ref:`list view <reference/views/list>` "
+"and a non-editable :ref:`form view <reference/views/form>`. Records may "
+"be grouped in columns for use in workflow visualisation or manipulation "
+"(e.g. tasks or work-progress management), or ungrouped (used simply to "
+"visualize records)."
+msgstr ""
+
+#: ../../reference/views.rst:809
+msgid ""
+"The root element of the Kanban view is ``<kanban>``, it can use the "
+"following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:814 ../../reference/views.rst:1021
+msgid "``default_group_by``"
+msgstr ""
+
+#: ../../reference/views.rst:813
+msgid ""
+"whether the kanban view should be grouped if no grouping is specified via"
+" the action or the current research. Should be the name of the field to "
+"group by when no grouping is otherwise specified"
+msgstr ""
+
+#: ../../reference/views.rst:817
+msgid ""
+"cards sorting order used if the user has not already sorted the records "
+"(via the list view)"
+msgstr ""
+
+#: ../../reference/views.rst:820
+msgid "adds HTML classes to the root HTML element of the Kanban view"
+msgstr ""
+
+#: ../../reference/views.rst:826
+msgid "``quick_create``"
+msgstr ""
+
+#: ../../reference/views.rst:822
+msgid ""
+"whether it should be possible to create records without switching to the "
+"form view. By default, ``quick_create`` is enabled when the Kanban view "
+"is grouped, and disabled when not."
+msgstr ""
+
+#: ../../reference/views.rst:826
+msgid ""
+"Set to ``true`` to always enable it, and to ``false`` to always disable "
+"it."
+msgstr ""
+
+#: ../../reference/views.rst:828
+msgid "Possible children of the view element are:"
+msgstr ""
+
+#: ../../reference/views.rst:831
+msgid ""
+"declares fields to aggregate or to use in kanban *logic*. If the field is"
+" simply displayed in the kanban view, it does not need to be pre-"
+"declared."
+msgstr ""
+
+#: ../../reference/views.rst:834
+msgid "Possible attributes are:"
+msgstr ""
+
+#: ../../reference/views.rst:837
+msgid "the name of the field to fetch"
+msgstr ""
+
+#: ../../reference/views.rst:841
+msgid "``sum``, ``avg``, ``min``, ``max``, ``count``"
+msgstr ""
+
+#: ../../reference/views.rst:839
+msgid ""
+"displays the corresponding aggregation at the top of a kanban column, the"
+" field's value is the label of the aggregation (a string). Only one "
+"aggregate operation per field is supported."
+msgstr ""
+
+#: ../../reference/views.rst:898
+msgid "``templates``"
+msgstr ""
+
+#: ../../reference/views.rst:844
+msgid ""
+"defines a list of :ref:`reference/qweb` templates. Cards definition may "
+"be split into multiple templates for clarity, but kanban views *must* "
+"define at least one root template ``kanban-box``, which will be rendered "
+"once for each record."
+msgstr ""
+
+#: ../../reference/views.rst:849
+msgid ""
+"The kanban view uses mostly-standard :ref:`javascript qweb "
+"<reference/qweb/javascript>` and provides the following context "
+"variables:"
+msgstr ""
+
+#: ../../reference/views.rst:852
+msgid "``instance``"
+msgstr ""
+
+#: ../../reference/views.rst:853
+msgid "the current :ref:`reference/javascript/client` instance"
+msgstr ""
+
+#: ../../reference/views.rst:855
+msgid ""
+"the current :js:class:`KanbanRecord`, can be used to fetch some meta-"
+"information. These methods are also available directly in the template "
+"context and don't need to be accessed via ``widget``"
+msgstr ""
+
+#: ../../reference/views.rst:863
+msgid "``record``"
+msgstr ""
+
+#: ../../reference/views.rst:859
+msgid ""
+"an object with all the requested fields as its attributes. Each field has"
+" two attributes ``value`` and ``raw_value``, the former is formatted "
+"according to current user parameters, the latter is the direct value from"
+" a :meth:`~openerp.models.Model.read` (except for date and datetime "
+"fields that are `formatted according to user's locale "
+"<https://github.com/odoo/odoo/blob/a678bd4e/addons/web_kanban/static/src/js/kanban_record.js#L102>`_)"
+msgstr ""
+
+#: ../../reference/views.rst:865
+msgid "``formats``"
+msgstr ""
+
+#: ../../reference/views.rst:866
+msgid "the :js:class:`web.formats` module to manipulate and convert values"
+msgstr ""
+
+#: ../../reference/views.rst:898
+msgid "``read_only_mode``"
+msgstr ""
+
+#: ../../reference/views.rst:868
+msgid "self-explanatory"
+msgstr ""
+
+#: ../../reference/views.rst:0
+msgid "buttons and fields"
+msgstr ""
+
+#: ../../reference/views.rst:873
+msgid ""
+"While most of the Kanban templates are standard :ref:`reference/qweb`, "
+"the Kanban view processes ``field``, ``button`` and ``a`` elements "
+"specially:"
+msgstr ""
+
+#: ../../reference/views.rst:876
+msgid ""
+"by default fields are replaced by their formatted value, unless they "
+"match specific kanban view widgets"
+msgstr ""
+
+#: ../../reference/views.rst:881
+msgid ""
+"buttons and links with a ``type`` attribute become perform Odoo-related "
+"operations rather than their standard HTML function. Possible types are:"
+msgstr ""
+
+#: ../../reference/views.rst:886
+msgid "``action``, ``object``"
+msgstr ""
+
+#: ../../reference/views.rst:885
+msgid ""
+"standard behavior for :ref:`Odoo buttons <reference/views/list/button>`, "
+"most attributes relevant to standard Odoo buttons can be used."
+msgstr ""
+
+#: ../../reference/views.rst:888
+msgid "``open``"
+msgstr ""
+
+#: ../../reference/views.rst:889
+msgid "opens the card's record in the form view in read-only mode"
+msgstr ""
+
+#: ../../reference/views.rst:890
+msgid "``edit``"
+msgstr ""
+
+#: ../../reference/views.rst:891
+msgid "opens the card's record in the form view in editable mode"
+msgstr ""
+
+#: ../../reference/views.rst:893
+msgid "``delete``"
+msgstr ""
+
+#: ../../reference/views.rst:893
+msgid "deletes the card's record and removes the card"
+msgstr ""
+
+#: ../../reference/views.rst:901
+msgid "Javascript API"
+msgstr ""
+
+#: ../../reference/views.rst:905
+msgid ""
+":js:class:`Widget` handling the rendering of a single record to a card. "
+"Available within its own rendering as ``widget`` in the template context."
+msgstr ""
+
+#: ../../reference/views.rst:911
+msgid ""
+"Converts a color segmentation value to a kanban color class "
+":samp:`oe_kanban_color_{color_index}`. The built-in CSS provides classes "
+"up to a ``color_index`` of 9."
+msgstr ""
+
+#: ../../reference/views.rst:917
+msgid ""
+"Converts a color segmentation value to a color index (between 0 and 9 by "
+"default). Color segmentation values can be either numbers or strings."
+msgstr ""
+
+#: ../../reference/views.rst:922
+msgid "Generates the URL to the specified field as an image access."
+msgstr ""
+
+#: ../../reference/views.rst:924
+msgid "model hosting the image"
+msgstr ""
+
+#: ../../reference/views.rst:925
+msgid "name of the field holding the image data"
+msgstr ""
+
+#: ../../reference/views.rst:926
+msgid "identifier of the record contaning the image to display"
+msgstr ""
+
+#: ../../reference/views.rst:927
+msgid ""
+"caching duration (in seconds) of the browser default should be "
+"overridden. ``0`` disables caching entirely"
+msgstr ""
+
+#: ../../reference/views.rst:930
+msgid "an image URL"
+msgstr ""
+
+#: ../../reference/views.rst:934
+msgid ""
+"clips text beyond the specified size and appends an ellipsis to it. Can "
+"be used to display the initial part of potentially very long fields (e.g."
+" descriptions) without the risk of unwieldy cards"
+msgstr ""
+
+#: ../../reference/views.rst:941
+msgid "Calendar"
+msgstr ""
+
+#: ../../reference/views.rst:943
+msgid ""
+"Calendar views display records as events in a daily, weekly or monthly "
+"calendar. Their root element is ``<calendar>``. Available attributes on "
+"the calendar view are:"
+msgstr ""
+
+#: ../../reference/views.rst:947 ../../reference/views.rst:1007
+msgid "``date_start`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:948
+msgid "name of the record's field holding the start date for the event"
+msgstr ""
+
+#: ../../reference/views.rst:951 ../../reference/views.rst:1014
+msgid "``date_stop``"
+msgstr ""
+
+#: ../../reference/views.rst:950
+msgid ""
+"name of the record's field holding the end date for the event, if "
+"``date_stop`` is provided records become movable (via drag and drop) "
+"directly in the calendar"
+msgstr ""
+
+#: ../../reference/views.rst:957 ../../reference/views.rst:1016
+msgid "``date_delay``"
+msgstr ""
+
+#: ../../reference/views.rst:954
+msgid ""
+"alternative to ``date_stop``, provides the duration of the event instead "
+"of its end date"
+msgstr ""
+
+#: ../../reference/views.rst:961
+msgid "``color``"
+msgstr ""
+
+#: ../../reference/views.rst:960
+msgid ""
+"name of a record field to use for *color segmentation*. Records in the "
+"same color segment are allocated the same highlight color in the "
+"calendar, colors are allocated semi-randomly."
+msgstr ""
+
+#: ../../reference/views.rst:964
+msgid "``event_open_popup``"
+msgstr ""
+
+#: ../../reference/views.rst:964
+msgid ""
+"opens the event in a dialog instead of switching to the form view, "
+"enabled by default"
+msgstr ""
+
+#: ../../reference/views.rst:968
+msgid "``quick_add``"
+msgstr ""
+
+#: ../../reference/views.rst:967
+msgid ""
+"enables quick-event creation on click: only asks the user for a ``name`` "
+"and tries to create a new event with just that and the clicked event "
+"time. Falls back to a full form dialog if the quick creation fails"
+msgstr ""
+
+#: ../../reference/views.rst:971
+msgid "``display``"
+msgstr ""
+
+#: ../../reference/views.rst:971
+msgid ""
+"format string for event display, field names should be within brackets "
+"``[`` and ``]``"
+msgstr ""
+
+#: ../../reference/views.rst:974
+msgid "``all_day``"
+msgstr ""
+
+#: ../../reference/views.rst:974
+msgid ""
+"name of a boolean field on the record indicating whether the "
+"corresponding event is flagged as day-long (and duration is irrelevant)"
+msgstr ""
+
+#: ../../reference/views.rst:977
+msgid ""
+"Default display mode when loading the calendar. Possible attributes are: "
+"``day``, ``week``, ``month``"
+msgstr ""
+
+#: ../../reference/views.rst:999
+msgid "Gantt"
+msgstr ""
+
+#: ../../reference/views.rst:1001
+msgid "Gantt views appropriately display Gantt charts (for scheduling)."
+msgstr ""
+
+#: ../../reference/views.rst:1003
+msgid ""
+"The root element of gantt views is ``<gantt/>``, it has no children but "
+"can take the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:1007
+msgid ""
+"name of the field providing the start datetime of the event for each "
+"record."
+msgstr ""
+
+#: ../../reference/views.rst:1010
+msgid ""
+"name of the field providing the end duration of the event for each "
+"record. Can be replaced by ``date_delay``. One (and only one) of "
+"``date_stop`` and ``date_delay`` must be provided."
+msgstr ""
+
+#: ../../reference/views.rst:1014
+msgid ""
+"If the field is ``False`` for a record, it's assumed to be a \"point "
+"event\" and the end date will be set to the start date"
+msgstr ""
+
+#: ../../reference/views.rst:1017
+msgid "name of the field providing the duration of the event"
+msgstr ""
+
+#: ../../reference/views.rst:1019
+msgid "``duration_unit``"
+msgstr ""
+
+#: ../../reference/views.rst:1019
+msgid ""
+"one of ``minute``, ``hour`` (default), ``day``, ``week``, ``month``, "
+"``year``"
+msgstr ""
+
+#: ../../reference/views.rst:1022
+msgid "name of a field to group tasks by"
+msgstr ""
+
+#: ../../reference/views.rst:1024
+msgid "``gantt`` classic gantt view (default)"
+msgstr ""
+
+#: ../../reference/views.rst:1026
+msgid ""
+"``consolidate`` values of the first children are consolidated in the "
+"gantt's task"
+msgstr ""
+
+#: ../../reference/views.rst:1028
+msgid "``planning`` children are displayed in the gantt's task"
+msgstr ""
+
+#: ../../reference/views.rst:1029
+msgid "``consolidation``"
+msgstr ""
+
+#: ../../reference/views.rst:1030
+msgid "field name to display consolidation value in record cell"
+msgstr ""
+
+#: ../../reference/views.rst:1037
+msgid "``consolidation_max``"
+msgstr ""
+
+#: ../../reference/views.rst:1032
+msgid ""
+"dictionary with the \"group by\" field as key and the maximum "
+"consolidation value that can be reached before displaying the cell in red"
+" (e.g. ``{\"user_id\": 100}``)"
+msgstr ""
+
+#: ../../reference/views.rst:1037
+msgid ""
+"The dictionnary definition must use double-quotes, ``{'user_id': 100}`` "
+"is not a valid value"
+msgstr ""
+
+#: ../../reference/views.rst:1040
+msgid "``consolidation_label``"
+msgstr ""
+
+#: ../../reference/views.rst:1040
+msgid ""
+"string to display next to the consolidation value, if not specified, the "
+"label of the consolidation field will be used"
+msgstr ""
+
+#: ../../reference/views.rst:1042
+msgid "``fold_last_level``"
+msgstr ""
+
+#: ../../reference/views.rst:1043
+msgid "If a value is set, the last grouping level is folded"
+msgstr ""
+
+#: ../../reference/views.rst:1045
+msgid "``round_dnd_dates``"
+msgstr ""
+
+#: ../../reference/views.rst:1045
+msgid "enables rounding the task's start and end dates to the nearest scale marks"
+msgstr ""
+
+#: ../../reference/views.rst:1056
+msgid "Diagram"
+msgstr ""
+
+#: ../../reference/views.rst:1058
+msgid ""
+"The diagram view can be used to display directed graphs of records. The "
+"root element is ``<diagram>`` and takes no attributes."
+msgstr ""
+
+#: ../../reference/views.rst:1061
+msgid "Possible children of the diagram view are:"
+msgstr ""
+
+#: ../../reference/views.rst:1074
+msgid "``node`` (required, 1)"
+msgstr ""
+
+#: ../../reference/views.rst:1064
+msgid "Defines the nodes of the graph. Its attributes are:"
+msgstr ""
+
+#: ../../reference/views.rst:1067
+msgid "the node's Odoo model"
+msgstr ""
+
+#: ../../reference/views.rst:1070
+msgid "``shape``"
+msgstr ""
+
+#: ../../reference/views.rst:1069
+msgid ""
+"conditional shape mapping similar to colors and fonts in :ref:`the list "
+"view <reference/views/list>`. The only valid shape is ``rectangle`` (the "
+"default shape is an ellipsis)"
+msgstr ""
+
+#: ../../reference/views.rst:1074
+msgid "``bgcolor``"
+msgstr ""
+
+#: ../../reference/views.rst:1073
+msgid ""
+"same as ``shape``, but conditionally maps a background color for nodes. "
+"The default background color is white, the only valid alternative is "
+"``grey``."
+msgstr ""
+
+#: ../../reference/views.rst:1090
+msgid "``arrow`` (required, 1)"
+msgstr ""
+
+#: ../../reference/views.rst:1077
+msgid "Defines the directed edges of the graph. Its attributes are:"
+msgstr ""
+
+#: ../../reference/views.rst:1079
+msgid "``object`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:1080
+msgid "the edge's Odoo model"
+msgstr ""
+
+#: ../../reference/views.rst:1082
+msgid "``source`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:1082
+msgid ""
+":class:`~openerp.fields.Many2one` field of the edge's model pointing to "
+"the edge's source node record"
+msgstr ""
+
+#: ../../reference/views.rst:1085
+msgid "``destination`` (required)"
+msgstr ""
+
+#: ../../reference/views.rst:1085
+msgid ""
+":class:`~openerp.fields.Many2one` field of the edge's model pointing to "
+"the edge's destination node record"
+msgstr ""
+
+#: ../../reference/views.rst:1090 ../../reference/views.rst:1095
+msgid "``label``"
+msgstr ""
+
+#: ../../reference/views.rst:1088
+msgid ""
+"Python list of attributes (as quoted strings). The corresponding "
+"attributes's values will be concatenated and displayed as the edge's "
+"label"
+msgstr ""
+
+#: ../../reference/views.rst:1093
+msgid ""
+"Explanatory note for the diagram, the ``string`` attribute defines the "
+"note's content. Each ``label`` is output as a paragraph in the diagram "
+"header, easily visible but without any special emphasis."
+msgstr ""
+
+#: ../../reference/views.rst:1100
+msgid "Search"
+msgstr ""
+
+#: ../../reference/views.rst:1102
+msgid ""
+"Search views are a break from previous view types in that they don't "
+"display *content*: although they apply to a specific model, they are used"
+" to filter other view's content (generally aggregated views e.g. "
+":ref:`reference/views/list` or :ref:`reference/views/graph`). Beyond that"
+" difference in use case, they are defined the same way."
+msgstr ""
+
+#: ../../reference/views.rst:1108
+msgid "The root element of search views is ``<search>``. It takes no attributes."
+msgstr ""
+
+#: ../../reference/views.rst:1112
+msgid "Possible children elements of the search view are:"
+msgstr ""
+
+#: ../../reference/views.rst:1115
+msgid ""
+"fields define domains or contexts with user-provided values. When search "
+"domains are generated, field domains are composed with one another and "
+"with filters using **AND**."
+msgstr ""
+
+#: ../../reference/views.rst:1119
+msgid "Fields can have the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:1122
+msgid "the name of the field to filter on"
+msgstr ""
+
+#: ../../reference/views.rst:1124
+msgid "the field's label"
+msgstr ""
+
+#: ../../reference/views.rst:1133
+msgid "``operator``"
+msgstr ""
+
+#: ../../reference/views.rst:1126
+msgid ""
+"by default, fields generate domains of the form :samp:`[({name}, "
+"{operator}, {provided_value})]` where ``name`` is the field's name and "
+"``provided_value`` is the value provided by the user, possibly filtered "
+"or transformed (e.g. a user is expected to provide the *label* of a "
+"selection field's value, not the value itself)."
+msgstr ""
+
+#: ../../reference/views.rst:1132
+msgid ""
+"The ``operator`` attribute allows overriding the default operator, which "
+"depends on the field's type (e.g. ``=`` for float fields but ``ilike`` "
+"for char fields)"
+msgstr ""
+
+#: ../../reference/views.rst:1141
+msgid "``filter_domain``"
+msgstr ""
+
+#: ../../reference/views.rst:1136
+msgid ""
+"complete domain to use as the field's search domain, can use a ``self`` "
+"variable to inject the provided value in the custom domain. Can be used "
+"to generate significantly more flexible domains than ``operator`` alone "
+"(e.g. searches on multiple fields at once)"
+msgstr ""
+
+#: ../../reference/views.rst:1141
+msgid ""
+"If both ``operator`` and ``filter_domain`` are provided, "
+"``filter_domain`` takes precedence."
+msgstr ""
+
+#: ../../reference/views.rst:1144
+msgid ""
+"allows adding context keys, including the user-provided value (which as "
+"for ``domain`` is available as a ``self`` variable). By default, fields "
+"don't generate domains."
+msgstr ""
+
+#: ../../reference/views.rst:1148
+msgid ""
+"the domain and context are inclusive and both are generated if if a "
+"``context`` is specified. To only generate context values, set "
+"``filter_domain`` to an empty list: ``filter_domain=\"[]\"``"
+msgstr ""
+
+#: ../../reference/views.rst:1153
+msgid "make the field only available to specific users"
+msgstr ""
+
+#: ../../reference/views.rst:1155
+msgid ""
+"use specific search widget for the field (the only use case in standard "
+"Odoo 8.0 is a ``selection`` widget for :class:`~openerp.fields.Many2one` "
+"fields)"
+msgstr ""
+
+#: ../../reference/views.rst:1159
+msgid ""
+"if the field can provide an auto-completion (e.g. "
+":class:`~openerp.fields.Many2one`), filters the possible completion "
+"results."
+msgstr ""
+
+#: ../../reference/views.rst:1212
+msgid "``filter``"
+msgstr ""
+
+#: ../../reference/views.rst:1164
+msgid ""
+"a filter is a predefined toggle in the search view, it can only be "
+"enabled or disabled. Its main purposes are to add data to the search "
+"context (the context passed to the data view for searching/filtering), or"
+" to append new sections to the search filter."
+msgstr ""
+
+#: ../../reference/views.rst:1169
+msgid "Filters can have the following attributes:"
+msgstr ""
+
+#: ../../reference/views.rst:1172
+msgid "the label of the filter"
+msgstr ""
+
+#: ../../reference/views.rst:1174
+msgid ""
+"an Odoo :ref:`domain <reference/orm/domains>`, will be appended to the "
+"action's domain as part of the search domain"
+msgstr ""
+
+#: ../../reference/views.rst:1177
+msgid ""
+"a Python dictionary, merged into the action's domain to generate the "
+"search domain"
+msgstr ""
+
+#: ../../reference/views.rst:1180
+msgid ""
+"logical name for the filter, can be used to :ref:`enable it by default "
+"<reference/views/search/defaults>`, can also be used as :ref:`inheritance"
+" hook <reference/views/inheritance>`"
+msgstr ""
+
+#: ../../reference/views.rst:1184
+msgid "a longer explanatory text for the filter, may be displayed as a tooltip"
+msgstr ""
+
+#: ../../reference/views.rst:1187
+msgid "makes a filter only available to specific users"
+msgstr ""
+
+#: ../../reference/views.rst:1193
+msgid ""
+"Sequences of filters (without non-filters separating them) are treated as"
+" inclusively composited: they will be composed with ``OR`` rather than "
+"the usual ``AND``, e.g."
+msgstr ""
+
+#: ../../reference/views.rst:1202
+msgid ""
+"if both filters are selected, will select the records whose ``state`` is "
+"``draft`` or ``done``, but"
+msgstr ""
+
+#: ../../reference/views.rst:1211
+msgid ""
+"if both filters are selected, will select the records whose ``state`` is "
+"``draft`` **and** ``delay`` is below 15."
+msgstr ""
+
+#: ../../reference/views.rst:1215
+msgid "can be used to separates groups of filters in simple search views"
+msgstr ""
+
+#: ../../reference/views.rst:1217
+msgid ""
+"can be used to separate groups of filters, more readable than "
+"``separator`` in complex search views"
+msgstr ""
+
+#: ../../reference/views.rst:1223
+msgid "Search defaults"
+msgstr ""
+
+#: ../../reference/views.rst:1225
+msgid ""
+"Search fields and filters can be configured through the action's "
+"``context`` using :samp:`search_default_{name}` keys. For fields, the "
+"value should be the value to set in the field, for filters it's a boolean"
+" value. For instance, assuming ``foo`` is a field and ``bar`` is a filter"
+" an action context of:"
+msgstr ""
+
+#: ../../reference/views.rst:1237
+msgid ""
+"will automatically enable the ``bar`` filter and search the ``foo`` field"
+" for *acro*."
+msgstr ""
+
+#: ../../reference/views.rst:1243
+msgid "QWeb"
+msgstr ""
+
+#: ../../reference/views.rst:1245
+msgid ""
+"QWeb views are standard :ref:`reference/qweb` templates inside a view's "
+"``arch``. They don't have a specific root element."
+msgstr ""
+
+#: ../../reference/views.rst:1248
+msgid ""
+"A QWeb view can only contain a single template\\ [#template_inherit]_, "
+"and the template's name *must* match the view's complete (including "
+"module name) :term:`external id`."
+msgstr ""
+
+#: ../../reference/views.rst:1252
+msgid ""
+":ref:`reference/data/template` should be used as a shortcut to define "
+"QWeb views."
+msgstr ""
+
+#: ../../reference/views.rst:1255
+msgid "for backwards compatibility reasons"
+msgstr ""
+
+#: ../../reference/views.rst:1256
+msgid ""
+"an extension function is added for simpler matching in QWeb views: "
+"``hasclass(*classes)`` matches if the context node has all the specified "
+"classes"
+msgstr ""
+
+#: ../../reference/views.rst:1259
+msgid ""
+"for historical reasons, it has its origin in tree-type views later "
+"repurposed to a more table/list-type display"
+msgstr ""
+
+#: ../../reference/views.rst:1261
+msgid ""
+"or no template if it's an inherited view, then :ref:`it should only "
+"contain xpath elements <reference/views/inheritance>`"
+msgstr ""
+
