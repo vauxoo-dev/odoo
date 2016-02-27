@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 23:10-0600\n"
-"PO-Revision-Date: 2016-02-26 20:42-0600\n"
+"PO-Revision-Date: 2016-03-06 14:50-0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,48 +27,55 @@ msgstr "Extendiendo la Interfaz"
 #: ../../howtos/web.rst:11
 msgid "This guide is about creating modules for Odoo's web client."
 msgstr ""
+"Ésta guía trata sobre la creación de módulos para la interfaz web de Odoo."
 
 #: ../../howtos/web.rst:13
 msgid ""
 "To create websites with Odoo, see :doc:`website`; to add business capabilities "
 "or extend existing business systems of Odoo, see :doc:`backend`."
 msgstr ""
+"Para crear sitios web con Odoo, ver :doc:`website`; para añadir capacidades de "
+"negocio o ampliar sistemas de negocio existentes de Odoo, ver :doc:`backend`."
 
 #: ../../howtos/web.rst:18
 msgid "This guide assumes knowledge of:"
-msgstr ""
+msgstr "Este manual supone los siguientes conocimientos previos:"
 
 #: ../../howtos/web.rst:20
 msgid "Javascript basics and good practices"
-msgstr ""
+msgstr "Conceptos básicos de JavaScript y buenas prácticas"
 
 #: ../../howtos/web.rst:21
 msgid "jQuery_"
-msgstr ""
+msgstr "jQuery_"
 
 #: ../../howtos/web.rst:22
 msgid "`Underscore.js`_"
-msgstr ""
+msgstr "`Underscore.js`_"
 
 #: ../../howtos/web.rst:24
 msgid "It also requires :ref:`an installed Odoo <setup/install>`, and Git_."
-msgstr ""
+msgstr "También requiere :ref:`tener Odoo instalado <setup/install>` y Git_."
 
 #: ../../howtos/web.rst:28
 msgid "A Simple Module"
-msgstr ""
+msgstr "Un módulo sencillo"
 
 #: ../../howtos/web.rst:30
 msgid ""
 "Let's start with a simple Odoo module holding basic web component configuration "
 "and letting us test the web framework."
 msgstr ""
+"Vamos a empezar con un módulo sencillo de Odoo con la configuración básica del "
+"componente web, que nos permita probar el framework web."
 
 #: ../../howtos/web.rst:33
 msgid ""
 "The example module is available online and can be downloaded using the "
 "following command:"
 msgstr ""
+"El módulo ejemplo está disponible en línea y puede descargarse usando el "
+"siguiente comando:"
 
 #: ../../howtos/web.rst:40
 msgid ""
@@ -76,11 +83,16 @@ msgid ""
 "then need to add that folder to Odoo's :option:`addons path <odoo.py --addons-"
 "path>`, create a new database and install the ``oepetstore`` module."
 msgstr ""
+"Esto creará una carpeta  ``petstore`` donde se ejecutó el comando. Entonces, "
+"necesitas agregar esa carpeta al parámetro :option:`addons-path <odoo.py --"
+"addons-path>`, crear una nueva base de datos e instalar el módulo de "
+"``oepetstore``."
 
 #: ../../howtos/web.rst:45
 msgid ""
 "If you browse the ``petstore`` folder, you should see the following content:"
 msgstr ""
+"Si navegas a la carpeta ``petstore`` , deberías ver el siguiente contenido:"
 
 #: ../../howtos/web.rst:71
 msgid ""
@@ -88,6 +100,9 @@ msgid ""
 "these later, for now let's focus on the web-related content, in the ``static`` "
 "folder."
 msgstr ""
+"El módulo tiene ya varias personalizaciones de servidor. Regresaremos a estos "
+"más adelante, por ahora vamos a centrarnos en el contenido relacionado con la "
+"web, en la carpeta  ``static``."
 
 #: ../../howtos/web.rst:75
 msgid ""
@@ -96,26 +111,31 @@ msgid ""
 "not be fetched by browsers. The ``src/css``, ``src/js`` and ``src/xml`` sub-"
 "folders are conventional and not strictly necessary."
 msgstr ""
+"Los archivos utilizados en el lado \"web\" de un módulo Odoo deben colocarse en "
+"una carpeta ``static``, para que estén disponibles en el explorador web, los "
+"archivos fuera de esa carpeta no pueden ser descargados por los navegadores. El "
+"nombre que tienen los subdirectorios ``src/css``, ``src/js`` and ``src/xml`` es "
+"por convención y no es estrictamente necesario."
 
 #: ../../howtos/web.rst:80
 msgid "``oepetstore/static/css/petstore.css``"
-msgstr ""
+msgstr "``oepetstore/static/css/petstore.css``"
 
 #: ../../howtos/web.rst:81
 msgid "Currently empty, will hold the CSS_ for pet store content"
-msgstr ""
+msgstr "Actualmente vacío, contendrá los CSS_ de la tienda de mascotas"
 
 #: ../../howtos/web.rst:82
 msgid "``oepetstore/static/xml/petstore.xml``"
-msgstr ""
+msgstr "``oepetstore/static/xml/petstore.xml``"
 
 #: ../../howtos/web.rst:83
 msgid "Mostly empty, will hold :ref:`reference/qweb` templates"
-msgstr ""
+msgstr "En su mayor parte vacío, contendrá las plantillas :ref:`reference/qweb`"
 
 #: ../../howtos/web.rst:102
 msgid "``oepetstore/static/js/petstore.js``"
-msgstr ""
+msgstr "``oepetstore/static/js/petstore.js``"
 
 #: ../../howtos/web.rst:85
 msgid ""
@@ -123,10 +143,13 @@ msgid ""
 "application (or at least its web-browser side) as javascript. It should "
 "currently look like::"
 msgstr ""
+"La parte más importante (e interesante), contiene la lógica de la aplicación (o "
+"al menos del lado del navegador) como javascript. Actualmente debería verse "
+"como::"
 
 #: ../../howtos/web.rst:104
 msgid "Which only prints a small message in the browser's console."
-msgstr ""
+msgstr "El cual sólo imprime un pequeño mensaje en la consola del explorador."
 
 #: ../../howtos/web.rst:106
 msgid ""
@@ -135,12 +158,18 @@ msgid ""
 "``__openerp__.py`` while the contents of ``src/css`` and ``src/js`` are defined "
 "in ``petstore.xml``, or a similar file."
 msgstr ""
+"Los archivos en la carpeta ``static``, necesitan ser definidos dentro del "
+"módulo para que puedan cargarse correctamente. Todo en ``src/xml`` se define en "
+"el archivo ``__openerp__.py`` mientras que los contenidos de ``src/css`` y "
+"``src/js`` se definen en ``petstore.xml``, o un archivo similar."
 
 #: ../../howtos/web.rst:110
 msgid ""
 "All JavaScript files are concatenated and :term:`minified` to improve "
 "application load time."
 msgstr ""
+"Se concatenan todos los archivos JavaScript y son minificados (:term:"
+"`minified`) para reducir el tiempo de carga de la aplicación."
 
 #: ../../howtos/web.rst:113
 msgid ""
@@ -151,16 +180,25 @@ msgid ""
 "top-right corner of the Odoo screen) and select :guilabel:`About Odoo` then :"
 "guilabel:`Activate the developer mode`:"
 msgstr ""
+"Uno de los inconvenientes es que la depuración se hace más difícil cuando los "
+"archivos individuales desaparecen y por ende el código se hace "
+"significativamente menos legible. Es posible deshabilitar este proceso "
+"activando el \"modo desarrollador\": para ello inicie sesión en la instancia "
+"Odoo (usuario *admin* contraseña *admin* por defecto), abra el menú de usuario "
+"(en la esquina superior derecha de la pantalla de Odoo) y seleccione :guilabel:"
+"`About`, luego haz click en :guilabel:`Activate the developer mode`:"
 
 #: ../../howtos/web.rst:127
 msgid ""
 "This will reload the web client with optimizations disabled, making development "
 "and debugging significantly more comfortable."
 msgstr ""
+"Esto volverá a cargar al cliente web con las optimizaciones deshabilitadas, y "
+"hará que el desarrollo y la depuración sea más cómodo."
 
 #: ../../howtos/web.rst:133
 msgid "Odoo JavaScript Module"
-msgstr ""
+msgstr "Odoo módulo en JavaScript"
 
 #: ../../howtos/web.rst:135
 msgid ""
@@ -169,16 +207,23 @@ msgid ""
 "to various module patterns used to build clean namespaces and limit risks of "
 "naming conflicts."
 msgstr ""
+"JavaScript no tiene módulos incorporados. Como resultado, las variables "
+"definidas en archivos diferentes son todos tratadas juntas y pueden entrar en "
+"conflicto. Esto ha dado lugar a diversos patrones de módulo usados para "
+"construir los espacios de nombres limpios y limitar los riesgos de conflictos "
+"de nombres."
 
 #: ../../howtos/web.rst:140
 msgid ""
 "The Odoo framework uses one such pattern to define modules within web addons, "
 "in order to both namespace code and correctly order its loading."
 msgstr ""
+"El esquema de desarrollo en Odoo utiliza un patrón para definir módulos web, "
+"para manejar los espacios de nombres y así cargarlos correctamente."
 
 #: ../../howtos/web.rst:143
 msgid "``oepetstore/static/js/petstore.js`` contains a module declaration::"
-msgstr ""
+msgstr "``oepetstore/static/js/petstore.js`` contiene una declaración de módulo::"
 
 #: ../../howtos/web.rst:149
 msgid ""
@@ -186,12 +231,18 @@ msgid ""
 "variable. The function's name must be the same as the addon (in this case "
 "``oepetstore``) so the framework can find it, and automatically initialize it."
 msgstr ""
+"En Odoo Web, los módulos están declarados como funciones que son parte de la "
+"variable global ``openerp``. El nombre de la función debe ser la misma que el "
+"módulo (en este caso ``oepetstore``) con lo que el esquema de desarrollo puede "
+"encontrarlo e inicializar automáticamente."
 
 #: ../../howtos/web.rst:153
 msgid ""
 "When the web client loads your module it will call the root function and "
 "provide two parameters:"
 msgstr ""
+"Cuando el cliente web se carga el módulo llama a la función raíz y envía dos "
+"parámetros:"
 
 #: ../../howtos/web.rst:156
 msgid ""
@@ -199,6 +250,9 @@ msgid ""
 "access to various capabilities defined by the Odoo (translations, network "
 "services) as well as objects defined by the core or by other modules."
 msgstr ""
+"el primer parámetro es la instancia actual del cliente web de Odoo, da acceso a "
+"varias de las capacidades definidas por Odoo (traducciones, servicios de red) "
+"así como de objetos definidos por la base o por otros módulos."
 
 #: ../../howtos/web.rst:160
 msgid ""
@@ -207,10 +261,15 @@ msgid ""
 "module (either because the Odoo web client needs to call them or because others "
 "may want to customize them) should be set inside that namespace."
 msgstr ""
+"el segundo parámetro es su propio espacio de nombres local creado "
+"automáticamente por el cliente web. Objetos y variables que deben ser "
+"accesibles desde fuera de su módulo (o bien porque el cliente de web de Odoo "
+"tiene que llamar a los otros para personalizarlos) deben ajustarse dentro de "
+"ese espacio de nombres."
 
 #: ../../howtos/web.rst:167
 msgid "Classes"
-msgstr ""
+msgstr "Clases"
 
 #: ../../howtos/web.rst:169
 msgid ""
@@ -218,18 +277,25 @@ msgid ""
 "does not build in *classes*\\ [#classes]_ although it provides roughly "
 "equivalent (if lower-level and more verbose) mechanisms."
 msgstr ""
+"Tanto como módulos y contrario a lenguajes más orientados a objetos, javascript "
+"no construye *clases* \\ [#classes]_ aunque provee un mecanismo equivalente (de "
+"menor nivel y más detallado)."
 
 #: ../../howtos/web.rst:173
 msgid ""
 "For simplicity and developer-friendliness Odoo web provides a class system "
 "based on John Resig's `Simple JavaScript Inheritance`_."
 msgstr ""
+"Por simplicidad y ayuda al desarrollador Odoo web ofrece un sistema de clases "
+"basado en  `Simple JavaScript Inheritance`_ de John Resig."
 
 #: ../../howtos/web.rst:176
 msgid ""
 "New classes are defined by calling the :func:`~openerp.web.Class.extend` method "
 "of :class:`openerp.web.Class`::"
 msgstr ""
+"Se definen nuevas clases llamando al método :func:`~openerp.web.Class.extend` "
+"de la clase :class:`openerp.web.Class`::"
 
 #: ../../howtos/web.rst:185
 msgid ""
@@ -237,14 +303,17 @@ msgid ""
 "new class's content (methods and static attributes). In this case, it will only "
 "have a ``say_hello`` method which takes no parameters."
 msgstr ""
+"El método :func:`~openerp.web.Class.extend` toma un diccionario que describe el "
+"contenido de la nueva clase (métodos y atributos estáticos). En este caso, sólo "
+"tendrá un método ``say_hello`` que no toma parámetros."
 
 #: ../../howtos/web.rst:189
 msgid "Classes are instantiated using the ``new`` operator::"
-msgstr ""
+msgstr "Las clases son instanciadas usando el operador ``new``::"
 
 #: ../../howtos/web.rst:195
 msgid "And attributes of the instance can be accessed via ``this``::"
-msgstr ""
+msgstr "Y atributos de la instancia pueden accederse a través de  ``this``::"
 
 #: ../../howtos/web.rst:208
 msgid ""
@@ -252,6 +321,9 @@ msgid ""
 "instance, by defining an ``init()`` method. The initializer receives the "
 "parameters passed when using the ``new`` operator::"
 msgstr ""
+"Las clases pueden proporcionar un inicializador para realizar la configuración "
+"inicial de la instancia, mediante la definición de un método ``init()``. El "
+"inicializador recibe los parámetros pasados al usar el operador ``new``::"
 
 #: ../../howtos/web.rst:225
 msgid ""
@@ -259,12 +331,17 @@ msgid ""
 "by calling :func:`~openerp.web.Class.extend` on the parent class, as is done to "
 "subclass :class:`~openerp.web.Class`::"
 msgstr ""
+"También es posible crear subclases de las clases existentes (definido por el "
+"usuario) llamando al :func:`~openerp.web.Class.extend` en la clase padre, como "
+"se hace para hacer subclases :class:`~openerp.web.Class`::"
 
 #: ../../howtos/web.rst:239
 msgid ""
 "When overriding a method using inheritance, you can use ``this._super()`` to "
 "call the original method::"
 msgstr ""
+"Cuando sobreescribes un método usando herencia, puede utilizar ``this."
+"_super()`` para llamar al método original::"
 
 #: ../../howtos/web.rst:255
 msgid ""
@@ -274,10 +351,16 @@ msgid ""
 "network calls or in ``setTimeout`` callbacks) a reference to its value should "
 "be retained, it should not be accessed via ``this``::"
 msgstr ""
+"``_super`` no es un método estándar, es creado sobre la marcha para el próximo "
+"método de la cadena actual de la herencia, si hay alguno. Sólo se define "
+"durante la parte *síncrona* de una llamada al método, para su uso en "
+"controladores asincrónicos (después de llamadas de red o en las devoluciones de "
+"llamada ``setTimeout``) una referencia a su valor será retenida, no debe "
+"accederse a través de ``this``::"
 
 #: ../../howtos/web.rst:278
 msgid "Widgets Basics"
-msgstr ""
+msgstr "Conceptos básicos de widgets"
 
 #: ../../howtos/web.rst:280
 msgid ""
@@ -285,6 +368,10 @@ msgid ""
 "provides a better API than standard `W3C DOM`_\\ [#dombugs]_, but insufficient "
 "to structure complex applications leading to difficult maintenance."
 msgstr ""
+"El cliente web Odoo contiene jQuery_ para una sencilla manipulación del DOM. Es "
+"útil y proporciona una API mejor que el estándar `W3C DOM`_\\ [#dombugs]_, pero "
+"insuficiente para aplicaciones de estructura compleja complicando su "
+"mantenimiento."
 
 #: ../../howtos/web.rst:285
 msgid ""
@@ -293,14 +380,20 @@ msgid ""
 "the base for such components is the :class:`~openerp.Widget` class, a component "
 "specialized in handling a page section and displaying information for the user."
 msgstr ""
+"Tal como las herramientas de escritorio orientado a objetos de interfaz de "
+"usuario (por ejemplo Qt_, Cocoa_ o GTK_), Odoo Web hace componentes específicos "
+"responsables de las secciones de una página. En la web de Odoo, la base de "
+"dichos componentes es la clase :class:`~openerp.Widget`, un componente "
+"especializado en el manejo de una sección de la página y muestra información "
+"para el usuario."
 
 #: ../../howtos/web.rst:292
 msgid "Your First Widget"
-msgstr ""
+msgstr "Tu Widget"
 
 #: ../../howtos/web.rst:294
 msgid "The initial demonstration module already provides a basic widget::"
-msgstr ""
+msgstr "El módulo demostración inicial ya proporciona un widget básico::"
 
 #: ../../howtos/web.rst:302
 msgid ""
@@ -308,10 +401,13 @@ msgid ""
 "`~openerp.Widget.start`, which — much like the previous ``MyClass`` — does "
 "little for now."
 msgstr ""
+"Se extiende :class:`~openerp.Widget` y reemplaza el método estándar :func:"
+"`~openerp.Widget.start`, que — al igual que el anterior ``MyClass`` — hace poco "
+"por ahora."
 
 #: ../../howtos/web.rst:306
 msgid "This line at the end of the file::"
-msgstr ""
+msgstr "Esta línea al final del archivo::"
 
 #: ../../howtos/web.rst:311
 msgid ""
@@ -319,32 +415,40 @@ msgid ""
 "later, for now this is just what allows our widget to be called and displayed "
 "when we select the :menuselection:`Pet Store --> Pet Store --> Home Page` menu."
 msgstr ""
+"registra nuestro widget básico como una acción del cliente. Las acciones de "
+"cliente se explicará más adelante, por ahora esto es sólo lo que permite llamar "
+"a nuestro widget y que  aparezca cuando seleccionamos la :menuselection:`Pet "
+"Store --> Pet Store --> Home Page` menú."
 
 #: ../../howtos/web.rst:318
 msgid ""
 "because the widget will be called from outside our module, the web client needs "
 "its \"fully qualified\" name, not the local version."
 msgstr ""
+"ya que el widget se llama desde fuera de nuestro módulo, el cliente web "
+"necesita su nombre  \"fully qualified\", no la versión local."
 
 #: ../../howtos/web.rst:322
 msgid "Display Content"
-msgstr ""
+msgstr "Mostrar Contenido"
 
 #: ../../howtos/web.rst:324
 msgid "Widgets have a number of methods and features, but the basics are simple:"
 msgstr ""
+"Widgets tienen un número de características y métodos, pero los conceptos "
+"básicos son simples:"
 
 #: ../../howtos/web.rst:326
 msgid "set up a widget"
-msgstr ""
+msgstr "crear un widget"
 
 #: ../../howtos/web.rst:327
 msgid "format the widget's data"
-msgstr ""
+msgstr "formatear los datos del widget"
 
 #: ../../howtos/web.rst:328
 msgid "display the widget"
-msgstr ""
+msgstr "Mostrar el widget"
 
 #: ../../howtos/web.rst:330
 msgid ""
@@ -352,6 +456,10 @@ msgid ""
 "That method is part of the normal widget lifecycle and automatically called "
 "once the widget is inserted in the page. We can use it to display some content."
 msgstr ""
+"El widget del ``HomePage`` ya tiene un método :func:`~openerp.Widget.start`. "
+"Éste método es parte del ciclo de vida normal del widget y se llama "
+"automáticamente una vez que se inserta el widget en la página. Podemos usarlo "
+"para visualizar algunos contenidos."
 
 #: ../../howtos/web.rst:335
 msgid ""
@@ -360,6 +468,10 @@ msgid ""
 "inserted there. By default, :attr:`~openerp.Widget.$el` is an empty ``<div>`` "
 "element."
 msgstr ""
+"Todos los widgets de todos tienen un atributo :attr:`~openerp.Widget.$el`  que "
+"representa la sección de la página en la que está (como un objeto jQuery_). El "
+"contenido widget debe ser insertado allí. Por defecto el atributo :attr:"
+"`~openerp.Widget.$el` es un elemento ``<div>`` vacío."
 
 #: ../../howtos/web.rst:340
 msgid ""
@@ -367,48 +479,64 @@ msgid ""
 "without specific styles giving it a size) which is why nothing is displayed on "
 "the page when ``HomePage`` is launched."
 msgstr ""
+"El elemento ``<div>`` está generalmente invisible para el usuario si no tiene "
+"nada de contenido (o sin estilos específicos, que le dan un tamaño) razón por "
+"la cual nada se muestra en la página cuando el  ``HomePage`` el llamado."
 
 #: ../../howtos/web.rst:344
 msgid "Let's add some content to the widget's root element, using jQuery::"
 msgstr ""
+"Vamos a añadir algunos contenidos al elemento raíz del widget usando jQuery::"
 
 #: ../../howtos/web.rst:352
 msgid ""
 "That message will now appear when you open :menuselection:`Pet Store --> Pet "
 "Store --> Home Page`"
 msgstr ""
+"Este mensaje aparecerá cuando se abre :menuselection:`Pet Store --> Pet Store --"
+"> Home Page`"
 
 #: ../../howtos/web.rst:357
 msgid ""
 "to refresh the javascript code loaded in Odoo Web, you will need to reload the "
 "page. There is no need to restart the Odoo server."
 msgstr ""
+"para actualizar el código javascript que se cargan en Odoo Web, solo necesitas "
+"volver a cargar la página. No hay que reiniciar el servidor de Odoo."
 
 #: ../../howtos/web.rst:360
 msgid ""
 "The ``HomePage`` widget is used by Odoo Web and managed automatically. To learn "
 "how to use a widget \"from scratch\" let's create a new one::"
 msgstr ""
+"El widget del ``HomePage`` es utilizado por Odoo Web y gestionado "
+"automáticamente. Para aprender a usar un widget “desde cero“ vamos a crear uno "
+"nuevo::"
 
 #: ../../howtos/web.rst:369
 msgid ""
 "We can now add our ``GreetingsWidget`` to the ``HomePage`` by using the "
 "``GreetingsWidget``'s :func:`~openerp.Widget.appendTo` method::"
 msgstr ""
+"Ahora podemos añadir nuestro  ``GreetingsWidget`` a la  ``HomePage`` mediante "
+"el uso de la función de ``GreetingsWidget`` llamada :func:`~openerp.Widget."
+"appendTo`::"
 
 #: ../../howtos/web.rst:380
 msgid "``HomePage`` first adds its own content to its DOM root"
-msgstr ""
+msgstr "``HomePage`` primero agrega su propio contenido a la raíz DOM"
 
 #: ../../howtos/web.rst:381
 msgid "``HomePage`` then instantiates ``GreetingsWidget``"
-msgstr ""
+msgstr "``HomePage`` luego crea una instancia de  ``GreetingsWidget``"
 
 #: ../../howtos/web.rst:382
 msgid ""
 "Finally it tells ``GreetingsWidget`` where to insert itself, delegating part of "
 "its :attr:`~openerp.Widget.$el` to the ``GreetingsWidget``."
 msgstr ""
+"Finalmente le dices ``GreetingsWidget`` donde insertarse, delegando parte de "
+"su :attr:`~openerp.Widget.$el` al ``GreetingsWidget``."
 
 #: ../../howtos/web.rst:385
 msgid ""
@@ -417,6 +545,10 @@ msgid ""
 "func:`~openerp.Widget.start` method will be called during the call to :func:"
 "`~openerp.Widget.appendTo`."
 msgstr ""
+"Cuando el método :func:`~openerp.Widget.appendTo` es llamado, pide el widget "
+"insertarse en la posición especificada y mostrar su contenido. El método :func:"
+"`~openerp.Widget.start` se llamará en la llamada al método :func:`~openerp."
+"Widget.appendTo`."
 
 #: ../../howtos/web.rst:390
 msgid ""
@@ -425,22 +557,30 @@ msgid ""
 "find where they are, by :attr:`adding a class to their root elements <openerp."
 "Widget.className>`::"
 msgstr ""
+"Para ver lo que sucede en la interfaz, usaremos el explorador de DOM. Pero "
+"primero vamos a modificar ligeramente nuestros widgets y de ésta manera más "
+"fácilmente los podremos encontrar, por:attr:`agregando una clase a su raíz con "
+"<openerp.Widget.className>`::"
 
 #: ../../howtos/web.rst:404
 msgid ""
 "If you can find the relevant section of the DOM (right-click on the text then :"
 "guilabel:`Inspect Element`), it should look like this:"
 msgstr ""
+"Si puedes encontrar la sección relevante del DOM (haga clic derecho sobre el "
+"texto a continuación :guilabel:`Inspect Element`), debe lucir así:"
 
 #: ../../howtos/web.rst:416
 msgid ""
 "Which clearly shows the two ``<div>`` elements automatically created by :class:"
 "`~openerp.Widget`, because we added some classes on them."
 msgstr ""
+"Que muestra claramente los dos elementos ``<div>``  creados automáticamente por "
+"la :class:`~openerp.Widget`, debido a que le hemos añadido un nombre a su clase."
 
 #: ../../howtos/web.rst:419
 msgid "We can also see the two message-holding divs we added ourselves"
-msgstr ""
+msgstr "También podemos ver los dos divs que añadimos nosotros mismos"
 
 #: ../../howtos/web.rst:421
 msgid ""
@@ -449,20 +589,28 @@ msgid ""
 "\"oe_petstore_homepage\">`` which represents the ``HomePage`` instance, since "
 "we appended"
 msgstr ""
+"Por último, tenga en cuenta que el elemento ``<div class=\"oe_petstore_greetings"
+"\">`` representa la instancia ``GreetingsWidget`` que está dentro de ``<div "
+"class=\"oe_petstore_homepage\">`` que representa la instancia ``HomePage``, la "
+"cual lo agrega"
 
 #: ../../howtos/web.rst:427
 msgid "Widget Parents and Children"
-msgstr ""
+msgstr "Padres e hijos del widget"
 
 #: ../../howtos/web.rst:429
 msgid "In the previous part, we instantiated a widget using this syntax::"
 msgstr ""
+"En la parte anterior, creamos una instancia de un widget usando esta sintaxis::"
 
 #: ../../howtos/web.rst:433
 msgid ""
 "The first argument is ``this``, which in that case was a ``HomePage`` instance. "
 "This tells the widget being created which other widget is its *parent*."
 msgstr ""
+"El primer argumento es ``this``, que en ese caso fue una instancia de  "
+"``HomePage`` . Esto indica que el widget se crea otro widget el cual es su "
+"*padre*."
 
 #: ../../howtos/web.rst:437
 msgid ""
@@ -471,28 +619,34 @@ msgid ""
 "of another widget, and exist on behalf of it. We call the container the "
 "*parent*, and the contained widget the *child*."
 msgstr ""
+"Como hemos visto, widgets generalmente se insertan en el DOM por otro widget y "
+"*dentro* el elemento de raíz de otro widget. Esto significa que la mayoría de "
+"los widgets son “parte” de otro widget y existe en el nombre de él. Llamamos el "
+"contenedor el *padre* y el widget contenido el *hijo*."
 
 #: ../../howtos/web.rst:442
 msgid ""
 "Due to multiple technical and conceptual reasons, it is necessary for a widget "
 "to know who is its parent and who are its children."
 msgstr ""
+"Debido a múltiples razones técnicas y conceptuales, es necesaria para un widget "
+"saber quién es su padre y cuales son sus hijos."
 
 #: ../../howtos/web.rst:453
 msgid ":func:`~openerp.Widget.getParent`"
-msgstr ""
+msgstr ":func:`~openerp.Widget.getParent`"
 
 #: ../../howtos/web.rst:446
 msgid "can be used to get the parent of a widget::"
-msgstr ""
+msgstr "puede utilizarse para obtener el padre de un widget::"
 
 #: ../../howtos/web.rst:465
 msgid ":func:`~openerp.Widget.getChildren`"
-msgstr ""
+msgstr ":func:`~openerp.Widget.getChildren`"
 
 #: ../../howtos/web.rst:456
 msgid "can be used to get a list of its children::"
-msgstr ""
+msgstr "puede utilizarse para obtener una lista de sus hijos::"
 
 #: ../../howtos/web.rst:467
 msgid ""
@@ -500,22 +654,29 @@ msgid ""
 "the utmost importance* to pass the parent to the ``this._super()`` call, "
 "otherwise the relation will not be set up correctly::"
 msgstr ""
+"Al sobreescribir el método :func:`~openerp.Widget.init` de un widget es de "
+"*suma importancia* pasar el padre cómo parámetros al llamar a ``this."
+"_super()``, de lo contrario la relación no se configurará correctamente::"
 
 #: ../../howtos/web.rst:478
 msgid ""
 "Finally, if a widget does not have a parent (e.g. because it's the root widget "
 "of the application), ``null`` can be provided as parent::"
 msgstr ""
+"Por último, si un widget no tiene un padre (por ejemplo, porque es el widget de "
+"la raíz de la aplicación), ``null`` puede ser proporcionado como padre::"
 
 #: ../../howtos/web.rst:484
 msgid "Destroying Widgets"
-msgstr ""
+msgstr "Destrucción de Widgets"
 
 #: ../../howtos/web.rst:486
 msgid ""
 "If you can display content to your users, you should also be able to erase it. "
 "This is done via the :func:`~openerp.Widget.destroy` method::"
 msgstr ""
+"Si puedes mostrar el contenido a los usuarios, también deberías ser capaz de "
+"borrarlo. Esto se hace a través del método :func:`~openerp.Widget.destroy`::"
 
 #: ../../howtos/web.rst:491
 msgid ""
@@ -525,6 +686,12 @@ msgid ""
 "start` which must be explicitly cleaned up (because the garbage collector will "
 "not handle them), you can override :func:`~openerp.Widget.destroy`."
 msgstr ""
+"Cuando se destruye un widget primero llamará :func:`~openerp.Widget.destroy` en "
+"todos sus hijos. Entonces se borra a sí mismo desde el DOM. Si usted ha "
+"establecido estructuras permanentes en :func:`~openerp.Widget.init` o :func:"
+"`~openerp.Widget.start` que deban ser explícitamente limpiada (porque el "
+"recolector de basura no lo manejan), se puede sobrescribir :func:`~openerp."
+"Widget.destroy`."
 
 #: ../../howtos/web.rst:500
 msgid ""
@@ -533,16 +700,22 @@ msgid ""
 "leaving possible memory leaks and \"phantom events\", even if no error is "
 "displayed"
 msgstr ""
+"al sobreescribir :func:`~openerp.Widget.destroy`, ``_super()``  *debe ser "
+"llamado siempre* sino el widget y sus hijos no se limpiarán correctamente hasta "
+"dejar posibles fugas de memoria posible y “Eventos Fantasmas”, aunque no se "
+"muestre ningún error"
 
 #: ../../howtos/web.rst:506
 msgid "The QWeb Template Engine"
-msgstr ""
+msgstr "El motor de la plantilla de QWeb"
 
 #: ../../howtos/web.rst:508
 msgid ""
 "In the previous section we added content to our widgets by directly "
 "manipulating (and adding to) their DOM::"
 msgstr ""
+"En la sección anterior agregamos contenido a nuestros widgets directamente "
+"manipulando (y agregando a) su DOM::"
 
 #: ../../howtos/web.rst:513
 msgid ""
@@ -550,12 +723,18 @@ msgid ""
 "when generating significant amounts of DOM (lots of duplication, quoting "
 "issues, ...)"
 msgstr ""
+"Esto permite generar y visualizar cualquier tipo de contenido, pero es difícil "
+"de manejar cuando se generan cantidades significativas de DOM (mucha "
+"duplicación, citando problemas,…)"
 
 #: ../../howtos/web.rst:517
 msgid ""
 "As many other environments, Odoo's solution is to use a `template engine`_. "
 "Odoo's template engine is called :ref:`reference/qweb`."
 msgstr ""
+"Como muchos otros ambientes, la solución de Odoo es utilizar un `motor de "
+"plantilla engine`_. El motor de plantillas en Odoo se llama :ref:`reference/"
+"qweb`."
 
 #: ../../howtos/web.rst:520
 msgid ""
@@ -564,14 +743,19 @@ msgid ""
 "wikipedia.org/wiki/Thymeleaf>`_ or `Facelets <http://en.wikipedia.org/wiki/"
 "Facelets>`_. It has the following characteristics:"
 msgstr ""
+"QWeb es un lenguaje de plantillas basado en XML, similar a `Genshi <http://en."
+"wikipedia.org/wiki/Genshi_(templating_language)>`_, `Thymeleaf <http://en."
+"wikipedia.org/wiki/Thymeleaf>`_ o  `Facelets <http://en.wikipedia.org/wiki/"
+"Facelets>`_. Este tiene las siguientes características:"
 
 #: ../../howtos/web.rst:526
 msgid "It's implemented fully in JavaScript and rendered in the browser"
 msgstr ""
+"Se ha implementado completamente en JavaScript y es procesado en el navegador"
 
 #: ../../howtos/web.rst:527
 msgid "Each template file (XML files) contains multiple templates"
-msgstr ""
+msgstr "Cada archivo de plantilla (archivos XML) contiene varias plantillas"
 
 #: ../../howtos/web.rst:528
 msgid ""
@@ -579,6 +763,9 @@ msgid ""
 "used outside of Odoo's web client (and it's possible to use :class:`~openerp."
 "Widget` without relying on QWeb)"
 msgstr ""
+"Tiene un apoyo especial en la clase Odoo Web :class:`~openerp.Widget`, aunque "
+"puede ser utilizado fuera de cliente de web de Odoo (y es posible utilizar :"
+"class:`~openerp.Widget` sin depender de QWeb)"
 
 #: ../../howtos/web.rst:534
 msgid ""
@@ -586,6 +773,9 @@ msgid ""
 "is the extensibility of pre-existing (third-party) templates, much like Odoo :"
 "ref:`views <reference/views>`."
 msgstr ""
+"La razón de utilizar QWeb en vez de los motores de plantilla javascript es la "
+"extensibilidad de plantillas preexistentes (tercero), al igual que las :ref:"
+"`views <reference/views>` en Odoo."
 
 #: ../../howtos/web.rst:538
 msgid ""
@@ -595,16 +785,24 @@ msgid ""
 "flexibility and extensibility is a core characteristic of Odoo, and losing it "
 "was considered unacceptable."
 msgstr ""
+"La mayoría de los motores de plantilla javascript son basados en texto que "
+"impide la fácil extensibilidad estructural donde un motor de plantillas basado "
+"en XML puede ser genéricamente alterada usando por ejemplo usando XPath o CSS y "
+"alteración de árbol DSL (o incluso sólo XSLT). Esta flexibilidad y "
+"extensibilidad es una característica del núcleo de Odoo y perderlo era "
+"considerado inaceptable."
 
 #: ../../howtos/web.rst:545
 msgid "Using QWeb"
-msgstr ""
+msgstr "Utilizar QWeb"
 
 #: ../../howtos/web.rst:547
 msgid ""
 "First let's define a simple QWeb template in the almost-empty ``oepetstore/"
 "static/src/xml/petstore.xml`` file:"
 msgstr ""
+"Primero vamos a definir una plantilla de QWeb simple en el archivo casi vacío "
+"``oepetstore/static/src/xml/petstore.xml``:"
 
 #: ../../howtos/web.rst:559
 msgid ""
@@ -612,12 +810,17 @@ msgid ""
 "``QWeb`` loader variable defined at the top of the page, we can call to the "
 "template defined in the XML file::"
 msgstr ""
+"Ahora podemos usar esta plantilla en el widget del ``HomePage``. Utilizando la "
+"variable del cargador  ``QWeb`` en la parte superior de la página, podemos "
+"llamar a la plantilla definida en el archivo XML::"
 
 #: ../../howtos/web.rst:569
 msgid ""
 ":func:`QWeb.render` looks for the specified template, renders it to a string "
 "and returns the result."
 msgstr ""
+":func:`QWeb.render` busca la plantilla especifica, y la convierte a una cadena "
+"y devuelve el resultado."
 
 #: ../../howtos/web.rst:572
 msgid ""
@@ -625,18 +828,23 @@ msgid ""
 "template can be set directly on the widget via its :attr:`~openerp.Widget."
 "template` attribute::"
 msgstr ""
+"Sin embargo, porque :class:`~openerp.Widget` tiene una integración especial con "
+"QWeb, la plantilla se puede establecer directamente en el widget a través de su "
+"atributo :attr:`~openerp.Widget.template`::"
 
 #: ../../howtos/web.rst:583
 msgid ""
 "Although the result looks similar, there are two differences between these "
 "usages:"
-msgstr ""
+msgstr "Aunque el resultado es similar, hay dos diferencias entre estos usos:"
 
 #: ../../howtos/web.rst:586
 msgid ""
 "with the second version, the template is rendered right before :func:`~openerp."
 "Widget.start` is called"
 msgstr ""
+"de la segunda forma, la plantilla se procesa antes de que :func:`~openerp."
+"Widget.start` se llame"
 
 #: ../../howtos/web.rst:588
 msgid ""
@@ -645,6 +853,10 @@ msgid ""
 "*set as* the widget's root element. Which is why the \"greetings\" sub-widget "
 "also gets a red background"
 msgstr ""
+"en la primera versión el contenido de la plantilla se agrega al elemento de "
+"raíz del widget, mientras que en la segunda versión la raíz de la plantilla "
+"queda directamente *como* elemento de raíz del widget. Razón por la cual el sub-"
+"widget \"greetings\" también tiene un fondo rojo"
 
 #: ../../howtos/web.rst:595
 msgid ""
@@ -653,28 +865,36 @@ msgid ""
 "\"root elements\", results are undefined (usually only the first root element "
 "will be used and the others will be ignored)"
 msgstr ""
+"las plantillas deben tener un elemento de raíz única no-‘’ t’’, especialmente "
+"si está establecidos como un widget: attr:’~ openerp. Widget.template’. Si hay "
+"múltiples elementos de”raíz”, los resultados son indefinidos (generalmente solo "
+"se utilizará el primer elemento de la raíz y los demás serán ignorados)"
 
 #: ../../howtos/web.rst:601
 msgid "QWeb Context"
-msgstr ""
+msgstr "Contexto QWeb"
 
 #: ../../howtos/web.rst:603
 msgid "QWeb templates can be given data and can contain basic display logic."
 msgstr ""
+"A las plantillas QWeb le puedes pasar datos y éstos pueden contener lógica de "
+"visualización básicas."
 
 #: ../../howtos/web.rst:605
 msgid ""
 "For explicit calls to :func:`QWeb.render`, the template data is passed as "
 "second parameter::"
 msgstr ""
+"Para las llamadas explícitas a :func:`QWeb.render`, los datos de la plantilla "
+"se pasan como segundo parámetro::"
 
 #: ../../howtos/web.rst:610
 msgid "with the template modified to:"
-msgstr ""
+msgstr "con la plantilla para modificar:"
 
 #: ../../howtos/web.rst:618
 msgid "will result in:"
-msgstr ""
+msgstr "dará como resultado:"
 
 #: ../../howtos/web.rst:624
 msgid ""
@@ -684,32 +904,44 @@ msgid ""
 "`~openerp.Widget.start` is called (the widget's state will essentially be that "
 "set up by :func:`~openerp.Widget.init`):"
 msgstr ""
+"Cuando se utiliza la integración con :class:`~openerp.Widget` no es posible "
+"proporcionar datos adicionales a la plantilla. La plantilla se le dará una "
+"variable de contexto solo  ``widget``, haciendo referencia al widget justo "
+"antes que :func:`~openerp.Widget.start` se llame (el estado del widget será "
+"esencialmente lo que se instancia en el método :func:`~openerp.Widget.init`):"
 
 #: ../../howtos/web.rst:648
 msgid "Result:"
-msgstr ""
+msgstr "Resultado:"
 
 #: ../../howtos/web.rst:655
 msgid "Template Declaration"
-msgstr ""
+msgstr "Declaración de la plantilla"
 
 #: ../../howtos/web.rst:657
 msgid ""
 "We've seen how to *render* QWeb templates, let's now see the syntax of the "
 "templates themselves."
 msgstr ""
+"Hemos visto cómo es el *procesamiento* de plantillas QWeb, ahora veamos la "
+"sintaxis de las plantillas."
 
 #: ../../howtos/web.rst:660
 msgid ""
 "A QWeb template is composed of regular XML mixed with QWeb *directives*. A QWeb "
 "directive is declared with XML attributes starting with ``t-``."
 msgstr ""
+"Una plantilla de QWeb se compone de XML regular mezclado con *directivas* "
+"QWeb . Se declara una directiva de QWeb con atributos XML que comiencen por ‘’ "
+"t-‘’."
 
 #: ../../howtos/web.rst:663
 msgid ""
 "The most basic directive is ``t-name``, used to declare new templates in a "
 "template file:"
 msgstr ""
+"La directiva más básica es ``t-name``, se utiliza para declarar nuevas "
+"plantillas en un archivo de plantillas:"
 
 #: ../../howtos/web.rst:674
 msgid ""
@@ -717,14 +949,17 @@ msgid ""
 "can be called using :func:`QWeb.render`. It can only be used at the top-level "
 "of a template file."
 msgstr ""
+"``t-name`` toma el nombre de la plantilla que se está definiendo y declara que "
+"pueda llamarse usando :func:`QWeb.render`. Sólo se puede utilizar en el nivel "
+"superior de un archivo de plantilla."
 
 #: ../../howtos/web.rst:679
 msgid "Escaping"
-msgstr ""
+msgstr "Escape"
 
 #: ../../howtos/web.rst:681
 msgid "The ``t-esc`` directive can be used to output text:"
-msgstr ""
+msgstr "La directiva ``t-esc`` se puede utilizar para mostrar texto:"
 
 #: ../../howtos/web.rst:687
 msgid ""
@@ -733,14 +968,18 @@ msgid ""
 "expression it's possible to provide just a variable name as above, or a more "
 "complex expression like a computation:"
 msgstr ""
+"Toma una expresión de Javascript que se evalúa, el resultado de la expresión es "
+"entonces insertado en el documento y escapado de HTML. Ya que es una expresión, "
+"es posible proporcionar sólo un nombre de variable como se ve arriba, o una "
+"expresión más compleja como un cálculo:"
 
 #: ../../howtos/web.rst:696
 msgid "or method calls:"
-msgstr ""
+msgstr "o el método llama:"
 
 #: ../../howtos/web.rst:703
 msgid "Outputting HTML"
-msgstr ""
+msgstr "Produciendo HTML"
 
 #: ../../howtos/web.rst:705
 msgid ""
@@ -748,16 +987,22 @@ msgid ""
 "takes an arbitrary Javascript expression as parameter, but it does not perform "
 "an HTML-escape step."
 msgstr ""
+"Para inyectar HTML en la página durante el procesamiento, usas ``t-raw``. Como "
+"``t-esc`` toma una expresión Javascript arbitraria como parámetro, pero no "
+"realiza un paso de escapar el HTML."
 
 #: ../../howtos/web.rst:715
 msgid ""
 "``t-raw`` *must not* be used on any data which may contain non-escaped user-"
 "provided content as this leads to `cross-site scripting`_ vulnerabilities"
 msgstr ""
+"``t-raw`` *no* debe ser utilizado en datos que pueda tener contenido no "
+"escapado proporcionado por el usuario porque esto conduce a vulnerabilidades "
+"`cross-site scripting`_"
 
 #: ../../howtos/web.rst:720
 msgid "Conditionals"
-msgstr ""
+msgstr "Condicionales"
 
 #: ../../howtos/web.rst:722
 msgid ""
@@ -765,6 +1010,9 @@ msgid ""
 "arbitrary expression, if the expression is falsy (``false``, ``null``, ``0`` or "
 "an empty string) the whole block is suppressed, otherwise it is displayed."
 msgstr ""
+"QWeb puede tener bloques condicionales utilizando ``t-if`. La Directiva toma "
+"una expresión arbitraria, si la expresión es falsa (``false``, ``null``, ``0``  "
+"o una cadena vacía) se suprime el bloque entero, de lo contrario se muestra."
 
 #: ../../howtos/web.rst:739
 msgid ""
@@ -772,10 +1020,13 @@ msgid ""
 "original condition inverted. You may want to store the condition in a local "
 "variable if it's a complex or expensive expression."
 msgstr ""
+"QWeb no tiene una sentencia “else”, utilice un segundo ``t-if``` con la "
+"condición original invertida. Puede que desee guardar la condición en una "
+"variable local si se trata de una expresión compleja o costosa."
 
 #: ../../howtos/web.rst:744
 msgid "Iteration"
-msgstr ""
+msgstr "Iteración"
 
 #: ../../howtos/web.rst:746
 msgid ""
@@ -783,14 +1034,17 @@ msgid ""
 "expression returning a list to iterate on ``t-as`` takes a variable name to "
 "bind to each item during iteration."
 msgstr ""
+"Para iterar sobre una lista, use ``t-foreach`` y  ``t-as``. ``t-foreach`` toma "
+"una expresión devolviendo una lista sobre la que se itera y toma ``t-as`` para "
+"asignar el nombre de la variable para enlazar a cada elemento de la iteración."
 
 #: ../../howtos/web.rst:760
 msgid "``t-foreach`` can also be used with numbers and objects (dictionaries)"
-msgstr ""
+msgstr "``t-foreach`` puede utilizarse con números y objetos (diccionarios)"
 
 #: ../../howtos/web.rst:764
 msgid "Defining attributes"
-msgstr ""
+msgstr "Definir atributos"
 
 #: ../../howtos/web.rst:766
 msgid ""
@@ -799,12 +1053,18 @@ msgid ""
 "the attribute to create (e.g. ``t-att-id`` defines the attribute ``id`` after "
 "rendering)."
 msgstr ""
+"QWeb proporciona dos directivas relacionadas para definir atributos "
+"calculados: :samp:`t-att-{name}` y :samp:`t-attf-{name}`. En cualquier caso, "
+"*name* es el nombre del atributo a crear (por ejemplo, ``t-att-id`` define el "
+"atributo ``id`` después de la representación)."
 
 #: ../../howtos/web.rst:771
 msgid ""
 "``t-att-`` takes a javascript expression whose result is set as the attribute's "
 "value, it is most useful if all of the attribute's value is computed:"
 msgstr ""
+"``t-att-`` toma una expresión javascript cuyo resultado se define como el valor "
+"del atributo, que es más útil si todos el valor del atributo se calcula:"
 
 #: ../../howtos/web.rst:782
 msgid ""
@@ -814,63 +1074,79 @@ msgid ""
 "expression. It is most useful for attributes which are partially literal and "
 "partially computed such as a class:"
 msgstr ""
+"``t-attf-`` toma una *formato de cadena*. Una cadena de formato es texto "
+"literal con bloques de interpolación dentro de él, un bloque de interpolación "
+"es una expresión de javascript entre ``{{`` y ``}}``, que será sustituido por "
+"el resultado de la expresión. Es más útil para los atributos que son "
+"parcialmente literales y parcialmente calculados como una clase:"
 
 #: ../../howtos/web.rst:795
 msgid "Calling other templates"
-msgstr ""
+msgstr "Llamar a otras plantillas"
 
 #: ../../howtos/web.rst:797
 msgid ""
 "Templates can be split into sub-templates (for simplicity, maintainability, "
 "reusability or to avoid excessive markup nesting)."
 msgstr ""
+"Las plantillas se pueden dividir en las plantillas (por simplicidad, "
+"mantenibilidad, reusabilidad o para evitar anidamiento excesivo markup)."
 
 #: ../../howtos/web.rst:800
 msgid ""
 "This is done using the ``t-call`` directive, which takes the name of the "
 "template to render:"
 msgstr ""
+"Esto se hace usando la Directiva de ‘’ t-llamada ‘’, que toma el nombre de la "
+"plantilla para representar:"
 
 #: ../../howtos/web.rst:814
 msgid "rendering the ``A`` template will result in:"
-msgstr ""
+msgstr "representación de la plantilla de ``A`` resultará en:"
 
 #: ../../howtos/web.rst:822
 msgid "Sub-templates inherit the rendering context of their caller."
 msgstr ""
+"Plantillas secundarias heredan el contexto de representación de su invocador."
 
 #: ../../howtos/web.rst:825
 msgid "To Learn More About QWeb"
-msgstr ""
+msgstr "Para obtener más información acerca de la"
 
 #: ../../howtos/web.rst:827
 msgid "For a QWeb reference, see :ref:`reference/qweb`."
-msgstr ""
+msgstr "Para referencias acerca de QWeb, vea :ref:`reference/qweb`."
 
 #: ../../howtos/web.rst:830 ../../howtos/web.rst:1096
 msgid "Exercise"
-msgstr ""
+msgstr "Ejercicio"
 
 #: ../../howtos/web.rst:832
 msgid "Usage of QWeb in Widgets"
-msgstr ""
+msgstr "Uso de QWeb en Widgets"
 
 #: ../../howtos/web.rst:834
 msgid ""
 "Create a widget whose constructor takes two parameters aside from ``parent``: "
 "``product_names`` and ``color``."
 msgstr ""
+"Crear un widget cuyo constructor toma dos parámetros aparte de ``padre``: "
+"``product_names`` y ``color``."
 
 #: ../../howtos/web.rst:837
 msgid ""
 "``product_names`` should an array of strings, each one the name of a product"
 msgstr ""
+"``product_names`` debe ser un arreglo de cadenas, cada una el nombre de un "
+"producto"
 
 #: ../../howtos/web.rst:839
 msgid ""
 "``color`` is a string containing a color in CSS color format (ie: ``#000000`` "
 "for black)."
 msgstr ""
+"``color`` es una cadena que contiene un color en CSS color formato (es decir: "
+"``#000000`` para el negro)."
 
 #: ../../howtos/web.rst:842
 msgid ""
@@ -879,30 +1155,38 @@ msgid ""
 "border. You should use QWeb to render the HTML. Any necessary CSS should be in "
 "``oepetstore/static/src/css/petstore.css``."
 msgstr ""
+"El widget debe mostrar los nombres de producto uno bajo el otro, cada uno en "
+"una caja aparte con un color de fondo con el valor de ``color`` y una frontera. "
+"Debe utilizar QWeb para representar el HTML. Cualquier CSS necesario debe estar "
+"en ``oepetstore/static/src/css/petstore.css```."
 
 #: ../../howtos/web.rst:847
 msgid "Use the widget in ``HomePage`` with half a dozen products."
-msgstr ""
+msgstr "Utilice el widget en ``HomePage`` con media docena productos."
 
 #: ../../howtos/web.rst:911
 msgid "Widget Helpers"
-msgstr ""
+msgstr "Ayudantes de widget"
 
 #: ../../howtos/web.rst:914
 msgid "``Widget``'s jQuery Selector"
-msgstr ""
+msgstr "JQuery Selector de ``Widget``"
 
 #: ../../howtos/web.rst:916
 msgid ""
 "Selecting DOM elements within a widget can be performed by calling the "
 "``find()`` method on the widget's DOM root::"
 msgstr ""
+"Seleccionar elementos del DOM en un widget puede realizarse llamando al método  "
+"``find()`` en la raíz del DOM del widget::"
 
 #: ../../howtos/web.rst:921
 msgid ""
 "But because it's a common operation, :class:`~openerp.Widget` provides an "
 "equivalent shortcut through the :func:`~openerp.Widget.$` method::"
 msgstr ""
+"Pero como es una operación común, :class:`~openerp.Widget` proporciona un "
+"acceso directo equivalente a través de la función :func:`~openerp.Widget.$`::"
 
 #: ../../howtos/web.rst:932
 msgid ""
@@ -913,46 +1197,62 @@ msgid ""
 "effects. Since a widget should generally act only on the DOM section it owns, "
 "there is no cause for global selection."
 msgstr ""
+"La función de jQuery global ``$()`` *nunca* debe ser usada a menos que sea "
+"absolutamente necesario: la selección en la raíz de un widget son "
+"contextualizadas al widget, pero las selecciones con ``$()`` son globales a la "
+"página/aplicación y pueden coincidir con piezas de otros widgets y vistas, "
+"conduciendo a efectos secundarios peligrosos o no esperados. Desde un widget "
+"generalmente debes actuar solamente en la sección del DOM, no debería haber "
+"razón alguna para una selección global."
 
 #: ../../howtos/web.rst:940
 msgid "Easier DOM Events Binding"
-msgstr ""
+msgstr "Asignar eventos del DOM"
 
 #: ../../howtos/web.rst:942
 msgid ""
 "We have previously bound DOM events using normal jQuery event handlers (e.g. ``."
 "click()`` or ``.change()``) on widget elements::"
 msgstr ""
+"Previamente hemos enlazado eventos DOM usando controladores de eventos normales "
+"de jQuery (por ejemplo ``.click()`` o ``.change()``) a elementos del widget::"
 
 #: ../../howtos/web.rst:957
 msgid "While this works it has a few issues:"
-msgstr ""
+msgstr "Si bien esto funciona tiene algunos problemas:"
 
 #: ../../howtos/web.rst:959
 msgid "it is rather verbose"
-msgstr ""
+msgstr "es más bien detallado"
 
 #: ../../howtos/web.rst:960
 msgid ""
 "it does not support replacing the widget's root element at runtime as the "
 "binding is only performed when ``start()`` is run (during widget initialization)"
 msgstr ""
+"no admite sustituir el elemento de raíz del widget en tiempo de ejecución sólo "
+"ya que solo se realiza la unión cuando  ``start()`` es ejecutado (durante la "
+"inicialización del widget) "
 
 #: ../../howtos/web.rst:963
 msgid "it requires dealing with ``this``-binding issues"
-msgstr ""
+msgstr "requiere tratar con los los problemas de ``this``-binding"
 
 #: ../../howtos/web.rst:965
 msgid ""
 "Widgets thus provide a shortcut to DOM event binding via :attr:`~openerp.Widget."
 "events`::"
 msgstr ""
+"Widgets proporcionan un acceso directo al enlace de eventos del DOM a través :"
+"attr:`~openerp.Widget.events`::"
 
 #: ../../howtos/web.rst:977
 msgid ""
 ":attr:`~openerp.Widget.events` is an object (mapping) of an event to the "
 "function or method to call when the event is triggered:"
 msgstr ""
+":attr:`~openerp.Widget.events` es un objeto que enlaza un evento a una función "
+"o método para ser llamado cuando se dispara el evento:"
 
 #: ../../howtos/web.rst:980
 msgid ""
@@ -961,32 +1261,39 @@ msgid ""
 "run: ``click`` will handle all clicks within the widget, but ``click ."
 "my_button`` will only handle clicks in elements bearing the ``my_button`` class"
 msgstr ""
+"la clave es el nombre del evento, posiblemente refinado con un selector CSS en "
+"cuyo caso sólo si el evento ocurre en un elemento secundario la función se "
+"ejecutará: ``click`` se encargará de todos los clics dentro del widget, pero "
+"``click .my_button`` ejecutará sólo el clic en elementos que tengan la clase "
+"``my_button``"
 
 #: ../../howtos/web.rst:985
 msgid "the value is the action to perform when the event is triggered"
-msgstr ""
+msgstr "el valor es la acción a realizar cuando se desencadena el evento"
 
 #: ../../howtos/web.rst:987
 msgid "It can be either a function::"
-msgstr ""
+msgstr "Puede ser una función::"
 
 #: ../../howtos/web.rst:993
 msgid "or the name of a method on the object (see example above)."
-msgstr ""
+msgstr "o el nombre de un método en el objeto (ver ejemplo anterior)."
 
 #: ../../howtos/web.rst:995
 msgid ""
 "In either case, the ``this`` is the widget instance and the handler is given a "
 "single parameter, the `jQuery event object`_ for the event."
 msgstr ""
+"En cualquier caso, ``this`` es la instancia del widget y el controlador pasa un "
+"solo parámetro, el `evento del objeto jQuery`_."
 
 #: ../../howtos/web.rst:999
 msgid "Widget Events and Properties"
-msgstr ""
+msgstr "Propiedades y eventos de widget"
 
 #: ../../howtos/web.rst:1002
 msgid "Events"
-msgstr ""
+msgstr "Eventos"
 
 #: ../../howtos/web.rst:1004
 msgid ""
@@ -994,12 +1301,18 @@ msgid ""
 "described above): a widget can fire events on itself, and other widgets (or "
 "itself) can bind themselves and listen for these events::"
 msgstr ""
+"Widgets proporciona un sistema de evento (separado del sistema de eventos de "
+"DOM/jQuery descrito): un widget puede disparar eventos en sí mismo, y otros "
+"widgets (o a sí mismo) puedes atar a ellos mismos para dichos eventos::"
 
 #: ../../howtos/web.rst:1024
 msgid ""
 "This widget acts as a facade, transforming user input (through DOM events) into "
 "a documentable internal event to which parent widgets can bind themselves."
 msgstr ""
+"Este widget actúa como una fachada, transformando la entrada del usuario (a "
+"través de eventos de DOM) en un evento interno documentable al cual el widget "
+"padre se pueden enlazar."
 
 #: ../../howtos/web.rst:1028
 msgid ""
@@ -1007,12 +1320,18 @@ msgid ""
 "first (mandatory) argument, any further arguments are treated as event data and "
 "passed directly to listeners."
 msgstr ""
+":func:`~openerp.Widget.trigger` toma el nombre del evento a accionar como "
+"primer argumento (obligatorio), los argumentos adicionales son tratados como "
+"datos del evento y los pasa directamente a los oyentes."
 
 #: ../../howtos/web.rst:1032
 msgid ""
 "We can then set up a parent event instantiating our generic widget and "
 "listening to the ``user_chose`` event using :func:`~openerp.Widget.on`::"
 msgstr ""
+"Entonces podemos establecer un evento padre instanciando nuestro widget "
+"genérico y escuchando al evento ``elegido`` utilizando :func:`~openerp.Widget."
+"on`::"
 
 #: ../../howtos/web.rst:1050
 msgid ""
@@ -1022,6 +1341,11 @@ msgid ""
 "method. The bound function will be called with the additional arguments of :"
 "func:`~openerp.Widget.trigger` if it has any. Example::"
 msgstr ""
+":func:`~openerp.Widget.on` enlaza una función que es llamada cuando el evento "
+"identificado por ``event_name`` sucede. El argumento de ``func`` es la función "
+"llamada y el ``object`` es el objeto a que está relacionado con esa función si "
+"se trata de un método. Se llamará la función enlazada con los argumentos "
+"adicionales de  :func:`~openerp.Widget.trigger`  si tiene alguno. Ejemplo::"
 
 #: ../../howtos/web.rst:1069
 msgid ""
@@ -1030,10 +1354,14 @@ msgid ""
 "broadcasts evens in which any widget could be interested throughout the Odoo "
 "web application."
 msgstr ""
+"Desencadenar eventos en un widget de otros es generalmente una mala idea. La "
+"principal excepción a esta regla es ``openerp.web.bus`` que existe "
+"específicamente para eventos de las emisiones que pudiera estar interesado "
+"cualquier widget en todo Odoo Web."
 
 #: ../../howtos/web.rst:1075
 msgid "Properties"
-msgstr ""
+msgstr "Propiedades"
 
 #: ../../howtos/web.rst:1077
 msgid ""
@@ -1041,6 +1369,9 @@ msgid ""
 "storing data on a widget instance, however they have the additional feature "
 "that they trigger events when set::"
 msgstr ""
+"Propiedades son muy similares a atributos normales de objetos que permiten "
+"almacenar datos en una instancia del widget, sin embargo tienen la "
+"característica adicional que desencadenan eventos cuando son almacenadas::"
 
 #: ../../howtos/web.rst:1090
 msgid ""
@@ -1048,14 +1379,18 @@ msgid ""
 "`change:{propname}` (where *propname* is the property name passed as first "
 "parameter to :func:`~openerp.Widget.set`) and ``change``"
 msgstr ""
+":func:`~openerp.Widget.set` establece el valor de una propiedad y "
+"desencadenadores :samp:`change:{propname}` (donde *propname* es el nombre de "
+"propiedad que se pasa como primer parámetro :func:`~openerp.Widget.set`) y "
+"``change``"
 
 #: ../../howtos/web.rst:1093
 msgid ":func:`~openerp.Widget.get` retrieves the value of a property."
-msgstr ""
+msgstr ":func:`~openerp.Widget.get` recupera el valor de una propiedad."
 
 #: ../../howtos/web.rst:1098
 msgid "Widget Properties and Events"
-msgstr ""
+msgstr "Eventos y propiedades del widget"
 
 #: ../../howtos/web.rst:1100
 msgid ""
@@ -1068,6 +1403,15 @@ msgid ""
 "any HTML ``<input>`` element and the ``val()`` method that can query the "
 "current value of that ``<input>`` could be useful to you for this exercise."
 msgstr ""
+"Crea un widget  ``ColorInputWidget`` que desplegará 3 ``<input type=\"text"
+"\">``. Cada uno de dichos ``<input>`` es dedicado a un número hexadecimal de 00 "
+"a FF. Cuando cualquiera de esos ``<input>``es modificado por el usuario el "
+"widget de consultar el contenido de esos tres ``<input>`` concatenar sus "
+"valores y lograr un código CSS completo (por ejemplo ``#00FF00``) y colocar el "
+"resultado en la propiedad llamada ``color``. Considere que el evento jQuery "
+"``change()`` puedes enlazarlo a cualquier elemento HTML ``input()`` y el método "
+"``val()`` puede consultar el valor actual de dichos ``<input>``, esto será útil "
+"para el ejercicio."
 
 #: ../../howtos/web.rst:1110
 msgid ""
@@ -1076,26 +1420,35 @@ msgid ""
 "That rectangle must always, at any moment, have the same background color as "
 "the color in the ``color`` property of the ``ColorInputWidget`` instance."
 msgstr ""
+"A continuación, modificar el widget ``HomePage`` para crear una instancia de  "
+"``ColorInputWidget`` y mostrarla. El widget  ``HomePage`` también debe mostrar "
+"un rectángulo vacío. Ese rectángulo debe siempre, en cualquier momento tener el "
+"mismo color de fondo que el color en la propiedad de ``ColorInputWidget`` de la "
+"instancia de  ``ColorInputWidget``."
 
 #: ../../howtos/web.rst:1116
 msgid "Use QWeb to generate all HTML."
-msgstr ""
+msgstr "Utilizar QWeb para generar todos los HTML."
 
 #: ../../howtos/web.rst:1189
 msgid "Modify existing widgets and classes"
-msgstr ""
+msgstr "Modificar las clases y los widgets existentes"
 
 #: ../../howtos/web.rst:1191
 msgid ""
 "The class system of the Odoo web framework allows direct modification of "
 "existing classes using the :func:`~openerp.web.Class.include` method::"
 msgstr ""
+"El sistema de la clase de Odoo web permite la modificación directa de las "
+"clases existentes usando el método :func:`~openerp.web.Class.include`::"
 
 #: ../../howtos/web.rst:1209
 msgid ""
 "This system is similar to the inheritance mechanism, except it will alter the "
 "target class in-place instead of creating a new class."
 msgstr ""
+"Este sistema es similar al mecanismo de la herencia, excepto que alterará la "
+"clase objetivo en el mismo lugar sin crear una nueva clase."
 
 #: ../../howtos/web.rst:1212
 msgid ""
@@ -1106,10 +1459,16 @@ msgid ""
 "if some instances of the class (or of any of its sub-classes) were created "
 "prior to the call to :func:`~openerp.Widget.include`."
 msgstr ""
+"En este caso, ``this._super()`` llamará la implementación original del método "
+"siendo reemplazado/redefinido. Si la clase ya tenía sub clases, todas las "
+"llamadas a ``this._super()`` en las subclases llamará la nueva implementacion "
+"definida en la llamada :func:`~openerp.web.Class.include`. Esto también "
+"funcionará si algunas instancias de la clase (o de cualquiera de sus subclases) "
+"fueron creados antes de la llamada a :func:`~openerp.Widget.include`."
 
 #: ../../howtos/web.rst:1220
 msgid "Translations"
-msgstr ""
+msgstr "Traducciones"
 
 #: ../../howtos/web.rst:1222
 msgid ""
@@ -1117,12 +1476,16 @@ msgid ""
 "You could have noticed these lines at the beginning of the ``petstore.js`` "
 "file::"
 msgstr ""
+"El proceso de traducir texto en código Python y JavaScript es muy similar. "
+"Usted pudo haber notado estas líneas al principio del archivo ``petstore.js``::"
 
 #: ../../howtos/web.rst:1229
 msgid ""
 "These lines are simply used to import the translation functions in the current "
 "JavaScript module. They are used thus::"
 msgstr ""
+"Estas líneas se utilizan simplemente para importar las funciones de traducción "
+"del módulo actual JavaScript. Se utilizan así::"
 
 #: ../../howtos/web.rst:1234
 msgid ""
@@ -1132,12 +1495,19 @@ msgid ""
 "translators. In Python, the function is ``_()``. In JavaScript the function is :"
 "func:`~openerp.web._t` (and also :func:`~openerp.web._lt`)."
 msgstr ""
+"En Odoo, automáticamente se generan archivos de traducciones escaneando el "
+"código fuente. Toda pieza de código que llama a una función determinada se "
+"detectan y su contenido se agrega a un archivo de traducción que será enviado a "
+"los traductores. En Python, la función es ``_()``. En JavaScript es la función :"
+"func:`~openerp.web._t` (y también :func:`~openerp.web._lt`)."
 
 #: ../../howtos/web.rst:1240
 msgid ""
 "``_t()`` will return the translation defined for the text it is given. If no "
 "translation is defined for that text, it will return the original text as-is."
 msgstr ""
+"``_t()`` devolverá la traducción definida para el texto que se da. Si ninguna "
+"traducción se define para ese texto, devuelve el texto original."
 
 #: ../../howtos/web.rst:1245
 msgid ""
@@ -1145,12 +1515,17 @@ msgid ""
 "use `_.str.sprintf <http://gabceb.github.io/underscore.string.site/#sprintf>`_ "
 "with named arguments *after* the translation::"
 msgstr ""
+"Para inyectar valores proporcionado por el usuario en cadenas traducibles, es "
+"aconsejable utilizar `_.str.sprintf <http://gabceb.github.io/underscore.string."
+"site/#sprintf>`_  con los argumentos *después* de la traducción::"
 
 #: ../../howtos/web.rst:1255
 msgid ""
 "This makes translatable strings more readable to translators, and gives them "
 "more flexibility to reorder or ignore parameters."
 msgstr ""
+"Esto hace más legible las cadenas traducibles a los traductores y le da más "
+"flexibilidad para ordenar u omitir parámetros."
 
 #: ../../howtos/web.rst:1258
 msgid ""
@@ -1158,6 +1533,9 @@ msgid ""
 "complex: instead of translating its parameter immediately, it returns an object "
 "which, when converted to a string, will perform the translation."
 msgstr ""
+":func:`~openerp.web._lt` (\"lazy translate\") es similar pero algo más "
+"complejo: en lugar de traducir inmediatamente su parámetro, devuelve un objeto "
+"que, cuando se convierte en una cadena, llevará a cabo la traducción."
 
 #: ../../howtos/web.rst:1262
 msgid ""
@@ -1165,14 +1543,18 @@ msgid ""
 "initialized, for class attributes for instance (as modules are loaded before "
 "the user's language is configured and translations are downloaded)."
 msgstr ""
+"Se utiliza para definir términos traducibles antes de que el sistema de "
+"traducción se inicialice, para atributos de la clase por ejemplo (como los "
+"módulos se cargan antes de que se configure el idioma del usuario y se "
+"descarguen las traducciones lo hace útil)."
 
 #: ../../howtos/web.rst:1267
 msgid "Communication with the Odoo Server"
-msgstr ""
+msgstr "Comunicación con el servidor de Odoo"
 
 #: ../../howtos/web.rst:1270
 msgid "Contacting Models"
-msgstr ""
+msgstr "Ponerse en contacto con modelos"
 
 #: ../../howtos/web.rst:1272
 msgid ""
@@ -1180,6 +1562,9 @@ msgid ""
 "business concern, these models will then (potentially) interact with some "
 "storage engine (usually PostgreSQL_)."
 msgstr ""
+"La mayoría de las operaciones con Odoo implica comunicarse con *modelos* "
+"implementando operaciones de negocio, estos modelos luego (potencialmente) "
+"interactuaran con un motor de almacenamiento (generalmente PostgreSQL_)."
 
 #: ../../howtos/web.rst:1276
 msgid ""
@@ -1188,23 +1573,32 @@ msgid ""
 "call would be verbose and error-prone. As a result, Odoo web provides higher-"
 "level communication primitives."
 msgstr ""
+"Aunque jQuery_ provee una función `$.ajax`_ para las interacciones de la red, "
+"comunicarse con Odoo requiere metadatos adicionales cuya configuración antes de "
+"cada llamada puede ser propensa a errores. Como resultado, Odoo web ofrece un "
+"método de comunicación primitiva de alto nivel."
 
 #: ../../howtos/web.rst:1281
 msgid ""
 "To demonstrate this, the file ``petstore.py`` already contains a small model "
 "with a sample method:"
 msgstr ""
+"Para demostrar esto, el archivo ``petstore.py`` contiene un modelo pequeño con "
+"un método ejemplo:"
 
 #: ../../howtos/web.rst:1296
 msgid ""
 "This declares a model with two fields, and a method ``my_method()`` which "
 "returns a literal dictionary."
 msgstr ""
+"Esto declara un modelo con dos campos y un método ``my_method()`` que devuelve "
+"un diccionario literal."
 
 #: ../../howtos/web.rst:1299
 msgid ""
 "Here is a sample widget that calls ``my_method()`` and displays the result::"
 msgstr ""
+"Aquí está un widget ejemplo que llama a ``my_method()`` y muestra el resultado::"
 
 #: ../../howtos/web.rst:1312
 msgid ""
@@ -1212,24 +1606,29 @@ msgid ""
 "instantiated with the Odoo model's name as first parameter (``oepetstore."
 "message_of_the_day`` here)."
 msgstr ""
+"La clase que llama modelos Odoo es :class:`openerp.Model`. Se crea una "
+"instancia con nombre del modelo en Odoo como primer parámetro (``oepetstore."
+"message_of_the_day`` aquí)."
 
 #: ../../howtos/web.rst:1316
 msgid ""
 ":func:`~openerp.web.Model.call` can be used to call any (public) method of an "
 "Odoo model. It takes the following positional arguments:"
 msgstr ""
+":func:`~openerp.web.Model.call` puede utilizarse para llamar a cualquier método "
+"(público) de un modelo de Odoo. Toma los siguientes argumentos posicionales:"
 
 #: ../../howtos/web.rst:1319
 msgid "``name``"
-msgstr ""
+msgstr "``name``"
 
 #: ../../howtos/web.rst:1320
 msgid "The name of the method to call, ``my_method`` here"
-msgstr ""
+msgstr "El nombre del método a llamar, ``my_method``"
 
 #: ../../howtos/web.rst:1336
 msgid "``args``"
-msgstr ""
+msgstr "``args``"
 
 #: ../../howtos/web.rst:1322
 msgid ""
@@ -1237,36 +1636,45 @@ msgid ""
 "example has no positional argument to provide, the ``args`` parameter is not "
 "provided."
 msgstr ""
+"un arreglo de  `positional arguments`_ a proporcionar al método. Debido a que "
+"el ejemplo no tiene ningún argumento posicional para proporcionar, no se "
+"proporciona el parámetro ``args``."
 
 #: ../../howtos/web.rst:1326
 msgid "Here is an other example with positional arguments:"
-msgstr ""
+msgstr "Aquí está otro ejemplo con argumentos posicionales:"
 
 #: ../../howtos/web.rst:1350
 msgid "``kwargs``"
-msgstr ""
+msgstr "``kwargs``"
 
 #: ../../howtos/web.rst:1339
 msgid ""
 "a mapping of `keyword arguments`_ to pass. The example provides a single named "
 "argument ``context``."
 msgstr ""
+"una asignación de `keyword arguments`_ a pasar. El ejemplo proporciona un solo "
+"argumento llamado ``context``."
 
 #: ../../howtos/web.rst:1352
 msgid ""
 ":func:`~openerp.Widget.call` returns a deferred resolved with the value "
 "returned by the model's method as first argument."
 msgstr ""
+":func:`~openerp.Widget.call` devuelve resuelta un diferido con el valor "
+"devuelto por el método del modelo como primer argumento."
 
 #: ../../howtos/web.rst:1356
 msgid "CompoundContext"
-msgstr ""
+msgstr "CompoundContext"
 
 #: ../../howtos/web.rst:1358
 msgid ""
 "The previous section used a ``context`` argument which was not explained in the "
 "method call::"
 msgstr ""
+"La sección anterior utiliza un argumento ``context`` que no fue explicado en la "
+"llamada al método::"
 
 #: ../../howtos/web.rst:1363
 msgid ""
@@ -1277,6 +1685,12 @@ msgid ""
 "the time zone of the user, used to compute correctly dates and times if Odoo is "
 "used by people in different countries."
 msgstr ""
+"El contexto es como un argumento “mágico” que el cliente web siempre le dará al "
+"servidor cuando se llama a un método. El contexto es un diccionario que "
+"contiene múltiples claves. Uno de los más importantes es el idioma del usuario, "
+"el servidor lo utiliza para traducir todos los mensajes de la aplicación. Otra "
+"es la zona horaria del usuario, utilizado para calcular correctamente las "
+"fechas y horarios si Odoo es utilizado por personas en diferentes países."
 
 #: ../../howtos/web.rst:1370
 msgid ""
@@ -1285,6 +1699,11 @@ msgid ""
 "call a model's method, you should always provide that argument. The solution to "
 "achieve that is to use :class:`openerp.web.CompoundContext`."
 msgstr ""
+"El  ``argument`` es necesario en todos los métodos, de lo contrario podrían "
+"suceden cosas malas (por ejemplo, la aplicación no será traducida "
+"correctamente). Es por eso que, cuando se llama un método de un modelo, usted "
+"siempre debe proporcionar ese argumento. La solución para lograrlo es utilizar :"
+"class:`openerp.web.CompoundContext`."
 
 #: ../../howtos/web.rst:1375
 msgid ""
@@ -1295,6 +1714,12 @@ msgid ""
 "or other :class:`~openerp.web.CompoundContext` instances. It will merge all "
 "those contexts before sending them to the server."
 msgstr ""
+":class:`~openerp.web.CompoundContext` es una clase que se utiliza para pasar el "
+"contexto del usuario (con el idioma, zona horaria, etc…) al servidor así como "
+"añadir nuevas llaves al contexto (algunos métodos del modelo usan llaves "
+"arbitrarias agregadas al contexto). Se crea dándole a su constructor a "
+"cualquier número de diccionarios u otra instancia de  :class:`~openerp.web."
+"CompoundContext`. Esto unirá los contextos antes de enviarlos al servidor."
 
 #: ../../howtos/web.rst:1393
 msgid ""
@@ -1303,10 +1728,14 @@ msgid ""
 "``new_key`` key that was added when instantiating :class:`~openerp.web."
 "CompoundContext`."
 msgstr ""
+"Puedes ver el Diccionario en el argumento ``context`` el cual contiene algunas "
+"claves que están relacionados con la configuración del usuario actual en Odoo "
+"además de la tecla de la nueva llave  ``new_key`` agregada al instanciar :class:"
+"`~openerp.web.CompoundContext`."
 
 #: ../../howtos/web.rst:1399
 msgid "Queries"
-msgstr ""
+msgstr "Consultas"
 
 #: ../../howtos/web.rst:1401
 msgid ""
@@ -1317,10 +1746,17 @@ msgid ""
 "models.Model.search` and ::py:meth:`~openerp.models.Model.read`. It provides a "
 "clearer syntax to search and read models::"
 msgstr ""
+"Mientras que :func:`~openerp.Model.call` es suficiente para cualquier "
+"interacción con modelos Odoo, Odoo Web proporciona un ayudante para hacer "
+"consultas más simples a modelos (obtención de registros basados en diversas "
+"variantes): :func:`~openerp.Model.query` que actúa como un atajo para la "
+"combinación común de :py:meth:`~openerp.models.Model.search` y  ::py:meth:"
+"`~openerp.models.Model.read` . Éste provee una sintaxis más clara para buscar y "
+"leer modelos::"
 
 #: ../../howtos/web.rst:1416
 msgid "versus::"
-msgstr ""
+msgstr "versus::"
 
 #: ../../howtos/web.rst:1426
 msgid ""
@@ -1328,6 +1764,10 @@ msgid ""
 "(if no field is provided, all fields of the model are fetched). It returns a :"
 "class:`openerp.web.Query` which can be further customized before being executed"
 msgstr ""
+":func:`~openerp.web.Model.query` toma una lista opcional de campos como "
+"parámetro (si no es proporcionado, se obtienen todos los campos del modelo). El "
+"cual devuelve un :class:`openerp.web.Query` que puede ser personalizado antes "
+"de ser ejecutado"
 
 #: ../../howtos/web.rst:1430
 msgid ""
@@ -1336,6 +1776,11 @@ msgid ""
 "possible to use the original and the new version side-by-side. See :class:"
 "`~openerp.web.Query` for its customization options."
 msgstr ""
+":class:`~openerp.web.Query` representa la consulta que se está construyendo. Es "
+"inmutable, los métodos para personalizar la consulta realmente devuelven una "
+"copia modificada, por lo que es posible utilizar el original y la nueva versión "
+"lado a lado. Ver :class:`~openerp.web.Query` para sus opciones de "
+"personalización."
 
 #: ../../howtos/web.rst:1435
 msgid ""
@@ -1344,14 +1789,19 @@ msgid ""
 "py:meth:`~openerp.models.Model.read`'s, an array of dictionaries where each "
 "dictionary is a requested record, with each requested field a dictionary key."
 msgstr ""
+"Cuando la consulta está configurada como se desea, simplemente llame al :func:"
+"`~openerp.web.Query.all` para ejecutarlo y devolver un diferido a su resultado. "
+"El resultado es el mismo que el del método :py:meth:`~openerp.models.Model."
+"read`, es un conjunto de diccionarios donde cada diccionario es un registro "
+"solicitado, con cada campo solicitado como del diccionario."
 
 #: ../../howtos/web.rst:1442
 msgid "Exercises"
-msgstr ""
+msgstr "Ejercicios"
 
 #: ../../howtos/web.rst:1444
 msgid "Message of the Day"
-msgstr ""
+msgstr "Mensaje del día"
 
 #: ../../howtos/web.rst:1446
 msgid ""
@@ -1359,20 +1809,25 @@ msgid ""
 "``oepetstore.message_of_the_day`` model. The widget should fetch its record as "
 "soon as it is displayed."
 msgstr ""
+"Crear un widget ``MessageOfTheDay``  que muestre el último registro del modelo "
+"``oepetstore.message_of_the_day``. El widget debe obtener su registro tan "
+"pronto como se muestra."
 
 #: ../../howtos/web.rst:1450
 msgid "Display the widget in the Pet Store home page."
-msgstr ""
+msgstr "Mostrar el widget en la página de la tienda de mascotas."
 
 #: ../../howtos/web.rst:1510
 msgid "Pet Toys List"
-msgstr ""
+msgstr "Lista de juguetes para mascotas"
 
 #: ../../howtos/web.rst:1512
 msgid ""
 "Create a ``PetToysList`` widget displaying 5 toys (using their name and their "
 "images)."
 msgstr ""
+"Crear un widget ``PetToysList`` mostrando 5 juguetes (usando su nombre y sus "
+"imágenes)."
 
 #: ../../howtos/web.rst:1515
 msgid ""
@@ -1382,6 +1837,12 @@ msgid ""
 "Pet Toys`. You will probably need to explore ``product.product`` to create the "
 "right domain to select just pet toys."
 msgstr ""
+"Los juguetes para mascotas no se almacenan en un nuevo modelo, en su lugar se "
+"almacenan en la ``product.product`` con una categoría especial  *Pet Toys*. "
+"Podrás ver los juguetes previamente generados y añadir nuevos yendo a :"
+"menuselection:`Pet Store --> Pet Store --> Pet Toys`. Usted probablemente "
+"necesitará explorar ``product.product`` para crear el dominio adecuado para "
+"seleccionar juguetes correctos."
 
 #: ../../howtos/web.rst:1522
 msgid ""
@@ -1389,6 +1850,9 @@ msgid ""
 "supports displaying images straight from base64 with :samp:`<img src=\"data:"
 "{mime_type};base64,{base64_image_data}\"/>`"
 msgstr ""
+"En Odoo, las imágenes se almacenan generalmente en campos regulares codificados "
+"como base64_, HTML soporta mostrar imágenes directamente base64 con :samp:`<img "
+"src=\"data:{mime_type};base64,{base64_image_data}\"/>`"
 
 #: ../../howtos/web.rst:1526
 msgid ""
@@ -1396,20 +1860,25 @@ msgid ""
 "the ``MessageOfTheDay`` widget. You will need to make some layout with CSS to "
 "achieve this."
 msgstr ""
+"El widget de  ``PetToysList`` debe ser exhibido en la página a la derecha del "
+"widget ``MessageOfTheDay``. Usted necesitará hacer algún diseño con CSS para "
+"lograrlo."
 
 #: ../../howtos/web.rst:1646
 msgid "Existing web components"
-msgstr ""
+msgstr "Componentes de web existentes"
 
 #: ../../howtos/web.rst:1649
 msgid "The Action Manager"
-msgstr ""
+msgstr "El director de acción"
 
 #: ../../howtos/web.rst:1651
 msgid ""
 "In Odoo, many operations start from an :ref:`action <reference/actions>`: "
 "opening a menu item (to a view), printing a report, ..."
 msgstr ""
+"En Odoo, muchas operaciones se inicia desde una :ref:`acción <reference/"
+"actions>`: abrir un elemento de menú (a la vista), imprimir un informe,…"
 
 #: ../../howtos/web.rst:1654
 msgid ""
@@ -1418,16 +1887,23 @@ msgid ""
 "model) or they can be generated on-the fly (locally to the client by javascript "
 "code, or remotely by a method of a model)."
 msgstr ""
+"Las acciones son piezas de información que describen cómo un cliente debe "
+"reaccionar a la activación de una pieza de contenido. Las acciones pueden "
+"almacenarse (y leer a través de un modelo) o pueden generarse sobre la marcha "
+"(localmente en los clientes por código javascript, o remotamente por un método "
+"en un modelo)."
 
 #: ../../howtos/web.rst:1659
 msgid ""
 "In Odoo Web, the component responsible for handling and reacting to these "
 "actions is the *Action Manager*."
 msgstr ""
+"En Odoo Web, el componente responsable de manejar y reaccionar a estas acciones "
+"es el *Action Manager*."
 
 #: ../../howtos/web.rst:1663
 msgid "Using the Action Manager"
-msgstr ""
+msgstr "Mediante el administrador de la acciones"
 
 #: ../../howtos/web.rst:1665
 msgid ""
@@ -1435,12 +1911,17 @@ msgid ""
 "dictionary describing :ref:`an action <reference/actions>` of the right type, "
 "and calling an action manager instance with it."
 msgstr ""
+"El *Action Manager* puede ser invocado explícitamente desde código javascript "
+"mediante la creación de un diccionario que describe :ref:`una acción <reference/"
+"actions>` del tipo correcto y creando a una instancia *Action Manager* con el"
 
 #: ../../howtos/web.rst:1669
 msgid ""
 ":func:`~openerp.Widget.do_action` is a shortcut of :class:`~openerp.Widget` "
 "looking up the \"current\" action manager and executing the action::"
 msgstr ""
+":func:`~openerp.Widget.do_action` es un atajo de la clase :class:`~openerp."
+"Widget`  que apunta al “actual” *Action Manager* y ejecuta la acción::"
 
 #: ../../howtos/web.rst:1685
 msgid ""
@@ -1448,26 +1929,29 @@ msgid ""
 "views to a model (displays a model in various manners), its most common "
 "attributes are:"
 msgstr ""
+"El ``type`` más común de acción es ``ir.actions.act_window`` que proporciona "
+"las vistas de un modelo (recordemos que un modelo se muestra de varias "
+"maneras), sus atributos más comunes son:"
 
 #: ../../howtos/web.rst:1689
 msgid "``res_model``"
-msgstr ""
+msgstr "``res_model``"
 
 #: ../../howtos/web.rst:1690
 msgid "The model to display in views"
-msgstr ""
+msgstr "El modelo del que se muestran las vistas"
 
 #: ../../howtos/web.rst:1691
 msgid "``res_id`` (optional)"
-msgstr ""
+msgstr "``res_id`` (optional)"
 
 #: ../../howtos/web.rst:1692
 msgid "For form views, a preselected record in ``res_model``"
-msgstr ""
+msgstr "Vistas de formulario, un registro pre-seleccionado en ``res_model``"
 
 #: ../../howtos/web.rst:1697
 msgid "``views``"
-msgstr ""
+msgstr "``views``"
 
 #: ../../howtos/web.rst:1694
 msgid ""
@@ -1477,38 +1961,48 @@ msgid ""
 "View types can not be present multiple times. The action will open the first "
 "view of the list by default."
 msgstr ""
+"Muestra las vistas disponibles a través de la acción. Una lista ``[view_id, "
+"view_type]``, ``view_id`` puede ser el identificador de base de datos de una "
+"vista del tipo correcto, o ``false`` a utilizar la vista predeterminada para el "
+"tipo especificado. Tipos de vista pueden no estar presentes varias veces. La "
+"acción abrirá la primera vista de la lista por defecto."
 
 #: ../../howtos/web.rst:1700
 msgid "``target``"
-msgstr ""
+msgstr "``target``"
 
 #: ../../howtos/web.rst:1700
 msgid ""
 "Either ``current`` (the default) which replaces the \"content\" section of the "
 "web client by the action, or ``new`` to open the action in a dialog box."
 msgstr ""
+"Cualquiera de los dos ``current`` (por defecto) que reemplaza el ``content`` de "
+"la sección del cliente web por la acción, o ``new`` para abrir la acción en un "
+"cuadro de diálogo."
 
 #: ../../howtos/web.rst:1703
 msgid "``context``"
-msgstr ""
+msgstr "``context``"
 
 #: ../../howtos/web.rst:1703
 msgid "Additional context data to use within the action."
-msgstr ""
+msgstr "Datos de contexto adicional para utilizar dentro de la acción."
 
 #: ../../howtos/web.rst:1705
 msgid "Jump to Product"
-msgstr ""
+msgstr "Ir al producto"
 
 #: ../../howtos/web.rst:1707
 msgid ""
 "Modify the ``PetToysList`` component so clicking on a toy replaces the homepage "
 "by the toy's form view."
 msgstr ""
+"Modificar el componente ``PetToysList`` para hacer clic en un juguete y que "
+"reemplace la página principal por vista de formulario de juguete."
 
 #: ../../howtos/web.rst:1752
 msgid "Client Actions"
-msgstr ""
+msgstr "Acciones de cliente"
 
 #: ../../howtos/web.rst:1754
 msgid ""
@@ -1517,6 +2011,10 @@ msgid ""
 "Odoo web know to start this widget? Because the widget is registered as a "
 "*client action*."
 msgstr ""
+"A lo largo de esta guía, se utilizó un simple widget de ``HomePage`` que el "
+"cliente web inicia automáticamente cuando selecciona la opción del menú "
+"derecho. ¿Pero cómo sabía la Odoo web que tenía que poner este widget? Porque "
+"el widget está registrado como una *client action* (acción del cliente)."
 
 #: ../../howtos/web.rst:1759
 msgid ""
@@ -1525,11 +2023,18 @@ msgid ""
 "tag (an arbitrary name), and optionally adds a few parameters, but beyond that "
 "*everything* is handled by custom client code."
 msgstr ""
+"Una acción de cliente es (como su nombre lo indica) un tipo de acción definido "
+"casi en su totalidad en el cliente, en javascript para Odoo web. El servidor "
+"simplemente envía una etiqueta de acción (un nombre arbitrario) y opcionalmente "
+"añade unos pocos parámetros, pero más allá *todo* es manejado por código "
+"personalizado del lado del cliente."
 
 #: ../../howtos/web.rst:1764
 msgid ""
 "Our widget is registered as the handler for the client action through this::"
 msgstr ""
+"Nuestro widget está registrada como el controlador de la acción del cliente a "
+"través de esto::"
 
 #: ../../howtos/web.rst:1769
 msgid ""
@@ -1539,6 +2044,11 @@ msgid ""
 "(tag) of the client action, and the second parameter is the path to the widget "
 "from the Odoo web client root."
 msgstr ""
+"``instance.web.client_actions`` es una :class:`~openerp.web.Registry` en que el "
+"*Action Manager* busca controladores de acción cliente cuando necesite ejecutar "
+"uno. El primer parámetro del :class:`~openerp.web.Registry.add` es el nombre "
+"(etiqueta) de la acción del cliente, y el segundo parámetro es la ruta al "
+"widget de la raíz de cliente de Odoo Web."
 
 #: ../../howtos/web.rst:1775
 msgid ""
@@ -1546,6 +2056,9 @@ msgid ""
 "the registry, walks the specified path and displays the widget it finds at the "
 "end."
 msgstr ""
+"Cuando una acción del cliente debe ser ejecutada, el *Action Manager* busca la "
+"etiqueta en el registro, busca la ruta especificada y muestra el widget que "
+"encuentra al final."
 
 #: ../../howtos/web.rst:1779
 msgid ""
@@ -1553,28 +2066,34 @@ msgid ""
 "called and its result (if any) will be interpreted as the next action to "
 "execute."
 msgstr ""
+"un controlador de acción de cliente también puede ser una función regular, en "
+"dado caso será llamado y su resultado (si existe) se interpretará como la "
+"próxima acción a ejecutar."
 
 #: ../../howtos/web.rst:1783
 msgid "On the server side, we had simply defined an ``ir.actions.client`` action:"
 msgstr ""
+"En el servidor, simplemente habíamos definido una acción  ``ir.actions.client``:"
 
 #: ../../howtos/web.rst:1791
 msgid "and a menu opening the action:"
-msgstr ""
+msgstr "y un menú que abre la acción:"
 
 #: ../../howtos/web.rst:1799
 msgid "Architecture of the Views"
-msgstr ""
+msgstr "Arquitectura de las vistas"
 
 #: ../../howtos/web.rst:1801
 msgid ""
 "Much of Odoo web's usefulness (and complexity) resides in views. Each view type "
 "is a way of displaying a model in the client."
 msgstr ""
+"Gran parte de la utilidad de la web de Odoo (y complejidad) reside en las "
+"vistas. Cada tipo de vista es una forma de mostrar un modelo en el cliente."
 
 #: ../../howtos/web.rst:1805
 msgid "The View Manager"
-msgstr ""
+msgstr "El “*View Manager*” (Manejador de vistas)"
 
 #: ../../howtos/web.rst:1807
 msgid ""
@@ -1583,10 +2102,14 @@ msgid ""
 "themselves to a *view manager*, which will then set up one or multiple views "
 "depending on the original action's requirements:"
 msgstr ""
+"Cuando una instancia de ``ActionManager`` recibe una acción de tipo ``ir."
+"actions.act_window``, Éste delega la sincronización y manejo de sus vistas a un "
+"*view manager*, el cual configura una o varias vistas dependiendo de los "
+"requerimientos de la acción original:"
 
 #: ../../howtos/web.rst:1817
 msgid "The Views"
-msgstr ""
+msgstr "Las Vistas"
 
 #: ../../howtos/web.rst:1819
 msgid ""
@@ -1594,6 +2117,10 @@ msgid ""
 "class:`openerp.web.View` which provides a bit of generic basic structure for "
 "handling events and displaying model information."
 msgstr ""
+"Más :ref:`Odoo views <reference/views>` se implementan a través de una "
+"subclase :class:`openerp.web.View` que proporciona un poco de estructura "
+"genérica básica para el manejo de eventos y visualización de información de "
+"cualquier modelo."
 
 #: ../../howtos/web.rst:1823
 msgid ""
@@ -1601,6 +2128,9 @@ msgid ""
 "handled separately by the web client (as it's a more permanent fixture and can "
 "interact with other views, which regular views don't do)."
 msgstr ""
+"La *search view* es considerada un tipo de vista para el *framework* Odoo, pero "
+"manejado por separado por el cliente web (ya que es un accesorio más permanente "
+"y puede interactuar con otras vistas, no regulares)."
 
 #: ../../howtos/web.rst:1827
 msgid ""
@@ -1609,6 +2139,10 @@ msgid ""
 "that purpose, views are provided with an optional view identifier set as the :"
 "attr:`~openerp.web.View.view_id` attribute."
 msgstr ""
+"Una vista es responsable de cargar su propia descripción XML (usando :py:class:"
+"`~openerp.models.Model.fields_view_get`) y cualquier otro origen de datos que "
+"necesite. Para ello, las vistas cuentan con un identificador opcional de vista "
+"como los atributose :attr:`~openerp.web.View.view_id`."
 
 #: ../../howtos/web.rst:1832
 msgid ""
@@ -1616,22 +2150,30 @@ msgid ""
 "holds most necessary model information (the model name and possibly various "
 "record ids)."
 msgstr ""
+"Las vistas también cuentan con un :class:`~openerp.web.DataSet` instancia que "
+"contiene la información más necesaria del modelo (el nombre del modelo y "
+"posiblemente varios identificadores de registro)."
 
 #: ../../howtos/web.rst:1836
 msgid ""
 "Views may also want to handle search queries by overriding :func:`~openerp.web."
 "View.do_search`, and updating their :class:`~openerp.web.DataSet` as necessary."
 msgstr ""
+"Las vistas también pueden querer manejar consultas de búsqueda reemplazando :"
+"func:`~openerp.web.View.do_search` y actualiza su :class:`~openerp.web.DataSet` "
+"como y cuando sea necesario."
 
 #: ../../howtos/web.rst:1841
 msgid "The Form View Fields"
-msgstr ""
+msgstr "Los campos de la vista formulario"
 
 #: ../../howtos/web.rst:1843
 msgid ""
 "A common need is the extension of the web form view to add new ways of "
 "displaying fields."
 msgstr ""
+"Una necesidad común es la extensión de la vista de formulario web para añadir "
+"nuevas maneras de mostrar campos."
 
 #: ../../howtos/web.rst:1846
 msgid ""
@@ -1641,12 +2183,22 @@ msgid ""
 "existing field types (e.g. validate :py:class:`~openerp.fields.Char` fields "
 "which should contain email addresses and display them as email links)."
 msgstr ""
+"Todos los campos incorporados tienen una implementación de visualización "
+"predeterminada, un nuevo formulario widget puede ser necesario para interactuar "
+"correctamente con un nuevo tipo de campo (por ejemplo un campo :term:`GIS`) o "
+"para proporcionar nuevas representaciones y maneras de interactuar con tipos de "
+"campos existentes (por ejemplo validar campos :py:class:`~openerp.fields.Char` "
+"que deben contener direcciones de correo electrónico y mostrarlos como enlaces "
+"de correo electrónico)."
 
 #: ../../howtos/web.rst:1853
 msgid ""
 "To explicitly specify which form widget should be used to display a field, "
 "simply use the ``widget`` attribute in the view's XML description:"
 msgstr ""
+"Para especificar explícitamente de que forma un widget debe ser usado para "
+"mostrar un campo, utilice simplemente el atributo de ``widget`` en la "
+"descripción de XML:"
 
 #: ../../howtos/web.rst:1862
 msgid ""
@@ -1654,16 +2206,22 @@ msgid ""
 "form view, it's not possible to use a widget in one and an other widget in the "
 "other"
 msgstr ""
+"el mismo widget se utiliza en \"view\" (sólo lectura) y modo \"edition\" de una "
+"vista de formulario, no es posible utilizar un widget en uno y otro widget en "
+"el otro"
 
 #: ../../howtos/web.rst:1865
 msgid "and a given field (name) can not be used multiple times in the same form"
 msgstr ""
+"y un campo dado no puede ser utilizado varias veces en el mismo formulario"
 
 #: ../../howtos/web.rst:1866
 msgid ""
 "a widget may ignore the current mode of the form view and remain the same in "
 "both view and edition"
 msgstr ""
+"un widget puede ignorar el modo de la vista formulario y continuar siendo los "
+"mismos en vista y edición"
 
 #: ../../howtos/web.rst:1871
 msgid ""
@@ -1674,15 +2232,23 @@ msgid ""
 "fields inherit the ``AbstractField`` abstract class. That class defines some "
 "default mechanisms that need to be implemented by most fields."
 msgstr ""
+"Los campos son instanciados por la vista formulario después de leer su "
+"descripción desde el XML y construido el HTML correspondiente el cual "
+"representa esa descripción. Después de eso, la vista formulario se comunicará "
+"con los objetos de campo utilizando algunos métodos. Estos métodos están "
+"definidos por la interfaz de ‘’ FieldInterface’’. Casi todos los campos heredan "
+"la clase abstracta ‘’ AbstractField’’. Esa clase define algunos mecanismos por "
+"defecto que deben aplicarse por la mayoría de los campos."
 
 #: ../../howtos/web.rst:1879
 msgid "Here are some of the responsibilities of a field class:"
-msgstr ""
+msgstr "Estas son algunas de las responsabilidades de una clase de campo:"
 
 #: ../../howtos/web.rst:1881
 msgid ""
 "The field class must display and allow the user to edit the value of the field."
 msgstr ""
+"La clase campo debe mostrar y permitir al usuario editar el valor del campo."
 
 #: ../../howtos/web.rst:1882
 msgid ""
@@ -1695,6 +2261,14 @@ msgid ""
 "to check these widget properties and dynamically adapt depending of their "
 "values. Here is a description of each of these attributes:"
 msgstr ""
+"Esto debe implementar correctamente los 3 atributos disponibles en todos los "
+"campos en Odoo. La clase ``AbstractField`` ya implementa un algoritmo que "
+"calcula de forma dinámica los valores de esos 3 atributos (ellos pueden cambiar "
+"en cualquier momento su valor de acuerdo al valor de otros campos). Sus valores "
+"son almacenados en las “*Propiedades del Widget*” (las propiedades de un widget "
+"fueron explicadas anteriormente en ésta guía). Es responsabilidad de cada clase "
+"“Field” chequear esas propiedades en el widget y dinámicamente adaptarse "
+"dependiendo de sus valores. Aquí una descripción de cada uno de esos tributos:"
 
 #: ../../howtos/web.rst:1892
 msgid ""
@@ -1702,6 +2276,9 @@ msgid ""
 "``true`` and the field doesn't have a value, the method ``is_valid()`` of the "
 "field must return ``false``."
 msgstr ""
+"``required``: el campo debe tener un valor antes de guardar. Si ``required`` es "
+"``true`` y el campo no tiene un valor, el método ``is_valid()`` del campo debe "
+"devolver ``false``."
 
 #: ../../howtos/web.rst:1895
 msgid ""
@@ -1709,6 +2286,9 @@ msgid ""
 "``AbstractField`` class already has a basic implementation of this behavior "
 "that fits most fields."
 msgstr ""
+"``invisible``: cuando éste es ``true``, el campo debe ser invisible. La clase "
+"``AbstractField`` ya tiene una implementación básica de este comportamiento que "
+"se adapta a la mayoría de los campos."
 
 #: ../../howtos/web.rst:1898
 msgid ""
@@ -1719,6 +2299,13 @@ msgid ""
 "means it has much more code it would need to implement only one behavior, but "
 "this is necessary to ensure a good user experience."
 msgstr ""
+"``readonly``: Cuando es  ``true``, el campo no debe ser editable por el "
+"usuario. La mayoría de los campos de Odoo tiene un comportamiento totalmente "
+"diferente dependiendo del valor de  ``readonly``. Como ejemplo, el "
+"``FieldChar`` muestra un HTML  ``<input>`` cuando es modificable y simplemente "
+"muestra el texto cuando es de sólo lectura. Esto también significa que tiene "
+"mucho más código que si esto tuviese implementado un sólo comportamiento, pero "
+"esto es necesario para asegurar una buena experiencia de usuario."
 
 #: ../../howtos/web.rst:1906
 msgid ""
@@ -1735,6 +2322,19 @@ msgid ""
 "default implementation of these methods that works well for simple data type "
 "and set a widget property named ``value``."
 msgstr ""
+"Los campos tienen 2 métodos, ``set_value()``y ``get_value()`, el cual es "
+"llamado por la vista formulario para dar el valor a desplegar y obtener el "
+"nuevo valor introducido por el usuario. Esos métodos deben ser capaces de "
+"manejar los valores como son dado por el servidor cuando el método ``read()``es "
+"usado en un modelo y devolver un valor válido para un ``write()``. Recuerda que "
+"los tipos usados en Javascript/Python para representar los valores dados por el "
+"``read()``y por el ``write()``no son necesariamente los mismos en Odoo. Por "
+"ejemplo, cuando lees un many2one, éste es siempre una dupla la cual el primer "
+"valor el el id del registro y el segundo valor es el nombre (por ejemplo ``(15, "
+"“Agrolait”)``. Pero cuando escribes un many2one éste debe tener un valor entero "
+"simple, no es una tupla. `AbstractField`` tiene una implementación de esos "
+"métodos que trabaja bien para tipos de daros simples y los carga en una "
+"propiedad llamada ``value``"
 
 #: ../../howtos/web.rst:1920
 msgid ""
@@ -1743,10 +2343,13 @@ msgid ""
 "interface and the ``AbstractField`` class directly in the code of the Odoo web "
 "client."
 msgstr ""
+"Nótese que, para entender mejor cómo implementar campos, encarecidamente es "
+"recomendable que leas en la definición de ``FieldInterface``y la clase "
+"``AbstractField`` directamente en el código de Odoo Web."
 
 #: ../../howtos/web.rst:1926
 msgid "Creating a New Type of Field"
-msgstr ""
+msgstr "Crear un nuevo tipo de campo."
 
 #: ../../howtos/web.rst:1928
 msgid ""
@@ -1754,16 +2357,21 @@ msgid ""
 "here will be to re-implement the ``FieldChar`` class and progressively explain "
 "each part."
 msgstr ""
+"En ésta parte se explicará como crear un nuevo tipo de campo. El ejemplo de acá "
+"será la reimplementación del campo ``FieldChar`` y explicar progresivamente "
+"cada parte."
 
 #: ../../howtos/web.rst:1933
 msgid "Simple Read-Only Field"
-msgstr ""
+msgstr "Campos solo lectura Simples"
 
 #: ../../howtos/web.rst:1935
 msgid ""
 "Here is a first implementation that will only display text. The user will not "
 "be able to modify the content of the field."
 msgstr ""
+"Aquí está la primera implementación que solo desplegará el texto. El usuario no "
+"será capaz de modificar el contenido del campo."
 
 #: ../../howtos/web.rst:1952
 msgid ""
@@ -1773,6 +2381,11 @@ msgid ""
 "field in any form view by specifying ``widget=\"char2\"`` in the ``<field/>`` "
 "tag in the XML declaration of the view."
 msgstr ""
+"En éste ejemplo, declaramos una clase llamada ``FiledChar2`` heredando de "
+"``AbstractField``. También agregamos ésta clase al registro ``instance.web.form."
+"widgets`` con la llave ``char2``. Esto permitirá que usemos éste nuevo campo en "
+"cualquier vista formulario especificando ``widget=“char2”`` dentro de una "
+"etiqueta ``<field/>`` en la declaración XML de la vista."
 
 #: ../../howtos/web.rst:1958
 msgid ""
@@ -1786,6 +2399,14 @@ msgid ""
 "``render_value()`` is a convenience method to implement in child classes to "
 "perform some operation each time the value of the field changes."
 msgstr ""
+"En este ejemplo, definimos solo un método: ``render_value()``. Lo que hace es "
+"desplegar la propiedad ``value`` del widget. Esas son dos herramientas "
+"definidas por la clase ``AbstractField``. Como se explicó antes, la vista "
+"formulario llamará al método ``set_value()`` del campo para establecer el valor "
+"a mostrar. ``AbstractField`` también vigila el evento ``change:value`` y llama "
+"a ``render_value()`` cuando éste ocurre. Entonces, es un método conveniente "
+"para implementar en las clases hijas y hacer operaciones cada vez que el campo "
+"cambie."
 
 #: ../../howtos/web.rst:1968
 msgid ""
@@ -1793,10 +2414,13 @@ msgid ""
 "is specified by the form view (here we assume the default value of a ``char`` "
 "field should be an empty string)."
 msgstr ""
+"En el método ``init()``, también definimos el valor predeterminado del campo si "
+"no hay algo especificado es especificado por la vista de formulario (suponemos "
+"que el valor predeterminado de un campo ``char``  debe ser una cadena vacía)."
 
 #: ../../howtos/web.rst:1973
 msgid "Read-Write Field"
-msgstr ""
+msgstr "Campos de Lectura/Escritura"
 
 #: ../../howtos/web.rst:1975
 msgid ""
@@ -1807,6 +2431,13 @@ msgid ""
 "(for design and usability purpose) and the fields must be able to switch "
 "between modes at any moment."
 msgstr ""
+"Campos de sólo lectura, que sólo muestran el contenido y no permiten al usuario "
+"modificarlo pueden ser útiles, pero la mayoría de campos de Odoo permiten "
+"también editar. Esto hace las clases de campos más complicadas, sobre todo "
+"porque los campos se supone que deben para manejar ambos tanto editables como "
+"no editable, éstos modos son a menudo completamente diferentes (para propósito "
+"de diseño y usabilidad) y los campos deben ser capaces de cambiar entre los "
+"modos en cualquier momento."
 
 #: ../../howtos/web.rst:1982
 msgid ""
@@ -1815,6 +2446,10 @@ msgid ""
 "changes in that widget property and display the correct mode accordingly. "
 "Example::"
 msgstr ""
+"Para saber en qué modo está el campo actual, la clase de ``AbstractField`` "
+"establece una propiedad de widget llamada ``effective_readonly``. El campo debe "
+"observar cambios en esa propiedad del widget y mostrar el modo correcto en "
+"consecuencia. Ejemplo::"
 
 #: ../../howtos/web.rst:2030
 msgid ""
@@ -1827,12 +2462,24 @@ msgid ""
 "defined in ``AbstractField`` or any other class. We can use this method to "
 "display the content of the field depending on the current mode."
 msgstr ""
+"En el método ``start()`` (el cual es llamado inmediatamente después de que un "
+"widget ha sido agregado al DOM), se enlaza el evento ``change:"
+"effective_readonly``. Esto nos permite volver a mostrar el campo cada vez que "
+"la propiedad del widget ``effective_readonly``cambia. Éste manejado de evento "
+"llamará ``display_field()``, el cual es llamado también directamente en "
+"``start()``. El ``display_field()`` fué creado específicamente para  éste "
+"campo, no es un método definido en ``AbstractField`` o cualquier otra clase. "
+"Podemos usar éste método para desplegar el contenido del campo en el modo "
+"actual."
 
 #: ../../howtos/web.rst:2039
 msgid ""
 "From now on the conception of this field is typical, except there is a lot of "
 "verifications to know the state of the ``effective_readonly`` property:"
 msgstr ""
+"De ahora en adelante la concepción de este campo es típica, excepto que hay un "
+"montón de comprobaciones para saber el estado de la propiedad "
+"``effective_readonly`` :"
 
 #: ../../howtos/web.rst:2042
 msgid ""
@@ -1840,6 +2487,9 @@ msgid ""
 "``<input type=\"text\" />`` if we are in read-write mode and nothing in "
 "particular in read-only mode."
 msgstr ""
+"En la plantilla de QWeb usada para mostrar el contenido del widget, se muestra "
+"un ``<input type=\"text\" />`` si estamos en modo de lectura-escritura y nada "
+"en particular en modo de sólo lectura."
 
 #: ../../howtos/web.rst:2045
 msgid ""
@@ -1851,16 +2501,26 @@ msgid ""
 "trigger a call to ``render_value()`` (which is not necessary since the ``<input "
 "type=\"text\" />`` already contains the correct value)."
 msgstr ""
+"En el método ``display_field()``, tenemos que enlazar el evento ``change`` a el "
+"elemento ``<input type=text/>``para saber cuando el usuario ha cambiado el "
+"valor. Cuando esto suceda, llamado a método ``internal_set_value()`` con el "
+"nuevo valor en el campo. Esto es un método conveniente provisto por la clase "
+"``AbstractField``. Dicho método colocará un nuevo valor en la propiedad "
+"``value``pero no hará una llamada a ``render_value()`` (la cual no es necesaria "
+"ya que ``<input type=“text”/>`` contiene el valor correcto)"
 
 #: ../../howtos/web.rst:2053
 msgid ""
 "In ``render_value()``, we use a completely different code to display the value "
 "of the field depending if we are in read-only or in read-write mode."
 msgstr ""
+"En ``render_value()``, utilizamos un código totalmente diferente para mostrar "
+"el valor del campo en función de si estamos en sólo lectura o en modo de "
+"lectura y escritura."
 
 #: ../../howtos/web.rst:2056
 msgid "Create a Color Field"
-msgstr ""
+msgstr "Crear un campo de Color"
 
 #: ../../howtos/web.rst:2058
 msgid ""
@@ -1872,6 +2532,13 @@ msgid ""
 "component that doesn't work in all browsers but works well in Google Chrome. So "
 "it's OK to use as an exercise."
 msgstr ""
+"Crear una clase de ``FieldColor``. El valor de este campo debe ser una cadena "
+"que contiene un código de color como los que se usan en CSS (ejemplo: ‘’ "
+"#FF0000’’ para el rojo). En modo de sólo lectura, este campo debe mostrar un "
+"bloque pequeño cuyo color corresponde al valor del campo. En modo de lectura y "
+"escritura, se debe mostrar un ``<input type=“color”>``. Ese tipo de ``<input>`` "
+"es un componente de HTML5 que no funciona en todos los navegadores pero "
+"funciona bien en Google Chrome. Así que está bien para usar como un ejercicio."
 
 #: ../../howtos/web.rst:2066
 msgid ""
@@ -1881,10 +2548,14 @@ msgid ""
 "display the message of the day with the background color indicated in the "
 "``color`` field."
 msgstr ""
+"Puede usar este widget en la vista Formulario del modelo ``message_of_the_day`` "
+"para su campo denominado ``color``. Como un bono, puede cambiar el widget de "
+"``MessageOfTheDay``  en la parte anterior de esta guía para mostrar el mensaje "
+"de la jornada con el color de fondo indicado en el campo de ``color``."
 
 #: ../../howtos/web.rst:2131
 msgid "The Form View Custom Widgets"
-msgstr ""
+msgstr "Los Widgets personalizados en los formularios"
 
 #: ../../howtos/web.rst:2133
 msgid ""
@@ -1892,11 +2563,17 @@ msgid ""
 "field. Because this may be limiting, it is also possible to create *form "
 "widgets* which are not so restricted and have less ties to a specific lifecycle."
 msgstr ""
+"Los campos de formulario se utilizan para editar un campo y están "
+"intrínsecamente ligados a un campo. Porque esto podría ser una limitante, "
+"también es posible crear *form widgets* que no están tan restringidos y tienen "
+"menos vínculos a un ciclo de vida específico."
 
 #: ../../howtos/web.rst:2138
 msgid ""
 "Custom form widgets can be added to a form view through the ``widget`` tag:"
 msgstr ""
+"Widgets de formulario personalizada se pueden agregar a una vista de formulario "
+"a través de la etiqueta de ``widget``:"
 
 #: ../../howtos/web.rst:2144
 msgid ""
@@ -1906,6 +2583,11 @@ msgid ""
 "assigned a precise field. And so they don't have methods like ``get_value()`` "
 "and ``set_value()``. They must inherit from the ``FormWidget`` abstract class."
 msgstr ""
+"Este tipo de widget simplemente creará la vista de formulario durante la "
+"creación del HTML según la definición de XML. Tienen propiedades en común con "
+"los campos (como la propiedad de ``effective_readonly``) pero que no se les "
+"asigna un campo preciso. Y por lo que no tienen métodos como ``get_value()`` y "
+"``set_value()``. Debe heredar de la clase abstracta ``FormWidget``."
 
 #: ../../howtos/web.rst:2151
 msgid ""
@@ -1913,6 +2595,10 @@ msgid ""
 "fetching or altering their values. They can access form fields through their :"
 "attr:`~openerp.web.form.FormWidget.field_manager` attribute::"
 msgstr ""
+"Widgets de formulario pueden interactuar con los campos de formulario, escuchar "
+"sus cambios y obtener o alterar sus valores. Pueden acceder a los campos de "
+"formulario a través de su atributo :attr:`~openerp.web.form.FormWidget."
+"field_manager`::"
 
 #: ../../howtos/web.rst:2171
 msgid ""
@@ -1920,28 +2606,38 @@ msgid ""
 "FormView` itself, but features used from it should be limited to those defined "
 "by :class:`~openerp.web.form.FieldManagerMixin`, the most useful being:"
 msgstr ""
+":attr:`~openerp.web.form.FormWidget`  generalmente es :class:`~openerp.web.form."
+"FormView`  en sí, pero las características usadas de él deberían limitarse a "
+"los que se definen por :class:`~openerp.web.form.FieldManagerMixin`, para ser "
+"más útil:"
 
 #: ../../howtos/web.rst:2176
 msgid ""
 ":func:`~openerp.web.form.FieldManagerMixin.get_field_value(field_name)` which "
 "returns the value of a field."
 msgstr ""
+":func:`~openerp.web.form.FieldManagerMixin.get_field_value(field_name)` el cual "
+"devuelve el valor de un campo."
 
 #: ../../howtos/web.rst:2178
 msgid ""
 ":func:`~openerp.web.form.FieldManagerMixin.set_values(values)` sets multiple "
 "field values, takes a mapping of ``{field_name: value_to_set}``"
 msgstr ""
+":func:`~openerp.web.form.FieldManagerMixin.set_values(values)` establece varios "
+"valores de campo, tiene una asignación  ``{field_name: value_to_set}``"
 
 #: ../../howtos/web.rst:2180
 msgid ""
 "An event :samp:`field_changed:{field_name}` is triggered any time the value of "
 "the field called ``field_name`` is changed"
 msgstr ""
+"Un evento :samp:`field_changed:{field_name}` se dispara en cualquier momento "
+"que se cambia el valor del campo llamado ``field_name``"
 
 #: ../../howtos/web.rst:2183
 msgid "Show Coordinates on Google Map"
-msgstr ""
+msgstr "Mostrar coordenadas en Google Maps"
 
 #: ../../howtos/web.rst:2185
 msgid ""
@@ -1949,43 +2645,57 @@ msgid ""
 "create a new form widget to display the latitude and longitude of a product's "
 "origin on a map"
 msgstr ""
+"Agregue dos campos a ``product.product`` grabando una latitud y una longitud, "
+"luego crear un nuevo widget de formulario para mostrar la latitud y longitud de "
+"origen de un producto en el mapa"
 
 #: ../../howtos/web.rst:2189
 msgid "To display the map, use Google Map's embedding:"
-msgstr ""
+msgstr "Para mostrar el mapa, utilice Incrustar Google Map:"
 
 #: ../../howtos/web.rst:2196
 msgid ""
 "where ``XXX`` should be replaced by the latitude and ``YYY`` by the longitude."
 msgstr ""
+"donde ``XXX`` debe reemplazarse por la latitud y la ``YYY`` por la longitud."
 
 #: ../../howtos/web.rst:2199
 msgid ""
 "Display the two position fields and a map widget using them in a new notebook "
 "page of the product's form view."
 msgstr ""
+"Mostrar los campos de dos posiciones y un widget de mapa utilizando en una "
+"nueva pestaña del notebook en la vista de formulario del producto."
 
 #: ../../howtos/web.rst:2231
 msgid "Get the Current Coordinate"
-msgstr ""
+msgstr "Actualizar a la coordenada actual"
 
 #: ../../howtos/web.rst:2233
 msgid ""
 "Add a button resetting the product's coordinates to the location of the user, "
 "you can get these coordinates using the `javascript geolocation API`_."
 msgstr ""
+"Agregar un botón Restablecer coordenadas del producto a la ubicación del "
+"usuario, usted puede conseguir estas coordenadas usando el `javascript "
+"geolocation API`_."
 
 #: ../../howtos/web.rst:2237
 msgid ""
 "Now we would like to display an additional button to automatically set the "
 "coordinates to the location of the current user."
 msgstr ""
+"Ahora nos gustaría mostrar un botón adicional para configurar automáticamente "
+"las coordenadas para la ubicación del usuario actual."
 
 #: ../../howtos/web.rst:2240
 msgid ""
 "To get the coordinates of the user, an easy way is to use the geolocation "
 "JavaScript API.  `See the online documentation to know how to use it`_."
 msgstr ""
+"Para obtener las coordenadas del usuario, una manera fácil es utilizar la API  "
+"de geolocalización de JavaScript. `Ver la documentación online para entender "
+"cómo usarla`_."
 
 #: ../../howtos/web.rst:2245
 msgid ""
@@ -1995,6 +2705,11 @@ msgid ""
 "do this would be to make the button disappear when ``effective_readonly`` is "
 "true."
 msgstr ""
+"Tenga en cuenta que el usuario no debe poder hacer clic en ese botón cuando la "
+"vista de formulario está en modo de sólo lectura. Por lo tanto, este widget "
+"personalizado debe manejar correctamente la propiedad  ``effective_readonly`` "
+"como cualquier campo. Una manera de hacer esto sería hacer el botón desaparece "
+"cuando  ``effective_readonly`` es `Verdadero`."
 
 #: ../../howtos/web.rst:2296
 msgid ""
@@ -2002,9 +2717,14 @@ msgid ""
 "fledged objects and themselves instance (of metaclasses) but there remains two "
 "fairly separate hierarchies between classes and instances"
 msgstr ""
+"como un concepto separado de las instancias. En muchos lenguajes las clases son "
+"objetos (metaclases) y a su vez tienes instancias de si mismos sin embargo "
+"siguen siendo dos jerarquías bastante separadas entre clases e instancias"
 
 #: ../../howtos/web.rst:2300
 msgid ""
 "as well as papering over cross-browser differences, although this has become "
 "less necessary over time"
 msgstr ""
+"como empapelar sobre las diferencias entre navegadores, aunque esto es menos "
+"necesario en el tiempo"
