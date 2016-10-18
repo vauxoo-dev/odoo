@@ -32,6 +32,7 @@ With this module you will have:
     """,
     "depends": ["account", "base_vat"],
     "data": [
+        "views/partner_bank_view.xml",
         "data/l10n_mx_chart_data.xml",
         "data/account_tax_data.xml",
         "data/account_chart_template_data.yml",
