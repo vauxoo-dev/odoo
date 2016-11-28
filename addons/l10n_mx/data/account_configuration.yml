@@ -1,0 +1,10 @@
+-
+  Account settings set for Use Anglo-Saxon Accounting
+-
+  !record {model: account.config.settings, id: mx_default_account_properties}:
+    {
+      'use_anglo_saxon': 1,
+    }
+-
+  !python {model: account.config.settings}: |
+    self.browse(ref('mx_default_account_properties')).execute()
