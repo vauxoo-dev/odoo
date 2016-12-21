@@ -35,7 +35,6 @@ def convert_CER_to_PEM(cer):
     os.popen(CER_TO_PEM_CMD % (cer_file_path, cerpem_file_path))
     with open(cerpem_file_path, 'r') as f:
         cer_pem = f.read()
-        f.close()
     
     unlink_temporary_files([cer_file_path, cerpem_file_path])
     return cer_pem
