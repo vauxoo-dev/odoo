@@ -12,5 +12,5 @@ class Addenda(models.Model):
         required=True)
 
     body_xml = fields.Text(
-        string='Body', 
+        string='Body',
         help='Body xml to render with qweb using the EDI values.')

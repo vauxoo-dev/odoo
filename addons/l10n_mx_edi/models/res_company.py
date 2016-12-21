@@ -29,7 +29,7 @@ def convert_CER_to_PEM(cer):
     with open(cerpem_file_path, 'r') as f:
         cer_pem = f.read()
         f.close()
-    
+
     unlink_temporary_files([cer_file_path, cerpem_file_path])
     return cer_pem
 
@@ -63,7 +63,7 @@ class ResCompany(models.Model):
         string='Certificate Password',
         help='Password for the Certificate Key')
     l10n_mx_edi_pac = fields.Selection(
-        selection=[('solfact', 'Solucion Factible')], 
+        selection=[('solfact', 'Solucion Factible')],
         string='PAC',
         help='The PAC that will sign/cancel the invoices')
     l10n_mx_edi_pac_test_env = fields.Boolean(

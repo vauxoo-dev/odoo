@@ -28,15 +28,15 @@ SIGN_ERROR_MSG = _('The CFDI document failed to be signed.')
 CANCEL_SUCCESS_MSG = _('The CFDI document has been successfully cancelled.')
 CANCEL_ERROR_MSG = _('The CFDI document failed to be cancelled.')
 
-#---------------------------------------------------------------------------            
+#---------------------------------------------------------------------------
 # Helpers
-#---------------------------------------------------------------------------            
+#---------------------------------------------------------------------------
 
 def call_soap_service(url, service, caller_func, timeout=20):
     try:
         client = Client(url, timeout=timeout, faults=False)
         service_func = getattr(client.service, service)
-        return {'response': call_func(service_func)}  
+        return {'response': call_func(service_func)}
     except Exception as e:
         return {'error': _('Failed to call the suds client: %s') % str(e)}
 
@@ -77,8 +77,8 @@ class AccountInvoice(models.Model):
         copy=False,
         stored=True)
     l10n_mx_edi_cancel_date = fields.Datetime(
-        string='Cancel Date', 
-        help='The datetime of the cancellation', 
+        string='Cancel Date',
+        help='The datetime of the cancellation',
         readonly=True,
         copy=False,
         stored=True)
@@ -200,7 +200,7 @@ class AccountInvoice(models.Model):
                 body=_('Failed to generate the cadena:') + create_list_html([str(e)]),
                 subtype='mt_invoice_l10n_mx_edi_msg')
             return []
-        
+
         # Post append cadena
         values['cadena'] = cadena_crypted
         tree.attrib['sello'] = cadena_crypted
@@ -221,7 +221,7 @@ class AccountInvoice(models.Model):
             try:
                 addenda_tree = tools.str_as_tree(addenda_xml) # not filled
                 addenda_content = qweb.render(addenda_tree, values=values)
-                addenda_tree = tools.str_as_tree(addenda_content) # filled                    
+                addenda_tree = tools.str_as_tree(addenda_content) # filled
                 addenda_node.extend(addenda_tree)
                 # No super node found
                 if len(addenda_node) == 0:
@@ -269,7 +269,7 @@ class AccountInvoice(models.Model):
 
             'amount_total': '%0.*f' % (precision_digits, self.amount_total),
             'amount_untaxed': '%0.*f' % (precision_digits, self.amount_untaxed),
-            
+
             # TODO or not TODO: That's the question!
             'pay_method': 'NA',
 
@@ -318,7 +318,7 @@ class AccountInvoice(models.Model):
                 record._l10n_mx_edi_cancel()
         return result
 
-    #---------------------------------------------------------------------------            
+    #---------------------------------------------------------------------------
     # PAC related methods
     #---------------------------------------------------------------------------
 
@@ -389,7 +389,7 @@ class AccountInvoice(models.Model):
             error = results.pop('error', None)
             if error:
                 record.message_post(
-                    body=SIGN_ERROR_MSG + create_list_html([error]), 
+                    body=SIGN_ERROR_MSG + create_list_html([error]),
                     subtype='mt_invoice_l10n_mx_edi_msg')
                 return
 
@@ -416,7 +416,7 @@ class AccountInvoice(models.Model):
                 else:
                     msg = ''
                 record.message_post(
-                    body=SIGN_ERROR_MSG + msg, 
+                    body=SIGN_ERROR_MSG + msg,
                     subtype='mt_invoice_l10n_mx_edi_msg')
 
     @api.multi
@@ -447,7 +447,7 @@ class AccountInvoice(models.Model):
             error = results.pop('error', None)
             if error:
                 record.message_post(
-                    body=CANCEL_ERROR_MSG + create_list_html([error]), 
+                    body=CANCEL_ERROR_MSG + create_list_html([error]),
                     subtype='mt_invoice_l10n_mx_edi_msg')
                 return
 
@@ -464,12 +464,12 @@ class AccountInvoice(models.Model):
                 else:
                     msg = ''
                 record.message_post(
-                    body=CANCEL_ERROR_MSG + msg, 
+                    body=CANCEL_ERROR_MSG + msg,
                     subtype='mt_invoice_l10n_mx_edi_msg')
 
-    #---------------------------------------------------------------------------            
+    #---------------------------------------------------------------------------
     # Solucion Factible PAC
-    #---------------------------------------------------------------------------            
+    #---------------------------------------------------------------------------
 
     @api.model
     def _l10n_mx_edi_sign_solfact(self, values):
@@ -530,4 +530,4 @@ class AccountInvoice(models.Model):
             'code': code,
             'msg': msg,
             'cancelled': cancelled
-        } 
+        }
