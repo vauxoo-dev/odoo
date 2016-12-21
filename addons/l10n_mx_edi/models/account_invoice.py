@@ -48,7 +48,7 @@ def create_list_html(array):
     msg = ''
     for item in array:
         msg += '<li>' + item + '</li>'
-    return '<ul>' + msg + '<\ul>'
+    return '<ul>' + msg + '</ul>'
 
 def check_with_xsd(cfdi_tree):
     xml_schema_doc = etree.parse(tools.file_open(CFDI_XSD))
