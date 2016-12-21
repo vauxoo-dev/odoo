@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="invoice_form" model="ir.ui.view">
+            <field name="name">account_invoice_mx.customer.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group//group[last()]" position="inside">
+                    <label for="l10n_mx_edi_sat_status"/>
+                    <div class="o_row">
+                        <field name="l10n_mx_edi_sat_status"/>
+                        <button name="l10n_mx_edi_update_sat_status" string="Update" class="oe_link" type="object" groups="account.group_account_invoice"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
