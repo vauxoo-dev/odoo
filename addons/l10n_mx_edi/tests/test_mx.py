@@ -34,4 +34,4 @@ class TestMX(common.TransactionCase):
                                 error_pattern = 'The generate file %s is unvalid:\n%s'
                                 error = reduce(lambda x, y: x + y, map(lambda z: z.message + '\n', xml_errors.error_log))
                                 raise ValidationError(_(error_pattern % (attachment_id.name, error)))
-                            _logger.info('File %s for invoice %s is valid' % (attachment_id.name, invoice.number))
+                            _logger.info('File %s for invoice %s is valid', attachment_id.name, invoice.number)
