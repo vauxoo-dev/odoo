@@ -12,12 +12,14 @@ from odoo import api, fields, models
 CER_TO_PEM_CMD = 'openssl x509 -in %s -inform der -outform pem -out %s'
 KEY_TO_PEM_CMD = 'openssl pkcs8 -in %s -inform der -outform pem -out %s -passin file:%s'
 
+
 def unlink_temporary_files(temporary_files):
     for temporary_file in temporary_files:
         try:
             os.unlink(temporary_file)
         except (OSError, IOError):
             _logger.error('Error when trying to remove file %s' % temporary_file)
+
 
 def convert_CER_to_PEM(cer):
     cer_file_fd, cer_file_path = tempfile.mkstemp(suffix='.cer', prefix='edi.mx.tmp.')
@@ -32,6 +34,7 @@ def convert_CER_to_PEM(cer):
 
     unlink_temporary_files([cer_file_path, cerpem_file_path])
     return cer_pem
+
 
 def convert_key_CER_to_PEM(key, password):
     key_file_fd, key_file_path = tempfile.mkstemp(suffix='.key', prefix='edi.mx.tmp.')
@@ -49,6 +52,7 @@ def convert_key_CER_to_PEM(key, password):
 
     unlink_temporary_files([key_file_path, keypem_file_path, pwd_file_path])
     return key_pem
+
 
 class ResCompany(models.Model):
     _inherit = "res.company"

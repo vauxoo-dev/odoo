@@ -10,7 +10,9 @@ from odoo.tests import common
 
 _logger = logging.getLogger(__name__)
 
+
 class TestMX(common.TransactionCase):
+
     def test_mx_invoice(self):
         Invoice = self.env['account.invoice']
         invoices_ids = Invoice.search([('state', 'in', ['open', 'paid'])])

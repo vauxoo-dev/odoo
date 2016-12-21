@@ -32,6 +32,7 @@ CANCEL_ERROR_MSG = _('The CFDI document failed to be cancelled.')
 # Helpers
 #---------------------------------------------------------------------------
 
+
 def call_soap_service(url, service, caller_func, timeout=20):
     try:
         client = Client(url, timeout=timeout, faults=False)
@@ -39,6 +40,7 @@ def call_soap_service(url, service, caller_func, timeout=20):
         return {'response': call_func(service_func)}
     except Exception as e:
         return {'error': _('Failed to call the suds client: %s') % str(e)}
+
 
 def create_list_html(array):
     '''Create a html list of error for the chatter.
@@ -50,6 +52,7 @@ def create_list_html(array):
         msg += '<li>' + item + '</li>'
     return '<ul>' + msg + '<\ul>'
 
+
 def check_with_xsd(cfdi_tree):
     xml_schema_doc = etree.parse(tools.file_open(CFDI_XSD))
     xsd_schema = etree.XMLSchema(xml_schema_doc)
@@ -58,6 +61,7 @@ def check_with_xsd(cfdi_tree):
         return []
     except etree.DocumentInvalid, xml_errors:
         return [e.message for e in xml_errors.error_log]
+
 
 class AccountInvoice(models.Model):
     _name = 'account.invoice'
@@ -110,8 +114,8 @@ class AccountInvoice(models.Model):
 
         # -Check if the certificate is present
         if not company_id.l10n_mx_edi_cer or\
-            not company_id.l10n_mx_edi_cer_key or\
-            not company_id.l10n_mx_edi_cer_password:
+                not company_id.l10n_mx_edi_cer_key or\
+                not company_id.l10n_mx_edi_cer_password:
             error_log.append(_('Certificate file/key and/or password is/are missing.'))
         else:
             try:
@@ -146,9 +150,9 @@ class AccountInvoice(models.Model):
         date_invoice_mx = date_invoice_mx.astimezone(mx_timezone)
         # Extract date range from certificate
         before = mx_timezone.localize(
-        datetime.strptime(certificate.get_notBefore(), CERTIFICATE_DATE_FORMAT))
+            datetime.strptime(certificate.get_notBefore(), CERTIFICATE_DATE_FORMAT))
         after = mx_timezone.localize(
-        datetime.strptime(certificate.get_notAfter(), CERTIFICATE_DATE_FORMAT))
+            datetime.strptime(certificate.get_notAfter(), CERTIFICATE_DATE_FORMAT))
         # Normalize to a more readable format
         if date_invoice_mx < before:
             str_before = before.strftime(ERROR_LOG_DATE_FORMAT)
@@ -219,9 +223,9 @@ class AccountInvoice(models.Model):
         addenda_node = tree.find('.//{http://www.sat.gob.mx/cfd/3}Addenda')
         if addenda_xml and addenda_node is not None:
             try:
-                addenda_tree = tools.str_as_tree(addenda_xml) # not filled
+                addenda_tree = tools.str_as_tree(addenda_xml)  # not filled
                 addenda_content = qweb.render(addenda_tree, values=values)
-                addenda_tree = tools.str_as_tree(addenda_content) # filled
+                addenda_tree = tools.str_as_tree(addenda_content)  # filled
                 addenda_node.extend(addenda_tree)
                 # No super node found
                 if len(addenda_node) == 0:
@@ -248,7 +252,7 @@ class AccountInvoice(models.Model):
             'datas_fname': filename,
             'type': 'binary',
             'description': 'Mexican invoice',
-            })
+        })
 
         # Try to sign the xml
         self.l10n_mx_edi_cfdi_name = filename
@@ -278,17 +282,16 @@ class AccountInvoice(models.Model):
 
         values['document_type'] = 'ingreso' if self.type == 'out_invoice' else 'egreso'
 
-
         if len(self.payment_term_id.line_ids) > 1:
             values['payment_policy'] = 'Pago en parcialidades'
         else:
             values['payment_policy'] = 'Pago en una sola exhibicion'
 
         values['domicile'] = '%s %s, %s' % (
-                self.company_id.city,
-                self.company_id.state_id.name,
-                self.company_id.country_id.name
-            )
+            self.company_id.city,
+            self.company_id.state_id.name,
+            self.company_id.country_id.name
+        )
 
         values['rfc'] = lambda p: p.vat[2:].replace(' ', '')
         values['subtotal_wo_discount'] = lambda l: l.quantity * l.price_unit
@@ -329,7 +332,7 @@ class AccountInvoice(models.Model):
         self.ensure_one()
         name = self.l10n_mx_edi_cfdi_name
         domain = [
-            ('res_id','=', self.id),
+            ('res_id', '=', self.id),
             ('res_model', '=', self._name),
             ('name', '=', name)]
         return self.env['ir.attachment'].search(domain, limit=1)
@@ -383,7 +386,7 @@ class AccountInvoice(models.Model):
             try:
                 results = getattr(record, sign_func)(values)
             except Exception as e:
-               results = {'error': _('Failed to call the suds client: %s' % str(e))}
+                results = {'error': _('Failed to call the suds client: %s' % str(e))}
 
             # Post process
             error = results.pop('error', None)
@@ -441,7 +444,7 @@ class AccountInvoice(models.Model):
             try:
                 results = getattr(record, cancel_func)(values)
             except Exception as e:
-               results = {'error': _('Failed to call the suds client: %s' % str(e))}
+                results = {'error': _('Failed to call the suds client: %s' % str(e))}
 
             # Post process
             error = results.pop('error', None)
@@ -525,7 +528,7 @@ class AccountInvoice(models.Model):
         if code:
             code = int(code)
         msg = getattr(response.resultados[0], 'mensaje', None)
-        cancelled = code == 201 or code == 202 # cancelled or previously cancelled
+        cancelled = code == 201 or code == 202  # cancelled or previously cancelled
         return {
             'code': code,
             'msg': msg,
