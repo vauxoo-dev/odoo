@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, tools, _
-
 import base64
 import ssl
-import pytz
-
-from pytz import timezone
-from lxml import etree
 from datetime import datetime
+
+import pytz
+from lxml import etree
+from pytz import timezone
 from suds.client import Client
+
+from odoo import _, api, fields, models, tools
 
 MX_NS_REFACTORING = {
     'cfdi__': 'cfdi',

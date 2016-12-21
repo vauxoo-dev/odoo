@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError
-
 import base64
-import ssl
 import os
 import tempfile
-import logging
-import re
-
 from contextlib import closing
-from StringIO import StringIO
+
 from OpenSSL import crypto
-from datetime import datetime
+
+from odoo import api, fields, models
 
 CER_TO_PEM_CMD = 'openssl x509 -in %s -inform der -outform pem -out %s'
 KEY_TO_PEM_CMD = 'openssl pkcs8 -in %s -inform der -outform pem -out %s -passin file:%s'

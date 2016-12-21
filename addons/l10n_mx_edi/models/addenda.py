@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import fields, models
+
 
 class Addenda(models.Model):
     _name = 'edi.mx.addenda'
@@ -13,4 +14,3 @@ class Addenda(models.Model):
     body_xml = fields.Text(
         string='Body', 
         help='Body xml to render with qweb using the EDI values.')
-
