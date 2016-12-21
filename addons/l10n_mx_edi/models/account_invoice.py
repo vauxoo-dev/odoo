@@ -124,7 +124,7 @@ class AccountInvoice(models.Model):
             pac_test_env = company_id.l10n_mx_edi_pac_test_env
             pac_username = company_id.l10n_mx_edi_pac_username
             pac_password = company_id.l10n_mx_edi_pac_password
-            if not pac_test_env and not (pac_username and pac_username):
+            if not pac_test_env and not (pac_username and pac_password):
                 error_log.append(_('No PAC credentials specified.'))
         else:
             error_log.append(_('No PAC specified.'))
