@@ -36,7 +36,7 @@ def call_soap_service(url, service, caller_func, timeout=20):
     try:
         client = Client(url, timeout=timeout, faults=False)
         service_func = getattr(client.service, service)
-        return {'response': call_func(service_func)}  
+        return {'response': caller_func(service_func)}  
     except Exception as e:
         return {'error': _('Failed to call the suds client: %s') % str(e)}
 
