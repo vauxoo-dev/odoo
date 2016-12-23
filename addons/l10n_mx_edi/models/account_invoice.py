@@ -528,4 +528,107 @@ class AccountInvoice(models.Model):
             'code': code,
             'msg': msg,
             'cancelled': cancelled
-        } 
+        }
+
+    # ---------------------------------------------------------------------------
+    # Finkok PAC
+    # ---------------------------------------------------------------------------
+
+    @api.model
+    def _l10n_mx_sign_errors_finkok(self, code):
+        values = {
+            201: "UUID Cancelado exitosamente",
+            202: "UUID Previamente cancelado",
+            203: "UUID No corresponde el RFC del Emisor y de quien solicita la cancelación",
+            205: "UUID No existe",
+            300: "Usuario y contraseña inválidos",
+            301: "XML mal formado",
+            302: "Sello mal formado o inválido",
+            303: "Sello no corresponde a emisor",
+            304: "Certificado Revocado o caduco",
+            305: "La fecha de emisión no esta dentro de la vigencia del CSD del Emisor",
+            306: "El certificado no es de tipo CSD",
+            307: "El CFDI contiene un timbre previo",
+            308: "Certificado no expedido por el SAT",
+            401: "Fecha y hora de generación fuera de rango",
+            402: "RFC del emisor no se encuentra en el régimen de contribuyentes",
+            403: "La fecha de emisión no es posterior al 01 de enero de 2012",
+            501: "Autenticación no válida",
+            703: "Cuenta suspendida",
+            704: "Error con la contraseña de la llave Privada",
+            705: "XML estructura inválida",
+            706: "Socio Inválido",
+            707: "XML ya contiene un nodo TimbreFiscalDigital",
+            708: "No se pudo conectar al SAT",
+        }
+        return values.get(code, 'Finkok not valid code')
+
+
+    @api.model
+    def _l10n_mx_edi_sign_finkok(self, values):
+        self.ensure_one()
+        company_id = self.company_id
+        if company_id.l10n_mx_edi_pac_test_env:
+            url = 'http://demo-facturacion.finkok.com/servicios/soap/stamp.wsdl'
+            username = 'cfdi@vauxoo.com'
+            password = 'vAux00__'
+        else:
+            url = 'http://facturacion.finkok.com/servicios/soap/stamp.wsdl'
+            username = company_id.l10n_mx_edi_pac_username
+            password = company_id.l10n_mx_edi_pac_password
+        cfdi = values['cfdi']
+        client = Client(url, timeout=20)
+        response = client.service.stamp(cfdi, username, password)
+        code = getattr(response.Incidencias.Incidencia[0], 'CodigoError', 0)
+        if not response.Incidencias:
+            # Finkok returns the xml in plaintext
+            xml_signed = response.xml
+        else:
+            xml_signed = ''
+        if code:
+            code = int(code)
+        msg = self._l10n_mx_sign_errors_finkok(code)
+        return {
+            'code': code,
+            'msg': msg,
+            'xml_signed': xml_signed.encode('base64')
+        }
+
+
+    @api.model
+    def _l10n_mx_edi_cancel_finkok(self, values):
+        # This process is impossible of test in demo environment, we need to test in production-like-test environment.
+        self.ensure_one()
+        company_id = self.company_id
+        if company_id.l10n_mx_edi_pac_test_env:
+            url = 'http://demo-facturacion.finkok.com/servicios/soap/cancel.wsdl'
+            username = 'cfdi@vauxoo.com'
+            password = 'vAux00__'
+        else:
+            url = 'http://facturacion.finkok.com/servicios/soap/cancel.wsdl'
+            username = company_id.l10n_mx_edi_pac_username
+            password = company_id.l10n_mx_edi_pac_password
+
+        uuids = [values['uuid']]
+        company_id = values['company_id']
+        certificate = company_id.l10n_mx_edi_cer
+        certificate_key = company_id.l10n_mx_edi_cer_key
+
+        client = Client(url, timeout=20, cache=90)
+        documents = client.factory.create("UUIDS")
+        documents.uuids.string = uuids
+        response = client.service.cancel(documents, username, password, company_id.vat, certificate, certificate_key)
+        # just give a sec to answer, if direct it will fail too much.
+        time.sleep(1)
+        # This method is ready to work only one by one, but this can be used to do several UUID with the PAC.
+        # That's why we try to get the first element always.
+        code = getattr(response.Folios[0][0], 'EstatusUUID', None)
+        if code:
+            code = int(code)
+        msg = self._l10n_mx_sign_errors_finkok(code)
+        cancelled = code == 201 or code == 202  # cancelled or previously cancelled
+        return {
+            'code': code,
+            'msg': msg,
+            'cancelled': cancelled
+        }
