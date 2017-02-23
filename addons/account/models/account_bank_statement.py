@@ -265,7 +265,7 @@ class AccountBankStatement(models.Model):
         """ Changes statement state to Running."""
         for statement in self:
             if not statement.name:
-                context = {'ir_sequence_date', statement.date}
+                context = {'ir_sequence_date': statement.date}
                 if statement.journal_id.sequence_id:
                     st_number = statement.journal_id.sequence_id.with_context(context).next_by_id()
                 else:
@@ -284,8 +284,8 @@ class AccountBankStatement(models.Model):
         # NB : The field account_id can be used at the statement line creation/import to avoid the reconciliation process on it later on,
         # this is why we filter out statements lines where account_id is set
 
-        sql_query = """SELECT stl.id 
-                        FROM account_bank_statement_line stl  
+        sql_query = """SELECT stl.id
+                        FROM account_bank_statement_line stl
                         WHERE account_id IS NULL AND not exists (select 1 from account_move m where m.statement_line_id = stl.id)
                             AND company_id = %s
                 """
@@ -305,11 +305,11 @@ class AccountBankStatement(models.Model):
                             FROM account_move_line aml
                                 JOIN account_account acc ON acc.id = aml.account_id
                                 JOIN account_bank_statement_line stl ON aml.ref = stl.name
-                            WHERE (aml.company_id = %s 
-                                AND aml.partner_id IS NOT NULL) 
+                            WHERE (aml.company_id = %s
+                                AND aml.partner_id IS NOT NULL)
                                 AND (
-                                    (aml.statement_id IS NULL AND aml.account_id IN %s) 
-                                    OR 
+                                    (aml.statement_id IS NULL AND aml.account_id IN %s)
+                                    OR
                                     (acc.internal_type IN ('payable', 'receivable') AND aml.reconciled = false)
                                     )
                                 AND aml.ref IN %s
@@ -598,10 +598,10 @@ class AccountBankStatementLine(models.Model):
         acc_type = "acc.internal_type IN ('payable', 'receivable')" if (self.partner_id or overlook_partner) else "acc.reconcile = true"
         select_clause = "SELECT aml.id "
         from_clause = "FROM account_move_line aml JOIN account_account acc ON acc.id = aml.account_id "
-        where_clause = """WHERE aml.company_id = %(company_id)s  
+        where_clause = """WHERE aml.company_id = %(company_id)s
                                 AND (
-                                        (aml.statement_id IS NULL AND aml.account_id IN %(account_payable_receivable)s) 
-                                    OR 
+                                        (aml.statement_id IS NULL AND aml.account_id IN %(account_payable_receivable)s)
+                                    OR
                                         ("""+acc_type+""" AND aml.reconciled = false)
                                     )"""
         where_clause = where_clause + ' AND aml.partner_id = %(partner_id)s' if self.partner_id else where_clause
