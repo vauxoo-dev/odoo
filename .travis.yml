@@ -1,6 +1,6 @@
 branches:
   only:
-  - 9.0-doc-es
+  - master-doc-es
 language: python
 cache:
   apt: true
@@ -33,5 +33,5 @@ env:
     - GH_BRANCH: gh-pages
     - GH_COMMITER_EMAIL: cowardvasallwrite@vauxoo.com
     - GH_COMMITER_NAME: "Travis Robot."
-    - secure: Jw1fhDbF8fl+Irgw7UfR6xM/crawybr0SY9J73y01mDpJWdodhgJvUOfDGViZH4o/IY+U83wG8PxphW4mcrwlnQekWTWufhe8dDyb1noodUmWbvJv826GRc9hJwItj9C0wTDSyF+1V6lBNIUYke79RyPwGJtyoU4X48U8kln8Nw=
+    - secure: "BsND9egB6crZ6Gm3FLiP2YTfJ8K1+H7QYJMpwt3eBtHCDepwyhypxL9tS4RkAdglucVweKMoniUfRZsZryoNXkQ8ntNhyoPkfPLTjrqvcCAdyGMj/6WnP5vuZrNQ0dC9djB2F/TdPxuzPiqZjpLHuCQ7Rp0JYLrJzVFlPU8fCnY="
 
