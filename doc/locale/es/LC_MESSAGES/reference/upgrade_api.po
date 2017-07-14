@@ -8,29 +8,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 6fc345683d2d48fd91f4d7cec631057c
 #: ../../reference/upgrade_api.rst:11
 msgid "Upgrade API"
 msgstr ""
 
+# 840381a052d74f6b8afa077160368f8d
 #: ../../reference/upgrade_api.rst:14
 msgid "Introduction"
 msgstr ""
 
+# 9b07f636f7a445a793667f16de7287b0
 #: ../../reference/upgrade_api.rst:16
 msgid ""
 "This document describes the API used to upgrade an Odoo database to a "
 "higher version."
 msgstr ""
 
+# 3a0f9a08736044c48a72eedf60b24cb4
 #: ../../reference/upgrade_api.rst:19
 msgid ""
 "It allows a database to be upgraded without ressorting to the html form "
@@ -38,124 +42,173 @@ msgid ""
 "process described on that form."
 msgstr ""
 
+# 9b3dc73c403848b293f0460f470fb4b0
 #: ../../reference/upgrade_api.rst:24
 msgid "The required steps are:"
 msgstr ""
 
+# 2be8f96875284b4dac08e5d794543d90
 #: ../../reference/upgrade_api.rst:26
-msgid "creating a request"
+msgid ":ref:`creating a request <upgrade-api-create-method>`"
 msgstr ""
 
+# 9c21e031076c477c9a5b3d243b8c8e05
 #: ../../reference/upgrade_api.rst:27
-msgid "uploading a database dump"
+msgid ":ref:`uploading a database dump <upgrade-api-upload-method>`"
 msgstr ""
 
+# 82b2bcb97b4b4e138da33af5ecd4c30b
 #: ../../reference/upgrade_api.rst:28
-msgid "running the upgrade process"
+msgid ":ref:`running the upgrade process <upgrade-api-process-method>`"
 msgstr ""
 
+# 5910029358b24c4fa7edce26eb3e9453
 #: ../../reference/upgrade_api.rst:29
-msgid "obtaining the status of the database request"
+msgid ""
+":ref:`obtaining the status of the database request <upgrade-api-status-"
+"method>`"
 msgstr ""
 
+# 81b4941b7cbe48ca90da40229f2d475c
 #: ../../reference/upgrade_api.rst:30
-msgid "downloading the upgraded database dump"
+msgid ""
+":ref:`downloading the upgraded database dump <upgrade-api-download-"
+"method>`"
 msgstr ""
 
+# e21ad0a0af2a4836bc2675253f0ac030
 #: ../../reference/upgrade_api.rst:33
 msgid "The methods"
 msgstr ""
 
+# d13f069ffaef4b518ddf543a617cc740
 #: ../../reference/upgrade_api.rst:38
 msgid "Creating a database upgrade request"
 msgstr ""
 
+# b6f353415c474b168b02a3e008dc33e7
 #: ../../reference/upgrade_api.rst:40
 msgid "This action creates a database request with the following information:"
 msgstr ""
 
+# 50346cb322e34a4a8e502887d0270c6b
 #: ../../reference/upgrade_api.rst:42
 msgid "your contract reference"
 msgstr ""
 
+# 458467fbd2c14c0faffda4075f40fa66
 #: ../../reference/upgrade_api.rst:43
 msgid "your email address"
 msgstr ""
 
+# e22e2a503f574b5381b837ba2bb07ead
 #: ../../reference/upgrade_api.rst:44
 msgid "the target version (the Odoo version you want to upgrade to)"
 msgstr ""
 
+# ef5963e2eaad48b69170752e136ff6a5
 #: ../../reference/upgrade_api.rst:45
 msgid "the purpose of your request (test or production)"
 msgstr ""
 
+# 62549d6df6fb4c15b7fc3d013d5d26b5
 #: ../../reference/upgrade_api.rst:46
 msgid "the database dump name (required but purely informative)"
 msgstr ""
 
+# bcf4114151754d2c869a1c0c4710fb1c
 #: ../../reference/upgrade_api.rst:47
 msgid "optionally the server timezone (for Odoo source version < 6.1)"
 msgstr ""
 
+# def993e30e5e4e06af30b18482cfee90
 #: ../../reference/upgrade_api.rst:50
 msgid "The ``create`` method"
 msgstr ""
 
+# a7f6b95024894aa1be77bc8e3afaa8d3
 #: ../../reference/upgrade_api.rst:54
 msgid "Creates a database upgrade request"
 msgstr ""
 
+# bc76e26aaf354f1ea4e63c06809fe0d8
 #: ../../reference/upgrade_api.rst:56
 msgid "(required) your enterprise contract reference"
 msgstr ""
 
+# 9de9e30d4d4e4849be6bb1db711b943f
 #: ../../reference/upgrade_api.rst:57
 msgid "(required) your email address"
 msgstr ""
 
+# 2facb5aa6fd642c1a7924e7e41971e2c
 #: ../../reference/upgrade_api.rst:58
 msgid ""
 "(required) the Odoo version you want to upgrade to. Valid choices: 6.0, "
 "6.1, 7.0, 8.0"
 msgstr ""
 
+# ec3b10a19d6a4252abe632228de433ce
 #: ../../reference/upgrade_api.rst:59
 msgid ""
 "(required) the purpose of your upgrade database request. Valid choices: "
 "test, production."
 msgstr ""
 
+# bbb0cddf75104fa48991ade57392b7b7
 #: ../../reference/upgrade_api.rst:60
 msgid "(required) a purely informative name for you database dump file"
 msgstr ""
 
+# a2702c4729d84a9c8492d92b94497cee
 #: ../../reference/upgrade_api.rst:61
 msgid ""
 "(optional) the timezone used by your server. Only for Odoo source version"
 " < 6.1"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:62 ../../reference/upgrade_api.rst:215
-#: ../../reference/upgrade_api.rst:286 ../../reference/upgrade_api.rst:352
+# 1e5ea0921e064523abaebcdff70bd8c0
+# 3bd7fb89fb0942d7be696cad972291be
+# 2ddc80b2dddf4c158f445667495b1c98
+# f118d77ddc0d4c6cb810c508f245c5d1
+# 3ae7f7cf0ea545b2bac311e7805f0060
+#: ../../reference/upgrade_api.rst:62 ../../reference/upgrade_api.rst:223
+#: ../../reference/upgrade_api.rst:294 ../../reference/upgrade_api.rst:430
+#: ../../reference/upgrade_api.rst:496
 msgid "request result"
 msgstr ""
 
+# dd291b2807c94ca59fb53fa7f9273a35
+# 935f5cbe11cd4e6a93c61e41b14e56d8
+# 4595b421bea0441abfadeccdd2d41f8d
+# f6409cb14e294e0199bb53dc7bb35714
+# c039c14478064763bde63438e9b771d6
+#: ../../reference/upgrade_api.rst:63 ../../reference/upgrade_api.rst:224
+#: ../../reference/upgrade_api.rst:295 ../../reference/upgrade_api.rst:431
+#: ../../reference/upgrade_api.rst:497
+msgid "JSON dictionary"
+msgstr ""
+
+# 58bf54ea3a9041ef8761f7fe7ef8d4f3
 #: ../../reference/upgrade_api.rst:65
 msgid ""
-"The *create* method returns a json dictionary containing the following "
+"The *create* method returns a JSON dictionary containing the following "
 "keys:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:68
+# 3240088b28b34a9c971f3734f9036d94
+# f5ae29da339744cebd1be0d1e31f70a1
+#: ../../reference/upgrade_api.rst:70 ../../reference/upgrade_api.rst:357
 msgid "``failures``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:70
+# c20008186e424faaba3aa9377e23d320
+#: ../../reference/upgrade_api.rst:72
 msgid "The list of errors."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:72
+# 13099f62d4eb4e04a031aa4756f2a247
+#: ../../reference/upgrade_api.rst:74
 msgid ""
 "A list of dictionaries, each dictionary giving information about one "
 "particular error. Each dictionary can contain various keys depending of "
@@ -163,400 +216,739 @@ msgid ""
 "``message`` keys:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:76
+# cf2e08a43c84458685dfec99c1432dda
+#: ../../reference/upgrade_api.rst:78
 msgid "``reason``: the error type"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:77
+# 99265d0b178d4fa18dbc6e086b9d3981
+#: ../../reference/upgrade_api.rst:79
 msgid "``message``: a human friendly message"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:79
+# 4710ba6308da444fa0c917d1c10914cd
+#: ../../reference/upgrade_api.rst:81
 msgid "Some possible keys:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:81
+# 6b7e8897eb644189a64b5e01f036a936
+#: ../../reference/upgrade_api.rst:83
 msgid "``code``: a faulty value"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:82
+# 8153d17517d54e628c176e7778443e32
+#: ../../reference/upgrade_api.rst:84
 msgid "``value``: a faulty value"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:83
+# 4c8965a985f847d3bda9343721d1831d
+#: ../../reference/upgrade_api.rst:85
 msgid "``expected``: a list of valid values"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:85
+# 0f689730ae104733a1705d60185d8bc5
+#: ../../reference/upgrade_api.rst:87
 msgid "See a sample output aside."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:116
+# fdaff362c0e74ca3ad92d650abcdf060
+# f8ee8eb67f3d46269b6e00895ca94010
+#: ../../reference/upgrade_api.rst:118 ../../reference/upgrade_api.rst:363
 msgid "``request``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:118
+# 81fe1639c91c428bab7178e068fe996f
+#: ../../reference/upgrade_api.rst:120
 msgid ""
 "If the *create* method is successful, the value associated to the "
 "*request* key will be a dictionary containing various information about "
 "the created request:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:121
+# 19f57b0336a54ef492b7643403bbd711
+#: ../../reference/upgrade_api.rst:123
 msgid "The most important keys are:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:123
+# 82bda951aca24f3bad2ec6512ea928fb
+#: ../../reference/upgrade_api.rst:125
 msgid "``id``: the request id"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:124
+# f04c2228ead14338bb9ecf7a5dec68fb
+#: ../../reference/upgrade_api.rst:126
 msgid "``key``: your private key for this request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:126
+# 4f43e2944b9f49ca8a71f1d1e5983117
+#: ../../reference/upgrade_api.rst:128
 msgid ""
 "These 2 values will be requested by the other methods (upload, process "
 "and status)"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:128
+# 259c70ff9e97414ebdf04399f7386c38
+#: ../../reference/upgrade_api.rst:130
 msgid ""
 "The other keys will be explained in the section describing the "
 ":ref:`status method <upgrade-api-status-method>`."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:132
+# c545cbc9c9564a308b6b66c31d181660
+#: ../../reference/upgrade_api.rst:134
 msgid "Sample script"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:134
+# defa46b959f749e198534d0cc3318e8a
+#: ../../reference/upgrade_api.rst:136
 msgid "Here are 2 examples of database upgrade request creation using:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:136
+# b08cd5be83134f038718df46fa478180
+#: ../../reference/upgrade_api.rst:138
 msgid "one in the python programming language using the pycurl library"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:137
+# 080e901f67b14bbc94d3f3e393fce76f
+#: ../../reference/upgrade_api.rst:139
 msgid ""
 "one in the bash programming language using `curl <http://curl.haxx.se>`_ "
 "(tool for transfering data using http) and `jq "
 "<https://stedolan.github.io/jq>`_ (JSON processor):"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:202
+# e62065c5dcaa407190307032576cd3f8
+#: ../../reference/upgrade_api.rst:204
 msgid "Uploading your database dump"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:204
-msgid "This action upload your database dump."
+# b0c7e163e6de484ba3e9bc5f7173277c
+#: ../../reference/upgrade_api.rst:206
+msgid "There are 2 methods to upload your database dump:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:207
+# f7e3a16b8f854a5ca03667ca4dde98b1
+#: ../../reference/upgrade_api.rst:208
+msgid "the ``upload`` method using the HTTPS protocol"
+msgstr ""
+
+# fcab7a0e8e0a4242985067c510e2efb1
+#: ../../reference/upgrade_api.rst:209
+msgid "the ``request_sftp_access`` method using the SFTP protocol"
+msgstr ""
+
+# a9f3f64b8303455582c07404619abe59
+#: ../../reference/upgrade_api.rst:212
 msgid "The ``upload`` method"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:211
+# 8241c1bf6648491ab4abdde8f1491b65
+#: ../../reference/upgrade_api.rst:214
+msgid ""
+"It's the most simple and most straightforward way of uploading your "
+"database dump. It uses the HTTPS protocol."
+msgstr ""
+
+# fd8df47422f54396a780e721bdbc9c4b
+#: ../../reference/upgrade_api.rst:219
 msgid "Uploads a database dump"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:213 ../../reference/upgrade_api.rst:284
-#: ../../reference/upgrade_api.rst:350
+# 80d7fbf92011471d8c7f59abfcda7dde
+# bbc80c69c7ad45779777ed46046d0353
+# 74868c8780ee4492b6e9410bcd5684a0
+# 374efebb108846b3b5855737ded0ed7f
+#: ../../reference/upgrade_api.rst:221 ../../reference/upgrade_api.rst:291
+#: ../../reference/upgrade_api.rst:428 ../../reference/upgrade_api.rst:494
 msgid "(required) your private key"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:214 ../../reference/upgrade_api.rst:285
-#: ../../reference/upgrade_api.rst:351
+# 3e3596c928a94c56bdb0334c1a4c18fd
+# c47311fe4c884577bdbe54bd4a1099f7
+# 1a6f770c81074f89a9a047ca6e170552
+# bce23227527e410ba1107a4903235adf
+#: ../../reference/upgrade_api.rst:222 ../../reference/upgrade_api.rst:292
+#: ../../reference/upgrade_api.rst:429 ../../reference/upgrade_api.rst:495
 msgid "(required) your request id"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:218 ../../reference/upgrade_api.rst:289
-#: ../../reference/upgrade_api.rst:355
+# 0f4a181c1aaf42b79f11cc3a486e6d98
+# 304cfd639f4f4cf3a3e25adb71d679be
+# 5ffda5de76574c41ae726dd16bf64607
+# f248d5cf2ac44ad6b9cccbe4813f1a5b
+#: ../../reference/upgrade_api.rst:226 ../../reference/upgrade_api.rst:297
+#: ../../reference/upgrade_api.rst:433 ../../reference/upgrade_api.rst:499
 msgid ""
 "The request id and the private key are obtained using the :ref:`create "
 "method <upgrade-api-create-method>`"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:221 ../../reference/upgrade_api.rst:292
+# f0e647c65525437989df4b2063d7e218
+# ee9f065db402475a820f7a23380653bc
+#: ../../reference/upgrade_api.rst:229 ../../reference/upgrade_api.rst:436
 msgid ""
-"The result is a json dictionary containing the list of ``failures``, "
+"The result is a JSON dictionary containing the list of ``failures``, "
 "which should be empty if everything went fine."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:273
+# 8aca5fd9e6b1446a90ca8b99f2c7a836
+#: ../../reference/upgrade_api.rst:279
+msgid "The ``request_sftp_access`` method"
+msgstr ""
+
+# 86075ee071b7485494bf1aa212979e67
+#: ../../reference/upgrade_api.rst:281
+msgid ""
+"This method is recommanded for big database dumps. It uses the SFTP "
+"protocol and supports resuming."
+msgstr ""
+
+# b94d0d5189624559b3f78400c87a8241
+#: ../../reference/upgrade_api.rst:284
+msgid ""
+"It will create a temporary SFTP server where you can connect to and allow"
+" you to upload your database dump using an SFTP client."
+msgstr ""
+
+# 6be3ffe0e47a448290c6a84139940fd8
+#: ../../reference/upgrade_api.rst:289
+msgid "Creates an SFTP server"
+msgstr ""
+
+# 6ef51312b3564a8ead3067509f8c1160
+#: ../../reference/upgrade_api.rst:293
+msgid ""
+"(required) the path to a file listing the ssh public keys you'd like to "
+"use"
+msgstr ""
+
+# ae08fed8348846ce89a39e9b4c134b81
+#: ../../reference/upgrade_api.rst:300
+msgid ""
+"The file listing your ssh public keys should be roughly similar to a "
+"standard ``authorized_keys`` file. This file should only contains public "
+"keys, blank lines or comments (lines starting with the ``#`` character)"
+msgstr ""
+
+# 26cfaad5d198460a88871b3fbb8ede54
+#: ../../reference/upgrade_api.rst:303
+msgid "Your database upgrade request should be in the ``draft`` state."
+msgstr ""
+
+# e7a8d9aea49d4e92aa22ab1022fb291e
+#: ../../reference/upgrade_api.rst:305
+msgid ""
+"The ``request_sftp_access`` method returns a JSON dictionary containing "
+"the following keys:"
+msgstr ""
+
+# e4048c8b5d3e4ceaacdf85acc3ef6a85
+#: ../../reference/upgrade_api.rst:359
+msgid ""
+"The list of errors. See :ref:`failures <upgrade-api-json-failure>` for an"
+" explanation about the JSON dictionary returned in case of failure."
+msgstr ""
+
+# 5a613c13988a40b790344eff0ac09e59
+#: ../../reference/upgrade_api.rst:365
+msgid ""
+"If the call is successful, the value associated to the *request* key will"
+" be a dictionary containing your SFTP connexion parameters:"
+msgstr ""
+
+# d331b98c3604453a938f97c3458c3fe8
+#: ../../reference/upgrade_api.rst:368
+msgid "``hostname``: the host address to connect to"
+msgstr ""
+
+# 29550e3a516c4104b54b20537eadd4b9
+#: ../../reference/upgrade_api.rst:369
+msgid "``sftp_port``: the port to connect to"
+msgstr ""
+
+# 104398c5adaa4f5798e18f16d63ee70c
+#: ../../reference/upgrade_api.rst:370
+msgid "``sftp_user``: the SFTP user to use for connecting"
+msgstr ""
+
+# a2a8b0d0c32e43ccbd47d5ac94c48950
+#: ../../reference/upgrade_api.rst:371
+msgid ""
+"``shared_file``: the filename you need to use (identical to the "
+"``filename`` value you have used when creating the request in the "
+":ref:`create method <upgrade-api-create-method>`.)"
+msgstr ""
+
+# 97079c97a8f14407a247473778943f56
+#: ../../reference/upgrade_api.rst:372
+msgid ""
+"``request_id``: the related upgrade request id (only informative, ,not "
+"required for the connection)"
+msgstr ""
+
+# a88050cbfc7f4bada2e1fb045af5e879
+#: ../../reference/upgrade_api.rst:373
+msgid "``sample_command``: a sample command using the 'sftp' client"
+msgstr ""
+
+# 37a0ac58f2f54314bab9fb15f70bb6a0
+#: ../../reference/upgrade_api.rst:375
+msgid "You should normally be able to connect using the sample command as is."
+msgstr ""
+
+# ed32f7d56bbb4845a7e72a149b8e97e4
+#: ../../reference/upgrade_api.rst:377
+msgid ""
+"You will only have access to the ``shared_file``. No other files will be "
+"accessible and you will not be able to create new files in your shared "
+"environment on the SFTP server."
+msgstr ""
+
+# 99a67a1919eb43bda18eff681f087115
+#: ../../reference/upgrade_api.rst:382
+msgid "Using the 'sftp' client"
+msgstr ""
+
+# 60dbdb7ba1e14497923071fcfe534ca4
+#: ../../reference/upgrade_api.rst:384
+msgid ""
+"Once you have successfully connected using your SFTP client, you can "
+"upload your database dump. Here is a sample session using the 'sftp' "
+"client:"
+msgstr ""
+
+# 392a05dba53c4b709891f60c6a746fb8
+#: ../../reference/upgrade_api.rst:396
+msgid ""
+"If your connection is interrupted, you can continue your file transfer "
+"using the ``-a`` command line switch:"
+msgstr ""
+
+# 1330a0c009ce4054a1ccf279768aac52
+#: ../../reference/upgrade_api.rst:404
+msgid ""
+"If you don't want to manually type the command and need to automate your "
+"database upgrade using a script, you can use a batch file or pipe your "
+"commands to 'sftp':"
+msgstr ""
+
+# 5017fc93e46a406e926cf615a369d45a
+#: ../../reference/upgrade_api.rst:411
+msgid ""
+"The ``-b`` parameter takes a filename. If the filename is ``-``, it reads"
+" the commands from standard input."
+msgstr ""
+
+# 273d7a70d308471383dc16d5363965de
+#: ../../reference/upgrade_api.rst:417
 msgid "Asking to process your request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:275
+# 104aa9ac00324d8c8272e711dcc676d0
+#: ../../reference/upgrade_api.rst:419
 msgid "This action ask the Upgrade Platform to process your database dump."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:278
+# e8d275a70a37482980d4ae227c576301
+#: ../../reference/upgrade_api.rst:422
 msgid "The ``process`` method"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:282
+# e531ffc1df544f62aa62887f4e724272
+#: ../../reference/upgrade_api.rst:426
 msgid "Process a database dump"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:339
+# fba18f4fabde4414a46328fdd37dce42
+#: ../../reference/upgrade_api.rst:483
 msgid "Obtaining your request status"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:341
+# 539635b21cba40c6b6aad36d60ad91f5
+#: ../../reference/upgrade_api.rst:485
 msgid "This action ask the status of your database upgrade request."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:344
+# 011ecce3a654477abd3db787934f6209
+#: ../../reference/upgrade_api.rst:488
 msgid "The ``status`` method"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:348
+# b820642944e64a6e9118620f514e5334
+#: ../../reference/upgrade_api.rst:492
 msgid "Ask the status of a database upgrade request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:358
+# 06d95bee60354abea1f4ec511919e2a4
+#: ../../reference/upgrade_api.rst:502
 msgid ""
-"The result is a json dictionary containing various information about your"
+"The result is a JSON dictionary containing various information about your"
 " database upgrade request."
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:401
+# 8c80fcde207a4488953599be54892267
+#: ../../reference/upgrade_api.rst:545
 msgid "Sample output"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:403
+# 06233b297e964d9998f4366533a8123c
+#: ../../reference/upgrade_api.rst:547
 msgid ""
 "The ``request`` key contains various useful information about your "
 "request:"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:405
+# 9fa612c1ae614be09d0af2b6ae85a9ee
+#: ../../reference/upgrade_api.rst:549
 msgid "``id``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:406
+# a29b6753b434476a9626562c739f318d
+#: ../../reference/upgrade_api.rst:550
 msgid "the request id"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:407
+# defacc09a98e47f0be6bad1accb549f5
+#: ../../reference/upgrade_api.rst:551
 msgid "``key``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:408
+# bdccf250d37d494980989ea6ec50ea92
+#: ../../reference/upgrade_api.rst:552
 msgid "your private key"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:409
+# 84c6bfc9f5e843c39cfe34a89f41b23f
+#: ../../reference/upgrade_api.rst:553
 msgid "``email``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:410
+# 4dd4742492664a18abe00cb431598fd4
+#: ../../reference/upgrade_api.rst:554
 msgid "the email address you supplied when creating the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:411
+# 58d4f0289d684fe191b9a1ca26738f12
+#: ../../reference/upgrade_api.rst:555
 msgid "``target``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:412
+# ddf0a22f4b3a4332ab0ac3cdefceb444
+#: ../../reference/upgrade_api.rst:556
 msgid "the target Odoo version you supplied when creating the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:413
+# 954a13f2df16475f90a6bfb83f4d2b63
+#: ../../reference/upgrade_api.rst:557
 msgid "``aim``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:414
+# 6a2d357efc4941048cb4da677dee40e3
+#: ../../reference/upgrade_api.rst:558
 msgid ""
 "the purpose (test, production) of your database upgrade request you "
 "supplied when creating the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:415
+# 5d75efd00d1d467d94f907fcf72d0f07
+#: ../../reference/upgrade_api.rst:559
 msgid "``filename``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:416
+# 01d3e929e75645b7be5b3d58f72aae35
+#: ../../reference/upgrade_api.rst:560
 msgid "the filename you supplied when creating the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:417
+# 21491c5ffa7c449185872152035975b6
+#: ../../reference/upgrade_api.rst:561
 msgid "``timezone``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:418
+# ac1803732ad549dd9d939b1f60189ccd
+#: ../../reference/upgrade_api.rst:562
 msgid "the timezone you supplied when creating the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:419
+# d85b3b887bb54cdc834af93434eb3175
+#: ../../reference/upgrade_api.rst:563
 msgid "``state``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:420
+# a4dee5ba06c945b59f39001f1b7eb4f9
+#: ../../reference/upgrade_api.rst:564
 msgid "the state of your request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:421
+# 03da455525434abfa1264f0d37748652
+#: ../../reference/upgrade_api.rst:565
 msgid "``issue_stage``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:422
+# 0a76e92e0a34409f924f497284f29bbb
+#: ../../reference/upgrade_api.rst:566
 msgid "the stage of the issue we have create on Odoo main server"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:423
+# c2aa183d885547569d5cdc9dfaa9f28c
+#: ../../reference/upgrade_api.rst:567
 msgid "``issue``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:424
+# 81c774b245a84304ae32bc4efc66e18e
+#: ../../reference/upgrade_api.rst:568
 msgid "the id of the issue we have create on Odoo main server"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:425
+# 8515063f30f4492b8d86ceeee6a08d6a
+#: ../../reference/upgrade_api.rst:569
 msgid "``status_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:426
+# ca11fffcf4c744b68c9c3dee5dc8547b
+#: ../../reference/upgrade_api.rst:570
 msgid "the URL to access your database upgrade request html page"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:427
+# 5ec6a4dc2eac4e9ba3856524f85ed8b4
+#: ../../reference/upgrade_api.rst:571
 msgid "``notes_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:428
+# 9a80542d6684407eaa967d8cb5fbcf5c
+#: ../../reference/upgrade_api.rst:572
 msgid "the URL to get the notes about your database upgrade"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:429
+# 6587366dc4e746cd86c5ed587af8bffd
+#: ../../reference/upgrade_api.rst:573
 msgid "``original_sql_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:430
+# e8f8007a61424bd6b76025bca9c057c5
+#: ../../reference/upgrade_api.rst:574
 msgid "the URL used to get your uploaded (not upgraded) database as an SQL stream"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:431
+# c79f04b3e0354e72b92530866a3941e7
+#: ../../reference/upgrade_api.rst:575
 msgid "``original_dump_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:432
+# efebc04c1868421ab0d97be8a04a02ae
+#: ../../reference/upgrade_api.rst:576
 msgid ""
 "the URL used to get your uploaded (not upgraded) database as an archive "
 "file"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:433
+# ca342f0e337a4f78b937c127967a2330
+#: ../../reference/upgrade_api.rst:577
 msgid "``upgraded_sql_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:434
+# 31b049fa2a394ba09cbfdb6d095af40d
+#: ../../reference/upgrade_api.rst:578
 msgid "the URL used to get your upgraded database as an SQL stream"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:435
+# 6aa85d869464404ca2af6ee02c125d2a
+#: ../../reference/upgrade_api.rst:579
 msgid "``upgraded_dump_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:436
+# 4761d433d29f40eaa122228d02461d72
+#: ../../reference/upgrade_api.rst:580
 msgid "the URL used to get your upgraded database as an archive file"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:437
+# b8ad26fb114d4283bc453bea5cbc44d5
+#: ../../reference/upgrade_api.rst:581
 msgid "``modules_url``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:438
+# e8c486eafe93451fbe5061bece6f5843
+#: ../../reference/upgrade_api.rst:582
 msgid "the URL used to get your custom modules"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:439
+# 457fe156b576444d86aead292e16485b
+#: ../../reference/upgrade_api.rst:583
 msgid "``filesize``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:440
+# d53d5ebc7adc4dd6b9f706869d5c1205
+#: ../../reference/upgrade_api.rst:584
 msgid "the size of your uploaded database file"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:441
+# 427dabc7a14842f98ff2d2d7ee104ee9
+#: ../../reference/upgrade_api.rst:585
 msgid "``database_uuid``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:442
+# 6abfe780b6304103bd6f5d1b25d4ea20
+#: ../../reference/upgrade_api.rst:586
 msgid "the Unique ID of your database"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:443
+# d6327ad29e0941838d4253be2d90e0f5
+#: ../../reference/upgrade_api.rst:587
 msgid "``created_at``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:444
+# 7da6280eb00244daa0c2344d2a84cf0a
+#: ../../reference/upgrade_api.rst:588
 msgid "the date when you created the request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:445
+# c0fa1acff93b4638a11bb740fca34b64
+#: ../../reference/upgrade_api.rst:589
 msgid "``estimated_time``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:446
+# 7dd52f1e08094725b769c879c41905eb
+#: ../../reference/upgrade_api.rst:590
 msgid "an estimation of the time it takes to upgrade your database"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:447
+# ed802d49ae0e440c9b16fe66d9639294
+#: ../../reference/upgrade_api.rst:591
 msgid "``processed_at``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:448
+# 68d8f995948e4594beb3042f0ed3462c
+#: ../../reference/upgrade_api.rst:592
 msgid "time when your database upgrade was started"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:449
+# d9e64c7cdb574b9a8c38975004ea2cad
+#: ../../reference/upgrade_api.rst:593
 msgid "``elapsed``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:450
+# f8c34f281beb4b9d8909151a6a9d2414
+#: ../../reference/upgrade_api.rst:594
 msgid "the time it takes to upgrade your database"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:451
+# 4a35b43cb5164ab5b5a62a804deff99d
+#: ../../reference/upgrade_api.rst:595
 msgid "``filestore``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:452
+# fba47cbe3cc440d58397a3b1fd384440
+#: ../../reference/upgrade_api.rst:596
 msgid "your attachments were converted to the filestore"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:453
+# 28404aecc4b74ea3a81f364ed9a6d982
+#: ../../reference/upgrade_api.rst:597
 msgid "``customer_message``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:454
+# a120ef4e31134c20b4d74ba0eff486b6
+#: ../../reference/upgrade_api.rst:598
 msgid "an important message related to your request"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:455
+# 3629acf7feec43a5b68228638d532e3e
+#: ../../reference/upgrade_api.rst:599
 msgid "``database_version``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:456
+# cbbf374f7c674842902d05f1c0bf13b2
+#: ../../reference/upgrade_api.rst:600
 msgid "the guessed Odoo version of your uploaded (not upgraded) database"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:457
+# cc7a3785867345d4bba8dff7e5fd5905
+#: ../../reference/upgrade_api.rst:601
 msgid "``postgresql``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:458
+# aab8a59f6b784c42a75de429d6772558
+#: ../../reference/upgrade_api.rst:602
 msgid "the guessed Postgresql version of your uploaded (not upgraded) database"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:460
+# 89d715b469fa499a957df99c173a102e
+#: ../../reference/upgrade_api.rst:604
 msgid "``compressions``"
 msgstr ""
 
-#: ../../reference/upgrade_api.rst:460
+# 52b86e7ff00d45edaf39b45d50c91793
+#: ../../reference/upgrade_api.rst:604
 msgid "the compression methods used by your uploaded database"
 msgstr ""
+
+# dfd9d82f0dd9438eaafa4ac0cb96d47d
+#: ../../reference/upgrade_api.rst:652
+msgid "Downloading your database dump"
+msgstr ""
+
+# 1b164c4534a1408cbacd5a930ceb854f
+#: ../../reference/upgrade_api.rst:654
+msgid ""
+"Beside downloading your migrated database using the URL provided by the "
+":ref:`status method <upgrade-api-status-method>`, you can also use the "
+"SFTP protocol as described in the :ref:`request_sftp_access method "
+"<upgrade-api-request-sftp-access-method>`"
+msgstr ""
+
+# f0208020466547a5984e83e06e35f4e4
+#: ../../reference/upgrade_api.rst:659
+msgid ""
+"The diffence is that you'll only be able to download the migrated "
+"database. No uploading will be possible."
+msgstr ""
+
+# bd1bb43074d94a5bb2fe0f58560c756a
+#: ../../reference/upgrade_api.rst:662
+msgid "Your database upgrade request should be in the ``done`` state."
+msgstr ""
+
+# 4912edfc8abe424ea317c1c47d4f8d2a
+#: ../../reference/upgrade_api.rst:664
+msgid ""
+"Once you have successfully connected using your SFTP client, you can "
+"download your database dump. Here is a sample session using the 'sftp' "
+"client:"
+msgstr ""
+
+#~ msgid "creating a request"
+#~ msgstr ""
+
+#~ msgid "uploading a database dump"
+#~ msgstr ""
+
+#~ msgid "running the upgrade process"
+#~ msgstr ""
+
+#~ msgid "obtaining the status of the database request"
+#~ msgstr ""
+
+#~ msgid "downloading the upgraded database dump"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The *create* method returns a json "
+#~ "dictionary containing the following keys:"
+#~ msgstr ""
+
+#~ msgid "This action upload your database dump."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The result is a json dictionary "
+#~ "containing the list of ``failures``, "
+#~ "which should be empty if everything "
+#~ "went fine."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The result is a json dictionary "
+#~ "containing various information about your "
+#~ "database upgrade request."
+#~ msgstr ""
 

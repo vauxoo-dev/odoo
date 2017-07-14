@@ -8,72 +8,132 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 3477dfff5b5a4a9b8b3be0c61dab07b3
 #: ../../reference/guidelines.rst:7
 msgid "Odoo Guidelines"
 msgstr ""
 
+# 96e3cd432be1412783810861ad0301e4
 #: ../../reference/guidelines.rst:9
 msgid ""
-"This page introduce the new Odoo Coding Guidelines. These guidelines aim "
-"to improve the quality of the code (better readability of source, ...) "
-"and  Odoo Apps. Indeed, proper code ought ease maintenance, aid "
-"debugging, lower complexity and promote reliability."
+"This page introduces the new Odoo Coding Guidelines. Those aim to improve"
+" the quality of the code (e.g. better readability of source) and Odoo "
+"Apps. Indeed, proper code eases maintenance, aids debugging, lowers "
+"complexity and promotes reliability."
 msgstr ""
 
+# 994bb975473e4802b15ea091bb6984cf
+#: ../../reference/guidelines.rst:11
+msgid ""
+"These guidelines should be applied to every new module, and new "
+"developpment. These guidelines will be applied to old module **only** in "
+"case of code refactoring (migration to new API, big refactoring, ...)."
+msgstr ""
+
+# afcbc083a7cc4ed887ebe4dc74ec7066
 #: ../../reference/guidelines.rst:15
+msgid ""
+"These guidelines are written with new modules and new files in mind. When"
+" modifying existing files, the original style of the file strictly "
+"supersedes any other style guidelines. In other words, never modify "
+"existing files in order to apply these guidelines, to avoid disrupting "
+"the revision history of each line. For more details, see our `pull "
+"request guide <https://odoo.com/submit-pr>`_."
+msgstr ""
+
+# 352a1b96650e4754bea8fa41c02dbecd
+#: ../../reference/guidelines.rst:22
 msgid "Module structure"
 msgstr ""
 
-#: ../../reference/guidelines.rst:18
+# d1f139d9f3774d65a0028bff5f4cfb6d
+#: ../../reference/guidelines.rst:25
 msgid "Directories"
 msgstr ""
 
-#: ../../reference/guidelines.rst:19
-msgid "A module is organised in a few directory :"
+# a8f5438b3d0844af84c464a5643a2177
+#: ../../reference/guidelines.rst:26
+msgid ""
+"A module is organised in important directories. Those contain the "
+"business logic; having a look at them should make understand the purpose "
+"of the module."
 msgstr ""
 
-#: ../../reference/guidelines.rst:21
+# 6c689b268ba343d0b54d9524f204f0b0
+#: ../../reference/guidelines.rst:28
 msgid "*data/* : demo and data xml"
 msgstr ""
 
-#: ../../reference/guidelines.rst:22
+# dc620350c5d649c18d8e84845e6b15b9
+#: ../../reference/guidelines.rst:29
 msgid "*models/* : models definition"
 msgstr ""
 
-#: ../../reference/guidelines.rst:23
-msgid "*controllers/* : contains controllers (http routes)."
+# 89f4ca20177b41c0b338560ed6d9a7d4
+#: ../../reference/guidelines.rst:30
+msgid "*controllers/* : contains controllers (HTTP routes)."
 msgstr ""
 
-#: ../../reference/guidelines.rst:24
+# 33eeacad51b443ddacf1a4798588af04
+#: ../../reference/guidelines.rst:31
 msgid "*views/* : contains the views and templates"
 msgstr ""
 
-#: ../../reference/guidelines.rst:25
+# 073ccc1e6dc743309d997559b99e0c90
+#: ../../reference/guidelines.rst:32
 msgid ""
 "*static/* : contains the web assets, separated into *css/, js/, img/, "
 "lib/, ...*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:28
+# 0eba78de0022429896857dac40e1b8fd
+#: ../../reference/guidelines.rst:34
+msgid "Other optional directories compose the module."
+msgstr ""
+
+# 7e967c353ee6448aa909e6c1da82cf77
+#: ../../reference/guidelines.rst:36
+msgid ""
+"*wizard/* : regroups the transient models (formerly *osv_memory*) and "
+"their views."
+msgstr ""
+
+# eac65a6e18cc4067bd78f6efb5096a68
+#: ../../reference/guidelines.rst:37
+msgid ""
+"*report/* : contains the reports (RML report **[deprecated]**, models "
+"based on SQL views (for reporting) and other complex reports). Python "
+"objects and XML views are included in this directory."
+msgstr ""
+
+# 80daffe933304908a2104cda4354c191
+#: ../../reference/guidelines.rst:38
+msgid "*tests/* : contains the Python/YML tests"
+msgstr ""
+
+# a0b516730a594964a0165c688a16a7d2
+#: ../../reference/guidelines.rst:42
 msgid "File naming"
 msgstr ""
 
-#: ../../reference/guidelines.rst:29
+# 65ab6db245934c01b09ccd7a8e0760f6
+#: ../../reference/guidelines.rst:43
 msgid ""
 "For *views* declarations, split backend views from (frontend) templates "
 "in 2 differents files."
 msgstr ""
 
-#: ../../reference/guidelines.rst:32
+# 3e3a5467b3294dc18d00c06035ef957f
+#: ../../reference/guidelines.rst:46
 msgid ""
 "For *models*, split the business logic by sets of models, in each set "
 "select a main model, this model gives its name to the set. If there is "
@@ -81,23 +141,28 @@ msgid ""
 "named <main_model> the following files may be created:"
 msgstr ""
 
-#: ../../reference/guidelines.rst:37
+# e31e95d1a6f54023ab9cfb97c47a224b
+#: ../../reference/guidelines.rst:51
 msgid ":file:`models/{<main_model>}.py`"
 msgstr ""
 
-#: ../../reference/guidelines.rst:38
+# ff9eba99fad64a8589e438250b088a46
+#: ../../reference/guidelines.rst:52
 msgid ":file:`models/{<inherited_main_model>}.py`"
 msgstr ""
 
-#: ../../reference/guidelines.rst:39
+# 5a1cb75c62eb4c678e122454221c3c9b
+#: ../../reference/guidelines.rst:53
 msgid ":file:`views/{<main_model>}_templates.xml`"
 msgstr ""
 
-#: ../../reference/guidelines.rst:40
+# 01528a00eb624a4d8415dc7e5544fc1a
+#: ../../reference/guidelines.rst:54
 msgid ":file:`views/{<main_model>}_views.xml`"
 msgstr ""
 
-#: ../../reference/guidelines.rst:42
+# 9df6b1804b04439fb32982bc924499ce
+#: ../../reference/guidelines.rst:56
 msgid ""
 "For instance, *sale* module introduces ``sale_order`` and "
 "``sale_order_line`` where ``sale_order`` is dominant. So the "
@@ -105,55 +170,139 @@ msgid ""
 ":file:`views/sale_order_views.py`."
 msgstr ""
 
-#: ../../reference/guidelines.rst:48
+# 1f5e550e3bf0447db6ce232b2aa578b9
+#: ../../reference/guidelines.rst:61
 msgid ""
 "For *data*, split them by purpose : demo or data. The filename will be "
 "the main_model name, suffixed by *_demo.xml* or *_data.xml*."
 msgstr ""
 
-#: ../../reference/guidelines.rst:51
-msgid "For *controller*, the only file should be named *main.py*."
-msgstr ""
-
-#: ../../reference/guidelines.rst:53
+# 585749cd6a2e4ebba9b17f3101901307
+#: ../../reference/guidelines.rst:64
 msgid ""
-"For *static files*, the name pattern is *<module_name>.ext* (i.e. : "
-"static/js/im_chat.js, static/css/im_chat.css, static/xml/im_chat.xml, "
-"...). Don't link data (image, libraries) outside Odoo : don't use an url "
-"to an image but copy it in our codebase instead."
+"For *controllers*, the only file should be named *main.py*. Otherwise, if"
+" you need to inherit an existing controller from another module, its name"
+" will be *<module_name>.py*. Unlike *models*, each controller class "
+"should be contained in a separated file."
 msgstr ""
 
-#: ../../reference/guidelines.rst:58
+# c558fc783da54f8d907d20bb95f6e88f
+#: ../../reference/guidelines.rst:66
+msgid ""
+"For *static files*, since the resources can be used in different contexts"
+" (frontend, backend, both), they will be included in only one bundle. So,"
+" CSS/Less, JavaScript and XML files should be suffixed with the name of "
+"the bundle type. i.e.: *im_chat_common.css*, *im_chat_common.js* for "
+"'assets_common' bundle, and *im_chat_backend.css*, *im_chat_backend.js* "
+"for 'assets_backend' bundle. If the module owns only one file, the "
+"convention will be *<module_name>.ext* (i.e.: *project.js*). Don't link "
+"data (image, libraries) outside Odoo: do not use an URL to an image but "
+"copy it in our codebase instead."
+msgstr ""
+
+# f057aafab8604d58a514189febf7c20f
+#: ../../reference/guidelines.rst:71
+msgid ""
+"Regarding *data*, split them by purpose: data or demo. The filename will "
+"be the *main_model* name, suffixed by *_data.xml* or *_demo.xml*."
+msgstr ""
+
+# 1710fb27080a4ef6bd18f4d37f32c67d
+#: ../../reference/guidelines.rst:74
+msgid "Regarding *wizards*, naming convention is :"
+msgstr ""
+
+# 6035aea59976475bbd8f62c8328e39d9
+#: ../../reference/guidelines.rst:76
+msgid ":file:`{<main_transient>}.py`"
+msgstr ""
+
+# 1052a14d98654045b774206b71757430
+#: ../../reference/guidelines.rst:77
+msgid ":file:`{<main_transient>}_views.xml`"
+msgstr ""
+
+# d3859f30ed9440a6a6992ef16b3bcc38
+#: ../../reference/guidelines.rst:79
+msgid ""
+"Where *<main_transient>* is the name of the dominant transient model, "
+"just like for *models*. <main_transient>.py can contains the models "
+"'model.action' and 'model.action.line'."
+msgstr ""
+
+# 8646620a10f449aebbee123f96af8749
+#: ../../reference/guidelines.rst:81
+msgid "For *statistics reports*, their names should look like :"
+msgstr ""
+
+# 9c02906d1b234e2d8bbc24ebde496b84
+#: ../../reference/guidelines.rst:83
+msgid ":file:`{<report_name_A>}_report.py`"
+msgstr ""
+
+# fa6df5a3ed5647b49480b03de01fbcc8
+#: ../../reference/guidelines.rst:84
+msgid ":file:`{<report_name_A>}_report_views.py` (often pivot and graph views)"
+msgstr ""
+
+# 5d2a2ade6f3043b3887a12ac95b8c502
+#: ../../reference/guidelines.rst:86
+msgid "For *printable reports*, you should have :"
+msgstr ""
+
+# 4f3cf24232d54ad5b15c9236de195e5c
+#: ../../reference/guidelines.rst:88
+msgid ""
+":file:`{<print_report_name>}_reports.py` (report actions, paperformat "
+"definition, ...)"
+msgstr ""
+
+# 98eee075bda94d628db2bcc663b30a3e
+#: ../../reference/guidelines.rst:89
+msgid ":file:`{<print_report_name>}_templates.xml` (xml report templates)"
+msgstr ""
+
+# f9fa9e8519cb4293a1ea3c34d0958e43
+#: ../../reference/guidelines.rst:92
 msgid "The complete tree should look like"
 msgstr ""
 
-#: ../../reference/guidelines.rst:100
+# 2ad9dfd9ead840728d25018ca43508ee
+#: ../../reference/guidelines.rst:145
 msgid ""
 "File names should only contain ``[a-z0-9_]`` (lowercase alphanumerics and"
 " ``_``)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:103
+# 41ee1eb984fa47388f6a8bc33f393019
+#: ../../reference/guidelines.rst:148
 msgid "Use correct file permissions : folder 755 and file 644."
 msgstr ""
 
-#: ../../reference/guidelines.rst:106
+# a2ef54bca84742aaa43973d27264a0bf
+#: ../../reference/guidelines.rst:151
 msgid "XML files"
 msgstr ""
 
-#: ../../reference/guidelines.rst:109
+# 4b0df5fcc9134af3a031b7e2c8bcd2c6
+#: ../../reference/guidelines.rst:154
 msgid "Format"
 msgstr ""
 
-#: ../../reference/guidelines.rst:110
-msgid "When declaring a record in XML,"
+# 200527f108c743be9630cf3cf65841a7
+#: ../../reference/guidelines.rst:155
+msgid ""
+"To declare a record in XML, the **record** notation (using *<record>*) is"
+" recommended:"
 msgstr ""
 
-#: ../../reference/guidelines.rst:112
+# cc73b94b909843e7a9c698506bba7bef
+#: ../../reference/guidelines.rst:157
 msgid "Place ``id`` attribute before ``model``"
 msgstr ""
 
-#: ../../reference/guidelines.rst:113
+# 520b113ce90a4003bb29129ba93b528c
+#: ../../reference/guidelines.rst:158
 msgid ""
 "For field declaration, ``name`` attribute is first. Then place the "
 "*value* either in the ``field`` tag, either in the ``eval`` attribute, "
@@ -161,45 +310,91 @@ msgid ""
 "importance."
 msgstr ""
 
-#: ../../reference/guidelines.rst:118
+# 93e252d7fc974f918d52bb90927b766b
+#: ../../reference/guidelines.rst:163
 msgid ""
 "Try to group the record by model. In case of dependencies between "
-"action/menu/views, the convention may not be applicable."
+"action/menu/views, this convention may not be applicable."
 msgstr ""
 
-#: ../../reference/guidelines.rst:120
+# 9866eaf956984b3c94898a1a033d5df1
+#: ../../reference/guidelines.rst:165
 msgid "Use naming convention defined at the next point"
 msgstr ""
 
-#: ../../reference/guidelines.rst:121
+# d94c4e7e7b864910bb72b359c98fcb06
+#: ../../reference/guidelines.rst:166
 msgid ""
 "The tag *<data>* is only used to set not-updatable data with "
 "``noupdate=1``"
 msgstr ""
 
-#: ../../reference/guidelines.rst:139
+# 11dc6c7146b74546bbbd486feea7084f
+#: ../../reference/guidelines.rst:182
+msgid "Odoo supports custom tags acting as syntactic sugar:"
+msgstr ""
+
+# 42b5d91d183648158e6e99df565cf3de
+#: ../../reference/guidelines.rst:184
+msgid "menuitem: use it as a shortcut to declare a ``ir.ui.menu``"
+msgstr ""
+
+# fe018a0d768d4435881460e3946c0a0e
+#: ../../reference/guidelines.rst:185
+msgid "workflow: the <workflow> tag sends a signal to an existing workflow."
+msgstr ""
+
+# 355fa3dd339a4cdeba74508664b3bbe0
+#: ../../reference/guidelines.rst:186
+msgid ""
+"template: use it to declare a QWeb View requiring only the ``arch`` "
+"section of the view."
+msgstr ""
+
+# 9f3a41dad0ae48248c1e8d6b370632fe
+#: ../../reference/guidelines.rst:187
+msgid "report: use to declare a :ref:`report action <reference/actions/report>`"
+msgstr ""
+
+# bc1ade504c054791bf748bfb8dceaed9
+#: ../../reference/guidelines.rst:188
+msgid "act_window: use it if the record notation can't do what you want"
+msgstr ""
+
+# 6c0ec054169d4eeba632ed869d87f006
+#: ../../reference/guidelines.rst:190
+msgid "The 4 first tags are prefered over the *record* notation."
+msgstr ""
+
+# b2cead70fb2047d7b4d7385f600c7b79
+#: ../../reference/guidelines.rst:194
 msgid "Naming xml_id"
 msgstr ""
 
-#: ../../reference/guidelines.rst:142
+# c180ad3b12e546b5a5cd7c409ae8dc1e
+#: ../../reference/guidelines.rst:197
 msgid "Security, View and Action"
 msgstr ""
 
-#: ../../reference/guidelines.rst:144
+# a0f9cd8a93b944459768fcd12a6302cb
+#: ../../reference/guidelines.rst:199
 msgid "Use the following pattern :"
 msgstr ""
 
-#: ../../reference/guidelines.rst:146
+# 18a849c587954cfcaf084c6857cc1df7
+#: ../../reference/guidelines.rst:201
 msgid "For a menu: :samp:`{<model_name>}_menu`"
 msgstr ""
 
-#: ../../reference/guidelines.rst:147
+# 06bdcc25e7034b96b32f1d0ccbaa020c
+#: ../../reference/guidelines.rst:202
 msgid ""
 "For a view: :samp:`{<model_name>}_view_{<view_type>}`, where *view_type* "
 "is ``kanban``, ``form``, ``tree``, ``search``, ..."
 msgstr ""
 
-#: ../../reference/guidelines.rst:149
+# 3386fe767417462a8bff272cada7d739
+#: ../../reference/guidelines.rst:204
 msgid ""
 "For an action: the main action respects :samp:`{<model_name>}_action`. "
 "Others are suffixed with :samp:`_{<detail>}`, where *detail* is a "
@@ -207,13 +402,15 @@ msgid ""
 "multiple actions are declared for the model."
 msgstr ""
 
-#: ../../reference/guidelines.rst:154
+# bbacd9b8792c46d3804ffe6568781969
+#: ../../reference/guidelines.rst:209
 msgid ""
 "For a group: :samp:`{<model_name>}_group_{<group_name>}` where "
 "*group_name* is the name of the group, generally 'user', 'manager', ..."
 msgstr ""
 
-#: ../../reference/guidelines.rst:156
+# 2aa47e66b48549bcbfb775a1a07d37c3
+#: ../../reference/guidelines.rst:211
 msgid ""
 "For a rule: :samp:`{<model_name>}_rule_{<concerned_group>}` where "
 "*concerned_group* is the short name of the concerned group ('user' for "
@@ -221,18 +418,28 @@ msgid ""
 "multi-company rules, ...)."
 msgstr ""
 
-#: ../../reference/guidelines.rst:200
+# 5299c588d0d14546a896e2a89cdf1491
+#: ../../reference/guidelines.rst:215
+msgid ""
+"For a group : :samp:`{<model_name>}_group_{<group_name>}` where "
+"*group_name* is the name of the group, generally 'user', 'manager', ..."
+msgstr ""
+
+# 973c60570465424e96b76819746b32c3
+#: ../../reference/guidelines.rst:265
 msgid ""
 "View names use dot notation ``my.model.view_type`` or "
 "``my.model.view_type.inherit`` instead of *\"This is the form view of My "
 "Model\"*."
 msgstr ""
 
-#: ../../reference/guidelines.rst:206
+# dc6ab3a0211d4b6f95e5b069bf3adbe5
+#: ../../reference/guidelines.rst:271
 msgid "Inherited XML"
 msgstr ""
 
-#: ../../reference/guidelines.rst:208
+# 59b57cf2f07f4085836d1fe6edbd4a6d
+#: ../../reference/guidelines.rst:273
 msgid ""
 "The naming pattern of inherited view is "
 ":samp:`{<base_view>}_inherit_{<current_module_name>}`. A module may only "
@@ -241,339 +448,875 @@ msgid ""
 "the technical name of the module extending the view."
 msgstr ""
 
-#: ../../reference/guidelines.rst:223
+# 840086188a4744678dca153ef4c5b9e6
+#: ../../reference/guidelines.rst:288
 msgid "Python"
 msgstr ""
 
-#: ../../reference/guidelines.rst:226
+# 22acac2c1a354a319bd8d6222c86d6e9
+#: ../../reference/guidelines.rst:291
 msgid "PEP8 options"
 msgstr ""
 
-#: ../../reference/guidelines.rst:228
+# eed9937d92d2446198c5e8e39cd81f63
+#: ../../reference/guidelines.rst:293
 msgid ""
 "Using a linter can help show syntax and semantic warnings or errors. Odoo"
 " source code tries to respect Python standard, but some of them can be "
 "ignored."
 msgstr ""
 
-#: ../../reference/guidelines.rst:231
+# b8855fcb3a3a41e99dc5cc30a330b269
+#: ../../reference/guidelines.rst:296
 msgid "E501: line too long"
 msgstr ""
 
-#: ../../reference/guidelines.rst:232
+# b42fa93e686d45ddba4ed8766664a65f
+#: ../../reference/guidelines.rst:297
 msgid "E301: expected 1 blank line, found 0"
 msgstr ""
 
-#: ../../reference/guidelines.rst:233
+# f255e7d525ae42049605498a93a6bd61
+#: ../../reference/guidelines.rst:298
 msgid "E302: expected 2 blank lines, found 1"
 msgstr ""
 
-#: ../../reference/guidelines.rst:234
+# ade39e20b0c94761a4f643d34824dff1
+#: ../../reference/guidelines.rst:299
 msgid "E126: continuation line over-indented for hanging indent"
 msgstr ""
 
-#: ../../reference/guidelines.rst:235
+# d18fbee4098146afbce2c1d219a27e5b
+#: ../../reference/guidelines.rst:300
 msgid "E123: closing bracket does not match indentation of opening bracket's line"
 msgstr ""
 
-#: ../../reference/guidelines.rst:236
+# b2f70e8b0f114fc0ad5037d37479a4c7
+#: ../../reference/guidelines.rst:301
 msgid "E127: continuation line over-indented for visual indent"
 msgstr ""
 
-#: ../../reference/guidelines.rst:237
+# 2617e6b4d6ae420fbb304ca02dd49bc1
+#: ../../reference/guidelines.rst:302
 msgid "E128: continuation line under-indented for visual indent"
 msgstr ""
 
-#: ../../reference/guidelines.rst:238
+# 8dfcc25e4a4447408d583a3bb5522653
+#: ../../reference/guidelines.rst:303
 msgid "E265: block comment should start with '# '"
 msgstr ""
 
-#: ../../reference/guidelines.rst:241
+# 14af951504a14b5bb2428b5eb6e08686
+#: ../../reference/guidelines.rst:306
 msgid "Imports"
 msgstr ""
 
-#: ../../reference/guidelines.rst:242
+# ebbfea33275f47c3ad71a6cf8f64c053
+#: ../../reference/guidelines.rst:307
 msgid "The imports are ordered as"
 msgstr ""
 
-#: ../../reference/guidelines.rst:244
+# 6feca1c6f40449b297c886134f77abd6
+#: ../../reference/guidelines.rst:309
 msgid "External libraries (one per line sorted and split in python stdlib)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:245
-msgid "Imports of ``openerp``"
+# c204cb7dc5844cf9a7dfc95098827f9b
+#: ../../reference/guidelines.rst:310
+msgid "Imports of ``odoo``"
 msgstr ""
 
-#: ../../reference/guidelines.rst:246
+# 32c6a6d0508649ec903d6f9310d0e7ee
+#: ../../reference/guidelines.rst:311
 msgid "Imports from Odoo modules (rarely, and only if necessary)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:248
+# 2d19f1fc865444f4aae48686ab01779d
+#: ../../reference/guidelines.rst:313
 msgid "Inside these 3 groups, the imported lines are alphabetically sorted."
 msgstr ""
 
-#: ../../reference/guidelines.rst:267
-msgid "Idioms"
+# 147c72be71e1422891799e24c95a44da
+#: ../../reference/guidelines.rst:333
+msgid "Idiomatics Python Programming"
 msgstr ""
 
-#: ../../reference/guidelines.rst:269
+# 94a7d357dac04bab924cd25debf2b11f
+#: ../../reference/guidelines.rst:335
+msgid "Each python file should have ``# -*- coding: utf-8 -*-`` as first line."
+msgstr ""
+
+# c4f49de9060440e5a46d2f07f621b39c
+#: ../../reference/guidelines.rst:336
 msgid ""
-"Prefer ``%`` over ``.format()``, prefer ``%(varname)`` instead of "
-"position (This is better for translation)"
-msgstr ""
-
-#: ../../reference/guidelines.rst:270
-msgid "Try to avoid generators and decorators"
-msgstr ""
-
-#: ../../reference/guidelines.rst:271
-msgid ""
-"Always favor *Readability* over *conciseness* or using the language "
+"Always favor *readability* over *conciseness* or using the language "
 "features or idioms."
 msgstr ""
 
-#: ../../reference/guidelines.rst:272
-msgid ""
-"Use list comprehension, dict comprehension, and basic manipulation using "
-"``map``, ``filter``, ``sum``, ... They make the code easier to read."
+# f07f62711ec24facadc9979d5ee886d5
+#: ../../reference/guidelines.rst:337
+msgid "Don't use ``.clone()``"
 msgstr ""
 
-#: ../../reference/guidelines.rst:273
-msgid ""
-"The same applies for recordset methods : use ``filtered``, ``mapped``, "
-"``sorted``, ..."
+# 281fe5ae3de14343a0b7ddaeb8245cbf
+#: ../../reference/guidelines.rst:348
+msgid "Python dictionnary : creation and update"
 msgstr ""
 
-#: ../../reference/guidelines.rst:274
-msgid "Each python file should have ``# -*- coding: utf-8 -*-`` as first line"
-msgstr ""
-
-#: ../../reference/guidelines.rst:275
-msgid ""
-"Use the ``UserError`` defined in ``openerp.exceptions`` instead of "
-"overriding ``Warning``, or find a more appropriate exception in "
-"*exceptions.py*"
-msgstr ""
-
-#: ../../reference/guidelines.rst:276
-msgid ""
-"Document your code (docstring on methods, simple comments for the tricky "
-"part of the code)"
-msgstr ""
-
-#: ../../reference/guidelines.rst:277
+# a4dbcca9120e4fda93b5998e082dfcde
+#: ../../reference/guidelines.rst:373
 msgid "Use meaningful variable/class/method names"
 msgstr ""
 
-#: ../../reference/guidelines.rst:282
-msgid "Symbols"
-msgstr ""
-
-#: ../../reference/guidelines.rst:284
+# 3fcdc5ad922c475d9fdb1a7438696d46
+#: ../../reference/guidelines.rst:374
 msgid ""
-"Odoo Python Class : use camelcase for code in api v8, underscore "
-"lowercase notation for old api."
+"Useless variable : Temporary variables can make the code clearer by "
+"giving names to objects, but that doesn't mean you should create "
+"temporary variables all the time:"
 msgstr ""
 
-#: ../../reference/guidelines.rst:297
+# 155effe19a9e4338ab1dab4f755a51d4
+#: ../../reference/guidelines.rst:386
+msgid "Multiple return points are OK, when they're simpler"
+msgstr ""
+
+# 5e920b7b99184f339991f5208f5d7ab7
+#: ../../reference/guidelines.rst:406
+msgid ""
+"Know your builtins : You should at least have a basic understanding of "
+"all the Python builtins (http://docs.python.org/library/functions.html)"
+msgstr ""
+
+# e5bf1220d4f64ac5b1be57434330e476
+#: ../../reference/guidelines.rst:414
+msgid ""
+"Also, ``if 'key' in my_dict`` and ``if my_dict.get('key')`` have very "
+"different meaning, be sure that you're using the right one."
+msgstr ""
+
+# 6875cc5f7e174db4a739363af34f0a46
+#: ../../reference/guidelines.rst:417
+msgid ""
+"Learn list comprehensions : Use list comprehension, dict comprehension, "
+"and basic manipulation using ``map``, ``filter``, ``sum``, ... They make "
+"the code easier to read."
+msgstr ""
+
+# 2c5ba7c3eef44c44b3ab466819d801ee
+#: ../../reference/guidelines.rst:430
+msgid ""
+"Collections are booleans too : In python, many objects have \"boolean-"
+"ish\" value when evaluated in a boolean context (such as an if). Among "
+"these are collections (lists, dicts, sets, ...) which are \"falsy\" when "
+"empty and \"truthy\" when containing items:"
+msgstr ""
+
+# a8f39876004f4c67b6152d7b22ba9853
+#: ../../reference/guidelines.rst:441
+msgid ""
+"So, you can write ``if some_collection:`` instead of ``if "
+"len(some_collection):``."
+msgstr ""
+
+# 7667011d24564372b5f55c71c9795384
+#: ../../reference/guidelines.rst:444
+msgid "Iterate on iterables"
+msgstr ""
+
+# 263c47a4ffe340e392f4aecb78369cdf
+#: ../../reference/guidelines.rst:461
+msgid "Use dict.setdefault"
+msgstr ""
+
+# f3a4a59165134087b5601541c2fe03e8
+#: ../../reference/guidelines.rst:477
+msgid ""
+"As a good developper, document your code (docstring on methods, simple "
+"comments for tricky part of code)"
+msgstr ""
+
+# ba4972d30599434ea8903bb6b20cdfbd
+#: ../../reference/guidelines.rst:479
+msgid ""
+"In additions to these guidelines, you may also find the following link "
+"interesting: "
+"http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html (a "
+"little bit outdated, but quite relevant)"
+msgstr ""
+
+# 58aea05d44574fd3841339b975b68ea8
+#: ../../reference/guidelines.rst:484
+msgid "Programming in Odoo"
+msgstr ""
+
+# f1d666728b20442c8560594a4869aca7
+#: ../../reference/guidelines.rst:486
+msgid ""
+"Avoid to create generators and decorators: only use the ones provided by "
+"the Odoo API."
+msgstr ""
+
+# 6f3c60e4071f48f89527941d9e55c32e
+#: ../../reference/guidelines.rst:488
+msgid ""
+"As in python, use ``filtered``, ``mapped``, ``sorted``, ... methods to "
+"ease code reading and performance."
+msgstr ""
+
+# b7268af0724c43098a8bfc381e8340bb
+#: ../../reference/guidelines.rst:493
+msgid "Make your method works in batch"
+msgstr ""
+
+# 4aa345cfb7734959a7326a7e0f68f917
+#: ../../reference/guidelines.rst:494
+msgid ""
+"When adding a function, make sure it can process multiple records. "
+"Typically, such method is decorated with ``api.multi`` decorator (or "
+"takes a list of *id*, if written in old api). Then you will have to "
+"iterate on ``self`` to treat each record."
+msgstr ""
+
+# 5a5c9eb3991c4b328fa9a7ae45f00420
+#: ../../reference/guidelines.rst:506
+msgid ""
+"Avoid to use ``api.one``  decorator : this will probably not do what you "
+"expected, and extending a such method is not as easy than a *api.multi* "
+"method, since it returns a list of result (ordered by recordset ids)."
+msgstr ""
+
+# 1d335b7a20f34cd0ae67ad5f7feec619
+#: ../../reference/guidelines.rst:510
+msgid ""
+"For performance issue, when developping a 'stat button' (for instance), "
+"do not perform a ``search`` or a ``search_count`` in a loop in a "
+"``api.multi`` method. It is recommended to use ``read_group`` method, to "
+"compute all value in only one request."
+msgstr ""
+
+# a47a948bb0944ad08493cddb849b7fa8
+#: ../../reference/guidelines.rst:526
+msgid "Propagate the context"
+msgstr ""
+
+# 2f4d53c1ac9a4bc2b1fd3feb5cea184c
+#: ../../reference/guidelines.rst:527
+msgid ""
+"In new API, the context is a ``frozendict`` that cannot be modified. To "
+"call a method with a different context, the ``with_context`` method "
+"should be used :"
+msgstr ""
+
+# 0fc673bcb39641cfb419ed6eac5dbeab
+#: ../../reference/guidelines.rst:535
+msgid ""
+"Passing parameter in context can have dangerous side-effects. Since the "
+"values are propagated automatically, some behavior can appears. Calling "
+"``create()`` method of a model with *default_my_field* key in context "
+"will set the default value of *my_field* for the concerned model. But if "
+"curing this creation, other object (such as sale.order.line, on "
+"sale.order creation) having a field name *my_field*, their default value "
+"will be set too."
+msgstr ""
+
+# eeb52da635704fe59c7b2b3c00dc4128
+#: ../../reference/guidelines.rst:542
+msgid ""
+"If you need to create a key context influencing the behavior of some "
+"object, choice a good name, and eventually prefix it by the name of the "
+"module to isolate its impact. A good example are the keys of ``mail`` "
+"module : *mail_create_nosubscribe*, *mail_notrack*, "
+"*mail_notify_user_signature*, ..."
+msgstr ""
+
+# c455af375a5d492ca83c2dea7ab010d2
+#: ../../reference/guidelines.rst:549
+msgid "Do not bypass the ORM"
+msgstr ""
+
+# 32a15a3573c04b92952a5f7907ef739e
+#: ../../reference/guidelines.rst:550
+msgid ""
+"You should never use the database cursor directly when the ORM can do the"
+" same thing! By doing so you are bypassing all the ORM features, possibly"
+" the transactions, access rights and so on."
+msgstr ""
+
+# c4e7d35fe40f4d9b83758478e9854017
+#: ../../reference/guidelines.rst:554
+msgid ""
+"And chances are that you are also making the code harder to read and "
+"probably less secure."
+msgstr ""
+
+# 4d20dfdf35b1440cb3b925d90c0587b4
+#: ../../reference/guidelines.rst:573
+msgid "No SQL injections, please !"
+msgstr ""
+
+# 6ad16dbb212747e2a563abb21ab15533
+#: ../../reference/guidelines.rst:574
+msgid ""
+"Care must be taken not to introduce SQL injections vulnerabilities when "
+"using manual SQL queries. The vulnerability is present when user input is"
+" either incorrectly filtered or badly quoted, allowing an attacker to "
+"introduce undesirable clauses to a SQL query (such as circumventing "
+"filters or executing UPDATE or DELETE commands)."
+msgstr ""
+
+# a65a801cf1a4457c9c6cd68044ac7a6b
+#: ../../reference/guidelines.rst:580
+msgid ""
+"The best way to be safe is to never, NEVER use Python string "
+"concatenation (+) or string parameters interpolation (%) to pass "
+"variables to a SQL query string."
+msgstr ""
+
+# c0b14a66f229410c97a5f7dc7de12cef
+#: ../../reference/guidelines.rst:583
+msgid ""
+"The second reason, which is almost as important, is that it is the job of"
+" the database abstraction layer (psycopg2) to decide how to format query "
+"parameters, not your job! For example psycopg2 knows that when you pass a"
+" list of values it needs to format them as a comma-separated list, "
+"enclosed in parentheses !"
+msgstr ""
+
+# afdd27b778cd4c319f395c6f9bbd34c7
+#: ../../reference/guidelines.rst:603
+msgid ""
+"This is very important, so please be careful also when refactoring, and "
+"most importantly do not copy these patterns!"
+msgstr ""
+
+# b48167cb1b17482590309e338b4bd5be
+#: ../../reference/guidelines.rst:606
+msgid ""
+"Here is a memorable example to help you remember what the issue is about "
+"(but do not copy the code there). Before continuing, please be sure to "
+"read the online documentation of pyscopg2 to learn of to use it properly:"
+msgstr ""
+
+# 9c3d3285e7e949a290c6583cf9b24b20
+#: ../../reference/guidelines.rst:610
+msgid ""
+"The problem with query parameters "
+"(http://initd.org/psycopg/docs/usage.html#the-problem-with-the-query-"
+"parameters)"
+msgstr ""
+
+# 636a3707836c4d048dd2295b396ac8ac
+#: ../../reference/guidelines.rst:611
+msgid ""
+"How to pass parameters with psycopg2 "
+"(http://initd.org/psycopg/docs/usage.html#passing-parameters-to-sql-"
+"queries)"
+msgstr ""
+
+# c521bb7295874397a150623a1a1892a9
+#: ../../reference/guidelines.rst:612
+msgid ""
+"Advanced parameter types (http://initd.org/psycopg/docs/usage.html"
+"#adaptation-of-python-values-to-sql-types)"
+msgstr ""
+
+# d3ed5c92c4a5493d8bab63cd61eb5707
+#: ../../reference/guidelines.rst:616
+msgid "Keep your methods short/simple when possible"
+msgstr ""
+
+# 6da0f10f9b824c04848dd785f6dce5b4
+#: ../../reference/guidelines.rst:617
+msgid ""
+"Functions and methods should not contain too much logic: having a lot of "
+"small and simple methods is more advisable than having few large and "
+"complex methods. A good rule of thumb is to split a method as soon as: - "
+"it has more than one responsibility (see "
+"http://en.wikipedia.org/wiki/Single_responsibility_principle) - it is too"
+" big to fit on one screen."
+msgstr ""
+
+# 56c3228bf03c4667b88858eafec7c506
+#: ../../reference/guidelines.rst:623
+msgid ""
+"Also, name your functions accordingly: small and properly named functions"
+" are the starting point of readable/maintainable code and tighter "
+"documentation."
+msgstr ""
+
+# 584b21f44e454ba2bc27b9d5e21b1d74
+#: ../../reference/guidelines.rst:625
+msgid ""
+"This recommendation is also relevant for classes, files, modules and "
+"packages. (See also http://en.wikipedia.org/wiki/Cyclomatic_complexity)"
+msgstr ""
+
+# 477653d73a9c4f22b95b388cfcc95b31
+#: ../../reference/guidelines.rst:629
+msgid "Never commit the transaction"
+msgstr ""
+
+# e23706c46de8473886fb6140517cf26c
+#: ../../reference/guidelines.rst:630
+msgid ""
+"The Odoo framework is in charge of providing the transactional context "
+"for all RPC calls. The principle is that a new database cursor is opened "
+"at the beginning of each RPC call, and committed when the call has "
+"returned, just before transmitting the answer to the RPC client, "
+"approximately like this:"
+msgstr ""
+
+# 53c0bf3ff1384240a30ceb46edbce4d1
+#: ../../reference/guidelines.rst:651
+msgid ""
+"If any error occurs during the execution of the RPC call, the transaction"
+" is rolled back atomically, preserving the state of the system."
+msgstr ""
+
+# c064c029563241f5a5df8ba05223e5c9
+#: ../../reference/guidelines.rst:654
+msgid ""
+"Similarly, the system also provides a dedicated transaction during the "
+"execution of tests suites, so it can be rolled back or not depending on "
+"the server startup options."
+msgstr ""
+
+# aaa92f46262146ccb5b948ab43e7edaa
+#: ../../reference/guidelines.rst:658
+msgid ""
+"The consequence is that if you manually call ``cr.commit()`` anywhere "
+"there is a very high chance that you will break the system in various "
+"ways, because you will cause partial commits, and thus partial and "
+"unclean rollbacks, causing among others:"
+msgstr ""
+
+# 18f6d44c95a74129aa15e9197f5df03c
+#: ../../reference/guidelines.rst:663
+msgid "inconsistent business data, usually data loss"
+msgstr ""
+
+# d75cb58dabcd4ce6a60cc8baa4ed5482
+#: ../../reference/guidelines.rst:664
+msgid "workflow desynchronization, documents stuck permanently"
+msgstr ""
+
+# 3b1ae94ca11e478f9f2a06d2fc41ae51
+#: ../../reference/guidelines.rst:665
+msgid ""
+"tests that can't be rolled back cleanly, and will start polluting the "
+"database, and triggering error (this is true even if no error occurs "
+"during the transaction)"
+msgstr ""
+
+# bcc12d6763854073a2952c1a1fca3efd
+#: ../../reference/guidelines.rst:676
+msgid "Here is the very simple rule:"
+msgstr ""
+
+# 53a3adb85f624ba6affb30c384fed3f5
+#: ../../reference/guidelines.rst:670
+msgid ""
+"You should **NEVER** call ``cr.commit()`` yourself, **UNLESS** you have "
+"created your own database cursor explicitly! And the situations where you"
+" need to do that are exceptional!"
+msgstr ""
+
+# 030159a512f04824b36d33e481800226
+#: ../../reference/guidelines.rst:674
+msgid ""
+"And by the way if you did create your own cursor, then you need to handle"
+" error cases and proper rollback, as well as properly close the cursor "
+"when you're done with it."
+msgstr ""
+
+# fa2e69c1854a4d958c770ab66cd7602c
+#: ../../reference/guidelines.rst:678
+msgid ""
+"And contrary to popular belief, you do not even need to call "
+"``cr.commit()`` in the following situations: - in the ``_auto_init()`` "
+"method of an *models.Model* object: this is taken care of by the addons "
+"initialization method, or by the ORM transaction when creating custom "
+"models - in reports: the ``commit()`` is handled by the framework too, so"
+" you can update the database even from within a report - within "
+"*models.Transient* methods: these methods are called exactly like regular"
+" *models.Model* ones, within a transaction and with the corresponding "
+"``cr.commit()/rollback()`` at the end - etc. (see general rule above if "
+"you have in doubt!)"
+msgstr ""
+
+# 87e8bfb881774448aed0a18c625217ad
+#: ../../reference/guidelines.rst:690
+msgid ""
+"All ``cr.commit()`` calls outside of the server framework from now on "
+"must have an **explicit comment** explaining why they are absolutely "
+"necessary, why they are indeed correct, and why they do not break the "
+"transactions. Otherwise they can and will be removed !"
+msgstr ""
+
+# e674c4e0af424731a45d0b923a09fdc7
+#: ../../reference/guidelines.rst:697
+msgid "Use translation method correctly"
+msgstr ""
+
+# 11d60ef938a24b89b3a6b17bbc0e4b69
+#: ../../reference/guidelines.rst:699
+msgid ""
+"Odoo uses a GetText-like method named \"underscore\" ``_( )`` to indicate"
+" that a static string used in the code needs to be translated at runtime "
+"using the language of the context. This pseudo-method is accessed within "
+"your code by importing as follows:"
+msgstr ""
+
+# a5bded5dd6794beaa2d950bd776061b7
+#: ../../reference/guidelines.rst:708
+msgid ""
+"A few very important rules must be followed when using it, in order for "
+"it to work and to avoid filling the translations with useless junk."
+msgstr ""
+
+# 2bcfba5e59f34a8ca4d4c1d00788ee1b
+#: ../../reference/guidelines.rst:711
+msgid ""
+"Basically, this method should only be used for static strings written "
+"manually in the code, it will not work to translate field values, such as"
+" Product names, etc. This must be done instead using the translate flag "
+"on the corresponding field."
+msgstr ""
+
+# 7564f51d948c463d8d127c757a0b12b3
+#: ../../reference/guidelines.rst:716
+msgid ""
+"The rule is very simple: calls to the underscore method should always be "
+"in the form ``_('literal string')`` and nothing else:"
+msgstr ""
+
+# b42965164e36496b9563f8a53fda863b
+#: ../../reference/guidelines.rst:760
+#, python-format
+msgid ""
+"Also, keep in mind that translators will have to work with the literal "
+"values that are passed to the underscore function, so please try to make "
+"them easy to understand and keep spurious characters and formatting to a "
+"minimum. Translators must be aware that formatting patterns such as %s or"
+" %d, newlines, etc. need to be preserved, but it's important to use these"
+" in a sensible and obvious manner:"
+msgstr ""
+
+# 7af370c1f11843b1bacce3fb30c4df6d
+#: ../../reference/guidelines.rst:775
+msgid ""
+"In general in Odoo, when manipulating strings, prefer ``%`` over "
+"``.format()`` (when only one variable to replace in a string), and prefer"
+" ``%(varname)`` instead of position (when multiple variables have to be "
+"replaced). This makes the translation easier for the community "
+"translators."
+msgstr ""
+
+# 65dc7f0663654926ad62c9638109fa51
+#: ../../reference/guidelines.rst:782
+msgid "Symbols and Conventions"
+msgstr ""
+
+# 2b8ed510222240419e2d79bd74597397
+#: ../../reference/guidelines.rst:792
+msgid "Model name (using the dot notation, prefix by the module name) :"
+msgstr ""
+
+# dcc73a8f5e164e92825940174167e98a
+#: ../../reference/guidelines.rst:785
+msgid ""
+"When defining an Odoo Model : use singular form of the name "
+"(*res.partner* and *sale.order* instead of *res.partnerS* and "
+"*saleS.orderS*)"
+msgstr ""
+
+# 528e73542fda443bb4ad8aa3dec9157f
+#: ../../reference/guidelines.rst:787
+msgid ""
+"When defining an Odoo Transient (wizard) : use "
+"``<related_base_model>.<action>`` where *related_base_model* is the base "
+"model (defined in *models/*) related to the transient, and *action* is "
+"the short name of what the transient do. For instance : "
+"``account.invoice.make``, ``project.task.delegate.batch``, ..."
+msgstr ""
+
+# 565208647905475283aa682ffb10648a
+#: ../../reference/guidelines.rst:791
+msgid ""
+"When defining *report* model (SQL views e.i.) : use "
+"``<related_base_model>.report.<action>``, based on the Transient "
+"convention."
+msgstr ""
+
+# 41f4b1908267411d90daec5bae3250d0
+#: ../../reference/guidelines.rst:794
+msgid ""
+"Odoo Python Class : use camelcase for code in api v8 (Object-oriented "
+"style), underscore lowercase notation for old api (SQL style)."
+msgstr ""
+
+# 3458b6c1b2184323942ea248cd815550
+#: ../../reference/guidelines.rst:811
 msgid "Variable name :"
 msgstr ""
 
-#: ../../reference/guidelines.rst:295
+# 5fe9ebd8ca47442ab8a0ce5ccd2ecf21
+#: ../../reference/guidelines.rst:807
 msgid "use camelcase for model variable"
 msgstr ""
 
-#: ../../reference/guidelines.rst:296
+# c9908a1750e64832b0c4894881cd3d18
+#: ../../reference/guidelines.rst:808
 msgid "use underscore lowercase notation for common variable."
 msgstr ""
 
-#: ../../reference/guidelines.rst:297
+# 8765895e0e1449beaba6ebe4c88d0e30
+#: ../../reference/guidelines.rst:809
 msgid ""
 "since new API works with record or recordset instead of id list, don't "
 "suffix variable name with *_id* or *_ids* if they not contain id or list "
 "of id."
 msgstr ""
 
-#: ../../reference/guidelines.rst:305
+# bc2b920a30b14c0cb0d084806429a1be
+#: ../../reference/guidelines.rst:819
 msgid ""
 "``One2Many`` and ``Many2Many`` fields should always have *_ids* as suffix"
 " (example: sale_order_line_ids)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:306
+# 2620ebfd0dbf4d12a9e2834a04a47f2a
+#: ../../reference/guidelines.rst:820
 msgid ""
 "``Many2One`` fields should have *_id* as suffix (example : partner_id, "
 "user_id, ...)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:313
+# a2b0589c20904989b1c677887d4242ed
+#: ../../reference/guidelines.rst:829
 msgid "Method conventions"
 msgstr ""
 
-#: ../../reference/guidelines.rst:308
+# 606806e552c24bed916ce1520d220113
+#: ../../reference/guidelines.rst:822
 msgid "Compute Field : the compute method pattern is *_compute_<field_name>*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:309
+# c8bc207923f947d191a15d16519f21c7
+#: ../../reference/guidelines.rst:823
 msgid "Search method : the search method pattern is *_search_<field_name>*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:310
+# 68f8d08917d44a6fb25c0a3dd20c5ab9
+#: ../../reference/guidelines.rst:824
 msgid "Default method : the default method pattern is *_default_<field_name>*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:311
+# d10687f4b82248b7915ad7c8d165814d
+#: ../../reference/guidelines.rst:825
 msgid "Onchange method : the onchange method pattern is *_onchange_<field_name>*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:312
+# 49b51187770843549586d2d2c1f3dae0
+#: ../../reference/guidelines.rst:826
 msgid ""
 "Constraint method : the constraint method pattern is "
 "*_check_<constraint_name>*"
 msgstr ""
 
-#: ../../reference/guidelines.rst:313
+# 0f3ad420fdd6461e96f2d0b4bdf44793
+#: ../../reference/guidelines.rst:827
 msgid ""
 "Action method : an object action method is prefix with *action_*. Its "
 "decorator is ``@api.multi``, but since it use only one record, add "
 "``self.ensure_one()`` at the beginning of the method."
 msgstr ""
 
-#: ../../reference/guidelines.rst:323
+# c827a54546034e288a7eaadc4fe2d65b
+#: ../../reference/guidelines.rst:839
 msgid "In a Model attribute order should be"
 msgstr ""
 
-#: ../../reference/guidelines.rst:316
+# b52f4e25662c4bc5b5d769d26fb27787
+#: ../../reference/guidelines.rst:832
 msgid "Private attributes (``_name``, ``_description``, ``_inherit``, ...)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:317
+# 63421f41a9a84dccba93e1a845775bed
+#: ../../reference/guidelines.rst:833
 msgid "Default method and ``_default_get``"
 msgstr ""
 
-#: ../../reference/guidelines.rst:318
+# 8e42f8ec926a4b269ce520fe84934369
+#: ../../reference/guidelines.rst:834
 msgid "Field declarations"
 msgstr ""
 
-#: ../../reference/guidelines.rst:319
+# d3866df1127b490a8b2ad45e2a6d2148
+#: ../../reference/guidelines.rst:835
 msgid "Compute and search methods in the same order as field declaration"
 msgstr ""
 
-#: ../../reference/guidelines.rst:320
+# 5a61350c49694542bc630c5e43b53a8a
+#: ../../reference/guidelines.rst:836
 msgid ""
 "Constrains methods (``@api.constrains``) and onchange methods "
 "(``@api.onchange``)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:321
+# 1d727056d05a44a2b918333061927d9c
+#: ../../reference/guidelines.rst:837
 msgid "CRUD methods (ORM overrides)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:322
+# 56c67d0797894350aa0c6947c3583927
+#: ../../reference/guidelines.rst:838
 msgid "Action methods"
 msgstr ""
 
-#: ../../reference/guidelines.rst:323
+# c2eccb2f1eb6440080b0b38f5b922830
+#: ../../reference/guidelines.rst:839
 msgid "And finally, other business methods."
 msgstr ""
 
-#: ../../reference/guidelines.rst:375
+# 11c7c00e7e7745d796fc8b457bb00bfd
+#: ../../reference/guidelines.rst:891
 msgid "Javascript and CSS"
 msgstr ""
 
-#: ../../reference/guidelines.rst:376
+# e334e067b02e49f8856ff2e7ea26e32c
+#: ../../reference/guidelines.rst:892
 msgid "**For javascript :**"
 msgstr ""
 
-#: ../../reference/guidelines.rst:378
+# 7379a4788de742bf8cde443217c9b753
+#: ../../reference/guidelines.rst:894
 msgid "``use strict;`` is recommended for all javascript files"
 msgstr ""
 
-#: ../../reference/guidelines.rst:379
+# 93bb6756527a4d33b13c0de7fda41ee6
+#: ../../reference/guidelines.rst:895
 msgid "Use a linter (jshint, ...)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:380
+# c1ff827dc6f8403c9e99069acacac487
+#: ../../reference/guidelines.rst:896
 msgid "Never add minified Javascript Libraries"
 msgstr ""
 
-#: ../../reference/guidelines.rst:381
+# f52c8ef9de564fa2bdaa32dc13226a97
+#: ../../reference/guidelines.rst:897
 msgid "Use camelcase for class declaration"
 msgstr ""
 
-#: ../../reference/guidelines.rst:383
+# 81e3ca91798543bc8aef6b84149cf637
+#: ../../reference/guidelines.rst:898
+msgid ""
+"Unless your code is supposed to run on every page, target specific pages "
+"using the ``if_dom_contains`` function of website module. Target an "
+"element which is specific to the pages your code needs to run on using "
+"JQuery."
+msgstr ""
+
+# 9362f79c433a4944a4a30e83e2d14303
+#: ../../reference/guidelines.rst:910
 msgid "**For CSS :**"
 msgstr ""
 
-#: ../../reference/guidelines.rst:385
+# a1a7824fbabf411bb7411da2bbeb7a18
+#: ../../reference/guidelines.rst:912
 msgid ""
-"Prefix all your class with *o_<module_name>* where *module_name* is the "
-"technical name of the module ('sale', 'im_chat', ...) or the main route "
+"Prefix all your classes with *o_<module_name>* where *module_name* is the"
+" technical name of the module ('sale', 'im_chat', ...) or the main route "
 "reserved by the module (for website module mainly, i.e. : 'o_forum' for "
-"website_forum module). The only exception for this rule is the webclient "
-": it simply use *o_* prefix."
+"*website_forum* module). The only exception for this rule is the "
+"webclient: it simply uses *o_* prefix."
 msgstr ""
 
-#: ../../reference/guidelines.rst:386
+# f44af09983144242879c57298f702ff1
+#: ../../reference/guidelines.rst:917
 msgid "Avoid using id"
 msgstr ""
 
-#: ../../reference/guidelines.rst:387
-msgid "Use bootstrap native class"
+# ac9456892f0f4569b371df50fa090b62
+#: ../../reference/guidelines.rst:918
+msgid "Use Bootstrap native classes"
 msgstr ""
 
-#: ../../reference/guidelines.rst:388
+# bbfb6d14de884b23a4172b101019cf28
+#: ../../reference/guidelines.rst:919
 msgid "Use underscore lowercase notation to name class"
 msgstr ""
 
-#: ../../reference/guidelines.rst:391
+# 2849b50e406c416d9311fe3aa6783f85
+#: ../../reference/guidelines.rst:922
 msgid "Git"
 msgstr ""
 
-#: ../../reference/guidelines.rst:394
+# db115d94029e4d3bbeab8104c68075be
+#: ../../reference/guidelines.rst:925
 msgid "Commit message"
 msgstr ""
 
-#: ../../reference/guidelines.rst:396
+# 5c144d8601a040f38eeacb7333df36a2
+#: ../../reference/guidelines.rst:927
 msgid "Prefix your commit with"
 msgstr ""
 
-#: ../../reference/guidelines.rst:398
+# 0992911fc90f43a9a07416f6365add0c
+#: ../../reference/guidelines.rst:929
 msgid "**[IMP]** for improvements"
 msgstr ""
 
-#: ../../reference/guidelines.rst:399
+# b34436ff99234c69b27ab63755fca930
+#: ../../reference/guidelines.rst:930
 msgid "**[FIX]** for bug fixes"
 msgstr ""
 
-#: ../../reference/guidelines.rst:400
+# 23acebf56977474ba2741608d7891bbe
+#: ../../reference/guidelines.rst:931
 msgid "**[REF]** for refactoring"
 msgstr ""
 
-#: ../../reference/guidelines.rst:401
+# ba0366e94a384f8b8fd83df4e23e030a
+#: ../../reference/guidelines.rst:932
 msgid "**[ADD]** for adding new resources"
 msgstr ""
 
-#: ../../reference/guidelines.rst:402
+# 01496a7bd5f8477fb7ae8205677c7370
+#: ../../reference/guidelines.rst:933
 msgid "**[REM]** for removing of resources"
 msgstr ""
 
-#: ../../reference/guidelines.rst:403
+# 57ac09d245a8494ab220561386b154c5
+#: ../../reference/guidelines.rst:934
+msgid ""
+"**[MOV]** for moving files (Do not change content of moved file, "
+"otherwise Git will loose track, and the history will be lost !), or "
+"simply moving code from a file to another one."
+msgstr ""
+
+# d2a89fe723574ed0a083616c36311b0b
+#: ../../reference/guidelines.rst:937
 msgid "**[MERGE]** for merge commits (only for forward/back-port)"
 msgstr ""
 
-#: ../../reference/guidelines.rst:404
+# 33bbc2424fd141c2aaa7ce83d268cff0
+#: ../../reference/guidelines.rst:938
 msgid "**[CLA]** for signing the Odoo Individual Contributor License"
 msgstr ""
 
-#: ../../reference/guidelines.rst:406
+# 7ce0cf0df9b0451ebd78a6a5fadbac79
+#: ../../reference/guidelines.rst:940
 msgid ""
 "Then, in the message itself, specify the part of the code impacted by "
 "your changes (module name, lib, transversal object, ...) and a "
 "description of the changes."
 msgstr ""
 
-#: ../../reference/guidelines.rst:408
+# 0f0ef38c3b7847298b1f82077426bfd8
+#: ../../reference/guidelines.rst:944
 msgid ""
 "Always include a meaningful commit message: it should be self explanatory"
 " (long enough) including the name of the module that has been changed and"
@@ -581,16 +1324,133 @@ msgid ""
 " \"improvements\"."
 msgstr ""
 
-#: ../../reference/guidelines.rst:412
+# bd8b87bd67b04ff3b51616fc83af729f
+#: ../../reference/guidelines.rst:948
 msgid ""
 "Avoid commits which simultaneously impact multiple modules. Try to split "
 "into different commits where impacted modules are different (It will be "
 "helpful if we need to revert a module separately)."
 msgstr ""
 
-#: ../../reference/guidelines.rst:433
+# da4b31872d1e4736816daf9f6b3269c0
+#: ../../reference/guidelines.rst:969
 msgid ""
 "Use the long description to explain the *why* not the *what*, the *what* "
 "can be seen in the diff"
 msgstr ""
+
+#~ msgid ""
+#~ "This page introduce the new Odoo "
+#~ "Coding Guidelines. These guidelines aim "
+#~ "to improve the quality of the code"
+#~ " (better readability of source, ...) "
+#~ "and  Odoo Apps. Indeed, proper code "
+#~ "ought ease maintenance, aid debugging, "
+#~ "lower complexity and promote reliability."
+#~ msgstr ""
+
+#~ msgid "A module is organised in a few directory :"
+#~ msgstr ""
+
+#~ msgid "*controllers/* : contains controllers (http routes)."
+#~ msgstr ""
+
+#~ msgid "For *controller*, the only file should be named *main.py*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For *static files*, the name pattern "
+#~ "is *<module_name>.ext* (i.e. : "
+#~ "static/js/im_chat.js, static/css/im_chat.css, "
+#~ "static/xml/im_chat.xml, ...). Don't link data"
+#~ " (image, libraries) outside Odoo : "
+#~ "don't use an url to an image "
+#~ "but copy it in our codebase "
+#~ "instead."
+#~ msgstr ""
+
+#~ msgid "When declaring a record in XML,"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Try to group the record by model."
+#~ " In case of dependencies between "
+#~ "action/menu/views, the convention may not "
+#~ "be applicable."
+#~ msgstr ""
+
+#~ msgid "Imports of ``openerp``"
+#~ msgstr ""
+
+#~ msgid "Idioms"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prefer ``%`` over ``.format()``, prefer "
+#~ "``%(varname)`` instead of position (This "
+#~ "is better for translation)"
+#~ msgstr ""
+
+#~ msgid "Try to avoid generators and decorators"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Always favor *Readability* over *conciseness*"
+#~ " or using the language features or"
+#~ " idioms."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use list comprehension, dict comprehension,"
+#~ " and basic manipulation using ``map``, "
+#~ "``filter``, ``sum``, ... They make the"
+#~ " code easier to read."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The same applies for recordset methods"
+#~ " : use ``filtered``, ``mapped``, "
+#~ "``sorted``, ..."
+#~ msgstr ""
+
+#~ msgid "Each python file should have ``# -*- coding: utf-8 -*-`` as first line"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use the ``UserError`` defined in "
+#~ "``openerp.exceptions`` instead of overriding "
+#~ "``Warning``, or find a more appropriate"
+#~ " exception in *exceptions.py*"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Document your code (docstring on "
+#~ "methods, simple comments for the tricky"
+#~ " part of the code)"
+#~ msgstr ""
+
+#~ msgid "Symbols"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Odoo Python Class : use camelcase "
+#~ "for code in api v8, underscore "
+#~ "lowercase notation for old api."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Prefix all your class with "
+#~ "*o_<module_name>* where *module_name* is the"
+#~ " technical name of the module "
+#~ "('sale', 'im_chat', ...) or the main "
+#~ "route reserved by the module (for "
+#~ "website module mainly, i.e. : 'o_forum'"
+#~ " for website_forum module). The only "
+#~ "exception for this rule is the "
+#~ "webclient : it simply use *o_* "
+#~ "prefix."
+#~ msgstr ""
+
+#~ msgid "Use bootstrap native class"
+#~ msgstr ""
 

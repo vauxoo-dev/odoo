@@ -8,23 +8,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# a7de33450bae4bbe8800ea750689a205
 #: ../../reference/testing.rst:8
 msgid "Testing Modules"
 msgstr ""
 
+# da5e6d6e5690460990089a9076405d26
 #: ../../reference/testing.rst:10
 msgid "Odoo provides support for testing modules using unittest."
 msgstr ""
 
+# 3605312f9fe74d6caca78923c890c139
 #: ../../reference/testing.rst:12
 msgid ""
 "To write tests, simply define a ``tests`` sub-package in your module, it "
@@ -33,16 +36,19 @@ msgid ""
 "``tests/__init__.py``, e.g."
 msgstr ""
 
+# 8af4f97872a34827a53edafc9fce4a94
 #: ../../reference/testing.rst:26
 msgid "and ``__init__.py`` contains::"
 msgstr ""
 
+# 5c855eccae344f65b077eee8bd5651e9
 #: ../../reference/testing.rst:32
 msgid ""
 "test modules which are not imported from ``tests/__init__.py`` will not "
 "be run"
 msgstr ""
 
+# ae370f67395c4c338e5a45f4fa60a085
 #: ../../reference/testing.rst:37
 msgid ""
 "previously, the test runner would only run modules added to two lists "
@@ -50,6 +56,7 @@ msgid ""
 "run all imported modules"
 msgstr ""
 
+# 3d89ddca788f45bea634cd4d6b5300b7
 #: ../../reference/testing.rst:41
 msgid ""
 "The test runner will simply run any test case, as described in the "
@@ -57,58 +64,77 @@ msgid ""
 "utilities and helpers related to testing Odoo content (modules, mainly):"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase:1
+# 653d168c05f142df9cabcc5d76b011a1
+#: odoo.tests.common.TransactionCase:1 of
 msgid ""
 "TestCase in which each test method is run in its own transaction, and "
 "with its own cursor. The transaction is rolled back and the cursor is "
 "closed after each test."
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.browse_ref:1
-#: openerp.tests.common.SingleTransactionCase.browse_ref:1
+# 1c647f7071a4449295178bffc3729521
+# 1f5e59f75ab648ee95beaf2de2a398b2
+#: odoo.tests.common.SingleTransactionCase.browse_ref:1
+#: odoo.tests.common.TransactionCase.browse_ref:1 of
 msgid "Returns a record object for the provided :term:`external identifier`"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.browse_ref:4
-#: openerp.tests.common.TransactionCase.ref:4
-#: openerp.tests.common.SingleTransactionCase.browse_ref:4
-#: openerp.tests.common.SingleTransactionCase.ref:4
+# 6c61bed8690a46639386f432aebbcf7a
+# 13fbb4a4e59641aa894358cd10ae6153
+# 7ab59ad59555418fb14b3a4fc65e376a
+# 2320206f0ee6491596ea91693ea36f30
+#: odoo.tests.common.SingleTransactionCase.browse_ref:4
+#: odoo.tests.common.SingleTransactionCase.ref:4
+#: odoo.tests.common.TransactionCase.browse_ref:4
+#: odoo.tests.common.TransactionCase.ref:4 of
 msgid ""
 "fully-qualified :term:`external identifier`, in the form "
 ":samp:`{module}.{identifier}`"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.browse_ref:6
-#: openerp.tests.common.TransactionCase.ref:6
-#: openerp.tests.common.SingleTransactionCase.browse_ref:6
-#: openerp.tests.common.SingleTransactionCase.ref:6
+# d2799aecac294af38f74018b11a329a4
+# ec7e6ada0e3146c7a4c8c738dbd2cdf5
+# ac632a3b0b4a463a8e7afd02af311c96
+# ee32d6870709460ab4aa1774e42a07fb
+#: odoo.tests.common.SingleTransactionCase.browse_ref:6
+#: odoo.tests.common.SingleTransactionCase.ref:6
+#: odoo.tests.common.TransactionCase.browse_ref:6
+#: odoo.tests.common.TransactionCase.ref:6 of
 msgid "ValueError if not found"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.browse_ref:7
-#: openerp.tests.common.SingleTransactionCase.browse_ref:7
-msgid ":class:`~openerp.models.BaseModel`"
+# 4653d4d9996d4847a16279becbbfb914
+# 746045fe0be9497eb8e7f96ae54a4809
+#: odoo.tests.common.SingleTransactionCase.browse_ref:7
+#: odoo.tests.common.TransactionCase.browse_ref:7 of
+msgid ":class:`~odoo.models.BaseModel`"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.ref:1
-#: openerp.tests.common.SingleTransactionCase.ref:1
+# 7c4088b30135493da35eeaca13412c8c
+# 6c6307c448804872a69e907f6edef93b
+#: odoo.tests.common.SingleTransactionCase.ref:1
+#: odoo.tests.common.TransactionCase.ref:1 of
 msgid ""
 "Returns database ID for the provided :term:`external identifier`, "
 "shortcut for ``get_object_reference``"
 msgstr ""
 
-#: openerp.tests.common.TransactionCase.ref:7
-#: openerp.tests.common.SingleTransactionCase.ref:7
+# cabcf4a5d7dc4a77b548691484cec12a
+# 6d1f19a438884171989b3b3da7864270
+#: odoo.tests.common.SingleTransactionCase.ref:7
+#: odoo.tests.common.TransactionCase.ref:7 of
 msgid "registered id"
 msgstr ""
 
-#: openerp.tests.common.SingleTransactionCase:1
+# 500feecfba0e40f1bee0ef61359c33c0
+#: odoo.tests.common.SingleTransactionCase:1 of
 msgid ""
 "TestCase in which all test methods are run in the same transaction, the "
 "transaction is started with the first test method and rolled back at the "
 "end of the last."
 msgstr ""
 
+# a4d704a47c8342cabddb40ff4163d553
 #: ../../reference/testing.rst:51
 msgid ""
 "By default, tests are run once right after the corresponding module has "
@@ -117,53 +143,79 @@ msgid ""
 "installation:"
 msgstr ""
 
-#: openerp.tests.common.at_install:1
+# 01c5cccfba4046d89cb11ccc153b4d5d
+#: odoo.tests.common.at_install:1 of
 msgid ""
 "Sets the at-install state of a test, the flag is a boolean specifying "
 "whether the test should (``True``) or should not (``False``) run during "
 "module installation."
 msgstr ""
 
-#: openerp.tests.common.at_install:5
+# 667e10631aff49f7881c6216c4d7033e
+#: odoo.tests.common.at_install:5 of
 msgid ""
 "By default, tests are run right after installing the module, before "
 "starting the installation of the next module."
 msgstr ""
 
-#: openerp.tests.common.post_install:1
+# 77dd2226d417490bba099cc741431ba1
+#: odoo.tests.common.post_install:1 of
 msgid ""
 "Sets the post-install state of a test. The flag is a boolean specifying "
 "whether the test should or should not run after a set of module "
 "installations."
 msgstr ""
 
-#: openerp.tests.common.post_install:5
+# 1aa9ffa5a92a45fc81ad0d17bd5607cd
+#: odoo.tests.common.post_install:5 of
 msgid ""
 "By default, tests are *not* run after installation of all modules in the "
 "current installation set."
 msgstr ""
 
+# 58bf024e16314d608a087a9269b57e19
 #: ../../reference/testing.rst:59
 msgid ""
 "The most common situation is to use "
-":class:`~openerp.tests.common.TransactionCase` and test a property of a "
+":class:`~odoo.tests.common.TransactionCase` and test a property of a "
 "model in each method::"
 msgstr ""
 
+# ba2a2f2ff4a94d02803c04bd6112b2e3
 #: ../../reference/testing.rst:74
 msgid "Running tests"
 msgstr ""
 
+# f0a7b32d7b634c6c9a743016064c5696
 #: ../../reference/testing.rst:76
 msgid ""
 "Tests are automatically run when installing or updating modules if "
-":option:`--test-enable <odoo.py --test-enable>` was enabled when starting"
-" the Odoo server."
+":option:`--test-enable <odoo-bin --test-enable>` was enabled when "
+"starting the Odoo server."
 msgstr ""
 
+# 3cf838b2953246899d5af5677f367164
 #: ../../reference/testing.rst:80
 msgid ""
 "As of Odoo 8, running tests outside of the install/update cycle is not "
 "supported."
 msgstr ""
+
+#~ msgid ":class:`~openerp.models.BaseModel`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The most common situation is to "
+#~ "use :class:`~openerp.tests.common.TransactionCase` and "
+#~ "test a property of a model in "
+#~ "each method::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Tests are automatically run when "
+#~ "installing or updating modules if "
+#~ ":option:`--test-enable <odoo.py --test-"
+#~ "enable>` was enabled when starting the"
+#~ " Odoo server."
+#~ msgstr ""
 

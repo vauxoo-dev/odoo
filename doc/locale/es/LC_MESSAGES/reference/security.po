@@ -8,25 +8,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# a9f6cd3c74d84b5b959f0930dd1eac1b
 #: ../../reference/security.rst:7
 msgid "Security in Odoo"
 msgstr ""
 
+# bf5cf2a3468e4bfcbb7da46dd4c3a278
 #: ../../reference/security.rst:9
 msgid ""
 "Aside from manually managing access using custom code, Odoo provides two "
 "main data-driven mechanisms to manage or restrict access to data."
 msgstr ""
 
+# b9aa480cc3e14de990c7498fe41023a5
 #: ../../reference/security.rst:12
 msgid ""
 "Both mechanisms are linked to specific users through *groups*: a user "
@@ -34,22 +37,26 @@ msgid ""
 "to groups, thus applying security mechamisms to users."
 msgstr ""
 
+# 32fe83c7bba14b67befbd6a0a4566609
 #: ../../reference/security.rst:19
 msgid "Access Control"
 msgstr ""
 
+# 958833421345479ba8b707f617b46497
 #: ../../reference/security.rst:21
 msgid ""
 "Managed by the ``ir.model.access`` records, defines access to a whole "
 "model."
 msgstr ""
 
+# e0671bbb2c3f4f359a05685c832ac132
 #: ../../reference/security.rst:23
 msgid ""
 "Each access control has a model to which it grants permissions, the "
 "permissions it grants and optionally a group."
 msgstr ""
 
+# 9836cf43c6bc43b7b0be49bbf3b4d5e4
 #: ../../reference/security.rst:26
 msgid ""
 "Access controls are additive, for a given model a user has access all "
@@ -58,12 +65,14 @@ msgid ""
 "both write and delete."
 msgstr ""
 
+# 6692176f2f754b80a429dd28a5266ecb
 #: ../../reference/security.rst:31
 msgid ""
 "If no group is specified, the access control applies to all users, "
 "otherwise it only applies to the members of the given group."
 msgstr ""
 
+# b295badb486d419eae48715757fe05e3
 #: ../../reference/security.rst:34
 msgid ""
 "Available permissions are creation (``perm_create``), searching and "
@@ -71,10 +80,12 @@ msgid ""
 "deleting existing records (``perm_unlink``)"
 msgstr ""
 
+# 8fa1d20d305d49f0a881e937d34373d8
 #: ../../reference/security.rst:41
 msgid "Record Rules"
 msgstr ""
 
+# 4ed1e4b7c1844ac0b27bd456894652f7
 #: ../../reference/security.rst:43
 msgid ""
 "Record rules are conditions that records must satisfy for an operation "
@@ -82,26 +93,31 @@ msgid ""
 "record after access control has been applied."
 msgstr ""
 
+# 8df01b07c25a48af88191b34821c5756
 #: ../../reference/security.rst:47
 msgid "A record rule has:"
 msgstr ""
 
+# c5cf7a96076646508a14b3b638b4ecd4
 #: ../../reference/security.rst:49
 msgid "a model on which it applies"
 msgstr ""
 
+# c0e13e60ea0e493f9ba46bfce3df2ced
 #: ../../reference/security.rst:50
 msgid ""
 "a set of permissions to which it applies (e.g. if ``perm_read`` is set, "
 "the rule will only be checked when reading a record)"
 msgstr ""
 
+# 879d39fe92b1425cb1a43a583f002d13
 #: ../../reference/security.rst:52
 msgid ""
 "a set of user groups to which the rule applies, if no group is specified "
 "the rule is *global*"
 msgstr ""
 
+# 266e27f515424da89ec1b0f849a61f13
 #: ../../reference/security.rst:54
 msgid ""
 "a :ref:`domain <reference/orm/domains>` used to check whether a given "
@@ -110,24 +126,28 @@ msgid ""
 "``user`` is the current user's record and ``time`` is the `time module`_"
 msgstr ""
 
+# 35f48ba3714b447aaa38294daede2c1c
 #: ../../reference/security.rst:59
 msgid ""
 "Global rules and group rules (rules restricted to specific groups versus "
 "groups applying to all users) are used quite differently:"
 msgstr ""
 
+# 9ee3f3f493f9432684667f78d7d8469c
 #: ../../reference/security.rst:62
 msgid ""
 "Global rules are subtractive, they *must all* be matched for a record to "
 "be accessible"
 msgstr ""
 
+# 19e19e9ba5b1458ea38ba9ef3e761628
 #: ../../reference/security.rst:64
 msgid ""
 "Group rules are additive, if *any* of them matches (and all global rules "
 "match) then the record is accessible"
 msgstr ""
 
+# 74dd3a9b8dc0410b9c3eb9cb5a3e3494
 #: ../../reference/security.rst:67
 msgid ""
 "This means the first *group rule* restricts access, but any further "
@@ -135,54 +155,77 @@ msgid ""
 "access (or have no effect)."
 msgstr ""
 
+# 1d3d4d238b74431798803b785b2139b9
 #: ../../reference/security.rst:71
 msgid "record rules do not apply to the Administrator user"
 msgstr ""
 
+# 77d16471a478417aaa5ba4c5d6d22dc4
 #: ../../reference/security.rst:74
 msgid "although access rules do"
 msgstr ""
 
+# 3874eba48e394a46b6f63ab9435e5591
 #: ../../reference/security.rst:79
 msgid "Field Access"
 msgstr ""
 
+# 44f07f69fdaa4fd287801abe02c64c85
 #: ../../reference/security.rst:83
 msgid ""
-"An ORM :class:`~openerp.fields.Field` can have a ``groups`` attribute "
+"An ORM :class:`~odoo.fields.Field` can have a ``groups`` attribute "
 "providing a list of groups (as a comma-separated string of "
 ":term:`external identifiers`)."
 msgstr ""
 
+# 3862831d663b44e3b811de18118deb95
 #: ../../reference/security.rst:87
 msgid ""
 "If the current user is not in one of the listed groups, he will not have "
 "access to the field:"
 msgstr ""
 
+# 2a60839ef9074e6392dca8b70482324b
 #: ../../reference/security.rst:90
 msgid "restricted fields are automatically removed from requested views"
 msgstr ""
 
+# 03c3e27658b74763aaaa57c34c24d365
 #: ../../reference/security.rst:91
 msgid ""
-"restricted fields are removed from "
-":meth:`~openerp.models.Model.fields_get` responses"
+"restricted fields are removed from :meth:`~odoo.models.Model.fields_get` "
+"responses"
 msgstr ""
 
+# 162a9f5cbd894178a2f1e6734107e0d6
 #: ../../reference/security.rst:93
 msgid ""
 "attempts to (explicitly) read from or write to restricted fields results "
 "in an access error"
 msgstr ""
 
+# c3e0b88e0d354250acb29bf248ba77b6
 #: ../../reference/security.rst:102
 msgid "Workflow transition rules"
 msgstr ""
 
+# 4452852152b344ffa8f972a302169cde
 #: ../../reference/security.rst:104
 msgid ""
 "Workflow transitions can be restricted to a specific group. Users outside"
 " the group can not trigger the transition."
 msgstr ""
+
+#~ msgid ""
+#~ "An ORM :class:`~openerp.fields.Field` can have"
+#~ " a ``groups`` attribute providing a "
+#~ "list of groups (as a comma-"
+#~ "separated string of :term:`external "
+#~ "identifiers`)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "restricted fields are removed from "
+#~ ":meth:`~openerp.models.Model.fields_get` responses"
+#~ msgstr ""
 

@@ -8,19 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# f64febd0da80440dbb9cb1dee84e42cb
 #: ../../reference/qweb.rst:9
 msgid "QWeb"
 msgstr ""
 
+# 3d1b2e2062b34dd099dd8e2dd4e7153e
 #: ../../reference/qweb.rst:11
 msgid ""
 "QWeb is the primary templating_ engine used by Odoo\\ [#othertemplates]_."
@@ -28,6 +30,7 @@ msgid ""
 " HTML_ fragments and pages."
 msgstr ""
 
+# 46dab424302343da9dc093f24d1115d2
 #: ../../reference/qweb.rst:15
 msgid ""
 "Template directives are specified as XML attributes prefixed with ``t-``,"
@@ -35,6 +38,7 @@ msgid ""
 "elements and other attributes being rendered directly."
 msgstr ""
 
+# be413f8720e441e1b6ad75ebc8c91669
 #: ../../reference/qweb.rst:19
 msgid ""
 "To avoid element rendering, a placeholder element ``<t>`` is also "
@@ -42,19 +46,25 @@ msgid ""
 "in and of itself::"
 msgstr ""
 
+# f0aa4d6b1381405aba98aee387ff154b
+# b7a7eaa32db343b2a43f0731a0392a4b
+# 602615f36a994e518762257603793ae0
 #: ../../reference/qweb.rst:27 ../../reference/qweb.rst:37
-#: ../../reference/qweb.rst:311
+#: ../../reference/qweb.rst:321
 msgid "will result in::"
 msgstr ""
 
+# ddc2c2928ea14f34b6baef077299d555
 #: ../../reference/qweb.rst:31
 msgid "if ``condition`` is true, but::"
 msgstr ""
 
+# 4da1dd137ac74a05b1c6cba583632781
 #: ../../reference/qweb.rst:46
 msgid "data output"
 msgstr ""
 
+# a4108e5be89748f0bc81f2b770806108
 #: ../../reference/qweb.rst:48
 msgid ""
 "QWeb has a primary output directive which automatically HTML-escape its "
@@ -62,14 +72,17 @@ msgid ""
 "``esc``."
 msgstr ""
 
+# 70a65b5da55b4251ba62fb192e52a03a
 #: ../../reference/qweb.rst:51
 msgid "``esc`` takes an expression, evaluates it and prints the content::"
 msgstr ""
 
+# ac484f978a624af9ad7e9c19e006a9cc
 #: ../../reference/qweb.rst:55
 msgid "rendered with the value ``value`` set to ``42`` yields::"
 msgstr ""
 
+# 2df804ec0c24451c8ccbfa44d22de8a4
 #: ../../reference/qweb.rst:59
 msgid ""
 "There is one other output directive ``raw`` which behaves the same as "
@@ -78,62 +91,85 @@ msgid ""
 "already sanitized user-provided markup."
 msgstr ""
 
+# e241f3a226ae4106a840beb99972594e
 #: ../../reference/qweb.rst:67
 msgid "conditionals"
 msgstr ""
 
+# f35ec6b940be42648c63eacee49aca62
 #: ../../reference/qweb.rst:69
 msgid ""
 "QWeb has a conditional directive ``if``, which evaluates an expression "
 "given as attribute value::"
 msgstr ""
 
+# 794511291ce74114a1135ede0ebde2af
 #: ../../reference/qweb.rst:78
 msgid "The element is rendered if the condition is true::"
 msgstr ""
 
+# db5ccace7af04bb29e1f8c55b8d43c73
 #: ../../reference/qweb.rst:84
 msgid "but if the condition is false it is removed from the result::"
 msgstr ""
 
+# 5ce4c32eb05a4e1ea191cddbdd5ad566
 #: ../../reference/qweb.rst:89
 msgid ""
 "The conditional rendering applies to the bearer of the directive, which "
 "does not have to be ``<t>``::"
 msgstr ""
 
+# 2a94d80751e249219c6e9648e419d70e
 #: ../../reference/qweb.rst:96
 msgid "will give the same results as the previous example."
 msgstr ""
 
-#: ../../reference/qweb.rst:101
+# c53b92654b2a484a958916e45b4c8596
+#: ../../reference/qweb.rst:98
+msgid ""
+"Extra conditional branching directives ``t-elif`` and ``t-else`` are also"
+" available::"
+msgstr ""
+
+# 54da5011383e4a10bf66a74c4e9b0d6b
+#: ../../reference/qweb.rst:111
 msgid "loops"
 msgstr ""
 
-#: ../../reference/qweb.rst:103
+# 0bdb9cf0cc9341d3a282ad0caaab4d38
+#: ../../reference/qweb.rst:113
 msgid ""
 "QWeb has an iteration directive ``foreach`` which take an expression "
 "returning the collection to iterate on, and a second parameter ``t-as`` "
 "providing the name to use for the \"current item\" of the iteration::"
 msgstr ""
 
-#: ../../reference/qweb.rst:111 ../../reference/qweb.rst:198
-#: ../../reference/qweb.rst:210 ../../reference/qweb.rst:221
-#: ../../reference/qweb.rst:231
+# 014d6b02fa084fe1a604c08acd622d85
+# 61b0cc4c5b9b4d6d96f120cb4a66e0bd
+# c13e8fa9686c40baa951be8a2fa8f8c4
+# b8194864883e4b42975fb05dc1903192
+# e55ef84c464b487d924d8ab74f84e7c5
+#: ../../reference/qweb.rst:121 ../../reference/qweb.rst:208
+#: ../../reference/qweb.rst:220 ../../reference/qweb.rst:231
+#: ../../reference/qweb.rst:241
 msgid "will be rendered as::"
 msgstr ""
 
-#: ../../reference/qweb.rst:117
+# 4ce54ae632ee4f4886d2b3081aa45557
+#: ../../reference/qweb.rst:127
 msgid ""
 "Like conditions, ``foreach`` applies to the element bearing the "
 "directive's attribute, and"
 msgstr ""
 
-#: ../../reference/qweb.rst:126
+# 69b2f455da244d1ca1ab7f1edfcd2fd7
+#: ../../reference/qweb.rst:136
 msgid "is equivalent to the previous example."
 msgstr ""
 
-#: ../../reference/qweb.rst:128
+# 45b2b8fe5ee5438787dc53f905279929
+#: ../../reference/qweb.rst:138
 msgid ""
 "``foreach`` can iterate on an array (the current item will be the current"
 " value), a mapping (the current item will be the current key) or an "
@@ -141,102 +177,123 @@ msgid ""
 "provided integer exclusive)."
 msgstr ""
 
-#: ../../reference/qweb.rst:133
+# 8a14c50eaf954330a0992875e25d58ef
+#: ../../reference/qweb.rst:143
 msgid ""
 "In addition to the name passed via ``t-as``, ``foreach`` provides a few "
 "other variables for various data points:"
 msgstr ""
 
-#: ../../reference/qweb.rst:136
+# 45639294cb9546fcbe043c5dd1ac73b1
+#: ../../reference/qweb.rst:146
 msgid "``$as`` will be replaced by the name passed to ``t-as``"
 msgstr ""
 
-#: ../../reference/qweb.rst:138
+# 2ea10f6147844cea8b2bb4a365c03c99
+#: ../../reference/qweb.rst:148
 msgid ":samp:`{$as}_all`"
 msgstr ""
 
-#: ../../reference/qweb.rst:139
+# 1a8cf30537de48aa8987be80610009dd
+#: ../../reference/qweb.rst:149
 msgid "the object being iterated over"
 msgstr ""
 
-#: ../../reference/qweb.rst:141
+# 19c12e772aa345518eb5fe639b91d7b4
+#: ../../reference/qweb.rst:151
 msgid ":samp:`{$as}_value`"
 msgstr ""
 
-#: ../../reference/qweb.rst:141
+# 7d388c1fcad14aaa9c75d145c9f2c798
+#: ../../reference/qweb.rst:151
 msgid ""
 "the current iteration value, identical to ``$as`` for lists and integers,"
 " but for mappings it provides the value (where ``$as`` provides the key)"
 msgstr ""
 
-#: ../../reference/qweb.rst:143
+# 046857c85c014f248c66bb549ca39d82
+#: ../../reference/qweb.rst:153
 msgid ":samp:`{$as}_index`"
 msgstr ""
 
-#: ../../reference/qweb.rst:144
+# 7856d4d405aa43638e0548931233a1f2
+#: ../../reference/qweb.rst:154
 msgid "the current iteration index (the first item of the iteration has index 0)"
 msgstr ""
 
-#: ../../reference/qweb.rst:145
+# f02acf67e994426aabdcd15e3754eaeb
+#: ../../reference/qweb.rst:155
 msgid ":samp:`{$as}_size`"
 msgstr ""
 
-#: ../../reference/qweb.rst:146
+# e289456138c94d26bcbecdd5741b9bd4
+#: ../../reference/qweb.rst:156
 msgid "the size of the collection if it is available"
 msgstr ""
 
-#: ../../reference/qweb.rst:148
+# 379dbd896008472eb6adede6bdf20b5f
+#: ../../reference/qweb.rst:158
 msgid ":samp:`{$as}_first`"
 msgstr ""
 
-#: ../../reference/qweb.rst:148
+# 8685b8d9e1ad4d548b04603362c3cf78
+#: ../../reference/qweb.rst:158
 msgid ""
 "whether the current item is the first of the iteration (equivalent to "
 ":samp:`{$as}_index == 0`)"
 msgstr ""
 
-#: ../../reference/qweb.rst:152
+# be5fb47345ea4f129b9f5f44933dabf2
+#: ../../reference/qweb.rst:162
 msgid ":samp:`{$as}_last`"
 msgstr ""
 
-#: ../../reference/qweb.rst:151
+# 619e0c7cec5b494d9f87d099ea2a1cf1
+#: ../../reference/qweb.rst:161
 msgid ""
 "whether the current item is the last of the iteration (equivalent to "
 ":samp:`{$as}_index + 1 == {$as}_size`), requires the iteratee's size be "
 "available"
 msgstr ""
 
-#: ../../reference/qweb.rst:154
+# 13d37ec2c1214dd8a002501621053726
+#: ../../reference/qweb.rst:164
 msgid ":samp:`{$as}_parity`"
 msgstr ""
 
-#: ../../reference/qweb.rst:155
+# 1b9671cce02b49efb6af5b6cdba9e67b
+#: ../../reference/qweb.rst:165
 msgid ""
 "either ``\"even\"`` or ``\"odd\"``, the parity of the current iteration "
 "round"
 msgstr ""
 
-#: ../../reference/qweb.rst:157
+# cbe11bd6ca8640cdb3b2057f01121fed
+#: ../../reference/qweb.rst:167
 msgid ":samp:`{$as}_even`"
 msgstr ""
 
-#: ../../reference/qweb.rst:157
+# 03b08a932c9a473abfd3c52533e141dc
+#: ../../reference/qweb.rst:167
 msgid ""
 "a boolean flag indicating that the current iteration round is on an even "
 "index"
 msgstr ""
 
-#: ../../reference/qweb.rst:162
+# 5eea975c605e4a358c9c8b27973c0dee
+#: ../../reference/qweb.rst:172
 msgid ":samp:`{$as}_odd`"
 msgstr ""
 
-#: ../../reference/qweb.rst:160
+# a3fc0bba8f9f4e7b82c3025d8ef59b07
+#: ../../reference/qweb.rst:170
 msgid ""
 "a boolean flag indicating that the current iteration round is on an odd "
 "index"
 msgstr ""
 
-#: ../../reference/qweb.rst:164
+# aed9e6b8297349ff82e87cd0d1fc0988
+#: ../../reference/qweb.rst:174
 msgid ""
 "These extra variables provided and all new variables created into the "
 "``foreach`` are only available in the scope of the``foreach``. If the "
@@ -244,130 +301,154 @@ msgid ""
 "copied at the end of the foreach into the global context."
 msgstr ""
 
-#: ../../reference/qweb.rst:186
+# dc0876e93fbf4587bac81edf773d8321
+#: ../../reference/qweb.rst:196
 msgid "attributes"
 msgstr ""
 
-#: ../../reference/qweb.rst:188
+# f08cb7a4bf7e403397fc5d59cadd19e7
+#: ../../reference/qweb.rst:198
 msgid ""
 "QWeb can compute attributes on-the-fly and set the result of the "
 "computation on the output node. This is done via the ``t-att`` "
 "(attribute) directive which exists in 3 different forms:"
 msgstr ""
 
-#: ../../reference/qweb.rst:199
+# 6172321c1753435ba89dc410bc5d3be7
+#: ../../reference/qweb.rst:209
 msgid ":samp:`t-att-{$name}`"
 msgstr ""
 
-#: ../../reference/qweb.rst:193
+# 59d519b192204d46a4ac2bcbef4670de
+#: ../../reference/qweb.rst:203
 msgid ""
 "an attribute called ``$name`` is created, the attribute value is "
 "evaluated and the result is set as the attribute's value::"
 msgstr ""
 
-#: ../../reference/qweb.rst:213
+# b8d5a9476ad24e25a769a57b7fb78ffa
+#: ../../reference/qweb.rst:223
 msgid ":samp:`t-attf-{$name}`"
 msgstr ""
 
-#: ../../reference/qweb.rst:202
+# de87a02704e54b8fb641a5e99480246a
+#: ../../reference/qweb.rst:212
 msgid ""
 "same as previous, but the parameter is a :term:`format string` instead of"
 " just an expression, often useful to mix literal and non-literal string "
 "(e.g. classes)::"
 msgstr ""
 
-#: ../../reference/qweb.rst:222
+# b5bca1806bf04330ba8dc65b121fd253
+#: ../../reference/qweb.rst:232
 msgid ":samp:`t-att=mapping`"
 msgstr ""
 
-#: ../../reference/qweb.rst:216
+# 7f683f7a3761487ab061ee5df131c4ad
+#: ../../reference/qweb.rst:226
 msgid ""
 "if the parameter is a mapping, each (key, value) pair generates a new "
 "attribute and its value::"
 msgstr ""
 
-#: ../../reference/qweb.rst:233
+# 66c6044d74a3406e9c01cf68ebc2690d
+#: ../../reference/qweb.rst:243
 msgid ":samp:`t-att=pair`"
 msgstr ""
 
-#: ../../reference/qweb.rst:225
+# 41ee5b2581bc42c1b3dc8909179708e7
+#: ../../reference/qweb.rst:235
 msgid ""
 "if the parameter is a pair (tuple or array of 2 element), the first item "
 "of the pair is the name of the attribute and the second item is the "
 "value::"
 msgstr ""
 
-#: ../../reference/qweb.rst:236
+# d0145d99d5374f97b34a36c4d1e553b8
+#: ../../reference/qweb.rst:246
 msgid "setting variables"
 msgstr ""
 
-#: ../../reference/qweb.rst:238
+# 49f0b136aa78458787c3c1539fbbfa00
+#: ../../reference/qweb.rst:248
 msgid ""
 "QWeb allows creating variables from within the template, to memoize a "
 "computation (to use it multiple times), give a piece of data a clearer "
 "name, ..."
 msgstr ""
 
-#: ../../reference/qweb.rst:242
+# 4bca726e228e4c0a8368ceb0dc0cc451
+#: ../../reference/qweb.rst:252
 msgid ""
 "This is done via the ``set`` directive, which takes the name of the "
 "variable to create. The value to set can be provided in two ways:"
 msgstr ""
 
-#: ../../reference/qweb.rst:245
+# 95c89585240048279c1345dc89135d23
+#: ../../reference/qweb.rst:255
 msgid ""
 "a ``t-value`` attribute containing an expression, and the result of its "
 "evaluation will be set::"
 msgstr ""
 
-#: ../../reference/qweb.rst:251
+# 8b21ff08be21493885d1690491748724
+#: ../../reference/qweb.rst:261
 msgid "will print ``3``"
 msgstr ""
 
-#: ../../reference/qweb.rst:252
+# 4f6b97f13c104c8c86f7cc8e39c3ac9d
+#: ../../reference/qweb.rst:262
 msgid ""
 "if there is no ``t-value`` attribute, the node's body is rendered and set"
 " as the variable's value::"
 msgstr ""
 
-#: ../../reference/qweb.rst:260
+# bbcdf36873944a389856d6a65168f2f8
+#: ../../reference/qweb.rst:270
 msgid ""
 "will generate ``&lt;li&gt;ok&lt;/li&gt;`` (the content is escaped as we "
 "used the ``esc`` directive)"
 msgstr ""
 
-#: ../../reference/qweb.rst:263
+# 5f72ea651ad34d0d8c2aec256ff30a55
+#: ../../reference/qweb.rst:273
 msgid ""
 "using the result of this operation is a significant use-case for the "
 "``raw`` directive."
 msgstr ""
 
-#: ../../reference/qweb.rst:267
+# 808515a490e74df6902574d69f18143a
+#: ../../reference/qweb.rst:277
 msgid "calling sub-templates"
 msgstr ""
 
-#: ../../reference/qweb.rst:269
+# f0c11f7206c5489ea4acc4d9bde27dcf
+#: ../../reference/qweb.rst:279
 msgid ""
 "QWeb templates can be used for top-level rendering, but they can also be "
 "used from within another template (to avoid duplication or give names to "
 "parts of templates) using the ``t-call`` directive::"
 msgstr ""
 
-#: ../../reference/qweb.rst:275
+# b814e1beb1a743c8aef373124f271fb6
+#: ../../reference/qweb.rst:285
 msgid ""
 "This calls the named template with the execution context of the parent, "
 "if ``other_template`` is defined as::"
 msgstr ""
 
-#: ../../reference/qweb.rst:280
+# 1eccd7b657fa46468f8a3e125493b774
+#: ../../reference/qweb.rst:290
 msgid "the call above will be rendered as ``<p/>`` (no content), but::"
 msgstr ""
 
-#: ../../reference/qweb.rst:285
+# f014515f873b416285ecafc9d777a908
+#: ../../reference/qweb.rst:295
 msgid "will be rendered as ``<p>1</p>``."
 msgstr ""
 
-#: ../../reference/qweb.rst:287
+# e164d79e6f634cfe8d43fa636bf29174
+#: ../../reference/qweb.rst:297
 msgid ""
 "However this has the problem of being visible from outside the "
 "``t-call``. Alternatively, content set in the body of the ``call`` "
@@ -375,34 +456,42 @@ msgid ""
 "alter a local context::"
 msgstr ""
 
-#: ../../reference/qweb.rst:296
+# 8b48e20bc717464c9cc3b360a821246c
+#: ../../reference/qweb.rst:306
 msgid ""
 "The body of the ``call`` directive can be arbitrarily complex (not just "
 "``set`` directives), and its rendered form will be available within the "
 "called template as a magical ``0`` variable::"
 msgstr ""
 
-#: ../../reference/qweb.rst:305
+# 953a0cf8cc8c424f917dcdcf6b803f68
+#: ../../reference/qweb.rst:315
 msgid "being called thus::"
 msgstr ""
 
-#: ../../reference/qweb.rst:319
+# dcf2e4f044ca45e28d1662c339e14f2b
+#: ../../reference/qweb.rst:329
 msgid "Python"
 msgstr ""
 
-#: ../../reference/qweb.rst:322 ../../reference/qweb.rst:421
+# fc49db19e96e440bbaf40c1e8babe084
+# 3c02af2e88a74c558aba8d2d591031da
+#: ../../reference/qweb.rst:332 ../../reference/qweb.rst:433
 msgid "Exclusive directives"
 msgstr ""
 
-#: ../../reference/qweb.rst:325
+# 2ad4665d64db4befb0e437e059e33001
+#: ../../reference/qweb.rst:335
 msgid "asset bundles"
 msgstr ""
 
-#: ../../reference/qweb.rst:330
+# b8de5c0ba6b64d93912d37313b72e18a
+#: ../../reference/qweb.rst:340
 msgid "\"smart records\" fields formatting"
 msgstr ""
 
-#: ../../reference/qweb.rst:332
+# 39632913898f4228b05c10c84507b9ef
+#: ../../reference/qweb.rst:342
 msgid ""
 "The ``t-field`` directive can only be used when performing field access "
 "(``a.b``) on a \"smart\" record (result of the ``browse`` method). It is "
@@ -410,503 +499,375 @@ msgid ""
 "the website's rich text edition."
 msgstr ""
 
-#: ../../reference/qweb.rst:337
+# 5493e82c64c84f1daebd20c49b4993cf
+#: ../../reference/qweb.rst:347
 msgid ""
-"``t-field-options`` can be used to customize fields, the most common "
-"option is ``widget``, other options are field- or widget-dependent."
+"``t-options`` can be used to customize fields, the most common option is "
+"``widget``, other options are field- or widget-dependent."
 msgstr ""
 
-#: ../../reference/qweb.rst:341 ../../reference/qweb.rst:487
+# 4057e152684142d99debff4d6fac84a7
+# bb039ed033bf43119a35361c31aa030d
+#: ../../reference/qweb.rst:351 ../../reference/qweb.rst:499
 msgid "debugging"
 msgstr ""
 
-#: ../../reference/qweb.rst:349 ../../reference/qweb.rst:506
+# e017e62c22304903a769e4951e8af731
+# 6e7cc629722f493992af32bb0c59732e
+#: ../../reference/qweb.rst:359 ../../reference/qweb.rst:518
 msgid "``t-debug``"
 msgstr ""
 
-#: ../../reference/qweb.rst:344
+# 5542bf2d434e4b13aef7a1631a8179e3
+#: ../../reference/qweb.rst:354
 msgid ""
 "invokes a debugger using PDB's ``set_trace`` API. The parameter should be"
 " the name of a module, on which a ``set_trace`` method is called::"
 msgstr ""
 
-#: ../../reference/qweb.rst:349
+# 77ff8c94459e46a4a2f0c53f9db51432
+#: ../../reference/qweb.rst:359
 msgid "is equivalent to ``importlib.import_module(\"pdb\").set_trace()``"
 msgstr ""
 
-#: ../../reference/qweb.rst:352 ../../reference/qweb.rst:519
+# 9f4b9553b7314108bde543718356c200
+# ca453df0f9fd48ab9ff4b7d6dccf3bba
+#: ../../reference/qweb.rst:362 ../../reference/qweb.rst:531
 msgid "Helpers"
 msgstr ""
 
-#: ../../reference/qweb.rst:355
+# 844737b01b404e86a526e55bf215fb99
+#: ../../reference/qweb.rst:365
 msgid "Request-based"
 msgstr ""
 
-#: ../../reference/qweb.rst:357
+# 08949b9fc40741a5a7a6904bc4b015b6
+#: ../../reference/qweb.rst:367
 msgid ""
 "Most Python-side uses of QWeb are in controllers (and during HTTP "
 "requests), in which case templates stored in the database (as :ref:`views"
 " <reference/views/qweb>`) can be trivially rendered by calling "
-":meth:`openerp.http.HttpRequest.render`:"
+":meth:`odoo.http.HttpRequest.render`:"
 msgstr ""
 
-#: ../../reference/qweb.rst:368
+# 8174a80c7958426e824ad638fa196aa6
+#: ../../reference/qweb.rst:378
 msgid ""
-"This automatically creates a :class:`~openerp.http.Response` object which"
-" can be returned from the controller (or further customized to suit)."
+"This automatically creates a :class:`~odoo.http.Response` object which "
+"can be returned from the controller (or further customized to suit)."
 msgstr ""
 
-#: ../../reference/qweb.rst:372
+# da6e64a055d046f49d94643bb9bba18c
+#: ../../reference/qweb.rst:382
 msgid "View-based"
 msgstr ""
 
-#: ../../reference/qweb.rst:374
+# 4cd9b70125d54a749437db870c4b706c
+#: ../../reference/qweb.rst:384
 msgid ""
 "At a deeper level than the previous helper is the ``render`` method on "
 "``ir.ui.view``:"
 msgstr ""
 
-#: ../../reference/qweb.rst:379
+# ac9d4958e87f4e84ab4e6b22d01d1f85
+#: ../../reference/qweb.rst:389
 msgid ""
 "Renders a QWeb view/template by database id or :term:`external id`. "
 "Templates are automatically loaded from ``ir.ui.view`` records."
 msgstr ""
 
-#: ../../reference/qweb.rst:382
+# ce0602cdde9644e9869a5480b477fac0
+#: ../../reference/qweb.rst:392
 msgid "Sets up a number of default values in the rendering context:"
 msgstr ""
 
-#: ../../reference/qweb.rst:384
+# 1d43f84b22c140cda71bfa8c9c7a3912
+#: ../../reference/qweb.rst:394
 msgid "``request``"
 msgstr ""
 
-#: ../../reference/qweb.rst:385
-msgid "the current :class:`~openerp.http.WebRequest` object, if any"
+# 88cef7fb7d824801a1318aa67d8f1724
+#: ../../reference/qweb.rst:395
+msgid "the current :class:`~odoo.http.WebRequest` object, if any"
 msgstr ""
 
-#: ../../reference/qweb.rst:386
+# 11971a86547645cdb2d7d7652269605d
+#: ../../reference/qweb.rst:396
 msgid "``debug``"
 msgstr ""
 
-#: ../../reference/qweb.rst:387
+# 88394dcb9750440096161f84f1d43bde
+#: ../../reference/qweb.rst:397
 msgid "whether the current request (if any) is in ``debug`` mode"
 msgstr ""
 
-#: ../../reference/qweb.rst:388
+# 1c73f682e40a47e5b21b12a4cc43e432
+#: ../../reference/qweb.rst:398
 msgid ":func:`quote_plus <werkzeug.urls.url_quote_plus>`"
 msgstr ""
 
-#: ../../reference/qweb.rst:389
+# b245542e0acf414b88f79646d4cc15a3
+#: ../../reference/qweb.rst:399
 msgid "url-encoding utility function"
 msgstr ""
 
-#: ../../reference/qweb.rst:390
+# 226ea2e27cfc4872aec8af3e7ee4ffce
+#: ../../reference/qweb.rst:400
 msgid ":mod:`json`"
 msgstr ""
 
-#: ../../reference/qweb.rst:391 ../../reference/qweb.rst:393
-#: ../../reference/qweb.rst:395
+# 96446f8577644b418a1d5a9a4afa9251
+# 6865e4ac747b45b785075cb83ac277a2
+# f4d32ed4564b422ebe47770a14c1bc2e
+#: ../../reference/qweb.rst:401 ../../reference/qweb.rst:403
+#: ../../reference/qweb.rst:405
 msgid "the corresponding standard library module"
 msgstr ""
 
-#: ../../reference/qweb.rst:392
+# d018ee491dfd4519a997c63a76510619
+#: ../../reference/qweb.rst:402
 msgid ":mod:`time`"
 msgstr ""
 
-#: ../../reference/qweb.rst:394
+# 2ccaf745026e4afcad9605af9027e02f
+#: ../../reference/qweb.rst:404
 msgid ":mod:`datetime`"
 msgstr ""
 
-#: ../../reference/qweb.rst:396
+# e10769116b1d4941931c8a35bee442d4
+#: ../../reference/qweb.rst:406
 msgid ""
 "`relativedelta <https://labix.org/python-dateutil#head-"
 "ba5ffd4df8111d1b83fc194b97ebecf837add454>`_"
 msgstr ""
 
-#: ../../reference/qweb.rst:397
+# f890a6b8323d43daa80c9537cd8b6156
+#: ../../reference/qweb.rst:407
 msgid "see module"
 msgstr ""
 
-#: ../../reference/qweb.rst:399
+# 5c16ea789a1e4372a7d4831b3933df89
+#: ../../reference/qweb.rst:409
 msgid "``keep_query``"
 msgstr ""
 
-#: ../../reference/qweb.rst:399
+# dbf24a492e6d462eb87f2271fe9552ea
+#: ../../reference/qweb.rst:409
 msgid "the ``keep_query`` helper function"
 msgstr ""
 
-#: ../../reference/qweb.rst:401
+# a5410fadf3134bad9680dac6efd1150e
+#: ../../reference/qweb.rst:411
 msgid "context values to pass to QWeb for rendering"
 msgstr ""
 
-#: ../../reference/qweb.rst:402
+# 810487134d7e4aaa81c8f81c4918201d
+#: ../../reference/qweb.rst:412
 msgid ""
 "name of the Odoo model to use for rendering, can be used to expand or "
 "customize QWeb locally (by creating a \"new\" qweb based on ``ir.qweb`` "
 "with alterations)"
 msgstr ""
 
-#: ../../reference/qweb.rst:409 ../../reference/qweb.rst:531
-msgid "API"
-msgstr ""
-
-#: ../../reference/qweb.rst:411
-msgid ""
-"It is also possible to use the ``ir.qweb`` model directly (and extend it,"
-" and inherit from it):"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb:1
-msgid "Base QWeb rendering engine"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb:3
-msgid ""
-"to customize ``t-field`` rendering, subclass ``ir.qweb.field`` and create"
-" new models called :samp:`ir.qweb.field.{widget}`"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb:5
-msgid ""
-"alternatively, override :meth:`~.get_converter_for` and return an "
-"arbitrary model to use as field converter"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb:8
-msgid ""
-"Beware that if you need extensions or alterations which could be "
-"incompatible with other subsystems, you should create a local object "
-"inheriting from ``ir.qweb`` and customize that."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.get_converter_for:1
-msgid "returns a :class:`~openerp.models.Model` used to render a ``t-field``."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.get_converter_for:4
-msgid ""
-"By default, tries to get the model named "
-":samp:`ir.qweb.field.{field_type}`, falling back on ``ir.qweb.field``."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.get_converter_for:7
-msgid "type or widget of field to render"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.get_widget_for:1
-msgid "returns a :class:`~openerp.models.Model` used to render a ``t-esc``"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.get_widget_for:4
-msgid "name of the widget to use, or ``None``"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.prefixed_methods:1
-msgid ""
-"Extracts all methods prefixed by ``prefix``, and returns a mapping of "
-"(t-name, method) where the t-name is the method name with prefix removed "
-"and underscore converted to dashes"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.prefixed_methods:6
-msgid "dict"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.render:1
-msgid "Renders the template specified by the provided template name"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.render:3
-msgid "context for rendering the template"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.render:5
-msgid ""
-"if ``qwebcontext`` is a dict, loader set into the context instantiated "
-"for rendering"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.render_tag_call_assets:1
-msgid ""
-"This special 't-call' tag can be used in order to aggregate/minify "
-"javascript and css assets"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.QWeb.render_tag_field:1
-msgid ""
-"eg: <span t-record=\"browse_record(res.partner, 1)\" t-field=\"phone\">+1"
-" 555 555 8069</span>"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter:1
-msgid "Used to convert a t-field specification into an output HTML field."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter:3
-msgid ":meth:`~.to_html` is the entry point of this conversion from QWeb, it:"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter:5
-msgid "converts the record value to html using :meth:`~.record_to_html`"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter:6
-msgid ""
-"generates the metadata attributes (``data-oe-``) to set on the root "
-"result node"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter:8
-msgid "generates the root result node itself through :meth:`~.render_element`"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:1
-msgid ""
-"Generates the metadata attributes (prefixed by ``data-oe-`` for the root "
-"node of the field conversion. Attribute values are escaped by the parent."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:5
-msgid "The default attributes are:"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:7
-msgid "``model``, the name of the record's model"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:8
-msgid "``id`` the id of the record to which the field belongs"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:9
-msgid "``field`` the name of the converted field"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:10
-msgid ""
-"``type`` the logical field type (widget, may not match the field's "
-"``type``, may not be any Field subclass name)"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:12
-msgid ""
-"``translate``, a boolean flag (``0`` or ``1``) denoting whether the field"
-" is translatable"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:14
-msgid "``readonly``, has this attribute if the field is readonly"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:15
-msgid "``expression``, the original expression"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.attributes:17
-msgid "iterable of (attribute name, attribute value) pairs."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.record_to_html:1
-msgid "Converts the specified field of the browse_record ``record`` to HTML"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.render_element:1
-msgid "Final rendering hook, by default just calls ir.qweb's ``render_element``"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.to_html:1
-msgid ""
-"Converts a ``t-field`` to its HTML output. A ``t-field`` may be extended "
-"by a ``t-field-options``, which is a JSON-serialized mapping of "
-"configuration values."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.to_html:5
-msgid ""
-"A default configuration key is ``widget`` which can override the field's "
-"own ``_type``."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.user_lang:1
-msgid ""
-"Fetches the res.lang object corresponding to the language code stored in "
-"the user's context. Fallbacks to en_US if no lang is present in the "
-"context *or the language code is not valid*."
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.user_lang:5
-msgid "res.lang browse_record"
-msgstr ""
-
-#: openerp.addons.base.ir.ir_qweb.FieldConverter.value_to_html:1
-msgid "Converts a single value to its HTML version/output"
-msgstr ""
-
-#: ../../reference/qweb.rst:418
+# 48dc1704ecdc4e85bd71850f7262e00f
+#: ../../reference/qweb.rst:430
 msgid "Javascript"
 msgstr ""
 
-#: ../../reference/qweb.rst:424
+# 833e1582f1384c9c9bcb58a0cfebd8b7
+#: ../../reference/qweb.rst:436
 msgid "defining templates"
 msgstr ""
 
-#: ../../reference/qweb.rst:426
+# 0cffb2397dc947088290dc1188b21022
+#: ../../reference/qweb.rst:438
 msgid ""
 "The ``t-name`` directive can only be placed at the top-level of a "
 "template file (direct children to the document root)::"
 msgstr ""
 
-#: ../../reference/qweb.rst:435
+# c9ed1a21a7e14cecab9f2d18df7f6403
+#: ../../reference/qweb.rst:447
 msgid ""
 "It takes no other parameter, but can be used with a ``<t>`` element or "
 "any other. With a ``<t>`` element, the ``<t>`` should have a single "
 "child."
 msgstr ""
 
-#: ../../reference/qweb.rst:438
+# e26571290a684caab29daa56cd39964e
+#: ../../reference/qweb.rst:450
 msgid ""
 "The template name is an arbitrary string, although when multiple "
 "templates are related (e.g. called sub-templates) it is customary to use "
 "dot-separated names to indicate hierarchical relationships."
 msgstr ""
 
-#: ../../reference/qweb.rst:443
+# 57e60908451443a296839cd4691a7de0
+#: ../../reference/qweb.rst:455
 msgid "template inheritance"
 msgstr ""
 
-#: ../../reference/qweb.rst:445
+# 96f2155cd40346d8ab7845b48d86c056
+#: ../../reference/qweb.rst:457
 msgid ""
 "Template inheritance is used to alter existing templates in-place, e.g. "
 "to add information to templates created by an other modules."
 msgstr ""
 
-#: ../../reference/qweb.rst:448
+# 4e3febe8b2464bed8a54ba3291a1c18e
+#: ../../reference/qweb.rst:460
 msgid ""
 "Template inheritance is performed via the ``t-extend`` directive which "
 "takes the name of the template to alter as parameter."
 msgstr ""
 
-#: ../../reference/qweb.rst:451
+# a847d05f03634a72aa21f47fbbb4ecb1
+#: ../../reference/qweb.rst:463
 msgid ""
 "The alteration is then performed with any number of ``t-jquery`` sub-"
 "directives::"
 msgstr ""
 
-#: ../../reference/qweb.rst:460
+# 24cd3efd26aa408197104cf7e1c8873e
+#: ../../reference/qweb.rst:472
 msgid ""
 "The ``t-jquery`` directives takes a `CSS selector`_. This selector is "
 "used on the extended template to select *context nodes* to which the "
 "specified ``t-operation`` is applied:"
 msgstr ""
 
-#: ../../reference/qweb.rst:465
+# 950948b4b5fa44e3a9648dd720419599
+#: ../../reference/qweb.rst:477
 msgid "``append``"
 msgstr ""
 
-#: ../../reference/qweb.rst:465
+# c0edc16d7e4f44278f2270b2093b904b
+#: ../../reference/qweb.rst:477
 msgid ""
 "the node's body is appended at the end of the context node (after the "
 "context node's last child)"
 msgstr ""
 
-#: ../../reference/qweb.rst:468
+# 46083de771e04d419d57e8f3eaecadac
+#: ../../reference/qweb.rst:480
 msgid "``prepend``"
 msgstr ""
 
-#: ../../reference/qweb.rst:468
+# d5275784dcad45f4a91144f70bc4e435
+#: ../../reference/qweb.rst:480
 msgid ""
 "the node's body is prepended to the context node (inserted before the "
 "context node's first child)"
 msgstr ""
 
-#: ../../reference/qweb.rst:470
+# c28182fae6934f60a9e78205128f4662
+#: ../../reference/qweb.rst:482
 msgid "``before``"
 msgstr ""
 
-#: ../../reference/qweb.rst:471
+# b84ae60e3eb741aebec8ecfd2b997f73
+#: ../../reference/qweb.rst:483
 msgid "the node's body is inserted right before the context node"
 msgstr ""
 
-#: ../../reference/qweb.rst:472
+# 48f7df9819704f06a6e7a62fcae6976f
+#: ../../reference/qweb.rst:484
 msgid "``after``"
 msgstr ""
 
-#: ../../reference/qweb.rst:473
+# ef8c300742ae4497b6edf23908fe184d
+#: ../../reference/qweb.rst:485
 msgid "the node's body is inserted right after the context node"
 msgstr ""
 
-#: ../../reference/qweb.rst:474
+# 5b98c4e364a24e66b3c5a9512b0bf19f
+#: ../../reference/qweb.rst:486
 msgid "``inner``"
 msgstr ""
 
-#: ../../reference/qweb.rst:475
+# e7abd2d70965437c82be6f89cc18ab30
+#: ../../reference/qweb.rst:487
 msgid "the node's body replaces the context node's children"
 msgstr ""
 
-#: ../../reference/qweb.rst:476
+# 12c679da3d3e40bc87ab49e0a292ee23
+#: ../../reference/qweb.rst:488
 msgid "``replace``"
 msgstr ""
 
-#: ../../reference/qweb.rst:477
+# b304c02c788744d3be69b8389d5e5276
+#: ../../reference/qweb.rst:489
 msgid "the node's body is used to replace the context node itself"
 msgstr ""
 
-#: ../../reference/qweb.rst:484
+# f59c4a6fcf414dababa0c8897c5a2f18
+#: ../../reference/qweb.rst:496
 msgid "No operation"
 msgstr ""
 
-#: ../../reference/qweb.rst:479
+# e7f894681a764728993f2f9014410fc0
+#: ../../reference/qweb.rst:491
 msgid ""
 "if no ``t-operation`` is specified, the template body is interpreted as "
 "javascript code and executed with the context node as ``this``"
 msgstr ""
 
-#: ../../reference/qweb.rst:482
+# cc371095e7be4cc8bace2312c1e03878
+#: ../../reference/qweb.rst:494
 msgid ""
 "while much more powerful than other operations, this mode is also much "
 "harder to debug and maintain, it is recommended to avoid it"
 msgstr ""
 
-#: ../../reference/qweb.rst:489
+# e48701b5e6aa4e06a453713cb293f18b
+#: ../../reference/qweb.rst:501
 msgid "The javascript QWeb implementation provides a few debugging hooks:"
 msgstr ""
 
-#: ../../reference/qweb.rst:497
+# 4a5c6dce6cb84ca695fd7779dab32fd6
+#: ../../reference/qweb.rst:509
 msgid "``t-log``"
 msgstr ""
 
-#: ../../reference/qweb.rst:492
+# 82191120700f404f911dbfd6edee818e
+#: ../../reference/qweb.rst:504
 msgid ""
 "takes an expression parameter, evaluates the expression during rendering "
 "and logs its result with ``console.log``::"
 msgstr ""
 
-#: ../../reference/qweb.rst:498
+# e11a3364800a4a238b7a5b90b8185e88
+#: ../../reference/qweb.rst:510
 msgid "will print ``42`` to the console"
 msgstr ""
 
-#: ../../reference/qweb.rst:500
+# 69e262ba6fd54a8faba38b97604aa6f2
+#: ../../reference/qweb.rst:512
 msgid "triggers a debugger breakpoint during template rendering::"
 msgstr ""
 
-#: ../../reference/qweb.rst:506
+# 44cc93e5332d4bd3a85a133f30ae33dc
+#: ../../reference/qweb.rst:518
 msgid ""
 "will stop execution if debugging is active (exact condition depend on the"
 " browser and its development tools)"
 msgstr ""
 
-#: ../../reference/qweb.rst:516
+# 1a0068cc31174b34b49eedd6c67ee09b
+#: ../../reference/qweb.rst:528
 msgid "``t-js``"
 msgstr ""
 
-#: ../../reference/qweb.rst:509
+# fda866d7e58640248e0bfd4b1bcb5238
+#: ../../reference/qweb.rst:521
 msgid ""
 "the node's body is javascript code executed during template rendering. "
 "Takes a ``context`` parameter, which is the name under which the "
 "rendering context will be available in the ``t-js``'s body::"
 msgstr ""
 
-#: ../../reference/qweb.rst:523
+# e37edf436bbb475f845e8e0986ca5e7d
+#: ../../reference/qweb.rst:535
 msgid ""
 "(core is the ``web.core`` module) An instance of :js:class:`QWeb2.Engine`"
 " with all module-defined template files loaded, and references to "
@@ -914,49 +875,63 @@ msgid ""
 " and JSON_."
 msgstr ""
 
-#: ../../reference/qweb.rst:527
+# 2926476862984887bd30bbb71f459d9d
+#: ../../reference/qweb.rst:539
 msgid ""
 ":js:func:`core.qweb.render <QWeb2.Engine.render>` can be used to easily "
 "render basic module templates"
 msgstr ""
 
-#: ../../reference/qweb.rst:535
+# ecd78baf45f54c5384888e188751789b
+#: ../../reference/qweb.rst:543
+msgid "API"
+msgstr ""
+
+# 5759f6ef6a404621b0686f7c8e32aa64
+#: ../../reference/qweb.rst:547
 msgid ""
 "The QWeb \"renderer\", handles most of QWeb's logic (loading, parsing, "
 "compiling and rendering templates)."
 msgstr ""
 
-#: ../../reference/qweb.rst:538
+# f2348a48c6ca49f0909cdb32bda1cb4a
+#: ../../reference/qweb.rst:550
 msgid ""
 "OpenERP Web instantiates one for the user in the core module, and exports"
 " it to ``core.qweb``. It also loads all the template files of the various"
 " modules into that QWeb instance."
 msgstr ""
 
-#: ../../reference/qweb.rst:542
+# e8d62fa998bc4960b46a9785707d0422
+#: ../../reference/qweb.rst:554
 msgid "A :js:class:`QWeb2.Engine` also serves as a \"template namespace\"."
 msgstr ""
 
-#: ../../reference/qweb.rst:546
+# 392101aeafcb4a4fa9690d741e345187
+#: ../../reference/qweb.rst:558
 msgid ""
 "Renders a previously loaded template to a String, using ``context`` (if "
 "provided) to find the variables accessed during template rendering (e.g. "
 "strings to display)."
 msgstr ""
 
-#: ../../reference/qweb.rst:550
+# c0c13ebe50af49e2874b0bd5c5370d28
+#: ../../reference/qweb.rst:562
 msgid "the name of the template to render"
 msgstr ""
 
-#: ../../reference/qweb.rst:551
+# 527fbbd2427e4b24bc8117a7cb2d0613
+#: ../../reference/qweb.rst:563
 msgid "the basic namespace to use for template rendering"
 msgstr ""
 
-#: ../../reference/qweb.rst:553
+# 294395be3ece4d9facbe1377b1b3b5b4
+#: ../../reference/qweb.rst:565
 msgid "String"
 msgstr ""
 
-#: ../../reference/qweb.rst:555
+# ff9471c93bab45ecb9c957f86ec6d7db
+#: ../../reference/qweb.rst:567
 msgid ""
 "The engine exposes an other method which may be useful in some cases "
 "(e.g. if you need a separate template namespace with, in OpenERP Web, "
@@ -964,82 +939,300 @@ msgid ""
 "templates don't collide with more general \"module\" templates):"
 msgstr ""
 
-#: ../../reference/qweb.rst:563
+# 2f23eeb885d54716bb7bd36182233b3d
+#: ../../reference/qweb.rst:575
 msgid ""
 "Loads a template file (a collection of templates) in the QWeb instance. "
 "The templates can be specified as:"
 msgstr ""
 
-#: ../../reference/qweb.rst:568
+# eb8aa70ffeb14e4cbffde8a36f70d313
+#: ../../reference/qweb.rst:580
 msgid "An XML string"
 msgstr ""
 
-#: ../../reference/qweb.rst:567
+# 1c9756edf8a040498d74b13beb080e07
+#: ../../reference/qweb.rst:579
 msgid "QWeb will attempt to parse it to an XML document then load it."
 msgstr ""
 
-#: ../../reference/qweb.rst:572
+# c4a89c443c8e4457ba22c6294b543989
+#: ../../reference/qweb.rst:584
 msgid "A URL"
 msgstr ""
 
-#: ../../reference/qweb.rst:571
+# 7caf45ab3a0343148012d69b0140b7b0
+#: ../../reference/qweb.rst:583
 msgid ""
 "QWeb will attempt to download the URL content, then load the resulting "
 "XML string."
 msgstr ""
 
-#: ../../reference/qweb.rst:577
+# 5fc8a0a6647a40628912d7318ec4699d
+#: ../../reference/qweb.rst:589
 msgid "A ``Document`` or ``Node``"
 msgstr ""
 
-#: ../../reference/qweb.rst:575
+# bb23f0007d654e498b2be5722a6d0016
+#: ../../reference/qweb.rst:587
 msgid ""
 "QWeb will traverse the first level of the document (the child nodes of "
 "the provided root) and load any named template or template override."
 msgstr ""
 
-#: ../../reference/qweb.rst:581
+# 7f6f4ebcb8d64d9e98b6bb59b6f81c4f
+#: ../../reference/qweb.rst:593
 msgid ""
 "A :js:class:`QWeb2.Engine` also exposes various attributes for behavior "
 "customization:"
 msgstr ""
 
-#: ../../reference/qweb.rst:586
+# bb77a196abfa4fe3919ba01d8c858cab
+#: ../../reference/qweb.rst:598
 msgid ""
 "Prefix used to recognize directives during parsing. A string. By default,"
 " ``t``."
 msgstr ""
 
-#: ../../reference/qweb.rst:591
+# 28cc1aa5f1844aa8a37cea9bca2760ce
+#: ../../reference/qweb.rst:603
 msgid ""
 "Boolean flag putting the engine in \"debug mode\". Normally, QWeb "
 "intercepts any error raised during template execution. In debug mode, it "
 "leaves all exceptions go through without intercepting them."
 msgstr ""
 
-#: ../../reference/qweb.rst:598
+# 711de2e114df478098c4fe0335084658
+#: ../../reference/qweb.rst:610
 msgid ""
 "The jQuery instance used during template inheritance processing. Defaults"
 " to ``window.jQuery``."
 msgstr ""
 
-#: ../../reference/qweb.rst:603
+# f161bb0f1445498886a53d1925db0b06
+#: ../../reference/qweb.rst:615
 msgid ""
 "A ``Function``. If present, called before compiling each DOM node to "
 "template code. In OpenERP Web, this is used to automatically translate "
 "text content and some attributes in templates. Defaults to ``null``."
 msgstr ""
 
-#: ../../reference/qweb.rst:608
+# 6a7de5e53be94d31b2cfd2a9dd8f26fb
+#: ../../reference/qweb.rst:620
 msgid ""
 "it is similar in that to Genshi_, although it does not use (and has no "
 "support for) `XML namespaces`_"
 msgstr ""
 
-#: ../../reference/qweb.rst:611
+# ab4f6551a8c745a983ef5764ce7b00e5
+#: ../../reference/qweb.rst:623
 msgid ""
 "although it uses a few others, either for historical reasons or because "
 "they remain better fits for the use case. Odoo 9.0 still depends on "
 "Jinja_ and Mako_."
 msgstr ""
+
+#~ msgid ""
+#~ "``t-field-options`` can be used to "
+#~ "customize fields, the most common option"
+#~ " is ``widget``, other options are "
+#~ "field- or widget-dependent."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Most Python-side uses of QWeb are"
+#~ " in controllers (and during HTTP "
+#~ "requests), in which case templates "
+#~ "stored in the database (as :ref:`views"
+#~ " <reference/views/qweb>`) can be trivially "
+#~ "rendered by calling "
+#~ ":meth:`openerp.http.HttpRequest.render`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This automatically creates a "
+#~ ":class:`~openerp.http.Response` object which can "
+#~ "be returned from the controller (or "
+#~ "further customized to suit)."
+#~ msgstr ""
+
+#~ msgid "the current :class:`~openerp.http.WebRequest` object, if any"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "It is also possible to use the "
+#~ "``ir.qweb`` model directly (and extend "
+#~ "it, and inherit from it):"
+#~ msgstr ""
+
+#~ msgid "Base QWeb rendering engine"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "to customize ``t-field`` rendering, subclass"
+#~ " ``ir.qweb.field`` and create new models"
+#~ " called :samp:`ir.qweb.field.{widget}`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "alternatively, override :meth:`~.get_converter_for` "
+#~ "and return an arbitrary model to "
+#~ "use as field converter"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Beware that if you need extensions "
+#~ "or alterations which could be "
+#~ "incompatible with other subsystems, you "
+#~ "should create a local object inheriting"
+#~ " from ``ir.qweb`` and customize that."
+#~ msgstr ""
+
+#~ msgid "returns a :class:`~openerp.models.Model` used to render a ``t-field``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By default, tries to get the model"
+#~ " named :samp:`ir.qweb.field.{field_type}`, falling "
+#~ "back on ``ir.qweb.field``."
+#~ msgstr ""
+
+#~ msgid "type or widget of field to render"
+#~ msgstr ""
+
+#~ msgid "returns a :class:`~openerp.models.Model` used to render a ``t-esc``"
+#~ msgstr ""
+
+#~ msgid "name of the widget to use, or ``None``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Extracts all methods prefixed by "
+#~ "``prefix``, and returns a mapping of "
+#~ "(t-name, method) where the t-name is "
+#~ "the method name with prefix removed "
+#~ "and underscore converted to dashes"
+#~ msgstr ""
+
+#~ msgid "dict"
+#~ msgstr ""
+
+#~ msgid "Renders the template specified by the provided template name"
+#~ msgstr ""
+
+#~ msgid "context for rendering the template"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "if ``qwebcontext`` is a dict, loader "
+#~ "set into the context instantiated for"
+#~ " rendering"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This special 't-call' tag can be "
+#~ "used in order to aggregate/minify "
+#~ "javascript and css assets"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "eg: <span t-record=\"browse_record(res.partner, 1)\""
+#~ " t-field=\"phone\">+1 555 555 8069</span>"
+#~ msgstr ""
+
+#~ msgid "Used to convert a t-field specification into an output HTML field."
+#~ msgstr ""
+
+#~ msgid ":meth:`~.to_html` is the entry point of this conversion from QWeb, it:"
+#~ msgstr ""
+
+#~ msgid "converts the record value to html using :meth:`~.record_to_html`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "generates the metadata attributes (``data-"
+#~ "oe-``) to set on the root result"
+#~ " node"
+#~ msgstr ""
+
+#~ msgid "generates the root result node itself through :meth:`~.render_element`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Generates the metadata attributes (prefixed"
+#~ " by ``data-oe-`` for the root "
+#~ "node of the field conversion. Attribute"
+#~ " values are escaped by the parent."
+#~ msgstr ""
+
+#~ msgid "The default attributes are:"
+#~ msgstr ""
+
+#~ msgid "``model``, the name of the record's model"
+#~ msgstr ""
+
+#~ msgid "``id`` the id of the record to which the field belongs"
+#~ msgstr ""
+
+#~ msgid "``field`` the name of the converted field"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``type`` the logical field type (widget,"
+#~ " may not match the field's ``type``,"
+#~ " may not be any Field subclass "
+#~ "name)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``translate``, a boolean flag (``0`` or"
+#~ " ``1``) denoting whether the field is"
+#~ " translatable"
+#~ msgstr ""
+
+#~ msgid "``readonly``, has this attribute if the field is readonly"
+#~ msgstr ""
+
+#~ msgid "``expression``, the original expression"
+#~ msgstr ""
+
+#~ msgid "iterable of (attribute name, attribute value) pairs."
+#~ msgstr ""
+
+#~ msgid "Converts the specified field of the browse_record ``record`` to HTML"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Final rendering hook, by default just"
+#~ " calls ir.qweb's ``render_element``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Converts a ``t-field`` to its HTML "
+#~ "output. A ``t-field`` may be extended"
+#~ " by a ``t-field-options``, which is"
+#~ " a JSON-serialized mapping of "
+#~ "configuration values."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A default configuration key is "
+#~ "``widget`` which can override the "
+#~ "field's own ``_type``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Fetches the res.lang object corresponding "
+#~ "to the language code stored in the"
+#~ " user's context. Fallbacks to en_US "
+#~ "if no lang is present in the "
+#~ "context *or the language code is "
+#~ "not valid*."
+#~ msgstr ""
+
+#~ msgid "res.lang browse_record"
+#~ msgstr ""
+
+#~ msgid "Converts a single value to its HTML version/output"
+#~ msgstr ""
 

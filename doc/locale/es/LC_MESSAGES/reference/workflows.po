@@ -8,19 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 549ffb1d06144c95a0e807b201d602e1
 #: ../../reference/workflows.rst:4
 msgid "Workflows"
 msgstr ""
 
+# 64ccf429b4074b40b938e397eab92525
 #: ../../reference/workflows.rst:6
 msgid ""
 "In Odoo, a workflow is a technical artefact to manage a set of \"things "
@@ -28,22 +30,26 @@ msgid ""
 "higher-level way to organize tasks to perform with or on a record."
 msgstr ""
 
+# 42c14ade7f074c63b461e77f9c81384f
 #: ../../reference/workflows.rst:10
 msgid ""
 "More specifically, a workflow is a directed graph where the nodes are "
 "called \"activities\" and the arcs are called \"transitions\"."
 msgstr ""
 
+# 3b55547b9b474186b26108e805bb5b3d
 #: ../../reference/workflows.rst:13
 msgid ""
 "Activities define work that should be done within the Odoo server, such "
 "as changing the state of some records, or sending emails."
 msgstr ""
 
+# 7e3660229aec432ab19ef2712aa0e0fb
 #: ../../reference/workflows.rst:15
 msgid "Transitions control how the workflow progresses from activity to activity."
 msgstr ""
 
+# d533d1ed8abd4285ae457ef236ee7ea7
 #: ../../reference/workflows.rst:17
 msgid ""
 "In the definition of a workflow, one can attach conditions, signals, and "
@@ -52,40 +58,49 @@ msgid ""
 "arbitrary Python code."
 msgstr ""
 
+# 19d3e535521944988077fb5b1629a21f
 #: ../../reference/workflows.rst:22
 msgid "All in all, Odoo's workflow system provides:"
 msgstr ""
 
+# 567a329e0e614709bb4ddb509e2dc6a9
 #: ../../reference/workflows.rst:24
 msgid "a description of the evolution of a record (document) over time"
 msgstr ""
 
+# 375d7c39d9c249e7839ec5331a3458a0
 #: ../../reference/workflows.rst:25
 msgid "automatic actions based on various and flexible conditions"
 msgstr ""
 
+# d233e7ba13c0491db213316f80040153
 #: ../../reference/workflows.rst:26
 msgid "management of company roles and validation steps"
 msgstr ""
 
+# 0bb2d638089640bab2d102cfa6dc2b08
 #: ../../reference/workflows.rst:27
 msgid "management of interactions between objects"
 msgstr ""
 
+# 3662a131328a46e08fb1bbed81c55356
 #: ../../reference/workflows.rst:28
 msgid "a visual representation of document flows through their lifecycle"
 msgstr ""
 
+# bf6d2478259c4e1ebcb5abb8a15245ab
 #: ../../reference/workflows.rst:30
 msgid "For instance, a basic order could have the following flow:"
 msgstr ""
 
+# c19a5d014a1c46b0a17c0570b65a267f
 #: ../../reference/workflows.rst:39
 msgid ""
 "Orders start in the *Draft* state, can be *Confirmed* by a user, and then"
 " either shipped (*Closed*) or *Canceled*."
 msgstr ""
 
+# eaec5f7a4ca942758727cb918b871076
 #: ../../reference/workflows.rst:42
 msgid ""
 "A company using Odoo may want to add discount support to orders, where "
@@ -95,22 +110,26 @@ msgid ""
 "files:"
 msgstr ""
 
+# 02c9a5f326c44be99feb37c6e3b124cb
 #: ../../reference/workflows.rst:50
 msgid ""
 "Because Activities can perform arbitrary actions, the *Validation* can "
 "automatically send a validation request to the relevant employee."
 msgstr ""
 
+# c363e00fc63e478bb4a8971b94a27c35
 #: ../../reference/workflows.rst:53
 msgid ""
 "the order view needs to be modified to add an *Accept Discount* button "
 "for managers"
 msgstr ""
 
+# bb47e4a6e0bb42cf9c2357fc695d0977
 #: ../../reference/workflows.rst:57
 msgid "Basics"
 msgstr ""
 
+# 9e6d753772db45eb9e1e1e1012615881
 #: ../../reference/workflows.rst:59
 msgid ""
 "Defining a workflow with data files is straightforward: a record "
@@ -119,6 +138,7 @@ msgid ""
 "defined in XML"
 msgstr ""
 
+# 4e25e51ea59d44cfb7f5300a4811a148
 #: ../../reference/workflows.rst:92
 msgid ""
 "A worfklow is always defined with respect to a particular model (the "
@@ -127,6 +147,7 @@ msgid ""
 " model."
 msgstr ""
 
+# 02fb1b5a23934d6084a91649f26408bb
 #: ../../reference/workflows.rst:96
 msgid ""
 "In the example code above, a workflow called \"test_workflow\" is "
@@ -134,6 +155,7 @@ msgid ""
 "transition, going from \"a\" to \"b\"."
 msgstr ""
 
+# efc97e99b84f4852b01795ca9bf55483
 #: ../../reference/workflows.rst:100
 msgid ""
 "The first activity has its attribute ``flow_start`` set to ``True`` so "
@@ -144,6 +166,7 @@ msgid ""
 "from some module Python code.)"
 msgstr ""
 
+# e2e403c412b643b883cd6e0c0c048781
 #: ../../reference/workflows.rst:106
 msgid ""
 "When the workflow is instanciated, it begins with activity \"a\". That "
@@ -152,6 +175,7 @@ msgid ""
 "``cr, uid, ids, context`` arguments are passed for you)."
 msgstr ""
 
+# 76cb02fbbf2542448d7dac9a95ce63be
 #: ../../reference/workflows.rst:111
 msgid ""
 "The transition between \"a\" and \"b\" specify a signal but not any "
@@ -160,10 +184,12 @@ msgid ""
 "thus processes activity \"b\"'s action ``print_b()``."
 msgstr ""
 
+# e94c029a33354183a24f9cbf72972b7b
 #: ../../reference/workflows.rst:117
 msgid "Activities"
 msgstr ""
 
+# af7198e93c194348845c2092173710d0
 #: ../../reference/workflows.rst:119
 msgid ""
 "While the transitions can be seen as the control structures of the "
@@ -171,6 +197,7 @@ msgid ""
 "states to sending email."
 msgstr ""
 
+# 81082a44aca54d9590cd2ada1c6cb36e
 #: ../../reference/workflows.rst:123
 msgid ""
 "Different kinds of activities exist: ``Dummy``, ``Function``, "
@@ -179,10 +206,12 @@ msgid ""
 "properties, detailed in the next sections."
 msgstr ""
 
+# d83ac8416df54c8eaf98d1c0f897f11f
 #: ../../reference/workflows.rst:129
 msgid "Flow start and flow stop"
 msgstr ""
 
+# 6020b3e3e20f41828d0cba01e4713f98
 #: ../../reference/workflows.rst:131
 msgid ""
 "The attribute ``flow_start`` is a boolean value specifying whether the "
@@ -192,6 +221,7 @@ msgid ""
 " and evaluate all their outgoing transitions afterwards."
 msgstr ""
 
+# 843b66bc045946deb02e57f3fe17c8ae
 #: ../../reference/workflows.rst:137
 msgid ""
 "The attribute ``flow_stop`` is a boolean value specifying whether the "
@@ -200,6 +230,7 @@ msgid ""
 " ``True`` are completed."
 msgstr ""
 
+# 7be40926ef5540ba9c5a452e05618de7
 #: ../../reference/workflows.rst:142
 msgid ""
 "It is important for Odoo to know when a workflow instance is completed. A"
@@ -207,10 +238,12 @@ msgid ""
 "a subflow); that activity is completed when the subflow is completed."
 msgstr ""
 
+# a8cf7098aecb442184ea7cffd03dbcd1
 #: ../../reference/workflows.rst:147
 msgid "Subflow"
 msgstr ""
 
+# 5a2fd49c982a4efba19bfc1ca5c68d1f
 #: ../../reference/workflows.rst:149
 msgid ""
 "An activity can embed a complete workflow, called a subflow (the "
@@ -218,12 +251,14 @@ msgid ""
 "instanciate is specified by attribute ``subflow_id``."
 msgstr ""
 
+# 75cc8d223bb04170bba1d28d3fa4e0c9
 #: ../../reference/workflows.rst:153
 msgid ""
 "In the GUI, that attribute can not be set unless the kind of the activity"
 " is ``Subflow``."
 msgstr ""
 
+# 0003c82ac70a4e63bd1e6d50cc928727
 #: ../../reference/workflows.rst:156
 msgid ""
 "The activity is considered completed (and its outgoing transitions ready "
@@ -231,39 +266,46 @@ msgid ""
 "``flow_stop`` above)."
 msgstr ""
 
+# d6548a3a4004483a94b7bd98f09e1f34
 #: ../../reference/workflows.rst:160
 msgid "Sending a signal from a subflow"
 msgstr ""
 
+# f0a53a73e8924ce2b8cc2d645b29a502
 #: ../../reference/workflows.rst:162
 msgid ""
 "When a workflow is embedded in an activity (as a subflow) of a workflow, "
-"the sublow can send a signal from its own activities to the parent "
+"the subflow can send a signal from its own activities to the parent "
 "workflow by giving a signal name in the attribute ``signal_send``. Odoo "
 "processes those activities by sending the value of ``signal_send`` "
 "prefixed by \"subflow.\"  to the parent workflow instance."
 msgstr ""
 
+# 64ae27b1bbf84848988ea8c70c3b64a5
 #: ../../reference/workflows.rst:168
 msgid ""
 "In other words, it is possible to react and get transitions in the parent"
-" workflow as activities are executed in the sublow."
+" workflow as activities are executed in the subflow."
 msgstr ""
 
+# cb1026ff61e5407485ddfaa7a4b2b3af
 #: ../../reference/workflows.rst:172
 msgid "Server actions"
 msgstr ""
 
+# f302673b229f4b3f9bd06c6fc18c5925
 #: ../../reference/workflows.rst:174
 msgid ""
 "An activity can run a \"Server Action\" by specifying its ID in the "
 "attribute ``action_id``."
 msgstr ""
 
+# 4b0b8428d48e4c06b53b27f008ac4eec
 #: ../../reference/workflows.rst:178
 msgid "Python action"
 msgstr ""
 
+# 2bd6d28861ed46e8a16d2425fc71d7af
 #: ../../reference/workflows.rst:180
 msgid ""
 "An activity can execute some Python code, given by the attribute "
@@ -271,40 +313,49 @@ msgid ""
 "in the section `Conditions`_."
 msgstr ""
 
+# d73839375b2f4c5dafd98bfc31bc6022
 #: ../../reference/workflows.rst:185
 msgid "Split mode"
 msgstr ""
 
+# 87b8522d12704f43965a624348d101e1
 #: ../../reference/workflows.rst:187
 msgid ""
 "After an activity has been processed, Odoo evaluates its transition to "
 "reach the next activity in the flow."
 msgstr ""
 
+# 578ab7bbed114d5fa25fc758ff8b3237
 #: ../../reference/workflows.rst:190
 msgid ""
 "However if an activity has more than one transition, Odoo must decide "
 "which activity or activities to follow."
 msgstr ""
 
+# bfbe54091f1245038088131b08277113
 #: ../../reference/workflows.rst:196
 msgid "This choice is controlled by the ``split_mode`` attribute:"
 msgstr ""
 
+# 590e91c76cfa4800ab9a9fe4a73e9b8f
+# 18a43bbde8f542b1b8bc8d4695269ecd
 #: ../../reference/workflows.rst:199 ../../reference/workflows.rst:224
 msgid "``XOR`` (default)"
 msgstr ""
 
+# a3c9ac67ab1349b596d97bc17588f9e0
 #: ../../reference/workflows.rst:199
 msgid ""
 "By default, Odoo will use the first transition (in ``sequence`` order) "
 "whose condition is satisfied. All other transitions are ignored."
 msgstr ""
 
+# cad01a7fc99c48f0aecb54397fed1c79
 #: ../../reference/workflows.rst:203
 msgid "``OR``"
 msgstr ""
 
+# 2c9c3448e3ce49a2bbd526057622e8e1
 #: ../../reference/workflows.rst:202
 msgid ""
 "In ``OR`` mode, all transitions with a satisfied condition are traversed "
@@ -312,26 +363,32 @@ msgid ""
 "become valid later."
 msgstr ""
 
+# 98ea6a0fc3e3462c8eec2917eb9eaa37
+# 5be0261ba7fc40f5b2671b88d6ed3fe0
 #: ../../reference/workflows.rst:207 ../../reference/workflows.rst:228
 msgid "``AND``"
 msgstr ""
 
+# 64a1876afc664bf89489847478e98c23
 #: ../../reference/workflows.rst:206
 msgid ""
 "In ``AND`` mode, Odoo will wait until *all* transitions are satisfied, "
 "and will traverse all of them (much like the ``OR`` mode)."
 msgstr ""
 
+# ae53aebff1d543249e210546dc5fa770
 #: ../../reference/workflows.rst:209
 msgid ""
 "Both ``OR`` and ``AND`` mode will lead to activities being active in the "
 "same workflow."
 msgstr ""
 
+# 7111fe79d6c14b3eb93c6dc143ab5126
 #: ../../reference/workflows.rst:213
 msgid "Join mode"
 msgstr ""
 
+# 6996ec057e6f4090994b229caaa112c9
 #: ../../reference/workflows.rst:215
 msgid ""
 "Just like outgoing transition conditions can be combined together to "
@@ -339,64 +396,78 @@ msgid ""
 "combined together to decide if and when an activity may be processed."
 msgstr ""
 
+# d112fcc1b3ce4fbbb61ec8dd1d648af0
 #: ../../reference/workflows.rst:222
 msgid "The ``join_mode`` attribute controls that behavior:"
 msgstr ""
 
+# 736bfbfe76524efa8eb5ae8f90b1d675
 #: ../../reference/workflows.rst:225
 msgid "Any incoming transition enables the activity and starts its processing."
 msgstr ""
 
+# 9187b7c7ad594fb892f2b7fca1cd8b90
 #: ../../reference/workflows.rst:227
 msgid ""
 "The activity is enabled and processed only once *all* incoming "
 "transitions have been traversed."
 msgstr ""
 
+# cb8833624eea4bd6af21527f825a2553
 #: ../../reference/workflows.rst:231
 msgid "Kinds"
 msgstr ""
 
+# 010a936a618440159da825a3c6ebf254
 #: ../../reference/workflows.rst:233
 msgid "An activity's kind defines the type of work an activity can perform."
 msgstr ""
 
+# b7ff37db14034b639e47cce688157539
 #: ../../reference/workflows.rst:236
 msgid "Dummy (``dummy``, default)"
 msgstr ""
 
+# fcd22c47eb4143c8af7b2e7c57e6435c
 #: ../../reference/workflows.rst:236
 msgid ""
 "Do nothing at all, or call a server action. Often used as dispatch or "
 "gather \"hubs\" for transitions."
 msgstr ""
 
+# 0196542421f7484490caaf7ff0ade7d0
 #: ../../reference/workflows.rst:238
 msgid "Function (``function``)"
 msgstr ""
 
+# 3f4cd94d6fce456cbc912e5b3645d0eb
 #: ../../reference/workflows.rst:239
 msgid "Run some python code, execute a server action."
 msgstr ""
 
+# 99bf5059c4104169891d11fa2ee77dd8
 #: ../../reference/workflows.rst:240
 msgid "Stop all (``stopall``)"
 msgstr ""
 
+# 1351c64a2b9746dea2150d793eb4477d
 #: ../../reference/workflows.rst:241
 msgid "Completely stops the workflow instance and marks it as completed."
 msgstr ""
 
+# fa046961d3ff403182e7c5bdc1464541
 #: ../../reference/workflows.rst:250
 msgid "Subflow (``subflow``)"
 msgstr ""
 
+# e01282fff81d43c1bea895cac36ab2d8
 #: ../../reference/workflows.rst:243
 msgid ""
 "Starts executing an other workflow, once that workflow is completed the "
 "activity is done processing."
 msgstr ""
 
+# 88274b955d73414987c5924b617de851
 #: ../../reference/workflows.rst:246
 msgid ""
 "By default, the subflow is instanciated for the same record as the parent"
@@ -405,10 +476,12 @@ msgid ""
 "The embedded subflow instance is then the one of the given record."
 msgstr ""
 
+# e812de4b9c6c4fe986b813e859e629db
 #: ../../reference/workflows.rst:253
 msgid "Transitions"
 msgstr ""
 
+# 6daca877caf04935a448526979e1bc41
 #: ../../reference/workflows.rst:255
 msgid ""
 "Transitions provide the control structures to orchestrate a workflow. "
@@ -419,6 +492,7 @@ msgid ""
 "activities preceding them are completed."
 msgstr ""
 
+# 3ba9856d80574eba81f2f73cbc95eb9d
 #: ../../reference/workflows.rst:262
 msgid ""
 "Instead of running all activities in one fell swoop, it is also possible "
@@ -427,10 +501,12 @@ msgid ""
 " are detailed in the following sections."
 msgstr ""
 
+# 81df2f2e93084a398cf1bb72d5b0d85c
 #: ../../reference/workflows.rst:268
 msgid "Conditions"
 msgstr ""
 
+# 6f33d4dae6204579bbfbcc8720969499
 #: ../../reference/workflows.rst:270
 msgid ""
 "When an activity has been completed, its outgoing transitions are "
@@ -443,6 +519,7 @@ msgid ""
 "modified, or by an explicit method call to do it."
 msgstr ""
 
+# 67c17f6a2950400fadb9ee4e6d5199b3
 #: ../../reference/workflows.rst:278
 msgid ""
 "By default, the attribute ``condition`` (i.e., the expression to be "
@@ -451,24 +528,29 @@ msgid ""
 "the last one determines whether the transition can be taken."
 msgstr ""
 
+# e0002956a3ad4696a0e1dd2ee3c010c7
 #: ../../reference/workflows.rst:283
 msgid ""
 "In the condition evaluation environment, several symbols are conveniently"
 " defined (in addition to the Odoo ``safe_eval`` environment):"
 msgstr ""
 
+# a2d7e6a368644b239f7bce613b3555a9
 #: ../../reference/workflows.rst:286
 msgid "all the model column names, and"
 msgstr ""
 
+# 0586eabab3984f3d8062b5943a7a77a0
 #: ../../reference/workflows.rst:287
 msgid "all the browse record's attributes."
 msgstr ""
 
+# b74a6e19870e49d3858fb7c935393475
 #: ../../reference/workflows.rst:292
 msgid "Signals"
 msgstr ""
 
+# 67ccef26d60f43b0a185ca8c27ec3bc1
 #: ../../reference/workflows.rst:294
 msgid ""
 "In addition to a condition, a transition can specify a signal name. When "
@@ -477,6 +559,7 @@ msgid ""
 "waiting to be woken up."
 msgstr ""
 
+# 255719983ab54453a3d59fa8a4a7c2a9
 #: ../../reference/workflows.rst:299
 msgid ""
 "In order to wake up a transition with a defined signal name, the signal "
@@ -487,16 +570,19 @@ msgid ""
 "current record."
 msgstr ""
 
+# e337f8a98c5a4b97b85dd86f32ce8c73
 #: ../../reference/workflows.rst:305
 msgid ""
 "The condition is still evaluated when the signal is sent to the workflow "
 "instance."
 msgstr ""
 
+# 4834b35fca0d446293a027d12bdad749
 #: ../../reference/workflows.rst:309
 msgid "Triggers"
 msgstr ""
 
+# 7343ae71e49641559c539cf2ab86fa92
 #: ../../reference/workflows.rst:311
 msgid ""
 "With conditions that evaluate to ``False``, transitions are not taken "
@@ -511,6 +597,7 @@ msgid ""
 "instead of all of them."
 msgstr ""
 
+# 08dc9b8a43d74bedb010e9c5c6f1ca57
 #: ../../reference/workflows.rst:321
 msgid ""
 "Triggers are recorded in database as record IDs (together with the model "
@@ -521,7 +608,28 @@ msgid ""
 "records can wake up the workflow instance they are associated with."
 msgstr ""
 
+# 301ddaf1dc6243b1b2aaac0529d71cb5
 #: ../../reference/workflows.rst:328
 msgid "triggers are not re-installed whenever the transition is re-tried."
 msgstr ""
+
+#~ msgid ""
+#~ "When a workflow is embedded in an"
+#~ " activity (as a subflow) of a "
+#~ "workflow, the sublow can send a "
+#~ "signal from its own activities to "
+#~ "the parent workflow by giving a "
+#~ "signal name in the attribute "
+#~ "``signal_send``. Odoo processes those "
+#~ "activities by sending the value of "
+#~ "``signal_send`` prefixed by \"subflow.\"  to"
+#~ " the parent workflow instance."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In other words, it is possible to"
+#~ " react and get transitions in the "
+#~ "parent workflow as activities are "
+#~ "executed in the sublow."
+#~ msgstr ""
 

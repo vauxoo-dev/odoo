@@ -7,43 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: 2016-03-04 00:23-0600\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
 "Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
 "Language-Team: \n"
-"X-Generator: Poedit 1.8.7\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: es\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 36ebc4135d57443097094a301a9762b5
 #: ../../howtos/website.rst:7
 msgid "Building a Website"
 msgstr "Construyendo un Website"
 
+# 76d91714cd114a56a4d4e8c868fad324
 #: ../../howtos/website.rst:11
 msgid ""
-"This guide assumes `basic knowledge of Python <http://docs.python.org/2/"
-"tutorial/>`_"
+"This guide assumes `basic knowledge of Python "
+"<http://docs.python.org/2/tutorial/>`_"
 msgstr ""
-"Esta guía asume `conocimientos básicos de Python <http://docs.python.org/2/"
-"tutorial/>`_"
+"Esta guía asume `conocimientos básicos de Python "
+"<http://docs.python.org/2/tutorial/>`_"
 
+# 65922df048f04ff0a418bcf7c9fa88df
 #: ../../howtos/website.rst:13
 msgid "This guide assumes :ref:`an installed Odoo <setup/install>`"
 msgstr "Esta guía asume :ref:`que tienes Odoo instalado <setup/install>`"
 
+# eb1d7681f6d945d6864c36383842a57a
 #: ../../howtos/website.rst:16
 msgid "Creating a basic module"
 msgstr "Creación de un módulo básico"
 
+# 60737cc7c2b84a00a19da850b37e65d7
 #: ../../howtos/website.rst:18
 msgid "In Odoo, tasks are performed by creating modules."
 msgstr "En Odoo, las tareas se realizan mediante la creación de módulos."
 
+# 8d87674736704321aa5739a432cdb194
 #: ../../howtos/website.rst:20
 msgid ""
 "Modules customize the behavior of an Odoo installation, either by adding "
@@ -51,57 +53,67 @@ msgid ""
 "other modules)."
 msgstr ""
 "Los módulos personalizan el comportamiento de una instalación de Odoo, "
-"añadiendo nuevos comportamientos o modificando los existentes (incluyendo "
-"nuevas características o modificando las de otros módulos)."
+"añadiendo nuevos comportamientos o modificando los existentes (incluyendo"
+" nuevas características o modificando las de otros módulos)."
 
+# 2c404066b55145b4b9d1f89135f9c5cd
 #: ../../howtos/website.rst:24
 msgid ""
 ":ref:`Odoo's scaffolding <reference/cmdline/scaffold>` can setup a basic "
 "module. To quickly get started simply invoke:"
 msgstr ""
-":ref:`Odoo's scaffolding <reference/cmdline/scaffold>` puede configurar un "
-"módulo básico. Para rápidamente comenzar con simplemente invocar:"
+":ref:`Odoo's scaffolding <reference/cmdline/scaffold>` puede configurar "
+"un módulo básico. Para rápidamente comenzar con simplemente invocar:"
 
+# f75e7d73370e42aab19523ab58570305
 #: ../../howtos/website.rst:31
 msgid ""
-"This will automatically create a ``my-modules`` *module directory* with an "
-"``academy`` module inside. The directory can be an existing module "
+"This will automatically create a ``my-modules`` *module directory* with "
+"an ``academy`` module inside. The directory can be an existing module "
 "directory if you want, but the module name must be unique within the "
 "directory."
 msgstr ""
 "Esto creará automáticamente un *directorio de módulo* ( ``my-modules``) "
 "con un módulo de la ``academy`` dentro. El directorio puede ser un "
-"directorio de módulos existente si quieres, pero el nombre del módulo debe "
-"ser único dentro del directorio."
+"directorio de módulos existente si quieres, pero el nombre del módulo "
+"debe ser único dentro del directorio."
 
+# ae8c198b28b843d1984f8ddc66359435
 #: ../../howtos/website.rst:39
 msgid "A demonstration module"
 msgstr "Un módulo para demostración"
 
+# 5ea7fcec47664ce6ae35747af37140d2
 #: ../../howtos/website.rst:41
 msgid "We have a \"complete\" module ready for installation."
 msgstr "Contamos con un módulo “completo” listo para su instalación."
 
+# 4e94d8f2b04b47d582f0d89d01421990
 #: ../../howtos/website.rst:43
 msgid "Although it does absolutely nothing we can install it:"
 msgstr "Aunque no hace absolutamente nada lo podemos instalar:"
 
+# 270f6196b67648c3bed7e921a4157b79
 #: ../../howtos/website.rst:45
 msgid "start the Odoo server"
 msgstr "Inicia el servidor de Odoo"
 
+# 6034e8fb7af14712949ad30db595264a
 #: ../../howtos/website.rst:51
 msgid "go to http://localhost:8069"
 msgstr "Abre un navegador con la dirección http://localhost:8069"
 
+# 8c179820cea14ee2b3253abdc95ff134
 #: ../../howtos/website.rst:52
 msgid "create a new database including demonstration data"
 msgstr "Crear una nueva base de datos incluyendo datos de demostración"
 
+# ba509f402c28495ca8a22e2ea8a63984
 #: ../../howtos/website.rst:53
 msgid "to go :menuselection:`Settings --> Modules --> Modules`"
 msgstr "Luego ir :menuselection:`Settings --> Modules --> Modules`"
 
+# 79ec28526e244869819e225a0cd046de
 #: ../../howtos/website.rst:54
 msgid ""
 "in the top-right corner remove the *Installed* filter and search for "
@@ -110,162 +122,193 @@ msgstr ""
 "En la esquina superior derecha, quite el filtro *Installed* y busca "
 "*academy*"
 
+# b4e3992d5a264113a0555abc4a1d8e87
 #: ../../howtos/website.rst:56
 msgid "click the :guilabel:`Install` button for the *Academy* module"
 msgstr "Haga clic en :guilabel:`Install` para el módulo *Academy*"
 
+# 5e024fe6d3784b2db5c0621de069e2e9
 #: ../../howtos/website.rst:59
 msgid "To the browser"
 msgstr "En el explorador"
 
+# 5fda581e05ac477d95f36e3d51e4b818
 #: ../../howtos/website.rst:61
 msgid ""
-":ref:`Controllers <reference/http/controllers>` interpret browser requests "
-"and send data back."
+":ref:`Controllers <reference/http/controllers>` interpret browser "
+"requests and send data back."
 msgstr ""
 "Los :ref:`Controllers <reference/http/controllers>` interpretan las "
 "peticiones del navegador y envía datos de regreso."
 
+# 59e750ef33bd40f6bc7d123137a2eb7e
 #: ../../howtos/website.rst:64
 msgid ""
 "Add a simple controller and ensure it is imported by ``__init__.py`` (so "
 "Odoo can find it):"
 msgstr ""
-"Agregar un controlador simple y asegura que es importado en el  ``__init__."
-"py`` (de tal modo que Odoo pueda encontrarlo):"
+"Agregar un controlador simple y asegura que es importado en el  "
+"``__init__.py`` (de tal modo que Odoo pueda encontrarlo):"
 
+# 4b92ede408a24c3ab60370b301dd5f34
 #: ../../howtos/website.rst:69
 msgid "Shut down your server (:kbd:`^C`) then restart it:"
 msgstr "Mata el servidor (:kbd:`^C`) y luego reinicialo:"
 
+# 0c400861e021497e86484e1a9d53f629
 #: ../../howtos/website.rst:75
 msgid ""
-"and open a page to http://localhost:8069/academy/academy/, you should see "
-"your \"page\" appear:"
+"and open a page to http://localhost:8069/academy/academy/, you should see"
+" your \"page\" appear:"
 msgstr ""
-"Abre una página en tu navegador en http://localhost:8069/academy/academy/, "
-"debería aparecer tu “página”:"
+"Abre una página en tu navegador en "
+"http://localhost:8069/academy/academy/, debería aparecer tu “página”:"
 
+# cc44ba0cac434948b5488581db803a9a
 #: ../../howtos/website.rst:81
 msgid "Templates"
 msgstr "Plantillas"
 
+# 894a9a9fbfab4389831c5943a1ad2c2d
 #: ../../howtos/website.rst:83
 msgid "Generating HTML in Python isn't very pleasant."
 msgstr "Generar HTML en Python no es muy agradable."
 
+# 2d81676f4e31422c8c86e10a022f2058
 #: ../../howtos/website.rst:85
 msgid ""
 "The usual solution is templates_, pseudo-documents with placeholders and "
-"display logic. Odoo allows any Python templating system, but provides its "
-"own :ref:`QWeb <reference/qweb>` templating system which integrates with "
-"other features."
+"display logic. Odoo allows any Python templating system, but provides its"
+" own :ref:`QWeb <reference/qweb>` templating system which integrates with"
+" other features."
 msgstr ""
 "La solución habitual es usar algo llamado “Plantillas” (templates_ en "
-"inglés), son pseudo-documentos con marcadores de posición y con la lógica "
-"de la vista. Odoo permite usar cualquier sistema de plantillas de Python, "
-"pero ofrece su propio sistema de plantillas llamado :ref:`QWeb <reference/"
-"qweb>` que está integrado con otras funciones."
+"inglés), son pseudo-documentos con marcadores de posición y con la lógica"
+" de la vista. Odoo permite usar cualquier sistema de plantillas de "
+"Python, pero ofrece su propio sistema de plantillas llamado :ref:`QWeb "
+"<reference/qweb>` que está integrado con otras funciones."
 
+# 7a67c0b3d07e44ac930e73b89e556f0c
 #: ../../howtos/website.rst:90
+#, fuzzy
 msgid ""
 "Create a template and ensure the template file is registered in the "
-"``__openerp__.py`` manifest, and alter the controller to use our template:"
+"``__manifest__.py`` manifest, and alter the controller to use our "
+"template:"
 msgstr ""
-"Crear una plantilla y el archivo de plantilla, registralo en el manifiesto "
-"``__openerp__.py`` y modifica el controlador para usar dicha plantilla:"
+"Crear una plantilla y el archivo de plantilla, registralo en el "
+"manifiesto ``__openerp__.py`` y modifica el controlador para usar dicha "
+"plantilla:"
 
+# c0ddd62dcedf4a3193078b622c6e5cb1
 #: ../../howtos/website.rst:95
 msgid ""
-"The templates iterates (``t-foreach``) on all the teachers (passed through "
-"the *template context*), and prints each teacher in its own paragraph."
+"The templates iterates (``t-foreach``) on all the teachers (passed "
+"through the *template context*), and prints each teacher in its own "
+"paragraph."
 msgstr ""
 "La plantilla itera (``t-foreach``) en todos los profesores (pasados a "
-"través del **Contexto del template**   (*template context* en inglés)), e "
-"imprime cada docente en su propio párrafo."
+"través del **Contexto del template**   (*template context* en inglés)), e"
+" imprime cada docente en su propio párrafo."
 
+# b2a8730f06424ef59f44a21a55e85725
 #: ../../howtos/website.rst:98
 msgid ""
 "Finally restart Odoo and update the module's data (to install the "
-"template) by going to :menuselection:`Settings --> Modules --> Modules --> "
-"Academy` and clicking :guilabel:`Upgrade`."
+"template) by going to :menuselection:`Settings --> Modules --> Modules "
+"--> Academy` and clicking :guilabel:`Upgrade`."
 msgstr ""
 "Para terminar reinicia Odoo y actualiza los datos del módulo (para "
-"instalar la plantilla) esto lo haces yendo a :menuselection:`Settings --> "
-"Modules --> Modules --> Academy`  y haciendo clic en :guilabel:`Upgrade`."
+"instalar la plantilla) esto lo haces yendo a :menuselection:`Settings -->"
+" Modules --> Modules --> Academy`  y haciendo clic en "
+":guilabel:`Upgrade`."
 
+# 05eb042859924c8c8354535144fc87e3
 #: ../../howtos/website.rst:104
+#, fuzzy
 msgid ""
 "Alternatively, Odoo can be restarted :option:`and update modules at the "
-"same time<odoo.py -u>`:"
+"same time<odoo-bin -u>`:"
 msgstr ""
-"Alternativamente, se puede reiniciar Odoo  :option:`y actualizar el módulo "
-"al mismo tiempo <odoo.py -u>`:"
+"Alternativamente, se puede reiniciar Odoo  :option:`y actualizar el "
+"módulo al mismo tiempo <odoo.py -u>`:"
 
+# 0c68d82fc77f419b99cc8633b933751d
 #: ../../howtos/website.rst:111
 msgid "Going to http://localhost:8069/academy/academy/ should now result in:"
 msgstr "Ve a http://localhost:8069/academy/academy/ y ahora debe aparecer:"
 
+# 417be883653d4b1995dd3fbb361723a9
 #: ../../howtos/website.rst:116
 msgid "Storing data in Odoo"
 msgstr "Almacenamiento de datos en Odoo"
 
+# 624ebdd68923426385cd540ac7602b1a
 #: ../../howtos/website.rst:118
 msgid ":ref:`Odoo models <reference/orm/model>` map to database tables."
 msgstr ""
 ":ref:`Los modelos de Odoo <reference/orm/model>` mapean elementos tablas "
 "en la base de datos."
 
+# 368e2c1f1641485a86f446d9ed183ebc
 #: ../../howtos/website.rst:120
 msgid ""
 "In the previous section we just displayed a list of string entered "
 "statically in the Python code. This doesn't allow modifications or "
 "persistent storage so we'll now move our data to the database."
 msgstr ""
-"En la sección anterior sólo nos muestra una lista de cadenas estáticamente "
-"escritas en código Python. Esto no permite modificaciones o almacenamiento "
-"persistente así que ahora grabaremos nuestros datos a la base de datos."
+"En la sección anterior sólo nos muestra una lista de cadenas "
+"estáticamente escritas en código Python. Esto no permite modificaciones o"
+" almacenamiento persistente así que ahora grabaremos nuestros datos a la "
+"base de datos."
 
+# 1fcb392f438c4298879778f3570601ea
 #: ../../howtos/website.rst:125
 msgid "Defining the data model"
 msgstr "Definir el modelo de datos"
 
+# 8df06ab504da447d882a072a9b2e1616
 #: ../../howtos/website.rst:127
 msgid ""
-"Define a teacher model, and ensure it is imported from ``__init__.py`` so "
-"it is correctly loaded:"
+"Define a teacher model, and ensure it is imported from ``__init__.py`` so"
+" it is correctly loaded:"
 msgstr ""
-"Definir un modelo que represente a un profesor y asegurate que se importa "
-"en el  ``__init__.py`` así es cargado correctamente por odoo:"
+"Definir un modelo que represente a un profesor y asegurate que se importa"
+" en el  ``__init__.py`` así es cargado correctamente por odoo:"
 
+# 91adba1f9173412c98764f3e5dcbc7f6
 #: ../../howtos/website.rst:132
 msgid ""
 "Then setup :ref:`basic access control <reference/security/acl>` for the "
 "model and add them to the manifest:"
 msgstr ""
-"Luego crea :ref:`los controles de acceso básicos <reference/security/acl>` "
-"para el modelo y declara los archivos en el manifiesto:"
+"Luego crea :ref:`los controles de acceso básicos "
+"<reference/security/acl>` para el modelo y declara los archivos en el "
+"manifiesto:"
 
+# ed101d1f28d440ad848b8a6729b03e5a
 #: ../../howtos/website.rst:137
 msgid ""
-"this simply gives read access (``perm_read``) to all users (``group_id:"
-"id`` left empty)."
+"this simply gives read access (``perm_read``) to all users "
+"(``group_id:id`` left empty)."
 msgstr ""
-"Simplemente da acceso de lectura (``perm_read``) a todos los usuarios (eso "
-"significa deja ``group_id:id`` vacío)"
+"Simplemente da acceso de lectura (``perm_read``) a todos los usuarios "
+"(eso significa deja ``group_id:id`` vacío)"
 
+# 7a188489f5fe449db491805dae5db46d
 #: ../../howtos/website.rst:142
 msgid ""
 ":ref:`Data files <reference/data>` (XML or CSV) must be added to the "
-"module manifest, Python files (models or controllers) don't but have to be "
-"imported from ``__init__.py`` (directly or indirectly)"
+"module manifest, Python files (models or controllers) don't but have to "
+"be imported from ``__init__.py`` (directly or indirectly)"
 msgstr ""
 ":ref:`Los archivos de datos <reference/data>` (XML o CSV) debe ser "
 "agregados al manifiesto del módulo, pero no es así con los archivos de "
-"Python (modelos o controladores), sino que tienen que ser importados en el "
-"archivo ``__init__.py`` (directa o relativamente aunque es recomendable "
-"cómo buena práctica hacer la importación relativa)"
+"Python (modelos o controladores), sino que tienen que ser importados en "
+"el archivo ``__init__.py`` (directa o relativamente aunque es "
+"recomendable cómo buena práctica hacer la importación relativa)"
 
+# 94013a632aed46a38aa7aeb43ba77164
 #: ../../howtos/website.rst:148
 msgid ""
 "the administrator user bypasses access control, they have access to all "
@@ -274,10 +317,12 @@ msgstr ""
 "El usuario administrador ignora el control de acceso y tiene acceso a "
 "todos los modelos aunque no tenga permisos definidos de forma explícita"
 
+# bb5aa49c97ee4f6b88573d13c7d97a01
 #: ../../howtos/website.rst:152
 msgid "Demonstration data"
 msgstr "Datos de demostración"
 
+# 13c3f00dd1c3478cb6526cc13830b9f3
 #: ../../howtos/website.rst:154
 msgid ""
 "The second step is to add some demonstration data to the system so it's "
@@ -285,98 +330,114 @@ msgid ""
 "file <reference/data>`, which must be linked from the manifest:"
 msgstr ""
 "El segundo paso es añadir algunos datos de demostración del sistema para "
-"que sea posible probar fácilmente. Esto se hace agregando un :ref:`Archivo "
-"de datos <reference/data>`  ``demo``, que debe estar declarado en el "
-"manifiesto:"
+"que sea posible probar fácilmente. Esto se hace agregando un "
+":ref:`Archivo de datos <reference/data>`  ``demo``, que debe estar "
+"declarado en el manifiesto:"
 
+# 44a863e12284483b9844942a945852fc
 #: ../../howtos/website.rst:162
 msgid ""
-":ref:`Data files <reference/data>` can be used for demo and non-demo data. "
-"Demo data are only loaded in \"demonstration mode\" and can be used for "
-"flow testing and demonstration, non-demo data are always loaded and used "
-"as initial system setup."
+":ref:`Data files <reference/data>` can be used for demo and non-demo "
+"data. Demo data are only loaded in \"demonstration mode\" and can be used"
+" for flow testing and demonstration, non-demo data are always loaded and "
+"used as initial system setup."
 msgstr ""
 ":ref:`Los archivos de datos <reference/data>` pueden ser utilizados para "
 "datos de demostración y datos no-demostración. los datos demo sólo se "
 "cargan en \"demonstration mode\" y pueden utilizarse para demostración y "
-"pruebas de flujo, los datos no-demo son siempre cargados y utilizados como "
-"configuración inicial del sistema."
+"pruebas de flujo, los datos no-demo son siempre cargados y utilizados "
+"como configuración inicial del sistema."
 
+# b8f56f3d768e40e28866a2a6e3eab63d
 #: ../../howtos/website.rst:167
 msgid ""
-"In this case we're using demonstration data because an actual user of the "
-"system would want to input or import their own teachers list, this list is "
-"only useful for testing."
+"In this case we're using demonstration data because an actual user of the"
+" system would want to input or import their own teachers list, this list "
+"is only useful for testing."
 msgstr ""
 "En este caso estamos utilizando datos de demostración ya que un usuario "
 "real del sistema le gustaría con solo instalar tener una lista de "
-"profesores o importar su propia lista, esta lista sólo es útil para probar."
+"profesores o importar su propia lista, esta lista sólo es útil para "
+"probar."
 
+# ec768a2800d8438e94fe6983c55c70ee
 #: ../../howtos/website.rst:172
 msgid "Accessing the data"
 msgstr "Acceder a los datos"
 
+# 4af151c766de465e8379258b372816a3
 #: ../../howtos/website.rst:174
 msgid ""
-"The last step is to alter model and template to use our demonstration data:"
+"The last step is to alter model and template to use our demonstration "
+"data:"
 msgstr ""
 "El último paso es modificar el modelo y la plantilla a utilizar nuestros "
 "datos de demostración:"
 
+# dba4baeaadd148fabc2b89b32e93a64a
 #: ../../howtos/website.rst:176
 msgid "fetch the records from the database instead of having a static list"
 msgstr ""
 "Buscar los registros de la base de datos en lugar de tener una lista "
 "estática"
 
+# 6f1c61c20c854e5ebf81749b58be5f97
 #: ../../howtos/website.rst:177
+#, fuzzy
 msgid ""
-"Because :meth:`~openerp.models.Model.search` returns a set of records "
+"Because :meth:`~odoo.models.Model.search` returns a set of records "
 "matching the filter (\"all records\" here), alter the template to print "
 "each teacher's ``name``"
 msgstr ""
 "Ya que :meth:`~openerp.models.Model.search` devuelve un conjunto de "
-"registros que coinciden con el filtro (“todos los registros” aquí), vamos "
-"a modificar la plantilla para imprimir el ``name`` de cada maestro"
+"registros que coinciden con el filtro (“todos los registros” aquí), vamos"
+" a modificar la plantilla para imprimir el ``name`` de cada maestro"
 
+# 62eba9ff4def439d86e2aebbcb7a9e7b
 #: ../../howtos/website.rst:183
 msgid ""
-"Restart the server and update the module (in order to update the manifest "
-"and templates and load the demo file) then navigate to http://"
-"localhost:8069/academy/academy/. The page should look slightly different: "
-"names should simply be prefixed by a number (the database identifier for "
-"the teacher)."
+"Restart the server and update the module (in order to update the manifest"
+" and templates and load the demo file) then navigate to "
+"http://localhost:8069/academy/academy/. The page should look slightly "
+"different: names should simply be prefixed by a number (the database "
+"identifier for the teacher)."
 msgstr ""
 "Reinicia el servidor y actualiza el módulo (con el fin de actualizar el "
 "manifiesto así cómo las plantillas y cargar también el archivo de "
-"demostración) ve a http://localhost:8069/academy/academy/. La página debe "
-"parecer levemente diferente: nombres simplemente deben ser prefijados por "
-"un número (el identificador de base de datos para el profesor)."
+"demostración) ve a http://localhost:8069/academy/academy/. La página debe"
+" parecer levemente diferente: nombres simplemente deben ser prefijados "
+"por un número (el identificador de base de datos para el profesor)."
 
+# d5f0a9edcd50415f9026e849900ae409
 #: ../../howtos/website.rst:190
 msgid "Website support"
 msgstr "Soporte de sitio web"
 
+# 9fb8f936e5f548c189bf48c372198560
 #: ../../howtos/website.rst:192
 msgid "Odoo bundles a module dedicated to building websites."
 msgstr "Odoo tiene un módulo dedicado a la construcción de sitios Web."
 
+# 59d61899e7fe4d128870f24c2f85e55b
 #: ../../howtos/website.rst:194
 msgid ""
 "So far we've used controllers fairly directly, but Odoo 8 added deeper "
 "integration and a few other services (e.g. default styling, theming) via "
 "the ``website`` module."
 msgstr ""
-"Hasta ahora hemos utilizado controladores directamente, pero Odoo 8 agrega "
-"una integración más profunda y algunos otros servicios (por ejemplo "
-"estilos por defecto, manejo de temas) a través del módulo ``website``."
+"Hasta ahora hemos utilizado controladores directamente, pero Odoo 8 "
+"agrega una integración más profunda y algunos otros servicios (por "
+"ejemplo estilos por defecto, manejo de temas) a través del módulo "
+"``website``."
 
+# 24673906ccc74335a02365f6976f98d4
 #: ../../howtos/website.rst:198
 msgid "first, add ``website`` as a dependency to ``academy``"
 msgstr ""
 "En primer lugar, añadir ``website`` como una dependencia del módulo "
 "``Academy``"
 
+# 84af793df3ed4747b7d5ee6c217e2055
 #: ../../howtos/website.rst:199
 msgid ""
 "then add the ``website=True`` flag on the controller, this sets up a few "
@@ -384,95 +445,107 @@ msgid ""
 "allows using the website layout in our template"
 msgstr ""
 "luego agregar la bandera ``website=True`` al controlador, esta establece "
-"nuevas variables en :ref:`el objeto *request* <reference/http/request>` y "
-"le permite utilizar una el esquema de disposición de los elementos del "
+"nuevas variables en :ref:`el objeto *request* <reference/http/request>` y"
+" le permite utilizar una el esquema de disposición de los elementos del "
 "sitio (*layout* en inglés) en nuestra plantilla"
 
+# fa47ea5e2b264da682738d0f4659cb29
 #: ../../howtos/website.rst:202
 msgid "use the website layout in the template"
 msgstr "Utilizar el *layout* en nuestra plantilla."
 
+# c0a6073e7a9d4c909746b6bbac9fc297
 #: ../../howtos/website.rst:206
 msgid ""
-"After restarting the server while updating the module (in order to update "
-"the manifest and template) access http://localhost:8069/academy/academy/ "
-"should yield a nicer looking page with branding and a number of built-in "
-"page elements (top-level menu, footer, …)"
+"After restarting the server while updating the module (in order to update"
+" the manifest and template) access http://localhost:8069/academy/academy/"
+" should yield a nicer looking page with branding and a number of built-in"
+" page elements (top-level menu, footer, …)"
 msgstr ""
-"Después de reiniciar el servidor al actualizar el módulo (para actualizar "
-"el manifiesto y la plantilla) entramos a http://localhost:8069/academy/"
-"academy/ debería mostrar una página más agradable con un esquema de imagen "
-"y otros elementos en la página incorporados (menú de primer nivel, pie de "
-"página,…)"
+"Después de reiniciar el servidor al actualizar el módulo (para actualizar"
+" el manifiesto y la plantilla) entramos a "
+"http://localhost:8069/academy/academy/ debería mostrar una página más "
+"agradable con un esquema de imagen y otros elementos en la página "
+"incorporados (menú de primer nivel, pie de página,…)"
 
+# 12ece434f6ce42a1a158082c64a2f755
 #: ../../howtos/website.rst:213
 msgid ""
-"The website layout also provides support for edition tools: click :"
-"guilabel:`Sign In` (in the top-right), fill the credentials in "
+"The website layout also provides support for edition tools: click "
+":guilabel:`Sign In` (in the top-right), fill the credentials in "
 "(``admin`` / ``admin`` by default) then click :guilabel:`Log In`."
 msgstr ""
 "El *layout* del módulo ``website`` también proporciona soporte para "
-"herramientas de edición: haga clic en:  :guilabel:`Sign In`  (en la parte "
-"superior derecha), coloca las credenciales (``admin`` / ``admin`` por "
+"herramientas de edición: haga clic en:  :guilabel:`Sign In`  (en la parte"
+" superior derecha), coloca las credenciales (``admin`` / ``admin`` por "
 "defecto) haga clic en:  :guilabel:`Log In`."
 
+# 9086a34df1ad4fabb4ad91e6f47ff45f
 #: ../../howtos/website.rst:217
 msgid ""
-"You're now in Odoo \"proper\": the administrative interface. For now click "
-"on the :guilabel:`Website` menu item (top-left corner."
+"You're now in Odoo \"proper\": the administrative interface. For now "
+"click on the :guilabel:`Website` menu item (top-left corner."
 msgstr ""
-"Estás ahora en Odoo: la interfaz administrativa. Por ahora haga clic en el "
-"botón :guilabel:`Website` (esquina superior izquierda)."
+"Estás ahora en Odoo: la interfaz administrativa. Por ahora haga clic en "
+"el botón :guilabel:`Website` (esquina superior izquierda)."
 
+# 1a7f7a03683a439cb1b15d354c1f8fab
 #: ../../howtos/website.rst:220
 msgid ""
-"We're back in the website but as an administrator, with access to advanced "
-"edition features provided by the *website* support:"
+"We're back in the website but as an administrator, with access to "
+"advanced edition features provided by the *website* support:"
 msgstr ""
 "Estamos ahora en el website pero como administrador, con acceso a "
-"funciones de edición avanzadas dichas opciones son provistas por el módulo "
-"*website*:"
+"funciones de edición avanzadas dichas opciones son provistas por el "
+"módulo *website*:"
 
+# a80bcd5141b24d34afc80aedb648a891
 #: ../../howtos/website.rst:223
 msgid ""
-"a template code editor (:menuselection:`Customize --> HTML Editor`) where "
-"you can see and edit all templates used for the current page"
+"a template code editor (:menuselection:`Customize --> HTML Editor`) where"
+" you can see and edit all templates used for the current page"
 msgstr ""
-"Un editor de código para la plantilla (:menuselection:`Customize --> HTML "
-"Editor`) donde puedes ver y editar todas las plantillas utilizadas "
+"Un editor de código para la plantilla (:menuselection:`Customize --> HTML"
+" Editor`) donde puedes ver y editar todas las plantillas utilizadas "
 "actualmente"
 
+# 98164e4d03e547b18991abbf95a7bfaa
 #: ../../howtos/website.rst:225
 msgid ""
 "the :guilabel:`Edit` button in the top-left switches to \"edition mode\" "
 "where blocks (snippets) and rich text edition are available"
 msgstr ""
-"El botón :guilabel:`Edit` en la parte superior izquierda cambia al \"modo "
-"edición\" donde hay bloques (fragmentos) y edición de texto"
+"El botón :guilabel:`Edit` en la parte superior izquierda cambia al \"modo"
+" edición\" donde hay bloques (fragmentos) y edición de texto"
 
+# e900920c2ea14b7a99092c95487042ec
 #: ../../howtos/website.rst:227
 msgid ""
 "a number of other features such as mobile preview or :abbr:`SEO (Search "
 "Engine Optimization)`"
 msgstr ""
-"Un número de otras características tales como vista previa móvil y :abbr:"
-"`SEO (Search Engine Optimization)`"
+"Un número de otras características tales como vista previa móvil y "
+":abbr:`SEO (Search Engine Optimization)`"
 
+# 243604cad32f4b93bf66b722028e76c5
 #: ../../howtos/website.rst:231
 msgid "URLs and routing"
 msgstr "URLs y enrutamiento"
 
+# f369cd66f0ec4e4a8b18c990cddf61cd
 #: ../../howtos/website.rst:233
+#, fuzzy
 msgid ""
-"Controller methods are associated with *routes* via the :func:`~openerp."
-"http.route` decorator which takes a routing string and a number of "
-"attributes to customise its behavior or security."
+"Controller methods are associated with *routes* via the "
+":func:`~odoo.http.route` decorator which takes a routing string and a "
+"number of attributes to customise its behavior or security."
 msgstr ""
-"Los métodos de control *controllers* están asociados con *rutas* a través "
-"de la función decoradora :func:`~openerp.http.route` que toma una cadena "
-"de distribución (*routing*) y un número de atributos para personalizar su "
-"comportamiento o la seguridad."
+"Los métodos de control *controllers* están asociados con *rutas* a través"
+" de la función decoradora :func:`~openerp.http.route` que toma una cadena"
+" de distribución (*routing*) y un número de atributos para personalizar "
+"su comportamiento o la seguridad."
 
+# 1d82b6d345d242fa9924ed43beb1d1d7
 #: ../../howtos/website.rst:237
 msgid ""
 "We've seen a \"literal\" routing string, which matches a URL section "
@@ -481,21 +554,23 @@ msgid ""
 "instance we can create a new controller method which takes a bit of URL "
 "and prints it out:"
 msgstr ""
-"Hemos visto una cadena enrutamiento “literal”, que corresponde exactamente "
-"a una sección de URL, pero las cadenas de enrutamiento también pueden usar "
-"`patrones convertidores`_ que coincide con los bits de direcciones URL y "
-"los pone disponibles como variables locales. Por ejemplo podemos crear un "
-"nuevo método de control *controller* que toma una parte del URL y lo "
-"imprime:"
+"Hemos visto una cadena enrutamiento “literal”, que corresponde "
+"exactamente a una sección de URL, pero las cadenas de enrutamiento "
+"también pueden usar `patrones convertidores`_ que coincide con los bits "
+"de direcciones URL y los pone disponibles como variables locales. Por "
+"ejemplo podemos crear un nuevo método de control *controller* que toma "
+"una parte del URL y lo imprime:"
 
+# 4e080fda2dff402b9a368a5fc1352722
 #: ../../howtos/website.rst:244
 msgid ""
-"restart Odoo, access http://localhost:8069/academy/Alice/ and http://"
-"localhost:8069/academy/Bob/ and see the difference."
+"restart Odoo, access http://localhost:8069/academy/Alice/ and "
+"http://localhost:8069/academy/Bob/ and see the difference."
 msgstr ""
-"reiniciar Odoo, accede a http://localhost:8069/academy/Alice/ y http://"
-"localhost:8069/academy/Bob/ y ver la diferencia."
+"reiniciar Odoo, accede a http://localhost:8069/academy/Alice/ y "
+"http://localhost:8069/academy/Bob/ y ver la diferencia."
 
+# 233cc4c0f26c4c0393106f602d1f98f7
 #: ../../howtos/website.rst:247
 msgid ""
 "As the name indicates, `converter patterns`_ don't just do extraction, "
@@ -506,20 +581,22 @@ msgstr ""
 "extracción, también hacen la *validación* y la *conversión*, entonces "
 "podemos cambiar el controlador para que sólo acepte números enteros:"
 
+# 14e4b52d5a3541239e2404a3dedf4213
 #: ../../howtos/website.rst:253
 msgid ""
 "Restart Odoo, access http://localhost:8069/academy/2, note how the old "
 "value was a string, but the new one was converted to an integers. Try "
-"accessing http://localhost:8069/academy/Carol/ and note that the page was "
-"not found: since \"Carol\" is not an integer, the route was ignored and no "
-"route could be found."
+"accessing http://localhost:8069/academy/Carol/ and note that the page was"
+" not found: since \"Carol\" is not an integer, the route was ignored and "
+"no route could be found."
 msgstr ""
-"Reinicia Odoo, entra a http://localhost:8069/academy/2, nota cómo el valor "
-"anterior era una cadena, pero el nuevo fue convertido a un entero. Tratar "
-"de acceder a http://localhost:8069/academy/Carol/ y tenga en cuenta que la "
-"página no se encontró: “Carol” no es un número entero, la ruta fue "
-"ignorada y ninguna ruta pudo encontrarse."
+"Reinicia Odoo, entra a http://localhost:8069/academy/2, nota cómo el "
+"valor anterior era una cadena, pero el nuevo fue convertido a un entero. "
+"Tratar de acceder a http://localhost:8069/academy/Carol/ y tenga en "
+"cuenta que la página no se encontró: “Carol” no es un número entero, la "
+"ruta fue ignorada y ninguna ruta pudo encontrarse."
 
+# 04a777592dd3499aa732d9ae597ebdf3
 #: ../../howtos/website.rst:259
 msgid ""
 "Odoo provides an additional converter called ``model`` which provides "
@@ -527,44 +604,50 @@ msgid ""
 "page for teacher biographies:"
 msgstr ""
 "Odoo ofrece un convertidor adicional llamado ``model`` que provee un "
-"registro directamente dado su id. Vamos a usar esto para crear una página "
-"genérica para las biografías de los maestros:"
+"registro directamente dado su id. Vamos a usar esto para crear una página"
+" genérica para las biografías de los maestros:"
 
+# 06b25855d85e4b6790733cf9db6a5f0b
 #: ../../howtos/website.rst:265
 msgid "then change the list of model to link to our new controller:"
 msgstr "luego cambia la lista de modelo a nuestro nuevo controlador:"
 
+# bb995edb362347ebb33e73db31eaec85
 #: ../../howtos/website.rst:269
 msgid ""
 "Restart Odoo and upgrade the module, then you can visit each teacher's "
 "page. As an exercise, try adding blocks to a teacher's page to write a "
 "biography, then go to another teacher's page and so forth. You will "
 "discover, that your biography is shared between all teachers, because "
-"blocks are added to the *template*, and the *biography* template is shared "
-"between all teachers, when one page is edited they're all edited at the "
-"same time."
+"blocks are added to the *template*, and the *biography* template is "
+"shared between all teachers, when one page is edited they're all edited "
+"at the same time."
 msgstr ""
 "Reiniciar Odoo y actualizar el módulo, a continuación, puede visitar la "
 "página de cada profesor. Como ejercicio, intente agregar bloques a la "
 "página de un maestro para escribir una biografía, y luego ir a la página "
-"de otro maestro y así sucesivamente. Descubrirá que su modelo de biografía "
-"es compartida entre todos los maestros, porque los bloques se agregan a la "
-"*plantilla* y la plantilla de la *biografía* es compartida entre todos los "
-"maestros, cuando se edita una página están todas siendo editadas al mismo "
-"tiempo."
+"de otro maestro y así sucesivamente. Descubrirá que su modelo de "
+"biografía es compartida entre todos los maestros, porque los bloques se "
+"agregan a la *plantilla* y la plantilla de la *biografía* es compartida "
+"entre todos los maestros, cuando se edita una página están todas siendo "
+"editadas al mismo tiempo."
 
+# 50c03befe6b2403ebef3b317d7396e1f
 #: ../../howtos/website.rst:277
 msgid "Field edition"
 msgstr "Edición de campos"
 
+# ded02735cd724ae59e98aea5f79d627b
 #: ../../howtos/website.rst:279
 msgid ""
-"Data which is specific to a record should be saved on that record, so let "
-"us add a new biography field to our teachers:"
+"Data which is specific to a record should be saved on that record, so let"
+" us add a new biography field to our teachers:"
 msgstr ""
-"Los datos que son específicos de un registro se guardará en ese registro, "
-"así que nosotros agregar un nuevo campo ``biography`` a nuestros maestros:"
+"Los datos que son específicos de un registro se guardará en ese registro,"
+" así que nosotros agregar un nuevo campo ``biography`` a nuestros "
+"maestros:"
 
+# ef61e19344234fa0ba3ad2e4fa8326c4
 #: ../../howtos/website.rst:284
 msgid ""
 "Restart Odoo and update the views, reload the teacher's page and… the "
@@ -573,38 +656,42 @@ msgstr ""
 "Reinicia Odoo y actualiza las vistas, re-carga la página del profesor el "
 "campo es invisible porque no contiene nada."
 
+# 87f8d0ead493400586a983971e163e26
 #: ../../howtos/website.rst:290
 msgid ""
-"For record fields, templates can use a special ``t-field`` directive which "
-"allows editing the field content from the website using field-specific "
-"interfaces. Change the *person* template to use ``t-field``:"
+"For record fields, templates can use a special ``t-field`` directive "
+"which allows editing the field content from the website using field-"
+"specific interfaces. Change the *person* template to use ``t-field``:"
 msgstr ""
-"Para los campos de registro, las plantillas pueden utilizar una directiva "
-"del ``t-field`` especial que permite editar el contenido del campo desde "
-"el website mediante interfaces específicamente diseñadas para campos. "
+"Para los campos de registro, las plantillas pueden utilizar una directiva"
+" del ``t-field`` especial que permite editar el contenido del campo desde"
+" el website mediante interfaces específicamente diseñadas para campos. "
 "Cambio la plantilla de la *person* para usar  ``t-field``:"
 
+# 2d79ce8d55be4dc5a0e94f589260531f
 #: ../../howtos/website.rst:296
 msgid ""
-"Restart Odoo and upgrade the module, there is now a placeholder under the "
-"teacher's name and a new zone for blocks in :guilabel:`Edit` mode. Content "
-"dropped there is stored in the corresponding teacher's ``biography`` "
-"field, and thus specific to that teacher."
+"Restart Odoo and upgrade the module, there is now a placeholder under the"
+" teacher's name and a new zone for blocks in :guilabel:`Edit` mode. "
+"Content dropped there is stored in the corresponding teacher's "
+"``biography`` field, and thus specific to that teacher."
 msgstr ""
-"Reinicia Odoo y actualiza el módulo, ahora hay un marcador de posición con "
-"el nombre del profesor y una nueva zona de bloques en modo :guilabel:"
-"`Edit`.El contenido que se suelte allí es almacenado en el campo de "
-"``biografía`` del profesor correspondiente y por lo tanto es específica a "
-"ese maestro."
+"Reinicia Odoo y actualiza el módulo, ahora hay un marcador de posición "
+"con el nombre del profesor y una nueva zona de bloques en modo "
+":guilabel:`Edit`.El contenido que se suelte allí es almacenado en el "
+"campo de ``biografía`` del profesor correspondiente y por lo tanto es "
+"específica a ese maestro."
 
+# 6ee8bf2db153416f881d37750ff67980
 #: ../../howtos/website.rst:301
 msgid ""
-"The teacher's name is also editable, and when saved the change is visible "
-"on the index page."
+"The teacher's name is also editable, and when saved the change is visible"
+" on the index page."
 msgstr ""
-"El nombre del profesor también es editable y cuando se modifica el cambio "
-"es visible en el índice."
+"El nombre del profesor también es editable y cuando se modifica el cambio"
+" es visible en el índice."
 
+# a232ef67bb934be4bf509d554af109b4
 #: ../../howtos/website.rst:304
 msgid ""
 "``t-field`` can also take formatting options which depend on the exact "
@@ -612,9 +699,10 @@ msgid ""
 "record:"
 msgstr ""
 "``t-field`` también puede tomar opciones de formato que dependen del "
-"formato del campo. Por ejemplo si desplegamos la fecha de modificación de "
-"registro de un maestro:"
+"formato del campo. Por ejemplo si desplegamos la fecha de modificación de"
+" registro de un maestro:"
 
+# 6f1db18c75ed46ce9ebcc0b666f28a35
 #: ../../howtos/website.rst:309
 msgid ""
 "it is displayed in a very \"computery\" manner and hard to read, but we "
@@ -623,18 +711,22 @@ msgstr ""
 "es mostrado de una manera muy “computista” y difícil de leer, pero "
 "podríamos hacer una versión legible:"
 
+# 8bb6dc69edf642dfa5a8aa1aa35bee73
 #: ../../howtos/website.rst:314
 msgid "or a relative display:"
 msgstr "o un despliegue relativo:"
 
+# 14977e714e38478f9c9177fa89d99c68
 #: ../../howtos/website.rst:319
 msgid "Administration and ERP integration"
 msgstr "administración e Integración con el ERP"
 
+# 1fed1baa0a1b47d0b544753466179f95
 #: ../../howtos/website.rst:322
 msgid "A brief and incomplete introduction to the Odoo administration"
 msgstr "Una introducción breve e incompleta a la administración de Odoo"
 
+# 6cd078e567c0474891b633c41abd50bc
 #: ../../howtos/website.rst:324
 msgid ""
 "The Odoo administration was briefly seen during the `website support`_ "
@@ -642,14 +734,16 @@ msgid ""
 "Administrator` in the menu (or :guilabel:`Sign In` if you're signed out)."
 msgstr ""
 "La administración de Odoo fue vista brevemente durante la sección  "
-"`website support`_. Podemos volver a hacerlo usando :menuselection:"
-"`Administrator --> Administrator` en el menú (o :guilabel:`Sign In` si no "
-"estás autenticado)."
+"`website support`_. Podemos volver a hacerlo usando "
+":menuselection:`Administrator --> Administrator` en el menú (o "
+":guilabel:`Sign In` si no estás autenticado)."
 
+# 425095f93078412384052878e98a3480
 #: ../../howtos/website.rst:328
 msgid "The conceptual structure of the Odoo backend is simple:"
 msgstr "La estructura conceptual del backend Odoo es simple:"
 
+# c886c754240344338074959950a83b74
 #: ../../howtos/website.rst:330
 msgid ""
 "first are menus, a tree (menus can have sub-menus) of records. Menus "
@@ -658,6 +752,7 @@ msgstr ""
 "en primer lugar son menús, un árbol (menús pueden tener submenús) de "
 "registros. Los menús sin hijos apuntan a…"
 
+# da09fe42f79d45548622179f902eee89
 #: ../../howtos/website.rst:332
 msgid ""
 "actions. Actions have various types: links, reports, code which Odoo "
@@ -666,10 +761,11 @@ msgid ""
 "views…"
 msgstr ""
 "acciones. Las acciones tienen varios tipos: enlaces, informes, datos y "
-"código que debe ejecutar Odoo o Mostrar. Las acciones de visualización de "
-"datos son llamadas *Acciones de ventana*, y le dicen a Odoo como mostrar "
-"un determinado *modelo* según un conjunto de vistas…"
+"código que debe ejecutar Odoo o Mostrar. Las acciones de visualización de"
+" datos son llamadas *Acciones de ventana*, y le dicen a Odoo como mostrar"
+" un determinado *modelo* según un conjunto de vistas…"
 
+# 493db023601c4d1487967466a990528d
 #: ../../howtos/website.rst:335
 msgid ""
 "a view has a type, a broad category to which it corresponds (a list, a "
@@ -677,109 +773,122 @@ msgid ""
 "model is displayed inside the view."
 msgstr ""
 "una vista tiene un tipo, una categoría a la que ésta corresponde (una "
-"lista, un gráfico, un calendario) y una *arquitectura* la cual personaliza "
-"la manera en que el modelo se muestra en la vista."
+"lista, un gráfico, un calendario) y una *arquitectura* la cual "
+"personaliza la manera en que el modelo se muestra en la vista."
 
+# e24a57004ac64e20a75d4873ceba90a2
 #: ../../howtos/website.rst:340
 msgid "Editing in the Odoo administration"
 msgstr "Editar en la interfaz de administración"
 
+# 232c3703709849e4ac74ee63728fcbd3
 #: ../../howtos/website.rst:342
 msgid ""
 "By default, an Odoo model is essentially invisible to a user. To make it "
 "visible it must be available through an action, which itself needs to be "
 "reachable, generally through a menu."
 msgstr ""
-"De forma predeterminada, un modelo de Odoo es esencialmente invisible a un "
-"usuario. Para que sea visible debe estar disponible a través de una "
-"acción, la cuál en sí mismo debe ser accesible, generalmente esto se hace "
-"a través de un menú."
+"De forma predeterminada, un modelo de Odoo es esencialmente invisible a "
+"un usuario. Para que sea visible debe estar disponible a través de una "
+"acción, la cuál en sí mismo debe ser accesible, generalmente esto se hace"
+" a través de un menú."
 
+# e22cef00029e43debc7c064c42b6490e
 #: ../../howtos/website.rst:346
 msgid "Let's create a menu for our model:"
 msgstr "Vamos a crear un menú para nuestro modelo:"
 
+# 9c55cd2d34bf4af7b5ad1d997ab0911c
 #: ../../howtos/website.rst:350
 msgid ""
 "then accessing http://localhost:8069/web/ in the top left should be a "
-"menu :guilabel:`Academy`, which is selected by default, as it is the first "
-"menu, and having opened a listing of teachers. From the listing it is "
-"possible to :guilabel:`Create` new teacher records, and to switch to the "
-"\"form\" by-record view."
+"menu :guilabel:`Academy`, which is selected by default, as it is the "
+"first menu, and having opened a listing of teachers. From the listing it "
+"is possible to :guilabel:`Create` new teacher records, and to switch to "
+"the \"form\" by-record view."
 msgstr ""
 "entonces acceder a http://localhost:8069/web/ en la parte superior "
-"izquierda debería haber un menú :guilabel:`Academy`, que está seleccionada "
-"por defecto, ya que es el primer menú y abre un listado de los docentes. "
-"Desde el listado es posible :guilabel:`Create` (crear) nuevos registros de "
-"maestros y para cambiar a la vista formulario."
+"izquierda debería haber un menú :guilabel:`Academy`, que está "
+"seleccionada por defecto, ya que es el primer menú y abre un listado de "
+"los docentes. Desde el listado es posible :guilabel:`Create` (crear) "
+"nuevos registros de maestros y para cambiar a la vista formulario."
 
+# 0f1673a973464c988585906a0a07a4b0
 #: ../../howtos/website.rst:356
 msgid ""
 "If there is no definition of how to present records (a :ref:`view "
-"<reference/views>`) Odoo will automatically create a basic one on-the-fly. "
-"In our case it works for the \"list\" view for now (only displays the "
-"teacher's name) but in the \"form\" view the HTML ``biography`` field is "
-"displayed side-by-side with the ``name`` field and not given enough space. "
-"Let's define a custom form view to make viewing and editing teacher "
-"records a better experience:"
+"<reference/views>`) Odoo will automatically create a basic one on-the-"
+"fly. In our case it works for the \"list\" view for now (only displays "
+"the teacher's name) but in the \"form\" view the HTML ``biography`` field"
+" is displayed side-by-side with the ``name`` field and not given enough "
+"space. Let's define a custom form view to make viewing and editing "
+"teacher records a better experience:"
 msgstr ""
-"Si no hay ninguna definición de cómo presentar los registros (un :ref:"
-"`view <reference/views>`) Odoo creará automáticamente uno básico on-the-"
-"fly. En nuestro caso funciona para la vista “list” por ahora (sólo muestra "
-"el nombre del profesor), pero en la vista “formulario” HTML el campo "
-"``biography`` es al lado del campo ``name`` y no hay suficiente espacio. "
-"Vamos a definir una vista de formulario personalizado para hacer ver y "
-"editar registros maestros con una mejor experiencia:"
+"Si no hay ninguna definición de cómo presentar los registros (un "
+":ref:`view <reference/views>`) Odoo creará automáticamente uno básico on-"
+"the-fly. En nuestro caso funciona para la vista “list” por ahora (sólo "
+"muestra el nombre del profesor), pero en la vista “formulario” HTML el "
+"campo ``biography`` es al lado del campo ``name`` y no hay suficiente "
+"espacio. Vamos a definir una vista de formulario personalizado para hacer"
+" ver y editar registros maestros con una mejor experiencia:"
 
+# 4399fb19c2c34116905caaf320ac9b4c
 #: ../../howtos/website.rst:367
 msgid "Relations between models"
 msgstr "Relaciones entre modelos"
 
+# 07dc85d50bca4b3da81904d872923378
 #: ../../howtos/website.rst:369
 msgid ""
 "We have seen a pair of \"basic\" fields stored directly in the record. "
 "There are :ref:`a number of basic fields <reference/orm/fields/basic>`. "
-"The second broad categories of fields are :ref:`relational <reference/orm/"
-"fields/relational>` and used to link records to one another (within a "
-"model or across models)."
+"The second broad categories of fields are :ref:`relational "
+"<reference/orm/fields/relational>` and used to link records to one "
+"another (within a model or across models)."
 msgstr ""
 "Hemos visto un par de campos «básicos» almacenados directamente en el "
-"registro. Hay :ref:`un número de campos básicos <reference/orm/fields/"
-"basic>`. Las segunda categorías de campos son :ref:`relacionase <reference/"
-"orm/fields/relational>`  y suelen vincular registros entre ellos (dentro "
-"de un modelo o de diferentes modelos)."
+"registro. Hay :ref:`un número de campos básicos "
+"<reference/orm/fields/basic>`. Las segunda categorías de campos son "
+":ref:`relacionase <reference/orm/fields/relational>`  y suelen vincular "
+"registros entre ellos (dentro de un modelo o de diferentes modelos)."
 
+# a389ec9060414dc597e63d4157d3493a
 #: ../../howtos/website.rst:375
 msgid ""
-"For demonstration, let's create a *courses* model. Each course should have "
-"a ``teacher`` field, linking to a single teacher record, but each teacher "
-"can teach many courses:"
+"For demonstration, let's create a *courses* model. Each course should "
+"have a ``teacher`` field, linking to a single teacher record, but each "
+"teacher can teach many courses:"
 msgstr ""
 "Para la demostración, vamos a crear un *courses* modelo. Cada curso debe "
 "tener un campo  ``teacher``, con un registro de solo maestro, pero cada "
 "profesor puede impartir varios cursos:"
 
+# 0df477a1d37d4f508a58f6adf3b1196b
 #: ../../howtos/website.rst:381
 msgid "let's also add views so we can see and edit a course's teacher:"
 msgstr ""
 "Agreguemos también vistas para que podamos ver y editar profesor de un "
 "curso:"
 
+# b12280d2dfd04ba28b9c4bd69964e12e
 #: ../../howtos/website.rst:385
+#, fuzzy
 msgid ""
-"It should also be possible to create new courses directly from a teacher's "
-"page, or to see all the courses they teach, so add :class:`the inverse "
-"relationship <openerp.fields.One2many>` to the *teachers* model:"
+"It should also be possible to create new courses directly from a "
+"teacher's page, or to see all the courses they teach, so add :class:`the "
+"inverse relationship <odoo.fields.One2many>` to the *teachers* model:"
 msgstr ""
-"También debe ser posible crear nuevos cursos directamente desde la página "
-"de un profesor así como ver todos los cursos que enseña, así que "
+"También debe ser posible crear nuevos cursos directamente desde la página"
+" de un profesor así como ver todos los cursos que enseña, así que "
 "agregamos :class:`la relación inversa <openerp.fields.One2many>` al  "
 "*teachers*:"
 
+# d30a933ca7174573a9c4dda255b05f7f
 #: ../../howtos/website.rst:393
 msgid "Discussions and notifications"
 msgstr "Discusiones y notificaciones"
 
+# 74cc58ac609049db9639da44619c7756
 #: ../../howtos/website.rst:395
 msgid ""
 "Odoo provides technical models, which don't directly fulfill business "
@@ -790,30 +899,27 @@ msgstr ""
 "necesidades del negocio pero que agrega capacidades a objetos de negocio "
 "sin tener que construirlas a mano."
 
+# d61eb432bae24774b4c7607e88534dc4
 #: ../../howtos/website.rst:399
 msgid ""
 "One of these is the *Chatter* system, part of Odoo's email and messaging "
 "system, which can add notifications and discussion threads to any model. "
-"The model simply has to :attr:`~openerp.models.Model._inherit` ``mail."
-"thread``, and add the ``message_ids`` field to its form view to display "
-"the discussion thread. Discussion threads are per-record."
+"The model simply has to :attr:`~odoo.models.Model._inherit` "
+"``mail.thread``, and add the ``message_ids`` field to its form view to "
+"display the discussion thread. Discussion threads are per-record."
 msgstr ""
-"Uno de ellos es el sistema *Chatter*, parte del correo electrónico y "
-"sistema de mensajería de Odoo, éste puede agregar notificaciones y "
-"discusiones a cualquier modelo en Odoo. El modelo simplemente tiene que :"
-"attr:`~openerp.models.Model._inherit` ``mail.thread`, y agregue el campo "
-"de ``message_ids`` a la vista formulario para mostrar el hilo de "
-"discusión. Las discusiones son por registro."
 
+# d34d7c3e5a60492599d91f274d350d60
 #: ../../howtos/website.rst:405
 msgid ""
-"For our academy, it makes sense to allow discussing courses to handle e.g. "
-"scheduling changes or discussions between teachers and assistants:"
+"For our academy, it makes sense to allow discussing courses to handle "
+"e.g. scheduling changes or discussions between teachers and assistants:"
 msgstr ""
 "Para nuestra Academia, tiene sentido permitir intercambio de mensajes en "
 "los cursos para manejar, por ejemplo, la programación cambios o "
 "discusiones entre profesores y asistentes:"
 
+# 7f06a95e664047bba9b664adc5228d2f
 #: ../../howtos/website.rst:410
 msgid ""
 "At the bottom of each course form, there is now a discussion thread and "
@@ -821,37 +927,41 @@ msgid ""
 "unfollow discussions linked to specific courses."
 msgstr ""
 "En la parte inferior de cada formulario de curso, ahora hay un hilo de "
-"discusión y la posibilidad para los usuarios del sistema dejar mensajes y "
-"seguir o dejar de seguir cursos vinculados a ciertos debates."
+"discusión y la posibilidad para los usuarios del sistema dejar mensajes y"
+" seguir o dejar de seguir cursos vinculados a ciertos debates."
 
+# 321c248705ed44cfb2ea262f242901fc
 #: ../../howtos/website.rst:415
 msgid "Selling courses"
 msgstr "Venta de cursos"
 
+# e5f35d8a022a481ea037dff7b813fbba
 #: ../../howtos/website.rst:417
 msgid ""
-"Odoo also provides business models which allow using or opting in business "
-"needs more directly. For instance the ``website_sale`` module sets up an e-"
-"commerce site based on the products in the Odoo system. We can easily make "
-"course subscriptions sellable by making our courses specific kinds of "
-"products."
+"Odoo also provides business models which allow using or opting in "
+"business needs more directly. For instance the ``website_sale`` module "
+"sets up an e-commerce site based on the products in the Odoo system. We "
+"can easily make course subscriptions sellable by making our courses "
+"specific kinds of products."
 msgstr ""
 "Odoo ofrece también modelos de negocio que permiten utilizar más "
 "directamente en las necesidades del negocio. Por ejemplo con el módulo "
 "``website_sale`` es posible configurar un sitio de comercio electrónico "
-"basado en los productos en Odoo. Con éste podemos hacer la subscripción a "
-"los cursos vendibles usando un tipo de producto específico"
+"basado en los productos en Odoo. Con éste podemos hacer la subscripción a"
+" los cursos vendibles usando un tipo de producto específico"
 
+# dbcccbf479324a08bbff6c43477dea1f
 #: ../../howtos/website.rst:423
 msgid ""
 "Rather than the previous classical inheritance, this means replacing our "
-"*course* model by the *product* model, and extending products in-place (to "
-"add anything we need to it)."
+"*course* model by the *product* model, and extending products in-place "
+"(to add anything we need to it)."
 msgstr ""
 "En lugar de usar una herencia clásica anterior, esto significa cambiar "
-"nuestro modelo *course* por el modelo *product*  y extender los productos "
-"en-sitio (para agregar cualquier cosa que necesitemos de él)."
+"nuestro modelo *course* por el modelo *product*  y extender los productos"
+" en-sitio (para agregar cualquier cosa que necesitemos de él)."
 
+# 05718504d83548b98fe048362580d118
 #: ../../howtos/website.rst:427
 msgid ""
 "First of all we need to add a dependency on ``website_sale`` so we get "
@@ -861,89 +971,106 @@ msgstr ""
 "con lo que obtenemos productos (a través de  ``sale``) y la interfaz de "
 "comercio electrónico:"
 
+# 5c6212f636e24321bcfd1d3bc448c809
 #: ../../howtos/website.rst:432
 msgid ""
-"restart Odoo, update your module, there is now a :guilabel:`Shop` section "
-"in the website, listing a number of pre-filled (via demonstration data) "
+"restart Odoo, update your module, there is now a :guilabel:`Shop` section"
+" in the website, listing a number of pre-filled (via demonstration data) "
 "products."
 msgstr ""
 "reinicia Odoo, actualice su módulo, ahora hay un menú :guilabel:`Shop`, "
 "listando un número de productos existentes (se crearon como datos de "
 "demostración) de la tienda."
 
+# 7281aaa7450c49a5ba8fe0c3dc277df5
 #: ../../howtos/website.rst:435
 msgid ""
-"The second step is to replace the *courses* model by ``product.template``, "
-"and add a new category of product for courses:"
+"The second step is to replace the *courses* model by "
+"``product.template``, and add a new category of product for courses:"
 msgstr ""
-"El segundo paso es sustituir el modelo *courses* por ``product.template`` "
-"y añadir una nueva categoría de producto para ser usada como cursos:"
+"El segundo paso es sustituir el modelo *courses* por ``product.template``"
+" y añadir una nueva categoría de producto para ser usada como cursos:"
 
+# 7f3262f172d348f89a75db7f7e275bcb
 #: ../../howtos/website.rst:440
 msgid ""
-"With this installed, a few courses are now available in the :guilabel:"
-"`Shop`, though they may have to be looked for."
+"With this installed, a few courses are now available in the "
+":guilabel:`Shop`, though they may have to be looked for."
 msgstr ""
-"Con esto instalado, algunos cursos ya están disponibles en el :guilabel:"
-"`Shop`, puede que tengas que buscarlo."
+"Con esto instalado, algunos cursos ya están disponibles en el "
+":guilabel:`Shop`, puede que tengas que buscarlo."
 
+# 6100ec1524124f40866d53eda06e913c
 #: ../../howtos/website.rst:445
+#, fuzzy
 msgid ""
-"to extend a model in-place, it's :attr:`inherited <openerp.models.Model."
-"_inherit>` without giving it a new :attr:`~openerp.models.Model._name`"
+"to extend a model in-place, it's :attr:`inherited "
+"<odoo.models.Model._inherit>` without giving it a new "
+":attr:`~odoo.models.Model._name`"
 msgstr ""
-"para extender un modelo en-sitio, es :attr:`heredado <openerp.models.Model."
-"_inherit>` sin dar un nuevo atributo :attr:`~openerp.models.Model._name`"
+"para extender un modelo en-sitio, es :attr:`heredado "
+"<openerp.models.Model._inherit>` sin dar un nuevo atributo "
+":attr:`~openerp.models.Model._name`"
 
+# 5a17dc066be9473f9cde3c73f574a03e
 #: ../../howtos/website.rst:448
 msgid ""
-"``product.template`` already uses the discussions system, so we can remove "
-"it from our extension model"
+"``product.template`` already uses the discussions system, so we can "
+"remove it from our extension model"
 msgstr ""
-"``product.template`` ya utiliza el sistema de mensajes, por lo que podemos "
-"eliminar de nuestro modelo esa herencia"
+"``product.template`` ya utiliza el sistema de mensajes, por lo que "
+"podemos eliminar de nuestro modelo esa herencia"
 
+# efb28eabbbf24a5b8185944cb315b36a
 #: ../../howtos/website.rst:450
 msgid ""
 "we're creating our courses as *published* by default so they can be seen "
 "without having to log in"
 msgstr ""
-"Estamos creando nuestros cursos como *published* por defecto por lo que se "
-"puede ver sin tener que iniciar sesión"
+"Estamos creando nuestros cursos como *published* por defecto por lo que "
+"se puede ver sin tener que iniciar sesión"
 
+# e9cfaef4f1bd4f2090fa08a03c67f4a3
 #: ../../howtos/website.rst:454
 msgid "Altering existing views"
 msgstr "Modificar vistas existentes"
 
+# e4f7167aec1f4d44b6cabd4744009d53
 #: ../../howtos/website.rst:456
 msgid "So far, we have briefly seen:"
 msgstr "Hasta ahora, hemos visto brevemente:"
 
+# 73b523ff647b4ccf98ceb92cb1d4bcc7
 #: ../../howtos/website.rst:458
 msgid "the creation of new models"
 msgstr "la creación de nuevos modelos"
 
+# 1b1b46a5dfc947a0aaa8bda24f6a0527
 #: ../../howtos/website.rst:459
 msgid "the creation of new views"
 msgstr "la creación de nuevos puntos de vista"
 
+# b918b07a7c5744c9bf4cde67bf713f4d
 #: ../../howtos/website.rst:460
 msgid "the creation of new records"
 msgstr "la creación de nuevos registros"
 
+# 5043731fcc114f7f9b7689b4e1608733
 #: ../../howtos/website.rst:461
 msgid "the alteration of existing models"
 msgstr "la alteración de los modelos existentes"
 
+# 7929716d05a345459fdbc2568574f5df
 #: ../../howtos/website.rst:463
 msgid ""
 "We're left with the alteration of existing records and the alteration of "
 "existing views. We'll do both on the :guilabel:`Shop` pages."
 msgstr ""
 "Estamos a trabajando con la alteración de los registros existentes y la "
-"alteraciónvistas existente. Lo vamos a hacer tanto en la :guilabel:`Shop` "
-"como en las vistas regulares."
+"alteraciónvistas existente. Lo vamos a hacer tanto en la :guilabel:`Shop`"
+" como en las vistas regulares."
 
+# b1ddec6651134c66994cdb27bb0a26b4
 #: ../../howtos/website.rst:466
 msgid ""
 "View alteration is done by creating *extension* views, which are applied "
@@ -956,41 +1083,46 @@ msgstr ""
 "modificaciones de la vista se pueden añadir o quitar sin modificar el "
 "original, haciéndolo más sencillo probar cosas y deshacer cambios."
 
+# e256b486708c43d1a72c2a6db7d7147c
 #: ../../howtos/website.rst:471
 msgid ""
 "Since our courses are free, there is no reason to display their price on "
-"the shop page, so we're going to alter the view and hide the price if it's "
-"0. The first task is finding out which view displays the price, this can "
-"be done via :menuselection:`Customize --> HTML Editor` which lets us read "
-"the various templates involved in rendering a page. Going through a few of "
-"them, \"Product item\" looks a likely culprit."
+"the shop page, so we're going to alter the view and hide the price if "
+"it's 0. The first task is finding out which view displays the price, this"
+" can be done via :menuselection:`Customize --> HTML Editor` which lets us"
+" read the various templates involved in rendering a page. Going through a"
+" few of them, \"Product item\" looks a likely culprit."
 msgstr ""
 "Ya que nuestros cursos son gratis, no hay ninguna razón para mostrar su "
 "precio en la página de la tienda, así que vamos a modificar la vista y "
-"ocultar el precio si es 0. La primera tarea es averiguar que vista muestra "
-"el precio, esto puede hacerse a través de :menuselection:`Customize --> "
-"HTML Editor` el cual nos permite leer las plantillas involucradas en el "
-"despliegue de la página. Pasando por algunos de ellos, la vista llamada "
-"“Product Item” pareciera ser la probable culpable."
+"ocultar el precio si es 0. La primera tarea es averiguar que vista "
+"muestra el precio, esto puede hacerse a través de "
+":menuselection:`Customize --> HTML Editor` el cual nos permite leer las "
+"plantillas involucradas en el despliegue de la página. Pasando por "
+"algunos de ellos, la vista llamada “Product Item” pareciera ser la "
+"probable culpable."
 
+# dbb94c4e07094123b097fcecb5383865
 #: ../../howtos/website.rst:478
 msgid "Altering view architectures is done in 3 steps:"
-msgstr ""
-"La modificación de la arquitectura de una vista se realiza en 3 pasos:"
+msgstr "La modificación de la arquitectura de una vista se realiza en 3 pasos:"
 
+# 78f60e414a58432faf4b0d3906bcc11d
 #: ../../howtos/website.rst:480
 msgid "Create a new view"
 msgstr "Crear una nueva vista"
 
+# 46bf07223f234c0fb79d7c91fbee9079
 #: ../../howtos/website.rst:481
 msgid ""
-"Extend the view to modify by setting the new view's ``inherit_id`` to the "
-"modified view's external id"
+"Extend the view to modify by setting the new view's ``inherit_id`` to the"
+" modified view's external id"
 msgstr ""
-"Ampliar la vista para modificar estableciendo la de nueva vista colocando "
-"en el campo  ``inherit_id`` la identificación externa (xml_id) de la vista "
-"modificada"
+"Ampliar la vista para modificar estableciendo la de nueva vista colocando"
+" en el campo  ``inherit_id`` la identificación externa (xml_id) de la "
+"vista modificada"
 
+# 61b71485fa3d4a3598435c35f48e5300
 #: ../../howtos/website.rst:483
 msgid ""
 "In the architecture, use the ``xpath`` tag to select and alter elements "
@@ -999,34 +1131,38 @@ msgstr ""
 "En la arquitectura (campo arch), utilice la etiqueta de ``xpath`` para "
 "seleccionar y modificar elementos de la vista modificada"
 
+# c53dc28d2a1448adbe6f26185d7685b3
 #: ../../howtos/website.rst:488
 msgid ""
 "The second thing we will change is making the product categories sidebar "
-"visible by default: :menuselection:`Customize --> Product Categories` lets "
-"you toggle a tree of product categories (used to filter the main display) "
-"on and off."
+"visible by default: :menuselection:`Customize --> Product Categories` "
+"lets you toggle a tree of product categories (used to filter the main "
+"display) on and off."
 msgstr ""
-"Lo segundo que vamos a cambiar es hacer la barra lateral de categorías de "
-"producto visible por defecto: :menuselection:`Customize --> Product "
+"Lo segundo que vamos a cambiar es hacer la barra lateral de categorías de"
+" producto visible por defecto: :menuselection:`Customize --> Product "
 "Categories` le permite alternar entre un árbol de categorías (usado para "
 "filtrar la visualización principal) con solo alternarlo entre activado y "
 "desactivado."
 
+# b0c7c5ed488a472dae3502c9fb91c98b
 #: ../../howtos/website.rst:493
 msgid ""
-"This is done via the ``customize_show`` and ``active`` fields of extension "
-"templates: an extension template (such as the one we've just created) can "
-"be *customize_show=True*. This choice will display the view in the :"
-"guilabel:`Customize` menu with a check box, allowing administrators to "
-"activate or disable them (and easily customize their website pages)."
+"This is done via the ``customize_show`` and ``active`` fields of "
+"extension templates: an extension template (such as the one we've just "
+"created) can be *customize_show=True*. This choice will display the view "
+"in the :guilabel:`Customize` menu with a check box, allowing "
+"administrators to activate or disable them (and easily customize their "
+"website pages)."
 msgstr ""
 "Esto se hace vía los campos ``customize_show`` y  ``active``  de "
 "plantillas usada para extender: una plantilla de extensión (como la que "
-"acabamos de crear) puede ser *customize_show = True*. Esta opción mostrará "
-"la vista en menú :guilabel:`Customize` con una casilla de verificación, "
-"permitiendo a los administradores activar o desactivar (y personalizar "
-"fácilmente sus páginas web)."
+"acabamos de crear) puede ser *customize_show = True*. Esta opción "
+"mostrará la vista en menú :guilabel:`Customize` con una casilla de "
+"verificación, permitiendo a los administradores activar o desactivar (y "
+"personalizar fácilmente sus páginas web)."
 
+# a31a79afe2634e33a077ec56087cdec9
 #: ../../howtos/website.rst:499
 msgid ""
 "We simply need to modify the *Product Categories* record and set its "
@@ -1035,10 +1171,36 @@ msgstr ""
 "Simplemente debemos modificar el registro *Product Categories* y "
 "establecer su valor predeterminado a *activo = “True”*:"
 
+# 382755dd92454a3587e3367daf6233f8
 #: ../../howtos/website.rst:504
 msgid ""
-"With this, the *Product Categories* sidebar will automatically be enabled "
-"when the *Academy* module is installed."
+"With this, the *Product Categories* sidebar will automatically be enabled"
+" when the *Academy* module is installed."
 msgstr ""
 "Con esto, la cara lateral sidebar *Product Categories* automáticamente "
 "será activado cuando el módulo *Academia* sea instalado."
+
+#~ msgid ""
+#~ "One of these is the *Chatter* "
+#~ "system, part of Odoo's email and "
+#~ "messaging system, which can add "
+#~ "notifications and discussion threads to "
+#~ "any model. The model simply has to"
+#~ " :attr:`~openerp.models.Model._inherit` ``mail.thread``, "
+#~ "and add the ``message_ids`` field to "
+#~ "its form view to display the "
+#~ "discussion thread. Discussion threads are "
+#~ "per-record."
+#~ msgstr ""
+#~ "Uno de ellos es el sistema "
+#~ "*Chatter*, parte del correo electrónico "
+#~ "y sistema de mensajería de Odoo, "
+#~ "éste puede agregar notificaciones y "
+#~ "discusiones a cualquier modelo en Odoo."
+#~ " El modelo simplemente tiene que "
+#~ ":attr:`~openerp.models.Model._inherit` ``mail.thread`, y"
+#~ " agregue el campo de ``message_ids`` "
+#~ "a la vista formulario para mostrar "
+#~ "el hilo de discusión. Las discusiones"
+#~ " son por registro."
+

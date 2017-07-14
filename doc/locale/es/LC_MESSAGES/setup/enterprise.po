@@ -8,63 +8,79 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
-#: ../../setup/enterprise.rst:3
+# 86ee447488ec4a45afb84f8867eb9b9e
+#: ../../setup/enterprise.rst:5
 msgid "From Community to Enterprise"
 msgstr ""
 
-#: ../../setup/enterprise.rst:5
+# 34277ac3cff54e62883efb66d7542dee
+#: ../../setup/enterprise.rst:7
 msgid ""
 "Depending on your current installation, there are multiple ways to "
 "upgrade your community version. In any case the basic guidelines are:"
 msgstr ""
 
-#: ../../setup/enterprise.rst:9 ../../setup/enterprise.rst:28
-#: ../../setup/enterprise.rst:60 ../../setup/enterprise.rst:84
+# 6971e3f710b342cba5a71d9b55fb7b86
+# 6e3f423f497443fcb5d414e2b277b36d
+# 7185acdf5e194a0dbc109dff63d1b636
+# 2c469035c2d14e4c910bb519b45113a4
+#: ../../setup/enterprise.rst:11 ../../setup/enterprise.rst:30
+#: ../../setup/enterprise.rst:62 ../../setup/enterprise.rst:79
 msgid "Backup your community database"
 msgstr ""
 
-#: ../../setup/enterprise.rst:14 ../../setup/enterprise.rst:59
+# 6045ccb5b158408bbc913ad464a4ba5b
+# b3e0089617f842cca8ca585f80ade02d
+#: ../../setup/enterprise.rst:16 ../../setup/enterprise.rst:61
 msgid "Shutdown your server"
 msgstr ""
 
-#: ../../setup/enterprise.rst:16
-msgid "Upgrade the web module"
+# 76845fd559354ab6a1d5537b40e1a9fc
+#: ../../setup/enterprise.rst:18
+msgid "Install the web_enterprise module"
 msgstr ""
 
-#: ../../setup/enterprise.rst:18
+# 004867750aab4ea982df727293b541be
+#: ../../setup/enterprise.rst:20
 msgid "Restart your server"
 msgstr ""
 
-#: ../../setup/enterprise.rst:20
+# 612528e155ce41a5875ac6803fd3afa8
+#: ../../setup/enterprise.rst:22
 msgid "Enter your Odoo Enterprise Subscription code"
 msgstr ""
 
-#: ../../setup/enterprise.rst:26
+# 9d9f948209e143f0ab9da4706457d064
+#: ../../setup/enterprise.rst:28
 msgid "On Linux, using an installer"
 msgstr ""
 
-#: ../../setup/enterprise.rst:30
+# 5e9fa562bb844bf0ad50137456620709
+#: ../../setup/enterprise.rst:32
 msgid "Stop the odoo service"
 msgstr ""
 
-#: ../../setup/enterprise.rst:36
+# b07f7b7e829045379256e5ab281a47e6
+#: ../../setup/enterprise.rst:38
 msgid "Install the enterprise .deb (it should install over the community package)"
 msgstr ""
 
-#: ../../setup/enterprise.rst:42
+# 81d340274e8249c5acdefaab39169d5e
+#: ../../setup/enterprise.rst:44
 msgid "Update your database to the enterprise packages using"
 msgstr ""
 
-#: ../../setup/enterprise.rst:48
+# 88f49566aac44cedb25e3626927df281
+#: ../../setup/enterprise.rst:50
 msgid ""
 "You should be able to connect to your Odoo Enterprise instance using your"
 " usual mean of identification. You can then link your database with your "
@@ -72,34 +88,38 @@ msgid ""
 "in the form input"
 msgstr ""
 
-#: ../../setup/enterprise.rst:54
+# c22609b8122849fdad879652267aa832
+#: ../../setup/enterprise.rst:56
 msgid "On Linux, using the source code"
 msgstr ""
 
-#: ../../setup/enterprise.rst:56
+# 6a98546831624797b5e08b514c4ad303
+#: ../../setup/enterprise.rst:58
 msgid ""
 "There are many ways to launch your server when using sources, and you "
 "probably have your own favourite. You may need to adapt sections to your "
 "usual workflow."
 msgstr ""
 
-#: ../../setup/enterprise.rst:61
+# 9c4312ccd6a94a70ac53f44f432bd324
+#: ../../setup/enterprise.rst:63
 msgid ""
-"Update the ``--addons-path`` parameter of your launch command "
-"(``init.d``, custom script, configuration file, etc.). The Enterprise "
-"addons folder should be included\" **before** the community modules. For "
-"example:"
+"Update the ``--addons-path`` parameter of your launch command (see "
+":ref:`setup/install/source`)"
 msgstr ""
 
-#: ../../setup/enterprise.rst:69
-msgid "Update the web module by using"
+# 1e1b4bf7abec4933906ed9454b6e2bd0
+#: ../../setup/enterprise.rst:64
+msgid "Install the web_enterprise module by using"
 msgstr ""
 
-#: ../../setup/enterprise.rst:75
+# 16520867062b452a8081bc4b6ef22bdc
+#: ../../setup/enterprise.rst:70
 msgid "Depending on the size of your database, this may take some time."
 msgstr ""
 
-#: ../../setup/enterprise.rst:77
+# 18f8352a9eef40cca53bd9a32c7e445f
+#: ../../setup/enterprise.rst:72
 msgid ""
 "Restart your server with the updated addons path of point 3. You should "
 "be able to connect to your instance. You can then link your database with"
@@ -107,17 +127,20 @@ msgid ""
 "e-mail in the form input"
 msgstr ""
 
-#: ../../setup/enterprise.rst:82
+# 0c88dcef7dbe4001b37ed6c9a8e9c1d2
+#: ../../setup/enterprise.rst:77
 msgid "On Windows"
 msgstr ""
 
-#: ../../setup/enterprise.rst:86
+# 53979a5117eb4bfd8934d2d1ec06471b
+#: ../../setup/enterprise.rst:81
 msgid ""
 "Uninstall Odoo Community (using the Uninstall executable in the "
 "installation folder) - PostgreSQL will remain installed"
 msgstr ""
 
-#: ../../setup/enterprise.rst:92
+# 6c78bd8fb735431db024a7020004e178
+#: ../../setup/enterprise.rst:87
 msgid ""
 "Launch the Odoo Enterprise Installer and follow the steps normally. When "
 "choosing the installation path, you can set the folder of the Community "
@@ -125,13 +148,15 @@ msgid ""
 "Uncheck ``Start Odoo`` at the end of the installation"
 msgstr ""
 
-#: ../../setup/enterprise.rst:100
+# 81dd9c07c0264ca1a8749ebba82f8631
+#: ../../setup/enterprise.rst:95
 msgid ""
 "Using a command window, update your Odoo Database using this command "
 "(from the Odoo installation path, in the server subfolder)"
 msgstr ""
 
-#: ../../setup/enterprise.rst:107
+# 238e71db9c0b4eb7acdbccd7d5860c04
+#: ../../setup/enterprise.rst:102
 msgid ""
 "No need to manually launch the server, the service is running. You should"
 " be able to connect to your Odoo Enterprise instance using your usual "
@@ -139,4 +164,19 @@ msgid ""
 "Enterprise Subscription by entering the code you received by e-mail in "
 "the form input"
 msgstr ""
+
+#~ msgid "Upgrade the web module"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Update the ``--addons-path`` parameter "
+#~ "of your launch command (``init.d``, "
+#~ "custom script, configuration file, etc.). "
+#~ "The Enterprise addons folder should be"
+#~ " included\" **before** the community "
+#~ "modules. For example:"
+#~ msgstr ""
+
+#~ msgid "Update the web module by using"
+#~ msgstr ""
 

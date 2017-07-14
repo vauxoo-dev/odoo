@@ -8,95 +8,115 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 30d08e46d7524eb782bd63205f4984ba
 #: ../../reference/module.rst:5
 msgid "Modules"
 msgstr ""
 
+# da33b95ba222407aad8ca6d2e5a0daf5
 #: ../../reference/module.rst:12
 msgid "Manifest"
 msgstr ""
 
+# 9c7164ccb5ed40b8b0e58f675475e532
 #: ../../reference/module.rst:14
 msgid ""
 "The manifest file serves to declare a python package as an Odoo module "
 "and to specify module metadata."
 msgstr ""
 
+# 52da4fea8f0e4f3280b1e10c14ab09f5
 #: ../../reference/module.rst:17
 msgid ""
-"It is a file called ``__openerp__.py`` and contains a single Python "
+"It is a file called ``__manifest__.py`` and contains a single Python "
 "dictionary, where each key specifies module metadatum."
 msgstr ""
 
+# c2d3bedd88684763a7fcf1356c075640
 #: ../../reference/module.rst:41
 msgid "Available manifest fields are:"
 msgstr ""
 
+# 4eaca0354baa46b7b5063783b3d52f7e
 #: ../../reference/module.rst:43
 msgid "``name`` (``str``, required)"
 msgstr ""
 
+# f8ab5ec4d50d400b9455958bafdcd55e
 #: ../../reference/module.rst:44
 msgid "the human-readable name of the module"
 msgstr ""
 
+# 94230e396c704c72aad3267dfe2683ee
 #: ../../reference/module.rst:45
 msgid "``version`` (``str``)"
 msgstr ""
 
+# 7fff5e25997c42b19f857abd4a28e6ce
 #: ../../reference/module.rst:46
 msgid "this module's version, should follow `semantic versioning`_ rules"
 msgstr ""
 
+# 09060b461df74adeb88f6abd8220fc9a
 #: ../../reference/module.rst:47
 msgid "``description`` (``str``)"
 msgstr ""
 
+# 715698ba7dd84777a0d456ce434357ff
 #: ../../reference/module.rst:48
 msgid "extended description for the module, in reStructuredText"
 msgstr ""
 
+# f76046c29f0948c6849c35b7a4aa73fe
 #: ../../reference/module.rst:49
 msgid "``author`` (``str``)"
 msgstr ""
 
+# 8d014b662dac439ca8c93fe8c0f3917d
 #: ../../reference/module.rst:50
 msgid "name of the module author"
 msgstr ""
 
+# 1a11ee81f002447ab2d76bcc03246eb1
 #: ../../reference/module.rst:51
 msgid "``website`` (``str``)"
 msgstr ""
 
+# 9f365254d515436ca689b2ae5538cbfd
 #: ../../reference/module.rst:52
 msgid "website URL for the module author"
 msgstr ""
 
+# 3ef9a4e477934624aa346e541555dc89
 #: ../../reference/module.rst:53
 msgid "``license`` (``str``, defaults: ``LGPL-3``)"
 msgstr ""
 
+# 8f36e70203eb44218c00eca14bffb21e
 #: ../../reference/module.rst:54
 msgid "distribution license for the module"
 msgstr ""
 
+# 8ea5d2bd8fd94c96adf9406425e144d7
 #: ../../reference/module.rst:61
 msgid "``category`` (``str``, default: ``Uncategorized``)"
 msgstr ""
 
+# 012694fc3145428eb00d5389d4985b7c
 #: ../../reference/module.rst:56
 msgid "classification category within Odoo, rough business domain for the module."
 msgstr ""
 
+# e5acd4dd3ec448058e987098b14eaa48
 #: ../../reference/module.rst:58
 msgid ""
 "Although using `existing categories`_ is recommended, the field is "
@@ -106,10 +126,12 @@ msgid ""
 "``Foo``, and will set ``Bar`` as the module's category."
 msgstr ""
 
+# 7abfcd5e35574f9c9d798fcc2fd806b7
 #: ../../reference/module.rst:68
 msgid "``depends`` (``list(str)``)"
 msgstr ""
 
+# 25d3af7879a44336bcc7aa8a0ef215f9
 #: ../../reference/module.rst:64
 msgid ""
 "Odoo modules which must be loaded before this one, either because this "
@@ -117,48 +139,57 @@ msgid ""
 "define."
 msgstr ""
 
+# fcaf41c8bbc84f33ab2c6e8dc5ce2ba5
 #: ../../reference/module.rst:68
 msgid ""
 "When a module is installed, all of its dependencies are installed before "
 "it. Likewise dependencies are loaded before a module is loaded."
 msgstr ""
 
+# dff2917291ea4a379e722998d855d56b
 #: ../../reference/module.rst:71
 msgid "``data`` (``list(str)``)"
 msgstr ""
 
+# 223329f7b39c4b78b8ef6f229338d2fe
 #: ../../reference/module.rst:71
 msgid ""
 "List of data files which must always be installed or updated with the "
 "module. A list of paths from the module root directory"
 msgstr ""
 
+# d658f169d43345c5b291775ba33cc09f
 #: ../../reference/module.rst:74
 msgid "``demo`` (``list(str)``)"
 msgstr ""
 
+# 69ecfa001ec24adfb24b4ff77791593e
 #: ../../reference/module.rst:74
 msgid ""
 "List of data files which are only installed or updated in *demonstration "
 "mode*"
 msgstr ""
 
+# b578359269644dfa95e93cf6e59b6c7c
 #: ../../reference/module.rst:86
 msgid "``auto_install`` (``bool``, default: ``False``)"
 msgstr ""
 
+# 4844ca5da37240b38c8f6f69ab1c42f0
 #: ../../reference/module.rst:77
 msgid ""
 "If ``True``, this module will automatically be installed if all of its "
 "dependencies are installed."
 msgstr ""
 
+# 80555bc45eec473a8d02835f28b0eab5
 #: ../../reference/module.rst:80
 msgid ""
 "It is generally used for \"link modules\" implementing synergic "
 "integration between two otherwise independent modules."
 msgstr ""
 
+# 7cd399d0294f48afad69641b816c8582
 #: ../../reference/module.rst:83
 msgid ""
 "For instance ``sale_crm`` depends on both ``sale`` and ``crm`` and is set"
@@ -166,4 +197,11 @@ msgid ""
 "automatically adds CRM campaigns tracking to sale orders without either "
 "``sale`` or ``crm`` being aware of one another"
 msgstr ""
+
+#~ msgid ""
+#~ "It is a file called ``__openerp__.py``"
+#~ " and contains a single Python "
+#~ "dictionary, where each key specifies "
+#~ "module metadatum."
+#~ msgstr ""
 

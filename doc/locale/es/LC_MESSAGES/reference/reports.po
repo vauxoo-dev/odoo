@@ -8,19 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 69dbbc21b31c41d89e84870084bbc8c8
 #: ../../reference/reports.rst:7
 msgid "QWeb Reports"
 msgstr ""
 
+# 16335d478dd242b79ca5aa327741f9da
 #: ../../reference/reports.rst:9
 msgid ""
 "Reports are written in HTML/QWeb, like all regular views in Odoo. You can"
@@ -28,6 +30,7 @@ msgid ""
 "rendering itself is performed by wkhtmltopdf_."
 msgstr ""
 
+# 152ea46ab00a406ab2f13f607518b4ad
 #: ../../reference/reports.rst:13
 msgid ""
 "If you want to create a report on a certain model, you will need to "
@@ -39,16 +42,19 @@ msgid ""
 "access to more models and records in the template."
 msgstr ""
 
+# b01528a6346f42ec9200343fb935e37c
 #: ../../reference/reports.rst:24
 msgid "Report"
 msgstr ""
 
+# ecfed70f76c24e6fac79ab03fc96c4a7
 #: ../../reference/reports.rst:26
 msgid ""
 "Every report must be declared by a :ref:`report action "
 "<reference/actions/report>`."
 msgstr ""
 
+# 1c3dc26cf1e640ebbb78c7a055fc5234
 #: ../../reference/reports.rst:29
 msgid ""
 "For simplicity, a shortcut ``<report>`` element is available to define a "
@@ -57,62 +63,78 @@ msgid ""
 "``<report>`` can take the following attributes:"
 msgstr ""
 
+# f9f6a40a474c4f39a56910f082f9985b
 #: ../../reference/reports.rst:34
 msgid "``id``"
 msgstr ""
 
+# 0e8ad3f0c6a54c3399b195496c075fbc
 #: ../../reference/reports.rst:35
 msgid "the generated record's :term:`external id`"
 msgstr ""
 
-#: ../../reference/reports.rst:37 ../../reference/reports.rst:243
+# 6688b360195d4da1817e55fdb81b46a4
+# 50b4e5ef80194084acb734dfc6d86bae
+#: ../../reference/reports.rst:37 ../../reference/reports.rst:236
 msgid "``name`` (mandatory)"
 msgstr ""
 
-#: ../../reference/reports.rst:37 ../../reference/reports.rst:243
+# 2afce5922c7a49f98986bc2399daf0af
+# 70ff11e6c5b04bf3acb5dbaaf2632677
+#: ../../reference/reports.rst:37 ../../reference/reports.rst:236
 msgid ""
 "only useful as a mnemonic/description of the report when looking for one "
 "in a list of some sort"
 msgstr ""
 
+# 732d69cab82440c497bb8e41ab48a67d
 #: ../../reference/reports.rst:39
 msgid "``model`` (mandatory)"
 msgstr ""
 
+# 391170e1c6aa410f97ba2f25b4ded480
 #: ../../reference/reports.rst:40
 msgid "the model your report will be about"
 msgstr ""
 
+# 62202e72d43c44e38f9c45a0bd8673f0
 #: ../../reference/reports.rst:41
 msgid "``report_type`` (mandatory)"
 msgstr ""
 
+# c2fcdb186420459f8ff28250544967c6
 #: ../../reference/reports.rst:42
 msgid "either ``qweb-pdf`` for PDF reports or ``qweb-html`` for HTML"
 msgstr ""
 
+# 2ad1e9095d6e4395bee1a261024afd54
 #: ../../reference/reports.rst:43
 msgid "``report_name``"
 msgstr ""
 
+# 529000976a174b66844249eacd7b8e8e
 #: ../../reference/reports.rst:44
 msgid "the name of your report (which will be the name of the PDF output)"
 msgstr ""
 
+# a202605c799945ccbab3e0484df4e2f0
 #: ../../reference/reports.rst:46
 msgid "``groups``"
 msgstr ""
 
+# 862849c78e804856b09b8edb206fe02d
 #: ../../reference/reports.rst:46
 msgid ""
-":class:`~openerp.fields.Many2many` field to the groups allowed to "
-"view/use the current report"
+":class:`~odoo.fields.Many2many` field to the groups allowed to view/use "
+"the current report"
 msgstr ""
 
+# 5f9bdbad3d61451da1628a58c23b74cf
 #: ../../reference/reports.rst:51
 msgid "``attachment_use``"
 msgstr ""
 
+# e0de77e3dc4a4207bc15a8522a5e220d
 #: ../../reference/reports.rst:49
 msgid ""
 "if set to True, the report will be stored as an attachment of the record "
@@ -121,40 +143,53 @@ msgid ""
 "reasons, for example)"
 msgstr ""
 
-#: ../../reference/reports.rst:55
+# 2c68f7cf5a7e46d0be8c6365dc7aef3e
+#: ../../reference/reports.rst:54
 msgid "``attachment``"
 msgstr ""
 
+# 093cbf8a470645df8481bff69c635038
 #: ../../reference/reports.rst:54
 msgid ""
 "python expression that defines the name of the report; the record is "
 "acessible as the variable ``object``"
 msgstr ""
 
-#: ../../reference/reports.rst:59
-msgid ""
-"The paper format cannot currently be declared via the ``<report>`` "
-"shortcut, it must be added afterwards using a ``<record>`` extension on "
-"the report action itself::"
+# a9855d72791847bcbb8479f18412354b
+#: ../../reference/reports.rst:58
+msgid "``paperformat``"
 msgstr ""
 
-#: ../../reference/reports.rst:67 ../../reference/reports.rst:264
+# 963d74b655864c0d995232c3a401e7c2
+#: ../../reference/reports.rst:57
+msgid ""
+"external id of the paperformat you wish to use (defaults to the company's"
+" paperformat if not specified)"
+msgstr ""
+
+# d045388a9aac4648a44d6471d4432738
+# 02a9a38ef9794591963a90710c88210f
+#: ../../reference/reports.rst:60 ../../reference/reports.rst:257
 msgid "Example::"
 msgstr ""
 
-#: ../../reference/reports.rst:84
+# 4b4c6579619446938db74d8222e59256
+#: ../../reference/reports.rst:77
 msgid "Report template"
 msgstr ""
 
-#: ../../reference/reports.rst:88
+# 2007957958574260bb62e7769e102345
+#: ../../reference/reports.rst:81
 msgid "Minimal viable template"
 msgstr ""
 
-#: ../../reference/reports.rst:90
+# a0ff59520b22458a9f8c7b61c415cec9
+#: ../../reference/reports.rst:83
 msgid "A minimal template would look like::"
 msgstr ""
 
-#: ../../reference/reports.rst:105
+# c9b9f739241848ca85b64cc1bc4fc2d2
+#: ../../reference/reports.rst:98
 msgid ""
 "Calling ``external_layout`` will add the default header and footer on "
 "your report. The PDF body will be the content inside the ``<div "
@@ -164,83 +199,102 @@ msgid ""
 "fields of the ``docs`` objects received by the template."
 msgstr ""
 
-#: ../../reference/reports.rst:112
+# fe5899196312431a993b26bb0555bd6f
+#: ../../reference/reports.rst:105
 msgid "There are some specific variables accessible in reports, mainly:"
 msgstr ""
 
-#: ../../reference/reports.rst:114
+# fd17cf3d047b4e16b032b8c82062e69e
+#: ../../reference/reports.rst:107
 msgid "``docs``"
 msgstr ""
 
-#: ../../reference/reports.rst:115
+# bbd90d55cc9348799d417b02e6aef9a1
+#: ../../reference/reports.rst:108
 msgid "records for the current report"
 msgstr ""
 
-#: ../../reference/reports.rst:116
+# 50ff465542f7494e8dbfb03073e6865d
+#: ../../reference/reports.rst:109
 msgid "``doc_ids``"
 msgstr ""
 
-#: ../../reference/reports.rst:117
+# d5d8be0dade24f9784d216960d5112ea
+#: ../../reference/reports.rst:110
 msgid "list of ids for the ``docs`` records"
 msgstr ""
 
-#: ../../reference/reports.rst:118
+# 34953ee279ac4a878178b15e479256e9
+#: ../../reference/reports.rst:111
 msgid "``doc_model``"
 msgstr ""
 
-#: ../../reference/reports.rst:119
+# 66fd95994f1342289c964157dbce9e58
+#: ../../reference/reports.rst:112
 msgid "model for the ``docs`` records"
 msgstr ""
 
-#: ../../reference/reports.rst:120
+# 77406f28b2b347a8a4392b7ff1a344a4
+#: ../../reference/reports.rst:113
 msgid "``time``"
 msgstr ""
 
-#: ../../reference/reports.rst:121
+# 96ddc0209f754294850fd8de1d07d848
+#: ../../reference/reports.rst:114
 msgid "a reference to :mod:`python:time` from the Python standard library"
 msgstr ""
 
-#: ../../reference/reports.rst:122
+# c650d7003f174de5b9573678b11e18f5
+#: ../../reference/reports.rst:115
 msgid "``user``"
 msgstr ""
 
-#: ../../reference/reports.rst:123
+# 6b660150c39b4d5fafe30026aadbe371
+#: ../../reference/reports.rst:116
 msgid "``res.user`` record for the user printing the report"
 msgstr ""
 
-#: ../../reference/reports.rst:125
+# 2c7131edb5b64e81a2dc4373e99d24c4
+#: ../../reference/reports.rst:118
 msgid "``res_company``"
 msgstr ""
 
-#: ../../reference/reports.rst:125
+# cb958acd29ad4be1a02b765cdd29708d
+#: ../../reference/reports.rst:118
 msgid "record for the current ``user``'s company"
 msgstr ""
 
-#: ../../reference/reports.rst:127
+# b366629a35e04883814e40af129bc8ba
+#: ../../reference/reports.rst:120
 msgid ""
 "If you wish to access other records/models in the template, you will need"
 " :ref:`a custom report <reference/reports/custom_reports>`."
 msgstr ""
 
-#: ../../reference/reports.rst:131
+# a8cf41837fe34b54af46c486334cfc77
+#: ../../reference/reports.rst:124
 msgid "Translatable Templates"
 msgstr ""
 
-#: ../../reference/reports.rst:133
+# 45ca4f03e7f6409593f84531097ccfbd
+#: ../../reference/reports.rst:126
 msgid ""
 "If you wish to translate reports (to the language of a partner, for "
 "example), you need to define two templates:"
 msgstr ""
 
-#: ../../reference/reports.rst:136
+# 4a502ec4c7a94d94b8c573b356fdd9b8
+#: ../../reference/reports.rst:129
 msgid "The main report template"
 msgstr ""
 
-#: ../../reference/reports.rst:137
+# 1a4c935305ee404c9c3e86dbf50e5023
+#: ../../reference/reports.rst:130
 msgid "The translatable document"
 msgstr ""
 
-#: ../../reference/reports.rst:139
+# 81ee7c8c80ec4f0fb492d7366fb9c366
+#: ../../reference/reports.rst:132
 msgid ""
 "You can then call the translatable document from your main template with "
 "the attribute ``t-lang`` set to a language code (for example ``fr`` or "
@@ -249,18 +303,21 @@ msgid ""
 "translatable (like country names, sales conditions, etc.)"
 msgstr ""
 
-#: ../../reference/reports.rst:146
+# 5376660c90cb4a85a147f9fc00b3e97a
+#: ../../reference/reports.rst:139
 msgid ""
 "If your report template does not use translatable record fields, re-"
 "browsing the record in another language is *not* necessary and will "
 "impact performances."
 msgstr ""
 
-#: ../../reference/reports.rst:149
+# a02a252b85e749bfaa41e9254b0e3d43
+#: ../../reference/reports.rst:142
 msgid "For example, let's look at the Sale Order report from the Sale module::"
 msgstr ""
 
-#: ../../reference/reports.rst:179
+# e09641919372496fa01af2e9ad7555c0
+#: ../../reference/reports.rst:172
 msgid ""
 "The main template calls the translatable template with "
 "``doc.partner_id.lang`` as a ``t-lang`` parameter, so it will be rendered"
@@ -271,7 +328,8 @@ msgid ""
 "way::"
 msgstr ""
 
-#: ../../reference/reports.rst:189
+# a1ca74ea136149b18dc585eca3e7d4c5
+#: ../../reference/reports.rst:182
 msgid ""
 "Please take note that this works only when calling external templates, "
 "you will not be able to translate part of a document by setting a "
@@ -281,129 +339,157 @@ msgid ""
 "attribute."
 msgstr ""
 
-#: ../../reference/reports.rst:197
+# 631109f9985d47d6bad7ff00615495ce
+#: ../../reference/reports.rst:190
 msgid "Barcodes"
 msgstr ""
 
-#: ../../reference/reports.rst:199
+# 49d1ce4c65f74e3988ca49eceb33635f
+#: ../../reference/reports.rst:192
 msgid ""
 "Barcodes are images returned by a controller and can easily be embedded "
 "in reports thanks to the QWeb syntax:"
 msgstr ""
 
-#: ../../reference/reports.rst:206
+# 4c8c8ff57fc7415ab9580fd921428729
+#: ../../reference/reports.rst:199
 msgid "More parameters can be passed as a query string"
 msgstr ""
 
-#: ../../reference/reports.rst:215
+# fe6fb76c31f2428ab3c84acf61365bd7
+#: ../../reference/reports.rst:208
 msgid "Useful Remarks"
 msgstr ""
 
-#: ../../reference/reports.rst:216
+# 93f269ca889d4048a4e6def25b55c51e
+#: ../../reference/reports.rst:209
 msgid ""
 "Twitter Bootstrap and FontAwesome classes can be used in your report "
 "template"
 msgstr ""
 
-#: ../../reference/reports.rst:218
+# 0d9ad49503c1448f906f03527a1a939e
+#: ../../reference/reports.rst:211
 msgid "Local CSS can be put directly in the template"
 msgstr ""
 
-#: ../../reference/reports.rst:219
+# f8beafa3bdbd4e0fba5bb7d964043aca
+#: ../../reference/reports.rst:212
 msgid ""
 "Global CSS can be inserted in the main report layout by inheriting its "
 "template and inserting your CSS::"
 msgstr ""
 
-#: ../../reference/reports.rst:231
+# a48d130d950d436da6d7fbe62a166350
+#: ../../reference/reports.rst:224
 msgid ""
 "If it appears that your PDF report is missing the styles, please check "
 ":ref:`these instructions <reference/backend/reporting/printed-reports"
 "/pdf-without-styles>`."
 msgstr ""
 
-#: ../../reference/reports.rst:237
+# 21c57c22dd7b464f917a4128b67e2454
+#: ../../reference/reports.rst:230
 msgid "Paper Format"
 msgstr ""
 
-#: ../../reference/reports.rst:239
+# f78906e181c245c3888acafcfae1f465
+#: ../../reference/reports.rst:232
 msgid ""
 "Paper formats are records of ``report.paperformat`` and can contain the "
 "following attributes:"
 msgstr ""
 
-#: ../../reference/reports.rst:245
+# 3462a4a7193e4bc4af8ffad49819065a
+#: ../../reference/reports.rst:238
 msgid "``description``"
 msgstr ""
 
-#: ../../reference/reports.rst:246
+# 7983e55f22804da7a3cd0300300c1221
+#: ../../reference/reports.rst:239
 msgid "a small description of your format"
 msgstr ""
 
-#: ../../reference/reports.rst:249
+# aa6998ec150e44c89dba7497cf4ab62e
+#: ../../reference/reports.rst:242
 msgid "``format``"
 msgstr ""
 
-#: ../../reference/reports.rst:248
+# 423a802a77cd4c7193c62a59fc79ce9c
+#: ../../reference/reports.rst:241
 msgid ""
 "either a predefined format (A0 to A9, B0 to B10, Legal, Letter, "
 "Tabloid,...) or ``custom``; A4 by default. You cannot use a non-custom "
 "format if you define the page dimensions."
 msgstr ""
 
-#: ../../reference/reports.rst:251
+# 6af1ceba488d40cba715c40326ed0726
+#: ../../reference/reports.rst:244
 msgid "``dpi``"
 msgstr ""
 
-#: ../../reference/reports.rst:252
+# 2785de29347545b9a5270a0486708ce9
+#: ../../reference/reports.rst:245
 msgid "output DPI; 90 by default"
 msgstr ""
 
-#: ../../reference/reports.rst:253
+# 35ff2d63e7f94e14b5c9f6469f5d3cdb
+#: ../../reference/reports.rst:246
 msgid "``margin_top``, ``margin_bottom``, ``margin_left``, ``margin_right``"
 msgstr ""
 
-#: ../../reference/reports.rst:254
+# f2e88876139c45419e09cbe7e4045333
+#: ../../reference/reports.rst:247
 msgid "margin sizes in mm"
 msgstr ""
 
-#: ../../reference/reports.rst:255
+# 2de2c78ad4de4606bcc09f3fd73e5a47
+#: ../../reference/reports.rst:248
 msgid "``page_height``, ``page_width``"
 msgstr ""
 
-#: ../../reference/reports.rst:256
+# 48185793bf43448b882121e679d0b304
+#: ../../reference/reports.rst:249
 msgid "page dimensions in mm"
 msgstr ""
 
-#: ../../reference/reports.rst:257
+# ab1f12600036496b93fa0242db9c15d6
+#: ../../reference/reports.rst:250
 msgid "``orientation``"
 msgstr ""
 
-#: ../../reference/reports.rst:258
+# 6e938dd740f046389942b89335154845
+#: ../../reference/reports.rst:251
 msgid "Landscape or Portrait"
 msgstr ""
 
-#: ../../reference/reports.rst:259
+# 12ee4835aa7844f18deccb0f68e9ae8f
+#: ../../reference/reports.rst:252
 msgid "``header_line``"
 msgstr ""
 
-#: ../../reference/reports.rst:260
+# 9f4509c3cc4e4f71b35201cb609fab85
+#: ../../reference/reports.rst:253
 msgid "boolean to display a header line"
 msgstr ""
 
-#: ../../reference/reports.rst:262
+# e02dd8ee86264577ae1e60053a910839
+#: ../../reference/reports.rst:255
 msgid "``header_spacing``"
 msgstr ""
 
-#: ../../reference/reports.rst:262
+# 5bc3a2942c6f4551935211ed59c2fdce
+#: ../../reference/reports.rst:255
 msgid "header spacing in mm"
 msgstr ""
 
-#: ../../reference/reports.rst:285
+# 4b78843b9fe842d2ba13ef8bf5118731
+#: ../../reference/reports.rst:278
 msgid "Custom Reports"
 msgstr ""
 
-#: ../../reference/reports.rst:287
+# 8c0d91dbce40417aaf36952e2d1967ef
+#: ../../reference/reports.rst:280
 msgid ""
 "The report model has a default ``get_html`` function that looks for a "
 "model named :samp:`report.{module.report_name}`. If it exists, it will "
@@ -411,28 +497,62 @@ msgid ""
 "used. If you wish to customize your reports by including more things in "
 "the template (like records of others models, for example), you can define"
 " this model, overwrite the function ``render_html`` and pass objects in "
-"the ``docargs`` dictionnary:"
+"the ``docargs`` dictionary:"
 msgstr ""
 
-#: ../../reference/reports.rst:312
+# 278a96bcdef9494799d2870fd12cba63
+#: ../../reference/reports.rst:305
 msgid "Reports are web pages"
 msgstr ""
 
-#: ../../reference/reports.rst:314
+# 7bb1d7fe00ad4c518bb59abc2fd2a1f3
+#: ../../reference/reports.rst:307
 msgid ""
 "Reports are dynamically generated by the report module and can be "
 "accessed directly via URL:"
 msgstr ""
 
-#: ../../reference/reports.rst:317
+# dce1b719b5ab4e2f8637ba84b71d48e7
+#: ../../reference/reports.rst:310
 msgid ""
 "For example, you can access a Sale Order report in html mode by going to "
 "\\http://<server-address>/report/html/sale.report_saleorder/38"
 msgstr ""
 
-#: ../../reference/reports.rst:320
+# 98c53ce763564c4eb882e327e7de4d69
+#: ../../reference/reports.rst:313
 msgid ""
 "Or you can access the pdf version at \\http://<server-"
 "address>/report/pdf/sale.report_saleorder/38"
 msgstr ""
+
+#~ msgid ""
+#~ ":class:`~openerp.fields.Many2many` field to the "
+#~ "groups allowed to view/use the current"
+#~ " report"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The paper format cannot currently be "
+#~ "declared via the ``<report>`` shortcut, "
+#~ "it must be added afterwards using "
+#~ "a ``<record>`` extension on the report"
+#~ " action itself::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The report model has a default "
+#~ "``get_html`` function that looks for a"
+#~ " model named :samp:`report.{module.report_name}`. "
+#~ "If it exists, it will use it "
+#~ "to call the QWeb engine; otherwise "
+#~ "a generic function will be used. "
+#~ "If you wish to customize your "
+#~ "reports by including more things in "
+#~ "the template (like records of others "
+#~ "models, for example), you can define "
+#~ "this model, overwrite the function "
+#~ "``render_html`` and pass objects in the"
+#~ " ``docargs`` dictionnary:"
+#~ msgstr ""
 

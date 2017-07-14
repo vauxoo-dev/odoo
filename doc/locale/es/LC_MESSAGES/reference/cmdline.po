@@ -8,45 +8,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# e3cff9de8cdc48d9b5934e7b37efd02f
 #: ../../reference/cmdline.rst:7
-msgid "Command-line interface: odoo.py"
+msgid "Command-line interface: odoo-bin"
 msgstr ""
 
+# 3606689d552a4eb98401bb074697e540
 #: ../../reference/cmdline.rst:12
 msgid "Running the server"
 msgstr ""
 
+# 599cbec6716442a7a0b25e562d6f6231
 #: ../../reference/cmdline.rst:18
 msgid "database used when installing or updating modules."
 msgstr ""
 
+# fe1a8fb21e0c42bfa8d5235a0e1ca092
 #: ../../reference/cmdline.rst:22
 msgid ""
 "comma-separated list of modules to install before running the server "
 "(requires :option:`-d`)."
 msgstr ""
 
+# 92b1ea8ed2a447bdbfcafa057ffacb61
 #: ../../reference/cmdline.rst:27
 msgid ""
 "comma-separated list of modules to update before running the server "
 "(requires :option:`-d`)."
 msgstr ""
 
+# 7618c66d2ef64eaaa4e0ed953bbf0bc7
 #: ../../reference/cmdline.rst:32
 msgid ""
 "comma-separated list of directories in which modules are stored. These "
 "directories are scanned for modules (nb: when and why?)"
 msgstr ""
 
+# f22b819b187246b6b12eef83f0ca7de2
 #: ../../reference/cmdline.rst:37
 msgid ""
 "if ``count`` is not 0 (the default), enables multiprocessing and sets up "
@@ -54,34 +61,41 @@ msgid ""
 "RPC requests)."
 msgstr ""
 
+# 6f6b7aae74084c2fa57588339ea94f70
 #: ../../reference/cmdline.rst:41
 msgid "multiprocessing mode is only available on Unix-based systems"
 msgstr ""
 
+# 4251dacb2903405e808854f7678581e4
 #: ../../reference/cmdline.rst:43
-msgid "A number of options allow limiting and recyling workers:"
+msgid "A number of options allow limiting and recycling workers:"
 msgstr ""
 
+# e8a0bbdd12c24560849f8bcaf8aa580a
 #: ../../reference/cmdline.rst:47
 msgid ""
 "Number of requests a worker will process before being recycled and "
 "restarted."
 msgstr ""
 
+# 429b76fa92e646dca2a2e07897330427
 #: ../../reference/cmdline.rst:50
 msgid "Defaults to 8196."
 msgstr ""
 
+# cdefea43a4074de8a9a2d2b21f3fcf29
 #: ../../reference/cmdline.rst:54
 msgid ""
 "Maximum allowed virtual memory per worker. If the limit is exceeded, the "
 "worker is killed and recycled at the end of the current request."
 msgstr ""
 
+# e9e24f0f7df04fc18a62a95534e862b9
 #: ../../reference/cmdline.rst:57
 msgid "Defaults to 640MB."
 msgstr ""
 
+# 306eda5ce2a64b2abb3d5dbe9113487c
 #: ../../reference/cmdline.rst:61
 msgid ""
 "Hard limit on virtual memory, any worker exceeding the limit will be "
@@ -89,119 +103,169 @@ msgid ""
 "processing."
 msgstr ""
 
+# ee00bed878ef46e5a936be2e3771ae44
 #: ../../reference/cmdline.rst:65
 msgid "Defaults to 768MB."
 msgstr ""
 
+# b4c38a213aa6407fb793d9ec57bd2131
 #: ../../reference/cmdline.rst:69
 msgid ""
 "Prevents the worker from using more than <limit> CPU seconds for each "
 "request. If the limit is exceeded, the worker is killed."
 msgstr ""
 
+# e3f6f536eead4c25b110f2dc2c61a07b
 #: ../../reference/cmdline.rst:72
 msgid "Defaults to 60."
 msgstr ""
 
+# 58693f31a7a940ada867e1b6da0aec75
 #: ../../reference/cmdline.rst:76
 msgid ""
 "Prevents the worker from taking longer than <limit> seconds to process a "
 "request. If the limit is exceeded, the worker is killed."
 msgstr ""
 
+# 2d340c1d0449432aa8bcee0d8f6e391f
 #: ../../reference/cmdline.rst:79
 msgid ""
 "Differs from :option:`--limit-time-cpu` in that this is a \"wall time\" "
 "limit including e.g. SQL queries."
 msgstr ""
 
+# 7313b91b4a6044fd90ae8ff1b9ed736e
 #: ../../reference/cmdline.rst:82
 msgid "Defaults to 120."
 msgstr ""
 
+# 2432401e49ad4bfdad00096c848f9a5b
 #: ../../reference/cmdline.rst:86
 msgid ""
 "number of workers dedicated to cron jobs. Defaults to 2. The workers are "
-"threads in multithreading mode and processes in multiprocessing mode."
+"threads in multi-threading mode and processes in multi-processing mode."
 msgstr ""
 
+# 30ccafffbbec49ab85a2db134f9425c4
 #: ../../reference/cmdline.rst:89
 msgid ""
-"For multiprocessing mode, this is in addition to the HTTP worker "
+"For multi-processing mode, this is in addition to the HTTP worker "
 "processes."
 msgstr ""
 
+# 197c0818f80845179328a43fdfd9a97b
 #: ../../reference/cmdline.rst:94
 msgid "provide an alternate configuration file"
 msgstr ""
 
+# f4d4933e802740a8a5a9372ebc4707e6
 #: ../../reference/cmdline.rst:98
 msgid ""
 "saves the server configuration to the current configuration file "
-"(:file:`{$HOME}/.openerp_serverrc` by default, overridable using "
+"(:file:`{$HOME}/.odoorc` by default, and can be overridden using "
 ":option:`-c`)"
 msgstr ""
 
+# e3f904d67ff74feb9f8bcfbdc428fd06
 #: ../../reference/cmdline.rst:104
 msgid ""
 "enables the use of ``X-Forwarded-*`` headers through `Werkzeug's proxy "
 "support`_."
 msgstr ""
 
+# 103706a5a312441492ba92ed30e4b054
 #: ../../reference/cmdline.rst:107
 msgid "proxy mode *must not* be enabled outside of a reverse proxy scenario"
 msgstr ""
 
+# 0ef93b6a895e4603a09f679cff2bd9f0
 #: ../../reference/cmdline.rst:112
 msgid "runs tests after installing modules"
 msgstr ""
 
+# 756799ba2bf7403da1122fd561045f10
 #: ../../reference/cmdline.rst:116
-msgid ""
-"when an unexpected error is raised (not a warning or an access error), "
-"automatically starts :mod:`python:pdb` before logging and returning the "
-"error"
+msgid "``all``: all the features below are activated"
 msgstr ""
 
-#: ../../reference/cmdline.rst:123
+# fafe31a321304ecf88e8c52c9e4db3c5
+#: ../../reference/cmdline.rst:118
+msgid ""
+"``xml``: read template qweb from xml file directly instead of database. "
+"Once a template has been modified in database, it will be not be read "
+"from the xml file until the next update/init."
+msgstr ""
+
+# 0cdff520eb3b4c78bef9e106e610301e
+#: ../../reference/cmdline.rst:122
+msgid ""
+"``reload``: restart server when python file are updated (may not be "
+"detected depending on the text editor used)"
+msgstr ""
+
+# 4bd9e1043f1546d69d4e7e24e8e60751
+#: ../../reference/cmdline.rst:125
+msgid ""
+"``qweb``: break in the evaluation of qweb template when a node contains "
+"``t-debug='debugger'``"
+msgstr ""
+
+# 8c193a67a38f45d18b19e7997d876a6f
+#: ../../reference/cmdline.rst:127
+msgid ""
+"``(i)p(u)db``: start the chosen python debugger in the code when an "
+"unexpected error is raised before logging and returning the error."
+msgstr ""
+
+# 87d61019d2e84a7c961786f5de3105e2
+#: ../../reference/cmdline.rst:133
 msgid "database"
 msgstr ""
 
-#: ../../reference/cmdline.rst:127
+# 59ecb317ba4246abbf2af212fcc4725d
+#: ../../reference/cmdline.rst:137
 msgid "database username, used to connect to PostgreSQL."
 msgstr ""
 
-#: ../../reference/cmdline.rst:131
+# 8a40760972614d22b66a0d4b9a9629b9
+#: ../../reference/cmdline.rst:141
 msgid "database password, if using `password authentication`_."
 msgstr ""
 
-#: ../../reference/cmdline.rst:135
+# 3b63ec6bc2c44e388881e781eaf3bd99
+#: ../../reference/cmdline.rst:145
 msgid "host for the database server"
 msgstr ""
 
-#: ../../reference/cmdline.rst:137
+# 10a5b661da5d47aeb683e80350286f33
+#: ../../reference/cmdline.rst:147
 msgid "``localhost`` on Windows"
 msgstr ""
 
-#: ../../reference/cmdline.rst:138
+# aebce58acd9a4040ad5a7f6faf503ccd
+#: ../../reference/cmdline.rst:148
 msgid "UNIX socket otherwise"
 msgstr ""
 
-#: ../../reference/cmdline.rst:142
+# 6f1bb12c0cf3417da3a6af675c6ad8e8
+#: ../../reference/cmdline.rst:152
 msgid "port the database listens on, defaults to 5432"
 msgstr ""
 
-#: ../../reference/cmdline.rst:146
+# c85a9fa9478245d0a475d80e2171e565
+#: ../../reference/cmdline.rst:156
 msgid ""
 "hides databases that do not match ``<filter>``. The filter is a `regular "
 "expression`_, with the additions that:"
 msgstr ""
 
-#: ../../reference/cmdline.rst:149
+# 2724ddbdcad84b4fb0a3fcdeb5333e0f
+#: ../../reference/cmdline.rst:159
 msgid "``%h`` is replaced by the whole hostname the request is made on."
 msgstr ""
 
-#: ../../reference/cmdline.rst:150
+# 42f48b22946f4e22967e13e6ba834920
+#: ../../reference/cmdline.rst:160
 #, python-format
 msgid ""
 "``%d`` is replaced by the subdomain the request is made on, with the "
@@ -209,57 +273,67 @@ msgid ""
 "match the database ``odoo``)"
 msgstr ""
 
-#: ../../reference/cmdline.rst:156
+# 9a499f1b82e64698b704b5fb73516374
+#: ../../reference/cmdline.rst:166
 msgid ""
 "when creating new databases from the database-management screens, use the"
 " specified `template database`_. Defaults to ``template1``."
 msgstr ""
 
-#: ../../reference/cmdline.rst:160
+# 786eb4be4297406895434e26ef1ae6db
+#: ../../reference/cmdline.rst:170
 msgid "built-in HTTP"
 msgstr ""
 
-#: ../../reference/cmdline.rst:164
+# ad9e7e407d3947749f27fe3d3aaf64b0
+#: ../../reference/cmdline.rst:174
 msgid ""
 "do not start the HTTP or long-polling workers (may still start cron "
 "workers)"
 msgstr ""
 
-#: ../../reference/cmdline.rst:167
+# 51957a4e937045a5bd282126f6d180d7
+#: ../../reference/cmdline.rst:177
 msgid ""
 "has no effect if :option:`--test-enable` is set, as tests require an "
 "accessible HTTP server"
 msgstr ""
 
-#: ../../reference/cmdline.rst:172
+# 8d6dfb15df2c4750830766e81805a5cd
+#: ../../reference/cmdline.rst:182
 msgid ""
 "TCP/IP address on which the HTTP server listens, defaults to ``0.0.0.0`` "
 "(all addresses)"
 msgstr ""
 
-#: ../../reference/cmdline.rst:177
+# e5bc0f6986a941f28711159b2db4f4fd
+#: ../../reference/cmdline.rst:187
 msgid "Port on which the HTTP server listens, defaults to 8069."
 msgstr ""
 
-#: ../../reference/cmdline.rst:181
+# 142385ed8f934751ad1dbbb08a2e177d
+#: ../../reference/cmdline.rst:191
 msgid ""
 "TCP port for long-polling connections in multiprocessing or gevent mode, "
 "defaults to 8072. Not used in default (threaded) mode."
 msgstr ""
 
-#: ../../reference/cmdline.rst:185
+# f38aa28004e148d89553e07d1f220daa
+#: ../../reference/cmdline.rst:195
 msgid "logging"
 msgstr ""
 
-#: ../../reference/cmdline.rst:187
+# aab3dca115c6469c95e20c60020f044b
+#: ../../reference/cmdline.rst:197
 msgid ""
 "By default, Odoo displays all logging of level_ ``info`` except for "
 "workflow logging (``warning`` only), and log output is sent to "
 "``stdout``. Various options are available to redirect logging to other "
-"destinations and to customize the amout of logging output"
+"destinations and to customize the amount of logging output"
 msgstr ""
 
-#: ../../reference/cmdline.rst:194
+# e74480efdf9a412cacc127b0cce93cd6
+#: ../../reference/cmdline.rst:204
 msgid ""
 "sends logging output to the specified file instead of stdout. On Unix, "
 "the file `can be managed by external log rotation programs "
@@ -267,7 +341,8 @@ msgid ""
 " and will automatically be reopened when replaced"
 msgstr ""
 
-#: ../../reference/cmdline.rst:201
+# 42555f8d540a48948d21d104ba7d1cc3
+#: ../../reference/cmdline.rst:211
 msgid ""
 "enables `log rotation "
 "<https://docs.python.org/2/library/logging.handlers.html#timedrotatingfilehandler>`_"
@@ -275,7 +350,8 @@ msgid ""
 "is not configurable."
 msgstr ""
 
-#: ../../reference/cmdline.rst:207
+# 361c437221d74c44b30b729803b0e075
+#: ../../reference/cmdline.rst:217
 msgid ""
 "logs to the system's event logger: `syslog on unices "
 "<https://docs.python.org/2/library/logging.handlers.html#sysloghandler>`_"
@@ -283,125 +359,150 @@ msgid ""
 "<https://docs.python.org/2/library/logging.handlers.html#nteventloghandler>`_."
 msgstr ""
 
-#: ../../reference/cmdline.rst:210
+# 04811db52a2e4f39b0d4d018a9b67c2f
+#: ../../reference/cmdline.rst:220
 msgid "Neither is configurable"
 msgstr ""
 
-#: ../../reference/cmdline.rst:214
+# c000910b31b54f44b0a271460c827567
+#: ../../reference/cmdline.rst:224
 msgid ""
 "logs to the ``ir.logging`` model (``ir_logging`` table) of the specified "
 "database. The database can be the name of a database in the \"current\" "
 "PostgreSQL, or `a PostgreSQL URI`_ for e.g. log aggregation"
 msgstr ""
 
-#: ../../reference/cmdline.rst:220
+# e30bd9ae1c9e44d39634445b1946475c
+#: ../../reference/cmdline.rst:230
 msgid ""
 ":samp:`{LOGGER}:{LEVEL}`, enables ``LOGGER`` at the provided ``LEVEL`` "
-"e.g. ``openerp.models:DEBUG`` will enable all logging messages at or "
-"above ``DEBUG`` level in the models."
+"e.g. ``odoo.models:DEBUG`` will enable all logging messages at or above "
+"``DEBUG`` level in the models."
 msgstr ""
 
-#: ../../reference/cmdline.rst:224
+# 43833afbab754ad6bac19b3995d004c4
+#: ../../reference/cmdline.rst:234
 msgid "The colon ``:`` is mandatory"
 msgstr ""
 
-#: ../../reference/cmdline.rst:225
+# 3ad9c32d805e4f21bd77fb8d509df008
+#: ../../reference/cmdline.rst:235
 msgid "The logger can be omitted to configure the root (default) handler"
 msgstr ""
 
-#: ../../reference/cmdline.rst:226
+# 32923fe2abfb4c319d0e8643906f5dcc
+#: ../../reference/cmdline.rst:236
 msgid "If the level is omitted, the logger is set to ``INFO``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:228
+# 4fdd82bcc4ba4c8d80572f555bd98e6e
+#: ../../reference/cmdline.rst:238
 msgid "The option can be repeated to configure multiple loggers e.g."
 msgstr ""
 
-#: ../../reference/cmdline.rst:236
-msgid ""
-"enable DEBUG logging for RPC requests, equivalent to ``--log-"
-"handler=openerp.http.rpc.request:DEBUG``"
-msgstr ""
-
-#: ../../reference/cmdline.rst:241
-msgid ""
-"enable DEBUG logging for RPC responses, equivalent to ``--log-"
-"handler=openerp.http.rpc.response:DEBUG``"
-msgstr ""
-
+# 6f2ebdd7813742ce85c020eae9382acc
 #: ../../reference/cmdline.rst:246
 msgid ""
-"enables DEBUG logging of HTTP requests and responses, equivalent to "
-"``--log-handler=openerp.http:DEBUG``"
+"enable DEBUG logging for RPC requests, equivalent to ``--log-"
+"handler=odoo.http.rpc.request:DEBUG``"
 msgstr ""
 
+# 4a89c76741244fcda229f62482c7cd7c
 #: ../../reference/cmdline.rst:251
 msgid ""
-"enables DEBUG logging of SQL querying, equivalent to ``--log-"
-"handler=openerp.sql_db:DEBUG``"
+"enable DEBUG logging for RPC responses, equivalent to ``--log-"
+"handler=odoo.http.rpc.response:DEBUG``"
 msgstr ""
 
+# 654ba461d78f4bf9a792730fd28d8987
 #: ../../reference/cmdline.rst:256
+msgid ""
+"enables DEBUG logging of HTTP requests and responses, equivalent to "
+"``--log-handler=odoo.http:DEBUG``"
+msgstr ""
+
+# 0d6287ed70644891a7084582c37fcf75
+#: ../../reference/cmdline.rst:261
+msgid ""
+"enables DEBUG logging of SQL querying, equivalent to ``--log-"
+"handler=odoo.sql_db:DEBUG``"
+msgstr ""
+
+# c2586a1c59964686961d8d142e0f7123
+#: ../../reference/cmdline.rst:266
 msgid ""
 "Shortcut to more easily set predefined levels on specific loggers. "
 "\"real\" levels (``critical``, ``error``, ``warn``, ``debug``) are set on"
-" the ``openerp`` and ``werkzeug`` loggers (except for ``debug`` which is "
-"only set on ``openerp``)."
+" the ``odoo`` and ``werkzeug`` loggers (except for ``debug`` which is "
+"only set on ``odoo``)."
 msgstr ""
 
-#: ../../reference/cmdline.rst:261
+# 4ddae93e9e7d4ee4939ba6345c5c9279
+#: ../../reference/cmdline.rst:271
 msgid ""
 "Odoo also provides debugging pseudo-levels which apply to different sets "
 "of loggers:"
 msgstr ""
 
-#: ../../reference/cmdline.rst:266
+# 2ae79e0199fe4a628bc1ec1a368c0270
+#: ../../reference/cmdline.rst:276
 msgid "``debug_sql``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:265
+# 049fbaf7b67546738edbf608a041ed7c
+#: ../../reference/cmdline.rst:275
 msgid "sets the SQL logger to ``debug``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:267
+# c230a7e27da84f97a44281e0284b70ed
+#: ../../reference/cmdline.rst:277
 msgid "equivalent to ``--log-sql``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:270
+# 99eedebece0347bcae6de223561ea4f6
+#: ../../reference/cmdline.rst:280
 msgid "``debug_rpc``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:269
-msgid "sets the ``openerp`` and HTTP request loggers to ``debug``"
+# 9fbde65a1c5148ab8eb1f4ae0cc2e6f7
+#: ../../reference/cmdline.rst:279
+msgid "sets the ``odoo`` and HTTP request loggers to ``debug``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:271
+# 15dc48b074334bf18c95e31e3371eb77
+#: ../../reference/cmdline.rst:281
 msgid "equivalent to ``--log-level debug --log-request``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:276
+# 183953b6eaf043c2ab1d9610c44b6d59
+#: ../../reference/cmdline.rst:286
 msgid "``debug_rpc_answer``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:273
-msgid "sets the ``openerp`` and HTTP request and response loggers to ``debug``"
+# 1a9f408fb2f949d6b9dce6fdb573eb97
+#: ../../reference/cmdline.rst:283
+msgid "sets the ``odoo`` and HTTP request and response loggers to ``debug``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:276
+# 3a238c9293814ac69582fc3c4f3ec105
+#: ../../reference/cmdline.rst:286
 msgid "equivalent to ``--log-level debug --log-request --log-response``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:280
+# dfe4481e61d6449da86d1e7d057965d9
+#: ../../reference/cmdline.rst:290
 msgid ""
 "In case of conflict between :option:`--log-level` and :option:`--log-"
 "handler`, the latter is used"
 msgstr ""
 
-#: ../../reference/cmdline.rst:287
+# 291e08ac2d7f481a8afed9f646b8e75b
+#: ../../reference/cmdline.rst:297
 msgid "Scaffolding"
 msgstr ""
 
-#: ../../reference/cmdline.rst:291
+# afed9373d0314679a21b4d859d55fc53
+#: ../../reference/cmdline.rst:301
 msgid ""
 "Scaffolding is the automated creation of a skeleton structure to simplify"
 " bootstrapping (of new modules, in the case of Odoo). While not necessary"
@@ -409,33 +510,39 @@ msgid ""
 "all starting requirements are."
 msgstr ""
 
-#: ../../reference/cmdline.rst:296
-msgid "Scaffolding is available via the :command:`odoo.py scaffold` subcommand."
+# eebe1f2d18ec4e9e83b59176b6472060
+#: ../../reference/cmdline.rst:306
+msgid "Scaffolding is available via the :command:`odoo-bin scaffold` subcommand."
 msgstr ""
 
-#: ../../reference/cmdline.rst:300
+# a3a4bb15d1b14ed3aefc8d04d73d33d4
+#: ../../reference/cmdline.rst:310
 msgid ""
 "a template directory, files are passed through jinja2_ then copied to the"
 " ``destination`` directory"
 msgstr ""
 
-#: ../../reference/cmdline.rst:305
+# 8a8583c433ca4a87b6d0a691d955bf85
+#: ../../reference/cmdline.rst:315
 msgid ""
 "the name of the module to create, may munged in various manners to "
 "generate programmatic names (e.g. module directory name, model names, …)"
 msgstr ""
 
-#: ../../reference/cmdline.rst:310
+# b4d2d1b560bc4552a44c23193fc783c9
+#: ../../reference/cmdline.rst:320
 msgid ""
 "directory in which to create the new module, defaults to the current "
 "directory"
 msgstr ""
 
-#: ../../reference/cmdline.rst:316
+# 2153becf0add415898ed426e4a370480
+#: ../../reference/cmdline.rst:326
 msgid "Configuration file"
 msgstr ""
 
-#: ../../reference/cmdline.rst:318
+# 86b54704613140828f1d1be6d18e550d
+#: ../../reference/cmdline.rst:328
 msgid ""
 "Most of the command-line options can also be specified via a "
 "configuration file. Most of the time, they use similar names with the "
@@ -443,48 +550,165 @@ msgid ""
 ":`--db-template` becomes ``db_template``."
 msgstr ""
 
-#: ../../reference/cmdline.rst:323
+# 723f148b2f7742dfaf3667666f81314e
+#: ../../reference/cmdline.rst:333
 msgid "Some conversions don't match the pattern:"
 msgstr ""
 
-#: ../../reference/cmdline.rst:325
+# f6182ca09f2a40c7b88c7e627d2e326a
+#: ../../reference/cmdline.rst:335
 msgid ":option:`--db-filter` becomes ``dbfilter``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:326
+# 8011f53aed114b559120e94fd837c937
+#: ../../reference/cmdline.rst:336
 msgid ":option:`--no-xmlrpc` corresponds to the ``xmlrpc`` boolean"
 msgstr ""
 
-#: ../../reference/cmdline.rst:327
+# 58827d845649410a8f6e0331bdcb3ebd
+#: ../../reference/cmdline.rst:337
 msgid ""
 "logging presets (all options starting with ``--log-`` except for :option"
 ":`--log-handler` and :option:`--log-db`) just add content to "
 "``log_handler``, use that directly in the configuration file"
 msgstr ""
 
-#: ../../reference/cmdline.rst:330
+# da27fd898c9c434aa27d117314aa1a4f
+#: ../../reference/cmdline.rst:340
 msgid ":option:`--smtp` is stored as ``smtp_server``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:331
-msgid ":option:`--database` is stored as ``dbname``"
+# 49959e39c2a54d7db088c8bb29783050
+#: ../../reference/cmdline.rst:341
+msgid ":option:`--database` is stored as ``db_name``"
 msgstr ""
 
-#: ../../reference/cmdline.rst:332
+# 945100d33f8b4e698806ac18550b744b
+#: ../../reference/cmdline.rst:342
 msgid ":option:`--debug` is stored as ``debug_mode`` (a boolean)"
 msgstr ""
 
-#: ../../reference/cmdline.rst:333
+# fb5724b3dbcc45728f6f2b3b1a6584aa
+#: ../../reference/cmdline.rst:343
 msgid ""
 ":option:`--i18n-import` and :option:`--i18n-export` aren't available at "
 "all from configuration files"
 msgstr ""
 
-#: ../../reference/cmdline.rst:336
+# 488c46b4db744874af6fed6946d23f3b
+#: ../../reference/cmdline.rst:346
 msgid ""
-"The default configuration file is :file:`{$HOME}/.openerp_serverrc` which"
-" can be overridden using :option:`--config <odoo.py -c>`. Specifying "
-":option:`--save <odoo.py -s>` will save the current configuration state "
+"The default configuration file is :file:`{$HOME}/.odoorc` which can be "
+"overridden using :option:`--config <odoo-bin -c>`. Specifying "
+":option:`--save <odoo-bin -s>` will save the current configuration state "
 "back to that file."
 msgstr ""
+
+#~ msgid "Command-line interface: odoo.py"
+#~ msgstr ""
+
+#~ msgid "A number of options allow limiting and recyling workers:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "number of workers dedicated to cron "
+#~ "jobs. Defaults to 2. The workers "
+#~ "are threads in multithreading mode and"
+#~ " processes in multiprocessing mode."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For multiprocessing mode, this is in "
+#~ "addition to the HTTP worker processes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "saves the server configuration to the"
+#~ " current configuration file "
+#~ "(:file:`{$HOME}/.openerp_serverrc` by default, "
+#~ "overridable using :option:`-c`)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "when an unexpected error is raised "
+#~ "(not a warning or an access "
+#~ "error), automatically starts :mod:`python:pdb` "
+#~ "before logging and returning the error"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By default, Odoo displays all logging"
+#~ " of level_ ``info`` except for "
+#~ "workflow logging (``warning`` only), and "
+#~ "log output is sent to ``stdout``. "
+#~ "Various options are available to "
+#~ "redirect logging to other destinations "
+#~ "and to customize the amout of "
+#~ "logging output"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":samp:`{LOGGER}:{LEVEL}`, enables ``LOGGER`` at "
+#~ "the provided ``LEVEL`` e.g. "
+#~ "``openerp.models:DEBUG`` will enable all "
+#~ "logging messages at or above ``DEBUG``"
+#~ " level in the models."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "enable DEBUG logging for RPC requests,"
+#~ " equivalent to ``--log-"
+#~ "handler=openerp.http.rpc.request:DEBUG``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "enable DEBUG logging for RPC responses,"
+#~ " equivalent to ``--log-"
+#~ "handler=openerp.http.rpc.response:DEBUG``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "enables DEBUG logging of HTTP requests"
+#~ " and responses, equivalent to ``--log-"
+#~ "handler=openerp.http:DEBUG``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "enables DEBUG logging of SQL querying,"
+#~ " equivalent to ``--log-"
+#~ "handler=openerp.sql_db:DEBUG``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Shortcut to more easily set predefined"
+#~ " levels on specific loggers. \"real\" "
+#~ "levels (``critical``, ``error``, ``warn``, "
+#~ "``debug``) are set on the ``openerp``"
+#~ " and ``werkzeug`` loggers (except for "
+#~ "``debug`` which is only set on "
+#~ "``openerp``)."
+#~ msgstr ""
+
+#~ msgid "sets the ``openerp`` and HTTP request loggers to ``debug``"
+#~ msgstr ""
+
+#~ msgid "sets the ``openerp`` and HTTP request and response loggers to ``debug``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Scaffolding is available via the "
+#~ ":command:`odoo.py scaffold` subcommand."
+#~ msgstr ""
+
+#~ msgid ":option:`--database` is stored as ``dbname``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The default configuration file is "
+#~ ":file:`{$HOME}/.openerp_serverrc` which can be "
+#~ "overridden using :option:`--config <odoo.py "
+#~ "-c>`. Specifying :option:`--save <odoo.py -s>`"
+#~ " will save the current configuration "
+#~ "state back to that file."
+#~ msgstr ""
 

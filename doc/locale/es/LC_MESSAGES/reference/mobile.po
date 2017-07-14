@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Odoo S.A.
+# This file is distributed under the same license as the odoo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: odoo 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+# 7e02279c4e5a4ec787e0b084a86bbd06
+#: ../../reference/mobile.rst:8
+msgid "Mobile JavaScript"
+msgstr ""
+
+# b9a26f83b10d4e83850389a83157701d
+#: ../../reference/mobile.rst:11
+msgid "Introduction"
+msgstr ""
+
+# b9aa81b320a746f597489c703ba6fce2
+#: ../../reference/mobile.rst:13
+msgid ""
+"In Odoo 10.0 we released a mobile app, allows you to access all **Odoo "
+"apps** (even your customized modules)."
+msgstr ""
+
+# 893e95e1d6be427f889ff9f99555265e
+#: ../../reference/mobile.rst:16
+msgid ""
+"The application is a combination of **Odoo Web** and **Native Mobile "
+"components**, in other words it is a Odoo Web instance loaded inside "
+"native WebView container of mobile."
+msgstr ""
+
+# 180b3b42615c4feca54b239392369ca2
+#: ../../reference/mobile.rst:20
+msgid ""
+"This page documents how you can access mobile native components like "
+"Camera, Vibration, Notification, Toast through Odoo Web (via JavaScript)."
+" For this, you do not need to be a mobile developer, if you know Odoo "
+"JavaScript API you can access all available mobile features."
+msgstr ""
+
+# d1495cbfa90b43f7b112a5685b67e104
+#: ../../reference/mobile.rst:25
+msgid "This features works with **Odoo Enterprise 10.0+** only"
+msgstr ""
+
+# d0af604bf931473c92a151ccf59c11b9
+#: ../../reference/mobile.rst:28
+msgid "How does it work?"
+msgstr ""
+
+# fc428e809bda4784a055824c06c7b181
+#: ../../reference/mobile.rst:30
+msgid "Internal working of Mobile application:"
+msgstr ""
+
+# 966ee8d074874c3e8ff6852ac861528a
+#: ../../reference/mobile.rst:34
+msgid ""
+"Of course, it is a web page that loads on a Mobile Native Web container. "
+"But it is integrated in such a way that you can access native resources "
+"from your web JavaScript."
+msgstr ""
+
+# d7d702d439764b0989abd206be444024
+#: ../../reference/mobile.rst:38
+msgid ""
+"WebPages (Odoo Web) is on the top of each layer, where second layer is a "
+"Bridge between Odoo Web (JS) and Native component of mobile."
+msgstr ""
+
+# 9fdfb6ffc53649d0ad948e53bf761750
+#: ../../reference/mobile.rst:41
+msgid ""
+"When any call from JavaScript triggered it passes through Bridge and "
+"Bridge pass it to native invoker to perform that action."
+msgstr ""
+
+# eed61441fd76485eae4e497b31656bf5
+#: ../../reference/mobile.rst:44
+msgid ""
+"When the native component has done their work, it again is passed to "
+"Bridge and you get the output in JavaScript."
+msgstr ""
+
+# 056ea4e3f0f14e11b051c6858ca74688
+#: ../../reference/mobile.rst:47
+msgid ""
+"Process time taken by the Native component depends on what you are "
+"requesting from Native resources. Like Camera or GPS Location."
+msgstr ""
+
+# 7241974b393f4795b1d5dfcce6f97aea
+#: ../../reference/mobile.rst:51
+msgid "How to use it?"
+msgstr ""
+
+# 574a3b5f8f7242baac704121bb7b0dcb
+#: ../../reference/mobile.rst:53
+msgid ""
+"As Odoo Web Framework, Mobile api can be used anywhere by getting object "
+"of **web_mobile.rpc**"
+msgstr ""
+
+# 484e7a98faea4994afdb973eab568852
+#: ../../reference/mobile.rst:58
+msgid ""
+"Mobile rpc object provide list of methods available (Works only with "
+"Mobile App)."
+msgstr ""
+
+# ac8813f958b6497596a077039c809781
+#: ../../reference/mobile.rst:61
+msgid "Just check for method availability and execute it."
+msgstr ""
+
+# 251e107bd3b54803a7f3735456bbda7e
+#: ../../reference/mobile.rst:64
+msgid "Methods"
+msgstr ""
+
+# 412c3477ab9c495e90e61298ebf0baec
+#: ../../reference/mobile.rst:66
+msgid ""
+"Each of the methods returns JQuery Deffered object with returning data "
+"JSON dictionary"
+msgstr ""
+
+# 91635aee4b1e4240b942c56611e86600
+#: ../../reference/mobile.rst:70
+msgid "Show Toast in device"
+msgstr ""
+
+# 9e752732957c4fabb7f3d904f08ab08f
+#: ../../reference/mobile.rst:74
+msgid "**message** text to display"
+msgstr ""
+
+# aa0953cd9ba2444f91cce0ca1c5206f0
+#: ../../reference/mobile.rst:76
+msgid ""
+"A toast provides simple feedback about an operation in a small popup. It "
+"only fills the amount of space required for the message and the current "
+"activity remains visible and interactive"
+msgstr ""
+
+# b9108bbff691425da5d509ce8937d0d1
+#: ../../reference/mobile.rst:88
+msgid "Vibrating device"
+msgstr ""
+
+# 013bf8816a6c4769b8bdf5c19dd91847
+#: ../../reference/mobile.rst:93
+msgid "Vibrates constantly for the specified period of time (in milliseconds)."
+msgstr ""
+
+# fcffdaef05cb474db8f7f0422d1e21c8
+#: ../../reference/mobile.rst:96
+msgid "Vibrate mobile device with given duration."
+msgstr ""
+
+# 7324b2b0cf7e47958a31a5b1730249f0
+#: ../../reference/mobile.rst:103
+msgid "Show snackbar with action"
+msgstr ""
+
+# d72c27c3e40544d99f9f3db78e7db85d
+#: ../../reference/mobile.rst:107
+msgid ""
+"(*required*) **Message** to show in snackbar and action **button label** "
+"in Snackbar (optional)"
+msgstr ""
+
+# 8d097979a15d4188941839391ae4a0da
+#: ../../reference/mobile.rst:108
+msgid ""
+"``True`` if User click on Action button, ``False`` if SnackBar auto "
+"dismissed after some time"
+msgstr ""
+
+# a8cb5d83f63c425baa6347fd496ded8b
+#: ../../reference/mobile.rst:110
+msgid ""
+"Snackbars provide lightweight feedback about an operation. They show a "
+"brief message at the bottom of the screen on mobile and lower left on "
+"larger devices. Snackbars appear above all other elements on screen and "
+"only one can be displayed at a time."
+msgstr ""
+
+# c4ee49a82b0b47458f3971088b06c52e
+#: ../../reference/mobile.rst:128
+msgid "Showing notification"
+msgstr ""
+
+# 4384876d6e7141b1b0a9f5df14c0b6fd
+#: ../../reference/mobile.rst:132
+msgid ""
+"**title** (first row) of the notification, **message** (second row) of "
+"the notification, in a standard notification."
+msgstr ""
+
+# 03d208649f3342d18646b7577611d08e
+#: ../../reference/mobile.rst:134
+msgid ""
+"A notification is a message you can display to the user outside of your "
+"application's normal UI. When you tell the system to issue a "
+"notification, it first appears as an icon in the notification area. To "
+"see the details of the notification, the user opens the notification "
+"drawer. Both the notification area and the notification drawer are "
+"system-controlled areas that the user can view at any time."
+msgstr ""
+
+# 3a6416c2fa124ffc829cb8e76a10f459
+#: ../../reference/mobile.rst:149
+msgid "Create contact in device"
+msgstr ""
+
+# 76d48a812411434c9c107a9dff017dac
+#: ../../reference/mobile.rst:153
+msgid ""
+"Dictionary with contact details. Possible keys (name, mobile, phone, fax,"
+" email, website, street, street2, country_id, state_id, city, zip, "
+"parent_id, function and image)"
+msgstr ""
+
+# e2038ad93472424b877b3d6828d55ce6
+#: ../../reference/mobile.rst:155
+msgid "Create device contact with given contact details."
+msgstr ""
+
+# 961101f1e0e54dcca10aacb98b32ed5a
+#: ../../reference/mobile.rst:182
+msgid "Scanning barcodes"
+msgstr ""
+
+# 8563bf3c7bf54a8e80ef11ebea1be10c
+#: ../../reference/mobile.rst:186
+msgid "Scanned ``code`` from any barcodes"
+msgstr ""
+
+# 83748def369a4b2f844d57d3ce016558
+#: ../../reference/mobile.rst:188
+msgid ""
+"The Barcode API detects barcodes in real-time, on device, in any "
+"orientation."
+msgstr ""
+
+# b7b9e73267f8417d8452a853d61e6ba3
+#: ../../reference/mobile.rst:190
+msgid "It reads the following barcode formats:"
+msgstr ""
+
+# e4a780465c784f1c8cca045aa5870246
+#: ../../reference/mobile.rst:192
+msgid ""
+"1D barcodes: EAN-13, EAN-8, UPC-A, UPC-E, Code-39, Code-93, Code-128, "
+"ITF, Codabar"
+msgstr ""
+
+# 61eaf99e7323437ca303022e1cfc36e0
+#: ../../reference/mobile.rst:193
+msgid "2D barcodes: QR Code, Data Matrix, PDF-417, AZTEC"
+msgstr ""
+
+# e925a4daad9d4a158cfc1c4bf359eefc
+#: ../../reference/mobile.rst:204
+msgid "Switching account in device"
+msgstr ""
+
+# 0ee9fc61c1114e9d9c8cfa4dd60911fb
+#: ../../reference/mobile.rst:208
+msgid "Use to switch device account."
+msgstr ""
+

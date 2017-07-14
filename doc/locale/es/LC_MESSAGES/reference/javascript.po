@@ -8,23 +8,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# e4a659abf7ab4bf48bf453cfbd72d785
 #: ../../reference/javascript.rst:9
 msgid "Javascript"
 msgstr ""
 
+# a3b219c8e26a400ebc7db3f63177d65f
 #: ../../reference/javascript.rst:12
 msgid "Widgets"
 msgstr ""
 
+# aebe9679bf87477da62b393536b4c7b3
 #: ../../reference/javascript.rst:16
 msgid ""
 "Exported in ``web.Widget``, the base class for all visual components. It "
@@ -32,10 +35,12 @@ msgid ""
 "handling of a section of a page:"
 msgstr ""
 
+# 1dc5d7b3c8fc440ea21d19d8ce921d1b
 #: ../../reference/javascript.rst:20
 msgid "Handles parent/child relationships between widgets"
 msgstr ""
 
+# 6ba1f4f7e67d451cad8ea8bfecc23424
 #: ../../reference/javascript.rst:21
 msgid ""
 "Provides extensive lifecycle management with safety features (e.g. "
@@ -43,40 +48,49 @@ msgid ""
 "parent)"
 msgstr ""
 
+# d3f61f13ca724695a73f86f804edcba7
 #: ../../reference/javascript.rst:24
 msgid "Automatic rendering with :ref:`qweb <reference/qweb>`"
 msgstr ""
 
+# e81e28ec9aa342f5b4ee9673d2c30694
 #: ../../reference/javascript.rst:25
 msgid "Backbone-compatible shortcuts"
 msgstr ""
 
+# 8a02390996c043298487bd7e9b33223d
 #: ../../reference/javascript.rst:28
 msgid "DOM Root"
 msgstr ""
 
+# 990852466d244ca0b92c03893fd79733
 #: ../../reference/javascript.rst:30
 msgid ""
 "A :class:`~Widget` is responsible for a section of the page materialized "
 "by the DOM root of the widget."
 msgstr ""
 
+# 6a4066c4a378412faf0f481b2b5869b8
 #: ../../reference/javascript.rst:33
 msgid "A widget's DOM root is available via two attributes:"
 msgstr ""
 
+# 48006d6057964983b7eb2fe1d7a3ae1f
 #: ../../reference/javascript.rst:37
 msgid "raw DOM element set as root to the widget"
 msgstr ""
 
+# 8240d6cbd5ae4fd7b11a1d8d1e01eb42
 #: ../../reference/javascript.rst:41
 msgid "jQuery wrapper around :attr:`~Widget.el`"
 msgstr ""
 
+# f73f29b59a5a436d9575dc412cc5b2de
 #: ../../reference/javascript.rst:43
 msgid "There are two main ways to define and generate this DOM root:"
 msgstr ""
 
+# 5dcaafe2a43d49d4a032700b34ecc530
 #: ../../reference/javascript.rst:47
 msgid ""
 "Should be set to the name of a :ref:`QWeb template <reference/qweb>`. If "
@@ -85,6 +99,7 @@ msgid ""
 "template will be set as the DOM root of the widget."
 msgstr ""
 
+# a6f231e1fd7d4695a984cfd6e5fbc099
 #: ../../reference/javascript.rst:54
 msgid ""
 "Used if the widget has no template defined. Defaults to ``div``, will be "
@@ -93,28 +108,34 @@ msgid ""
 "the following attributes:"
 msgstr ""
 
+# e687e629ee5145dbaa0f796bfddb3e1b
 #: ../../reference/javascript.rst:61
 msgid "Used to generate an ``id`` attribute on the generated DOM root."
 msgstr ""
 
+# 0d06ffc1b9b24a6a96a40021acc9bc89
 #: ../../reference/javascript.rst:66
 msgid "Used to generate a ``class`` attribute on the generated DOM root."
 msgstr ""
 
+# 48793b15588246b196d34484a3a685b3
 #: ../../reference/javascript.rst:70
 msgid ""
 "Mapping (object literal) of attribute names to attribute values. Each of "
 "these k:v pairs will be set as a DOM attribute on the generated DOM root."
 msgstr ""
 
+# 6cbfac0a7fa24d67be8b44e72deedfa9
 #: ../../reference/javascript.rst:74
 msgid "None of these is used in case a template is specified on the widget."
 msgstr ""
 
+# e7440dcf2b714526a7dc76d4e5d0fcfc
 #: ../../reference/javascript.rst:76
 msgid "The DOM root can also be defined programmatically by overridding"
 msgstr ""
 
+# 6410c5980cfd47bb91178a88d9717c84
 #: ../../reference/javascript.rst:80
 msgid ""
 "Renders the widget's DOM root and sets it. The default implementation "
@@ -122,6 +143,7 @@ msgid ""
 " will call :func:`~Widget.setElement` on the result."
 msgstr ""
 
+# 725e4ca453ed4475a2c89c1b281785c2
 #: ../../reference/javascript.rst:85
 msgid ""
 "Any override to :func:`~Widget.renderElement` which does not call its "
@@ -129,6 +151,7 @@ msgid ""
 "generated or the widget's behavior is undefined."
 msgstr ""
 
+# cb6f83fa322043f7a59270dbe1078111
 #: ../../reference/javascript.rst:92
 msgid ""
 "The default :func:`~Widget.renderElement` can be called repeatedly, it "
@@ -138,58 +161,69 @@ msgid ""
 " called repeatedly unless the widget advertizes this feature."
 msgstr ""
 
+# d8815fe558b74de480dc7ec930dcc870
 #: ../../reference/javascript.rst:100
 msgid "Using a widget"
 msgstr ""
 
+# a2c6b995fb104f2ab9f00255a4f9c89a
 #: ../../reference/javascript.rst:102
 msgid "A widget's lifecycle has 3 main phases:"
 msgstr ""
 
+# 2eb11d5ed9bf471aacc6b8a7baf212c9
 #: ../../reference/javascript.rst:104
 msgid "creation and initialization of the widget instance"
 msgstr ""
 
+# f86d7984bf554797aae6ffba2d4391e5
 #: ../../reference/javascript.rst:108
 msgid ""
 "initialization method of widgets, synchronous, can be overridden to take "
 "more parameters from the widget's creator/parent"
 msgstr ""
 
+# 9fd1dbd908e14910967e4ef58fe3bd45
 #: ../../reference/javascript.rst:111
 msgid ""
 "the new widget's parent, used to handle automatic destruction and event "
 "propagation. Can be ``null`` for the widget to have no parent."
 msgstr ""
 
+# 6f7d70b0839c4fe9bdf150f92ad651b9
 #: ../../reference/javascript.rst:116
 msgid "DOM injection and startup, this is done by calling one of:"
 msgstr ""
 
+# b418fcaeb2874c2cbba063b80ddae0ad
 #: ../../reference/javascript.rst:120
 msgid ""
 "Renders the widget and inserts it as the last child of the target, uses "
 "`.appendTo()`_"
 msgstr ""
 
+# 3051e87f70f7438fae2bd317f665825a
 #: ../../reference/javascript.rst:125
 msgid ""
 "Renders the widget and inserts it as the first child of the target, uses "
 "`.prependTo()`_"
 msgstr ""
 
+# 02a468b146d5407cb8f18a9160346021
 #: ../../reference/javascript.rst:130
 msgid ""
 "Renders the widget and inserts it as the preceding sibling of the target,"
 " uses `.insertAfter()`_"
 msgstr ""
 
+# 904a1647599c401e935bb63db3558249
 #: ../../reference/javascript.rst:135
 msgid ""
 "Renders the widget and inserts it as the following sibling of the target,"
 " uses `.insertBefore()`_"
 msgstr ""
 
+# 6fad38768daa40af9f0fda5cd98e8541
 #: ../../reference/javascript.rst:138
 msgid ""
 "All of these methods accept whatever the corresponding jQuery method "
@@ -197,20 +231,24 @@ msgid ""
 "deferred_ and are charged with three tasks:"
 msgstr ""
 
+# a90be4d6574d49a7a2d7b2d916af35db
 #: ../../reference/javascript.rst:142
 msgid "rendering the widget's root element via :func:`~Widget.renderElement`"
 msgstr ""
 
+# 1c29c81601c544e2a9a6e9ed0fa9a303
 #: ../../reference/javascript.rst:144
 msgid ""
 "inserting the widget's root element in the DOM using whichever jQuery "
 "method they match"
 msgstr ""
 
+# 336092779dca4bf1bcb73bf0c0240a40
 #: ../../reference/javascript.rst:146
 msgid "starting the widget, and returning the result of starting it"
 msgstr ""
 
+# ae79cabe46ab46d7ac1585b2650ffcb7
 #: ../../reference/javascript.rst:150
 msgid ""
 "asynchronous startup of the widget once it's been injected in the DOM, "
@@ -218,10 +256,12 @@ msgid ""
 " data is necessary for the widget to do its work."
 msgstr ""
 
+# 0c1ad17c9cb140398901a675a0164a0b
 #: ../../reference/javascript.rst:154
 msgid "Must return a deferred_ to indicate when its work is done."
 msgstr ""
 
+# 5d231972269f41289280c35b2a60fa55
 #: ../../reference/javascript.rst:156
 msgid ""
 "A widget is *not guaranteed* to work correctly until its "
@@ -230,14 +270,18 @@ msgid ""
 "interacting with it"
 msgstr ""
 
+# 678b26e9a3dc4adab46e8e6a8e223008
+# d5cb043aa15e449f941442ab1bc41288
 #: ../../reference/javascript.rst:161 ../../reference/javascript.rst:202
 msgid "deferred_ object"
 msgstr ""
 
+# d4ada601ea6b488182caf2a8c94f018c
 #: ../../reference/javascript.rst:163
 msgid "widget destruction and cleanup"
 msgstr ""
 
+# 3aa1deed7d6143a88803c2c912cfd081
 #: ../../reference/javascript.rst:167
 msgid ""
 "destroys the widget's children, unbinds its events and removes its root "
@@ -246,14 +290,17 @@ msgid ""
 "removed but its parent remains."
 msgstr ""
 
+# 06980c6b44f24e7592b520041f921d63
 #: ../../reference/javascript.rst:172
 msgid "A widget being destroyed is automatically unlinked from its parent."
 msgstr ""
 
+# 23fda4dd69324d43acc2bc346a3ff1d0
 #: ../../reference/javascript.rst:174
 msgid "Related to widget destruction is an important utility method:"
 msgstr ""
 
+# cb8156f3f8bd4595a5b423a772a08c23
 #: ../../reference/javascript.rst:178
 msgid ""
 "A significant issue with RPC and destruction is that an RPC call may take"
@@ -262,10 +309,12 @@ msgid ""
 " in a broken/invalid state."
 msgstr ""
 
+# 0ae2fce53d7c4083ac9113c46964b004
 #: ../../reference/javascript.rst:183
 msgid "This is a frequent source of errors or strange behaviors."
 msgstr ""
 
+# 42ecf775e3474951a7ed4c63cd2be44c
 #: ../../reference/javascript.rst:185
 msgid ""
 ":func:`~Widget.alive` can be used to wrap an RPC call, ensuring that "
@@ -273,10 +322,12 @@ msgid ""
 "executed if the widget is still alive::"
 msgstr ""
 
+# 7e407c429f9d4b298f15311d1d43f472
 #: ../../reference/javascript.rst:197
 msgid "a deferred_ object to wrap"
 msgstr ""
 
+# 2d7d294db3d44101b45515d39f2770fc
 #: ../../reference/javascript.rst:198
 msgid ""
 "by default, if the RPC call returns after the widget has been destroyed "
@@ -284,48 +335,59 @@ msgid ""
 "If ``reject`` is set to ``true``, the deferred_ will be rejected instead."
 msgstr ""
 
+# 5f765735fd9544f2a73ee34d2bab470c
 #: ../../reference/javascript.rst:206
 msgid "``true`` if the widget is being or has been destroyed, ``false`` otherwise"
 msgstr ""
 
+# 318668625fbe4271b30b76eaf2821ecd
 #: ../../reference/javascript.rst:210
 msgid "Accessing DOM content"
 msgstr ""
 
+# 02d0dd684ccb4cde9bec782dd978c8ab
 #: ../../reference/javascript.rst:213
 msgid ""
 "Because a widget is only responsible for the content below its DOM root, "
 "there"
 msgstr ""
 
+# cd88b8a3dd7f4d5f98c6b15c83c90a8e
 #: ../../reference/javascript.rst:213
 msgid "is a shortcut for selecting sub-sections of a widget's DOM:"
 msgstr ""
 
+# 44d5b53f42584e7c8dfbccb9b1fbd4ff
 #: ../../reference/javascript.rst:217
 msgid "Applies the CSS selector specified as parameter to the widget's DOM root::"
 msgstr ""
 
+# 4e15844699ac4706b747577dfcf3a244
 #: ../../reference/javascript.rst:222
 msgid "is functionally identical to::"
 msgstr ""
 
+# 5d1e90295af545b7835bfd1502614ac5
 #: ../../reference/javascript.rst:226
 msgid "CSS selector"
 msgstr ""
 
+# 10c3dcae62784d14a2a1aef4de96dca7
 #: ../../reference/javascript.rst:227
 msgid "jQuery object"
 msgstr ""
 
+# a4d48a143bed49fd87c975d4f00b99c9
 #: ../../reference/javascript.rst:229
 msgid "this helper method is similar to ``Backbone.View.$``"
 msgstr ""
 
+# 19502ba635a14a618e5638454443d7b9
 #: ../../reference/javascript.rst:232
 msgid "Resetting the DOM root"
 msgstr ""
 
+# d2144bfe8ae6423c81df5837fa87f223
 #: ../../reference/javascript.rst:236
 msgid ""
 "Re-sets the widget's DOM root to the provided element, also handles re-"
@@ -333,28 +395,34 @@ msgid ""
 "setting delegated events."
 msgstr ""
 
+# 09cccc298c3c4d63a3ca56b74ea9aebc
 #: ../../reference/javascript.rst:240
 msgid "a DOM element or jQuery object to set as the widget's DOM root"
 msgstr ""
 
+# cb15077b74744dbfb0d05ddf903b70b0
 #: ../../reference/javascript.rst:243
 msgid "should be mostly compatible with `Backbone's setElement`_"
 msgstr ""
 
+# 9f1674ebbb5e452b8b445e505685afdd
 #: ../../reference/javascript.rst:247
 msgid "DOM events handling"
 msgstr ""
 
+# 56b79704ca6749849065810e0bac2b5d
 #: ../../reference/javascript.rst:249
 msgid ""
 "A widget will generally need to respond to user action within its section"
 " of the page. This entails binding events to DOM elements."
 msgstr ""
 
+# b030f7f024ea421ca867cecf9e2f0e6e
 #: ../../reference/javascript.rst:252
 msgid "To this end, :class:`~Widget` provides a shortcut:"
 msgstr ""
 
+# f711954ea0e243eaa7c79c11f588a457
 #: ../../reference/javascript.rst:256
 msgid ""
 "Events are a mapping of an event selector (an event name and an optional "
@@ -363,6 +431,7 @@ msgid ""
 "``this`` will be set to the widget::"
 msgstr ""
 
+# b5f760a0738f46d09770c3c5f45d95bb
 #: ../../reference/javascript.rst:268
 msgid ""
 "The selector is used for jQuery's `event delegation`_, the callback will "
@@ -371,12 +440,14 @@ msgid ""
 " specified), the event will be set directly on the widget's DOM root."
 msgstr ""
 
+# 16fcabf7d8bf428bb4273ec26c07393e
 #: ../../reference/javascript.rst:276
 msgid ""
 "This method is in charge of binding :attr:`~Widget.events` to the DOM. It"
 " is automatically called after setting the widget's DOM root."
 msgstr ""
 
+# 44c28a97417a4ae79975a01500315ac5
 #: ../../reference/javascript.rst:279
 msgid ""
 "It can be overridden to set up more complex events than the "
@@ -384,6 +455,7 @@ msgid ""
 " (or :attr:`~Widget.events` won't be handled correctly)."
 msgstr ""
 
+# a658b61708f94ac1afa942b6d8e641a9
 #: ../../reference/javascript.rst:285
 msgid ""
 "This method is in charge of unbinding :attr:`~Widget.events` from the DOM"
@@ -391,22 +463,26 @@ msgid ""
 "avoid leaving \"phantom\" events."
 msgstr ""
 
+# 907b05677ec04a1aaf6eebf508579da3
 #: ../../reference/javascript.rst:289
 msgid ""
 "It should be overridden to un-set any event set in an override of "
 ":func:`~Widget.delegateEvents`."
 msgstr ""
 
+# f4e4918a2b584150b329927ee381177c
 #: ../../reference/javascript.rst:292
 msgid ""
 "this behavior should be compatible with `Backbone's delegateEvents`_, "
 "apart from not accepting any argument."
 msgstr ""
 
+# a3838c30b2114320a9d0545b6363a5bc
 #: ../../reference/javascript.rst:296
 msgid "Subclassing Widget"
 msgstr ""
 
+# b0b7cc554c684a2d95eaa363006c8338
 #: ../../reference/javascript.rst:298
 msgid ""
 ":class:`~Widget` is subclassed in the standard manner (via the "
@@ -415,10 +491,12 @@ msgid ""
 "override). Creating a subclass looks like this::"
 msgstr ""
 
+# 2d98c233f3474c76b16a0c87fe798cd0
 #: ../../reference/javascript.rst:329
 msgid "The new class can then be used in the following manner::"
 msgstr ""
 
+# 29d0b07eedb946e3bff323c16b45a443
 #: ../../reference/javascript.rst:336
 msgid ""
 "After these two lines have executed (and any promise returned by "
@@ -426,12 +504,14 @@ msgid ""
 "ready to be used."
 msgstr ""
 
+# 72141c75fc2e4d9f807bcc28777375bf
 #: ../../reference/javascript.rst:340
 msgid ""
 "the insertion methods will start the widget themselves, and will return "
 "the result of :func:`~Widget.start()`."
 msgstr ""
 
+# 5939ac419df846d49a1de9e6a07d5201
 #: ../../reference/javascript.rst:343
 msgid ""
 "If for some reason you do not want to call these methods, you will have "
@@ -439,22 +519,26 @@ msgid ""
 " your DOM and start it."
 msgstr ""
 
+# c92347fddb8641f1b2f8efa4f5d84304
 #: ../../reference/javascript.rst:347
 msgid ""
 "If the widget is not needed anymore (because it's transient), simply "
 "terminate it::"
 msgstr ""
 
+# ec99dc51ef6c401998cb2a2fe70fc235
 #: ../../reference/javascript.rst:352
 msgid ""
 "will unbind all DOM events, remove the widget's content from the DOM and "
 "destroy all widget data."
 msgstr ""
 
+# 899e45c467674fd8846418e34cdbbd7e
 #: ../../reference/javascript.rst:356
 msgid "Development Guidelines"
 msgstr ""
 
+# e3172941ba5e43998c6a4b3bdbd0cdbb
 #: ../../reference/javascript.rst:358
 msgid ""
 "Identifiers (``id`` attribute) should be avoided. In generic applications"
@@ -463,6 +547,7 @@ msgid ""
 "nothing, classes or keeping a reference to a DOM node or jQuery element."
 msgstr ""
 
+# efb31e0e5756412284ff7336c54eccce
 #: ../../reference/javascript.rst:363
 msgid ""
 "If an ``id`` is absolutely necessary (because a third-party library "
@@ -470,6 +555,7 @@ msgid ""
 "``_.uniqueId()`` e.g.::"
 msgstr ""
 
+# f1c4fa2d325b4755ab92586b38e067ae
 #: ../../reference/javascript.rst:367
 msgid ""
 "Avoid predictable/common CSS class names. Class names such as \"content\""
@@ -480,6 +566,7 @@ msgid ""
 " namespaces, much as in C or Objective-C)."
 msgstr ""
 
+# 75379a8bdd63442a89c8f6c044719384
 #: ../../reference/javascript.rst:373
 msgid ""
 "Global selectors should be avoided. Because a component may be used "
@@ -492,16 +579,19 @@ msgid ""
 "nodes directly (:func:`~Widget.$`)."
 msgstr ""
 
+# 6b529221b519467086d175fad546663d
 #: ../../reference/javascript.rst:381
 msgid ""
 "More generally, never assume your components own or controls anything "
 "beyond its own personal :attr:`~Widget.$el`"
 msgstr ""
 
+# 89f5a98afb534f6fb14870408fa14d05
 #: ../../reference/javascript.rst:383
 msgid "html templating/rendering should use QWeb unless absolutely trivial."
 msgstr ""
 
+# e41dd81492ab47f199a753b2f7c50174
 #: ../../reference/javascript.rst:384
 msgid ""
 "All interactive components (components displaying information to the "
@@ -509,16 +599,20 @@ msgid ""
 " correctly implement and use its API and life cycle."
 msgstr ""
 
+# 4c218fe3bc7e4d08a3865ba27c04e378
+# 9b12539092af4019aa21392cfc062199
 #: ../../reference/javascript.rst:412 ../../reference/javascript.rst:1142
 msgid "RPC"
 msgstr ""
 
+# 57bec908c54c4776a1f9f4831eb26e50
 #: ../../reference/javascript.rst:414
 msgid ""
 "To display and interact with data, calls to the Odoo server are "
 "necessary. This is performed using :abbr:`RPC <Remote Procedure Call>`."
 msgstr ""
 
+# 9eb695f896c741d3939a14bc75d42f1c
 #: ../../reference/javascript.rst:417
 msgid ""
 "Odoo Web provides two primary APIs to handle this: a low-level JSON-RPC "
@@ -527,6 +621,7 @@ msgid ""
 "allowing your code to talk directly to high-level Odoo models."
 msgstr ""
 
+# 620ae6798c824650b2b0d2dbfc15c6be
 #: ../../reference/javascript.rst:422
 msgid ""
 "All networking APIs are :ref:`asynchronous <reference/async>`. As a "
@@ -535,18 +630,22 @@ msgid ""
 "moving on is probably necessary."
 msgstr ""
 
+# 4f4abd81b9d742cc8026e6001d2348cc
 #: ../../reference/javascript.rst:428
 msgid "High-level API: calling into Odoo models"
 msgstr ""
 
+# 4f5fda87c726479688d303c5a0326f9f
 #: ../../reference/javascript.rst:430
 msgid ""
 "Access to Odoo object methods (made available through XML-RPC from the "
-"server) is done via :class:`Model` (exported in ``web.Model``). It maps "
-"onto the Odoo server objects via two primary methods, :func:`~Model.call`"
-" and :func:`~Model.query`."
+"server) is done via :class:`Model`. It maps onto the Odoo server objects "
+"via two primary methods, :func:`~Model.call` (exported in ``web.Model``) "
+"and :func:`~Model.query` (exported in ``web.DataModel``, only available "
+"in the backend client)."
 msgstr ""
 
+# 9c610ffad3464a8f99e33581d85bcd7b
 #: ../../reference/javascript.rst:435
 msgid ""
 ":func:`~Model.call` is a direct mapping to the corresponding method of "
@@ -554,6 +653,7 @@ msgid ""
 "API, with three differences:"
 msgstr ""
 
+# d79f8ae25d9f42579c90c364b5436e9b
 #: ../../reference/javascript.rst:439
 msgid ""
 "The interface is :ref:`asynchronous <reference/async>`, so instead of "
@@ -562,6 +662,7 @@ msgid ""
 "RPC call."
 msgstr ""
 
+# 07c615ab8a9a4da5a11d66db8f985196
 #: ../../reference/javascript.rst:444
 msgid ""
 "Because ECMAScript 3/Javascript 1.5 doesnt feature any equivalent to "
@@ -569,151 +670,178 @@ msgid ""
 "method to dispatch RPC methods."
 msgstr ""
 
+# abdeb87eb36c445d9f20578176fa56e9
 #: ../../reference/javascript.rst:448
 msgid ""
 "No notion of pooler, the model proxy is instantiated where needed, not "
 "fetched from an other (somewhat global) object::"
 msgstr ""
 
+# 4d0a2c61527a43a3af6edcbc891c54c4
 #: ../../reference/javascript.rst:458
 msgid ""
 ":func:`~Model.query` is a shortcut for a builder-style interface to "
 "searches (``search`` + ``read`` in Odoo RPC terms). It returns a "
-":class:`~openerp.web.Query` object which is immutable but allows building"
-" new :class:`~openerp.web.Query` instances from the first one, adding new"
-" properties or modifiying the parent object's::"
+":class:`~odoo.web.Query` object which is immutable but allows building "
+"new :class:`~odoo.web.Query` instances from the first one, adding new "
+"properties or modifiying the parent object's::"
 msgstr ""
 
+# f233a94e563944b6b5bfed546dcefb03
 #: ../../reference/javascript.rst:471
 msgid ""
 "The query is only actually performed when calling one of the query "
-"serialization methods, :func:`~openerp.web.Query.all` and "
-":func:`~openerp.web.Query.first`. These methods will perform a new RPC "
-"call every time they are called."
+"serialization methods, :func:`~odoo.web.Query.all` and "
+":func:`~odoo.web.Query.first`. These methods will perform a new RPC call "
+"every time they are called."
 msgstr ""
 
+# ba081b37ab3a48a0869889a11b50975d
 #: ../../reference/javascript.rst:476
 msgid ""
 "For that reason, it's actually possible to keep \"intermediate\" queries "
 "around and use them differently/add new specifications on them."
 msgstr ""
 
+# 21e25d3b1bb34121a376b236596d5bf8
 #: ../../reference/javascript.rst:483
 msgid "name of the model this object is bound to"
 msgstr ""
 
+# c7ab8e5b317c4ddca59d337ee2fd62c7
 #: ../../reference/javascript.rst:487
 msgid ""
 "Calls the ``method`` method of the current model, with the provided "
 "positional and keyword arguments."
 msgstr ""
 
+# f008945ec28243f888887b27f74450d1
 #: ../../reference/javascript.rst:490
 msgid "method to call over rpc on the :attr:`~Model.name`"
 msgstr ""
 
+# ffb0181d3849458b8529883179587f78
 #: ../../reference/javascript.rst:492
 msgid "positional arguments to pass to the method, optional"
 msgstr ""
 
+# 8d720b2500504d97b5287a487e5288b3
 #: ../../reference/javascript.rst:494
 msgid "keyword arguments to pass to the method, optional"
 msgstr ""
 
+# 423613e2e449411fbc199f65a9ce0ffb
 #: ../../reference/javascript.rst:496
 msgid "Deferred<>"
 msgstr ""
 
+# 49173cbde2f44fa594b9aaba2f4c6307
 #: ../../reference/javascript.rst:500
 msgid "list of fields to fetch during the search"
 msgstr ""
 
+# 87303fb5bf644f04965b7b59d36362cf
 #: ../../reference/javascript.rst:502
-msgid "a :class:`~openerp.web.Query` object representing the search to perform"
+msgid "a :class:`~odoo.web.Query` object representing the search to perform"
 msgstr ""
 
+# 8dab40ca287a41a3a6169b2c69e8ef64
 #: ../../reference/javascript.rst:507
 msgid ""
 "The first set of methods is the \"fetching\" methods. They perform RPC "
 "queries using the internal data of the object they're called on."
 msgstr ""
 
+# a0951de3daef4a8c8dc937b712af3caf
 #: ../../reference/javascript.rst:513
 msgid ""
-"Fetches the result of the current :class:`~openerp.web.Query` object's "
+"Fetches the result of the current :class:`~odoo.web.Query` object's "
 "search."
 msgstr ""
 
+# f6c8ed451a4846ef8e068faf7ae993e7
 #: ../../reference/javascript.rst:516
 msgid "Deferred<Array<>>"
 msgstr ""
 
+# 3aaceba8091148f2a88f5d0e647c8db7
 #: ../../reference/javascript.rst:520
 msgid ""
-"Fetches the **first** result of the current :class:`~openerp.web.Query`, "
-"or ``null`` if the current :class:`~openerp.web.Query` does have any "
-"result."
+"Fetches the **first** result of the current :class:`~odoo.web.Query`, or "
+"``null`` if the current :class:`~odoo.web.Query` does have any result."
 msgstr ""
 
+# 36ecfe096af24f478b0a18fe89c75305
 #: ../../reference/javascript.rst:524
 msgid "Deferred<Object | null>"
 msgstr ""
 
+# d013b536495b4c15abec96a188d6879a
 #: ../../reference/javascript.rst:528
 msgid ""
-"Fetches the number of records the current :class:`~openerp.web.Query` "
-"would retrieve."
+"Fetches the number of records the current :class:`~odoo.web.Query` would "
+"retrieve."
 msgstr ""
 
+# 8bc175b57e08429fbfaa3211d940ff9b
 #: ../../reference/javascript.rst:531
 msgid "Deferred<Number>"
 msgstr ""
 
+# 63026fa91c4143418c5ad26b4056c474
 #: ../../reference/javascript.rst:535
 msgid ""
 "Fetches the groups for the query, using the first specified grouping "
 "parameter"
 msgstr ""
 
+# ed4fb20e015d46aca4dd56534a9e4e76
 #: ../../reference/javascript.rst:538
 msgid ""
 "Lists the levels of grouping asked of the server. Grouping can actually "
 "be an array or varargs."
 msgstr ""
 
+# b76d0644f242447e9846635a65bdefac
 #: ../../reference/javascript.rst:542
-msgid "Deferred<Array<openerp.web.QueryGroup>> | null"
+msgid "Deferred<Array<odoo.web.QueryGroup>> | null"
 msgstr ""
 
+# b3748d2638e147f29dcad054c909690d
 #: ../../reference/javascript.rst:544
 msgid ""
 "The second set of methods is the \"mutator\" methods, they create a "
-"**new** :class:`~openerp.web.Query` object with the relevant (internal) "
+"**new** :class:`~odoo.web.Query` object with the relevant (internal) "
 "attribute either augmented or replaced."
 msgstr ""
 
+# caf60c608e774f9aaffc71b8647162eb
 #: ../../reference/javascript.rst:550
 msgid "Adds the provided ``ctx`` to the query, on top of any existing context"
 msgstr ""
 
+# cdc6751f4aa341ddbb314b0a2f848205
 #: ../../reference/javascript.rst:555
 msgid ""
 "Adds the provided domain to the query, this domain is ``AND``-ed to the "
 "existing query domain."
 msgstr ""
 
+# b91af5032d834868b4f14677cc243b49
 #: ../../reference/javascript.rst:560
 msgid ""
 "Sets the provided offset on the query. The new offset *replaces* the old "
 "one."
 msgstr ""
 
+# 202f44bdb345451cb757d31b98e19e9c
 #: ../../reference/javascript.rst:565
 msgid ""
 "Sets the provided limit on the query. The new limit *replaces* the old "
 "one."
 msgstr ""
 
+# a05f40f0807f4a5c923f7b9b80d31fe8
 #: ../../reference/javascript.rst:570
 msgid ""
 "Overrides the model's natural order with the provided field "
@@ -721,12 +849,14 @@ msgid ""
 "<django.db.models.query.QuerySet.order_by>`:"
 msgstr ""
 
+# 9eed9eec09ab450dacf492965f43bc03
 #: ../../reference/javascript.rst:574
 msgid ""
 "Takes 1..n field names, in order of most to least importance (the first "
 "field is the first sorting key). Fields are provided as strings."
 msgstr ""
 
+# fdb353f1539546999e572b73a5ef2c1d
 #: ../../reference/javascript.rst:578
 msgid ""
 "A field specifies an ascending order, unless it is prefixed with the "
@@ -734,33 +864,38 @@ msgid ""
 "order"
 msgstr ""
 
+# e91c2a6f540842909a7b04d2c7a8eed0
 #: ../../reference/javascript.rst:582
 msgid ""
 "Divergences from Django's sorting include a lack of random sort (``?`` "
 "field) and the inability to \"drill down\" into relations for sorting."
 msgstr ""
 
+# da92a6808cdb4cfab04673b31301c2e9
 #: ../../reference/javascript.rst:587
 msgid "Aggregation (grouping)"
 msgstr ""
 
+# 1447be78cf8d47b4ab6631613f7fe1b2
 #: ../../reference/javascript.rst:589
 msgid ""
 "Odoo has powerful grouping capacities, but they are kind-of strange in "
 "that they're recursive, and level n+1 relies on data provided directly by"
 " the grouping at level n. As a result, while "
-":py:meth:`openerp.models.Model.read_group` works it's not a very "
-"intuitive API."
+":py:meth:`odoo.models.Model.read_group` works it's not a very intuitive "
+"API."
 msgstr ""
 
+# 09f8b0d05a37459f837860e257b64ac5
 #: ../../reference/javascript.rst:595
 msgid ""
-"Odoo Web eschews direct calls to "
-":py:meth:`~openerp.models.Model.read_group` in favor of calling a method "
-"of :class:`~openerp.web.Query`, :py:meth:`much in the way it is one in "
-"SQLAlchemy <sqlalchemy.orm.query.Query.group_by>` [#terminal]_::"
+"Odoo Web eschews direct calls to :py:meth:`~odoo.models.Model.read_group`"
+" in favor of calling a method of :class:`~odoo.web.Query`, :py:meth:`much"
+" in the way it is one in SQLAlchemy "
+"<sqlalchemy.orm.query.Query.group_by>` [#terminal]_::"
 msgstr ""
 
+# 25d98b7222a84701bf3ec6181068620e
 #: ../../reference/javascript.rst:604
 msgid ""
 "This method is asynchronous when provided with 1..n fields (to group on) "
@@ -769,6 +904,7 @@ msgid ""
 "Deferred object it will return ``null``."
 msgstr ""
 
+# 11c7ed25a0354558abad0fafddf4cd73
 #: ../../reference/javascript.rst:609
 msgid ""
 "When grouping criterion come from a third-party and may or may not list "
@@ -777,81 +913,98 @@ msgid ""
 "for records):"
 msgstr ""
 
+# a9434f3276f848d7b84d49216ff2b7a7
 #: ../../reference/javascript.rst:614
 msgid "A check on ``group_by``'s result and two completely separate code paths::"
 msgstr ""
 
+# 7af5d2f5161647a3b11f079c936f4499
 #: ../../reference/javascript.rst:625
 msgid ""
 "Or a more coherent code path using :func:`when`'s ability to coerce "
 "values into deferreds::"
 msgstr ""
 
+# 7818c06eb0434c1db240dde88d0ef545
 #: ../../reference/javascript.rst:637
 msgid ""
-"The result of a (successful) :func:`~openerp.web.Query.group_by` is an "
-"array of :class:`~openerp.web.QueryGroup`:"
+"The result of a (successful) :func:`~odoo.web.Query.group_by` is an array"
+" of :class:`~odoo.web.QueryGroup`:"
 msgstr ""
 
+# 223c328c8fd7472b809c9701939f751d
 #: ../../reference/javascript.rst:644
 msgid "returns the group's attribute ``key``. Known attributes are:"
 msgstr ""
 
+# f55c45a46e884750a3985097c8889925
 #: ../../reference/javascript.rst:646
 msgid "``grouped_on``"
 msgstr ""
 
+# 2d9b3d5d74454974b9c1795e1521bf88
 #: ../../reference/javascript.rst:647
 msgid "which grouping field resulted from this group"
 msgstr ""
 
+# 5c7e18d1dc3e4da48b9195355274378b
 #: ../../reference/javascript.rst:648
 msgid "``value``"
 msgstr ""
 
+# 2501bb4335fc4e549d5af0b0611e629a
 #: ../../reference/javascript.rst:649
 msgid "``grouped_on``'s value for this group"
 msgstr ""
 
+# ad69cb18b3054e438e272d8622452c91
 #: ../../reference/javascript.rst:650
 msgid "``length``"
 msgstr ""
 
+# 4e42aa02d2b54d41b74fa24f15e36b99
 #: ../../reference/javascript.rst:651
 msgid "the number of records in the group"
 msgstr ""
 
+# 3f980ddf7e224e539a873bc2d55b8905
 #: ../../reference/javascript.rst:652
 msgid "``aggregates``"
 msgstr ""
 
+# e513c762f8e34829b0b4435322910cd3
 #: ../../reference/javascript.rst:653
 msgid "a {field: value} mapping of aggregations for the group"
 msgstr ""
 
+# e36ede0d660945fba48ad5093fbab231
 #: ../../reference/javascript.rst:657
 msgid ""
 "equivalent to :func:`Model.query` but pre-filtered to only include the "
-"records within this group. Returns a :class:`~openerp.web.Query` which "
-"can be further manipulated as usual."
+"records within this group. Returns a :class:`~odoo.web.Query` which can "
+"be further manipulated as usual."
 msgstr ""
 
+# a936798195734848aa73a1db159f8b9e
 #: ../../reference/javascript.rst:664
 msgid ""
-"returns a deferred to an array of :class:`~openerp.web.QueryGroup` below "
+"returns a deferred to an array of :class:`~odoo.web.QueryGroup` below "
 "this one"
 msgstr ""
 
+# 84346998cf1d42b199916ba0fa46cbf9
 #: ../../reference/javascript.rst:668
 msgid "Low-level API: RPC calls to Python side"
 msgstr ""
 
+# cf8018d57ee844aaaafbb61b8442591e
 #: ../../reference/javascript.rst:670
 msgid ""
 "While the previous section is great for calling core OpenERP code (models"
 " code), it does not work if you want to call the Python side of Odoo Web."
 msgstr ""
 
+# b38adf78398d47e28b54431d64f30fce
 #: ../../reference/javascript.rst:674
 msgid ""
 "For this, a lower-level API exists on on :class:`~Session` objects (the "
@@ -859,6 +1012,7 @@ msgid ""
 " through ``web.session``): the ``rpc`` method."
 msgstr ""
 
+# f6bf31ff9eaf4c7ca0bf8cc0750d458f
 #: ../../reference/javascript.rst:678
 msgid ""
 "This method simply takes an absolute path (the absolute URL of the JSON "
@@ -868,50 +1022,60 @@ msgid ""
 "to JSON."
 msgstr ""
 
+# 59d99e5315904928aeca227854faae7c
 #: ../../reference/javascript.rst:683
 msgid ""
 "For instance, to call the ``resequence`` of the "
 ":class:`~web.controllers.main.DataSet` controller::"
 msgstr ""
 
+# 6f4e2afede0d4448932f0d967a2c88e6
 #: ../../reference/javascript.rst:699
 msgid "Web Client"
 msgstr ""
 
+# f454e48d333f468e80c24073fa4438da
 #: ../../reference/javascript.rst:702
 msgid "Javascript module system overview"
 msgstr ""
 
+# 0d964529454b43d3bc5e2664e9873e96
 #: ../../reference/javascript.rst:704
 msgid ""
 "A new module system (inspired from requirejs) has now been deployed. It "
 "has many advantages over the Odoo version 8 system."
 msgstr ""
 
+# 703a92e1085c46518362d108c11f1014
 #: ../../reference/javascript.rst:707
 msgid ""
 "loading order: dependencies are guaranteed to be loaded first, even if "
 "files are not loaded in the correct order in the bundle files."
 msgstr ""
 
+# 85ff3593b48d436380b21ebdc0071025
 #: ../../reference/javascript.rst:709
 msgid "easier to split a file into smaller logical units."
 msgstr ""
 
+# 50c048e4b7394766b175a40feee5c011
 #: ../../reference/javascript.rst:710
 msgid "no global variables: easier to reason."
 msgstr ""
 
+# 1e6cb43f4eee420fbdf743ac0a902eb0
 #: ../../reference/javascript.rst:711
 msgid ""
 "it is possible to examine every dependencies and dependants.  This makes "
 "refactoring much simpler, and less risky."
 msgstr ""
 
+# 3e57ba6fe67f479cbadd332d74a4f0f9
 #: ../../reference/javascript.rst:714
 msgid "It has also some disadvantages:"
 msgstr ""
 
+# 5040dcceab2d4395aae41a24aac5fff7
 #: ../../reference/javascript.rst:716
 msgid ""
 "files are required to use the module system if they want to interact with"
@@ -919,21 +1083,24 @@ msgid ""
 " and not in global variables"
 msgstr ""
 
+# 89864ca2c6e840a8af395446b544176f
 #: ../../reference/javascript.rst:719
 msgid ""
 "circular dependencies are not supported.  It makes sense, but it means "
 "that one needs to be careful."
 msgstr ""
 
+# 73073d6296674545ba4ebe5ec4857446
 #: ../../reference/javascript.rst:722
 msgid ""
 "This is obviously a very large change and will require everyone to adopt "
-"new habits.  For example, the variable openerp does not exist anymore.  "
-"The new way of doing things is to import explicitely the module you need,"
-" and declaring explicitely the objects you export.  Here is a simple "
+"new habits.  For example, the variable odoo does not exist anymore.  The "
+"new way of doing things is to import explicitely the module you need, and"
+" declaring explicitely the objects you export.  Here is a simple "
 "example::"
 msgstr ""
 
+# 01a18354a6f4417598f8e9bb1410ee8e
 #: ../../reference/javascript.rst:739
 msgid ""
 "This snippet shows a module named ``addon_name.service``.  It is defined "
@@ -941,12 +1108,14 @@ msgid ""
 "function for arguments:"
 msgstr ""
 
+# 578ddb239ae3436495574636ee205786
 #: ../../reference/javascript.rst:743
 msgid ""
 "The name is the concatenation of the name of the addon it is defined in "
 "and a name describing its purpose."
 msgstr ""
 
+# 3baf7f2928c44947a182ff709b1394dd
 #: ../../reference/javascript.rst:745
 msgid ""
 "The function is the place where the javascript module is actually "
@@ -957,6 +1126,7 @@ msgid ""
 "addon, namely ``web.utils`` and ``web.Model``."
 msgstr ""
 
+# dffd97c823f441d9b8cfa7cf828ffcd0
 #: ../../reference/javascript.rst:752
 msgid ""
 "The idea is that you define what you need to import (by using the "
@@ -965,12 +1135,14 @@ msgid ""
 "properly."
 msgstr ""
 
+# 2be201d169a64ad49f6eafa78b6e58b9
 #: ../../reference/javascript.rst:757
 msgid ""
 "Modules are contained in a file, but a file can define several modules "
 "(however, it is better to keep them in separate files)."
 msgstr ""
 
+# 02567a2d2d414d1fa88e44b8772b5af5
 #: ../../reference/javascript.rst:760
 msgid ""
 "Each module can return a deferred. In that case, the module is marked as "
@@ -979,6 +1151,7 @@ msgid ""
 "logged in the console as info."
 msgstr ""
 
+# 62cd58483f794598a6006ad220894d53
 #: ../../reference/javascript.rst:764
 msgid ""
 "``Missing dependencies``: These modules do not appear in the page. It is "
@@ -986,122 +1159,148 @@ msgid ""
 "name is wrong"
 msgstr ""
 
+# ab49b2cff8c74606be301dbb91a0d7d4
 #: ../../reference/javascript.rst:767
 msgid "``Failed modules``: A javascript error is detected"
 msgstr ""
 
+# 4f46c61e262348be889049dd8705d825
 #: ../../reference/javascript.rst:769
 msgid ""
 "``Rejected modules``: The module returns a rejected deferred. It (and its"
 " dependent modules) is not loaded."
 msgstr ""
 
+# b19eb50dfb6b4ac4a8114f5362ecd31f
 #: ../../reference/javascript.rst:772
 msgid "``Rejected linked modules``: Modules who depend on a rejected module"
 msgstr ""
 
+# 173fb5c2869f4a2e98b901ff5b0ad6c9
 #: ../../reference/javascript.rst:774
 msgid "``Non loaded modules``: Modules who depend on a missing or a failed module"
 msgstr ""
 
+# 41aefb7e4d974fd18d76fae3fb02df4c
 #: ../../reference/javascript.rst:779
 msgid "Web client structure"
 msgstr ""
 
+# c82326af8e874a1393fa58aec4442306
 #: ../../reference/javascript.rst:781
 msgid ""
 "The web client files have been refactored into smaller and simpler files."
 " Here is a description of the current file structure:"
 msgstr ""
 
+# d18a4b74b9004ee78b5474f9cabcd75b
 #: ../../reference/javascript.rst:784
 msgid ""
 "the ``framework/`` folder contains all basic low level modules.  The "
 "modules here are supposed to be generic.  Some of them are:"
 msgstr ""
 
+# ef048cdc4b004929ac53a17a8895b690
 #: ../../reference/javascript.rst:787
 msgid "``web.ajax`` implements rpc calls"
 msgstr ""
 
+# 6e5b16ddc8c943288aaea5eb7983afcf
 #: ../../reference/javascript.rst:788
 msgid ""
 "``web.core`` is a generic modules.  It exports various useful objects and"
 " functions, such as ``qweb``, ``_t`` or the main bus."
 msgstr ""
 
+# f7e5c096030344e7b534da81171eda96
 #: ../../reference/javascript.rst:790
 msgid "``web.Widget`` contains the widget class"
 msgstr ""
 
+# f4628da78d9141ab9954158521a23276
 #: ../../reference/javascript.rst:791
 msgid ""
 "``web.Model`` is an abstraction over ``web.ajax`` to make calls to the "
 "server model methods"
 msgstr ""
 
+# 1f4357b61a944805ad058cef0c017020
 #: ../../reference/javascript.rst:793
-msgid "``web.session`` is the former ``openerp.session``"
+msgid "``web.session`` is the former ``odoo.session``"
 msgstr ""
 
+# 7ab75dca88f34847b36817a8c236ba5e
 #: ../../reference/javascript.rst:794
 msgid "``web.utils`` for useful code snippets"
 msgstr ""
 
+# 9c284bd2f8584d81a7dcbbe32a8ff923
 #: ../../reference/javascript.rst:795
 msgid "``web.time`` for every time-related generic functions"
 msgstr ""
 
+# 7990cec500ea464eb13c1d9a332289cc
 #: ../../reference/javascript.rst:796
 msgid "the ``views/`` folder contains all view definitions"
 msgstr ""
 
+# e354b9f2cba4463d8b1804e81c914176
 #: ../../reference/javascript.rst:797
 msgid "``widgets/`` is for standalone widgets"
 msgstr ""
 
+# 97a943a40b5f48798a2955be1e004405
 #: ../../reference/javascript.rst:799
 msgid "The ``js/`` folder also contains some important files:"
 msgstr ""
 
+# 9e5b00d03c0944dca5da1f30ba211199
 #: ../../reference/javascript.rst:801
 msgid "``action_manager.js`` is the ActionManager class"
 msgstr ""
 
+# 3899aeda49b14769b4d7a2b094bd696d
 #: ../../reference/javascript.rst:802
 msgid "``boot.js`` is the file actually implementing the module system"
 msgstr ""
 
+# 84418cfdaa4f4080af70c5da72ec83b6
 #: ../../reference/javascript.rst:803
 msgid "``menu.js`` is the definition of the top menu"
 msgstr ""
 
+# caf6b87eb3584138a9f4b5ddcf205764
 #: ../../reference/javascript.rst:804
 msgid "``web_client.js`` is for the root widget WebClient"
 msgstr ""
 
+# 4f15685d6b3a41bbb05302df3cab32c0
 #: ../../reference/javascript.rst:805
 msgid "``view_manager.js`` contains the ViewManager"
 msgstr ""
 
+# 7b94aed04fb94ae68be9a2cc24ca4bfa
 #: ../../reference/javascript.rst:807
 msgid ""
 "The two other files are ``tour.js`` for the tours and "
 "``compatibility.js``. The latter file is a compatibility layer bridging "
 "the old system to the new module system.  This is where every module "
-"names are exported to the global variable ``openerp``.  In theory, our "
-"addons should work without ever using the variable ``openerp``, and the "
+"names are exported to the global variable ``odoo``.  In theory, our "
+"addons should work without ever using the variable ``odoo``, and the "
 "compatibility module can be disabled safely."
 msgstr ""
 
+# 7ed6f34f0d334656a78a2d5d1811f6ca
 #: ../../reference/javascript.rst:815
 msgid "Javascript conventions"
 msgstr ""
 
+# d51542d1070e4513b23cfa1814341fb4
 #: ../../reference/javascript.rst:817
 msgid "Here are some basic conventions for the javascript code:"
 msgstr ""
 
+# 65d06bcc7ed8450885d04eae6bb5b3f8
 #: ../../reference/javascript.rst:819
 msgid ""
 "declare all your dependencies at the top of the module.  Also, they "
@@ -1109,18 +1308,22 @@ msgid ""
 "understand your module."
 msgstr ""
 
+# 2d38ca91795a4b68b85625a9cc86ae20
 #: ../../reference/javascript.rst:822
 msgid "declare all exports at the end."
 msgstr ""
 
+# 373c56ed2de94d50a94d9974124c964a
 #: ../../reference/javascript.rst:823
 msgid "add the ``use strict`` statement at the beginning of every module"
 msgstr ""
 
+# 25e7c8d3c9d64d188651d4d1659820fc
 #: ../../reference/javascript.rst:824
 msgid "always name your module properly: ``addon_name.description``."
 msgstr ""
 
+# ec3dab4dd8944656a2d4222bb6ae0a3a
 #: ../../reference/javascript.rst:825
 msgid ""
 "use capital letters for classes (for example, ``ActionManager`` is "
@@ -1128,18 +1331,22 @@ msgid ""
 "everything else (for example, ``ajax`` is defined in ``web.ajax``)."
 msgstr ""
 
+# 3d34a86b0a764c328a17fb8f89aa7c2e
 #: ../../reference/javascript.rst:828
 msgid "declare one module per file"
 msgstr ""
 
+# 664cfda7a63e48e689f5c7315c414ac3
 #: ../../reference/javascript.rst:835
 msgid "Testing in Odoo Web Client"
 msgstr ""
 
+# 9bc4d0725107441a9d7042cd5894a578
 #: ../../reference/javascript.rst:838
 msgid "Javascript Unit Testing"
 msgstr ""
 
+# 917bd02c6f82405caf15e302b9cc8950
 #: ../../reference/javascript.rst:840
 msgid ""
 "Odoo Web includes means to unit-test both the core code of Odoo Web and "
@@ -1148,6 +1355,7 @@ msgid ""
 "integration with Odoo."
 msgstr ""
 
+# 5297b93c31894aae8b03d52438a33f1c
 #: ../../reference/javascript.rst:845
 msgid ""
 "To see what the runner looks like, find (or start) an Odoo server with "
@@ -1157,26 +1365,31 @@ msgid ""
 "once)."
 msgstr ""
 
+# afcf73cbdd6743d8bf42d54e622552c7
 #: ../../reference/javascript.rst:854
 msgid ""
 "Clicking any runner button will launch the corresponding tests in the "
 "bundled QUnit_ runner:"
 msgstr ""
 
+# 37183c0b06d94a928114169ae693c5cd
 #: ../../reference/javascript.rst:861
 msgid "Writing a test case"
 msgstr ""
 
+# a5b324c57afa4371a15fe0bb189d499c
 #: ../../reference/javascript.rst:863
 msgid ""
 "The first step is to list the test file(s). This is done through the "
 "``test`` key of the Odoo manifest, by adding javascript files to it:"
 msgstr ""
 
+# 5c602ea52cd947f5943dbc70c66c8142
 #: ../../reference/javascript.rst:875
 msgid "and to create the corresponding test file(s)"
 msgstr ""
 
+# ee934f716daa4ddf9898096e8b182c4c
 #: ../../reference/javascript.rst:879
 msgid ""
 "Test files which do not exist will be ignored, if all test files of a "
@@ -1184,32 +1397,37 @@ msgid ""
 " the module has no javascript tests."
 msgstr ""
 
+# 52b420557bcd4a788810c29ce68cbe5e
 #: ../../reference/javascript.rst:883
 msgid ""
 "After that, refreshing the runner selector will display the new module "
 "and allow running all of its (0 so far) tests:"
 msgstr ""
 
+# adbe0fe840b84ed189a2130ba1cb261b
 #: ../../reference/javascript.rst:889
 msgid "The next step is to create a test case::"
 msgstr ""
 
+# 23753a743a5c4abea31ac7c7ed11696f
 #: ../../reference/javascript.rst:897
 msgid ""
-"All testing helpers and structures live in the ``openerp.testing`` "
-"module. Odoo tests live in a :func:`~openerp.testing.section`, which is "
-"itself part of a module. The first argument to a section is the name of "
-"the section, the second one is the section body."
+"All testing helpers and structures live in the ``odoo.testing`` module. "
+"Odoo tests live in a :func:`~odoo.testing.section`, which is itself part "
+"of a module. The first argument to a section is the name of the section, "
+"the second one is the section body."
 msgstr ""
 
+# 9ff0f1cd0d8b45c5bb35a2d2a3415e42
 #: ../../reference/javascript.rst:902
 msgid ""
-":func:`test <openerp.testing.case>`, provided by the "
-":func:`~openerp.testing.section` to the callback, is used to register a "
+":func:`test <odoo.testing.case>`, provided by the "
+":func:`~odoo.testing.section` to the callback, is used to register a "
 "given test case which will be run whenever the test runner actually does "
 "its job. Odoo Web test case use standard `QUnit assertions`_ within them."
 msgstr ""
 
+# 0f2a7a34744d4bd089c01865a84213b3
 #: ../../reference/javascript.rst:908
 msgid ""
 "Launching the test runner at this point will run the test and display the"
@@ -1217,16 +1435,19 @@ msgid ""
 "failed:"
 msgstr ""
 
+# bc4e0684614241a48b366613d9236be8
 #: ../../reference/javascript.rst:915
 msgid ""
 "Fixing the test (by replacing ``false`` to ``true`` in the assertion) "
 "will make it pass:"
 msgstr ""
 
+# 2647abca6cdf417a988058812dee5e59
 #: ../../reference/javascript.rst:922
 msgid "Assertions"
 msgstr ""
 
+# 813ac7c8861441158583a35ab49158d2
 #: ../../reference/javascript.rst:924
 msgid ""
 "As noted above, Odoo Web's tests use `qunit assertions`_. They are "
@@ -1234,10 +1455,12 @@ msgid ""
 "anything). The following list is available:"
 msgstr ""
 
+# b122bcba530848bd8b0af8fb6979f91f
 #: ../../reference/javascript.rst:930
 msgid "checks that ``state`` is truthy (in the javascript sense)"
 msgstr ""
 
+# 50c05c55c5294e2e891affde14a0e006
 #: ../../reference/javascript.rst:934
 msgid ""
 "checks that the actual (produced by a method being tested) and expected "
@@ -1245,12 +1468,14 @@ msgid ""
 "message)``)"
 msgstr ""
 
+# 6b7981b82c434f67a8638d8eaf423172
 #: ../../reference/javascript.rst:940
 msgid ""
 "checks that the actual and expected values are *not* identical (roughly "
 "equivalent to ``ok(actual !== expected, message)``)"
 msgstr ""
 
+# e6581fe49f38412391addac7290971ee
 #: ../../reference/javascript.rst:945
 msgid ""
 "deep comparison between actual and expected: recurse into containers "
@@ -1258,16 +1483,19 @@ msgid ""
 "elements, and the values match."
 msgstr ""
 
+# 92fda0969ceb492b90324cb64aa574ff
 #: ../../reference/javascript.rst:951
 msgid "inverse operation to :func:`deepEqual`"
 msgstr ""
 
+# b7a626d5644546f8bddba7ee44dd6748
 #: ../../reference/javascript.rst:955
 msgid ""
 "checks that, when called, the ``block`` throws an error. Optionally "
 "validates that error against ``expected``."
 msgstr ""
 
+# 8f19b590bf0444feb50d27c1207da0cf
 #: ../../reference/javascript.rst:959
 msgid ""
 "if a regexp, checks that the thrown error's message matches the regular "
@@ -1275,20 +1503,24 @@ msgid ""
 "type."
 msgstr ""
 
+# b04621181c4e431e936f1445c2301f6f
 #: ../../reference/javascript.rst:967
 msgid ""
 "checks that ``actual`` and ``expected`` are loosely equal, using the "
 "``==`` operator and its coercion rules."
 msgstr ""
 
+# 4e99ccf70bf748e6a2e63deba5d0994c
 #: ../../reference/javascript.rst:972
 msgid "inverse operation to :func:`equal`"
 msgstr ""
 
+# 437546c184cc4b5dadf45a95381fcc22
 #: ../../reference/javascript.rst:975
 msgid "Getting an Odoo instance"
 msgstr ""
 
+# c485c231b55d428e914b8fa727e71cf7
 #: ../../reference/javascript.rst:977
 msgid ""
 "The Odoo instance is the base through which most Odoo Web modules "
@@ -1299,23 +1531,27 @@ msgid ""
 "javascript code (not test code) to the test module:"
 msgstr ""
 
+# ebb069bdd6ce4920be3dae6683db0769
 #: ../../reference/javascript.rst:1009
 msgid ""
 "and then adding a new test case, which simply checks that the "
 "``instance`` contains all the expected stuff we created in the module::"
 msgstr ""
 
+# 2375f5aa8be545089a1c929dace37b2d
 #: ../../reference/javascript.rst:1021
 msgid "DOM Scratchpad"
 msgstr ""
 
+# 43b5c8d88e0d4165a249bc009e60fd6c
 #: ../../reference/javascript.rst:1023
 msgid ""
 "As in the wider client, arbitrarily accessing document content is "
 "strongly discouraged during tests. But DOM access is still needed to e.g."
-" fully initialize :class:`widgets <~openerp.Widget>` before testing them."
+" fully initialize :class:`widgets <~odoo.Widget>` before testing them."
 msgstr ""
 
+# 627dd5be254249bfac16ef60d61876be
 #: ../../reference/javascript.rst:1028
 msgid ""
 "Thus, a test case gets a DOM scratchpad as its second positional "
@@ -1324,35 +1560,41 @@ msgid ""
 "scratchpad your code can do whatever it wants::"
 msgstr ""
 
+# b803d51f03fb488bb05016a31ad74bda
 #: ../../reference/javascript.rst:1046
 msgid ""
 "The top-level element of the scratchpad is not cleaned up, test cases can"
 " add text or DOM children but shoud not alter ``$scratchpad`` itself."
 msgstr ""
 
+# f22f2fd77058423c827e0ce86e7d9eb3
 #: ../../reference/javascript.rst:1051
 msgid "Loading templates"
 msgstr ""
 
+# 613afc3f2c4a41209549cf91ffadeb97
 #: ../../reference/javascript.rst:1053
 msgid ""
 "To avoid the corresponding processing costs, by default templates are not"
 " loaded into QWeb. If you need to render e.g. widgets making use of QWeb "
 "templates, you can request their loading through the "
 ":attr:`~TestOptions.templates` option to the :func:`test case function "
-"<openerp.testing.case>`."
+"<odoo.testing.case>`."
 msgstr ""
 
+# 55e9929011f347f8b1246475bbc20222
 #: ../../reference/javascript.rst:1059
 msgid ""
 "This will automatically load all relevant templates in the instance's "
 "qweb before running the test case:"
 msgstr ""
 
+# 942658a269264d7399eec4be30300676
 #: ../../reference/javascript.rst:1097
 msgid "Asynchronous cases"
 msgstr ""
 
+# 599db4edf6e648f4901c58fb2220dfaa
 #: ../../reference/javascript.rst:1099
 msgid ""
 "The test case examples so far are all synchronous, they execute from the "
@@ -1361,12 +1603,14 @@ msgid ""
 "<reference/async>`, and thus test cases need to be async-aware."
 msgstr ""
 
+# 9316087ba60d473cbc9c5a105b22e873
 #: ../../reference/javascript.rst:1104
 msgid ""
 "This is done by returning a :class:`deferred <Deferred>` from the case "
 "callback::"
 msgstr ""
 
+# fe118994866e4f73ba88421a234178f1
 #: ../../reference/javascript.rst:1119
 msgid ""
 "This example also uses the :class:`options parameter <TestOptions>` to "
@@ -1374,6 +1618,7 @@ msgid ""
 "assertions are specified the case will count as failed."
 msgstr ""
 
+# ba06ba705c3f4ea48ac6e77158a7db8c
 #: ../../reference/javascript.rst:1123
 msgid ""
 "Asynchronous test cases *must* specify the number of assertions they will"
@@ -1381,6 +1626,7 @@ msgid ""
 "architecture was not warned about asynchronous operations."
 msgstr ""
 
+# f9799fe782f44bf4b8600a5e74b94d2e
 #: ../../reference/javascript.rst:1129
 msgid ""
 "Asynchronous test cases also have a 2 seconds timeout: if the test does "
@@ -1389,44 +1635,51 @@ msgid ""
 "to the test itself, not to the setup and teardown processes."
 msgstr ""
 
+# 3cb15ec57fa3477b92b1d16452960191
 #: ../../reference/javascript.rst:1137
 msgid ""
 "If the returned deferred is rejected, the test will be failed unless "
 ":attr:`~TestOptions.fail_on_rejection` is set to ``false``."
 msgstr ""
 
+# df2d221b6f254b5682a5a18c97e32bbc
 #: ../../reference/javascript.rst:1144
 msgid ""
 "An important subset of asynchronous test cases is test cases which need "
 "to perform (and chain, to an extent) RPC calls."
 msgstr ""
 
+# 0a87dbc65d2347b68a369d18a93c11dd
 #: ../../reference/javascript.rst:1149
 msgid ""
 "Because they are a subset of asynchronous cases, RPC cases must also "
 "provide a valid :attr:`assertions count <TestOptions.asserts>`."
 msgstr ""
 
+# eb89a0566a6a496e987c1c37ed90872a
 #: ../../reference/javascript.rst:1153
 msgid ""
 "To enable mock RPC, set the :attr:`rpc option <TestOptions.rpc>` to "
 "``mock``. This will add a third parameter to the test case callback:"
 msgstr ""
 
+# d1844f95323245d1b174b08d3f3d4354
 #: ../../reference/javascript.rst:1158
 msgid ""
 "Can be used in two different ways depending on the shape of the first "
 "parameter:"
 msgstr ""
 
+# 32d2d86497cd487bbb536550078e85f2
 #: ../../reference/javascript.rst:1161
 msgid ""
 "If it matches the pattern ``model:method`` (if it contains a colon, "
 "essentially) the call will set up the mocking of an RPC call straight to "
 "the Odoo server (through XMLRPC) as performed via e.g. "
-":func:`openerp.web.Model.call`."
+":func:`odoo.web.Model.call`."
 msgstr ""
 
+# 58baeb7e0da048f487e3d910b6c2a62d
 #: ../../reference/javascript.rst:1166
 msgid ""
 "In that case, ``handler`` should be a function taking two arguments "
@@ -1435,6 +1688,7 @@ msgid ""
 "the Python XMLRPC handler::"
 msgstr ""
 
+# 928dcbf066b6444c9e7eff226f0eed03
 #: ../../reference/javascript.rst:1191
 msgid ""
 "Otherwise, if it matches an absolute path (e.g. ``/a/b/c``) it will mock "
@@ -1444,12 +1698,14 @@ msgid ""
 "RPC."
 msgstr ""
 
+# 81bd9778b7df4a648d99e5115ad712db
 #: ../../reference/javascript.rst:1197
 msgid ""
 "As previously, the handler should simply return the result value as if "
 "returned by the original JSON-RPC handler::"
 msgstr ""
 
+# b2bf2346549944149547cdfaf493ea51
 #: ../../reference/javascript.rst:1223
 msgid ""
 "Mock handlers can contain assertions, these assertions should be part of "
@@ -1457,10 +1713,12 @@ msgid ""
 "containing assertions, it multiplies the effective number of assertions)."
 msgstr ""
 
+# 70553d87aded45b0b29062372de4f9e3
 #: ../../reference/javascript.rst:1229
 msgid "Testing API"
 msgstr ""
 
+# 9c8ae04b72cc446ab083f6876e2917d2
 #: ../../reference/javascript.rst:1233
 msgid ""
 "A test section, serves as shared namespace for related tests (for "
@@ -1468,12 +1726,14 @@ msgid ""
 "contain the tests themselves."
 msgstr ""
 
+# 666140da91e2402cb2d1b472cc3ccbb1
 #: ../../reference/javascript.rst:1237
 msgid ""
 "Note that the order in which tests are run is essentially undefined, do "
 "*not* rely on it."
 msgstr ""
 
+# 255cd108ef214660a6ac5880908bf024
 #: ../../reference/javascript.rst:1247
 msgid ""
 "Registers a test case callback in the test runner, the callback will only"
@@ -1481,24 +1741,26 @@ msgid ""
 "filtered out)."
 msgstr ""
 
+# afe586d224bd4c42a4d9b38b36990c2e
 #: ../../reference/javascript.rst:1258
 msgid ""
-"the various options which can be passed to "
-":func:`~openerp.testing.section` or :func:`~openerp.testing.case`. Except"
-" for :attr:`~TestOptions.setup` and :attr:`~TestOptions.teardown`, an "
-"option on :func:`~openerp.testing.case` will overwrite the corresponding "
-"option on :func:`~openerp.testing.section` so e.g. "
-":attr:`~TestOptions.rpc` can be set for a "
-":func:`~openerp.testing.section` and then differently set for some "
-":func:`~openerp.testing.case` of that :func:`~openerp.testing.section`"
+"the various options which can be passed to :func:`~odoo.testing.section` "
+"or :func:`~odoo.testing.case`. Except for :attr:`~TestOptions.setup` and "
+":attr:`~TestOptions.teardown`, an option on :func:`~odoo.testing.case` "
+"will overwrite the corresponding option on :func:`~odoo.testing.section` "
+"so e.g. :attr:`~TestOptions.rpc` can be set for a "
+":func:`~odoo.testing.section` and then differently set for some "
+":func:`~odoo.testing.case` of that :func:`~odoo.testing.section`"
 msgstr ""
 
+# d2675ee9c13a4ea2b9e7dd6afe3af3c8
 #: ../../reference/javascript.rst:1272
 msgid ""
 "An integer, the number of assertions which should run during a normal "
 "execution of the test. Mandatory for asynchronous tests."
 msgstr ""
 
+# 175a613de54f4719824a8e905ca08d0e
 #: ../../reference/javascript.rst:1277
 msgid ""
 "Test case setup, run right before each test case. A section's "
@@ -1506,12 +1768,14 @@ msgid ""
 "specified."
 msgstr ""
 
+# e7f4cd9d61fb4e94a4f27a8059838b89
 #: ../../reference/javascript.rst:1283
 msgid ""
 "Test case teardown, a case's :func:`~TestOptions.teardown` is run before "
 "the corresponding section if both are present."
 msgstr ""
 
+# c9809596479b44cb8dba206406db1ce4
 #: ../../reference/javascript.rst:1288
 msgid ""
 "If the test is asynchronous and its resulting promise is rejected, fail "
@@ -1519,6 +1783,7 @@ msgid ""
 "case of rejection::"
 msgstr ""
 
+# 432fba8acd6a4a9ca3c0b60accf571dc
 #: ../../reference/javascript.rst:1307
 msgid ""
 "RPC method to use during tests, one of ``\"mock\"`` or ``\"rpc\"``. Any "
@@ -1526,6 +1791,7 @@ msgid ""
 "suite for instance)."
 msgstr ""
 
+# aee57027915f4304b4c1b6113680167f
 #: ../../reference/javascript.rst:1313
 msgid ""
 "Whether the current module (and its dependencies)'s templates should be "
@@ -1533,12 +1799,14 @@ msgid ""
 "default."
 msgstr ""
 
+# 0edebd85b2514d318fa621bbbde6db53
 #: ../../reference/javascript.rst:1317
 msgid ""
 "The test runner can also use two global configuration values set directly"
 " on the ``window`` object:"
 msgstr ""
 
+# 2baec9170f784092b2be57dc639f2a5c
 #: ../../reference/javascript.rst:1320
 msgid ""
 "``oe_all_dependencies`` is an ``Array`` of all modules with a web "
@@ -1546,10 +1814,12 @@ msgid ""
 "``A'``, any module of ``A'`` must come before ``A`` in the array)"
 msgstr ""
 
+# a1fcac45157d428dbfc0bbf4bec88134
 #: ../../reference/javascript.rst:1326
 msgid "Running through Python"
 msgstr ""
 
+# e88b1971e293490fad77b1ebb98349d2
 #: ../../reference/javascript.rst:1328
 msgid ""
 "The web client includes the means to run these tests on the command-line "
@@ -1557,6 +1827,7 @@ msgid ""
 "setup of the pre-requisite parts has some complexities."
 msgstr ""
 
+# 6b8f2e2faf1c48f8971be5f9d8cca228
 #: ../../reference/javascript.rst:1333
 msgid ""
 "Install PhantomJS_. It is a headless browser which allows automating "
@@ -1564,12 +1835,14 @@ msgid ""
 "qunit_ test suite."
 msgstr ""
 
+# 9a9d519ab18e4d6fa39ee4427d26e951
 #: ../../reference/javascript.rst:1337
 msgid ""
 "The PhantomJS_ website provides pre-built binaries for some platforms, "
 "and your OS's package management probably provides it as well."
 msgstr ""
 
+# f92037dcdfe4426f8555c16e62527fbb
 #: ../../reference/javascript.rst:1341
 msgid ""
 "If you're building PhantomJS_ from source, I recommend preparing for some"
@@ -1578,6 +1851,7 @@ msgid ""
 "being pretty big projects)."
 msgstr ""
 
+# b05ea81b060046a0bb8427122102e074
 #: ../../reference/javascript.rst:1348
 msgid ""
 "Because PhantomJS_ is webkit-based, it will not be able to test if "
@@ -1587,6 +1861,7 @@ msgid ""
 "while."
 msgstr ""
 
+# 18c159f71cc54879920e8269871d3325
 #: ../../reference/javascript.rst:1356
 msgid ""
 "The version of PhantomJS_ this was build through is 1.7, previous "
@@ -1595,12 +1870,14 @@ msgid ""
 " to debug)."
 msgstr ""
 
+# 1812c4f4f2a442e7984c448bfa7f519b
 #: ../../reference/javascript.rst:1361
 msgid ""
 "Install a new database with all relevant modules (all modules with a web "
 "component at least), then restart the server"
 msgstr ""
 
+# 3378cd8c7abd43129a84fb8145251604
 #: ../../reference/javascript.rst:1366
 msgid ""
 "For some tests, a source database needs to be duplicated. This operation "
@@ -1610,6 +1887,7 @@ msgid ""
 "right state."
 msgstr ""
 
+# 8b03c673f6c9431bb72539555dc63a1f
 #: ../../reference/javascript.rst:1372
 msgid ""
 "Launch ``oe run-tests -d $DATABASE -mweb`` with the correct addons-path "
@@ -1617,12 +1895,14 @@ msgid ""
 " above)"
 msgstr ""
 
+# 608c0e9a29524d0ea8c818588d93c095
 #: ../../reference/javascript.rst:1378
 msgid ""
 "If you leave out ``-mweb``, the runner will attempt to run all the tests "
 "in all the modules, which may or may not work."
 msgstr ""
 
+# 45506daa4aba45ba81636736c0d10fff
 #: ../../reference/javascript.rst:1381
 msgid ""
 "If everything went correctly, you should now see a list of tests with "
@@ -1630,25 +1910,227 @@ msgid ""
 "number of tests run and the time it took:"
 msgstr ""
 
+# 1fecdd2e74d94c068602fdbdb21728fb
 #: ../../reference/javascript.rst:1388
 msgid ""
 "Congratulation, you have just performed a successful \"offline\" run of "
 "the OpenERP Web test suite."
 msgstr ""
 
+# 672547367cfe4c04afa414aaf8ec9686
 #: ../../reference/javascript.rst:1393
 msgid ""
 "Note that this runs all the Python tests for the ``web`` module, but all "
 "the web tests for all of Odoo. This can be surprising."
 msgstr ""
 
+# f00d63023ecd49d8a5607161d48621b7
 #: ../../reference/javascript.rst:1404
 msgid "not all DOM events are compatible with events delegation"
 msgstr ""
 
+# 4cc7e518438c4ef395886491dbd893e4
 #: ../../reference/javascript.rst:1407
 msgid ""
 "with a small twist: :py:meth:`sqlalchemy.orm.query.Query.group_by` is not"
 " terminal, it returns a query which can still be altered."
 msgstr ""
+
+#~ msgid ""
+#~ "Access to Odoo object methods (made "
+#~ "available through XML-RPC from the "
+#~ "server) is done via :class:`Model` "
+#~ "(exported in ``web.Model``). It maps "
+#~ "onto the Odoo server objects via "
+#~ "two primary methods, :func:`~Model.call` and"
+#~ " :func:`~Model.query`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":func:`~Model.query` is a shortcut for a"
+#~ " builder-style interface to searches "
+#~ "(``search`` + ``read`` in Odoo RPC "
+#~ "terms). It returns a "
+#~ ":class:`~openerp.web.Query` object which is "
+#~ "immutable but allows building new "
+#~ ":class:`~openerp.web.Query` instances from the "
+#~ "first one, adding new properties or "
+#~ "modifiying the parent object's::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The query is only actually performed "
+#~ "when calling one of the query "
+#~ "serialization methods, :func:`~openerp.web.Query.all` "
+#~ "and :func:`~openerp.web.Query.first`. These methods"
+#~ " will perform a new RPC call "
+#~ "every time they are called."
+#~ msgstr ""
+
+#~ msgid "a :class:`~openerp.web.Query` object representing the search to perform"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Fetches the result of the current "
+#~ ":class:`~openerp.web.Query` object's search."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Fetches the **first** result of the "
+#~ "current :class:`~openerp.web.Query`, or ``null`` "
+#~ "if the current :class:`~openerp.web.Query` "
+#~ "does have any result."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Fetches the number of records the "
+#~ "current :class:`~openerp.web.Query` would retrieve."
+#~ msgstr ""
+
+#~ msgid "Deferred<Array<openerp.web.QueryGroup>> | null"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The second set of methods is the"
+#~ " \"mutator\" methods, they create a "
+#~ "**new** :class:`~openerp.web.Query` object with "
+#~ "the relevant (internal) attribute either "
+#~ "augmented or replaced."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Odoo has powerful grouping capacities, "
+#~ "but they are kind-of strange in"
+#~ " that they're recursive, and level "
+#~ "n+1 relies on data provided directly "
+#~ "by the grouping at level n. As "
+#~ "a result, while "
+#~ ":py:meth:`openerp.models.Model.read_group` works it's "
+#~ "not a very intuitive API."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Odoo Web eschews direct calls to "
+#~ ":py:meth:`~openerp.models.Model.read_group` in favor "
+#~ "of calling a method of "
+#~ ":class:`~openerp.web.Query`, :py:meth:`much in the"
+#~ " way it is one in SQLAlchemy "
+#~ "<sqlalchemy.orm.query.Query.group_by>` [#terminal]_::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The result of a (successful) "
+#~ ":func:`~openerp.web.Query.group_by` is an array "
+#~ "of :class:`~openerp.web.QueryGroup`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "equivalent to :func:`Model.query` but pre-"
+#~ "filtered to only include the records "
+#~ "within this group. Returns a "
+#~ ":class:`~openerp.web.Query` which can be "
+#~ "further manipulated as usual."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "returns a deferred to an array of"
+#~ " :class:`~openerp.web.QueryGroup` below this one"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is obviously a very large "
+#~ "change and will require everyone to "
+#~ "adopt new habits.  For example, the "
+#~ "variable openerp does not exist anymore."
+#~ "  The new way of doing things "
+#~ "is to import explicitely the module "
+#~ "you need, and declaring explicitely the"
+#~ " objects you export.  Here is a "
+#~ "simple example::"
+#~ msgstr ""
+
+#~ msgid "``web.session`` is the former ``openerp.session``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The two other files are ``tour.js`` "
+#~ "for the tours and ``compatibility.js``. "
+#~ "The latter file is a compatibility "
+#~ "layer bridging the old system to "
+#~ "the new module system.  This is "
+#~ "where every module names are exported"
+#~ " to the global variable ``openerp``.  "
+#~ "In theory, our addons should work "
+#~ "without ever using the variable "
+#~ "``openerp``, and the compatibility module "
+#~ "can be disabled safely."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "All testing helpers and structures live"
+#~ " in the ``openerp.testing`` module. Odoo"
+#~ " tests live in a "
+#~ ":func:`~openerp.testing.section`, which is itself"
+#~ " part of a module. The first "
+#~ "argument to a section is the name"
+#~ " of the section, the second one "
+#~ "is the section body."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":func:`test <openerp.testing.case>`, provided by "
+#~ "the :func:`~openerp.testing.section` to the "
+#~ "callback, is used to register a "
+#~ "given test case which will be run"
+#~ " whenever the test runner actually "
+#~ "does its job. Odoo Web test case"
+#~ " use standard `QUnit assertions`_ within"
+#~ " them."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As in the wider client, arbitrarily "
+#~ "accessing document content is strongly "
+#~ "discouraged during tests. But DOM access"
+#~ " is still needed to e.g. fully "
+#~ "initialize :class:`widgets <~openerp.Widget>` before"
+#~ " testing them."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To avoid the corresponding processing "
+#~ "costs, by default templates are not "
+#~ "loaded into QWeb. If you need to"
+#~ " render e.g. widgets making use of"
+#~ " QWeb templates, you can request "
+#~ "their loading through the "
+#~ ":attr:`~TestOptions.templates` option to the "
+#~ ":func:`test case function <openerp.testing.case>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If it matches the pattern "
+#~ "``model:method`` (if it contains a "
+#~ "colon, essentially) the call will set"
+#~ " up the mocking of an RPC call"
+#~ " straight to the Odoo server (through"
+#~ " XMLRPC) as performed via e.g. "
+#~ ":func:`openerp.web.Model.call`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "the various options which can be "
+#~ "passed to :func:`~openerp.testing.section` or "
+#~ ":func:`~openerp.testing.case`. Except for "
+#~ ":attr:`~TestOptions.setup` and "
+#~ ":attr:`~TestOptions.teardown`, an option on "
+#~ ":func:`~openerp.testing.case` will overwrite the "
+#~ "corresponding option on "
+#~ ":func:`~openerp.testing.section` so e.g. "
+#~ ":attr:`~TestOptions.rpc` can be set for "
+#~ "a :func:`~openerp.testing.section` and then "
+#~ "differently set for some "
+#~ ":func:`~openerp.testing.case` of that "
+#~ ":func:`~openerp.testing.section`"
+#~ msgstr ""
 

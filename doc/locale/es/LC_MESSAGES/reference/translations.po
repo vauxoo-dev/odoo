@@ -8,23 +8,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 9c91652a520041f78022f70a708dff29
 #: ../../reference/translations.rst:8
 msgid "Translating Modules"
 msgstr ""
 
+# d5a3aceedeae48528c99e8c63291505b
 #: ../../reference/translations.rst:11
 msgid "Exporting translatable term"
 msgstr ""
 
+# 6141d7e03dfd4fe8b9d98b45759991e8
 #: ../../reference/translations.rst:13
 msgid ""
 "A number of terms in your modules are \"implicitly translatable\" as a "
@@ -33,6 +36,7 @@ msgid ""
 "work with."
 msgstr ""
 
+# 2a12df5e357844e6a1ff39cf3de2da5e
 #: ../../reference/translations.rst:19
 msgid ""
 "Translations export is performed via the administration interface by "
@@ -40,22 +44,27 @@ msgid ""
 "--> Translations --> Import / Export --> Export Translations`"
 msgstr ""
 
+# 5b826150380c493eb6d2d8dd825883c8
 #: ../../reference/translations.rst:23
 msgid "leave the language to the default (new language/empty template)"
 msgstr ""
 
+# e10cfc196ca248688c59d087cce1dde7
 #: ../../reference/translations.rst:24
 msgid "select the `PO File`_ format"
 msgstr ""
 
+# 43c23f9e2b1c49108927a7293e3472be
 #: ../../reference/translations.rst:25
 msgid "select your module"
 msgstr ""
 
+# 6b9bd7dcbaa248d185fd310a19f77734
 #: ../../reference/translations.rst:26
 msgid "click :guilabel:`Export` and download the file"
 msgstr ""
 
+# 8fbfefc0744441119a6549eda92f0185
 #: ../../reference/translations.rst:32
 msgid ""
 "This gives you a file called :file:`{yourmodule}.pot` which should be "
@@ -70,22 +79,26 @@ msgid ""
 " Translations --> Load a Translation`)"
 msgstr ""
 
+# 04b8e0d708cf4feca8c3dab308cf95a9
 #: ../../reference/translations.rst:42
 msgid ""
 "translations for all loaded languages are also installed or updated when "
 "installing or updating a module"
 msgstr ""
 
+# 56b63249cc64494987433d178ecec360
 #: ../../reference/translations.rst:46
 msgid "Implicit exports"
 msgstr ""
 
+# 6221eb5f2baf46eba3cdd070ed6d8a5b
 #: ../../reference/translations.rst:48
 msgid ""
 "Odoo automatically exports translatable strings from \"data\"-type "
 "content:"
 msgstr ""
 
+# 50a46f7b2614450c99aa63e29b96f4b7
 #: ../../reference/translations.rst:50
 msgid ""
 "in non-QWeb views, all text nodes are exported as well as the content of "
@@ -93,6 +106,7 @@ msgid ""
 "attributes"
 msgstr ""
 
+# f30180f116894ffea17b77dca864579f
 #: ../../reference/translations.rst:53
 msgid ""
 "QWeb templates (both server-side and client-side), all text nodes are "
@@ -101,36 +115,43 @@ msgid ""
 " exported"
 msgstr ""
 
+# 8ec9cb420bb446b8ba3299eaf016cd24
 #: ../../reference/translations.rst:57
 msgid ""
-"for :class:`~openerp.fields.Field`, unless their model is marked with "
+"for :class:`~odoo.fields.Field`, unless their model is marked with "
 "``_translate = False``:"
 msgstr ""
 
+# 97495ee4798a45f3bb0272f2af4cd399
 #: ../../reference/translations.rst:60
 msgid "their ``string`` and ``help`` attributes are exported"
 msgstr ""
 
+# 6403d27bf28f46f3957d65a37250a2d1
 #: ../../reference/translations.rst:61
 msgid "if ``selection`` is present and a list (or tuple), it's exported"
 msgstr ""
 
+# 368af5b4dd7847adac06073f44affb2f
 #: ../../reference/translations.rst:62
 msgid ""
 "if their ``translate`` attribute is set to ``True``, all of their "
 "existing values (across all records) are exported"
 msgstr ""
 
+# 599f4cb23db54cec804632e1ee5cb65b
 #: ../../reference/translations.rst:64
 msgid ""
-"help/error messages of :attr:`~openerp.models.Model._constraints` and "
-":attr:`~openerp.models.Model._sql_constraints` are exported"
+"help/error messages of :attr:`~odoo.models.Model._constraints` and "
+":attr:`~odoo.models.Model._sql_constraints` are exported"
 msgstr ""
 
+# 6cefcc14127e446a8da8883e687bfb5a
 #: ../../reference/translations.rst:68
 msgid "Explicit exports"
 msgstr ""
 
+# b6f57151cdbd4361af9c1b064a4d6c12
 #: ../../reference/translations.rst:70
 msgid ""
 "When it comes to more \"imperative\" situations in Python code or "
@@ -139,20 +160,42 @@ msgid ""
 "literal string in a function call."
 msgstr ""
 
+# 72d0cbc2179743fdbc6295e866508c90
 #: ../../reference/translations.rst:75
-msgid "In Python, the wrapping function is :func:`openerp._`::"
+msgid "In Python, the wrapping function is :func:`odoo._`::"
 msgstr ""
 
+# c3677182b40947b6b50dd5e93ceb2e42
 #: ../../reference/translations.rst:79
-msgid ""
-"In JavaScript, the wrapping function is generally "
-":js:func:`openerp.web._t`:"
+msgid "In JavaScript, the wrapping function is generally :js:func:`odoo.web._t`:"
 msgstr ""
 
+# d2232d97df2142409127194503f39404
 #: ../../reference/translations.rst:87
 msgid ""
 "Only literal strings can be marked for exports, not expressions or "
 "variables. For situations where strings are formatted, this means the "
 "format string must be marked, not the formatted string::"
 msgstr ""
+
+#~ msgid ""
+#~ "for :class:`~openerp.fields.Field`, unless their "
+#~ "model is marked with ``_translate = "
+#~ "False``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "help/error messages of "
+#~ ":attr:`~openerp.models.Model._constraints` and "
+#~ ":attr:`~openerp.models.Model._sql_constraints` are "
+#~ "exported"
+#~ msgstr ""
+
+#~ msgid "In Python, the wrapping function is :func:`openerp._`::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In JavaScript, the wrapping function is"
+#~ " generally :js:func:`openerp.web._t`:"
+#~ msgstr ""
 

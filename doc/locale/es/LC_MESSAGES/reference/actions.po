@@ -7,841 +7,1105 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: 2016-02-27 02:10-0600\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
 "Language-Team: \n"
-"Language: es\n"
-"X-Generator: Poedit 1.8.7\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
 
+# ae17039fc0f144e0a1ebe66876f7a33f
 #: ../../reference/actions.rst:7
 msgid "Actions"
 msgstr "Acciones"
 
+# 28de745d8e244fa186374b0959254e77
 #: ../../reference/actions.rst:9
 msgid ""
-"Actions define the behavior of the system in response to user actions: login, "
-"action button, selection of an invoice, ..."
+"Actions define the behavior of the system in response to user actions: "
+"login, action button, selection of an invoice, ..."
 msgstr ""
-"Las acciones definen el comportamiento del sistema en respuesta a las acciones "
-"del usuario: entrada, botón de acción, la selección de una factura, …"
+"Las acciones definen el comportamiento del sistema en respuesta a las "
+"acciones del usuario: entrada, botón de acción, la selección de una "
+"factura, …"
 
+# b004fa1d4ede4855a621cd4003040fa4
 #: ../../reference/actions.rst:12
 msgid ""
-"Actions can be stored in the database or returned directly as dictionaries in e."
-"g. button methods. All actions share two mandatory attributes:"
+"Actions can be stored in the database or returned directly as "
+"dictionaries in e.g. button methods. All actions share two mandatory "
+"attributes:"
 msgstr ""
 
-#: ../../reference/actions.rst:16 ../../reference/actions.rst:273
+# 84222aa6bb5c44b2881e70a89b22a0ea
+# 5d6eb9f423f34e8abb60cbbb2bd9193a
+#: ../../reference/actions.rst:16 ../../reference/actions.rst:275
 msgid "``type``"
 msgstr ""
 
+# 8d112362fd7f4802a088f739e39fa9ec
 #: ../../reference/actions.rst:16
 msgid ""
-"the category of the current action, determines which fields may be used and how "
-"the action is interpreted"
+"the category of the current action, determines which fields may be used "
+"and how the action is interpreted"
 msgstr ""
 
+# 68f44405b8a54d9b9bd5bb6dff40ba5e
 #: ../../reference/actions.rst:20
 msgid "``name``"
 msgstr ""
 
+# 822492196490415880ab7e8750362d26
 #: ../../reference/actions.rst:19
 msgid ""
-"short user-readable description of the action, may be displayed in the client's "
-"interface"
+"short user-readable description of the action, may be displayed in the "
+"client's interface"
 msgstr ""
 
+# e67154ece8ff46859515bdfd7783a1c6
 #: ../../reference/actions.rst:22
 msgid "A client can get actions in 4 forms:"
 msgstr ""
 
+# 48f4018fe179463ab14647b82abe69e0
 #: ../../reference/actions.rst:24
 msgid "``False``"
 msgstr ""
 
+# 1f8d98e965234134b9eed303eaa18383
 #: ../../reference/actions.rst:25
 msgid "if any action dialog is currently open, close it"
 msgstr ""
 
+# 1b21c01f8cbe48d7b6f5ad371a3e7830
 #: ../../reference/actions.rst:27
 msgid "A string"
 msgstr ""
 
+# 2f61b4f7d1d44af297ce08c4be95157d
 #: ../../reference/actions.rst:27
 msgid ""
-"if a :ref:`client action <reference/actions/client>` matches, interpret as a "
-"client action's tag, otherwise treat as a number"
+"if a :ref:`client action <reference/actions/client>` matches, interpret "
+"as a client action's tag, otherwise treat as a number"
 msgstr ""
 
+# d734ae096b4f457f8e8c29e3fb08e1ce
 #: ../../reference/actions.rst:30
 msgid "A number"
 msgstr ""
 
+# af2efcc911bc41248c49982faa65c0ca
 #: ../../reference/actions.rst:30
 msgid ""
-"read the corresponding action record from the database, may be a database "
-"identifier or an :term:`external id`"
+"read the corresponding action record from the database, may be a database"
+" identifier or an :term:`external id`"
 msgstr ""
 
+# 814c2b9aeb804f9fab8c65af31bb9534
 #: ../../reference/actions.rst:33
 msgid "A dictionary"
 msgstr ""
 
+# 373ee220465a43539778604aef8e24c2
 #: ../../reference/actions.rst:33
 msgid "treat as a client action descriptor and execute"
 msgstr ""
 
+# dfa892f079d344579d4e3afca5740b01
 #: ../../reference/actions.rst:38
 msgid "Window Actions (``ir.actions.act_window``)"
 msgstr ""
 
+# ff07294283534076aec15ee1212c9136
 #: ../../reference/actions.rst:40
 msgid ""
-"The most common action type, used to present visualisations of a model through :"
-"ref:`views <reference/views>`: a window action defines a set of view types (and "
-"possibly specific views) for a model (and possibly specific record of the "
-"model)."
+"The most common action type, used to present visualisations of a model "
+"through :ref:`views <reference/views>`: a window action defines a set of "
+"view types (and possibly specific views) for a model (and possibly "
+"specific record of the model)."
 msgstr ""
 
+# fe513d67a0414a03ac3438f7c2500277
 #: ../../reference/actions.rst:45
 msgid "Its fields are:"
 msgstr ""
 
+# 403ee4eae80e439f9bf2a7bf9bdd38f7
 #: ../../reference/actions.rst:47
 msgid "``res_model``"
 msgstr ""
 
+# 5f6a7738f3494194ab9ec936ad1cb0a4
 #: ../../reference/actions.rst:48
 msgid "model to present views for"
 msgstr ""
 
+# c1a299a2b9ca4593808238f49141bf31
 #: ../../reference/actions.rst:56
 msgid "``views``"
 msgstr ""
 
+# 3adb81b72b8d4527b30342ec49002c01
 #: ../../reference/actions.rst:50
 msgid ""
-"a list of ``(view_id, view_type)`` pairs. The second element of each pair is "
-"the category of the view (tree, form, graph, ...) and the first is an optional "
-"database id (or ``False``). If no id is provided, the client should fetch the "
-"default view of the specified type for the requested model (this is "
-"automatically done by :meth:`~openerp.models.Model.fields_view_get`). The first "
-"type of the list is the default view type and will be open by default when the "
-"action is executed. Each view type should be present at most once in the list"
+"a list of ``(view_id, view_type)`` pairs. The second element of each pair"
+" is the category of the view (tree, form, graph, ...) and the first is an"
+" optional database id (or ``False``). If no id is provided, the client "
+"should fetch the default view of the specified type for the requested "
+"model (this is automatically done by "
+":meth:`~odoo.models.Model.fields_view_get`). The first type of the list "
+"is the default view type and will be open by default when the action is "
+"executed. Each view type should be present at most once in the list"
 msgstr ""
 
+# 8692b27a6f854504a2a46450fd1b81e1
 #: ../../reference/actions.rst:59
 msgid "``res_id`` (optional)"
 msgstr ""
 
+# 331b8b2ce57f4c6b97f3e2283d06bf02
 #: ../../reference/actions.rst:59
 msgid ""
-"if the default view is ``form``, specifies the record to load (otherwise a new "
-"record should be created)"
+"if the default view is ``form``, specifies the record to load (otherwise "
+"a new record should be created)"
 msgstr ""
 
+# f7377dcf98e4463faec26c1c2c2be451
 #: ../../reference/actions.rst:63
 msgid "``search_view_id`` (optional)"
 msgstr ""
 
+# 0688bb65775c47bb894f7ecd2b42d224
 #: ../../reference/actions.rst:62
 msgid ""
-"``(id, name)`` pair, ``id`` is the database identifier of a specific search "
-"view to load for the action. Defaults to fetching the default search view for "
-"the model"
+"``(id, name)`` pair, ``id`` is the database identifier of a specific "
+"search view to load for the action. Defaults to fetching the default "
+"search view for the model"
 msgstr ""
 
-#: ../../reference/actions.rst:66
+# 36a6c0c035194e63af288a35f6bc278f
+# c4a886b6b0de40fd86f04e6a6be17ffd
+#: ../../reference/actions.rst:68 ../../reference/actions.rst:424
 msgid "``target`` (optional)"
 msgstr ""
 
+# f5c890c6c76141caacf59106cc0e16a0
 #: ../../reference/actions.rst:66
 msgid ""
-"whether the views should be open in the main content area (``current``) or in a "
-"dialog/popup (``new``). Defaults to ``current``."
+"whether the views should be open in the main content area (``current``), "
+"in full screen mode (``fullscreen``) or in a dialog/popup (``new``). Use "
+"``main`` instead of ``current`` to clear the breadcrumbs. Defaults to "
+"``current``."
 msgstr ""
 
-#: ../../reference/actions.rst:68 ../../reference/actions.rst:178
+# 70616ba7bbba465e975f89fa2d012fbe
+# fa0463def80a46118dc959258a92e005
+#: ../../reference/actions.rst:70 ../../reference/actions.rst:180
 msgid "``context`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:69
+# 742fb292d79045be85121c7bad9cf8dd
+#: ../../reference/actions.rst:71
 msgid "additional context data to pass to the views"
 msgstr ""
 
-#: ../../reference/actions.rst:70
+# e7d04d686ccb4eb39f1d3a4c58ea84a8
+#: ../../reference/actions.rst:72
 msgid "``domain`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:71
+# 4cabf6be5b5a425496c2ac2bd7a20829
+#: ../../reference/actions.rst:73
 msgid "filtering domain to implicitly add to all view search queries"
 msgstr ""
 
-#: ../../reference/actions.rst:73
+# eea4c008e930487781b5d8e6f888f572
+#: ../../reference/actions.rst:75
 msgid "``limit`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:73
+# fa00e1dd0329439fb5415872fa424e0e
+#: ../../reference/actions.rst:75
 msgid ""
-"number of records to display in lists by default. Defaults to 80 in the web "
-"client"
+"number of records to display in lists by default. Defaults to 80 in the "
+"web client"
 msgstr ""
 
-#: ../../reference/actions.rst:77
+# 05c4cb8c2c14437f90b5e95288493add
+#: ../../reference/actions.rst:79
 msgid "``auto_search`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:76
+# 6e4142b37da14366a5c4c1fbfe1fb392
+#: ../../reference/actions.rst:78
 msgid ""
-"whether a search should be performed immediately after loading the default "
-"view. Defaults to ``True``"
+"whether a search should be performed immediately after loading the "
+"default view. Defaults to ``True``"
 msgstr ""
 
-#: ../../reference/actions.rst:79
+# 49a7b32106864a388377b7816d1cc9ac
+#: ../../reference/actions.rst:81
 msgid ""
-"For instance, to open customers (partner with the ``customer`` flag set) with "
-"list and form views::"
+"For instance, to open customers (partner with the ``customer`` flag set) "
+"with list and form views::"
 msgstr ""
 
-#: ../../reference/actions.rst:89
+# b984931f79e44a4fbd08e794af245cbe
+#: ../../reference/actions.rst:91
 msgid ""
-"Or to open the form view of a specific product (obtained separately) in a new "
-"dialog::"
+"Or to open the form view of a specific product (obtained separately) in a"
+" new dialog::"
 msgstr ""
 
-#: ../../reference/actions.rst:100
+# cf7e4b2b1a5b4e47b28379359bf30021
+#: ../../reference/actions.rst:102
 msgid ""
-"In-database window actions have a few different fields which should be ignored "
-"by clients, mostly to use in composing the ``views`` list:"
+"In-database window actions have a few different fields which should be "
+"ignored by clients, mostly to use in composing the ``views`` list:"
 msgstr ""
 
-#: ../../reference/actions.rst:104
+# 3b7765fb31504ad9878e858392c4ac33
+#: ../../reference/actions.rst:106
 msgid "``view_mode``"
 msgstr ""
 
-#: ../../reference/actions.rst:104
+# 93eafa59b6c043ffbcf877100bec3b7a
+#: ../../reference/actions.rst:106
 msgid ""
-"comma-separated list of view types as a string. All of these types will be "
-"present in the generated ``views`` list (with at least a ``False`` view_id)"
+"comma-separated list of view types as a string. All of these types will "
+"be present in the generated ``views`` list (with at least a ``False`` "
+"view_id)"
 msgstr ""
 
-#: ../../reference/actions.rst:107
+# afb4d8aba0e04f38bae9b16ccdf24286
+#: ../../reference/actions.rst:109
 msgid "``view_ids``"
 msgstr ""
 
-#: ../../reference/actions.rst:107
+# f68cd36be48d412388aa2532e7417377
+#: ../../reference/actions.rst:109
 msgid ""
-"M2M\\ [#notquitem2m]_ to view objects, defines the initial content of ``views``"
+"M2M\\ [#notquitem2m]_ to view objects, defines the initial content of "
+"``views``"
 msgstr ""
 
-#: ../../reference/actions.rst:112
+# 951ca9a8f04947e992e1c4c24beeaffc
+#: ../../reference/actions.rst:114
 msgid "``view_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:110
+# e76375318ba54cd2ac1ff06e34bbb6d1
+#: ../../reference/actions.rst:112
 msgid ""
-"specific view added to the ``views`` list in case its type is part of the "
-"``view_mode`` list and not already filled by one of the views in ``view_ids``"
+"specific view added to the ``views`` list in case its type is part of the"
+" ``view_mode`` list and not already filled by one of the views in "
+"``view_ids``"
 msgstr ""
 
-#: ../../reference/actions.rst:114
+# b17c22ccdb4c4aa585fe430b2cf2574e
+#: ../../reference/actions.rst:116
 msgid "These are mostly used when defining actions from :ref:`reference/data`:"
 msgstr ""
 
-#: ../../reference/actions.rst:125
+# be18b14a4f6747bf825e091115790c9d
+#: ../../reference/actions.rst:127
 msgid ""
-"will use the \"my_specific_view\" view even if that's not the default view for "
-"the model."
+"will use the \"my_specific_view\" view even if that's not the default "
+"view for the model."
 msgstr ""
 
-#: ../../reference/actions.rst:128
+# f17bdc8908944bd18d6c0939cd73d0dd
+#: ../../reference/actions.rst:130
 msgid "The server-side composition of the ``views`` sequence is the following:"
 msgstr ""
 
-#: ../../reference/actions.rst:130
+# eba97008934341c08df28a9df1d54b47
+#: ../../reference/actions.rst:132
 msgid "get each ``(id, type)`` from ``view_ids`` (ordered by ``sequence``)"
 msgstr ""
 
-#: ../../reference/actions.rst:131
+# 73044322046a4a6eb01d98a7dfcfb3cb
+#: ../../reference/actions.rst:133
 msgid ""
-"if ``view_id`` is defined and its type isn't already filled, append its ``(id, "
-"type)``"
+"if ``view_id`` is defined and its type isn't already filled, append its "
+"``(id, type)``"
 msgstr ""
 
-#: ../../reference/actions.rst:133
+# c1bb3630ac7d404e81081aa2436798c6
+#: ../../reference/actions.rst:135
 msgid "for each unfilled type in ``view_mode``, append ``(False, type)``"
 msgstr ""
 
-#: ../../reference/actions.rst:146
+# b0810df9793343259ad62ce67944ef9a
+#: ../../reference/actions.rst:148
 msgid "URL Actions (``ir.actions.act_url``)"
 msgstr ""
 
-#: ../../reference/actions.rst:148
+# 18ecf81936f74a479abb7971f7f3ac86
+#: ../../reference/actions.rst:150
 msgid ""
-"Allow opening a URL (website/web page) via an Odoo action. Can be customized "
-"via two fields:"
+"Allow opening a URL (website/web page) via an Odoo action. Can be "
+"customized via two fields:"
 msgstr ""
 
-#: ../../reference/actions.rst:151
+# 31ff3dc205ad456a8e95a79a2784a86b
+#: ../../reference/actions.rst:153
 msgid "``url``"
 msgstr ""
 
-#: ../../reference/actions.rst:152
+# dc2299ea451d4d7fab3e4c509a2fe7a8
+#: ../../reference/actions.rst:154
 msgid "the address to open when activating the action"
 msgstr ""
 
-#: ../../reference/actions.rst:155
+# 4c870d95349b4573b051026a21b8524b
+#: ../../reference/actions.rst:157
 msgid "``target``"
 msgstr ""
 
-#: ../../reference/actions.rst:154
+# ab6b3df0ee234a4ab1817cb01c42b490
+#: ../../reference/actions.rst:156
 msgid ""
-"opens the address in a new window/page if ``new``, replaces the current content "
-"with the page if ``self``. Defaults to ``new``"
+"opens the address in a new window/page if ``new``, replaces the current "
+"content with the page if ``self``. Defaults to ``new``"
 msgstr ""
 
-#: ../../reference/actions.rst:165
+# bef9febf608a44e19a260ad2aace7629
+#: ../../reference/actions.rst:167
 msgid "will replace the current content section by the Odoo home page."
 msgstr ""
 
-#: ../../reference/actions.rst:170
+# c82659d8eef5469da33a48c55cc319e3
+#: ../../reference/actions.rst:172
 msgid "Server Actions (``ir.actions.server``)"
 msgstr ""
 
-#: ../../reference/actions.rst:172
+# aff724c7eacc4216b603b4c115098b67
+#: ../../reference/actions.rst:174
 msgid ""
-"Allow triggering complex server code from any valid action location. Only two "
-"fields are relevant to clients:"
+"Allow triggering complex server code from any valid action location. Only"
+" two fields are relevant to clients:"
 msgstr ""
 
-#: ../../reference/actions.rst:175
+# fe07331a9f244286a797b6f0eda2b80e
+#: ../../reference/actions.rst:177
 msgid "``id``"
 msgstr ""
 
-#: ../../reference/actions.rst:176
+# b7cc461550094d5c8bb0b0232945f5e3
+#: ../../reference/actions.rst:178
 msgid "the in-database identifier of the server action to run"
 msgstr ""
 
-#: ../../reference/actions.rst:178
+# 4f7035155c7c406ea5fbc1151cb51d56
+#: ../../reference/actions.rst:180
 msgid "context data to use when running the server action"
 msgstr ""
 
-#: ../../reference/actions.rst:180
+# 6e38eb9b131b4cc9bfab007f148d7a4e
+#: ../../reference/actions.rst:182
 msgid ""
 "In-database records are significantly richer and can perform a number of "
 "specific or generic actions based on their ``state``. Some fields (and "
 "corresponding behaviors) are shared between states:"
 msgstr ""
 
-#: ../../reference/actions.rst:185
+# 031309b6eee448feb8c7c331839fc91c
+#: ../../reference/actions.rst:187
 msgid "``model_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:185
+# 88e64e6e1e9345208c02364bd1158e22
+#: ../../reference/actions.rst:187
 msgid ""
-"Odoo model linked to the action, made available in :ref:`evaluation contexts "
-"<reference/actions/server/context>`"
+"Odoo model linked to the action, made available in :ref:`evaluation "
+"contexts <reference/actions/server/context>`"
 msgstr ""
 
-#: ../../reference/actions.rst:190
+# d6a48e6d84de4dc99302f6945156c881
+#: ../../reference/actions.rst:192
 msgid "``condition`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:188
+# d38bbbf3c6af4c84bb04f280b2a9e567
+#: ../../reference/actions.rst:190
 msgid ""
-"evaluated as Python code using the server action's :ref:`evaluation context "
-"<reference/actions/server/context>`. If ``False``, prevents the action from "
-"running. Default: ``True``"
+"evaluated as Python code using the server action's :ref:`evaluation "
+"context <reference/actions/server/context>`. If ``False``, prevents the "
+"action from running. Default: ``True``"
 msgstr ""
 
-#: ../../reference/actions.rst:192
+# 490dc75ee66d4c78be0dbcb323c0dfc6
+#: ../../reference/actions.rst:194
 msgid ""
-"Valid action types (``state`` field) are extensible, the default types are:"
+"Valid action types (``state`` field) are extensible, the default types "
+"are:"
 msgstr ""
 
-#: ../../reference/actions.rst:195 ../../reference/actions.rst:203
+# bb7e1e0f9315441f9dbe02b55cf700f5
+# e1ab67edacba4f7c86eabf7eca2d51ec
+#: ../../reference/actions.rst:197 ../../reference/actions.rst:205
 msgid "``code``"
 msgstr ""
 
-#: ../../reference/actions.rst:197
+# c85cc275ad8f474089e436be18d4a41e
+#: ../../reference/actions.rst:199
 msgid ""
-"The default and most flexible server action type, executes arbitrary Python "
-"code with the action's :ref:`evaluation context <reference/actions/server/"
-"context>`. Only uses one specific type-specific field:"
+"The default and most flexible server action type, executes arbitrary "
+"Python code with the action's :ref:`evaluation context "
+"<reference/actions/server/context>`. Only uses one specific type-specific"
+" field:"
 msgstr ""
 
-#: ../../reference/actions.rst:203
+# ce779e6a2c954f2faaf4518c819fc9a3
+#: ../../reference/actions.rst:205
 msgid "a piece of Python code to execute when the action is called"
 msgstr ""
 
-#: ../../reference/actions.rst:213
-msgid "raise Warning(object.name)"
-msgstr ""
-
-#: ../../reference/actions.rst:212
-msgid "</field>"
-msgstr ""
-
-#: ../../reference/actions.rst:213
-msgid "</record>"
-msgstr ""
-
-#: ../../reference/actions.rst:217
+# 6760ca96286f4e9e8487ed157ae4e584
+#: ../../reference/actions.rst:219
 msgid ""
 "The code segment can define a variable called ``action``, which will be "
 "returned to the client as the next action to execute:"
 msgstr ""
 
-#: ../../reference/actions.rst:236
+# 625cfa0721204d6fba06008e8ccd3171
+#: ../../reference/actions.rst:238
 msgid ""
-"will ask the client to open a form for the record if it fulfills some condition"
+"will ask the client to open a form for the record if it fulfills some "
+"condition"
 msgstr ""
 
-#: ../../reference/actions.rst:239
+# 0ab80948c03e49caa5496efe4164e6b5
+#: ../../reference/actions.rst:241
 msgid ""
-"This tends to be the only action type created from :ref:`data files <reference/"
-"data>`, other types aside from :ref:`reference/actions/server/multi` are "
-"simpler than Python code to define from the UI, but not from :ref:`data files "
-"<reference/data>`."
+"This tends to be the only action type created from :ref:`data files "
+"<reference/data>`, other types aside from "
+":ref:`reference/actions/server/multi` are simpler than Python code to "
+"define from the UI, but not from :ref:`data files <reference/data>`."
 msgstr ""
 
-#: ../../reference/actions.rst:247
+# 5de6ba4c396e413c9e16cc7b72271c29
+#: ../../reference/actions.rst:249
 msgid "``object_create``"
 msgstr ""
 
-#: ../../reference/actions.rst:249
+# 339c96ec47ee4772bdbb0fd4ccaead4e
+#: ../../reference/actions.rst:251
 msgid ""
-"Creates a new record, from scratch (via :meth:`~openerp.models.Model.create`) "
-"or by copying an existing record (via :meth:`~openerp.models.Model.copy`)"
+"Creates a new record, from scratch (via "
+":meth:`~odoo.models.Model.create`) or by copying an existing record (via "
+":meth:`~odoo.models.Model.copy`)"
 msgstr ""
 
-#: ../../reference/actions.rst:261
+# d470951664e34bd5a27bec6d0b4dd393
+#: ../../reference/actions.rst:263
 msgid "``use_create``"
 msgstr ""
 
-#: ../../reference/actions.rst:253
+# 3da38608def64be68d78ef26f210b583
+#: ../../reference/actions.rst:255
 msgid "the creation policy, one of:"
 msgstr ""
 
-#: ../../reference/actions.rst:255
+# 285e7de535b94eb2a7f42a8c0e18f4cc
+#: ../../reference/actions.rst:257
 msgid "``new``"
 msgstr ""
 
-#: ../../reference/actions.rst:256
+# fc59d795581f4dd6933535b9363f11a5
+#: ../../reference/actions.rst:258
 msgid "creates a record in the model specified by ``model_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:257
+# f2c6d3440df942e2a3d91395d7e3a4e0
+#: ../../reference/actions.rst:259
 msgid "``new_other``"
 msgstr ""
 
-#: ../../reference/actions.rst:258
+# d2a6d44710a44359a267b8fd29553265
+#: ../../reference/actions.rst:260
 msgid "creates a record in the model specified by ``crud_model_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:259
+# ad4d1077c40440b983ff6426eb35cb9c
+#: ../../reference/actions.rst:261
 msgid "``copy_current``"
 msgstr ""
 
-#: ../../reference/actions.rst:260
+# dfa97e5f142d401e9ba262549a5a6c65
+#: ../../reference/actions.rst:262
 msgid "copies the record on which the action was invoked"
 msgstr ""
 
-#: ../../reference/actions.rst:261
+# 3d75363183a94535afe45e92171ef582
+#: ../../reference/actions.rst:263
 msgid "``copy_other``"
 msgstr ""
 
-#: ../../reference/actions.rst:262
+# 387fdcc28e364b118980dc532163b9f9
+#: ../../reference/actions.rst:264
 msgid "copies an other record, obtained via ``ref_object``"
 msgstr ""
 
-#: ../../reference/actions.rst:273 ../../reference/actions.rst:309
+# 4c4fbd5f1af845a19f34361ff6b810ba
+# 6d324b7981c64e98afc925e85f38f544
+#: ../../reference/actions.rst:275 ../../reference/actions.rst:311
 msgid "``fields_lines``"
 msgstr ""
 
-#: ../../reference/actions.rst:264
+# acf1365bad494a0585606fb6ea06c2ee
+#: ../../reference/actions.rst:266
 msgid ""
-"fields to override when creating or copying the record. :class:`~openerp.fields."
-"One2many` with the fields:"
+"fields to override when creating or copying the record. "
+":class:`~odoo.fields.One2many` with the fields:"
 msgstr ""
 
-#: ../../reference/actions.rst:267
+# c5dd0bbf502e49f391f31d7a0e8c296f
+#: ../../reference/actions.rst:269
 msgid "``col1``"
 msgstr ""
 
-#: ../../reference/actions.rst:268
+# 35f9487b3d9144b1840c19b3ab9e6727
+#: ../../reference/actions.rst:270
 msgid "``ir.model.fields`` to set in the model implied by ``use_create``"
 msgstr ""
 
-#: ../../reference/actions.rst:269
+# f4abb7c4e257466dbef4ab1dd8822f56
+#: ../../reference/actions.rst:271
 msgid "``value``"
 msgstr ""
 
-#: ../../reference/actions.rst:270
+# ece668769a6149ee9c62f94edb6bd4c0
+#: ../../reference/actions.rst:272
 msgid "value for the field, interpreted via ``type``"
 msgstr ""
 
-#: ../../reference/actions.rst:272
+# 568b346381fe4a15a03c8426e51fe77d
+#: ../../reference/actions.rst:274
 msgid ""
-"If ``value``, the ``value`` field is interpreted as a literal value (possibly "
-"converted), if ``equation`` the ``value`` field is interpreted as a Python "
-"expression and evaluated"
+"If ``value``, the ``value`` field is interpreted as a literal value "
+"(possibly converted), if ``equation`` the ``value`` field is interpreted "
+"as a Python expression and evaluated"
 msgstr ""
 
-#: ../../reference/actions.rst:276 ../../reference/actions.rst:311
+# 5cac0374f3b4413081eed91759b5cfd1
+# 8d1fda123e15481e823b92d6efabd6ff
+#: ../../reference/actions.rst:278 ../../reference/actions.rst:313
 msgid "``crud_model_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:276
+# 6dba8c88090f4e109ee03ae67d90726e
+#: ../../reference/actions.rst:278
 msgid ""
-"model in which to create a new record, if ``use_create`` is set to ``new_other``"
+"model in which to create a new record, if ``use_create`` is set to "
+"``new_other``"
 msgstr ""
 
-#: ../../reference/actions.rst:279 ../../reference/actions.rst:314
+# c4a6f0533198425898d947ab911a8c57
+# 739e076ed6444f29bc76f6faf3893d52
+#: ../../reference/actions.rst:281 ../../reference/actions.rst:316
 msgid "``ref_object``"
 msgstr ""
 
-#: ../../reference/actions.rst:279
+# dcab7645dfc1422d92e97565da46a04f
+#: ../../reference/actions.rst:281
 msgid ""
-":class:`~openerp.fields.Reference` to an arbitrary record to copy, used if "
+":class:`~odoo.fields.Reference` to an arbitrary record to copy, used if "
 "``use_create`` is set to ``copy_other``"
 msgstr ""
 
-#: ../../reference/actions.rst:282
+# 707c4b3900854ff68d1b0bfc096aa1ea
+#: ../../reference/actions.rst:284
 msgid "``link_new_record``"
 msgstr ""
 
-#: ../../reference/actions.rst:282
+# c6095aee7f974b6fbae2ab74c94f375f
+#: ../../reference/actions.rst:284
 msgid ""
-"boolean flag linking the newly created record to the current one via a many2one "
-"field specified through ``link_field_id``, defaults to ``False``"
+"boolean flag linking the newly created record to the current one via a "
+"many2one field specified through ``link_field_id``, defaults to ``False``"
 msgstr ""
 
-#: ../../reference/actions.rst:286
+# 74287ec3c1e745e8bf731ff24fabe239
+#: ../../reference/actions.rst:288
 msgid "``link_field_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:285
+# a4dc003bf7634540821f2bf6291de059
+#: ../../reference/actions.rst:287
 msgid ""
-"many2one to ``ir.model.fields``, specifies the current record's m2o field on "
-"which the newly created record should be set (models should match)"
+"many2one to ``ir.model.fields``, specifies the current record's m2o field"
+" on which the newly created record should be set (models should match)"
 msgstr ""
 
-#: ../../reference/actions.rst:289
+# 3ab2d18e52dd4fb793009a06de187d1f
+#: ../../reference/actions.rst:291
 msgid "``object_write``"
 msgstr ""
 
-#: ../../reference/actions.rst:291
+# 17d199b88100480a88495c010487ef66
+#: ../../reference/actions.rst:293
 msgid ""
-"Similar to :ref:`reference/actions/server/object_create` but alters an existing "
-"records instead of creating one"
+"Similar to :ref:`reference/actions/server/object_create` but alters an "
+"existing records instead of creating one"
 msgstr ""
 
-#: ../../reference/actions.rst:303
+# 1be60220043a45498a05c32f1402f04d
+#: ../../reference/actions.rst:305
 msgid "``use_write``"
 msgstr ""
 
-#: ../../reference/actions.rst:295
+# 6a72cc5e437442d5a07c46a1e359f96c
+#: ../../reference/actions.rst:297
 msgid "write policy, one of:"
 msgstr ""
 
-#: ../../reference/actions.rst:297
+# 287784c3b0f34f319181a8b091bbb301
+#: ../../reference/actions.rst:299
 msgid "``current``"
 msgstr ""
 
-#: ../../reference/actions.rst:298
+# d34e2bb9a119430c8428c80491beb78e
+#: ../../reference/actions.rst:300
 msgid "write to the current record"
 msgstr ""
 
-#: ../../reference/actions.rst:300
+# 19a055b30a2044a8abd2aee26360f6be
+#: ../../reference/actions.rst:302
 msgid "``other``"
 msgstr ""
 
-#: ../../reference/actions.rst:300
+# 80ef104fa40046218ec39fc32ccb7c79
+#: ../../reference/actions.rst:302
 msgid "write to an other record selected via ``crud_model_id`` and ``ref_object``"
 msgstr ""
 
-#: ../../reference/actions.rst:303
+# ede22cd1c8604600b879dd806a6fcea2
+#: ../../reference/actions.rst:305
 msgid "``expression``"
 msgstr ""
 
-#: ../../reference/actions.rst:303
+# b03ec900d38e419daaad0c1b7bcf9684
+#: ../../reference/actions.rst:305
 msgid ""
-"write to an other record whose model is selected via ``crud_model_id`` and "
-"whose id is selected by evaluating ``write_expression``"
+"write to an other record whose model is selected via ``crud_model_id`` "
+"and whose id is selected by evaluating ``write_expression``"
 msgstr ""
 
-#: ../../reference/actions.rst:307
+# a523fdeee4064415abdd009cfafb82ae
+#: ../../reference/actions.rst:309
 msgid "``write_expression``"
 msgstr ""
 
-#: ../../reference/actions.rst:306
+# d3075f5af48744088ec6963147cd8531
+#: ../../reference/actions.rst:308
 msgid ""
-"Python expression returning a record or an object id, used when ``use_write`` "
-"is set to ``expression`` in order to decide which record should be modified"
+"Python expression returning a record or an object id, used when "
+"``use_write`` is set to ``expression`` in order to decide which record "
+"should be modified"
 msgstr ""
 
-#: ../../reference/actions.rst:310 ../../reference/actions.rst:312
-#: ../../reference/actions.rst:314
+# 2e1be813ff5a49f0a0510283f9c48534
+# 468bb1d73a8541b483528cc867039666
+# 91e94741dcf04d398064cdba82d58d9c
+#: ../../reference/actions.rst:312 ../../reference/actions.rst:314
+#: ../../reference/actions.rst:316
 msgid "see :ref:`reference/actions/server/object_create`"
 msgstr ""
 
-#: ../../reference/actions.rst:319
+# 97ee150d86934f0d854cec3e8819969f
+#: ../../reference/actions.rst:321
 msgid "``multi``"
 msgstr ""
 
-#: ../../reference/actions.rst:321
+# 8b9007e4410d490da2ae34126779feff
+#: ../../reference/actions.rst:323
 msgid ""
-"Executes multiple actions one after the other. Actions to execute are defined "
-"via the ``child_ids`` m2m. If sub-actions themselves return actions, the last "
-"one will be returned to the client as the multi's own next action"
+"Executes multiple actions one after the other. Actions to execute are "
+"defined via the ``child_ids`` m2m. If sub-actions themselves return "
+"actions, the last one will be returned to the client as the multi's own "
+"next action"
 msgstr ""
 
-#: ../../reference/actions.rst:326
+# 8b147437f09d4e8fb391cbedc182b61d
+#: ../../reference/actions.rst:328
 msgid "``trigger``"
 msgstr ""
 
-#: ../../reference/actions.rst:328
+# b002a2988d914329b37e7312263ff008
+#: ../../reference/actions.rst:330
 msgid "Sends a signal to a workflow."
 msgstr ""
 
-#: ../../reference/actions.rst:330
+# 47dfc7035cd74e8e8e56915559a95d0d
+#: ../../reference/actions.rst:332
 msgid "``wkf_transition_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:331
-msgid ":class:`~openerp.fields.Many2one` to a ``workflow.transition`` to trigger"
+# 233ca5424af64f159f57f19604b5c207
+#: ../../reference/actions.rst:333
+msgid ":class:`~odoo.fields.Many2one` to a ``workflow.transition`` to trigger"
 msgstr ""
 
-#: ../../reference/actions.rst:335
+# 9e129ae44cb0426cabaf2921f8789bb4
+#: ../../reference/actions.rst:337
 msgid "``use_relational_model``"
 msgstr ""
 
-#: ../../reference/actions.rst:333
+# cecb927824b945cda9c00ce782edcf07
+#: ../../reference/actions.rst:335
 msgid ""
-"if ``base`` (the default), trigger the signal on behalf of the current record. "
-"If ``relational``, trigger the signal on behalf of a field of the current "
-"record selected through ``wkf_model_id`` and ``wkf_field_id``"
+"if ``base`` (the default), trigger the signal on behalf of the current "
+"record. If ``relational``, trigger the signal on behalf of a field of the"
+" current record selected through ``wkf_model_id`` and ``wkf_field_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:338
+# 6998f6cace234ed7a1af6f1ee4b62f7c
+#: ../../reference/actions.rst:340
 msgid "``client_action``"
 msgstr ""
 
-#: ../../reference/actions.rst:340
+# 059b10f93c314db884302702113d229d
+#: ../../reference/actions.rst:342
 msgid ""
-"Indirection for directly returning an other action defined using ``action_id``. "
-"Simply returns that action to the client for execution."
+"Indirection for directly returning an other action defined using "
+"``action_id``. Simply returns that action to the client for execution."
 msgstr ""
 
-#: ../../reference/actions.rst:346
+# 99ff97a32646468cbcae4e1b306842b7
+#: ../../reference/actions.rst:348
 msgid "Evaluation context"
 msgstr ""
 
-#: ../../reference/actions.rst:348
+# b0e6d129a2d848a9a72f1cc1cf22e52b
+#: ../../reference/actions.rst:350
 msgid ""
-"A number of keys are available in the evaluation context of or surrounding "
-"server actions:"
+"A number of keys are available in the evaluation context of or "
+"surrounding server actions:"
 msgstr ""
 
-#: ../../reference/actions.rst:351
-msgid "``self``"
+# 69b73d817a7b40a1b13557017675f16f
+#: ../../reference/actions.rst:353
+msgid "``model``"
 msgstr ""
 
-#: ../../reference/actions.rst:352
+# 42dff716e3d44e549bbf991f32591d23
+#: ../../reference/actions.rst:354
 msgid "the model object linked to the action via ``model_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:354
+# 9f732034eac0404d81eb9b2f7ec5845e
+#: ../../reference/actions.rst:356
 msgid "``object``, ``obj``"
 msgstr ""
 
-#: ../../reference/actions.rst:354
+# 9e4f5008b4434216a1b0cc1bb7841393
+#: ../../reference/actions.rst:356
 msgid ""
-"only available if ``active_model`` and ``active_id`` are provided (via context) "
-"otherwise ``None``. The actual record selected by ``active_id``"
+"only available if ``active_model`` and ``active_id`` are provided (via "
+"context) otherwise ``None``. The actual record selected by ``active_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:356
+# e10e35e992e648e2b8e9204a0f05152d
+#: ../../reference/actions.rst:358
 msgid "``pool``"
 msgstr ""
 
-#: ../../reference/actions.rst:357
+# 4ae636400cb242639e2e0b98c9c5dcfb
+#: ../../reference/actions.rst:359
 msgid "the current database registry"
 msgstr ""
 
-#: ../../reference/actions.rst:358
+# c2754720295c4d25b025c8ed40e7ed16
+#: ../../reference/actions.rst:360
 msgid "``datetime``, ``dateutil``, ``time``"
 msgstr ""
 
-#: ../../reference/actions.rst:359
+# ce8fae2c35294b8bb42533c2f828ac66
+#: ../../reference/actions.rst:361
 msgid "corresponding Python modules"
 msgstr ""
 
-#: ../../reference/actions.rst:360
+# b311a328d4464046baf4f1866759ee94
+#: ../../reference/actions.rst:362
 msgid "``cr``"
 msgstr ""
 
-#: ../../reference/actions.rst:361
+# 7621121a2ac84931b581e8eff5195148
+#: ../../reference/actions.rst:363
 msgid "the current cursor"
 msgstr ""
 
-#: ../../reference/actions.rst:362
+# c26121f51cd840c8a312d37566b9a19a
+#: ../../reference/actions.rst:364
 msgid "``user``"
 msgstr ""
 
-#: ../../reference/actions.rst:363
+# 3589c08949c24c5e8fa56f408ff91c73
+#: ../../reference/actions.rst:365
 msgid "the current user record"
 msgstr ""
 
-#: ../../reference/actions.rst:364
+# 2f6977562f394090b89914ac6401cf81
+#: ../../reference/actions.rst:366
 msgid "``context``"
 msgstr ""
 
-#: ../../reference/actions.rst:365
+# 866f6fa1078644439ca029190d6f9ef7
+#: ../../reference/actions.rst:367
 msgid "execution context"
 msgstr ""
 
-#: ../../reference/actions.rst:367
+# e291fec5de68432fb8ad00ae58ecbf90
+#: ../../reference/actions.rst:369
 msgid "``Warning``"
 msgstr ""
 
-#: ../../reference/actions.rst:367
+# 8eb19d6dd12741f9991fc0ef708bef19
+#: ../../reference/actions.rst:369
 msgid "constructor for the ``Warning`` exception"
 msgstr ""
 
-#: ../../reference/actions.rst:375
+# 8d4707d36e1b4c6393c23464ddb7b7a3
+#: ../../reference/actions.rst:377
 msgid "Report Actions (``ir.actions.report.xml``)"
 msgstr ""
 
-#: ../../reference/actions.rst:377
+# d886187e2e994fb2a6ecad966ada4ae1
+#: ../../reference/actions.rst:379
 msgid "Triggers the printing of a report"
 msgstr ""
 
-#: ../../reference/actions.rst:380
+# 1eca0be883f740bd90e8236d7d1e3156
+#: ../../reference/actions.rst:382
 msgid "``name`` (mandatory)"
 msgstr ""
 
-#: ../../reference/actions.rst:380
+# a2f77a604ea04975ac19d6cdaf219f21
+#: ../../reference/actions.rst:382
 msgid ""
-"only useful as a mnemonic/description of the report when looking for one in a "
-"list of some sort"
+"only useful as a mnemonic/description of the report when looking for one "
+"in a list of some sort"
 msgstr ""
 
-#: ../../reference/actions.rst:382
+# 83adf17afa3741608d1cc8258815e042
+#: ../../reference/actions.rst:384
 msgid "``model`` (mandatory)"
 msgstr ""
 
-#: ../../reference/actions.rst:383
+# 41ebd8118512489e9e42110e9f29e175
+#: ../../reference/actions.rst:385
 msgid "the model your report will be about"
 msgstr ""
 
-#: ../../reference/actions.rst:384
+# 7a4e96dc432f4e75af2bb93733b5d5ea
+#: ../../reference/actions.rst:386
 msgid "``report_type`` (mandatory)"
 msgstr ""
 
-#: ../../reference/actions.rst:385
+# b8a6c6c9ed594cfc96f364dada7fc20d
+#: ../../reference/actions.rst:387
 msgid "either ``qweb-pdf`` for PDF reports or ``qweb-html`` for HTML"
 msgstr ""
 
-#: ../../reference/actions.rst:386
+# cc5a4ece0ecc4ab38c577318db0f86b0
+#: ../../reference/actions.rst:388
 msgid "``report_name``"
 msgstr ""
 
-#: ../../reference/actions.rst:387
+# af270ce7e0f54d0fbad9bf7c78f31d0e
+#: ../../reference/actions.rst:389
 msgid "the name of your report (which will be the name of the PDF output)"
 msgstr ""
 
-#: ../../reference/actions.rst:389
+# 6bd1c76b32244725b18206401bf649da
+#: ../../reference/actions.rst:391
 msgid "``groups_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:389
+# ef5f491bd659464d83ad291017d6f4f9
+#: ../../reference/actions.rst:391
 msgid ""
-":class:`~openerp.fields.Many2many` field to the groups allowed to view/use the "
-"current report"
+":class:`~odoo.fields.Many2many` field to the groups allowed to view/use "
+"the current report"
 msgstr ""
 
-#: ../../reference/actions.rst:392
+# 4218ed50375c40d98ebdb6ce4a398766
+#: ../../reference/actions.rst:394
 msgid "``paperformat_id``"
 msgstr ""
 
-#: ../../reference/actions.rst:392
+# 0383d8915e47427abc46b957f180437c
+#: ../../reference/actions.rst:394
 msgid ""
-":class:`~openerp.fields.Many2one` field to the paper format you wish to use for "
-"this report (if not specified, the company format will be used)"
+":class:`~odoo.fields.Many2one` field to the paper format you wish to use "
+"for this report (if not specified, the company format will be used)"
 msgstr ""
 
-#: ../../reference/actions.rst:399
+# 26706bf7a8184febbccde2e5c4cecb68
+#: ../../reference/actions.rst:401
 msgid "``attachment_use``"
 msgstr ""
 
-#: ../../reference/actions.rst:395
+# d6a6757312934ee09a2babc8934f21e3
+#: ../../reference/actions.rst:397
 msgid ""
-"if set to ``True``, the report is only generated once the first time it is "
-"requested, and re-printed from the stored report afterwards instead of being re-"
-"generated every time."
+"if set to ``True``, the report is only generated once the first time it "
+"is requested, and re-printed from the stored report afterwards instead of"
+" being re-generated every time."
 msgstr ""
 
-#: ../../reference/actions.rst:399
+# a0d1c0c1592e45f2b023b6f162771183
+#: ../../reference/actions.rst:401
 msgid ""
-"Can be used for reports which must only be generated once (e.g. for legal "
-"reasons)"
+"Can be used for reports which must only be generated once (e.g. for legal"
+" reasons)"
 msgstr ""
 
-#: ../../reference/actions.rst:403
+# a5c38217ab714067b821d75361156c42
+#: ../../reference/actions.rst:405
 msgid "``attachment``"
 msgstr ""
 
-#: ../../reference/actions.rst:402
+# 9da8696c28f14b0889879069284ab40c
+#: ../../reference/actions.rst:404
 msgid ""
-"python expression that defines the name of the report; the record is accessible "
-"as the variable ``object``"
+"python expression that defines the name of the report; the record is "
+"accessible as the variable ``object``"
 msgstr ""
 
-#: ../../reference/actions.rst:408
+# 56b9443bbbb24f648da21b4f39a66fbb
+#: ../../reference/actions.rst:410
 msgid "Client Actions (``ir.actions.client``)"
 msgstr ""
 
-#: ../../reference/actions.rst:410
+# 7a2cfed402984484a28411eab07a92cd
+#: ../../reference/actions.rst:412
 msgid "Triggers an action implemented entirely in the client."
 msgstr ""
 
-#: ../../reference/actions.rst:413
+# 3d978fea2cc64b948cffea16632b94bf
+#: ../../reference/actions.rst:415
 msgid "``tag``"
 msgstr ""
 
-#: ../../reference/actions.rst:413
+# 6210fce32b68437da030c3fc7ba8d7da
+#: ../../reference/actions.rst:415
 msgid ""
-"the client-side identifier of the action, an arbitrary string which the client "
-"should know how to react to"
+"the client-side identifier of the action, an arbitrary string which the "
+"client should know how to react to"
 msgstr ""
 
-#: ../../reference/actions.rst:417
+# 0734444039534be186c5e4fe09066503
+#: ../../reference/actions.rst:418
 msgid "``params`` (optional)"
 msgstr ""
 
-#: ../../reference/actions.rst:416
+# 3eb00c415c2e43d99a0ff7bf38d8c666
+#: ../../reference/actions.rst:418
 msgid ""
-"a Python dictionary of additional data to send to the client, alongside the "
-"client action tag"
+"a Python dictionary of additional data to send to the client, alongside "
+"the client action tag"
 msgstr ""
 
-#: ../../reference/actions.rst:426
+# 00463298da86413f853bc9b162f462cf
+#: ../../reference/actions.rst:421
 msgid ""
-"tells the client to start the Point of Sale interface, the server has no idea "
-"how the POS interface works."
+"whether the client action should be open in the main content area "
+"(``current``), in full screen mode (``fullscreen``) or in a dialog/popup "
+"(``new``). Use ``main`` instead of ``current`` to clear the breadcrumbs. "
+"Defaults to ``current``."
 msgstr ""
 
-#: ../../reference/actions.rst:429
+# d0a82efb732a4f81b21240820ea922f7
+#: ../../reference/actions.rst:433
 msgid ""
-"technically not an M2M: adds a sequence field and may be composed of just a "
-"view type, without a view id."
+"tells the client to start the Point of Sale interface, the server has no "
+"idea how the POS interface works."
 msgstr ""
+
+# a564806fae0143ff8845ce001247c182
+#: ../../reference/actions.rst:436
+msgid ""
+"technically not an M2M: adds a sequence field and may be composed of just"
+" a view type, without a view id."
+msgstr ""
+
+#~ msgid ""
+#~ "a list of ``(view_id, view_type)`` "
+#~ "pairs. The second element of each "
+#~ "pair is the category of the view"
+#~ " (tree, form, graph, ...) and the "
+#~ "first is an optional database id "
+#~ "(or ``False``). If no id is "
+#~ "provided, the client should fetch the"
+#~ " default view of the specified type"
+#~ " for the requested model (this is "
+#~ "automatically done by "
+#~ ":meth:`~openerp.models.Model.fields_view_get`). The first"
+#~ " type of the list is the "
+#~ "default view type and will be open"
+#~ " by default when the action is "
+#~ "executed. Each view type should be "
+#~ "present at most once in the list"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "whether the views should be open "
+#~ "in the main content area (``current``)"
+#~ " or in a dialog/popup (``new``). "
+#~ "Defaults to ``current``."
+#~ msgstr ""
+
+#~ msgid "raise Warning(object.name)"
+#~ msgstr ""
+
+#~ msgid "</field>"
+#~ msgstr ""
+
+#~ msgid "</record>"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Creates a new record, from scratch "
+#~ "(via :meth:`~openerp.models.Model.create`) or by "
+#~ "copying an existing record (via "
+#~ ":meth:`~openerp.models.Model.copy`)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "fields to override when creating or "
+#~ "copying the record. "
+#~ ":class:`~openerp.fields.One2many` with the fields:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":class:`~openerp.fields.Reference` to an arbitrary"
+#~ " record to copy, used if "
+#~ "``use_create`` is set to ``copy_other``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":class:`~openerp.fields.Many2one` to a "
+#~ "``workflow.transition`` to trigger"
+#~ msgstr ""
+
+#~ msgid "``self``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":class:`~openerp.fields.Many2many` field to the "
+#~ "groups allowed to view/use the current"
+#~ " report"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":class:`~openerp.fields.Many2one` field to the "
+#~ "paper format you wish to use for"
+#~ " this report (if not specified, the"
+#~ " company format will be used)"
+#~ msgstr ""
+

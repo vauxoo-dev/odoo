@@ -8,271 +8,429 @@ msgid ""
 msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 23:10-0600\n"
+"POT-Creation-Date: 2017-07-14 00:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.3.4\n"
 
+# 14c1803cea924911849e3e317ec81701
 #: ../../setup/install.rst:7
 msgid "Installing Odoo"
 msgstr ""
 
+# 2ae2046b9ed043e3b2f0bf9ded0ab67c
 #: ../../setup/install.rst:9
 msgid ""
 "There are mutliple ways to install Odoo, or not install it at all, "
 "depending on the intended use case."
 msgstr ""
 
+# c5010d5534794de98ae6151fc393037f
 #: ../../setup/install.rst:12
 msgid "This documents attempts to describe most of the installation options."
 msgstr ""
 
+# e8adea5bcf864420b1c4204a3353512a
 #: ../../setup/install.rst:15
 msgid ":ref:`setup/install/demo`"
 msgstr ""
 
+# e3000f3ccd5743a49cc67ee8b7cd4a54
 #: ../../setup/install.rst:15
 msgid ""
-"the simplest \"installation\", only suitable for getting a quick feel for"
+"The simplest \"installation\", only suitable for getting a quick feel for"
 " Odoo or trying something out"
 msgstr ""
 
+# 1cd51964adc04c87a17409a2843a34fa
 #: ../../setup/install.rst:21
 msgid ":ref:`setup/install/saas`"
 msgstr ""
 
+# a753b9a53d404e9b91a227ebe5b380b6
 #: ../../setup/install.rst:18
 msgid ""
-"trivial to start with and fully managed and migrated by Odoo S.A., can be"
-" used to both test Odoo and use it for your business, but restricts the "
-"flexibility of the system somewhat (check: no custom modules? what "
-"else?)."
+"Trivial to start with and fully managed and migrated by Odoo S.A., can be"
+" used to both test Odoo and use it for your business, prevents complex "
+"customization (i.e. incompatible with custom modules or the Odoo Apps "
+"Store)."
 msgstr ""
 
+# 67c8d88128a249e7af3fe6f21165b6a4
 #: ../../setup/install.rst:22
-msgid "Can be used for both testing Odoo and long-term \"production\" use."
+msgid "Can be used for both testing Odoo and long-term production use."
 msgstr ""
 
+# d0ca44cce52c4557867db77b9ac381dc
 #: ../../setup/install.rst:28
 msgid ":ref:`setup/install/packaged`"
 msgstr ""
 
+# 17931d1f8e9f4962ba2ad1810d3c1889
 #: ../../setup/install.rst:24
 msgid ""
-"simple to get started, allows more flexibility in hosting and deploying "
+"Simple to get started, allows more flexibility in hosting and deploying "
 "the system and greater control over where data is stored. The maintenance"
 " burden is shifted to the user."
 msgstr ""
 
+# 4355e9a45a2e4384a5602772aed9e9a1
 #: ../../setup/install.rst:28
 msgid ""
 "Suitable for testing Odoo, developing modules and can be used for long-"
 "term production use with additional deployment and maintenance work."
 msgstr ""
 
-#: ../../setup/install.rst:40
+# 166fbc07ced14837ad2b652ed5f2f46e
+#: ../../setup/install.rst:41
 msgid ":ref:`setup/install/source`"
 msgstr ""
 
+# 9776115808a246bca7ee42600d749c73
 #: ../../setup/install.rst:31
 msgid ""
-"harder to get started than :ref:`setup/install/packaged`, provides even "
+"Harder to get started than :ref:`setup/install/packaged`, provides even "
 "greater flexibility: packaged installers don't generally allow multiple "
 "running Odoo versions on the same system, and don't provide easy source "
 "access to Odoo itself."
 msgstr ""
 
+# 6cf7d59a77d24c27ab6adf346f1669e6
 #: ../../setup/install.rst:36
 msgid ""
 "Good for developing modules, can be used as base for production "
 "deployment."
 msgstr ""
 
+# f2aedc46b3bb495db89c7379933e119a
 #: ../../setup/install.rst:39
 msgid ""
 "The source code can be obtained by downloading a tarball or using git. "
-"Using git makes it easier to update, switch between multiple versions "
-"(including the current development version) or contribute."
+"Using git is strongly advised, as it makes it easier to update, switch "
+"between multiple versions (including the current development version) or "
+"contribute."
 msgstr ""
 
-#: ../../setup/install.rst:45
+# 57b43cf1ed8d493d9c31301e8418c2dc
+#: ../../setup/install.rst:46
 msgid "`docker image <https://registry.hub.docker.com/_/odoo/>`_"
 msgstr ""
 
-#: ../../setup/install.rst:43
+# 4dad4382378242e3875a02cc43ef5fad
+#: ../../setup/install.rst:44
 msgid ""
-"if you usually use docker_ for development or deployment, an official "
+"If you usually use docker_ for development or deployment, an official "
 "docker_ base image is available, see the image's help document for more "
-"information"
+"information."
 msgstr ""
 
-#: ../../setup/install.rst:50
+# fd1922bf19424f20a42619d4b5327196
+#: ../../setup/install.rst:51
+msgid "Editions"
+msgstr ""
+
+# 11f9a6ca7b2646c8ae70e691f77f863c
+#: ../../setup/install.rst:53
+msgid ""
+"There are two different Editions_ of Odoo: the Community and Enterprise "
+"versions. Using the Enterprise version is possible on our SaaS_ and "
+"accessing the code is restricted to Enterprise customers and partners. "
+"The Community version is freely available to anyone."
+msgstr ""
+
+# c09fbfd5c66e494ab0edfe18a227ee2d
+#: ../../setup/install.rst:58
+msgid ""
+"If you already use the Community version and wish to upgrade to "
+"Enterprise, please refer to :ref:`setup/enterprise` (except for "
+":ref:`setup/install/source`)."
+msgstr ""
+
+# 7c0f83b3f173491c87b0dccfb13265e4
+#: ../../setup/install.rst:61
+msgid "If you wish to access the Enterprise installers/source code, you can:"
+msgstr ""
+
+# 27e9c0122d614f63a48436769589cca3
+#: ../../setup/install.rst:63
+msgid "Go to the Download_ page and log in with your customer credentials"
+msgstr ""
+
+# 54ffc5440bc74eea9da901e732b1d804
+#: ../../setup/install.rst:64
+msgid "Download the source on GitHub using git_(available to partners only)"
+msgstr ""
+
+# da462cd807ea467582151019237464b3
+#: ../../setup/install.rst:66
+msgid ""
+"If you do not have access to our Enterprise repository, you can request "
+"it be e-mailing your sales representative or our online support with your"
+" subscription number and GitHub username. (available to partners only)"
+msgstr ""
+
+# 085b466c522941b49a89a393ac449f24
+#: ../../setup/install.rst:70
+msgid ""
+"Enterprise deb and rpm packages do not have repositories, so automatic "
+"update will not work. Reinstalling the latest package version will be "
+"needed to update manually an installation."
+msgstr ""
+
+# 9136621cb1f74ee7a124ea1ccbadf361
+#: ../../setup/install.rst:77
 msgid "Demo"
 msgstr ""
 
-#: ../../setup/install.rst:52
+# 456261006e3d4ef492d70121972a3bd3
+#: ../../setup/install.rst:79
 msgid ""
 "To simply get a quick idea of Odoo, demo_ instances are available. They "
 "are shared instances which only live for a few hours, and can be used to "
 "browse around and try things out with no commitment."
 msgstr ""
 
-#: ../../setup/install.rst:56
+# a6683247834646e2abd514e5a2cde3ad
+#: ../../setup/install.rst:83
 msgid "Demo_ instances require no local installation, just a web browser."
 msgstr ""
 
-#: ../../setup/install.rst:61
+# 6b5d682b197b4cda871315950c885eda
+#: ../../setup/install.rst:88
 msgid "SaaS"
 msgstr ""
 
-#: ../../setup/install.rst:63
+# 527c4de964e04c7480856483da80e1ae
+#: ../../setup/install.rst:90
 msgid ""
 "Odoo's SaaS_ provides private instances and starts out free. It can be "
 "used to discover and test Odoo and do non-code customizations without "
 "having to install it locally."
 msgstr ""
 
-#: ../../setup/install.rst:67
+# ace5774effd94e50ad88a30cb846e227
+#: ../../setup/install.rst:94
 msgid ""
 "Like demo_ instances, SaaS_ instances require no local installation, a "
 "web browser is sufficient."
 msgstr ""
 
-#: ../../setup/install.rst:73
+# 0f957bc3c3e34ea789ec78bc3f4e27eb
+#: ../../setup/install.rst:100
 msgid "Packaged installers"
 msgstr ""
 
-#: ../../setup/install.rst:75
+# 1ec2d34574194eafb919cab9aeda0c02
+#: ../../setup/install.rst:102
 msgid ""
 "Odoo provides packaged installers for Windows, deb-based distributions "
-"(Debian, Ubuntu, …) and RPM-based distributions (Fedora, CentOS, RHEL, "
-"…)."
+"(Debian, Ubuntu, …) and RPM-based distributions (Fedora, CentOS, RHEL, …)"
+" for both the Community and Enterprise versions."
 msgstr ""
 
-#: ../../setup/install.rst:78
+# 4007265cb49e46068db170ba48fcd486
+#: ../../setup/install.rst:106
 msgid ""
-"These packages automatically set up all dependencies, but may be "
-"difficult to keep up-to-date."
+"These packages automatically set up all dependencies (for the Community "
+"version), but may be difficult to keep up-to-date."
 msgstr ""
 
-#: ../../setup/install.rst:81
+# b24be320a2624b00a0623ace62ebf50e
+#: ../../setup/install.rst:109
 msgid ""
-"Official packages with all relevant dependency requirements are available"
-" on https://nightly.odoo.com."
+"Official Community packages with all relevant dependency requirements are"
+" available on our nightly_ server. Both Communtiy and Enterprise packages"
+" can be downloaded from our Download_ page (you must to be logged in as a"
+" paying customer or partner to download the Enterprise packages)."
 msgstr ""
 
-#: ../../setup/install.rst:85
+# 42dd7abb892a42739eb73b2771405859
+#: ../../setup/install.rst:115
 msgid "Windows"
 msgstr ""
 
-#: ../../setup/install.rst:87
-msgid "download https://nightly.odoo.com/9.0/nightly/exe/odoo_9.0.latest.exe"
+# dacbaa42ecc446458079aa7785a4c880
+#: ../../setup/install.rst:117
+msgid ""
+"Download the installer from our nightly_ server (Community only) or the "
+"Windows installer from the Download_ page (any edition)"
 msgstr ""
 
-#: ../../setup/install.rst:88
-msgid "run the downloaded file"
+# c7a7f66cfaee42498187bb12444e0d76
+#: ../../setup/install.rst:119
+msgid "Run the downloaded file"
 msgstr ""
 
-#: ../../setup/install.rst:90
+# 990cc9eba5024eb492f4660e74de0336
+#: ../../setup/install.rst:121
 msgid ""
 "on Windows 8, you may see a warning titled \"Windows protected your PC\"."
 " Click :guilabel:`More Info` then :guilabel:`Run anyway`"
 msgstr ""
 
-#: ../../setup/install.rst:94
+# 9bfafc8c03a147238185a588f36145c3
+#: ../../setup/install.rst:125
 msgid "Accept the UAC_ prompt"
 msgstr ""
 
-#: ../../setup/install.rst:95
+# 4b672012df91490494d2a527c1a08445
+#: ../../setup/install.rst:126
 msgid "Go through the various installation steps"
 msgstr ""
 
-#: ../../setup/install.rst:97
+# f33d6ddbb64c44cfb5824b1b9264b65e
+#: ../../setup/install.rst:128
 msgid "Odoo will automatically be started at the end of the installation."
 msgstr ""
 
-#: ../../setup/install.rst:100 ../../setup/install.rst:135
-#: ../../setup/install.rst:181
+# a5cebf6384204b5a86e0b74bd04f689b
+# ff7f78e0967b446ea726b33df9ec36df
+# 571eae452aba42fba8b0ca15cab93e57
+#: ../../setup/install.rst:131 ../../setup/install.rst:192
+#: ../../setup/install.rst:260
 msgid "Configuration"
 msgstr ""
 
-#: ../../setup/install.rst:102
+# 151c2520fe7347e8b23e20dac9db12a6
+#: ../../setup/install.rst:133
 msgid ""
 "The :ref:`configuration file <reference/cmdline/config>` can be found at "
-":file:`{%PROGRAMFILES%}\\\\Odoo 9.0-{id}\\\\server\\\\openerp-"
-"server.conf`."
+":file:`{%PROGRAMFILES%}\\\\Odoo 10.0-{id}\\\\server\\\\odoo.conf`."
 msgstr ""
 
-#: ../../setup/install.rst:105
+# 4d8c9dbbce3d4527b6733a6e39132534
+#: ../../setup/install.rst:136
 msgid ""
 "The configuration file can be edited to connect to a remote Postgresql, "
 "edit file locations or set a dbfilter."
 msgstr ""
 
-#: ../../setup/install.rst:108
+# 48f1b7359a0a4f7c9b4708c0efd72dcd
+#: ../../setup/install.rst:139
 msgid ""
 "To reload the configuration file, restart the Odoo service via "
 ":menuselection:`Services --> odoo server`."
 msgstr ""
 
-#: ../../setup/install.rst:112
+# cbf2d2e7442746c9b5dc14114d3d3898
+#: ../../setup/install.rst:143
 msgid "Deb"
 msgstr ""
 
-#: ../../setup/install.rst:114
-msgid ""
-"To install Odoo 9.0 on Debian-based distribution, execute the following "
-"commands as root:"
+# 01812ae18a16400eac320f0c46500769
+# 832847e939a84e10ab021d4b967c2491
+# 25c08dd887cf47468a2f87b50b112f50
+#: ../../setup/install.rst:146 ../../setup/install.rst:221
+#: ../../setup/install.rst:293
+msgid "Community"
 msgstr ""
 
-#: ../../setup/install.rst:123
+# 033687229455443db1e0977151392166
+#: ../../setup/install.rst:148
 msgid ""
-"This will automatically install all dependencies, install Odoo itself as "
-"a daemon and automatically start it."
+"To install Odoo 10.0 Community on Debian-based distribution, execute the "
+"following commands as root:"
 msgstr ""
 
-#: ../../setup/install.rst:126
+# 2cc796b447f9437da508e375c5118134
+#: ../../setup/install.rst:157
+msgid ""
+"You can then use the usual ``apt-get upgrade`` command to keep your "
+"installation up-to-date."
+msgstr ""
+
+# 0179afd420fd460f96ce7e6bfbb81ec3
+# c46bfc1bceba4c909b7d93f4f05c67ee
+# 21afdf010a204e05a182dfeb68e0c230
+#: ../../setup/install.rst:160 ../../setup/install.rst:238
+#: ../../setup/install.rst:317
+msgid "Enterprise"
+msgstr ""
+
+# 02e945231e494592a446ba72e6ecff40
+#: ../../setup/install.rst:162
+msgid ""
+"For Odoo 10.0 Enterprise, get the package from the Download_ page. You "
+"can then use ``gdebi``:"
+msgstr ""
+
+# a888066f936e4445a2e36fa1bd6bd300
+#: ../../setup/install.rst:170
+msgid "Or ``dpkg`` (handles less dependencies automatically):"
+msgstr ""
+
+# e799531d507f47f6a20132bb2d50ba85
+#: ../../setup/install.rst:180
+msgid ""
+"This will install Odoo as a service, create the necessary PostgreSQL_ "
+"user and automatically start the server."
+msgstr ""
+
+# cd97add4c5734c1eb3a43851187c452b
+#: ../../setup/install.rst:183
 msgid ""
 "to print PDF reports, you must install wkhtmltopdf_ yourself: the version"
 " of wkhtmltopdf_ available in debian repositories does not support "
 "headers and footers so it can not be installed automatically. The "
 "recommended version is 0.12.1 and is available on `the wkhtmltopdf "
 "download page`_, in the archive section. As there is no official release "
-"for Debian Jessie, you can find ours on http://nightly.odoo.com/extra/."
+"for Debian Jessie, you can find ours on the extra_ section of our nightly"
+" server."
 msgstr ""
 
-#: ../../setup/install.rst:137 ../../setup/install.rst:183
+# 6f7f3f0f540a4ca6b15d9e2efacec11f
+# 0956021fcc46481b9d1217a9a76e12bf
+#: ../../setup/install.rst:194 ../../setup/install.rst:262
 msgid ""
 "The :ref:`configuration file <reference/cmdline/config>` can be found at "
-":file:`/etc/odoo/openerp-server.conf`"
+":file:`/etc/odoo/odoo.conf`"
 msgstr ""
 
-#: ../../setup/install.rst:140
+# 69c8934b017c469b9fd355bae15726e3
+#: ../../setup/install.rst:197
 msgid ""
 "When the configuration file is edited, Odoo must be restarted using "
 "``service``:"
 msgstr ""
 
-#: ../../setup/install.rst:149
+# ec237795623e46cc90773a6a5ca24fe5
+#: ../../setup/install.rst:206
 msgid "RPM"
 msgstr ""
 
-#: ../../setup/install.rst:153
+# 30aed68595ef43c6aeadf0544b091f38
+#: ../../setup/install.rst:210
 msgid ""
-"with RHEL-based distributions (RHEL, CenOS, Scientific Linux), EPEL_ must"
-" be added to the distribution's repositories for all of Odoo's "
-"dependencies to be available. For CenOS:"
+"with RHEL-based distributions (RHEL, CentOS, Scientific Linux), EPEL_ "
+"must be added to the distribution's repositories for all of Odoo's "
+"dependencies to be available. For CentOS:"
 msgstr ""
 
-#: ../../setup/install.rst:161
+# 8368ae0a4fed43a8a90ba21aea31e47e
+#: ../../setup/install.rst:218
 msgid "For other RHEL-based distribution, see the EPEL_ documentation."
 msgstr ""
 
-#: ../../setup/install.rst:174
+# 724ec947cd584752b7d8a471be62b253
+#: ../../setup/install.rst:223
+msgid ""
+"Execute the following commands to install Odoo 10.0 Community on your "
+"server:"
+msgstr ""
+
+# cb991c0fcc3b4fd5b314ae6d4edf865c
+#: ../../setup/install.rst:240
+msgid ""
+"For Odoo 10.0 Enterprise, get the package from the Download_ page. Then "
+"run:"
+msgstr ""
+
+# 85773d11242a47eebf263382698de31d
+#: ../../setup/install.rst:253
 msgid ""
 "to print PDF reports, you must install wkhtmltopdf_ yourself: the version"
 " of wkhtmltopdf_ available in Fedora/CentOS repositories does not support"
@@ -280,28 +438,33 @@ msgid ""
 "version available on `the wkhtmltopdf download page`_."
 msgstr ""
 
-#: ../../setup/install.rst:186
+# 6d3daa82f8564b589f7de76ed160438e
+#: ../../setup/install.rst:265
 msgid "When the configuration file is edited, Odoo must be restarted via SystemD:"
 msgstr ""
 
-#: ../../setup/install.rst:196
+# 3a4549d8f71e4d95ba3a45a44bdfc54a
+#: ../../setup/install.rst:275
 msgid "Source Install"
 msgstr ""
 
-#: ../../setup/install.rst:198
+# 37feda5783014926985894deba20eed3
+#: ../../setup/install.rst:277
 msgid ""
 "The source \"installation\" really is about not installing Odoo, and "
 "running it directly from source instead."
 msgstr ""
 
-#: ../../setup/install.rst:201
+# 19908bba9fd74402be29a1a8583878b7
+#: ../../setup/install.rst:280
 msgid ""
 "This can be more convenient for module developers as the Odoo source is "
 "more easily accessible than using packaged installation (for information "
 "or to build this documentation and have it available offline)."
 msgstr ""
 
-#: ../../setup/install.rst:205
+# 8f19d70fe9314805b1464a5a72991f90
+#: ../../setup/install.rst:284
 msgid ""
 "It also makes starting and stopping Odoo more flexible and explicit than "
 "the services set up by the packaged installations, and allows overriding "
@@ -309,117 +472,179 @@ msgid ""
 " needing to edit a configuration file."
 msgstr ""
 
-#: ../../setup/install.rst:210
+# 1653634a25b4416188fed8607198eec5
+#: ../../setup/install.rst:289
 msgid ""
 "Finally it provides greater control over the system's set up, and allows "
 "more easily keeping (and running) multiple versions of Odoo side-by-side."
 msgstr ""
 
-#: ../../setup/install.rst:213
+# ab810414bbb5432da2ef1605b35673fb
+#: ../../setup/install.rst:295
 msgid "There are two way to get the odoo source source zip or git."
 msgstr ""
 
-#: ../../setup/install.rst:215
+# 668f0db4feed40d4b37f914787eb0f4c
+#: ../../setup/install.rst:297
 msgid ""
-"Odoo zip can be downloaded from "
-"https://nightly.odoo.com/9.0/nightly/src/odoo_9.0.latest.zip, the zip "
-"file then needs to be uncompressed to use its content"
+"Odoo zip can be downloaded from  our nightly_ server or our Download_  "
+"page, the zip file then needs to be uncompressed to use its content"
 msgstr ""
 
-#: ../../setup/install.rst:219
+# 664b8383211e4161835455fbfe17e118
+#: ../../setup/install.rst:300
 msgid ""
-"git allows simpler update and easier switching between differents "
-"versions of Odoo. It also simplifies maintaining non-module patches and "
+"git allows simpler update and easier switching between different versions"
+" of Odoo. It also simplifies maintaining non-module patches and "
 "contributions.  The primary drawback of git is that it is significantly "
 "larger than a tarball as it contains the entire history of the Odoo "
 "project."
 msgstr ""
 
-#: ../../setup/install.rst:224
-msgid "The git repository is https://github.com/odoo/odoo.git."
+# 0bf4bd8c5d884e558bed26074bf30a68
+#: ../../setup/install.rst:305
+msgid ""
+"The git repository is https://github.com/odoo/odoo.git for the Community "
+"version."
 msgstr ""
 
-#: ../../setup/install.rst:226
+# 04636ca2753b458495dae5652bc79879
+#: ../../setup/install.rst:308
 msgid ""
 "Downloading it requires a `git client <http://git-scm.com/download/>`_ "
 "(which may be available via your distribution on linux) and can be "
 "performed using the following command:"
 msgstr ""
 
-#: ../../setup/install.rst:235
+# 3035599960ee4da581a64e209f7635eb
+#: ../../setup/install.rst:319
+msgid ""
+"If you have access to the Enterprise repository (see "
+":ref:`setup/install/editions` if you wish to get access), you can use "
+"this command to fetch the addons:"
+msgstr ""
+
+# fa68d00b7e64436885b9c68d710d5483
+#: ../../setup/install.rst:326
+msgid ""
+"If you use git_, you must modify the :option:`--addons-path <odoo-bin "
+"--addons-path>` parameter of your launch command (``init.d``, custom "
+"script, configuration file, etc.). The Enterprise addons folder should be"
+" included **before** the default addons folder."
+msgstr ""
+
+# ca7f0ae3f33d4309ab3fed14761a3177
+#: ../../setup/install.rst:331
+msgid "For example:"
+msgstr ""
+
+# ea2dd3bf28974bcdb0473da85e665293
+#: ../../setup/install.rst:337
+msgid ""
+"The Enterprise git repository **does not contain the full Odoo source "
+"code**. It is only a collection of extra add-ons. The main server code is"
+" in the Community version.  Running the Enterprise version actually means"
+" running the server from the Community version with the addons-path "
+"option set to the folder with the Enterprise version."
+msgstr ""
+
+# d506318832ca417bb2bfd27c45318e45
+#: ../../setup/install.rst:343
+msgid ""
+"You need to clone both the Community and Enterprise repository to have a "
+"working Odoo installation. The Download_ page contains the entire source "
+"code but is not updateable as easily."
+msgstr ""
+
+# 4a9354c1918e4f2c844f4290e92cc84e
+#: ../../setup/install.rst:350
 msgid "Installing dependencies"
 msgstr ""
 
-#: ../../setup/install.rst:237
+# 28e969688da046c186f30530bcdc6bcb
+#: ../../setup/install.rst:352
 msgid "Source installation requires manually installing dependencies:"
 msgstr ""
 
-#: ../../setup/install.rst:239
+# 81cb75bd0dc64ab7997177ab74cd8dfb
+#: ../../setup/install.rst:354
 msgid "Python 2.7."
 msgstr ""
 
-#: ../../setup/install.rst:241
+# 470a41e0228d49a5ad431cc4247f77be
+#: ../../setup/install.rst:356
 msgid "on Linux and OS X, included by default"
 msgstr ""
 
-#: ../../setup/install.rst:242
+# 47441ba86b254d7d9acb3557c60a249f
+#: ../../setup/install.rst:357
 msgid ""
 "on Windows, use `the official Python 2.7.9 installer "
 "<https://www.python.org/downloads/windows/>`_."
 msgstr ""
 
-#: ../../setup/install.rst:245
+# eefa9413ce4d43669f28d233d2529b70
+#: ../../setup/install.rst:360
 msgid ""
 "select \"add python.exe to Path\" during installation, and reboot "
 "afterwards to ensure the :envvar:`PATH` is updated"
 msgstr ""
 
-#: ../../setup/install.rst:248
+# a9bc7aee7a45421d8b99adca0e83b1fe
+#: ../../setup/install.rst:363
 msgid ""
 "if Python is already installed, make sure it is 2.7.9, previous versions "
 "are less convenient and 3.x versions are not compatible with Odoo"
 msgstr ""
 
-#: ../../setup/install.rst:252
+# c5fa95df45e1424a8c2c3a7f960c2b87
+#: ../../setup/install.rst:367
 msgid "PostgreSQL, to use a local database"
 msgstr ""
 
-#: ../../setup/install.rst:254
+# 4ecd2b155aa845c3a14cac5812914990
+#: ../../setup/install.rst:369
 msgid ""
 "After installation you will need to create a postgres user: by default "
 "the only user is ``postgres``, and Odoo forbids connecting as "
 "``postgres``."
 msgstr ""
 
-#: ../../setup/install.rst:257
+# be587b24fe6746bdb686fa21a6d22602
+#: ../../setup/install.rst:372
 msgid ""
 "on Linux, use your distribution's package, then create a postgres user "
 "named like your login:"
 msgstr ""
 
-#: ../../setup/install.rst:264
+# 94722ee7e7da4c21b098f1f3f30b9381
+#: ../../setup/install.rst:379
 msgid ""
 "Because the role login is the same as your unix login unix sockets can be"
 " use without a password."
 msgstr ""
 
-#: ../../setup/install.rst:267
+# 31104b8109d14fd182303096c197e9c8
+#: ../../setup/install.rst:382
 msgid ""
 "on OS X, `postgres.app <http://postgresapp.com>`_ is the simplest way to "
 "get started, then create a postgres user as on Linux"
 msgstr ""
 
-#: ../../setup/install.rst:270
+# 4fa2d375300149f5a995421abb26aae4
+#: ../../setup/install.rst:385
 msgid "on Windows, use `PostgreSQL for windows`_ then"
 msgstr ""
 
-#: ../../setup/install.rst:272
+# f4b59bb23f874f8c89194f33e85dee82
+#: ../../setup/install.rst:387
 msgid ""
 "add PostgreSQL's ``bin`` directory (default: ``C:\\Program "
 "Files\\PostgreSQL\\9.4\\bin``) to your :envvar:`PATH`"
 msgstr ""
 
-#: ../../setup/install.rst:274
+# f7cfdd8bdd5848c691b5136e6fa1245d
+#: ../../setup/install.rst:389
 msgid ""
 "create a postgres user with a password using the pg admin gui: open "
 "pgAdminIII, double-click the server to create a connection, select "
@@ -429,24 +654,28 @@ msgid ""
 "click :guilabel:`OK`."
 msgstr ""
 
-#: ../../setup/install.rst:281
+# 0d935938ee1746c1ba45acde7e28e594
+#: ../../setup/install.rst:396
 msgid ""
 "The user and password must be passed to Odoo using either the :option:`-w"
-" <odoo.py -w>` and :option:`-r <odoo.py -r>` options or :ref:`the "
+" <odoo-bin -w>` and :option:`-r <odoo-bin -r>` options or :ref:`the "
 "configuration file <reference/cmdline/config>`"
 msgstr ""
 
-#: ../../setup/install.rst:285
+# b7388cfe8777453a96a954db46bf6111
+#: ../../setup/install.rst:400
 msgid "Python dependencies listed in the :file:`requirements.txt` file."
 msgstr ""
 
-#: ../../setup/install.rst:287
+# 56accfcef25d495482dbaa61f01e3a11
+#: ../../setup/install.rst:402
 msgid ""
 "on Linux, python dependencies may be installable with the system's "
 "package manager or using pip."
 msgstr ""
 
-#: ../../setup/install.rst:290
+# 7dd3d736ef1746d2a6fa366b6c2d3b83
+#: ../../setup/install.rst:405
 msgid ""
 "For libraries using native code (Pillow, lxml, greenlet, gevent, "
 "psycopg2, ldap) it may be necessary to install development tools and "
@@ -456,7 +685,8 @@ msgid ""
 " the Python dependecies can themselves be installed:"
 msgstr ""
 
-#: ../../setup/install.rst:301
+# 47911b1c02174c5588113d8c358ebe25
+#: ../../setup/install.rst:416
 msgid ""
 "on OS X, you will need to install the Command Line Tools (``xcode-select "
 "--install``) then download and install a package manager of your choice "
@@ -464,108 +694,139 @@ msgid ""
 "be used to install the Python dependencies as on Linux:"
 msgstr ""
 
-#: ../../setup/install.rst:310
+# 61d1d40145d145fc8906e76da72a48df
+#: ../../setup/install.rst:425
 msgid ""
 "on Windows you need to install some of the dependencies manually, tweak "
 "the requirements.txt file, then run pip to install the remaning ones."
 msgstr ""
 
-#: ../../setup/install.rst:313
+# f21bdb7e71ef4064af31a8bab4cf48dc
+#: ../../setup/install.rst:428
 msgid ""
 "Install ``psycopg`` using the installer here "
 "http://www.stickpeople.com/projects/python/win-psycopg/"
 msgstr ""
 
-#: ../../setup/install.rst:316
+# 8af4b1b8a62e468281b46034b59f0866
+#: ../../setup/install.rst:431
 msgid "Then edit the requirements.txt file:"
 msgstr ""
 
-#: ../../setup/install.rst:318
+# e09b3c9b6a864620942f766775418bd9
+#: ../../setup/install.rst:433
 msgid "remove ``psycopg2`` as you already have it."
 msgstr ""
 
-#: ../../setup/install.rst:319
+# 5e423f9f4eaa4ac38de7ece32af6c946
+#: ../../setup/install.rst:434
 msgid ""
 "remove the optional ``python-ldap``, ``gevent`` and ``psutil`` because "
 "they require compilation."
 msgstr ""
 
-#: ../../setup/install.rst:321
+# 12387d1f17b541a788381351b5f31084
+#: ../../setup/install.rst:436
 msgid "add ``pypiwin32`` because it's needed under windows."
 msgstr ""
 
-#: ../../setup/install.rst:323
+# b05efc03b22142c28e6f5acedbc7a7dd
+#: ../../setup/install.rst:438
 msgid ""
 "Then use pip to install the dependencies using the following command from"
 " a cmd.exe prompt (replace ``\\YourOdooPath`` by the actual path where "
 "you downloaded Odoo):"
 msgstr ""
 
-#: ../../setup/install.rst:332
+# 7b0629c01b764766b322b44a4cc484d5
+#: ../../setup/install.rst:447
 msgid "*Less CSS* via nodejs"
 msgstr ""
 
-#: ../../setup/install.rst:334
+# cb5eeab779c549d282552a0be67801ab
+#: ../../setup/install.rst:449
 msgid ""
 "on Linux, use your distribution's package manager to install nodejs and "
 "npm."
 msgstr ""
 
-#: ../../setup/install.rst:339
+# 1c4e448b0711445a85347c334b59dc68
+#: ../../setup/install.rst:454
 msgid ""
 "In debian wheezy and Ubuntu 13.10 and before you need to install nodejs "
 "manually:"
 msgstr ""
 
-#: ../../setup/install.rst:347
+# 3f6844a0d89a4cb68ebfab28d40994cc
+#: ../../setup/install.rst:462
 msgid ""
 "In later debian (>jessie) and ubuntu (>14.04) you may need to add a "
 "symlink as npm packages call ``node`` but debian calls the binary "
 "``nodejs``"
 msgstr ""
 
-#: ../../setup/install.rst:356
-msgid "Once npm is installed, use it to install less and less-plugin-clean-css:"
+# 9ea250bb345f459f83c455e7cba04f33
+#: ../../setup/install.rst:471
+msgid "Once npm is installed, use it to install less:"
 msgstr ""
 
-#: ../../setup/install.rst:362
+# bf05fe2e126543aa97a0d8f1e1188703
+#: ../../setup/install.rst:477
 msgid ""
 "on OS X, install nodejs via your preferred package manager (homebrew_, "
-"macports_) then install less and less-plugin-clean-css:"
+"macports_) then install less:"
 msgstr ""
 
-#: ../../setup/install.rst:369
+# d9edc58eb0254590bab12647f422d10c
+#: ../../setup/install.rst:484
 msgid ""
 "on Windows, `install nodejs <http://nodejs.org/download/>`_, reboot (to "
-"update the :envvar:`PATH`) and install less and less-plugin-clean-css:"
+"update the :envvar:`PATH`) and install less:"
 msgstr ""
 
-#: ../../setup/install.rst:377
+# 2703ec81045845488d789dac420364c2
+#: ../../setup/install.rst:492
 msgid "Running Odoo"
 msgstr ""
 
-#: ../../setup/install.rst:379
+# a5fe7ff66c68497c9e47df8d5bc31d80
+#: ../../setup/install.rst:494
 msgid ""
-"Once all dependencies are set up, Odoo can be launched by running "
-"``odoo.py``."
+"Once all dependencies are set up, Odoo can be launched by running ``odoo-"
+"bin``."
 msgstr ""
 
-#: ../../setup/install.rst:381
+# eb2fb650b46940fd92c4f99e6b7897ce
+#: ../../setup/install.rst:496
+msgid ""
+"For the Enterprise edition, you must specify the :file:`enterprise` "
+"addons folder when starting your server. You can do so by providing the "
+"path to your :file:`enterprise` folder in the ``addons-path`` parameter. "
+"Please note that the :file:`enterprise` folder must come before the "
+"default :file:`addons` folder in the  list for the addons to be loaded "
+"correctly."
+msgstr ""
+
+# c90d3f38020b4e8590b3ba39a709a389
+#: ../../setup/install.rst:502
 msgid ""
 ":ref:`Configuration <reference/cmdline>` can be provided either through "
 ":ref:`command-line arguments <reference/cmdline>` or through a "
 ":ref:`configuration file <reference/cmdline/config>`."
 msgstr ""
 
-#: ../../setup/install.rst:385
+# 0837b0016475437c981819aed2f418e1
+#: ../../setup/install.rst:506
 msgid "Common necessary configurations are:"
 msgstr ""
 
-#: ../../setup/install.rst:387
+# 5afdfbdd8b204c24a5dc40664b780f78
+#: ../../setup/install.rst:508
 msgid "PostgreSQL host, port, user and password."
 msgstr ""
 
-#: ../../setup/install.rst:389
+# aebb6147f0dd41bd9327a242e1bba2df
+#: ../../setup/install.rst:510
 msgid ""
 "Odoo has no defaults beyond `psycopg2's defaults "
 "<http://initd.org/psycopg/docs/module.html>`_: connects over a UNIX "
@@ -574,28 +835,215 @@ msgid ""
 "it does not support UNIX sockets."
 msgstr ""
 
-#: ../../setup/install.rst:395
+# f9a1f37f780548e48c0d4ec7473f8563
+#: ../../setup/install.rst:516
 msgid "Custom addons path beyond the defaults, to load your own modules"
 msgstr ""
 
-#: ../../setup/install.rst:397
+# 56b259bbdd484fd78a24eb768cb1c2a4
+#: ../../setup/install.rst:518
 msgid "Under Windows a typical way to execute odoo would be:"
 msgstr ""
 
-#: ../../setup/install.rst:403
+# f02e0fccb6b14b1b9609864ab7eabb79
+#: ../../setup/install.rst:524
 msgid ""
 "Where ``odoo``, ``odoo`` are the postgresql login and password, "
 "``../mymodules`` a directory with additional addons and ``mydb`` the "
 "default db to serve on localhost:8069"
 msgstr ""
 
-#: ../../setup/install.rst:407
+# 23051fa2c4084cf1970a7ecd1f638f4a
+#: ../../setup/install.rst:528
 msgid "Under Unix a typical way to execute odoo would be:"
 msgstr ""
 
-#: ../../setup/install.rst:413
+# 3538727bc3c140088b55a1e4a731851c
+#: ../../setup/install.rst:534
 msgid ""
 "Where ``../mymodules`` is a directory with additional addons and ``mydb``"
 " the default db to serve on localhost:8069"
 msgstr ""
+
+#~ msgid ""
+#~ "the simplest \"installation\", only suitable"
+#~ " for getting a quick feel for "
+#~ "Odoo or trying something out"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "trivial to start with and fully "
+#~ "managed and migrated by Odoo S.A., "
+#~ "can be used to both test Odoo "
+#~ "and use it for your business, but"
+#~ " restricts the flexibility of the "
+#~ "system somewhat (check: no custom "
+#~ "modules? what else?)."
+#~ msgstr ""
+
+#~ msgid "Can be used for both testing Odoo and long-term \"production\" use."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "simple to get started, allows more "
+#~ "flexibility in hosting and deploying the"
+#~ " system and greater control over "
+#~ "where data is stored. The maintenance"
+#~ " burden is shifted to the user."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "harder to get started than "
+#~ ":ref:`setup/install/packaged`, provides even greater"
+#~ " flexibility: packaged installers don't "
+#~ "generally allow multiple running Odoo "
+#~ "versions on the same system, and "
+#~ "don't provide easy source access to "
+#~ "Odoo itself."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The source code can be obtained by"
+#~ " downloading a tarball or using git."
+#~ " Using git makes it easier to "
+#~ "update, switch between multiple versions "
+#~ "(including the current development version)"
+#~ " or contribute."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "if you usually use docker_ for "
+#~ "development or deployment, an official "
+#~ "docker_ base image is available, see "
+#~ "the image's help document for more "
+#~ "information"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Odoo provides packaged installers for "
+#~ "Windows, deb-based distributions (Debian, "
+#~ "Ubuntu, …) and RPM-based distributions"
+#~ " (Fedora, CentOS, RHEL, …)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "These packages automatically set up all"
+#~ " dependencies, but may be difficult "
+#~ "to keep up-to-date."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Official packages with all relevant "
+#~ "dependency requirements are available on "
+#~ "https://nightly.odoo.com."
+#~ msgstr ""
+
+#~ msgid "download https://nightly.odoo.com/9.0/nightly/exe/odoo_9.0.latest.exe"
+#~ msgstr ""
+
+#~ msgid "run the downloaded file"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The :ref:`configuration file "
+#~ "<reference/cmdline/config>` can be found at"
+#~ " :file:`{%PROGRAMFILES%}\\\\Odoo 9.0-{id}\\\\server"
+#~ "\\\\openerp-server.conf`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To install Odoo 9.0 on Debian-"
+#~ "based distribution, execute the following "
+#~ "commands as root:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This will automatically install all "
+#~ "dependencies, install Odoo itself as a"
+#~ " daemon and automatically start it."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "to print PDF reports, you must "
+#~ "install wkhtmltopdf_ yourself: the version "
+#~ "of wkhtmltopdf_ available in debian "
+#~ "repositories does not support headers "
+#~ "and footers so it can not be "
+#~ "installed automatically. The recommended "
+#~ "version is 0.12.1 and is available "
+#~ "on `the wkhtmltopdf download page`_, in"
+#~ " the archive section. As there is "
+#~ "no official release for Debian Jessie,"
+#~ " you can find ours on "
+#~ "http://nightly.odoo.com/extra/."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The :ref:`configuration file "
+#~ "<reference/cmdline/config>` can be found at"
+#~ " :file:`/etc/odoo/openerp-server.conf`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "with RHEL-based distributions (RHEL, "
+#~ "CenOS, Scientific Linux), EPEL_ must be"
+#~ " added to the distribution's repositories"
+#~ " for all of Odoo's dependencies to"
+#~ " be available. For CenOS:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Odoo zip can be downloaded from "
+#~ "https://nightly.odoo.com/9.0/nightly/src/odoo_9.0.latest.zip, "
+#~ "the zip file then needs to be "
+#~ "uncompressed to use its content"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "git allows simpler update and easier "
+#~ "switching between differents versions of "
+#~ "Odoo. It also simplifies maintaining "
+#~ "non-module patches and contributions.  The"
+#~ " primary drawback of git is that "
+#~ "it is significantly larger than a "
+#~ "tarball as it contains the entire "
+#~ "history of the Odoo project."
+#~ msgstr ""
+
+#~ msgid "The git repository is https://github.com/odoo/odoo.git."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The user and password must be "
+#~ "passed to Odoo using either the "
+#~ ":option:`-w <odoo.py -w>` and :option:`-r "
+#~ "<odoo.py -r>` options or :ref:`the "
+#~ "configuration file <reference/cmdline/config>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once npm is installed, use it to"
+#~ " install less and less-plugin-"
+#~ "clean-css:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "on OS X, install nodejs via your"
+#~ " preferred package manager (homebrew_, "
+#~ "macports_) then install less and "
+#~ "less-plugin-clean-css:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "on Windows, `install nodejs "
+#~ "<http://nodejs.org/download/>`_, reboot (to update"
+#~ " the :envvar:`PATH`) and install less "
+#~ "and less-plugin-clean-css:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once all dependencies are set up, "
+#~ "Odoo can be launched by running "
+#~ "``odoo.py``."
+#~ msgstr ""
 
