@@ -1,4 +1,4 @@
-sphinx==1.2.3
+sphinx==1.4
 mercurial==3.2.2
 sphinx-intl
 sphinx-patchqueue==0.4.0
