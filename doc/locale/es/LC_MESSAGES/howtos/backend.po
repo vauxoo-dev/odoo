@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 00:34-0500\n"
-"PO-Revision-Date: 2017-07-16 20:03-0500\n"
-"Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
+"PO-Revision-Date: 2017-07-16 20:21-0500\n"
+"Last-Translator: Moisés López <moylop260@vauxoo.com>\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -351,7 +351,6 @@ msgstr ""
 
 # 15d183a568854317bc946afc4a5bc804
 #: ../../howtos/backend.rst:161
-#, fuzzy
 msgid ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
 msgstr ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
 
@@ -363,7 +362,6 @@ msgstr ""
 
 # dccab2db5e3444fbb475efdc96970b88
 #: ../../howtos/backend.rst:164
-#, fuzzy
 msgid ":attr:`~odoo.fields.Field.required` (``bool``, default: ``False``)"
 msgstr ":attr:`~odoo.fields.Field.required` (``bool``, default: ``False``)"
 
@@ -378,7 +376,6 @@ msgstr ""
 
 # abacd8730abb4d6eb3bfe82482379b0b
 #: ../../howtos/backend.rst:166
-#, fuzzy
 msgid ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
 msgstr ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
 
@@ -390,7 +387,6 @@ msgstr ""
 
 # e0c667c4a6424f30b89ad25ece1126bb
 #: ../../howtos/backend.rst:169
-#, fuzzy
 msgid ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
 msgstr ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
 
@@ -445,7 +441,6 @@ msgstr ""
 
 # a9115aaa67034afc975a053cc9530baa
 #: ../../howtos/backend.rst:188
-#, fuzzy
 msgid ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
 msgstr ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
 
@@ -457,7 +452,6 @@ msgstr "Identificador único para un registro en su modelo"
 
 # 73a16c544c15451e8c3fc349428c3cc3
 #: ../../howtos/backend.rst:190
-#, fuzzy
 msgid ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
 msgstr ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
 
@@ -469,7 +463,6 @@ msgstr "fecha de creación del registro"
 
 # 31c2244ea9f2431187d8a33141a75338
 #: ../../howtos/backend.rst:192
-#, fuzzy
 msgid ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
 msgstr ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
 
@@ -481,7 +474,6 @@ msgstr "usuario que creó el registro"
 
 # 8c548b5f80194a63865c95109964cf32
 #: ../../howtos/backend.rst:194
-#, fuzzy
 msgid ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
 msgstr ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
 
@@ -493,7 +485,6 @@ msgstr "Fecha de la última modificación del registro."
 
 # 92a562cec35246d68a7c5107406a1049
 #: ../../howtos/backend.rst:197
-#, fuzzy
 msgid ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
 msgstr ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
 
@@ -571,22 +562,17 @@ msgstr ""
 
 # 3ea67ef8418e4f929030a970d9124a91
 #: ../../howtos/backend.rst:240
-#, fuzzy
 msgid "``model`` is the name of the Odoo model for the record."
-msgstr "``model`` es el dentificador único (Nombre) para un registro en el modelo"
+msgstr "``model`` es el nombre para un registro en el modelo de Odoo."
 
 # cf8e14ba97244c84994fa195fc09a87b
 #: ../../howtos/backend.rst:241
-#, fuzzy
 msgid ""
 "``id`` is an :term:`external identifier`, it allows referring to the record "
 "(without having to know its in-database identifier)."
 msgstr ""
 "``id`` es un :term:`Identificador externo`, que permite hacer referencia a un "
-"registro a través de dicho identificador sin la necesidad de conocer su id en la "
-"base de datos (ya que éste ID de base de datos es diferente y depende del orden "
-"en que se instale el módulo) permitiéndo referirse al registro que se creó vía "
-"archivo xml o se exportó, también es conocido como xml_id."
+"registro (sin necesidad de conocer su identificador en base de datos)."
 
 # eff8740e74d04d1cacefaf5c1fd25e4b
 #: ../../howtos/backend.rst:243
@@ -722,9 +708,8 @@ msgstr ""
 
 # 738c63d91a95466ca73b2c95c6197688
 #: ../../howtos/backend.rst:305
-#, fuzzy
 msgid "Add it to the ``data`` list of ``openacademy/__manifest__.py``"
-msgstr "Añadir a la lista ``data`` en el archivo ``openacademy/__openerp__.py``"
+msgstr "Añadirlo a la lista de ``data`` de ``openacademy/__manifest__.py``"
 
 # d1ef4773e5bf4c14adc3c06755221d1b
 #: ../../howtos/backend.rst:310
@@ -995,7 +980,6 @@ msgstr "Los tipos de campos relacionales son:"
 
 # 5f4b7b1747c04993b68e47400e6040bb
 #: ../../howtos/backend.rst:509
-#, fuzzy
 msgid ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
 msgstr ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
 
@@ -1013,21 +997,19 @@ msgstr ""
 
 # d4f7444d55ec42f68017dd5c2fe3103d
 #: ../../howtos/backend.rst:523
-#, fuzzy
 msgid ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
 msgstr ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
 
 # 00f6b48afd394166beb783134a0db784
 #: ../../howtos/backend.rst:512
-#, fuzzy
 msgid ""
 "A virtual relationship, inverse of a :class:`~odoo.fields.Many2one`. A :class:"
 "`~odoo.fields.One2many` behaves as a container of records, accessing it results "
 "in a (possibly empty) set of records::"
 msgstr ""
 "Una relación virtual, inverso a un :class:`~odoo.fields.Many2one`. Un :class:"
-"`~odoo.fields.One2many` se comporta como contenedor de los registros, el acceso "
-"se traduce en un conjunto (posiblemente vacío) de los registros::"
+"`~odoo.fields.One2many` se comporta como contenedor de registros, accediendo a "
+"sus resultados en un (posiblemente vacío) conjunto de registros::"
 
 # e194e520bbd24fff9e1bccc1fab387b6
 #: ../../howtos/backend.rst:521
@@ -1043,7 +1025,6 @@ msgstr ""
 
 # ad8d052c030d411eb3b35bffeceebe99
 #: ../../howtos/backend.rst:531
-#, fuzzy
 msgid ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
 msgstr ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
 
@@ -1233,13 +1214,11 @@ msgstr ""
 
 # c106d794c2df4092a6ab4a9afc6c6ceb
 #: ../../howtos/backend.rst:606
-#, fuzzy
 msgid ":attr:`~odoo.models.Model._inherit`"
 msgstr ":attr:`~odoo.models.Model._inherit`"
 
 # 03b46db847ad4848bb6adea70dde2f84
 #: ../../howtos/backend.rst:607
-#, fuzzy
 msgid ":attr:`~odoo.models.Model._inherits`"
 msgstr ":attr:`~odoo.models.Model._inherits`"
 
@@ -1798,7 +1777,6 @@ msgstr ""
 
 # 94a1025e1a9d4bb18233db028c2f0d09
 #: ../../howtos/backend.rst:921
-#, fuzzy
 msgid ""
 "A Python constraint is defined as a method decorated with :func:`~odoo.api."
 "constrains`, and invoked on a recordset. The decorator specifies which fields "
@@ -1807,10 +1785,10 @@ msgid ""
 "exception if its invariant is not satisfied::"
 msgstr ""
 "Una restricción de Python se define como un método decorado con :func:`~odoo.api."
-"constrains` y es invocado en un *recordset*. El decorador especifica los campos "
-"que están involucrados en la restricción, por lo que la restricción se evalúa "
-"automáticamente cuando se modifica uno de ellos. El método levantará una "
-"excepción si no se satisface su invariante::"
+"constrains` y es invocado en un recordset. El decorador especifica los campos "
+"que están involucrados en la restricción, por lo que la restricción es "
+"automáticamente evaluada cuando uno de ellos es modificado. El método levantará "
+"una excepción si no se satisface su invariante::"
 
 # a9c80c06d73d48878ea0d1f989335f09
 #: ../../howtos/backend.rst:936
@@ -1934,7 +1912,6 @@ msgstr ""
 
 # 167094887c1d46789357946ad8f1c92e
 #: ../../howtos/backend.rst:995
-#, fuzzy
 msgid ""
 "``{$name}`` can be ``bf`` (``font-weight: bold``), ``it`` (``font-style: "
 "italic``), or any `bootstrap contextual color <http://getbootstrap.com/"
@@ -1942,8 +1919,9 @@ msgid ""
 "``primary``, ``success`` or ``warning``)."
 msgstr ""
 "``{$name}`` puede ser ``bf`` (``font-weight: bold``), ``it`` (``font-style: "
-"italic``), o cualquier valor conceptual de twitter bootstrap (``danger``, "
-"``info``, ``muted``, ``primary``, ``success`` or ``warning``)."
+"italic``), o cualquier `color contextual de bootstrap <http://getbootstrap.com/"
+"components/#available-variations>`_ (``danger``, ``info``, ``muted``, "
+"``primary``, ``success`` or ``warning``)."
 
 # 38373deb38434f729e0e415d8ae854fa
 #: ../../howtos/backend.rst:1011
@@ -2122,7 +2100,7 @@ msgid ""
 "add some context to the current search; use the key ``group_by`` to group "
 "results on the given field name"
 msgstr ""
-"Añadir algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` "
+"añadir algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` "
 "para agrupar los resultados por el campo nombre"
 
 # 88e778948d4341e08d63480aa8095005
@@ -2660,7 +2638,6 @@ msgstr ""
 
 # d9839141342249ada55f0163a71dda3b
 #: ../../howtos/backend.rst:1352
-#, fuzzy
 msgid "Add access control through the Odoo interface"
 msgstr "Añadir control de acceso mediante la interfaz de Odoo"
 
