@@ -528,10 +528,9 @@ msgstr ""
 
 # e3b2b815099a46b29e6a02f9998634dd
 #: ../../howtos/backend.rst:213
-#, fuzzy
 msgid "Edit the file ``openacademy/models/models.py`` to include a *Course* class."
 msgstr ""
-"Edita el archivo ``openacademy/models.py`` incluyendo una clase *Course* "
+"Edita el archivo ``openacademy/models/models.py`` incluyendo una clase *Course* "
 "(intenta nombrar todo en inglés)."
 
 # f62ef3bd3f1445d1ad19092d240a23fa
@@ -937,9 +936,8 @@ msgstr ""
 
 # 2356ab0626a746d389d55512013d6dd6
 #: ../../howtos/backend.rst:486
-#, fuzzy
 msgid "Create the class *Session* in ``openacademy/models/models.py``."
-msgstr "Crear la clase *Session* en ``openacademy/models.py``."
+msgstr "Crear la clase *Session* en ``openacademy/models/models.py``."
 
 # 36586c5e75f643b8a06b200e69cea053
 #: ../../howtos/backend.rst:487
