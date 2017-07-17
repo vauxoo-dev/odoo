@@ -612,7 +612,7 @@ msgstr ""
 #: ../../howtos/backend.rst:257
 #, fuzzy
 msgid "Edit the file ``openacademy/demo/demo.xml`` to include some data."
-msgstr "Edite el archivo ``openacademy/demo.xml`` para incluir algunos datos."
+msgstr "Edite el archivo ``openacademy/demo/demo.xml`` para incluir algunos datos."
 
 # 7d2be944c05a4dacabbe8d85687146a9
 #: ../../howtos/backend.rst:262
