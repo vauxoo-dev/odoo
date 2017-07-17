@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 00:34-0500\n"
-"PO-Revision-Date: 2017-07-14 01:37-0500\n"
+"PO-Revision-Date: 2017-07-16 20:03-0500\n"
 "Last-Translator: Nhomar Hernández <nhomar@vauxoo.com>\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 "Language: es\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.1\n"
 
 # aa3d228728ce4ad5b4bc2ff748b095df
 #: ../../howtos/backend.rst:7
@@ -302,7 +302,7 @@ msgid ""
 "Model` which integrates them into the automated persistence system."
 msgstr ""
 "Los objetos de negocio se declaran como clases Python que extienden la clase :"
-"class:`~openerp.models.Model` la cual los integra en el sistema automatizado de "
+"class:`~odoo.models.Model` la cual los integra en el sistema automatizado de "
 "persistencia."
 
 # 1d02e3344458430ca654e968c511c23d
@@ -353,7 +353,7 @@ msgstr ""
 #: ../../howtos/backend.rst:161
 #, fuzzy
 msgid ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
-msgstr ":attr:`~openerp.fields.Field.string` (``unicode``, default: field's name)"
+msgstr ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
 
 # a26eb10b3fb94f71a26eef26ab8604ba
 #: ../../howtos/backend.rst:162
@@ -365,7 +365,7 @@ msgstr ""
 #: ../../howtos/backend.rst:164
 #, fuzzy
 msgid ":attr:`~odoo.fields.Field.required` (``bool``, default: ``False``)"
-msgstr ":attr:`~openerp.fields.Field.required` (``bool``, default: ``False``)"
+msgstr ":attr:`~odoo.fields.Field.required` (``bool``, default: ``False``)"
 
 # d58e027a295f4df5a1be0c7840f5931c
 #: ../../howtos/backend.rst:164
@@ -380,7 +380,7 @@ msgstr ""
 #: ../../howtos/backend.rst:166
 #, fuzzy
 msgid ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
-msgstr ":attr:`~openerp.fields.Field.help` (``unicode``, default: ``''``)"
+msgstr ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
 
 # 9e4c7d684b014ab2b32c8d2ee98afbc8
 #: ../../howtos/backend.rst:167
@@ -392,7 +392,7 @@ msgstr ""
 #: ../../howtos/backend.rst:169
 #, fuzzy
 msgid ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
-msgstr ":attr:`~openerp.fields.Field.index` (``bool``, default: ``False``)"
+msgstr ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
 
 # fc7295275bed4f309137c34ea201b283
 #: ../../howtos/backend.rst:169
@@ -424,8 +424,8 @@ msgid ""
 "Example of simple fields are :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
 "Date`, :class:`~odoo.fields.Char`."
 msgstr ""
-"Ejemplo de campo simple son los :class:`~openerp.fields.Boolean`, :class:"
-"`~openerp.fields.Date`, :class:`~openerp.fields.Char`."
+"Ejemplo de campo simple son los :class:`~odoo.fields.Boolean`, :class:`~odoo."
+"fields.Date`, :class:`~odoo.fields.Char`."
 
 # 8675bbfa376f49ffaaa2e0c3959ceeca
 #: ../../howtos/backend.rst:182
@@ -447,7 +447,7 @@ msgstr ""
 #: ../../howtos/backend.rst:188
 #, fuzzy
 msgid ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
-msgstr ":attr:`~openerp.fields.Model.id` (:class:`~openerp.fields.Id`)"
+msgstr ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
 
 # 6628118739d3439b895842b53ee90479
 #: ../../howtos/backend.rst:189
@@ -459,8 +459,7 @@ msgstr "Identificador único para un registro en su modelo"
 #: ../../howtos/backend.rst:190
 #, fuzzy
 msgid ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
-msgstr ""
-":attr:`~openerp.fields.Model.create_date` (:class:`~openerp.fields.Datetime`)"
+msgstr ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
 
 # c2d6cd21ba934c80a2f4598078fbadb3
 #: ../../howtos/backend.rst:191
@@ -472,8 +471,7 @@ msgstr "fecha de creación del registro"
 #: ../../howtos/backend.rst:192
 #, fuzzy
 msgid ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
-msgstr ""
-":attr:`~openerp.fields.Model.create_uid` (:class:`~openerp.fields.Many2one`)"
+msgstr ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
 
 # 0e2eebaa25a94e87b21fccda32ae5cc5
 #: ../../howtos/backend.rst:193
@@ -485,8 +483,7 @@ msgstr "usuario que creó el registro"
 #: ../../howtos/backend.rst:194
 #, fuzzy
 msgid ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
-msgstr ""
-":attr:`~openerp.fields.Model.write_date` (:class:`~openerp.fields.Datetime`)"
+msgstr ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
 
 # 8f627e405ca5431e82db41ea8cead36c
 #: ../../howtos/backend.rst:195
@@ -498,8 +495,7 @@ msgstr "Fecha de la última modificación del registro."
 #: ../../howtos/backend.rst:197
 #, fuzzy
 msgid ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
-msgstr ""
-":attr:`~openerp.fields.Model.write_uid` (:class:`~openerp.fields.Many2one`)"
+msgstr ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
 
 # c3df65bb55fa41f19c6fbc2c04b8fdcf
 #: ../../howtos/backend.rst:197
@@ -522,7 +518,7 @@ msgid ""
 msgstr ""
 "Por defecto, Odoo también requiere un campo ``name``  en todos los modelos para "
 "varios comportamientos de búsqueda y visualización. El campo utilizado para "
-"estos fines se puede reemplazar estableciendo :attr:`~openerp.models.Model."
+"estos fines se puede reemplazar estableciendo :attr:`~odoo.models.Model."
 "_rec_name`."
 
 # 9a0ed4123cff4bc1bfd0c57be433e1e0
@@ -1001,8 +997,7 @@ msgstr "Los tipos de campos relacionales son:"
 #: ../../howtos/backend.rst:509
 #, fuzzy
 msgid ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
-msgstr ""
-":class:`Many2one(other_model, ondelete='set null') <openerp.fields.Many2one>`"
+msgstr ":class:`Many2one(other_model, ondelete='set null') <odoo.fields.Many2one>`"
 
 # 58e911ff238a457f9a6dd5f95d6c1ed3
 #: ../../howtos/backend.rst:505
@@ -1020,7 +1015,7 @@ msgstr ""
 #: ../../howtos/backend.rst:523
 #, fuzzy
 msgid ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
-msgstr ":class:`One2many(other_model, related_field) <openerp.fields.One2many>`"
+msgstr ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
 
 # 00f6b48afd394166beb783134a0db784
 #: ../../howtos/backend.rst:512
@@ -1030,9 +1025,9 @@ msgid ""
 "`~odoo.fields.One2many` behaves as a container of records, accessing it results "
 "in a (possibly empty) set of records::"
 msgstr ""
-"Una relación virtual, inverso a un :class:`~openerp.fields.Many2one`. Un :class:"
-"`~openerp.fields.One2many` se comporta como contenedor de los registros, el "
-"acceso se traduce en un conjunto (posiblemente vacío) de los registros::"
+"Una relación virtual, inverso a un :class:`~odoo.fields.Many2one`. Un :class:"
+"`~odoo.fields.One2many` se comporta como contenedor de los registros, el acceso "
+"se traduce en un conjunto (posiblemente vacío) de los registros::"
 
 # e194e520bbd24fff9e1bccc1fab387b6
 #: ../../howtos/backend.rst:521
@@ -1042,15 +1037,15 @@ msgid ""
 "be a :class:`~odoo.fields.Many2one` field in the :samp:`{other_model}`, and its "
 "name *must* be :samp:`{related_field}`"
 msgstr ""
-"Debido a que un :class:`~openerp.fields.One2many` es una relación virtual, "
-"*debe* haber un campo :class:`~openerp.fields.Many2one` en :samp:`{other_model}"
-"`, y su nombre *debe ser*  :samp:`{related_field}`."
+"Debido a que un :class:`~odoo.fields.One2many` es una relación virtual, *debe* "
+"haber un campo :class:`~odoo.fields.Many2one` en :samp:`{other_model}`, y su "
+"nombre *debe ser*  :samp:`{related_field}`."
 
 # ad8d052c030d411eb3b35bffeceebe99
 #: ../../howtos/backend.rst:531
 #, fuzzy
 msgid ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
-msgstr ":class:`Many2many(other_model) <openerp.fields.Many2many>`"
+msgstr ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
 
 # 53f659512af843a596c110bdcce06046
 #: ../../howtos/backend.rst:526
@@ -1240,13 +1235,13 @@ msgstr ""
 #: ../../howtos/backend.rst:606
 #, fuzzy
 msgid ":attr:`~odoo.models.Model._inherit`"
-msgstr ":attr:`~openerp.models.Model._inherit`"
+msgstr ":attr:`~odoo.models.Model._inherit`"
 
 # 03b46db847ad4848bb6adea70dde2f84
 #: ../../howtos/backend.rst:607
 #, fuzzy
 msgid ":attr:`~odoo.models.Model._inherits`"
-msgstr ":attr:`~openerp.models.Model._inherits`"
+msgstr ":attr:`~odoo.models.Model._inherits`"
 
 # 50029f7993db47b8b573d0701f7ba9bf
 #: ../../howtos/backend.rst:610
@@ -1549,7 +1544,7 @@ msgid ""
 "simply set the value of the field to compute on every record in ``self``."
 msgstr ""
 "Para crear un campo calculado, cree un campo y establezca su atributo: :attr:"
-"`~openerp.fields.Field.compute` con el nombre del método. El método de cómputo "
+"`~odoo.fields.Field.compute` con el nombre del método. El método de cómputo "
 "simplemente debe establecer el valor del campo calculado en cada registro en "
 "``self``."
 
@@ -1598,7 +1593,7 @@ msgid ""
 msgstr ""
 "El valor de un campo calculado generalmente depende de los valores de otros "
 "campos en el registro computado. El ORM espera que el programador  especifique "
-"estas dependencias en el método de cálculo con el decorador :func:`~openerp.api."
+"estas dependencias en el método de cálculo con el decorador :func:`~odoo.api."
 "depends`. Las dependencias dadas son utilizadas por el ORM para desencadenar el "
 "recálculo del campo cada vez que se han modificado algunas de sus dependencias::"
 
@@ -1703,7 +1698,7 @@ msgstr "Objetos activos – valores por defecto"
 msgid ""
 "Define the start_date default value as today (see :class:`~odoo.fields.Date`)."
 msgstr ""
-"Definir el valor por defecto de start_date como hoy (ver :class:`~openerp.fields."
+"Definir el valor por defecto de start_date como hoy (ver :class:`~odoo.fields."
 "Date`)."
 
 # 2d72d006ee4a40dda6ca739928012944
@@ -1754,8 +1749,8 @@ msgstr ""
 "Por ejemplo, supóngase que un modelo tiene tres campos ``amount``, "
 "``unit_price`` y ``price``, y se desea actualizar el precio si cualquiera de los "
 "otros campos se modifica. Para ello, se define un método donde ``self`` "
-"representa el registro en la vista formulario y se decora con :func:`~openerp."
-"api.onchange` para especificar en qué campo se activará. Cualquier cambio que se "
+"representa el registro en la vista formulario y se decora con :func:`~odoo.api."
+"onchange` para especificar en qué campo se activará. Cualquier cambio que se "
 "realice en ``self`` se reflejará en el formulario."
 
 # 9a916225a79d48c4810269e81ac2eeed
@@ -1798,8 +1793,8 @@ msgid ""
 "models.Model._sql_constraints>`."
 msgstr ""
 "Odoo ofrece dos formas de configurar automáticamente invariantes: :func:`Python "
-"constraints <openerp.api.constrains>` y :attr:`SQL constraints <openerp.models."
-"Model._sql_constraints>`."
+"constraints <odoo.api.constrains>` y :attr:`SQL constraints <odoo.models.Model."
+"_sql_constraints>`."
 
 # 94a1025e1a9d4bb18233db028c2f0d09
 #: ../../howtos/backend.rst:921
@@ -1811,10 +1806,10 @@ msgid ""
 "evaluated when one of them is modified. The method is expected to raise an "
 "exception if its invariant is not satisfied::"
 msgstr ""
-"Una restricción de Python se define como un método decorado con :func:`~openerp."
-"api.constrains` y es invocado en un *recordset*. El decorador especifica los "
-"campos que están involucrados en la restricción, por lo que la restricción se "
-"evalúa automáticamente cuando se modifica uno de ellos. El método levantará una "
+"Una restricción de Python se define como un método decorado con :func:`~odoo.api."
+"constrains` y es invocado en un *recordset*. El decorador especifica los campos "
+"que están involucrados en la restricción, por lo que la restricción se evalúa "
+"automáticamente cuando se modifica uno de ellos. El método levantará una "
 "excepción si no se satisface su invariante::"
 
 # a9c80c06d73d48878ea0d1f989335f09
@@ -1841,7 +1836,7 @@ msgid ""
 "name, ``sql_definition`` is a table_constraint_ expression, and ``message`` is "
 "the error message."
 msgstr ""
-"Las restricciones SQL se definen mediante el atributo modelo:  :attr:`~openerp."
+"Las restricciones SQL se definen mediante el atributo modelo:  :attr:`~odoo."
 "models.Model._sql_constraints`. Este último se le asigna a una lista de "
 "tripletas de cadenas  ``(name, sql_definition, message)`, donde ``name`` es un "
 "nombre de restricción válido de SQL,  ``sql_definition`` es una expresión de "
@@ -2790,7 +2785,7 @@ msgstr ""
 "He aquí un ejemplo de una regla que impide la eliminación de los ``leads`` que "
 "no se encuentren en estado ``cancel``. Observe que el valor del campo ``groups`` "
 "debe seguir la misma convención a que si los agregaras con el método :meth:"
-"`~openerp.models.Model.write` del ORM."
+"`~odoo.models.Model.write` del ORM."
 
 # 4920082c449e42c4b347289ad40eeaa5
 #: ../../howtos/backend.rst:1412
@@ -3032,7 +3027,7 @@ msgstr ""
 "Por defecto la exportación de los POT en Odoo sólo extrae etiquetas dentro de "
 "archivos XML o dentro de las definiciones de campo en código Python, pero "
 "cualquier cadena Python puede ser traducido de esta manera envolviendola con la "
-"función :func:`openerp._` (e.g. ``_(\"Label\")``)"
+"función :func:`odoo._` (e.g. ``_(\"Label\")``)"
 
 # 2f4ab1c264de4d6998ac991c21be0e78
 #: ../../howtos/backend.rst:1547
@@ -3110,7 +3105,7 @@ msgid ""
 "In ``models.py``, add an import statement for the function ``odoo._`` and mark "
 "missing strings as translatable"
 msgstr ""
-"En ``models.py``, agregue una instrucción import para la función ``openerp._`` y "
+"En ``models.py``, agregue una instrucción import para la función ``odoo._`` y "
 "marca que faltan cadenas como traducible"
 
 # c403b5b6ff1d45289b51b26b297956d3
@@ -3445,7 +3440,7 @@ msgid ""
 "it is possible to :attr:`disable the automatic creation of some fields <odoo."
 "models.Model._log_access>`"
 msgstr ""
-"Es posible :attr:`desactivar la creación automática de algunos campos <openerp."
+"Es posible :attr:`desactivar la creación automática de algunos campos <odoo."
 "models.Model._log_access>`"
 
 # 0ca6deaeabef43518ee68ea7844b104b
