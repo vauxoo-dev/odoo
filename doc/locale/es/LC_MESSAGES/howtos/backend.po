@@ -1383,11 +1383,10 @@ msgstr "Crear un archivo ``openacademy/partner.py`` e importar en ``__init__.py`
 
 # cee93db0ac41429b94b0333c4bede5f6
 #: ../../howtos/backend.rst:688
-#, fuzzy
 msgid ""
 "Create a file ``openacademy/views/partner.xml`` and add it to ``__manifest__.py``"
 msgstr ""
-"Crear un archivo ``openacademy/views/partner.xml`` y agregarlo al ``__openerp__."
+"Crear un archivo ``openacademy/views/partner.xml`` y agregarlo al ``__manifest__."
 "py``"
 
 # 1ec70e414a1947d6a802487370f79e1a
@@ -2724,12 +2723,11 @@ msgstr ""
 
 # 1f0ca2e71581483e8b0ff23cc78a456e
 #: ../../howtos/backend.rst:1381
-#, fuzzy
 msgid ""
 "Finally update ``openacademy/__manifest__.py`` to add the new data files to it"
 msgstr ""
-"Finalmente actualizar ``openacademy/__openerp__.py`` añadir los nuevos archivos "
-"de datos a ella"
+"Finalmente actualizar ``openacademy/__manifest__.py`` para añadir los nuevos archivos "
+"de datos en él"
 
 # 797a12e5a84d461eb6941427daf86bc0
 #: ../../howtos/backend.rst:1387
@@ -3261,10 +3259,9 @@ msgstr "Disponemos los estilos son ``1``, ``1-1``, ``1-2``, ``2-1`` and ``1-1-1`
 
 # 6205b4e0dfe8449f8589c4277dc1a8db
 #: ../../howtos/backend.rst:1695
-#, fuzzy
 msgid "Update ``openacademy/__manifest__.py`` to reference the new data file"
 msgstr ""
-"Actualizar ``openacademy/__openerp__.py`` para hacer referencia el nuevo archivo "
+"Actualizar ``openacademy/__manifest__.py`` para hacer referencia al nuevo archivo "
 "de datos"
 
 # 1bf0b93aef374ef68dc261da61a1bc41
