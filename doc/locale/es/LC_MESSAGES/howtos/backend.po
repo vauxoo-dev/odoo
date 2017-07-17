@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 00:34-0500\n"
-"PO-Revision-Date: 2017-07-16 20:37-0500\n"
+"PO-Revision-Date: 2017-07-16 20:47-0500\n"
 "Last-Translator: Moisés López <moylop260@vauxoo.com>\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +130,7 @@ msgid ""
 "on their configuration"
 msgstr ""
 "Declarado como clases de Python, estos recursos son automáticamente persistentes en "
-"Odoo en base a su configuración."
+"Odoo basados en su configuración"
 
 # 06a5b796800540dd95ca2546f0ce826e
 # eec99024c1be4a9d936e10308f6d98e3
@@ -223,14 +223,13 @@ msgstr ""
 
 # 3cf46542e523431bb5d1bd4067d72f29
 #: ../../howtos/backend.rst:92
-#, fuzzy
 msgid ""
 "Odoo provides a mechanism to help set up a new module, :ref:`odoo-bin <reference/"
 "cmdline/server>` has a subcommand :ref:`scaffold <reference/cmdline/scaffold>` to "
 "create an empty module:"
 msgstr ""
 "Odoo ofrece un mecanismo para ayudar a comenzar un nuevo módulo, el comando :ref:"
-"`odoo.py <reference/cmdline/server>` tiene un subcomando :ref:`scaffold <reference/"
+"`odoo-bin <reference/cmdline/server>` tiene un subcomando :ref:`scaffold <reference/"
 "cmdline/scaffold>`  para crear un módulo vacío:"
 
 # 71e21d1219664741a3f00dc8f6ea41c1
@@ -261,9 +260,8 @@ msgstr ""
 
 # e2ad16fdbf2549e79e6137ed8d96ff87
 #: ../../howtos/backend.rst:111
-#, fuzzy
 msgid "Invoke the command ``odoo-bin scaffold openacademy addons``."
-msgstr "Ejecuta el comando ``odoo.py scaffold openacademy addons``."
+msgstr "Ejecuta el comando ``odoo-bin scaffold openacademy addons``."
 
 # d11935c81b5e4ba7bfe59676bbb09ab0
 #: ../../howtos/backend.rst:112
@@ -293,13 +291,12 @@ msgstr ""
 
 # 8a53f0ae77aa454d8c9aedff60b18e5c
 #: ../../howtos/backend.rst:124
-#, fuzzy
 msgid ""
 "Business objects are declared as Python classes extending :class:`~odoo.models.Model` "
 "which integrates them into the automated persistence system."
 msgstr ""
-"Los objetos de negocio se declaran como clases Python que extienden la clase :class:"
-"`~odoo.models.Model` la cual los integra en el sistema automatizado de persistencia."
+"Los objetos de negocio se declaran como clases Python que extienden :class:`~odoo."
+"models.Model` la cual los integra en el sistema automatizado de persistencia."
 
 # 1d02e3344458430ca654e968c511c23d
 #: ../../howtos/backend.rst:128
@@ -408,12 +405,11 @@ msgstr ""
 
 # b732256056204344b01ee2fc48c1bdf9
 #: ../../howtos/backend.rst:178
-#, fuzzy
 msgid ""
 "Example of simple fields are :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
 "Date`, :class:`~odoo.fields.Char`."
 msgstr ""
-"Ejemplo de campo simple son los :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
+"Ejemplo de campos simples son los :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
 "Date`, :class:`~odoo.fields.Char`."
 
 # 8675bbfa376f49ffaaa2e0c3959ceeca
@@ -470,7 +466,6 @@ msgstr ":attr:`~odoo.fields.Model.write_date` (:class:`~odoo.fields.Datetime`)"
 
 # 8f627e405ca5431e82db41ea8cead36c
 #: ../../howtos/backend.rst:195
-#, fuzzy
 msgid "Last modification date of the record."
 msgstr "Fecha de la última modificación del registro."
 
@@ -492,7 +487,6 @@ msgstr "Campos Especiales"
 
 # 355cf63eaebf4f29b0366b572738d81e
 #: ../../howtos/backend.rst:202
-#, fuzzy
 msgid ""
 "By default, Odoo also requires a ``name`` field on all models for various display and "
 "search behaviors. The field used for these purposes can be overridden by setting :"
@@ -987,15 +981,14 @@ msgstr ""
 
 # e194e520bbd24fff9e1bccc1fab387b6
 #: ../../howtos/backend.rst:521
-#, fuzzy
 msgid ""
 "Because a :class:`~odoo.fields.One2many` is a virtual relationship, there *must* be "
 "a :class:`~odoo.fields.Many2one` field in the :samp:`{other_model}`, and its name "
 "*must* be :samp:`{related_field}`"
 msgstr ""
 "Debido a que un :class:`~odoo.fields.One2many` es una relación virtual, *debe* haber "
-"un campo :class:`~odoo.fields.Many2one` en :samp:`{other_model}`, y su nombre *debe "
-"ser*  :samp:`{related_field}`."
+"un campo :class:`~odoo.fields.Many2one` en :samp:`{other_model}`, y su nombre *debe* "
+"ser  :samp:`{related_field}`."
 
 # ad8d052c030d411eb3b35bffeceebe99
 #: ../../howtos/backend.rst:531
@@ -1345,9 +1338,9 @@ msgstr ""
 
 # 51184699c82140079351f385803a325c
 #: ../../howtos/backend.rst:686
-#, fuzzy
 msgid "Create a file ``openacademy/models/partner.py`` and import it in ``__init__.py``"
-msgstr "Crear un archivo ``openacademy/partner.py`` e importar en ``__init__.py``"
+msgstr ""
+"Crear un archivo ``openacademy/models/partner.py`` e importar en ``__init__.py``"
 
 # cee93db0ac41429b94b0333c4bede5f6
 #: ../../howtos/backend.rst:688
@@ -1672,7 +1665,6 @@ msgstr ""
 
 # ab1ed2694b984ae9b2055f79c99015d0
 #: ../../howtos/backend.rst:872
-#, fuzzy
 msgid ""
 "For instance, suppose a model has three fields ``amount``, ``unit_price`` and "
 "``price``, and you want to update the price on the form when any of the other fields "
@@ -1682,11 +1674,11 @@ msgid ""
 "the form."
 msgstr ""
 "Por ejemplo, supóngase que un modelo tiene tres campos ``amount``, ``unit_price`` y "
-"``price``, y se desea actualizar el precio si cualquiera de los otros campos se "
-"modifica. Para ello, se define un método donde ``self`` representa el registro en la "
-"vista formulario y se decora con :func:`~odoo.api.onchange` para especificar en qué "
-"campo se activará. Cualquier cambio que se realice en ``self`` se reflejará en el "
-"formulario."
+"``price``, y se desea actualizar el precio en el formulario cuando cualquiera de los "
+"otros campos es modificado. Para ello, se define un método donde ``self`` representa "
+"el registro en la vista formulario y se decora con :func:`~odoo.api.onchange` para "
+"especificar en qué campo se activará. Cualquier cambio que se realice en ``self`` "
+"será reflejado en el formulario."
 
 # 9a916225a79d48c4810269e81ac2eeed
 #: ../../howtos/backend.rst:901
@@ -1794,7 +1786,7 @@ msgstr "Compruebe que la descripción del curso y el título del curso son difer
 # 9f8276a0914e452fb2674bc746f68a15
 #: ../../howtos/backend.rst:957
 msgid "Make the Course's name UNIQUE"
-msgstr "Hacer el nombre de un curso único."
+msgstr "Hacer el nombre del Curso ÚNICO"
 
 # 029d644e67014de0bdea9240a67bf2b2
 #: ../../howtos/backend.rst:963
@@ -2681,16 +2673,14 @@ msgstr ""
 
 # 2c6c4d82c39b4dd9b6daa684d47ffc6b
 #: ../../howtos/backend.rst:1395
-#, fuzzy
 msgid ""
 "Here is an example of a rule that prevents the deletion of leads that are not in "
 "state ``cancel``. Notice that the value of the field ``groups`` must follow the same "
 "convention as the method :meth:`~odoo.models.Model.write` of the ORM."
 msgstr ""
-"He aquí un ejemplo de una regla que impide la eliminación de los ``leads`` que no se "
-"encuentren en estado ``cancel``. Observe que el valor del campo ``groups`` debe "
-"seguir la misma convención a que si los agregaras con el método :meth:`~odoo.models."
-"Model.write` del ORM."
+"Aquí un ejemplo de una regla que impide la eliminación de los prospectos que no se "
+"encuentren en el estado ``cancel``. Observe que el valor del campo ``groups`` debe "
+"seguir la misma convención como el método :meth:`~odoo.models.Model.write` del ORM."
 
 # 4920082c449e42c4b347289ad40eeaa5
 #: ../../howtos/backend.rst:1412
@@ -2919,7 +2909,6 @@ msgstr ""
 
 # b8931dfcfc984aa6a8ee119ffe73451d
 #: ../../howtos/backend.rst:1542
-#, fuzzy
 msgid ""
 "By default Odoo's POT export only extracts labels inside XML files or inside field "
 "definitions in Python code, but any Python string can be translated this way by "
@@ -2927,7 +2916,7 @@ msgid ""
 msgstr ""
 "Por defecto la exportación de los POT en Odoo sólo extrae etiquetas dentro de "
 "archivos XML o dentro de las definiciones de campo en código Python, pero cualquier "
-"cadena Python puede ser traducido de esta manera envolviendola con la función :func:"
+"cadena Python puede ser traducido de esta manera envolviéndola con la función :func:"
 "`odoo._` (e.g. ``_(\"Label\")``)"
 
 # 2f4ab1c264de4d6998ac991c21be0e78
@@ -3000,7 +2989,6 @@ msgstr ""
 
 # 9490ce774b6d458ebc7abe042355c9ce
 #: ../../howtos/backend.rst:1572
-#, fuzzy
 msgid ""
 "In ``models.py``, add an import statement for the function ``odoo._`` and mark "
 "missing strings as translatable"
@@ -3329,7 +3317,6 @@ msgstr "https://github.com/abhishek-jaiswal/php-openerp-lib"
 
 # ca3801d022e842c4a87f10533d34bd69
 #: ../../howtos/backend.rst:1863
-#, fuzzy
 msgid ""
 "it is possible to :attr:`disable the automatic creation of some fields <odoo.models."
 "Model._log_access>`"
