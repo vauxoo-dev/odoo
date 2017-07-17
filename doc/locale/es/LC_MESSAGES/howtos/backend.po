@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 00:34-0500\n"
-"PO-Revision-Date: 2017-07-16 20:21-0500\n"
+"PO-Revision-Date: 2017-07-16 20:37-0500\n"
 "Last-Translator: Moisés López <moylop260@vauxoo.com>\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
 "MIME-Version: 1.0\n"
@@ -28,8 +28,8 @@ msgstr "Construyendo un módulo"
 msgid "This tutorial requires :ref:`having installed Odoo <setup/install>`"
 msgstr ""
 "Este tutorial requiere :ref:`haber instalado Odoo <setup/install>`\n"
-"Este tutorial fué traducido al español por Vauxoo [http://www.vauxoo.com] para "
-"sus cursos.\n"
+"Este tutorial fué traducido al español por Vauxoo [http://www.vauxoo.com] para sus "
+"cursos.\n"
 "Cualquier sugerencia de mejora: enviarla a nhomar en vauxoo dot com."
 
 # 4bb88eccac1341c6b181624149fc5c66
@@ -40,8 +40,8 @@ msgstr "Iniciar/Detener el servidor Odoo"
 # 67dbe8cfa08941bca8d8b282c5be035d
 #: ../../howtos/backend.rst:16
 msgid ""
-"Odoo uses a client/server architecture in which clients are web browsers "
-"accessing the Odoo server via RPC."
+"Odoo uses a client/server architecture in which clients are web browsers accessing "
+"the Odoo server via RPC."
 msgstr ""
 "Odoo utiliza una arquitectura cliente/servidor en la que los clientes son los "
 "navegadores que acceden al servidor Odoo vía RPC."
@@ -50,32 +50,30 @@ msgstr ""
 #: ../../howtos/backend.rst:19
 msgid ""
 "Business logic and extension is generally performed on the server side, although "
-"supporting client features (e.g. new data representation such as interactive "
-"maps) can be added to the client."
+"supporting client features (e.g. new data representation such as interactive maps) "
+"can be added to the client."
 msgstr ""
 "La lógica de negocio y sus extensiones se realizan generalmente del lado del "
-"servidor, aunque se apoya en algunas características del cliente (por ejemplo, "
-"una representación de datos como mapas interactivos) puede ser añadida al "
-"cliente."
+"servidor, aunque se apoya en algunas características del cliente (por ejemplo, una "
+"representación de datos como mapas interactivos) puede ser añadida al cliente."
 
 # 529085ebdf844053a5822cde7bfb6c15
 #: ../../howtos/backend.rst:23
 msgid ""
-"In order to start the server, simply invoke the command :ref:`odoo-bin "
-"<reference/cmdline>` in the shell, adding the full path to the file if necessary:"
+"In order to start the server, simply invoke the command :ref:`odoo-bin <reference/"
+"cmdline>` in the shell, adding the full path to the file if necessary:"
 msgstr ""
-"Para iniciar el servidor, simplemente invoca el comando :ref:`odoo-bin "
-"<reference/cmdline>` en la consola, agregando la ruta completa al archivo si es "
-"necesario:"
+"Para iniciar el servidor, simplemente invoca el comando :ref:`odoo-bin <reference/"
+"cmdline>` en la consola, agregando la ruta completa al archivo si es necesario:"
 
 # 661e4ba28e114eaaaa1d421fce30f4b0
 #: ../../howtos/backend.rst:31
 msgid ""
-"The server is stopped by hitting ``Ctrl-C`` twice from the terminal, or by "
-"killing the corresponding OS process."
+"The server is stopped by hitting ``Ctrl-C`` twice from the terminal, or by killing "
+"the corresponding OS process."
 msgstr ""
-"El servidor se detiene pulsando ``Ctrl-C`` dos veces desde la terminal, o "
-"matando el proceso correspondiente."
+"El servidor se detiene pulsando ``Ctrl-C`` dos veces desde la terminal, o matando el "
+"proceso correspondiente."
 
 # d99fac3e847f4c07a39af8d533ac1b7a
 #: ../../howtos/backend.rst:35
@@ -88,22 +86,22 @@ msgid ""
 "Both server and client extensions are packaged as *modules* which are optionally "
 "loaded in a *database*."
 msgstr ""
-"Las extensiones de servidor y cliente se empaquetan como *módulos* que "
-"opcionalmente se cargan en una *base de datos*."
+"Las extensiones de servidor y cliente se empaquetan como *módulos* que opcionalmente "
+"se cargan en una *base de datos*."
 
 # 6eacb9821dab4f4688d4c24d98e51fdf
 #: ../../howtos/backend.rst:40
 msgid ""
-"Odoo modules can either add brand new business logic to an Odoo system, or alter "
-"and extend existing business logic: a module can be created to add your "
-"country's accounting rules to Odoo's generic accounting support, while the next "
-"module adds support for real-time visualisation of a bus fleet."
+"Odoo modules can either add brand new business logic to an Odoo system, or alter and "
+"extend existing business logic: a module can be created to add your country's "
+"accounting rules to Odoo's generic accounting support, while the next module adds "
+"support for real-time visualisation of a bus fleet."
 msgstr ""
 "Los módulos en Odoo pueden añadir nueva lógica de negocio a un sistema Odoo, o "
 "modificar y ampliar la lógica de negocios existente: puede crear un módulo para "
 "agregar las reglas de contabilidad de su país adicionándolo al soporte de "
-"contabilidad genérico de Odoo, mientras que otro módulo puede añadir soporte "
-"para la visualización en tiempo real de una flota de autobuses."
+"contabilidad genérico de Odoo, mientras que otro módulo puede añadir soporte para la "
+"visualización en tiempo real de una flota de autobuses."
 
 # e37d702411c1484092d87bbfb84de8f9
 #: ../../howtos/backend.rst:45
@@ -128,11 +126,11 @@ msgstr "Objetos de negocios"
 # 3eeadd46be4c416983a1787e3bffc26e
 #: ../../howtos/backend.rst:53
 msgid ""
-"Declared as Python classes, these resources are automatically persisted by Odoo "
-"based on their configuration"
+"Declared as Python classes, these resources are automatically persisted by Odoo based "
+"on their configuration"
 msgstr ""
-"Declarado como clases de Python, estos recursos son automáticamente persistentes "
-"en Odoo en base a su configuración."
+"Declarado como clases de Python, estos recursos son automáticamente persistentes en "
+"Odoo en base a su configuración."
 
 # 06a5b796800540dd95ca2546f0ce826e
 # eec99024c1be4a9d936e10308f6d98e3
@@ -143,8 +141,8 @@ msgstr "Archivos de datos"
 # 98e6334241cc40938bc4244d5e6e3cdc
 #: ../../howtos/backend.rst:57
 msgid ""
-"XML or CSV files declaring metadata (views or workflows), configuration data "
-"(modules parameterization), demonstration data and more"
+"XML or CSV files declaring metadata (views or workflows), configuration data (modules "
+"parameterization), demonstration data and more"
 msgstr ""
 "Los archivos XML o CSV declaran metadatos (vistas o flujos de trabajo), datos de "
 "configuración (parametrización de módulos), datos de demostración y  más"
@@ -181,28 +179,27 @@ msgid ""
 "Each module is a directory within a *module directory*. Module directories are "
 "specified by using the :option:`--addons-path <odoo-bin --addons-path>` option."
 msgstr ""
-"Cada módulo es un directorio dentro de un *directorio  de módulos*. Los "
-"directorios de módulos se especifican mediante la opción :option:`--addons-path "
-"<odoo-bin --addons-path>`."
+"Cada módulo es un directorio dentro de un *directorio  de módulos*. Los directorios "
+"de módulos se especifican mediante la opción :option:`--addons-path <odoo-bin --"
+"addons-path>`."
 
 # 2d75bd6051a846eaaad8de0b0a067ebd
 #: ../../howtos/backend.rst:76
 msgid ""
-"most command-line options can also be set using :ref:`a configuration file "
-"<reference/cmdline/config>`"
+"most command-line options can also be set using :ref:`a configuration file <reference/"
+"cmdline/config>`"
 msgstr ""
-"La mayoría de las opciones de línea de comandos también se pueden establecer "
-"usando :ref:`un archivo de configuración <reference/cmdline/config>`"
+"La mayoría de las opciones de línea de comandos también se pueden establecer usando :"
+"ref:`un archivo de configuración <reference/cmdline/config>`"
 
 # d2802ab35ee94e25b5e4932c263b0ce2
 #: ../../howtos/backend.rst:79
 msgid ""
-"An Odoo module is declared by its :ref:`manifest <reference/module/manifest>`. "
-"See the :ref:`manifest documentation <reference/module/manifest>` about it."
+"An Odoo module is declared by its :ref:`manifest <reference/module/manifest>`. See "
+"the :ref:`manifest documentation <reference/module/manifest>` about it."
 msgstr ""
-"Un módulo de Odoo es declarado por su :ref:`manifiesto <reference/module/"
-"manifest>`. Ver la :ref:`Documentación del manifiesto <reference/module/"
-"manifest>` aquí."
+"Un módulo de Odoo es declarado por su :ref:`manifiesto <reference/module/manifest>`. "
+"Ver la :ref:`Documentación del manifiesto <reference/module/manifest>` aquí."
 
 # 29094c51f3f140569f4d0f254169518c
 #: ../../howtos/backend.rst:82
@@ -211,15 +208,15 @@ msgid ""
 "html#packages>`_ with a ``__init__.py`` file, containing import instructions for "
 "various Python files in the module."
 msgstr ""
-"Un módulo es también un `paquete de Python <http://docs.python.org/2/tutorial/"
-"modules.html#packages>`_ con un archivo  ``__init__.py``, que contiene "
-"instrucciones de importación de varios archivos de Python en dicho módulo."
+"Un módulo es también un `paquete de Python <http://docs.python.org/2/tutorial/modules."
+"html#packages>`_ con un archivo  ``__init__.py``, que contiene instrucciones de "
+"importación de varios archivos de Python en dicho módulo."
 
 # 4d1100c0c75e47db894d36bf1bc86924
 #: ../../howtos/backend.rst:87
 msgid ""
-"For instance, if the module has a single ``mymodule.py`` file ``__init__.py`` "
-"might contain::"
+"For instance, if the module has a single ``mymodule.py`` file ``__init__.py`` might "
+"contain::"
 msgstr ""
 "Por ejemplo, si un módulo tiene un solo archivo ``mymodule.py``, el archivo "
 "``__init__.py`` podría contener::"
@@ -229,24 +226,24 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Odoo provides a mechanism to help set up a new module, :ref:`odoo-bin <reference/"
-"cmdline/server>` has a subcommand :ref:`scaffold <reference/cmdline/scaffold>` "
-"to create an empty module:"
+"cmdline/server>` has a subcommand :ref:`scaffold <reference/cmdline/scaffold>` to "
+"create an empty module:"
 msgstr ""
 "Odoo ofrece un mecanismo para ayudar a comenzar un nuevo módulo, el comando :ref:"
-"`odoo.py <reference/cmdline/server>` tiene un subcomando :ref:`scaffold "
-"<reference/cmdline/scaffold>`  para crear un módulo vacío:"
+"`odoo.py <reference/cmdline/server>` tiene un subcomando :ref:`scaffold <reference/"
+"cmdline/scaffold>`  para crear un módulo vacío:"
 
 # 71e21d1219664741a3f00dc8f6ea41c1
 #: ../../howtos/backend.rst:100
 msgid ""
-"The command creates a subdirectory for your module, and automatically creates a "
-"bunch of standard files for a module. Most of them simply contain commented code "
-"or XML. The usage of most of those files will be explained along this tutorial."
+"The command creates a subdirectory for your module, and automatically creates a bunch "
+"of standard files for a module. Most of them simply contain commented code or XML. "
+"The usage of most of those files will be explained along this tutorial."
 msgstr ""
-"El comando crea un subdirectorio para un módulo y automáticamente crea un montón "
-"de archivos estándar para dicho módulo. La mayoría de ellos contienen sólo "
-"código comentado o XML. A lo largo de este tutorial se explicará el uso de la "
-"mayoría de estos archivos."
+"El comando crea un subdirectorio para un módulo y automáticamente crea un montón de "
+"archivos estándar para dicho módulo. La mayoría de ellos contienen sólo código "
+"comentado o XML. A lo largo de este tutorial se explicará el uso de la mayoría de "
+"estos archivos."
 
 # d550f9535cb84826a9a0a7bfb1296d1d
 #: ../../howtos/backend.rst:104
@@ -256,8 +253,8 @@ msgstr "Construcción de un módulo"
 # eb52189964c74bf0b4db25860bf5c4b4
 #: ../../howtos/backend.rst:106
 msgid ""
-"Use the command line above to  create an empty module Open Academy, and install "
-"it in Odoo."
+"Use the command line above to  create an empty module Open Academy, and install it in "
+"Odoo."
 msgstr ""
 "Utilizar la línea de comandos anterior para crear un módulo vacío Open Academy e "
 "instalarlo en Odoo."
@@ -286,32 +283,31 @@ msgstr "Mapeo objeto-relacional (ORM)"
 # c1baf364caf942e187aba4506f63f56f
 #: ../../howtos/backend.rst:120
 msgid ""
-"A key component of Odoo is the :abbr:`ORM (Object-Relational Mapping)` layer. "
-"This layer avoids having to write most :abbr:`SQL (Structured Query Language)` "
-"by hand and provides extensibility and security services\\ [#rawsql]_."
+"A key component of Odoo is the :abbr:`ORM (Object-Relational Mapping)` layer. This "
+"layer avoids having to write most :abbr:`SQL (Structured Query Language)` by hand and "
+"provides extensibility and security services\\ [#rawsql]_."
 msgstr ""
-"Un componente clave de Odoo es el :abbr:`ORM (Object-Relational Mapping)`. Esta "
-"capa evita escribir la mayoría del :abbr:`SQL (Structured Query Language)` "
-"manualmente y proporciona extensibilidad y servicios de seguridad \\ [#rawsql]_."
+"Un componente clave de Odoo es el :abbr:`ORM (Object-Relational Mapping)`. Esta capa "
+"evita escribir la mayoría del :abbr:`SQL (Structured Query Language)` manualmente y "
+"proporciona extensibilidad y servicios de seguridad \\ [#rawsql]_."
 
 # 8a53f0ae77aa454d8c9aedff60b18e5c
 #: ../../howtos/backend.rst:124
 #, fuzzy
 msgid ""
-"Business objects are declared as Python classes extending :class:`~odoo.models."
-"Model` which integrates them into the automated persistence system."
+"Business objects are declared as Python classes extending :class:`~odoo.models.Model` "
+"which integrates them into the automated persistence system."
 msgstr ""
-"Los objetos de negocio se declaran como clases Python que extienden la clase :"
-"class:`~odoo.models.Model` la cual los integra en el sistema automatizado de "
-"persistencia."
+"Los objetos de negocio se declaran como clases Python que extienden la clase :class:"
+"`~odoo.models.Model` la cual los integra en el sistema automatizado de persistencia."
 
 # 1d02e3344458430ca654e968c511c23d
 #: ../../howtos/backend.rst:128
 msgid ""
-"Models can be configured by setting a number of attributes at their definition. "
-"The most important attribute is :attr:`~odoo.models.Model._name` which is "
-"required and defines the name for the model in the Odoo system. Here is a "
-"minimally complete definition of a model::"
+"Models can be configured by setting a number of attributes at their definition. The "
+"most important attribute is :attr:`~odoo.models.Model._name` which is required and "
+"defines the name for the model in the Odoo system. Here is a minimally complete "
+"definition of a model::"
 msgstr ""
 
 # 614a05395db2430986fb199385c26f06
@@ -322,11 +318,11 @@ msgstr "Campos en el Modelo"
 # 0d7523ed423c440680c52ca587bf620e
 #: ../../howtos/backend.rst:141
 msgid ""
-"Fields are used to define what the model can store and where. Fields are defined "
-"as attributes on the model class::"
+"Fields are used to define what the model can store and where. Fields are defined as "
+"attributes on the model class::"
 msgstr ""
-"Los campos se utilizan para definir lo que puede almacenar el modelo y dónde. "
-"Los campos se definen como atributos en el modelo::"
+"Los campos se utilizan para definir lo que puede almacenar el modelo y dónde. Los "
+"campos se definen como atributos en el modelo::"
 
 # d79d6efc4b604849af8a285b60bb7493
 #: ../../howtos/backend.rst:152
@@ -336,18 +332,17 @@ msgstr "Atributos comunes"
 # b23e802f990541389dfb6ac2dd7efb9c
 #: ../../howtos/backend.rst:154
 msgid ""
-"Much like the model itself, its fields can be configured, by passing "
-"configuration attributes as parameters::"
+"Much like the model itself, its fields can be configured, by passing configuration "
+"attributes as parameters::"
 msgstr ""
-"Así como en el modelo, los campos se pueden configurar pasando los atributos "
-"como parámetros normales::"
+"Así como en el modelo, los campos se pueden configurar pasando los atributos como "
+"parámetros normales::"
 
 # 3ed4c20cc1fc419c84233c73780adf7a
 #: ../../howtos/backend.rst:159
 msgid "Some attributes are available on all fields, here are the most common ones:"
 msgstr ""
-"Algunos atributos están disponibles en todos los campos, aquí están los más "
-"comunes:"
+"Algunos atributos están disponibles en todos los campos, aquí están los más comunes:"
 
 # 15d183a568854317bc946afc4a5bc804
 #: ../../howtos/backend.rst:161
@@ -357,8 +352,7 @@ msgstr ":attr:`~odoo.fields.Field.string` (``unicode``, default: field's name)"
 # a26eb10b3fb94f71a26eef26ab8604ba
 #: ../../howtos/backend.rst:162
 msgid "The label of the field in UI (visible by users)."
-msgstr ""
-"La etiqueta del campo en la interfaz del usuario (lo que el usuario leerá)."
+msgstr "La etiqueta del campo en la interfaz del usuario (lo que el usuario leerá)."
 
 # dccab2db5e3444fbb475efdc96970b88
 #: ../../howtos/backend.rst:164
@@ -382,8 +376,7 @@ msgstr ":attr:`~odoo.fields.Field.help` (``unicode``, default: ``''``)"
 # 9e4c7d684b014ab2b32c8d2ee98afbc8
 #: ../../howtos/backend.rst:167
 msgid "Long-form, provides a help tooltip to users in the UI."
-msgstr ""
-"Formato largo, proporciona una información de ayuda en la interfaz de usuario."
+msgstr "Formato largo, proporciona una información de ayuda en la interfaz de usuario."
 
 # e0c667c4a6424f30b89ad25ece1126bb
 #: ../../howtos/backend.rst:169
@@ -404,14 +397,14 @@ msgstr "Campos Simples"
 # f74f44b4eef24216bc1370048e76c099
 #: ../../howtos/backend.rst:174
 msgid ""
-"There are two broad categories of fields: \"simple\" fields which are atomic "
-"values stored directly in the model's table and \"relational\" fields linking "
-"records (of the same model or of different models)."
+"There are two broad categories of fields: \"simple\" fields which are atomic values "
+"stored directly in the model's table and \"relational\" fields linking records (of "
+"the same model or of different models)."
 msgstr ""
 "En general hay dos categorías de campos: Los campos *”Simples\"* los cuales son "
-"valores atómicos almacenados directamente en la tabla correspondiente al modelo, "
-"y los campos *“Relacionales”* los cuales enlazan registros (registros del mismo "
-"modelo o de diferentes modelos)."
+"valores atómicos almacenados directamente en la tabla correspondiente al modelo, y "
+"los campos *“Relacionales”* los cuales enlazan registros (registros del mismo modelo "
+"o de diferentes modelos)."
 
 # b732256056204344b01ee2fc48c1bdf9
 #: ../../howtos/backend.rst:178
@@ -420,8 +413,8 @@ msgid ""
 "Example of simple fields are :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
 "Date`, :class:`~odoo.fields.Char`."
 msgstr ""
-"Ejemplo de campo simple son los :class:`~odoo.fields.Boolean`, :class:`~odoo."
-"fields.Date`, :class:`~odoo.fields.Char`."
+"Ejemplo de campo simple son los :class:`~odoo.fields.Boolean`, :class:`~odoo.fields."
+"Date`, :class:`~odoo.fields.Char`."
 
 # 8675bbfa376f49ffaaa2e0c3959ceeca
 #: ../../howtos/backend.rst:182
@@ -431,13 +424,12 @@ msgstr "Campos reservados"
 # d0e3ad23179f4cafbf7d63655229912e
 #: ../../howtos/backend.rst:184
 msgid ""
-"Odoo creates a few fields in all models\\ [#autofields]_. These fields are "
-"managed by the system and shouldn't be written to. They can be read if useful or "
-"necessary:"
+"Odoo creates a few fields in all models\\ [#autofields]_. These fields are managed by "
+"the system and shouldn't be written to. They can be read if useful or necessary:"
 msgstr ""
-"Odoo crea algunos campos en todos los modelos \\ [#autofields]_. Estos campos "
-"son manejados por el sistema y no deberían ser escritos. Ellos pueden ser leídos "
-"si representan alguna utilidad o son necesarios:"
+"Odoo crea algunos campos en todos los modelos \\ [#autofields]_. Estos campos son "
+"manejados por el sistema y no deberían ser escritos. Ellos pueden ser leídos si "
+"representan alguna utilidad o son necesarios:"
 
 # a9115aaa67034afc975a053cc9530baa
 #: ../../howtos/backend.rst:188
@@ -457,9 +449,8 @@ msgstr ":attr:`~odoo.fields.Model.create_date` (:class:`~odoo.fields.Datetime`)"
 
 # c2d6cd21ba934c80a2f4598078fbadb3
 #: ../../howtos/backend.rst:191
-#, fuzzy
 msgid "Creation date of the record."
-msgstr "fecha de creación del registro"
+msgstr "Fecha de creación del registro."
 
 # 31c2244ea9f2431187d8a33141a75338
 #: ../../howtos/backend.rst:192
@@ -503,14 +494,13 @@ msgstr "Campos Especiales"
 #: ../../howtos/backend.rst:202
 #, fuzzy
 msgid ""
-"By default, Odoo also requires a ``name`` field on all models for various "
-"display and search behaviors. The field used for these purposes can be "
-"overridden by setting :attr:`~odoo.models.Model._rec_name`."
+"By default, Odoo also requires a ``name`` field on all models for various display and "
+"search behaviors. The field used for these purposes can be overridden by setting :"
+"attr:`~odoo.models.Model._rec_name`."
 msgstr ""
 "Por defecto, Odoo también requiere un campo ``name``  en todos los modelos para "
-"varios comportamientos de búsqueda y visualización. El campo utilizado para "
-"estos fines se puede reemplazar estableciendo :attr:`~odoo.models.Model."
-"_rec_name`."
+"varios comportamientos de búsqueda y visualización. El campo utilizado para estos "
+"fines se puede reemplazar estableciendo :attr:`~odoo.models.Model._rec_name`."
 
 # 9a0ed4123cff4bc1bfd0c57be433e1e0
 #: ../../howtos/backend.rst:206
@@ -520,11 +510,11 @@ msgstr "Define un modelo"
 # 54e524b5b2ca4f58a20f065f2746c006
 #: ../../howtos/backend.rst:208
 msgid ""
-"Define a new data model *Course* in the *openacademy* module. A course has a "
-"title and a description. Courses must have a title."
+"Define a new data model *Course* in the *openacademy* module. A course has a title "
+"and a description. Courses must have a title."
 msgstr ""
-"Definir un nuevo modelo de datos *Curso* en el módulo *openacademy*. Un curso "
-"tiene un título y una descripción. Los cursos *deben* tener un título."
+"Definir un nuevo modelo de datos *Curso* en el módulo *openacademy*. Un curso tiene "
+"un título y una descripción. Los cursos *deben* tener un título."
 
 # e3b2b815099a46b29e6a02f9998634dd
 #: ../../howtos/backend.rst:213
@@ -536,12 +526,12 @@ msgstr ""
 # f62ef3bd3f1445d1ad19092d240a23fa
 #: ../../howtos/backend.rst:220
 msgid ""
-"Odoo is a highly data driven system. Although behavior is customized using "
-"Python_ code part of a module's value is in the data it sets up when loaded."
+"Odoo is a highly data driven system. Although behavior is customized using Python_ "
+"code part of a module's value is in the data it sets up when loaded."
 msgstr ""
 "Odoo es un sistema altamente dirigido por datos. Aunque el comportamiento "
-"personalizado utiliza una parte de código Python_ el valor de un módulo está en "
-"los datos que éste establece cuando se carga."
+"personalizado utiliza una parte de código Python_ el valor de un módulo está en los "
+"datos que éste establece cuando se carga."
 
 # 5cc46a1332e04d90967564a00fbb60bf
 #: ../../howtos/backend.rst:223
@@ -552,12 +542,11 @@ msgstr "algunos módulos existen únicamente para agregar datos a Odoo"
 #: ../../howtos/backend.rst:226
 msgid ""
 "Module data is declared via :ref:`data files <reference/data>`, XML files with "
-"``<record>`` elements. Each ``<record>`` element creates or updates a database "
-"record."
+"``<record>`` elements. Each ``<record>`` element creates or updates a database record."
 msgstr ""
-"Los datos del módulo son declarados vía :ref:`Archivos de Datos <reference/"
-"data>`, archivos XML con elementos ``<record>``. Cada elemento ``<record>`` crea "
-"o actualiza registros en la base de datos."
+"Los datos del módulo son declarados vía :ref:`Archivos de Datos <reference/data>`, "
+"archivos XML con elementos ``<record>``. Cada elemento ``<record>`` crea o actualiza "
+"registros en la base de datos."
 
 # 3ea67ef8418e4f929030a970d9124a91
 #: ../../howtos/backend.rst:240
@@ -567,8 +556,8 @@ msgstr "``model`` es el nombre para un registro en el modelo de Odoo."
 # cf8e14ba97244c84994fa195fc09a87b
 #: ../../howtos/backend.rst:241
 msgid ""
-"``id`` is an :term:`external identifier`, it allows referring to the record "
-"(without having to know its in-database identifier)."
+"``id`` is an :term:`external identifier`, it allows referring to the record (without "
+"having to know its in-database identifier)."
 msgstr ""
 "``id`` es un :term:`Identificador externo`, que permite hacer referencia a un "
 "registro (sin necesidad de conocer su identificador en base de datos)."
@@ -576,8 +565,8 @@ msgstr ""
 # eff8740e74d04d1cacefaf5c1fd25e4b
 #: ../../howtos/backend.rst:243
 msgid ""
-"``<field>`` elements have a ``name`` which is the name of the field in the model "
-"(e.g. ``description``). Their body is the field's value."
+"``<field>`` elements have a ``name`` which is the name of the field in the model (e."
+"g. ``description``). Their body is the field's value."
 msgstr ""
 "``<field>`` los elementos tienen un ``nombre`` que es el nombre del campo en el "
 "modelo (por ejemplo,  ``description``). Su cuerpo es el valor de campo."
@@ -589,10 +578,10 @@ msgid ""
 "declared in the ``'data'`` list (always loaded) or in the ``'demo'`` list (only "
 "loaded in demonstration mode)."
 msgstr ""
-"Los archivos de datos tienen que ser declarados en el archivo manifiesto para "
-"que puedan cargarse, ellos pueden ser declarados en la lista ``'data'`` (la cual "
-"siempre se carga) o en la lista ``'demo'`` (que se cargará solo cuando *modo "
-"demostración* esté habilitado)."
+"Los archivos de datos tienen que ser declarados en el archivo manifiesto para que "
+"puedan cargarse, ellos pueden ser declarados en la lista ``'data'`` (la cual siempre "
+"se carga) o en la lista ``'demo'`` (que se cargará solo cuando *modo demostración* "
+"esté habilitado)."
 
 # a7bbd2fd598a499284bb2a8550644410
 #: ../../howtos/backend.rst:250
@@ -605,8 +594,7 @@ msgid ""
 "Create demonstration data filling the *Courses* model with a few demonstration "
 "courses."
 msgstr ""
-"Crear los datos de demostración llenando el model *Courses* con algunos pocos "
-"cursos."
+"Crear los datos de demostración llenando el model *Courses* con algunos pocos cursos."
 
 # 32294a8a97eb44dc98b83af43ec666be
 #: ../../howtos/backend.rst:257
@@ -625,8 +613,8 @@ msgid ""
 "Actions and menus are regular records in database, usually declared through data "
 "files. Actions can be triggered in three ways:"
 msgstr ""
-"Acciones y menús son registros regulares en la base de datos, usualmente a "
-"través de archivos de datos. Las acciones pueden ser disparadas en tres formas:"
+"Acciones y menús son registros regulares en la base de datos, usualmente a través de "
+"archivos de datos. Las acciones pueden ser disparadas en tres formas:"
 
 # 536e4863ece34451b4777c6aa75ea589
 #: ../../howtos/backend.rst:267
@@ -636,8 +624,7 @@ msgstr "haciendo click en los menús (enlazados a una acción específica)"
 # 9bba291878f044098026a245bb0eaa9a
 #: ../../howtos/backend.rst:268
 msgid "by clicking on buttons in views (if these are connected to actions)"
-msgstr ""
-"haciendo click en botones en las vistas (si éstos están conectados a acciones)"
+msgstr "haciendo click en botones en las vistas (si éstos están conectados a acciones)"
 
 # bfa8a868ced9447787e2e6faadff88ae
 #: ../../howtos/backend.rst:269
@@ -647,20 +634,18 @@ msgstr "como acciones contextuales en el objeto"
 # c39fcd51372e4eb0b2846421d5ab66eb
 #: ../../howtos/backend.rst:271
 msgid ""
-"Because menus are somewhat complex to declare there is a ``<menuitem>`` shortcut "
-"to declare an ``ir.ui.menu`` and connect it to the corresponding action more "
-"easily."
+"Because menus are somewhat complex to declare there is a ``<menuitem>`` shortcut to "
+"declare an ``ir.ui.menu`` and connect it to the corresponding action more easily."
 msgstr ""
-"Ya que los menús son algo complejos de declarar, hay un acceso directo "
-"``<menuitem>`` para declarar un ``ir.ui.menu`` y así enlazarlo con mayor "
-"facilidad a la acción correspondiente."
+"Ya que los menús son algo complejos de declarar, hay un acceso directo ``<menuitem>`` "
+"para declarar un ``ir.ui.menu`` y así enlazarlo con mayor facilidad a la acción "
+"correspondiente."
 
 # 5fd797fdb1864271888e3c4951f210ec
 #: ../../howtos/backend.rst:288
 msgid "The action must be declared before its corresponding menu in the XML file."
 msgstr ""
-"La acción debe declararse antes de declarar el menú correspondiente en el "
-"archivo XML."
+"La acción debe declararse antes de declarar el menú correspondiente en el archivo XML."
 
 # a3454a92f6374616af001b6bb78fae64
 #: ../../howtos/backend.rst:290
@@ -668,8 +653,8 @@ msgid ""
 "Data files are executed sequentially, the action's ``id`` must be present in the "
 "database before the menu can be created."
 msgstr ""
-"Los archivos de datos se ejecutan secuencialmente, el ``id`` de la acción debe "
-"estar presente en la base de datos antes de que se pueda crear el menú."
+"Los archivos de datos se ejecutan secuencialmente, el ``id`` de la acción debe estar "
+"presente en la base de datos antes de que se pueda crear el menú."
 
 # fe08a62ff3524a459627f11ab399ec79
 #: ../../howtos/backend.rst:293
@@ -678,13 +663,12 @@ msgstr "Definir nuevas entradas de menú"
 
 # 59db2c9fe0314253b8596d67dc83e254
 #: ../../howtos/backend.rst:295
-#, fuzzy
 msgid ""
-"Define new menu entries to access courses under the OpenAcademy menu entry. A "
-"user should be able to :"
+"Define new menu entries to access courses under the OpenAcademy menu entry. A user "
+"should be able to :"
 msgstr ""
-"Definir nuevas entradas de menú para acceder a cursos y sesiones en la entrada "
-"del menú OpenAcademy. Un usuario debe ser capaz de"
+"Definir nuevas entradas de menú para acceder a cursos bajo la entrada del menú "
+"OpenAcademy. Un usuario debería ser capaz de :"
 
 # 88241759e4f74e328eb98fb120ce3a07
 #: ../../howtos/backend.rst:298
@@ -699,11 +683,11 @@ msgstr "crear o modificar cursos"
 # e97fb78a75cb40fea8179429af952e15
 #: ../../howtos/backend.rst:303
 msgid ""
-"Create ``openacademy/views/openacademy.xml`` with an action and the menus "
-"triggering the action"
+"Create ``openacademy/views/openacademy.xml`` with an action and the menus triggering "
+"the action"
 msgstr ""
-"Crear ``openacademy/views/openacademy.xml`` con una acción y los menús para "
-"activar la acción"
+"Crear ``openacademy/views/openacademy.xml`` con una acción y los menús para activar "
+"la acción"
 
 # 738c63d91a95466ca73b2c95c6197688
 #: ../../howtos/backend.rst:305
@@ -719,28 +703,27 @@ msgstr "Vistas Básicas"
 #: ../../howtos/backend.rst:312
 msgid ""
 "Views define the way the records of a model are displayed. Each type of view "
-"represents a mode of visualization (a list of records, a graph of their "
-"aggregation, …). Views can either be requested generically via their type (e.g. "
-"*a list of partners*) or specifically via their id. For generic requests, the "
-"view with the correct type and the lowest priority will be used (so the lowest-"
-"priority view of each type is the default view for that type)."
+"represents a mode of visualization (a list of records, a graph of their aggregation, "
+"…). Views can either be requested generically via their type (e.g. *a list of "
+"partners*) or specifically via their id. For generic requests, the view with the "
+"correct type and the lowest priority will be used (so the lowest-priority view of "
+"each type is the default view for that type)."
 msgstr ""
-"Las vistas definen el modo que se muestran los registros de un modelo. Cada tipo "
-"de vista representa un modo de visualización (una lista de registros, un gráfico,"
-"…). Las vistas se pueden solicitar ya sea de manera genérica a través de su tipo "
-"(por ejemplo una *lista de clientes*) o de especificando su id. Para solicitudes "
-"genéricas, se utilizará la vista con el tipo y la prioridad más baja (por lo que "
-"la vista de la prioridad más baja de cada tipo es la vista predeterminada para "
-"ese tipo)."
+"Las vistas definen el modo que se muestran los registros de un modelo. Cada tipo de "
+"vista representa un modo de visualización (una lista de registros, un gráfico,…). Las "
+"vistas se pueden solicitar ya sea de manera genérica a través de su tipo (por ejemplo "
+"una *lista de clientes*) o de especificando su id. Para solicitudes genéricas, se "
+"utilizará la vista con el tipo y la prioridad más baja (por lo que la vista de la "
+"prioridad más baja de cada tipo es la vista predeterminada para ese tipo)."
 
 # 89945b71d8be4f9c867490ff6c169b83
 #: ../../howtos/backend.rst:320
 msgid ""
-":ref:`View inheritance <reference/views/inheritance>` allows altering views "
-"declared elsewhere (adding or removing content)."
+":ref:`View inheritance <reference/views/inheritance>` allows altering views declared "
+"elsewhere (adding or removing content)."
 msgstr ""
-":ref:`La herencia de Vistas <reference/views/inheritance>` permite modificar "
-"vistas declaradas en otros lugares (agregar o quitar contenido)."
+":ref:`La herencia de Vistas <reference/views/inheritance>` permite modificar vistas "
+"declaradas en otros lugares (agregar o quitar contenido)."
 
 # b34faa600ece4baf9da6b019ed0d88d9
 #: ../../howtos/backend.rst:324
@@ -750,11 +733,11 @@ msgstr "Declaración de vista genérica"
 # 5519105817254b7c86b7fe23c5cfc175
 #: ../../howtos/backend.rst:326
 msgid ""
-"A view is declared as a record of the model ``ir.ui.view``. The view type is "
-"implied by the root element of the ``arch`` field:"
+"A view is declared as a record of the model ``ir.ui.view``. The view type is implied "
+"by the root element of the ``arch`` field:"
 msgstr ""
-"Una vista es declarada como un registro de el modelo ``ir.ui.view``. El tipo de "
-"vista es implícita en el elemento raíz del campo ``arch``:"
+"Una vista es declarada como un registro de el modelo ``ir.ui.view``. El tipo de vista "
+"es implícita en el elemento raíz del campo ``arch``:"
 
 # 73ffbeab9b03422caf2d7fad6ea90422
 #: ../../howtos/backend.rst:340
@@ -764,8 +747,7 @@ msgstr "El contenido de la vista es XML."
 # 943739aad102404ab7c576249d6da2c2
 #: ../../howtos/backend.rst:343
 msgid ""
-"The ``arch`` field must thus be declared as ``type=\"xml\"`` to be parsed "
-"correctly."
+"The ``arch`` field must thus be declared as ``type=\"xml\"`` to be parsed correctly."
 msgstr ""
 "El campo ``arch`` debe ser declarado como ``type =“xml”`` para que sea analizado "
 "correctamente."
@@ -780,18 +762,17 @@ msgstr "Vistas de árbol"
 #: ../../howtos/backend.rst:349
 msgid "Tree views, also called list views, display records in a tabular form."
 msgstr ""
-"Vistas de árbol, también llamadas vistas de lista, mostrarán registros en forma "
-"de tabla."
+"Vistas de árbol, también llamadas vistas de lista, mostrarán registros en forma de "
+"tabla."
 
 # 367d6acda4384ab7a83360752eacf1bf
 #: ../../howtos/backend.rst:351
 msgid ""
-"Their root element is ``<tree>``. The simplest form of the tree view simply "
-"lists all the fields to display in the table (each field as a column):"
+"Their root element is ``<tree>``. The simplest form of the tree view simply lists all "
+"the fields to display in the table (each field as a column):"
 msgstr ""
-"Su elemento raíz es ``<tree>``. La forma más simple de la vista de árbol "
-"simplemente lista todos los campos a mostrar en la tabla (cada campo como una "
-"columna):"
+"Su elemento raíz es ``<tree>``. La forma más simple de la vista de árbol simplemente "
+"lista todos los campos a mostrar en la tabla (cada campo como una columna):"
 
 # 2f900556fb8749478e037c9511dd45b1
 #: ../../howtos/backend.rst:362
@@ -807,11 +788,11 @@ msgstr "Formularios se utilizan para crear y editar registros individuales."
 #: ../../howtos/backend.rst:367
 #, fuzzy
 msgid ""
-"Their root element is ``<form>``. They are composed of high-level structure "
-"elements (groups, notebooks) and interactive elements (buttons and fields):"
+"Their root element is ``<form>``. They are composed of high-level structure elements "
+"(groups, notebooks) and interactive elements (buttons and fields):"
 msgstr ""
-"El elemento raíz es ``<form>``. Se compone de una estructura de alto nivel "
-"(*groups, notebooks*) y los elementos interactivos (*buttons y fields*):"
+"El elemento raíz es ``<form>``. Se compone de una estructura de alto nivel (*groups, "
+"notebooks*) y los elementos interactivos (*buttons y fields*):"
 
 # a08f127259f84630955211abae0e420f
 #: ../../howtos/backend.rst:396
@@ -821,8 +802,8 @@ msgstr "Personalizar vista de formulario usando XML"
 # 4e31a8857064479cb363e4f1bfd53836
 #: ../../howtos/backend.rst:398
 msgid ""
-"Create your own form view for the Course object. Data displayed should be: the "
-"name and the description of the course."
+"Create your own form view for the Course object. Data displayed should be: the name "
+"and the description of the course."
 msgstr ""
 "Crear una vista formulario propia para el objeto ``Course``. Los datos mostrados "
 "deben ser: el nombre y la descripción del curso."
@@ -835,12 +816,12 @@ msgstr "Notebooks"
 # a3ab22d2420140fdbc4d8615d1707e34
 #: ../../howtos/backend.rst:407
 msgid ""
-"In the Course form view, put the description field under a tab, such that it "
-"will be easier to add other tabs later, containing additional information."
+"In the Course form view, put the description field under a tab, such that it will be "
+"easier to add other tabs later, containing additional information."
 msgstr ""
-"En la vista formulario de un curso, poner el campo ``description`` en una "
-"pestaña,  de tal manera que será más fácil añadir más tarde otras pestañas que "
-"contengan información adicional."
+"En la vista formulario de un curso, poner el campo ``description`` en una pestaña,  "
+"de tal manera que será más fácil añadir más tarde otras pestañas que contengan "
+"información adicional."
 
 # 723089cedf4044d38899fbccf1814c0f
 #: ../../howtos/backend.rst:413
@@ -851,8 +832,7 @@ msgstr "Modificar la vista de formulario de curso como sigue:"
 #: ../../howtos/backend.rst:417
 msgid "Form views can also use plain HTML for more flexible layouts:"
 msgstr ""
-"Vistas de formulario también pueden utilizar HTML plano para diseños más "
-"flexibles:"
+"Vistas de formulario también pueden utilizar HTML plano para diseños más flexibles:"
 
 # f863ea37c7da48d58d1a0c652bbe7f7e
 # 704a9653baec4e2b96d27f73ba14270a
@@ -866,12 +846,12 @@ msgstr "Vistas de búsqueda"
 #: ../../howtos/backend.rst:446
 msgid ""
 "Search views customize the search field associated with the list view (and other "
-"aggregated views). Their root element is ``<search>`` and they're composed of "
-"fields defining which fields can be searched on:"
+"aggregated views). Their root element is ``<search>`` and they're composed of fields "
+"defining which fields can be searched on:"
 msgstr ""
 "Vistas de búsqueda personalizan los campos de búsqueda asociados con la vista de "
-"lista (y otras vistas agregadas). Su elemento raíz es ``<search>`` y están "
-"compuestas por campos que definen cuales los campos por los que se pueden buscar:"
+"lista (y otras vistas agregadas). Su elemento raíz es ``<search>`` y están compuestas "
+"por campos que definen cuales los campos por los que se pueden buscar:"
 
 # 4f0ebe29ffc6429194333a0b8af6a1c6
 #: ../../howtos/backend.rst:457
@@ -879,8 +859,8 @@ msgid ""
 "If no search view exists for the model, Odoo generates one which only allows "
 "searching on the ``name`` field."
 msgstr ""
-"Si no existe ninguna vista de búsqueda para el modelo, Odoo genera "
-"automáticamente una la cual permite la búsqueda por el campo ``name``."
+"Si no existe ninguna vista de búsqueda para el modelo, Odoo genera automáticamente "
+"una la cual permite la búsqueda por el campo ``name``."
 
 # c7bab96c0e684571b91d33a0db8c480a
 #: ../../howtos/backend.rst:460
@@ -900,14 +880,14 @@ msgstr "Relaciones entre modelos"
 # 02575495e1c144dab85e8d221b0d5134
 #: ../../howtos/backend.rst:471
 msgid ""
-"A record from a model may be related to a record from another model. For "
-"instance, a sale order record is related to a client record that contains the "
-"client data; it is also related to its sale order line records."
+"A record from a model may be related to a record from another model. For instance, a "
+"sale order record is related to a client record that contains the client data; it is "
+"also related to its sale order line records."
 msgstr ""
-"Un registro de un modelo puede estar relacionado con un registro de otro modelo. "
-"Por ejemplo, un registro de orden de venta se relaciona con un registro de "
-"cliente que contiene los datos del cliente; también está relacionado con los "
-"registros de línea de orden de venta."
+"Un registro de un modelo puede estar relacionado con un registro de otro modelo. Por "
+"ejemplo, un registro de orden de venta se relaciona con un registro de cliente que "
+"contiene los datos del cliente; también está relacionado con los registros de línea "
+"de orden de venta."
 
 # be3ce502205a474f992553b49da9f1c4
 #: ../../howtos/backend.rst:475
@@ -920,19 +900,19 @@ msgid ""
 "For the module Open Academy, we consider a model for *sessions*: a session is an "
 "occurrence of a course taught at a given time for a given audience."
 msgstr ""
-"Para el módulo Open Academy, consideramos un modelo *sessions*: una sesión es "
-"cuando un curso es impartido en un momento dado para un público determinado."
+"Para el módulo Open Academy, consideramos un modelo *sessions*: una sesión es cuando "
+"un curso es impartido en un momento dado para un público determinado."
 
 # 52a6f7a69d3f4d4ba110c3362d9bc133
 #: ../../howtos/backend.rst:480
 msgid ""
-"Create a model for *sessions*. A session has a name, a start date, a duration "
-"and a number of seats. Add an action and a menu item to display them. Make the "
-"new model visible via a menu item."
+"Create a model for *sessions*. A session has a name, a start date, a duration and a "
+"number of seats. Add an action and a menu item to display them. Make the new model "
+"visible via a menu item."
 msgstr ""
-"Crear un modelo para *sessions*. Una sesión tiene un nombre, una fecha de "
-"inicio, una duración y un número de asientos. Agregue una acción y un elemento "
-"de menú a los mismos. Visualizar el nuevo modelo a través de un menú."
+"Crear un modelo para *sessions*. Una sesión tiene un nombre, una fecha de inicio, una "
+"duración y un número de asientos. Agregue una acción y un elemento de menú a los "
+"mismos. Visualizar el nuevo modelo a través de un menú."
 
 # 2356ab0626a746d389d55512013d6dd6
 #: ../../howtos/backend.rst:486
@@ -942,20 +922,18 @@ msgstr "Crear la clase *Session* en ``openacademy/models/models.py``."
 # 36586c5e75f643b8a06b200e69cea053
 #: ../../howtos/backend.rst:487
 msgid "Add access to the session object in ``openacademy/view/openacademy.xml``."
-msgstr ""
-"Añadir el acceso al objeto *session* en ``openacademy/view/openacademy.xml``."
+msgstr "Añadir el acceso al objeto *session* en ``openacademy/view/openacademy.xml``."
 
 # 745ee91774fd47e384755fd889773682
 #: ../../howtos/backend.rst:491
 msgid ""
-"``digits=(6, 2)`` specifies the precision of a float number: 6 is the total "
-"number of digits, while 2 is the number of digits after the comma. Note that it "
-"results in the number digits before the comma is a maximum 4"
+"``digits=(6, 2)`` specifies the precision of a float number: 6 is the total number of "
+"digits, while 2 is the number of digits after the comma. Note that it results in the "
+"number digits before the comma is a maximum 4"
 msgstr ""
-"``digits=(6, 2)`` especifica la precisión de un número flotante: 6 es el número "
-"total de dígitos, mientras que 2 es el número de dígitos después de la coma. "
-"Tenga en cuenta que da el resultado es que los dígitos antes de la coma es un "
-"máximo de 4"
+"``digits=(6, 2)`` especifica la precisión de un número flotante: 6 es el número total "
+"de dígitos, mientras que 2 es el número de dígitos después de la coma. Tenga en "
+"cuenta que da el resultado es que los dígitos antes de la coma es un máximo de 4"
 
 # 8cf0de846fc649afb59554024621cd2d
 #: ../../howtos/backend.rst:497
@@ -965,11 +943,11 @@ msgstr "Campos Relacionales"
 # 4f226e8717f44759866327be9df4c447
 #: ../../howtos/backend.rst:499
 msgid ""
-"Relational fields link records, either of the same model (hierarchies) or "
-"between different models."
+"Relational fields link records, either of the same model (hierarchies) or between "
+"different models."
 msgstr ""
-"Los campos relacionales vinculan registros, ya sea del mismo modelo (jerarquías) "
-"o entre diferentes modelos."
+"Los campos relacionales vinculan registros, ya sea del mismo modelo (jerarquías) o "
+"entre diferentes modelos."
 
 # 9202cbbe9d314e1482714c7a28c52ee8
 #: ../../howtos/backend.rst:502
@@ -988,10 +966,8 @@ msgstr "Un simple enlace a otro objeto::"
 
 # 049d077cc0164bea942bf5e63582817d
 #: ../../howtos/backend.rst:509
-msgid ""
-"`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
-msgstr ""
-"`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
+msgid "`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
+msgstr "`foreign keys <http://www.postgresql.org/docs/9.3/static/tutorial-fk.html>`_"
 
 # d4f7444d55ec42f68017dd5c2fe3103d
 #: ../../howtos/backend.rst:523
@@ -1001,25 +977,25 @@ msgstr ":class:`One2many(other_model, related_field) <odoo.fields.One2many>`"
 # 00f6b48afd394166beb783134a0db784
 #: ../../howtos/backend.rst:512
 msgid ""
-"A virtual relationship, inverse of a :class:`~odoo.fields.Many2one`. A :class:"
-"`~odoo.fields.One2many` behaves as a container of records, accessing it results "
-"in a (possibly empty) set of records::"
+"A virtual relationship, inverse of a :class:`~odoo.fields.Many2one`. A :class:`~odoo."
+"fields.One2many` behaves as a container of records, accessing it results in a "
+"(possibly empty) set of records::"
 msgstr ""
-"Una relación virtual, inverso a un :class:`~odoo.fields.Many2one`. Un :class:"
-"`~odoo.fields.One2many` se comporta como contenedor de registros, accediendo a "
-"sus resultados en un (posiblemente vacío) conjunto de registros::"
+"Una relación virtual, inverso a un :class:`~odoo.fields.Many2one`. Un :class:`~odoo."
+"fields.One2many` se comporta como contenedor de registros, accediendo a sus "
+"resultados en un (posiblemente vacío) conjunto de registros::"
 
 # e194e520bbd24fff9e1bccc1fab387b6
 #: ../../howtos/backend.rst:521
 #, fuzzy
 msgid ""
-"Because a :class:`~odoo.fields.One2many` is a virtual relationship, there *must* "
-"be a :class:`~odoo.fields.Many2one` field in the :samp:`{other_model}`, and its "
-"name *must* be :samp:`{related_field}`"
+"Because a :class:`~odoo.fields.One2many` is a virtual relationship, there *must* be "
+"a :class:`~odoo.fields.Many2one` field in the :samp:`{other_model}`, and its name "
+"*must* be :samp:`{related_field}`"
 msgstr ""
-"Debido a que un :class:`~odoo.fields.One2many` es una relación virtual, *debe* "
-"haber un campo :class:`~odoo.fields.Many2one` en :samp:`{other_model}`, y su "
-"nombre *debe ser*  :samp:`{related_field}`."
+"Debido a que un :class:`~odoo.fields.One2many` es una relación virtual, *debe* haber "
+"un campo :class:`~odoo.fields.Many2one` en :samp:`{other_model}`, y su nombre *debe "
+"ser*  :samp:`{related_field}`."
 
 # ad8d052c030d411eb3b35bffeceebe99
 #: ../../howtos/backend.rst:531
@@ -1029,14 +1005,14 @@ msgstr ":class:`Many2many(other_model) <odoo.fields.Many2many>`"
 # 53f659512af843a596c110bdcce06046
 #: ../../howtos/backend.rst:526
 msgid ""
-"Bidirectional multiple relationship, any record on one side can be related to "
-"any number of records on the other side. Behaves as a container of records, "
-"accessing it also results in a possibly empty set of records::"
+"Bidirectional multiple relationship, any record on one side can be related to any "
+"number of records on the other side. Behaves as a container of records, accessing it "
+"also results in a possibly empty set of records::"
 msgstr ""
 "Relación bidireccional múltiple, cualquier registro en un lado puede estar "
-"relacionada con cualquier número de registros en el otro lado. Se comporta como "
-"un contenedor de registros, al acceder a él también se puede traducir en una "
-"lista vacía de registros::"
+"relacionada con cualquier número de registros en el otro lado. Se comporta como un "
+"contenedor de registros, al acceder a él también se puede traducir en una lista vacía "
+"de registros::"
 
 # 0a2325d9a0ef4797aae2ba70e880fd63
 #: ../../howtos/backend.rst:533
@@ -1046,8 +1022,8 @@ msgstr "Relaciones Many2one"
 # cc0a74cc18c44ecca5fb278059ac2c0d
 #: ../../howtos/backend.rst:535
 msgid ""
-"Using a many2one, modify the *Course* and *Session* models to reflect their "
-"relation with other models:"
+"Using a many2one, modify the *Course* and *Session* models to reflect their relation "
+"with other models:"
 msgstr ""
 "Usando un many2one, modificar los modelos *Course* y *Session*  para reflejar su "
 "relación con otros modelos:"
@@ -1055,29 +1031,29 @@ msgstr ""
 # 50e37e217fd4436a954ca8b787950c2c
 #: ../../howtos/backend.rst:538
 msgid ""
-"A course has a *responsible* user; the value of that field is a record of the "
-"built-in model ``res.users``."
+"A course has a *responsible* user; the value of that field is a record of the built-"
+"in model ``res.users``."
 msgstr ""
-"Un curso tiene un usuario *responsible*; el valor de ese campo es un registro "
-"del modelo integrado ``res.users``."
+"Un curso tiene un usuario *responsible*; el valor de ese campo es un registro del "
+"modelo integrado ``res.users``."
 
 # 82249133672341b8b3a35280ec5e7073
 #: ../../howtos/backend.rst:540
 msgid ""
-"A session has an *instructor*; the value of that field is a record of the built-"
-"in model ``res.partner``."
+"A session has an *instructor*; the value of that field is a record of the built-in "
+"model ``res.partner``."
 msgstr ""
-"Una sesión tiene un *instructor*; el valor de ese campo es un registro del "
-"modelo integrado ``res.partner``."
+"Una sesión tiene un *instructor*; el valor de ese campo es un registro del modelo "
+"integrado ``res.partner``."
 
 # 0056d3feb258491e87a1621f0c8475c5
 #: ../../howtos/backend.rst:542
 msgid ""
-"A session is related to a *course*; the value of that field is a record of the "
-"model ``openacademy.course`` and is required."
+"A session is related to a *course*; the value of that field is a record of the model "
+"``openacademy.course`` and is required."
 msgstr ""
-"Una sesión se refiere a un *course*; el valor de ese campo es un registro del "
-"modelo ``openacademy.course`` y es requerido."
+"Una sesión se refiere a un *course*; el valor de ese campo es un registro del modelo "
+"``openacademy.course`` y es requerido."
 
 # b3cf83eaf10e46fda87b494bb9d23350
 #: ../../howtos/backend.rst:544
@@ -1105,8 +1081,8 @@ msgid ""
 "Using the inverse relational field one2many, modify the models to reflect the "
 "relation between courses and sessions."
 msgstr ""
-"Utilizando el campo relacional inverso one2many, modificar los modelos para "
-"reflejar la relación entre los cursos y sesiones."
+"Utilizando el campo relacional inverso one2many, modificar los modelos para reflejar "
+"la relación entre los cursos y sesiones."
 
 # acf280eb58dd4f078e4dbd73fdefdee6
 #: ../../howtos/backend.rst:560
@@ -1127,14 +1103,13 @@ msgstr "Relaciones Many2Many múltiples"
 #: ../../howtos/backend.rst:567
 msgid ""
 "Using the relational field many2many, modify the *Session* model to relate every "
-"session to a set of *attendees*. Attendees will be represented by partner "
-"records, so we will relate to the built-in model ``res.partner``. Adapt the "
-"views accordingly."
+"session to a set of *attendees*. Attendees will be represented by partner records, so "
+"we will relate to the built-in model ``res.partner``. Adapt the views accordingly."
 msgstr ""
 "Utilizando el campo relacional Many2Many, modificar el modelo de *Session* para "
 "relacionar cada sesión a un conjunto de *attendees*. Los asistentes estarán "
-"representados por los registros *partners*, por lo que se relacionan con el "
-"modelo ``res.partner``. Adaptar las vistas en consecuencia."
+"representados por los registros *partners*, por lo que se relacionan con el modelo "
+"``res.partner``. Adaptar las vistas en consecuencia."
 
 # d9a8caac74084ceeb7d2ecb86a0223b6
 #: ../../howtos/backend.rst:574
@@ -1159,20 +1134,20 @@ msgstr "Herencia de modelos"
 # c437c26daba14a5bb52c0d3f0456b421
 #: ../../howtos/backend.rst:585
 msgid ""
-"Odoo provides two *inheritance* mechanisms to extend an existing model in a "
-"modular way."
+"Odoo provides two *inheritance* mechanisms to extend an existing model in a modular "
+"way."
 msgstr ""
-"Odoo proporciona dos mecanismos de *herencia* para extender un modelo existente "
-"de forma modular."
+"Odoo proporciona dos mecanismos de *herencia* para extender un modelo existente de "
+"forma modular."
 
 # 5d2a08b70cc946c281a8842957572fd3
 #: ../../howtos/backend.rst:588
 msgid ""
-"The first inheritance mechanism allows a module to modify the behavior of a "
-"model defined in another module:"
+"The first inheritance mechanism allows a module to modify the behavior of a model "
+"defined in another module:"
 msgstr ""
-"El primer mecanismo de herencia permite a un módulo modificar el comportamiento "
-"de un modelo definido en otro módulo:"
+"El primer mecanismo de herencia permite a un módulo modificar el comportamiento de un "
+"modelo definido en otro módulo:"
 
 # 411ec95345bc423191a2dc20cfcba2b8
 #: ../../howtos/backend.rst:591
@@ -1202,13 +1177,13 @@ msgstr "reemplazar los métodos existentes en un modelo."
 # 20e30bcd78b94d878b3cf76cbdf37992
 #: ../../howtos/backend.rst:597
 msgid ""
-"The second inheritance mechanism (delegation) allows to link every record of a "
-"model to a record in a parent model, and provides transparent access to the "
-"fields of the parent record."
+"The second inheritance mechanism (delegation) allows to link every record of a model "
+"to a record in a parent model, and provides transparent access to the fields of the "
+"parent record."
 msgstr ""
-"El segundo mecanismo de herencia (delegación) permite vincular cada registro de "
-"un modelo a un registro en un modelo padre, y proporciona un acceso transparente "
-"a los campos del registro padre."
+"El segundo mecanismo de herencia (delegación) permite vincular cada registro de un "
+"modelo a un registro en un modelo padre, y proporciona un acceso transparente a los "
+"campos del registro padre."
 
 # c106d794c2df4092a6ab4a9afc6c6ceb
 #: ../../howtos/backend.rst:606
@@ -1228,25 +1203,25 @@ msgstr "Herencia de vistas"
 # ab2d530d811c43a0ac4ded1ebb5fb9be
 #: ../../howtos/backend.rst:612
 msgid ""
-"Instead of modifying existing views in place (by overwriting them), Odoo "
-"provides view inheritance where children \"extension\" views are applied on top "
-"of root views, and can add or remove content from their parent."
+"Instead of modifying existing views in place (by overwriting them), Odoo provides "
+"view inheritance where children \"extension\" views are applied on top of root views, "
+"and can add or remove content from their parent."
 msgstr ""
-"En lugar de modificar las vistas existentes en el lugar (sobrescribiéndolos), "
-"Odoo proporciona herencia de vistas, donde las vistas hijas ``extensión`` se "
-"aplican en la parte superior de la vista de la raíz, y se puede añadir o "
-"eliminar contenido de sus padres."
+"En lugar de modificar las vistas existentes en el lugar (sobrescribiéndolos), Odoo "
+"proporciona herencia de vistas, donde las vistas hijas ``extensión`` se aplican en la "
+"parte superior de la vista de la raíz, y se puede añadir o eliminar contenido de sus "
+"padres."
 
 # 2a3c33a83136467f9642df5953fdcabc
 #: ../../howtos/backend.rst:616
 msgid ""
-"An extension view references its parent using the ``inherit_id`` field, and "
-"instead of a single view its ``arch`` field is composed of any number of "
-"``xpath`` elements selecting and altering the content of their parent view:"
+"An extension view references its parent using the ``inherit_id`` field, and instead "
+"of a single view its ``arch`` field is composed of any number of ``xpath`` elements "
+"selecting and altering the content of their parent view:"
 msgstr ""
-"Una vista de extensión hace referencia a su padre con el campo ``inherit_id``, y "
-"en lugar de una vista el campo ``arch`` se compone de cualquier número de "
-"``xpath``, elementos que seleccionan y modifican el contenido de su vista padre:"
+"Una vista de extensión hace referencia a su padre con el campo ``inherit_id``, y en "
+"lugar de una vista el campo ``arch`` se compone de cualquier número de ``xpath``, "
+"elementos que seleccionan y modifican el contenido de su vista padre:"
 
 # ee33defad51843228acf2b9faf1e24e2
 #: ../../howtos/backend.rst:637
@@ -1256,11 +1231,11 @@ msgstr "``expr``"
 # a3c6373c57104c26bea6ae84872e1089
 #: ../../howtos/backend.rst:637
 msgid ""
-"An XPath_ expression selecting a single element in the parent view. Raises an "
-"error if it matches no element or more than one"
+"An XPath_ expression selecting a single element in the parent view. Raises an error "
+"if it matches no element or more than one"
 msgstr ""
-"Una expresión XPath_ es la selección de un solo elemento en la vista padre. "
-"Genera un error si no coincide con ningún elemento o más de uno"
+"Una expresión XPath_ es la selección de un solo elemento en la vista padre. Genera un "
+"error si no coincide con ningún elemento o más de uno"
 
 # 729e412c9fbc4997accc13e6d36f2da2
 #: ../../howtos/backend.rst:653
@@ -1290,8 +1265,8 @@ msgstr "``replace``"
 # 6ccbb2b6387c4846a9a712237551d922
 #: ../../howtos/backend.rst:645
 msgid ""
-"replaces the matched element with the ``xpath``'s body, replacing any ``$0`` "
-"node occurrence in the new body with the original element"
+"replaces the matched element with the ``xpath``'s body, replacing any ``$0`` node "
+"occurrence in the new body with the original element"
 msgstr ""
 
 # c9b0e63c202545628df9912de33f01d0
@@ -1302,8 +1277,7 @@ msgstr "``before``"
 # 13c5457df33d44d286b124f9a0c79151
 #: ../../howtos/backend.rst:648
 msgid "inserts the ``xpath``'s body as a sibling before the matched element"
-msgstr ""
-"inserta el cuerpo del ``xpath`` como un hermano antes del elemento emparejado"
+msgstr "inserta el cuerpo del ``xpath`` como un hermano antes del elemento emparejado"
 
 # ea7345d632bf4391b9edd8af664183fa
 #: ../../howtos/backend.rst:649
@@ -1313,8 +1287,7 @@ msgstr "``after``"
 # efbb43660d104aa0bd8a7b870efa87d3
 #: ../../howtos/backend.rst:650
 msgid "inserts the ``xpaths``'s body as a sibling after the matched element"
-msgstr ""
-"inserta el cuerpo de ``xpaths`` como un hermano después del elemento emparejado"
+msgstr "inserta el cuerpo de ``xpaths`` como un hermano después del elemento emparejado"
 
 # 10c21b620a294374a7343c7768d1c696
 #: ../../howtos/backend.rst:653
@@ -1324,8 +1297,8 @@ msgstr "``attributes``"
 # 4c024116eb184f428f13cdaa9186c5d8
 #: ../../howtos/backend.rst:652
 msgid ""
-"alters the attributes of the matched element using special ``attribute`` "
-"elements in the ``xpath``'s body"
+"alters the attributes of the matched element using special ``attribute`` elements in "
+"the ``xpath``'s body"
 msgstr ""
 "altera los atributos del elemento coincidente utilizando elementos ``attribute`` "
 "especiales en el cuerpo de ``xpath``"
@@ -1333,12 +1306,12 @@ msgstr ""
 # 56e9df3142734cafbbcc5c12e2555406
 #: ../../howtos/backend.rst:657
 msgid ""
-"When matching a single element, the ``position`` attribute can be set directly "
-"on the element to be found. Both inheritances below will give the same result."
+"When matching a single element, the ``position`` attribute can be set directly on the "
+"element to be found. Both inheritances below will give the same result."
 msgstr ""
-"En la concordancia de un solo elemento, el atributo ``position`` se puede "
-"establecer directamente sobre el elemento que se encuentra. Ambas herencias a "
-"continuación le dará el mismo resultado."
+"En la concordancia de un solo elemento, el atributo ``position`` se puede establecer "
+"directamente sobre el elemento que se encuentra. Ambas herencias a continuación le "
+"dará el mismo resultado."
 
 # 92ed2009f2524be89b7a4e399d52438e
 #: ../../howtos/backend.rst:671
@@ -1348,26 +1321,24 @@ msgstr "Alterar el contenido existente"
 # 06e535c2f9134f22b61799b81804f3ff
 #: ../../howtos/backend.rst:673
 msgid ""
-"Using model inheritance, modify the existing *Partner* model to add an "
-"``instructor`` boolean field, and a many2many field that corresponds to the "
-"session-partner relation"
+"Using model inheritance, modify the existing *Partner* model to add an ``instructor`` "
+"boolean field, and a many2many field that corresponds to the session-partner relation"
 msgstr ""
-"Utilizando el modelo de herencia, modificar el modelo *Partner* y añadir un "
-"campo boolean llamado ``Instructor`` y un campo many2many que correspondería a "
-"la relación de session-partner"
+"Utilizando el modelo de herencia, modificar el modelo *Partner* y añadir un campo "
+"boolean llamado ``Instructor`` y un campo many2many que correspondería a la relación "
+"de session-partner"
 
 # e796bef6b92e4c0d8a9927cec5b7e44b
 #: ../../howtos/backend.rst:676
 msgid "Using view inheritance, display this fields in the partner form view"
 msgstr ""
-"Mediante herencia de vista, mostrar este campo en la vista Formulario de "
-"*partner*"
+"Mediante herencia de vista, mostrar este campo en la vista Formulario de *partner*"
 
 # 9445ba36ad3d4e6fa5685fefaaccf8c6
 #: ../../howtos/backend.rst:682
 msgid ""
-"This is the opportunity to introduce the developer mode to inspect the view, "
-"find its external ID and the place to put the new field."
+"This is the opportunity to introduce the developer mode to inspect the view, find its "
+"external ID and the place to put the new field."
 msgstr ""
 "Esta es la oportunidad para presentar el modo desarrollador para inspeccionar la "
 "vista, conocer su ID externo y el lugar para poner el nuevo campo."
@@ -1375,8 +1346,7 @@ msgstr ""
 # 51184699c82140079351f385803a325c
 #: ../../howtos/backend.rst:686
 #, fuzzy
-msgid ""
-"Create a file ``openacademy/models/partner.py`` and import it in ``__init__.py``"
+msgid "Create a file ``openacademy/models/partner.py`` and import it in ``__init__.py``"
 msgstr "Crear un archivo ``openacademy/partner.py`` e importar en ``__init__.py``"
 
 # cee93db0ac41429b94b0333c4bede5f6
@@ -1384,8 +1354,7 @@ msgstr "Crear un archivo ``openacademy/partner.py`` e importar en ``__init__.py`
 msgid ""
 "Create a file ``openacademy/views/partner.xml`` and add it to ``__manifest__.py``"
 msgstr ""
-"Crear un archivo ``openacademy/views/partner.xml`` y agregarlo al ``__manifest__."
-"py``"
+"Crear un archivo ``openacademy/views/partner.xml`` y agregarlo al ``__manifest__.py``"
 
 # 1ec70e414a1947d6a802487370f79e1a
 #: ../../howtos/backend.rst:694
@@ -1395,14 +1364,14 @@ msgstr "Dominios"
 # 3c0e4b6b72634e4692e2fe391202a541
 #: ../../howtos/backend.rst:696
 msgid ""
-"In Odoo, :ref:`reference/orm/domains` are values that encode conditions on "
-"records. A domain is a  list of criteria used to select a subset of a model's "
-"records. Each criteria is a triple with a field name, an operator and a value."
+"In Odoo, :ref:`reference/orm/domains` are values that encode conditions on records. A "
+"domain is a  list of criteria used to select a subset of a model's records. Each "
+"criteria is a triple with a field name, an operator and a value."
 msgstr ""
-"En Odoo, :ref:`reference/orm/domains` son valores que representan condiciones en "
-"los registros. Un dominio es una lista de criterios utilizados para seleccionar "
-"un subconjunto de registros de un modelo. Cada criterio es una tripleta con un "
-"nombre de campo, un operador y un valor."
+"En Odoo, :ref:`reference/orm/domains` son valores que representan condiciones en los "
+"registros. Un dominio es una lista de criterios utilizados para seleccionar un "
+"subconjunto de registros de un modelo. Cada criterio es una tripleta con un nombre de "
+"campo, un operador y un valor."
 
 # 4e74cc6877b14b0cb91651978972c38f
 #: ../../howtos/backend.rst:700
@@ -1410,34 +1379,33 @@ msgid ""
 "For instance, when used on the *Product* model the following domain selects all "
 "*services* with a unit price over *1000*::"
 msgstr ""
-"Por ejemplo, cuando se usa en el modelo *product* el siguiente dominio "
-"selecciona todos los *services* con un precio unitario mayor *1000*::"
+"Por ejemplo, cuando se usa en el modelo *product* el siguiente dominio selecciona "
+"todos los *services* con un precio unitario mayor *1000*::"
 
 # 5e7bfb50b8d44645a15c9ae8a314975d
 #: ../../howtos/backend.rst:705
 msgid ""
-"By default criteria are combined with an implicit AND. The logical operators "
-"``&`` (AND), ``|`` (OR) and ``!`` (NOT) can be used to explicitly combine "
-"criteria. They are used in prefix position (the operator is inserted before its "
-"arguments rather than between). For instance to select products \"which are "
-"services *OR* have a unit price which is *NOT* between 1000 and 2000\"::"
+"By default criteria are combined with an implicit AND. The logical operators ``&`` "
+"(AND), ``|`` (OR) and ``!`` (NOT) can be used to explicitly combine criteria. They "
+"are used in prefix position (the operator is inserted before its arguments rather "
+"than between). For instance to select products \"which are services *OR* have a unit "
+"price which is *NOT* between 1000 and 2000\"::"
 msgstr ""
-"Por defecto se combinan criterios con un implícito AND. Los operadores lógicos "
-"``&`` (AND), ``|`` (OR) and ``!`` se pueden utilizar para combinar "
-"explícitamente criterios. Se utilizan en posición de prefijo (el operador se "
-"inserta antes de sus argumentos, y no entre). Por ejemplo para seleccionar "
-"productos “que son los servicios *OR (o)* tienen un precio unitario que *NOT "
-"(no)* está entre 1000 y 2000”::"
+"Por defecto se combinan criterios con un implícito AND. Los operadores lógicos ``&`` "
+"(AND), ``|`` (OR) and ``!`` se pueden utilizar para combinar explícitamente "
+"criterios. Se utilizan en posición de prefijo (el operador se inserta antes de sus "
+"argumentos, y no entre). Por ejemplo para seleccionar productos “que son los "
+"servicios *OR (o)* tienen un precio unitario que *NOT (no)* está entre 1000 y 2000”::"
 
 # 9fc65a51f10d401bb1006aadca9223ed
 #: ../../howtos/backend.rst:717
 msgid ""
-"A ``domain`` parameter can be added to relational fields to limit valid records "
-"for the relation when trying to select records in the client interface."
+"A ``domain`` parameter can be added to relational fields to limit valid records for "
+"the relation when trying to select records in the client interface."
 msgstr ""
 "Un parámetro ``dominio`` puede ser añadido a campos relacionales para limitar "
-"registros válidos para esa relación cuando se intenta seleccionar registros en "
-"la interfaz del cliente."
+"registros válidos para esa relación cuando se intenta seleccionar registros en la "
+"interfaz del cliente."
 
 # 1626d0f18510432fa2fed612ffe38a78
 #: ../../howtos/backend.rst:720
@@ -1457,13 +1425,13 @@ msgstr ""
 #: ../../howtos/backend.rst:731
 msgid ""
 "A domain declared as a literal list is evaluated server-side and can't refer to "
-"dynamic values on the right-hand side, a domain declared as a string is "
-"evaluated client-side and allows field names on the right-hand side"
+"dynamic values on the right-hand side, a domain declared as a string is evaluated "
+"client-side and allows field names on the right-hand side"
 msgstr ""
 "Un dominio declarado como una lista literal se evalúa del lado del servidor y no "
-"puede hacer referencia a valores dinámicos en el lado derecho en su declaración, "
-"un dominio declarado como una cadena es evaluado del lado del cliente lo que si "
-"permite son nombres de campo en el lado derecho"
+"puede hacer referencia a valores dinámicos en el lado derecho en su declaración, un "
+"dominio declarado como una cadena es evaluado del lado del cliente lo que si permite "
+"son nombres de campo en el lado derecho"
 
 # b93371f7b8aa453994dbcc7d35d888d3
 #: ../../howtos/backend.rst:736
@@ -1487,11 +1455,10 @@ msgstr "Modificar el dominio del modelo *Session*"
 
 # ef256a15cd3240b0b5ecf37325b117e9
 #: ../../howtos/backend.rst:745
-msgid ""
-"Modify ``openacademy/view/partner.xml`` to get access to *Partner categories*:"
+msgid "Modify ``openacademy/view/partner.xml`` to get access to *Partner categories*:"
 msgstr ""
-"Modificar ``openacademy/view/partner.xml`` para obtener acceso a las categorías "
-"que acabamos de crear:"
+"Modificar ``openacademy/view/partner.xml`` para obtener acceso a las categorías que "
+"acabamos de crear:"
 
 # 05272d6344024cd9a205d616ab9bcec7
 #: ../../howtos/backend.rst:751
@@ -1501,28 +1468,26 @@ msgstr "Campos y valores calculados"
 # 673f4804091c44859bca97235745c927
 #: ../../howtos/backend.rst:753
 msgid ""
-"So far fields have been stored directly in and retrieved directly from the "
-"database. Fields can also be *computed*. In that case, the field's value is not "
-"retrieved from the database but computed on-the-fly by calling a method of the "
-"model."
+"So far fields have been stored directly in and retrieved directly from the database. "
+"Fields can also be *computed*. In that case, the field's value is not retrieved from "
+"the database but computed on-the-fly by calling a method of the model."
 msgstr ""
-"Hasta ahora los campos han sido almacenados y obtenidos directamente de la base "
-"de datos. Los campos también pueden ser *calculados*. En ese caso, el valor del "
-"campo no es obtenido de la base de datos sino calculado al vuelo llamando a un "
-"método en el modelo."
+"Hasta ahora los campos han sido almacenados y obtenidos directamente de la base de "
+"datos. Los campos también pueden ser *calculados*. En ese caso, el valor del campo no "
+"es obtenido de la base de datos sino calculado al vuelo llamando a un método en el "
+"modelo."
 
 # 816ecdc8152046918d1acba8fcdcb966
 #: ../../howtos/backend.rst:758
 #, fuzzy
 msgid ""
-"To create a computed field, create a field and set its attribute :attr:`~odoo."
-"fields.Field.compute` to the name of a method. The computation method should "
-"simply set the value of the field to compute on every record in ``self``."
+"To create a computed field, create a field and set its attribute :attr:`~odoo.fields."
+"Field.compute` to the name of a method. The computation method should simply set the "
+"value of the field to compute on every record in ``self``."
 msgstr ""
-"Para crear un campo calculado, cree un campo y establezca su atributo: :attr:"
-"`~odoo.fields.Field.compute` con el nombre del método. El método de cómputo "
-"simplemente debe establecer el valor del campo calculado en cada registro en "
-"``self``."
+"Para crear un campo calculado, cree un campo y establezca su atributo: :attr:`~odoo."
+"fields.Field.compute` con el nombre del método. El método de cómputo simplemente debe "
+"establecer el valor del campo calculado en cada registro en ``self``."
 
 # 826557bb69c3427ebf4f986e5b3189d0
 #: ../../howtos/backend.rst:763
@@ -1536,17 +1501,17 @@ msgid ""
 "supports the standard Python operations on collections, like ``len(self)`` and "
 "``iter(self)``, plus extra set operations like ``recs1 + recs2``."
 msgstr ""
-"El objeto ``self`` es un *recordset*, es decir, una colección ordenada de "
-"registros. Es compatible con las operaciones estándar de Python en colecciones, "
-"como ``len(self)`` y ``iter(self)``, además de operaciones extra set como "
-"``recs1 + recs2``."
+"El objeto ``self`` es un *recordset*, es decir, una colección ordenada de registros. "
+"Es compatible con las operaciones estándar de Python en colecciones, como "
+"``len(self)`` y ``iter(self)``, además de operaciones extra set como ``recs1 + "
+"recs2``."
 
 # 7f4a28c36a6848b480c63f2c2e146754
 #: ../../howtos/backend.rst:771
 msgid ""
-"Iterating over ``self`` gives the records one by one, where each record is "
-"itself a collection of size 1. You can access/assign fields on single records by "
-"using the dot notation, like ``record.name``."
+"Iterating over ``self`` gives the records one by one, where each record is itself a "
+"collection of size 1. You can access/assign fields on single records by using the dot "
+"notation, like ``record.name``."
 msgstr ""
 "Iterando sobre ``self`` los registros uno por uno, donde cada registro es una "
 "colección de tamaño 1. Puedes acceder/asignar campos a registros individuales "
@@ -1561,17 +1526,17 @@ msgstr "Dependencias"
 #: ../../howtos/backend.rst:794
 #, fuzzy
 msgid ""
-"The value of a computed field usually depends on the values of other fields on "
-"the computed record. The ORM expects the developer to specify those dependencies "
-"on the compute method with the decorator :func:`~odoo.api.depends`. The given "
-"dependencies are used by the ORM to trigger the recomputation of the field "
-"whenever some of its dependencies have been modified::"
+"The value of a computed field usually depends on the values of other fields on the "
+"computed record. The ORM expects the developer to specify those dependencies on the "
+"compute method with the decorator :func:`~odoo.api.depends`. The given dependencies "
+"are used by the ORM to trigger the recomputation of the field whenever some of its "
+"dependencies have been modified::"
 msgstr ""
-"El valor de un campo calculado generalmente depende de los valores de otros "
-"campos en el registro computado. El ORM espera que el programador  especifique "
-"estas dependencias en el método de cálculo con el decorador :func:`~odoo.api."
-"depends`. Las dependencias dadas son utilizadas por el ORM para desencadenar el "
-"recálculo del campo cada vez que se han modificado algunas de sus dependencias::"
+"El valor de un campo calculado generalmente depende de los valores de otros campos en "
+"el registro computado. El ORM espera que el programador  especifique estas "
+"dependencias en el método de cálculo con el decorador :func:`~odoo.api.depends`. Las "
+"dependencias dadas son utilizadas por el ORM para desencadenar el recálculo del campo "
+"cada vez que se han modificado algunas de sus dependencias::"
 
 # bebfe9b55b084369a95dc98ae8ae9f9d
 #: ../../howtos/backend.rst:813
@@ -1612,21 +1577,19 @@ msgstr "Valores por defecto"
 #: ../../howtos/backend.rst:829
 msgid ""
 "Any field can be given a default value. In the field definition, add the option "
-"``default=X`` where ``X`` is either a Python literal value (boolean, integer, "
-"float, string), or a function taking a recordset and returning a value::"
+"``default=X`` where ``X`` is either a Python literal value (boolean, integer, float, "
+"string), or a function taking a recordset and returning a value::"
 msgstr ""
 "Cualquier campo puede tener un valor por defecto. En la definición de campo, se "
 "agrega la opción  ``default=X`` donde ``X`` es un valor literal Python (boolean, "
-"integer, float, string), o una función que toma un conjunto de registros y "
-"devuelve un valor::"
+"integer, float, string), o una función que toma un conjunto de registros y devuelve "
+"un valor::"
 
 # 8f334a99a34e49fe8c85decbcb755a3f
 #: ../../howtos/backend.rst:838
 msgid ""
-"The object ``self.env`` gives access to request parameters and other useful "
-"things:"
-msgstr ""
-"El objeto ``self.env`` da acceso a solicitar parámetros y otras cosas útiles:"
+"The object ``self.env`` gives access to request parameters and other useful things:"
+msgstr "El objeto ``self.env`` da acceso a solicitar parámetros y otras cosas útiles:"
 
 # 65f07b4f6920445696d39ac986732013
 #: ../../howtos/backend.rst:841
@@ -1634,8 +1597,8 @@ msgid ""
 "``self.env.cr`` or ``self._cr`` is the database *cursor* object; it is used for "
 "querying the database"
 msgstr ""
-"``self.env.cr`` o ``self._cr`` es el objeto *cursor* la base de datos; se "
-"utiliza para consultar la base de datos"
+"``self.env.cr`` o ``self._cr`` es el objeto *cursor* la base de datos; se utiliza "
+"para consultar la base de datos"
 
 # e68d824784e04886930cb6c9170174ee
 #: ../../howtos/backend.rst:843
@@ -1670,21 +1633,17 @@ msgstr "Objetos activos – valores por defecto"
 
 # 00eac292c2d2467d842ea70f204ff851
 #: ../../howtos/backend.rst:851
-#, fuzzy
-msgid ""
-"Define the start_date default value as today (see :class:`~odoo.fields.Date`)."
+msgid "Define the start_date default value as today (see :class:`~odoo.fields.Date`)."
 msgstr ""
-"Definir el valor por defecto de start_date como hoy (ver :class:`~odoo.fields."
-"Date`)."
+"Definir el valor por defecto de start_date como hoy (ver :class:`~odoo.fields.Date`)."
 
 # 2d72d006ee4a40dda6ca739928012944
 #: ../../howtos/backend.rst:853
 msgid ""
-"Add a field ``active`` in the class Session, and set sessions as active by "
-"default."
+"Add a field ``active`` in the class Session, and set sessions as active by default."
 msgstr ""
-"Agregue un campo ``active`` en la clase de Session y haga las sesiones activas "
-"por defecto."
+"Agregue un campo ``active`` en la clase de Session y haga las sesiones activas por "
+"defecto."
 
 # 56cfa842d86f4d06b9cbd8dc0fd29fe3
 #: ../../howtos/backend.rst:862
@@ -1692,8 +1651,8 @@ msgid ""
 "Odoo has built-in rules making fields with an ``active`` field set to ``False`` "
 "invisible."
 msgstr ""
-"Odoo tiene incorporadas reglas que hacen que registros  con un campo ``active`` "
-"como ``falso``sean invisibles."
+"Odoo tiene incorporadas reglas que hacen que registros  con un campo ``active`` como "
+"``falso``sean invisibles."
 
 # 5bbb7fd4904a43d5aa760fc2d91d7ff2
 #: ../../howtos/backend.rst:866
@@ -1703,43 +1662,42 @@ msgstr "Onchange"
 # b0f938e587564cff9d1aa5141e84ea8d
 #: ../../howtos/backend.rst:868
 msgid ""
-"The \"onchange\" mechanism provides a way for the client interface to update a "
-"form whenever the user has filled in a value in a field, without saving anything "
-"to the database."
+"The \"onchange\" mechanism provides a way for the client interface to update a form "
+"whenever the user has filled in a value in a field, without saving anything to the "
+"database."
 msgstr ""
 "El mecanismo \"onchange\" proporciona una forma para que la interfaz del cliente "
-"actualice los datos de un formulario cuando el usuario ha llenado en un valor en "
-"un campo, sin guardar nada en la base de datos."
+"actualice los datos de un formulario cuando el usuario ha llenado en un valor en un "
+"campo, sin guardar nada en la base de datos."
 
 # ab1ed2694b984ae9b2055f79c99015d0
 #: ../../howtos/backend.rst:872
 #, fuzzy
 msgid ""
 "For instance, suppose a model has three fields ``amount``, ``unit_price`` and "
-"``price``, and you want to update the price on the form when any of the other "
-"fields is modified. To achieve this, define a method where ``self`` represents "
-"the record in the form view, and decorate it with :func:`~odoo.api.onchange` to "
-"specify on which field it has to be triggered. Any change you make on ``self`` "
-"will be reflected on the form."
+"``price``, and you want to update the price on the form when any of the other fields "
+"is modified. To achieve this, define a method where ``self`` represents the record in "
+"the form view, and decorate it with :func:`~odoo.api.onchange` to specify on which "
+"field it has to be triggered. Any change you make on ``self`` will be reflected on "
+"the form."
 msgstr ""
-"Por ejemplo, supóngase que un modelo tiene tres campos ``amount``, "
-"``unit_price`` y ``price``, y se desea actualizar el precio si cualquiera de los "
-"otros campos se modifica. Para ello, se define un método donde ``self`` "
-"representa el registro en la vista formulario y se decora con :func:`~odoo.api."
-"onchange` para especificar en qué campo se activará. Cualquier cambio que se "
-"realice en ``self`` se reflejará en el formulario."
+"Por ejemplo, supóngase que un modelo tiene tres campos ``amount``, ``unit_price`` y "
+"``price``, y se desea actualizar el precio si cualquiera de los otros campos se "
+"modifica. Para ello, se define un método donde ``self`` representa el registro en la "
+"vista formulario y se decora con :func:`~odoo.api.onchange` para especificar en qué "
+"campo se activará. Cualquier cambio que se realice en ``self`` se reflejará en el "
+"formulario."
 
 # 9a916225a79d48c4810269e81ac2eeed
 #: ../../howtos/backend.rst:901
 msgid ""
 "For computed fields, valued ``onchange`` behavior is built-in as can be seen by "
-"playing with the *Session* form: change the number of seats or participants, and "
-"the ``taken_seats`` progressbar is automatically updated."
+"playing with the *Session* form: change the number of seats or participants, and the "
+"``taken_seats`` progressbar is automatically updated."
 msgstr ""
 "Para campos calculados, el comportamiento ``onchange`` está incorporado como se "
-"aprecia al jugar con el formulario de una *Sessión*: cambia el número de "
-"asientos o los participantes, y se actualiza automáticamente el progressbar de "
-"``taken_seats``."
+"aprecia al jugar con el formulario de una *Sessión*: cambia el número de asientos o "
+"los participantes, y se actualiza automáticamente el progressbar de ``taken_seats``."
 
 # 604997a306bb41c9950e12c9465ee4d5
 #: ../../howtos/backend.rst:905
@@ -1752,8 +1710,8 @@ msgid ""
 "Add an explicit onchange to warn about invalid values, like a negative number of "
 "seats, or more participants than seats."
 msgstr ""
-"Añadir un onchange explícito para advertir sobre valores no válidos, como un "
-"número negativo de asientos o más participantes que asientos."
+"Añadir un onchange explícito para advertir sobre valores no válidos, como un número "
+"negativo de asientos o más participantes que asientos."
 
 # 11372dff9c114e758cf85ad1c4ec8742
 #: ../../howtos/backend.rst:915
@@ -1764,9 +1722,9 @@ msgstr "Restricciones"
 #: ../../howtos/backend.rst:917
 #, fuzzy
 msgid ""
-"Odoo provides two ways to set up automatically verified invariants: :func:"
-"`Python constraints <odoo.api.constrains>` and :attr:`SQL constraints <odoo."
-"models.Model._sql_constraints>`."
+"Odoo provides two ways to set up automatically verified invariants: :func:`Python "
+"constraints <odoo.api.constrains>` and :attr:`SQL constraints <odoo.models.Model."
+"_sql_constraints>`."
 msgstr ""
 "Odoo ofrece dos formas de configurar automáticamente invariantes: :func:`Python "
 "constraints <odoo.api.constrains>` y :attr:`SQL constraints <odoo.models.Model."
@@ -1776,16 +1734,16 @@ msgstr ""
 #: ../../howtos/backend.rst:921
 msgid ""
 "A Python constraint is defined as a method decorated with :func:`~odoo.api."
-"constrains`, and invoked on a recordset. The decorator specifies which fields "
-"are involved in the constraint, so that the constraint is automatically "
-"evaluated when one of them is modified. The method is expected to raise an "
-"exception if its invariant is not satisfied::"
+"constrains`, and invoked on a recordset. The decorator specifies which fields are "
+"involved in the constraint, so that the constraint is automatically evaluated when "
+"one of them is modified. The method is expected to raise an exception if its "
+"invariant is not satisfied::"
 msgstr ""
 "Una restricción de Python se define como un método decorado con :func:`~odoo.api."
-"constrains` y es invocado en un recordset. El decorador especifica los campos "
-"que están involucrados en la restricción, por lo que la restricción es "
-"automáticamente evaluada cuando uno de ellos es modificado. El método levantará "
-"una excepción si no se satisface su invariante::"
+"constrains` y es invocado en un recordset. El decorador especifica los campos que "
+"están involucrados en la restricción, por lo que la restricción es automáticamente "
+"evaluada cuando uno de ellos es modificado. El método levantará una excepción si no "
+"se satisface su invariante::"
 
 # a9c80c06d73d48878ea0d1f989335f09
 #: ../../howtos/backend.rst:936
@@ -1795,8 +1753,8 @@ msgstr "Agregar restricciones de Python"
 # 71b813232e5a43cfa97db49e2e488404
 #: ../../howtos/backend.rst:938
 msgid ""
-"Add a constraint that checks that the instructor is not present in the attendees "
-"of his/her own session."
+"Add a constraint that checks that the instructor is not present in the attendees of "
+"his/her own session."
 msgstr ""
 "Agregar una restricción que comprueba que el instructor no está presente en los "
 "asistentes de su propia sesión."
@@ -1805,17 +1763,17 @@ msgstr ""
 #: ../../howtos/backend.rst:945
 #, fuzzy
 msgid ""
-"SQL constraints are defined through the model attribute :attr:`~odoo.models."
-"Model._sql_constraints`. The latter is assigned to a list of triples of strings "
-"``(name, sql_definition, message)``, where ``name`` is a valid SQL constraint "
-"name, ``sql_definition`` is a table_constraint_ expression, and ``message`` is "
-"the error message."
+"SQL constraints are defined through the model attribute :attr:`~odoo.models.Model."
+"_sql_constraints`. The latter is assigned to a list of triples of strings ``(name, "
+"sql_definition, message)``, where ``name`` is a valid SQL constraint name, "
+"``sql_definition`` is a table_constraint_ expression, and ``message`` is the error "
+"message."
 msgstr ""
-"Las restricciones SQL se definen mediante el atributo modelo:  :attr:`~odoo."
-"models.Model._sql_constraints`. Este último se le asigna a una lista de "
-"tripletas de cadenas  ``(name, sql_definition, message)`, donde ``name`` es un "
-"nombre de restricción válido de SQL,  ``sql_definition`` es una expresión de "
-"table_constraint_, y ``message`` es el mensaje de error."
+"Las restricciones SQL se definen mediante el atributo modelo:  :attr:`~odoo.models."
+"Model._sql_constraints`. Este último se le asigna a una lista de tripletas de "
+"cadenas  ``(name, sql_definition, message)`, donde ``name`` es un nombre de "
+"restricción válido de SQL,  ``sql_definition`` es una expresión de table_constraint_, "
+"y ``message`` es el mensaje de error."
 
 # 2d87038a11264f8196612e5e9f3630d2
 #: ../../howtos/backend.rst:951
@@ -1824,17 +1782,14 @@ msgstr "Agregar restricciones SQL"
 
 # 463c745d4bdd4eb28371133912681635
 #: ../../howtos/backend.rst:953
-msgid ""
-"With the help of `PostgreSQL's documentation`_ , add the following constraints:"
+msgid "With the help of `PostgreSQL's documentation`_ , add the following constraints:"
 msgstr ""
-"Con la ayuda de `Documentación de PostgreSQL`_, añadir las siguientes "
-"restricciones:"
+"Con la ayuda de `Documentación de PostgreSQL`_, añadir las siguientes restricciones:"
 
 # 35b3c78fa3684985822e92e7e4562d22
 #: ../../howtos/backend.rst:956
 msgid "CHECK that the course description and the course title are different"
-msgstr ""
-"Compruebe que la descripción del curso y el título del curso son diferentes"
+msgstr "Compruebe que la descripción del curso y el título del curso son diferentes"
 
 # 9f8276a0914e452fb2674bc746f68a15
 #: ../../howtos/backend.rst:957
@@ -1849,21 +1804,20 @@ msgstr "Ejercicio 6 - Añadir una opción duplicar"
 # a9617c2dc3f148bb9b1f851c432b006c
 #: ../../howtos/backend.rst:965
 msgid ""
-"Since we added a constraint for the Course name uniqueness, it is not possible "
-"to use the \"duplicate\" function anymore (:menuselection:`Form --> Duplicate`)."
+"Since we added a constraint for the Course name uniqueness, it is not possible to use "
+"the \"duplicate\" function anymore (:menuselection:`Form --> Duplicate`)."
 msgstr ""
-"Puesto que hemos añadido una restricción para la unicidad del nombre de curso, "
-"no es posible utilizar la función ``duplicate`` (:menuselection:`Form --> "
-"Duplicate`)."
+"Puesto que hemos añadido una restricción para la unicidad del nombre de curso, no es "
+"posible utilizar la función ``duplicate`` (:menuselection:`Form --> Duplicate`)."
 
 # 3f9252d3081b4be7a8c64a69fb4510d6
 #: ../../howtos/backend.rst:969
 msgid ""
-"Re-implement your own \"copy\" method which allows to duplicate the Course "
-"object, changing the original name into \"Copy of [original name]\"."
+"Re-implement your own \"copy\" method which allows to duplicate the Course object, "
+"changing the original name into \"Copy of [original name]\"."
 msgstr ""
-"Volver a implementar su propio método de \"copy\" que permite duplicar el objeto "
-"del curso, cambiando el nombre original por \"Copy of [original name]\"."
+"Volver a implementar su propio método de \"copy\" que permite duplicar el objeto del "
+"curso, cambiando el nombre original por \"Copy of [original name]\"."
 
 # 3ba64d4682cb478a8eb582f9e3262af8
 #: ../../howtos/backend.rst:977
@@ -1889,36 +1843,35 @@ msgid ""
 "allow changing the style of a row's text based on the corresponding record's "
 "attributes."
 msgstr ""
-"permite cambiar el estilo de texto de una fila basada en atributos del registro "
-"en cuestión."
+"permite cambiar el estilo de texto de una fila basada en atributos del registro en "
+"cuestión."
 
 # 2c9edd325d3d486b9cff7ae37cc36369
 #: ../../howtos/backend.rst:989
 msgid ""
-"Values are Python expressions. For each record, the expression is evaluated with "
-"the record's attributes as context values and if ``true``, the corresponding "
-"style is applied to the row. Other context values are ``uid`` (the id of the "
-"current user) and ``current_date`` (the current date as a string of the form "
-"``yyyy-MM-dd``)."
+"Values are Python expressions. For each record, the expression is evaluated with the "
+"record's attributes as context values and if ``true``, the corresponding style is "
+"applied to the row. Other context values are ``uid`` (the id of the current user) and "
+"``current_date`` (the current date as a string of the form ``yyyy-MM-dd``)."
 msgstr ""
-"Los valores son expresiones Python. Para cada registro, la expresión se evalúa "
-"con los atributos del registro como valores del contexto y si es ``true``, se "
-"aplica el estilo correspondiente a la fila. Otros valores de contexto son "
-"``uid`` (el id del usuario actual) y ``current_date`` (la fecha actual como una "
-"cadena de la forma ``yyyy-MM-dd``)."
+"Los valores son expresiones Python. Para cada registro, la expresión se evalúa con "
+"los atributos del registro como valores del contexto y si es ``true``, se aplica el "
+"estilo correspondiente a la fila. Otros valores de contexto son ``uid`` (el id del "
+"usuario actual) y ``current_date`` (la fecha actual como una cadena de la forma "
+"``yyyy-MM-dd``)."
 
 # 167094887c1d46789357946ad8f1c92e
 #: ../../howtos/backend.rst:995
 msgid ""
-"``{$name}`` can be ``bf`` (``font-weight: bold``), ``it`` (``font-style: "
-"italic``), or any `bootstrap contextual color <http://getbootstrap.com/"
-"components/#available-variations>`_ (``danger``, ``info``, ``muted``, "
-"``primary``, ``success`` or ``warning``)."
+"``{$name}`` can be ``bf`` (``font-weight: bold``), ``it`` (``font-style: italic``), "
+"or any `bootstrap contextual color <http://getbootstrap.com/components/#available-"
+"variations>`_ (``danger``, ``info``, ``muted``, ``primary``, ``success`` or "
+"``warning``)."
 msgstr ""
 "``{$name}`` puede ser ``bf`` (``font-weight: bold``), ``it`` (``font-style: "
 "italic``), o cualquier `color contextual de bootstrap <http://getbootstrap.com/"
-"components/#available-variations>`_ (``danger``, ``info``, ``muted``, "
-"``primary``, ``success`` or ``warning``)."
+"components/#available-variations>`_ (``danger``, ``info``, ``muted``, ``primary``, "
+"``success`` or ``warning``)."
 
 # 38373deb38434f729e0e415d8ae854fa
 #: ../../howtos/backend.rst:1011
@@ -1928,13 +1881,13 @@ msgstr "``editable``"
 # 8ac99e073be04ee1a5e4c855b64257b7
 #: ../../howtos/backend.rst:1009
 msgid ""
-"Either ``\"top\"`` or ``\"bottom\"``. Makes the tree view editable in-place "
-"(rather than having to go through the form view), the value is the position "
-"where new rows appear."
+"Either ``\"top\"`` or ``\"bottom\"``. Makes the tree view editable in-place (rather "
+"than having to go through the form view), the value is the position where new rows "
+"appear."
 msgstr ""
-" ``\"top\"`` o ``\"bottom\"``. Hace el árbol se vea editable (en lugar de tener "
-"que pasar por la vista Formulario), el valor representa la posición donde "
-"aparecen nuevas filas bien sea arriba o abajo por su significado en inglés."
+" ``\"top\"`` o ``\"bottom\"``. Hace el árbol se vea editable (en lugar de tener que "
+"pasar por la vista Formulario), el valor representa la posición donde aparecen nuevas "
+"filas bien sea arriba o abajo por su significado en inglés."
 
 # b3ba62282ffc481da083e7d596ba67eb
 #: ../../howtos/backend.rst:1013
@@ -1944,12 +1897,11 @@ msgstr "Colores en la Lista"
 # e56888a4725144748dd135ea33737aca
 #: ../../howtos/backend.rst:1015
 msgid ""
-"Modify the Session tree view in such a way that sessions lasting less than 5 "
-"days are colored blue, and the ones lasting more than 15 days are colored red."
+"Modify the Session tree view in such a way that sessions lasting less than 5 days are "
+"colored blue, and the ones lasting more than 15 days are colored red."
 msgstr ""
-"Modificar la vista de árbol de una sesión de tal manera que las sesiones que "
-"duran menos de 5 días son de color azul, y los que duran más de 15 días son de "
-"color rojo."
+"Modificar la vista de árbol de una sesión de tal manera que las sesiones que duran "
+"menos de 5 días son de color azul, y los que duran más de 15 días son de color rojo."
 
 # 2c3860ee186b4573b5b4d1ffb4160ac2
 #: ../../howtos/backend.rst:1021
@@ -1964,11 +1916,11 @@ msgstr "Calendarios"
 # 7bf063a2500d435a81962b84b8a5d9c5
 #: ../../howtos/backend.rst:1028
 msgid ""
-"Displays records as calendar events. Their root element is ``<calendar>`` and "
-"their most common attributes are:"
+"Displays records as calendar events. Their root element is ``<calendar>`` and their "
+"most common attributes are:"
 msgstr ""
-"Muestra los registros como calendario de eventos. Su elemento raíz es "
-"``<calendar>`` y sus atributos más comunes son:"
+"Muestra los registros como calendario de eventos. Su elemento raíz es ``<calendar>`` "
+"y sus atributos más comunes son:"
 
 # b8abec25d9eb41c797d0be30a3d628e6
 #: ../../howtos/backend.rst:1034
@@ -1979,13 +1931,13 @@ msgstr "``color``"
 #: ../../howtos/backend.rst:1032
 msgid ""
 "The name of the field used for *color segmentation*. Colors are automatically "
-"distributed to events, but events in the same color segment (records which have "
-"the same value for their ``@color`` field) will be given the same color."
+"distributed to events, but events in the same color segment (records which have the "
+"same value for their ``@color`` field) will be given the same color."
 msgstr ""
 "El nombre del campo utilizado para *colorear*. Los colores se distribuyen "
-"automáticamente a los eventos y acontecimientos en el mismo *segmento de color* "
-"(los registros que tienen el mismo valor para su campo ``@color``) se les dará "
-"el mismo color."
+"automáticamente a los eventos y acontecimientos en el mismo *segmento de color* (los "
+"registros que tienen el mismo valor para su campo ``@color``) se les dará el mismo "
+"color."
 
 # f1eef55f31414111a7326d97ea2d636f
 #: ../../howtos/backend.rst:1036
@@ -2030,17 +1982,16 @@ msgstr ""
 #: ../../howtos/backend.rst:1056
 msgid "Add an ``end_date`` field computed from ``start_date`` and ``duration``"
 msgstr ""
-"Agregar un campo ``end_date``  calculado a partir de ``start_date`` y "
-"``duration``"
+"Agregar un campo ``end_date``  calculado a partir de ``start_date`` y ``duration``"
 
 # 29d02c68ab8c4eb488793b0378b6a2c8
 #: ../../howtos/backend.rst:1059
 msgid ""
-"the inverse function makes the field writable, and allows moving the sessions "
-"(via drag and drop) in the calendar view"
+"the inverse function makes the field writable, and allows moving the sessions (via "
+"drag and drop) in the calendar view"
 msgstr ""
-"la función inversa hace que el campo se pueda escribir y permite mover las "
-"sesiones (a través de arrastrar y soltar) en la vista Calendario"
+"la función inversa hace que el campo se pueda escribir y permite mover las sesiones "
+"(a través de arrastrar y soltar) en la vista Calendario"
 
 # 6c4342787463408184eef32541b921d0
 #: ../../howtos/backend.rst:1062
@@ -2055,16 +2006,15 @@ msgstr "Y añadir la vista de calendario a ña acción del modelo *Session*"
 # cc719ae270084a4eb1e720f1d122bb52
 #: ../../howtos/backend.rst:1070
 msgid ""
-"Search view ``<field>`` elements can have a ``@filter_domain`` that overrides "
-"the domain generated for searching on the given field. In the given domain, "
-"``self`` represents the value entered by the user. In the example below, it is "
-"used to search on both fields ``name`` and ``description``."
+"Search view ``<field>`` elements can have a ``@filter_domain`` that overrides the "
+"domain generated for searching on the given field. In the given domain, ``self`` "
+"represents the value entered by the user. In the example below, it is used to search "
+"on both fields ``name`` and ``description``."
 msgstr ""
-"En la vista de búsqueda los elementos ``<field>``  pueden tener un "
-"``@filter_domain`` que reemplaza el dominio generado para la búsqueda en el "
-"campo de búsqueda. En el dominio dado, ``self`` representa el valor introducido "
-"por el usuario. En el siguiente ejemplo, se utiliza para buscar en campos "
-"``name`` y ``description``."
+"En la vista de búsqueda los elementos ``<field>``  pueden tener un ``@filter_domain`` "
+"que reemplaza el dominio generado para la búsqueda en el campo de búsqueda. En el "
+"dominio dado, ``self`` representa el valor introducido por el usuario. En el "
+"siguiente ejemplo, se utiliza para buscar en campos ``name`` y ``description``."
 
 # 275c217437cc4ab18e6582fcb0342838
 #: ../../howtos/backend.rst:1075
@@ -2072,9 +2022,9 @@ msgid ""
 "Search views can also contain ``<filter>`` elements, which act as toggles for "
 "predefined searches. Filters must have one of the following attributes:"
 msgstr ""
-"Vistas de búsqueda también pueden contener elementos ``<filter>``, que actúan "
-"como alternatva a búsquedas predefinidas. Los filtros deben tener uno de los "
-"siguientes atributos:"
+"Vistas de búsqueda también pueden contener elementos ``<filter>``, que actúan como "
+"alternatva a búsquedas predefinidas. Los filtros deben tener uno de los siguientes "
+"atributos:"
 
 # c0b92a04862e4310ab948dc6c689aa1b
 #: ../../howtos/backend.rst:1078
@@ -2094,11 +2044,11 @@ msgstr "``context``"
 # 205eabe3e2724840a7080990bc7862e2
 #: ../../howtos/backend.rst:1081
 msgid ""
-"add some context to the current search; use the key ``group_by`` to group "
-"results on the given field name"
+"add some context to the current search; use the key ``group_by`` to group results on "
+"the given field name"
 msgstr ""
-"añadir algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` "
-"para agrupar los resultados por el campo nombre"
+"añadir algún contexto para la búsqueda actual; Utilice la tecla ``group_by`` para "
+"agrupar los resultados por el campo nombre"
 
 # 88e778948d4341e08d63480aa8095005
 #: ../../howtos/backend.rst:1101
@@ -2106,34 +2056,33 @@ msgid ""
 "To use a non-default search view in an action, it should be linked using the "
 "``search_view_id`` field of the action record."
 msgstr ""
-"Para utilizar una vista de búsqueda no predeterminada en una acción, debe "
-"vincularse con el campo de  ``search_view_id`` del registro de la acción."
+"Para utilizar una vista de búsqueda no predeterminada en una acción, debe vincularse "
+"con el campo de  ``search_view_id`` del registro de la acción."
 
 # ee0c51c6047e45af8d645230b3f08cb7
 #: ../../howtos/backend.rst:1104
 msgid ""
 "The action can also set default values for search fields through its ``context`` "
-"field: context keys of the form :samp:`search_default_{field_name}` will "
-"initialize *field_name* with the provided value. Search filters must have an "
-"optional ``@name`` to have a default and behave as booleans (they can only be "
-"enabled by default)."
+"field: context keys of the form :samp:`search_default_{field_name}` will initialize "
+"*field_name* with the provided value. Search filters must have an optional ``@name`` "
+"to have a default and behave as booleans (they can only be enabled by default)."
 msgstr ""
 "La acción también puede establecer valores predeterminados para los campos de "
-"búsqueda a través de su campo ``context``: las claves del contexto deben tener "
-"la forma :samp:`search_default_{field_name}` la cual inicializará  *field_name* "
-"con el valor proporcionado. Filtros de búsqueda deben tener un ``@name`` "
-"opcional para tener un valor por defecto y comportarse como booleanos (que "
-"pueden sólo ser activadas por defecto)."
+"búsqueda a través de su campo ``context``: las claves del contexto deben tener la "
+"forma :samp:`search_default_{field_name}` la cual inicializará  *field_name* con el "
+"valor proporcionado. Filtros de búsqueda deben tener un ``@name`` opcional para tener "
+"un valor por defecto y comportarse como booleanos (que pueden sólo ser activadas por "
+"defecto)."
 
 # d33c636793a4448c95e8b970c769d641
 #: ../../howtos/backend.rst:1112
 msgid ""
-"Add a button to filter the courses for which the current user is the responsible "
-"in the course search view. Make it selected by default."
+"Add a button to filter the courses for which the current user is the responsible in "
+"the course search view. Make it selected by default."
 msgstr ""
 "Añadir un botón en la vista de búsqueda para filtrar los cursos de tal forma que "
-"encuentre solo los registros donde el usuario actual sea el responsable del "
-"curso. Y que esté seleccionada por defecto."
+"encuentre solo los registros donde el usuario actual sea el responsable del curso. Y "
+"que esté seleccionada por defecto."
 
 # 30d11fe905574c2189f4d7a0ec939117
 #: ../../howtos/backend.rst:1114
@@ -2148,18 +2097,18 @@ msgstr "Gantt"
 # 6e619013dafd4323aa57fedf80b4d565
 #: ../../howtos/backend.rst:1125
 msgid ""
-"The gantt view requires the web_gantt module which is present in :ref:`the "
-"enterprise edition <setup/install/editions>` version."
+"The gantt view requires the web_gantt module which is present in :ref:`the enterprise "
+"edition <setup/install/editions>` version."
 msgstr ""
 
 # 35a5d79699784f34bf2ba5221a006f15
 #: ../../howtos/backend.rst:1128
 msgid ""
-"Horizontal bar charts typically used to show project planning and advancement, "
-"their root element is ``<gantt>``."
+"Horizontal bar charts typically used to show project planning and advancement, their "
+"root element is ``<gantt>``."
 msgstr ""
-"Gráficos de barras horizontales normalmente se utiliza para mostrar la "
-"planificación del proyecto y su avance, su elemento raíz es ``<gantt>``."
+"Gráficos de barras horizontales normalmente se utiliza para mostrar la planificación "
+"del proyecto y su avance, su elemento raíz es ``<gantt>``."
 
 # a2ddaf89e82b4a98bb513f77e31e1d4f
 #: ../../howtos/backend.rst:1139
@@ -2169,12 +2118,12 @@ msgstr "Diagramas de Gantt"
 # 111d96ccb54f44c8b0aeb225600ff875
 #: ../../howtos/backend.rst:1141
 msgid ""
-"Add a Gantt Chart enabling the user to view the sessions scheduling linked to "
-"the Open Academy module. The sessions should be grouped by instructor."
+"Add a Gantt Chart enabling the user to view the sessions scheduling linked to the "
+"Open Academy module. The sessions should be grouped by instructor."
 msgstr ""
 "Agregar un diagrama de Gantt que permite al usuario ver la programación de las "
-"sesiones relacionados con el módulo OpenAcademy. Las sesiones deben agruparse "
-"por instructor."
+"sesiones relacionados con el módulo OpenAcademy. Las sesiones deben agruparse por "
+"instructor."
 
 # 62995c666a2e4b3db6f094ae72e5a154
 #: ../../howtos/backend.rst:1146
@@ -2187,8 +2136,8 @@ msgid ""
 "Add the gantt view's definition, and add the gantt view to the *Session* model's "
 "action"
 msgstr ""
-"Agregar la definición de la vista de gantt y agregar la vista de gantt a la "
-"acción del modelo *Session*"
+"Agregar la definición de la vista de gantt y agregar la vista de gantt a la acción "
+"del modelo *Session*"
 
 # d946be9da1c448f988835ba5dcdb3556
 #: ../../howtos/backend.rst:1153
@@ -2198,30 +2147,29 @@ msgstr "Vistas en Gráfico"
 # 59e5ccf61d9846c2a3647998f04da3b8
 #: ../../howtos/backend.rst:1155
 msgid ""
-"Graph views allow aggregated overview and analysis of models, their root element "
-"is ``<graph>``."
+"Graph views allow aggregated overview and analysis of models, their root element is "
+"``<graph>``."
 msgstr ""
-"Las vistas gráfico permiten agregado Resumen y análisis de modelos, su elemento "
-"raíz es ``<graph>``."
+"Las vistas gráfico permiten agregado Resumen y análisis de modelos, su elemento raíz "
+"es ``<graph>``."
 
 # 64392a410ca542758ab17fee1f19313a
 #: ../../howtos/backend.rst:1159
 msgid ""
-"Pivot views (element ``<pivot>``) a multidimensional table, allows the selection "
-"of filers and dimensions to get the right aggregated dataset before moving to a "
-"more graphical overview. The pivot view shares the same content definition as "
-"graph views."
+"Pivot views (element ``<pivot>``) a multidimensional table, allows the selection of "
+"filers and dimensions to get the right aggregated dataset before moving to a more "
+"graphical overview. The pivot view shares the same content definition as graph views."
 msgstr ""
-"Vista Pivote (elemento raíz ``<pivot>``) es una tabla multidimensional, permite "
-"la selección de dimensiones para obtener el conjunto de datos adecuado para "
-"presentar los datos de forma más gráfica. La vista pivote comparte la misma "
-"definición contenida como vistas gráfico."
+"Vista Pivote (elemento raíz ``<pivot>``) es una tabla multidimensional, permite la "
+"selección de dimensiones para obtener el conjunto de datos adecuado para presentar "
+"los datos de forma más gráfica. La vista pivote comparte la misma definición "
+"contenida como vistas gráfico."
 
 # 641a2049d02b45a5b5fc91fb7be02d74
 #: ../../howtos/backend.rst:1164
 msgid ""
-"Graph views have 4 display modes, the default mode is selected using the "
-"``@type`` attribute."
+"Graph views have 4 display modes, the default mode is selected using the ``@type`` "
+"attribute."
 msgstr ""
 "Vistas de gráfico tienen 4 modos de visualización, se selecciona el modo "
 "predeterminado mediante el atributo ``@type``."
@@ -2234,21 +2182,21 @@ msgstr "Bar (por defecto)"
 # ea75e0264851444d99c02692dbe5181f
 #: ../../howtos/backend.rst:1168
 msgid ""
-"a bar chart, the first dimension is used to define groups on the horizontal "
-"axis, other dimensions define aggregated bars within each group."
+"a bar chart, the first dimension is used to define groups on the horizontal axis, "
+"other dimensions define aggregated bars within each group."
 msgstr ""
-"un gráfico de barras, la primera dimensión se utiliza para definir los grupos en "
-"el eje horizontal, las otras dimensiones definen las barras agregadas dentro de "
-"cada grupo."
+"un gráfico de barras, la primera dimensión se utiliza para definir los grupos en el "
+"eje horizontal, las otras dimensiones definen las barras agregadas dentro de cada "
+"grupo."
 
 # 4cc45d41eff04dbd9a0397b04e3b56ac
 #: ../../howtos/backend.rst:1171
 msgid ""
-"By default bars are side-by-side, they can be stacked by using ``@stacked=\"True"
-"\"`` on the ``<graph>``"
+"By default bars are side-by-side, they can be stacked by using ``@stacked=\"True\"`` "
+"on the ``<graph>``"
 msgstr ""
-"Por defecto las barras están lado a lado, éstas pueden apilarse utilizando "
-"``@stacked=\"True\"`` en el  ``<graph>``"
+"Por defecto las barras están lado a lado, éstas pueden apilarse utilizando ``@stacked="
+"\"True\"`` en el  ``<graph>``"
 
 # 51fa87723fe14ee68718a2aa83d6e5c0
 #: ../../howtos/backend.rst:1173
@@ -2276,8 +2224,8 @@ msgid ""
 "Graph views contain ``<field>`` with a mandatory ``@type`` attribute taking the "
 "values:"
 msgstr ""
-"Vistas de gráfico contienen ``<field>`` con un atributo obligatorio ``@type`` "
-"tomando los valores:"
+"Vistas de gráfico contienen ``<field>`` con un atributo obligatorio ``@type`` tomando "
+"los valores:"
 
 # db6d0c6f28c04a1cb4eab53340f6f678
 #: ../../howtos/backend.rst:1181
@@ -2302,11 +2250,11 @@ msgstr "el campo debe agregado en lugar de agrupar por el"
 # a08e1483bbff438f9b3c6525b66f11de
 #: ../../howtos/backend.rst:1195
 msgid ""
-"Graph views perform aggregations on database values, they do not work with non-"
-"stored computed fields."
+"Graph views perform aggregations on database values, they do not work with non-stored "
+"computed fields."
 msgstr ""
-"Las vistas de gráfico realizan agregaciones en los valores de la base de datos, "
-"no trabajan con campos calculado que no estén almacenados."
+"Las vistas de gráfico realizan agregaciones en los valores de la base de datos, no "
+"trabajan con campos calculado que no estén almacenados."
 
 # 1f5f18ce3ec640c5997b6bc7d0c233b0
 #: ../../howtos/backend.rst:1198
@@ -2316,11 +2264,11 @@ msgstr "Vistas en Gráfico"
 # 729f73e043794ffa9b2104c844fcfe13
 #: ../../howtos/backend.rst:1200
 msgid ""
-"Add a Graph view in the Session object that displays, for each course, the "
-"number of attendees under the form of a bar chart."
+"Add a Graph view in the Session object that displays, for each course, the number of "
+"attendees under the form of a bar chart."
 msgstr ""
-"Agregar una vista de gráfico en el objeto Session que muestre, para cada curso, "
-"el número de participantes bajo la forma de un gráfico de barras."
+"Agregar una vista de gráfico en el objeto Session que muestre, para cada curso, el "
+"número de participantes bajo la forma de un gráfico de barras."
 
 # cfed8a7f59f44e5f97ea067deacdfcd2
 #: ../../howtos/backend.rst:1205
@@ -2340,8 +2288,7 @@ msgstr "Kanban"
 # 0e1e8fa6dbec43b785bdc79f45cdf5d0
 #: ../../howtos/backend.rst:1213
 msgid ""
-"Used to organize tasks, production processes, etc… their root element is "
-"``<kanban>``."
+"Used to organize tasks, production processes, etc… their root element is ``<kanban>``."
 msgstr ""
 "Utiliza para organizar tareas, procesos de producción, etc… su elemento raíz es  "
 "``<kanban>``."
@@ -2349,18 +2296,18 @@ msgstr ""
 # b8096fea536b4d77b9c387bbda029b46
 #: ../../howtos/backend.rst:1216
 msgid ""
-"A kanban view shows a set of cards possibly grouped in columns. Each card "
-"represents a record, and each column the values of an aggregation field."
+"A kanban view shows a set of cards possibly grouped in columns. Each card represents "
+"a record, and each column the values of an aggregation field."
 msgstr ""
 "Una vista de kanban muestra un conjunto de tarjetas que pueden ser agrupadas en "
-"columnas. Cada tarjeta representa un registro y cada columna los valores de un "
-"campo de agregación."
+"columnas. Cada tarjeta representa un registro y cada columna los valores de un campo "
+"de agregación."
 
 # dd2d4d323c9b495689c598646a97be99
 #: ../../howtos/backend.rst:1219
 msgid ""
-"For instance, project tasks may be organized by stage (each column is a stage), "
-"or by responsible (each column is a user), and so on."
+"For instance, project tasks may be organized by stage (each column is a stage), or by "
+"responsible (each column is a user), and so on."
 msgstr ""
 "Por ejemplo, se organizan las tareas del proyecto por etapa (cada columna es una "
 "etapa), o por responsable (cada columna es un usuario), y así sucesivamente."
@@ -2368,11 +2315,11 @@ msgstr ""
 # 947fe507522248349b625892f53058e7
 #: ../../howtos/backend.rst:1222
 msgid ""
-"Kanban views define the structure of each card as a mix of form elements "
-"(including basic HTML) and :ref:`reference/qweb`."
+"Kanban views define the structure of each card as a mix of form elements (including "
+"basic HTML) and :ref:`reference/qweb`."
 msgstr ""
-"Vistas Kanban definen la estructura de cada tarjeta como una mezcla de elementos "
-"de un formulario (incluyendo HTML básico) y :ref:`reference/qweb`."
+"Vistas Kanban definen la estructura de cada tarjeta como una mezcla de elementos de "
+"un formulario (incluyendo HTML básico) y :ref:`reference/qweb`."
 
 # 75a2512d85974fd88f3c002b7dea6233
 #: ../../howtos/backend.rst:1225
@@ -2382,11 +2329,10 @@ msgstr "Vista Kanban"
 # 39752ac75c3a484d94485702a78eb022
 #: ../../howtos/backend.rst:1227
 msgid ""
-"Add a Kanban view that displays sessions grouped by course (columns are thus "
-"courses)."
+"Add a Kanban view that displays sessions grouped by course (columns are thus courses)."
 msgstr ""
-"Agregar una vista de Kansan que muestre sesiones agrupadas por curso (son "
-"columnas son cursos)."
+"Agregar una vista de Kansan que muestre sesiones agrupadas por curso (son columnas "
+"son cursos)."
 
 # c6f7b9e56d2f44d094267a466ab35c1b
 #: ../../howtos/backend.rst:1232
@@ -2409,9 +2355,9 @@ msgid ""
 "Workflows are models associated to business objects describing their dynamics. "
 "Workflows are also used to track processes that evolve over time."
 msgstr ""
-"Los Flujos de trabajo son modelos asociados a los objetos de negocios "
-"describiendo su dinámica. Los flujos de trabajo también se utilizan para "
-"seguimiento de procesos que evolucionan con el tiempo."
+"Los Flujos de trabajo son modelos asociados a los objetos de negocios describiendo su "
+"dinámica. Los flujos de trabajo también se utilizan para seguimiento de procesos que "
+"evolucionan con el tiempo."
 
 # 51f48c2e6cbb4aa492e179cbbdfdefaa
 #: ../../howtos/backend.rst:1243
@@ -2421,28 +2367,26 @@ msgstr "Casi un flujo de trabajo"
 # 28f3e8a58b2d4688b598b9a44397340f
 #: ../../howtos/backend.rst:1245
 msgid ""
-"Add a ``state`` field to the *Session* model. It will be used to define a "
-"workflow-ish."
+"Add a ``state`` field to the *Session* model. It will be used to define a workflow-"
+"ish."
 msgstr ""
-"Agregar un campo de ``state`` al modelo *Session*. Se utilizará para definir un "
-"cuasi flujo de trabajo."
+"Agregar un campo de ``state`` al modelo *Session*. Se utilizará para definir un cuasi "
+"flujo de trabajo."
 
 # eeb50e43612142e2a14c3427e2223fbb
 #: ../../howtos/backend.rst:1248
-msgid ""
-"A sesion can have three possible states: Draft (default), Confirmed and Done."
+msgid "A sesion can have three possible states: Draft (default), Confirmed and Done."
 msgstr ""
-"Una sesión puede tener tres estados posibles: Draft (por defecto), Confirmed y "
-"Done."
+"Una sesión puede tener tres estados posibles: Draft (por defecto), Confirmed y Done."
 
 # da76b370b5a2443c82ff777aa410d6ab
 #: ../../howtos/backend.rst:1251
 msgid ""
-"In the session form, add a (read-only) field to visualize the state, and buttons "
-"to change it. The valid transitions are:"
+"In the session form, add a (read-only) field to visualize the state, and buttons to "
+"change it. The valid transitions are:"
 msgstr ""
-"En el formulario de la sesión, agregar un campo (sólo lectura) para visualizar "
-"el estado y los botones para cambiarlo. Las transiciones válidas son:"
+"En el formulario de la sesión, agregar un campo (sólo lectura) para visualizar el "
+"estado y los botones para cambiarlo. Las transiciones válidas son:"
 
 # 1f4fd39fad354d49b5c5e2f9ba40aee4
 #: ../../howtos/backend.rst:1254
@@ -2472,11 +2416,11 @@ msgstr "Agrega un nuevo campo ``state``"
 # 7f7395e1f4b440c192561a0666211af8
 #: ../../howtos/backend.rst:1262
 msgid ""
-"Add state-transitioning methods, those can be called from view buttons to change "
-"the record's state"
+"Add state-transitioning methods, those can be called from view buttons to change the "
+"record's state"
 msgstr ""
-"Añadir métodos de transición de estado, los cuales se puedan llamar desde "
-"botones en la vista para cambiar estado del registro"
+"Añadir métodos de transición de estado, los cuales se puedan llamar desde botones en "
+"la vista para cambiar estado del registro"
 
 # 00599e8973e8400780d68a4802886e9c
 #: ../../howtos/backend.rst:1264
@@ -2486,32 +2430,30 @@ msgstr "Y añadir los botones pertinentes a la vista de formulario de la sesión
 # 4ee5115ef6814f43b2414d295a704d28
 #: ../../howtos/backend.rst:1268
 msgid ""
-"Workflows may be associated with any object in Odoo, and are entirely "
-"customizable. Workflows are used to structure and manage the lifecycles of "
-"business objects and documents, and define transitions, triggers, etc. with "
-"graphical tools. Workflows, activities (nodes or actions) and transitions "
-"(conditions) are declared as XML records, as usual. The tokens that navigate in "
-"workflows are called workitems."
+"Workflows may be associated with any object in Odoo, and are entirely customizable. "
+"Workflows are used to structure and manage the lifecycles of business objects and "
+"documents, and define transitions, triggers, etc. with graphical tools. Workflows, "
+"activities (nodes or actions) and transitions (conditions) are declared as XML "
+"records, as usual. The tokens that navigate in workflows are called workitems."
 msgstr ""
-"Los flujos de trabajo pueden asociarse con cualquier objeto de Odoo y son "
-"totalmente personalizables. Los flujos de trabajo sirven para estructurar y "
-"gestionar los ciclos de vida de documentos y objetos de negocio y definen "
-"transiciones, disparadores, etc. con herramientas gráficas. Los flujos de "
-"trabajo, las actividades (nodos o acciones) y transiciones (condiciones) se "
-"declaran como registros XML, como de costumbre. Los tokens que navegan en flujos "
-"de trabajo se llaman *elementos de trabajo* ``workitems``."
+"Los flujos de trabajo pueden asociarse con cualquier objeto de Odoo y son totalmente "
+"personalizables. Los flujos de trabajo sirven para estructurar y gestionar los ciclos "
+"de vida de documentos y objetos de negocio y definen transiciones, disparadores, etc. "
+"con herramientas gráficas. Los flujos de trabajo, las actividades (nodos o acciones) "
+"y transiciones (condiciones) se declaran como registros XML, como de costumbre. Los "
+"tokens que navegan en flujos de trabajo se llaman *elementos de trabajo* "
+"``workitems``."
 
 # 5079c724b9bd409696f1c7431acdc2f7
 #: ../../howtos/backend.rst:1277
 msgid ""
 "A workflow associated with a model is only created when the model's records are "
-"created. Thus there is no workflow instance associated with session instances "
-"created before the workflow's definition"
+"created. Thus there is no workflow instance associated with session instances created "
+"before the workflow's definition"
 msgstr ""
-"Un flujo de trabajo asociado con un modelo sólo se crea cuando se crean "
-"registros en ese modelo. Por lo tanto no existe ninguna instancia de flujo de "
-"trabajo asociada con instancias *Session* creadas antes de la definición del "
-"flujo de trabajo"
+"Un flujo de trabajo asociado con un modelo sólo se crea cuando se crean registros en "
+"ese modelo. Por lo tanto no existe ninguna instancia de flujo de trabajo asociada con "
+"instancias *Session* creadas antes de la definición del flujo de trabajo"
 
 # b7edf1542dc441a3892f0166b3f99596
 #: ../../howtos/backend.rst:1282
@@ -2521,24 +2463,22 @@ msgstr "Flujo de trabajo (Workflow)"
 # d3c9db2a5b6c4185aa3d63151244cfec
 #: ../../howtos/backend.rst:1284
 msgid ""
-"Replace the ad-hoc *Session* workflow by a real workflow. Transform the "
-"*Session* form view so its buttons call the workflow instead of the model's "
-"methods."
+"Replace the ad-hoc *Session* workflow by a real workflow. Transform the *Session* "
+"form view so its buttons call the workflow instead of the model's methods."
 msgstr ""
-"Vuelva a colocar el  flujo de trabajo ad-hoc del modelo *Session* por un flujo "
-"de trabajo real. Modifica la vista Formulario del modelo *Session* para que sus "
-"botones llamen el flujo de trabajo en vez de métodos del modelo."
+"Vuelva a colocar el  flujo de trabajo ad-hoc del modelo *Session* por un flujo de "
+"trabajo real. Modifica la vista Formulario del modelo *Session* para que sus botones "
+"llamen el flujo de trabajo en vez de métodos del modelo."
 
 # cc81bfa07dea400dbf44393a26f5e11b
 #: ../../howtos/backend.rst:1294
 msgid ""
 "In order to check if instances of the workflow are correctly created alongside "
-"sessions, go to :menuselection:`Settings --> Technical --> Workflows --> "
-"Instances`"
+"sessions, go to :menuselection:`Settings --> Technical --> Workflows --> Instances`"
 msgstr ""
-"Para comprobar si las instancias del flujo de trabajo se crean correctamente "
-"junto con sesiones, ir al menú :menuselection:`Settings --> Technical --> "
-"Workflows --> Instances`"
+"Para comprobar si las instancias del flujo de trabajo se crean correctamente junto "
+"con sesiones, ir al menú :menuselection:`Settings --> Technical --> Workflows --> "
+"Instances`"
 
 # 4faf3fdde24d40da88e8ac06a8172330
 #: ../../howtos/backend.rst:1300
@@ -2548,11 +2488,11 @@ msgstr "Transiciones automáticas"
 # 4ae9d2aa84444b18bb01d11339aaceb2
 #: ../../howtos/backend.rst:1302
 msgid ""
-"Automatically transition sessions from *Draft* to *Confirmed* when more than "
-"half the session's seats are reserved."
+"Automatically transition sessions from *Draft* to *Confirmed* when more than half the "
+"session's seats are reserved."
 msgstr ""
-"Automáticamente la transición desde *Draft* a *Confirmed* cuando más de la mitad "
-"de los  asientos están reservados."
+"Automáticamente la transición desde *Draft* a *Confirmed* cuando más de la mitad de "
+"los  asientos están reservados."
 
 # 120a2fb0abaa413fa0bc32c3370635aa
 #: ../../howtos/backend.rst:1309
@@ -2561,17 +2501,15 @@ msgstr "Acciones del servidor"
 
 # 4ec5f06faef6456ba9cf887ff1442b70
 #: ../../howtos/backend.rst:1311
-msgid ""
-"Replace the Python methods for synchronizing session state by server actions."
+msgid "Replace the Python methods for synchronizing session state by server actions."
 msgstr ""
-"Reemplace los métodos Python para sincronizar el estado de la sesión por las "
-"acciones del servidor."
+"Reemplace los métodos Python para sincronizar el estado de la sesión por las acciones "
+"del servidor."
 
 # bf6902dbc44e4ceaa49f048749059979
 #: ../../howtos/backend.rst:1314
 msgid ""
-"Both the workflow and the server actions could have been created entirely from "
-"the UI."
+"Both the workflow and the server actions could have been created entirely from the UI."
 msgstr ""
 "El flujo de trabajo y las acciones de servidor podrían haber sido creadas "
 "completamente por la interfaz de usuario."
@@ -2584,8 +2522,7 @@ msgstr "Seguridad"
 # 72b6fa260a034c63bde9643a788234e7
 #: ../../howtos/backend.rst:1324
 msgid ""
-"Access control mechanisms must be configured to achieve a coherent security "
-"policy."
+"Access control mechanisms must be configured to achieve a coherent security policy."
 msgstr ""
 "Mecanismos de control de acceso deben ser configurados para lograr una política "
 "coherente de seguridad."
@@ -2598,21 +2535,21 @@ msgstr "Mecanismos de control de acceso basado en grupos"
 # e5b28b9c0f584d1f8ac29588d23a13a5
 #: ../../howtos/backend.rst:1330
 msgid ""
-"Groups are created as normal records on the model ``res.groups``, and granted "
-"menu access via menu definitions. However even without a menu, objects may still "
-"be accessible indirectly, so actual object-level permissions (read, write, "
-"create, unlink) must be defined for groups. They are usually inserted via CSV "
-"files inside modules. It is also possible to restrict access to specific fields "
-"on a view or object using the field's groups attribute."
+"Groups are created as normal records on the model ``res.groups``, and granted menu "
+"access via menu definitions. However even without a menu, objects may still be "
+"accessible indirectly, so actual object-level permissions (read, write, create, "
+"unlink) must be defined for groups. They are usually inserted via CSV files inside "
+"modules. It is also possible to restrict access to specific fields on a view or "
+"object using the field's groups attribute."
 msgstr ""
 "Los grupos se crean como registros convencionales del modelo ``res.groups`` y "
 "garantizan el accesos a través de las definiciones de permisos en los menús. Sin "
-"embargo incluso si un objeto no tiene menú, éstos en Odoo pueden se les puede "
-"acceder indirectamente, entonces las reglas CRUD (leer, escribir, crear, borrar) "
-"deben definirse para los grupos a nivel de objetos. Estas reglas se insertan "
-"generalmente a través de archivos CSV dentro de los módulos. Es posible "
-"restringir el acceso a campos específicos de una vista o a un objeto utilizando "
-"el atributo ``groups`` del campo."
+"embargo incluso si un objeto no tiene menú, éstos en Odoo pueden se les puede acceder "
+"indirectamente, entonces las reglas CRUD (leer, escribir, crear, borrar) deben "
+"definirse para los grupos a nivel de objetos. Estas reglas se insertan generalmente a "
+"través de archivos CSV dentro de los módulos. Es posible restringir el acceso a "
+"campos específicos de una vista o a un objeto utilizando el atributo ``groups`` del "
+"campo."
 
 # e64f2b03564f4ef59c02d6d117792e57
 #: ../../howtos/backend.rst:1338
@@ -2622,16 +2559,16 @@ msgstr "Derechos de acceso"
 # 5997064fccf24f3a83c7e24f7da9b787
 #: ../../howtos/backend.rst:1340
 msgid ""
-"Access rights are defined as records of the model ``ir.model.access``. Each "
-"access right is associated to a model, a group (or no group for global access), "
-"and a set of permissions: read, write, create, unlink. Such access rights are "
-"usually created by a CSV file named after its model: ``ir.model.access.csv``."
+"Access rights are defined as records of the model ``ir.model.access``. Each access "
+"right is associated to a model, a group (or no group for global access), and a set of "
+"permissions: read, write, create, unlink. Such access rights are usually created by a "
+"CSV file named after its model: ``ir.model.access.csv``."
 msgstr ""
-"Los derechos de acceso se definen como registros del modelo ``ir.model.access``. "
-"Cada derecho de acceso está asociado a un modelo, un grupo (o no grupo para el "
-"caso de un acceso global) y un conjunto de permisos: leer, escribir, crear, "
-"borrar. Estos derechos de acceso son creados generalmente por un archivo CSV con "
-"el nombre de su modelo: ``ir.model.access.csv``."
+"Los derechos de acceso se definen como registros del modelo ``ir.model.access``. Cada "
+"derecho de acceso está asociado a un modelo, un grupo (o no grupo para el caso de un "
+"acceso global) y un conjunto de permisos: leer, escribir, crear, borrar. Estos "
+"derechos de acceso son creados generalmente por un archivo CSV con el nombre de su "
+"modelo: ``ir.model.access.csv``."
 
 # d9839141342249ada55f0163a71dda3b
 #: ../../howtos/backend.rst:1352
@@ -2641,30 +2578,29 @@ msgstr "Añadir control de acceso mediante la interfaz de Odoo"
 # 744cbc79e7584958a985b641da9e5b8b
 #: ../../howtos/backend.rst:1354
 msgid ""
-"Create a new user \"John Smith\". Then create a group \"OpenAcademy / Session "
-"Read\" with read access to the *Session* model."
+"Create a new user \"John Smith\". Then create a group \"OpenAcademy / Session Read\" "
+"with read access to the *Session* model."
 msgstr ""
-"Crea un nuevo usuario “John Smith”. Crear un grupo \"OpenAcademy / Session Read"
-"\" con acceso de lectura al modelo *Session*."
+"Crea un nuevo usuario “John Smith”. Crear un grupo \"OpenAcademy / Session Read\" con "
+"acceso de lectura al modelo *Session*."
 
 # f74cb7b14c814ed490ea8e623dfdbea0
 #: ../../howtos/backend.rst:1359
 msgid ""
-"Create a new user *John Smith* through :menuselection:`Settings --> Users --> "
-"Users`"
+"Create a new user *John Smith* through :menuselection:`Settings --> Users --> Users`"
 msgstr ""
-"Crea un nuevo usuario *John Smith* a través de :menuselection:`Settings --> "
-"Users --> Users`"
+"Crea un nuevo usuario *John Smith* a través de :menuselection:`Settings --> Users --> "
+"Users`"
 
 # 5cd59869ca074dc0baa6a4ba238a179b
 #: ../../howtos/backend.rst:1361
 msgid ""
-"Create a new group ``session_read`` through :menuselection:`Settings --> Users --"
-"> Groups`, it should have read access on the *Session* model"
+"Create a new group ``session_read`` through :menuselection:`Settings --> Users --> "
+"Groups`, it should have read access on the *Session* model"
 msgstr ""
 "Crear un nuevo grupo llamado ``session_read`` a través del menú :menuselection:"
-"`Settings --> Users --> Groups`, que debe tener acceso de lectura sobre la "
-"modelo *Session*"
+"`Settings --> Users --> Groups`, que debe tener acceso de lectura sobre la modelo "
+"*Session*"
 
 # b752a68a17b846c1812b11ce9c2108d9
 #: ../../howtos/backend.rst:1364
@@ -2675,8 +2611,7 @@ msgstr "Editar *John Smith* para que sean un miembro de ``session_read``"
 #: ../../howtos/backend.rst:1365
 msgid "Log in as *John Smith* to check the access rights are correct"
 msgstr ""
-"Inicie la sesión como *John Smith* para comprobar los derechos de acceso son "
-"correctos"
+"Inicie la sesión como *John Smith* para comprobar los derechos de acceso son correctos"
 
 # 61ad8a0ce43846ada7252ea4f17ee523
 #: ../../howtos/backend.rst:1367
@@ -2693,8 +2628,7 @@ msgstr "El uso de archivos de datos,"
 msgid ""
 "Create a group *OpenAcademy / Manager* with full access to all OpenAcademy models"
 msgstr ""
-"Crea un grupo *OpenAcademy / Manager* con pleno acceso a todos los modelos "
-"OpenAcademy"
+"Crea un grupo *OpenAcademy / Manager* con pleno acceso a todos los modelos OpenAcademy"
 
 # 36bf524ec0e64762a6b0ce82bd6a7b99
 #: ../../howtos/backend.rst:1373
@@ -2713,16 +2647,15 @@ msgstr ""
 # 22f6686e61484c7fb8cf7fa607f6e1d4
 #: ../../howtos/backend.rst:1379
 msgid ""
-"Edit the file ``openacademy/security/ir.model.access.csv`` with the access "
-"rights to the models"
+"Edit the file ``openacademy/security/ir.model.access.csv`` with the access rights to "
+"the models"
 msgstr ""
-"Editar el archivo ``openacademy/security/ir.model.access.csv`` con los derechos "
-"de acceso a los modelos"
+"Editar el archivo ``openacademy/security/ir.model.access.csv`` con los derechos de "
+"acceso a los modelos"
 
 # 1f0ca2e71581483e8b0ff23cc78a456e
 #: ../../howtos/backend.rst:1381
-msgid ""
-"Finally update ``openacademy/__manifest__.py`` to add the new data files to it"
+msgid "Finally update ``openacademy/__manifest__.py`` to add the new data files to it"
 msgstr ""
 "Finalmente actualizar ``openacademy/__manifest__.py`` para añadir los nuevos archivos "
 "de datos en él"
@@ -2735,30 +2668,29 @@ msgstr "Reglas de Registro"
 # 0e43e7ab6821409cb1f28a3cc8c9f559
 #: ../../howtos/backend.rst:1389
 msgid ""
-"A record rule restricts the access rights to a subset of records of the given "
-"model. A rule is a record of the model ``ir.rule``, and is associated to a "
-"model, a number of groups (many2many field), permissions to which the "
-"restriction applies, and a domain. The domain specifies to which records the "
-"access rights are limited."
+"A record rule restricts the access rights to a subset of records of the given model. "
+"A rule is a record of the model ``ir.rule``, and is associated to a model, a number "
+"of groups (many2many field), permissions to which the restriction applies, and a "
+"domain. The domain specifies to which records the access rights are limited."
 msgstr ""
-"Una regla de registro restringe los derechos de acceso a un subconjunto de "
-"registros de un modelo dado. Una regla es un registro del modelo ``ir.rule``, y "
-"se asocia a un modelo, un número de grupos (campo Many2Many), los permisos a los "
-"que se aplicarán, y un dominio. El dominio especifica a cuales registros los "
-"derechos de acceso serán limitados."
+"Una regla de registro restringe los derechos de acceso a un subconjunto de registros "
+"de un modelo dado. Una regla es un registro del modelo ``ir.rule``, y se asocia a un "
+"modelo, un número de grupos (campo Many2Many), los permisos a los que se aplicarán, y "
+"un dominio. El dominio especifica a cuales registros los derechos de acceso serán "
+"limitados."
 
 # 2c6c4d82c39b4dd9b6daa684d47ffc6b
 #: ../../howtos/backend.rst:1395
 #, fuzzy
 msgid ""
 "Here is an example of a rule that prevents the deletion of leads that are not in "
-"state ``cancel``. Notice that the value of the field ``groups`` must follow the "
-"same convention as the method :meth:`~odoo.models.Model.write` of the ORM."
+"state ``cancel``. Notice that the value of the field ``groups`` must follow the same "
+"convention as the method :meth:`~odoo.models.Model.write` of the ORM."
 msgstr ""
-"He aquí un ejemplo de una regla que impide la eliminación de los ``leads`` que "
-"no se encuentren en estado ``cancel``. Observe que el valor del campo ``groups`` "
-"debe seguir la misma convención a que si los agregaras con el método :meth:"
-"`~odoo.models.Model.write` del ORM."
+"He aquí un ejemplo de una regla que impide la eliminación de los ``leads`` que no se "
+"encuentren en estado ``cancel``. Observe que el valor del campo ``groups`` debe "
+"seguir la misma convención a que si los agregaras con el método :meth:`~odoo.models."
+"Model.write` del ORM."
 
 # 4920082c449e42c4b347289ad40eeaa5
 #: ../../howtos/backend.rst:1412
@@ -2768,14 +2700,14 @@ msgstr "Regla de registro"
 # e9963abf799643fc90b7fdae30c866b5
 #: ../../howtos/backend.rst:1414
 msgid ""
-"Add a record rule for the model Course and the group \"OpenAcademy / Manager\", "
-"that restricts ``write`` and ``unlink`` accesses to the responsible of a course. "
-"If a course has no responsible, all users of the group must be able to modify it."
+"Add a record rule for the model Course and the group \"OpenAcademy / Manager\", that "
+"restricts ``write`` and ``unlink`` accesses to the responsible of a course. If a "
+"course has no responsible, all users of the group must be able to modify it."
 msgstr ""
 "Agregar una regla de registro para el modelo *Course* y el grupo \"OpenAcademy / "
-"Manager\", que restringe el ``write`` y  ``unlink`` al responsable de un curso. "
-"Si un curso no tiene responsable, todos los usuarios del grupo deben ser capaces "
-"de modificarlo."
+"Manager\", que restringe el ``write`` y  ``unlink`` al responsable de un curso. Si un "
+"curso no tiene responsable, todos los usuarios del grupo deben ser capaces de "
+"modificarlo."
 
 # 9dfa5885ad044a5c82e16b68e0dbc1cf
 #: ../../howtos/backend.rst:1421
@@ -2790,18 +2722,18 @@ msgstr "Asistentes"
 # 2d401d4f5dbf43d59ea8c3af7e543e5f
 #: ../../howtos/backend.rst:1428
 msgid ""
-"Wizards describe interactive sessions with the user (or dialog boxes) through "
-"dynamic forms. A wizard is simply a model that extends the class :class:`~odoo."
-"models.TransientModel` instead of :class:`~odoo.models.Model`. The class :class:"
-"`~odoo.models.TransientModel` extends :class:`~odoo.models.Model` and reuse all "
-"its existing mechanisms, with the following particularities:"
+"Wizards describe interactive sessions with the user (or dialog boxes) through dynamic "
+"forms. A wizard is simply a model that extends the class :class:`~odoo.models."
+"TransientModel` instead of :class:`~odoo.models.Model`. The class :class:`~odoo."
+"models.TransientModel` extends :class:`~odoo.models.Model` and reuse all its existing "
+"mechanisms, with the following particularities:"
 msgstr ""
 
 # cee9b766b7884713a18648628e4b59fe
 #: ../../howtos/backend.rst:1435
 msgid ""
-"Wizard records are not meant to be persistent; they are automatically deleted "
-"from the database after a certain time. This is why they are called *transient*."
+"Wizard records are not meant to be persistent; they are automatically deleted from "
+"the database after a certain time. This is why they are called *transient*."
 msgstr ""
 "Los registros de un asistente no pretenden ser persistentes; se borran "
 "automáticamente de la base de datos después de cierto tiempo. Por esta razón se "
@@ -2810,22 +2742,21 @@ msgstr ""
 # 329406eed27c43c3acc8240a059fbb0e
 #: ../../howtos/backend.rst:1438
 msgid ""
-"Wizard models do not require explicit access rights: users have all permissions "
-"on wizard records."
+"Wizard models do not require explicit access rights: users have all permissions on "
+"wizard records."
 msgstr ""
-"Un asistente no requieren permisos explícitos: los usuarios tienen todos los "
-"permisos en cualquier asistente."
+"Un asistente no requieren permisos explícitos: los usuarios tienen todos los permisos "
+"en cualquier asistente."
 
 # fc9ce593cbb9468d8b80e93097dc3a46
 #: ../../howtos/backend.rst:1440
 msgid ""
 "Wizard records may refer to regular records or wizard records through many2one "
-"fields, but regular records *cannot* refer to wizard records through a many2one "
-"field."
+"fields, but regular records *cannot* refer to wizard records through a many2one field."
 msgstr ""
-"Los registros de un asistente pueden referirse a registros normales a través de "
-"la definición campos many2one, pero los registros regulares *no* se pueden "
-"referir a los registros de un asistentes a través de campos many2one."
+"Los registros de un asistente pueden referirse a registros normales a través de la "
+"definición campos many2one, pero los registros regulares *no* se pueden referir a los "
+"registros de un asistentes a través de campos many2one."
 
 # eb89fcf70cb94e04a13c80d24d13a4d1
 #: ../../howtos/backend.rst:1444
@@ -2833,8 +2764,8 @@ msgid ""
 "We want to create a wizard that allow users to create attendees for a particular "
 "session, or for a list of sessions at once."
 msgstr ""
-"Queremos crear un asistente que permite a los usuarios crear a *attendees* para "
-"una determinada sesión, o para una lista de sesiones a la vez."
+"Queremos crear un asistente que permite a los usuarios crear a *attendees* para una "
+"determinada sesión, o para una lista de sesiones a la vez."
 
 # 93b38f2902d249d9be5af0b8d762d0e9
 #: ../../howtos/backend.rst:1447
@@ -2844,8 +2775,8 @@ msgstr "Define el asistente"
 # b3eb333e949740d1a04d3c00cd811519
 #: ../../howtos/backend.rst:1449
 msgid ""
-"Create a wizard model with a many2one relationship with the *Session* model and "
-"a many2many relationship with the *Partner* model."
+"Create a wizard model with a many2one relationship with the *Session* model and a "
+"many2many relationship with the *Partner* model."
 msgstr ""
 "Crear un modelo asistente con una relación many2one al modelo *Session* y una "
 "relación many2many con el modelo *Partner*."
@@ -2863,41 +2794,40 @@ msgstr "Ejecutar un asistente"
 # a9cd9991f8764f7db5e4846ecd893d47
 #: ../../howtos/backend.rst:1461
 msgid ""
-"Wizards are launched by ``ir.actions.act_window`` records, with the field "
-"``target`` set to the value ``new``. The latter opens the wizard view into a "
-"popup window. The action may be triggered by a menu item."
+"Wizards are launched by ``ir.actions.act_window`` records, with the field ``target`` "
+"set to the value ``new``. The latter opens the wizard view into a popup window. The "
+"action may be triggered by a menu item."
 msgstr ""
 "Los asistentes se lanzan usando registros ``ir.actions.act_window`` con el campo "
 "``target`` en ``new``, este último abre la vista del asistente en una ventana "
-"emergente. Dicha acción de ventana puede ser llamada por un elemento normal de "
-"menú como lo hicimos hasta ahora."
+"emergente. Dicha acción de ventana puede ser llamada por un elemento normal de menú "
+"como lo hicimos hasta ahora."
 
 # 512f11c61ee94fbf8e866766121ad82a
 #: ../../howtos/backend.rst:1465
 msgid ""
-"There is another way to launch the wizard: using an ``ir.actions.act_window`` "
-"record like above, but with an extra field ``src_model`` that specifies in the "
-"context of which model the action is available. The wizard will appear in the "
-"contextual actions of the model, above the main view. Because of some internal "
-"hooks in the ORM, such an action is declared in XML with the tag ``act_window``."
+"There is another way to launch the wizard: using an ``ir.actions.act_window`` record "
+"like above, but with an extra field ``src_model`` that specifies in the context of "
+"which model the action is available. The wizard will appear in the contextual actions "
+"of the model, above the main view. Because of some internal hooks in the ORM, such an "
+"action is declared in XML with the tag ``act_window``."
 msgstr ""
-"Hay otra manera para iniciar el asistente y esta es usando un registro ``ir."
-"actions.act_window`` que coloca un menú superior, ésta acción tiene un campo "
-"extra llamado ``src_model`` que especifica en el contexto de cuál modelo la "
-"acción estará disponible. Esto hará que el asistente en las acciones "
-"contextuales del modelo, por encima de la vista principal. Hay un acceso directo "
-"en el ORM que permite declarar ésta acción en el XML con la etiqueta "
-"``act_window`` como se observa en el siguiente ejemplo."
+"Hay otra manera para iniciar el asistente y esta es usando un registro ``ir.actions."
+"act_window`` que coloca un menú superior, ésta acción tiene un campo extra llamado "
+"``src_model`` que especifica en el contexto de cuál modelo la acción estará "
+"disponible. Esto hará que el asistente en las acciones contextuales del modelo, por "
+"encima de la vista principal. Hay un acceso directo en el ORM que permite declarar "
+"ésta acción en el XML con la etiqueta ``act_window`` como se observa en el siguiente "
+"ejemplo."
 
 # 625e4b84c6ce4772b0befd1a4447ddd9
 #: ../../howtos/backend.rst:1481
 msgid ""
-"Wizards use regular views and their buttons may use the attribute ``special="
-"\"cancel\"`` to close the wizard window without saving."
+"Wizards use regular views and their buttons may use the attribute ``special=\"cancel"
+"\"`` to close the wizard window without saving."
 msgstr ""
-"Los asistentes usan vistas regulares y sus botones pueden usar el atributo "
-"``special=\"cancel\"`` para cerrar la ventana del asistente sin guardar los "
-"cambios."
+"Los asistentes usan vistas regulares y sus botones pueden usar el atributo ``special="
+"\"cancel\"`` para cerrar la ventana del asistente sin guardar los cambios."
 
 # f7e56f0d4e844e2ab5799d9e83dff243
 #: ../../howtos/backend.rst:1484
@@ -2917,11 +2847,11 @@ msgstr "Añadir la acción para ejecutar en el contexto del modelo *Session*."
 # 7d810d59849446128a6c83edc5b47a28
 #: ../../howtos/backend.rst:1488
 msgid ""
-"Define a default value for the session field in the wizard; use the context "
-"parameter ``self._context`` to retrieve the current session."
+"Define a default value for the session field in the wizard; use the context parameter "
+"``self._context`` to retrieve the current session."
 msgstr ""
-"Definir un valor predeterminado para el campo de sesión en el asistente; Utilice "
-"el parámetro de ``self._context`` para recuperar la sesión actual."
+"Definir un valor predeterminado para el campo de sesión en el asistente; Utilice el "
+"parámetro de ``self._context`` para recuperar la sesión actual."
 
 # 85d8371aff76446c9f95f6b5debf8d62
 #: ../../howtos/backend.rst:1495
@@ -2934,8 +2864,8 @@ msgid ""
 "Add buttons to the wizard, and implement the corresponding method for adding the "
 "attendees to the given session."
 msgstr ""
-"Añadir botones al asistente e implemente el método correspondiente para agregar "
-"a los asistentes a la sesión dada."
+"Añadir botones al asistente e implemente el método correspondiente para agregar a los "
+"asistentes a la sesión dada."
 
 # 594283597ad246489efd1d06f3c799ad
 #: ../../howtos/backend.rst:1504
@@ -2958,49 +2888,47 @@ msgstr "Internacionalización"
 # b829bde73544467d9addb2b52e8b3f43
 #: ../../howtos/backend.rst:1516
 msgid ""
-"Each module can provide its own translations within the i18n directory, by "
-"having files named LANG.po where LANG is the locale code for the language, or "
-"the language and country combination when they differ (e.g. pt.po or pt_BR.po). "
-"Translations will be loaded automatically by Odoo for all enabled languages. "
-"Developers always use English when creating a module, then export the module "
-"terms using Odoo's gettext POT export feature (:menuselection:`Settings --> "
-"Translations --> Import/Export --> Export Translation` without specifying a "
-"language), to create the module template POT file, and then derive the "
-"translated PO files. Many IDE's have plugins or modes for editing and merging PO/"
-"POT files."
+"Each module can provide its own translations within the i18n directory, by having "
+"files named LANG.po where LANG is the locale code for the language, or the language "
+"and country combination when they differ (e.g. pt.po or pt_BR.po). Translations will "
+"be loaded automatically by Odoo for all enabled languages. Developers always use "
+"English when creating a module, then export the module terms using Odoo's gettext POT "
+"export feature (:menuselection:`Settings --> Translations --> Import/Export --> "
+"Export Translation` without specifying a language), to create the module template POT "
+"file, and then derive the translated PO files. Many IDE's have plugins or modes for "
+"editing and merging PO/POT files."
 msgstr ""
-"Cada módulo puede tener sus propias traducciones dentro del directorio i18n, con "
-"solo tener archivos llamados LANG.po donde LANG es el código local del idioma, o "
-"el código del idioma y el país combinados cuando son diferentes (por ejemplo pt."
-"po o pt_BR.po). Las traducciones serán cargadas automáticamente por Odoo para "
-"todos los idiomas habilitados. Los desarrolladores deberían utilizar inglés "
-"cuando crean un módulo, una vez listo exportan los términos de ese módulo usando "
-"la característica de exportar archivos POT la cual usa ``gettext`` para tal fin "
-"(:menuselection:`Settings --> Translations --> Import/Export --> Export "
-"Translation`) si no especificas ningún idioma generarías una archivo POT y "
-"entonces usarlo para crear las traducciones derivadas las cuales serían archivos "
-"PO. Varios IDE tienen plugins o modos de edición y merge de archivos PO/POT, por "
-"ejemplo ``poEdit``."
+"Cada módulo puede tener sus propias traducciones dentro del directorio i18n, con solo "
+"tener archivos llamados LANG.po donde LANG es el código local del idioma, o el código "
+"del idioma y el país combinados cuando son diferentes (por ejemplo pt.po o pt_BR.po). "
+"Las traducciones serán cargadas automáticamente por Odoo para todos los idiomas "
+"habilitados. Los desarrolladores deberían utilizar inglés cuando crean un módulo, una "
+"vez listo exportan los términos de ese módulo usando la característica de exportar "
+"archivos POT la cual usa ``gettext`` para tal fin (:menuselection:`Settings --> "
+"Translations --> Import/Export --> Export Translation`) si no especificas ningún "
+"idioma generarías una archivo POT y entonces usarlo para crear las traducciones "
+"derivadas las cuales serían archivos PO. Varios IDE tienen plugins o modos de edición "
+"y merge de archivos PO/POT, por ejemplo ``poEdit``."
 
 # f7c97ac651a14e59b69eef88172ddd7f
 #: ../../howtos/backend.rst:1527
 msgid ""
-"The Portable Object files generated by Odoo are published on `Transifex <https://"
-"www.transifex.com/odoo/public/>`__, making it easy to translate the software."
+"The Portable Object files generated by Odoo are published on `Transifex <https://www."
+"transifex.com/odoo/public/>`__, making it easy to translate the software."
 msgstr ""
 
 # b8931dfcfc984aa6a8ee119ffe73451d
 #: ../../howtos/backend.rst:1542
 #, fuzzy
 msgid ""
-"By default Odoo's POT export only extracts labels inside XML files or inside "
-"field definitions in Python code, but any Python string can be translated this "
-"way by surrounding it with the function :func:`odoo._` (e.g. ``_(\"Label\")``)"
+"By default Odoo's POT export only extracts labels inside XML files or inside field "
+"definitions in Python code, but any Python string can be translated this way by "
+"surrounding it with the function :func:`odoo._` (e.g. ``_(\"Label\")``)"
 msgstr ""
 "Por defecto la exportación de los POT en Odoo sólo extrae etiquetas dentro de "
-"archivos XML o dentro de las definiciones de campo en código Python, pero "
-"cualquier cadena Python puede ser traducido de esta manera envolviendola con la "
-"función :func:`odoo._` (e.g. ``_(\"Label\")``)"
+"archivos XML o dentro de las definiciones de campo en código Python, pero cualquier "
+"cadena Python puede ser traducido de esta manera envolviendola con la función :func:"
+"`odoo._` (e.g. ``_(\"Label\")``)"
 
 # 2f4ab1c264de4d6998ac991c21be0e78
 #: ../../howtos/backend.rst:1547
@@ -3010,11 +2938,11 @@ msgstr "Traduce un Módulo"
 # a20959260b60475c865db9e0278b5241
 #: ../../howtos/backend.rst:1549
 msgid ""
-"Choose a second language for your Odoo installation. Translate your module using "
-"the facilities provided by Odoo."
+"Choose a second language for your Odoo installation. Translate your module using the "
+"facilities provided by Odoo."
 msgstr ""
-"Elegir un segundo idioma para la instalación de Odoo. Traducir su módulo "
-"utilizando los servicios proporcionados por Odoo."
+"Elegir un segundo idioma para la instalación de Odoo. Traducir su módulo utilizando "
+"los servicios proporcionados por Odoo."
 
 # d055a07c99d64cb39bd6d739c9f6eb07
 #: ../../howtos/backend.rst:1554
@@ -3024,27 +2952,27 @@ msgstr "Crear un directorio ``openacademy/i18n/``"
 # 84b3cb5ae8f842a3b66b0b425e2d66a7
 #: ../../howtos/backend.rst:1555
 msgid ""
-"Install whichever language you want ( :menuselection:`Administration --> "
-"Translations --> Load an Official Translation`)"
+"Install whichever language you want ( :menuselection:`Administration --> Translations "
+"--> Load an Official Translation`)"
 msgstr ""
-"Instalar cualquier idioma que desee ( :menuselection:`Administration --> "
-"Translations --> Load an Official Translation`)"
+"Instalar cualquier idioma que desee ( :menuselection:`Administration --> Translations "
+"--> Load an Official Translation`)"
 
 # e3c642b4a19d4c9f959bd3efe5e6d759
 #: ../../howtos/backend.rst:1558
 msgid ""
-"Synchronize translatable terms (:menuselection:`Administration --> Translations "
-"--> Application Terms --> Synchronize Translations`)"
+"Synchronize translatable terms (:menuselection:`Administration --> Translations --> "
+"Application Terms --> Synchronize Translations`)"
 msgstr ""
-"Sincronizar términos traducibles  (:menuselection:`Administration --> "
-"Translations --> Application Terms --> Synchronize Translations`)"
+"Sincronizar términos traducibles  (:menuselection:`Administration --> Translations --"
+"> Application Terms --> Synchronize Translations`)"
 
 # 252586db4d2544d7bb5f841e0ec87a52
 #: ../../howtos/backend.rst:1560
 msgid ""
-"Create a template translation file by exporting ( :menuselection:`Administration "
-"--> Translations -> Import/Export --> Export Translation`) without specifying a "
-"language, save in ``openacademy/i18n/``"
+"Create a template translation file by exporting ( :menuselection:`Administration --> "
+"Translations -> Import/Export --> Export Translation`) without specifying a language, "
+"save in ``openacademy/i18n/``"
 msgstr ""
 "Crear un archivo de plantilla de traducción por exportación ( :menuselection:"
 "`Administration --> Translations -> Import/Export --> Export Translation`) sin "
@@ -3054,8 +2982,8 @@ msgstr ""
 #: ../../howtos/backend.rst:1564
 msgid ""
 "Create a translation file by exporting ( :menuselection:`Administration --> "
-"Translations --> Import/Export --> Export Translation`) and specifying a "
-"language. Save it in ``openacademy/i18n/``"
+"Translations --> Import/Export --> Export Translation`) and specifying a language. "
+"Save it in ``openacademy/i18n/``"
 msgstr ""
 "Crear un archivo de traducción mediante la exportación ( :menuselection:"
 "`Administration --> Translations --> Import/Export --> Export Translation`) "
@@ -3064,12 +2992,11 @@ msgstr ""
 # 54e42b906ffb4060ab58828a53dcb05d
 #: ../../howtos/backend.rst:1568
 msgid ""
-"Open the exported translation file (with a basic text editor or a dedicated PO-"
-"file editor e.g. POEdit_ and translate the missing terms"
+"Open the exported translation file (with a basic text editor or a dedicated PO-file "
+"editor e.g. POEdit_ and translate the missing terms"
 msgstr ""
-"Abra el archivo exportado de la traducción (con un editor de texto básico o un "
-"editor de fichero PO dedicado por ejemplo POEdit_) y traduce los términos que "
-"faltan"
+"Abra el archivo exportado de la traducción (con un editor de texto básico o un editor "
+"de fichero PO dedicado por ejemplo POEdit_) y traduce los términos que faltan"
 
 # 9490ce774b6d458ebc7abe042355c9ce
 #: ../../howtos/backend.rst:1572
@@ -3078,8 +3005,8 @@ msgid ""
 "In ``models.py``, add an import statement for the function ``odoo._`` and mark "
 "missing strings as translatable"
 msgstr ""
-"En ``models.py``, agregue una instrucción import para la función ``odoo._`` y "
-"marca que faltan cadenas como traducible"
+"En ``models.py``, agregue una instrucción import para la función ``odoo._`` y marca "
+"que faltan cadenas como traducible"
 
 # c403b5b6ff1d45289b51b26b297956d3
 #: ../../howtos/backend.rst:1575
@@ -3113,14 +3040,13 @@ msgstr "Un informe es un elemento de la combinación de dos elementos:"
 # a453c2019edd4c88aec6b6914f928dfd
 #: ../../howtos/backend.rst:1593
 msgid ""
-"an ``ir.actions.report.xml``, for which a ``<report>`` shortcut element is "
-"provided, it sets up various basic parameters for the report (default type, "
-"whether the report should be saved to the database after generation,…)"
+"an ``ir.actions.report.xml``, for which a ``<report>`` shortcut element is provided, "
+"it sets up various basic parameters for the report (default type, whether the report "
+"should be saved to the database after generation,…)"
 msgstr ""
 "un  ``ir.actions.report.xml``, para el cual se proporciona un enlace directo "
-"``<report>``, que configura diversos parámetros básicos para el informe (por "
-"defecto el tipo, si el informe debe guardarse en la base de datos después de su "
-"generación,…)"
+"``<report>``, que configura diversos parámetros básicos para el informe (por defecto "
+"el tipo, si el informe debe guardarse en la base de datos después de su generación,…)"
 
 # 5485191f9787437b883428eec905648c
 #: ../../howtos/backend.rst:1612
@@ -3130,74 +3056,73 @@ msgstr "Un estándar :ref:`QWeb view <reference/views/qweb>` para el informe rea
 # 4e4b5110e8ec4c2ea2c60c1a4f17155c
 #: ../../howtos/backend.rst:1634
 msgid ""
-"Because reports are standard web pages, they are available through a URL and "
-"output parameters can be manipulated through this URL, for instance the HTML "
-"version of the *Invoice* report is available through http://localhost:8069/"
-"report/html/account.report_invoice/1 (if ``account`` is installed) and the PDF "
-"version through http://localhost:8069/report/pdf/account.report_invoice/1."
+"Because reports are standard web pages, they are available through a URL and output "
+"parameters can be manipulated through this URL, for instance the HTML version of the "
+"*Invoice* report is available through http://localhost:8069/report/html/account."
+"report_invoice/1 (if ``account`` is installed) and the PDF version through http://"
+"localhost:8069/report/pdf/account.report_invoice/1."
 msgstr ""
-"Debido a que los informes son páginas web estándar, están disponibles a través "
-"de una URL y los parámetros de salida pueden ser manipulados a través de esta "
-"URL, por ejemplo la versión HTML de la *factura* está disponible a través de "
-"http://localhost:8069/report/html/account.report_invoice/1 (si está instalado "
-"‘’account’’) y la versión en PDF a través de http://localhost:8069/report/pdf/"
-"account.report_invoice/1."
+"Debido a que los informes son páginas web estándar, están disponibles a través de una "
+"URL y los parámetros de salida pueden ser manipulados a través de esta URL, por "
+"ejemplo la versión HTML de la *factura* está disponible a través de http://"
+"localhost:8069/report/html/account.report_invoice/1 (si está instalado ‘’account’’) y "
+"la versión en PDF a través de http://localhost:8069/report/pdf/account."
+"report_invoice/1."
 
 # d9e5f0f84b7748268033aa2535bd3a69
 #: ../../howtos/backend.rst:1645
 msgid ""
-"If it appears that your PDF report is missing the styles (i.e. the text appears "
-"but the style/layout is different from the html version), probably your "
-"wkhtmltopdf_ process cannot reach your web server to download them."
+"If it appears that your PDF report is missing the styles (i.e. the text appears but "
+"the style/layout is different from the html version), probably your wkhtmltopdf_ "
+"process cannot reach your web server to download them."
 msgstr ""
-"Si parece que su informe PDF le faltan los estilos (es decir, aparece el texto "
-"pero el estilo/diseño es diferente de la versión html), probablemente su proceso "
+"Si parece que su informe PDF le faltan los estilos (es decir, aparece el texto pero "
+"el estilo/diseño es diferente de la versión html), probablemente su proceso "
 "wkhtmltopdf_ no puede encontrar el servidor web para convertir y descargar los "
 "estilos."
 
 # d204fe2fbe804f22b7e5873f7f4f45b9
 #: ../../howtos/backend.rst:1649
 msgid ""
-"If you check your server logs and see that the CSS styles are not being "
-"downloaded when generating a PDF report, most surely this is the problem."
+"If you check your server logs and see that the CSS styles are not being downloaded "
+"when generating a PDF report, most surely this is the problem."
 msgstr ""
-"Si usted revisa los logs de su servidor y ve que los estilos CSS *no* están "
-"siendo descargados al generar un informe PDF, seguramente ese es el problema."
+"Si usted revisa los logs de su servidor y ve que los estilos CSS *no* están siendo "
+"descargados al generar un informe PDF, seguramente ese es el problema."
 
 # b58a9b985c3f49439c20277237c4cfac
 #: ../../howtos/backend.rst:1652
 msgid ""
-"The wkhtmltopdf_ process will use the ``web.base.url`` system parameter as the "
-"*root path* to all linked files, but this parameter is automatically updated "
-"each time the Administrator is logged in. If your server resides behind some "
-"kind of proxy, that could not be reachable. You can fix this by adding one of "
-"these system parameters:"
+"The wkhtmltopdf_ process will use the ``web.base.url`` system parameter as the *root "
+"path* to all linked files, but this parameter is automatically updated each time the "
+"Administrator is logged in. If your server resides behind some kind of proxy, that "
+"could not be reachable. You can fix this by adding one of these system parameters:"
 msgstr ""
-"El proceso de wkhtmltopdf_ utiliza el parámetro de sistema de ``web.base.url`` "
-"como la *root path* a archivos todos los ``links``, pero este parámetro se "
-"actualiza automáticamente cada vez que el administrador ha iniciado sesión en. "
-"Si su servidor se encuentra detrás de algún tipo de proxy, no podía llegar. "
-"Puede solucionar esto mediante la adición de uno de estos parámetros del sistema:"
+"El proceso de wkhtmltopdf_ utiliza el parámetro de sistema de ``web.base.url`` como "
+"la *root path* a archivos todos los ``links``, pero este parámetro se actualiza "
+"automáticamente cada vez que el administrador ha iniciado sesión en. Si su servidor "
+"se encuentra detrás de algún tipo de proxy, no podía llegar. Puede solucionar esto "
+"mediante la adición de uno de estos parámetros del sistema:"
 
 # c0f80e79dce74a86a1554585236394f6
 #: ../../howtos/backend.rst:1658
 msgid ""
 "``report.url``, pointing to an URL reachable from your server (probably ``http://"
-"localhost:8069`` or something similar). It will be used for this particular "
-"purpose only."
+"localhost:8069`` or something similar). It will be used for this particular purpose "
+"only."
 msgstr ""
-"``report.url``, apuntando a una URL accesible desde el servidor (probablemente "
-"‘’ http://localhost:8069'' o algo parecido). Se utilizará para este propósito "
-"particular solamente."
+"``report.url``, apuntando a una URL accesible desde el servidor (probablemente ‘’ "
+"http://localhost:8069'' o algo parecido). Se utilizará para este propósito particular "
+"solamente."
 
 # a53dc23a2f9748fb85bd08e06629ee0c
 #: ../../howtos/backend.rst:1662
 msgid ""
-"``web.base.url.freeze``, when set to ``True``, will stop the automatic updates "
-"to ``web.base.url``."
+"``web.base.url.freeze``, when set to ``True``, will stop the automatic updates to "
+"``web.base.url``."
 msgstr ""
-"``web.base.url.freeze``, cuando se establece en ``True``, dejará las "
-"actualizaciones automáticas de ``web.base.url``."
+"``web.base.url.freeze``, cuando se establece en ``True``, dejará las actualizaciones "
+"automáticas de ``web.base.url``."
 
 # 57ef1bb66cef46638f8c1a25e9c4ba63
 #: ../../howtos/backend.rst:1665
@@ -3207,11 +3132,11 @@ msgstr "Crear un informe para el modelo de sesión"
 # b1e56544547643e695a4ec1dcace23d6
 #: ../../howtos/backend.rst:1667
 msgid ""
-"For each session, it should display session's name, its start and end, and list "
-"the session's attendees."
+"For each session, it should display session's name, its start and end, and list the "
+"session's attendees."
 msgstr ""
-"Para cada sesión, debe mostrar el nombre de sesión, su inicio y final y una "
-"lista de los asistentes de la sesión."
+"Para cada sesión, debe mostrar el nombre de sesión, su inicio y final y una lista de "
+"los asistentes de la sesión."
 
 # e5b82f4de00b446a969444af6fd82932
 #: ../../howtos/backend.rst:1675
@@ -3226,41 +3151,40 @@ msgstr "Definir un panel de control"
 # 164444d86f584e638984acdd4e0944fe
 #: ../../howtos/backend.rst:1679
 msgid ""
-"Define a dashboard containing the graph view you created, the sessions calendar "
-"view and a list view of the courses (switchable to a form view). This dashboard "
-"should be available through a menuitem in the menu, and automatically displayed "
-"in the web client when the OpenAcademy main menu is selected."
+"Define a dashboard containing the graph view you created, the sessions calendar view "
+"and a list view of the courses (switchable to a form view). This dashboard should be "
+"available through a menuitem in the menu, and automatically displayed in the web "
+"client when the OpenAcademy main menu is selected."
 msgstr ""
-"Definir un tablero que contiene la vista gráfico que creó, la vista de "
-"calendario de sesiones y una vista de lista de los cursos (conmutables a una "
-"vista de formulario). Este panel debe estar disponible a través de un menuitem "
-"en el menú y aparecerá automáticamente en el cliente web cuando se selecciona el "
-"menú principal de OpenAcademy."
+"Definir un tablero que contiene la vista gráfico que creó, la vista de calendario de "
+"sesiones y una vista de lista de los cursos (conmutables a una vista de formulario). "
+"Este panel debe estar disponible a través de un menuitem en el menú y aparecerá "
+"automáticamente en el cliente web cuando se selecciona el menú principal de "
+"OpenAcademy."
 
 # c9b28b05f21d4d9fa261c2f6955c7873
 #: ../../howtos/backend.rst:1687
 msgid ""
-"Create a file ``openacademy/views/session_board.xml``. It should contain the "
-"board view, the actions referenced in that view, an action to open the dashboard "
-"and a re-definition of the main menu item to add the dashboard action"
+"Create a file ``openacademy/views/session_board.xml``. It should contain the board "
+"view, the actions referenced in that view, an action to open the dashboard and a re-"
+"definition of the main menu item to add the dashboard action"
 msgstr ""
 "Crear un archivo ‘’ openacademy/views/session_board.xml’’. Que debe contener la "
-"opinión de la Junta, las acciones se hace referencia en dicha vista, una acción "
-"para abrir la consola y una nueva definición de la opción del menú principal "
-"para agregar la acción del tablero de instrumentos"
+"opinión de la Junta, las acciones se hace referencia en dicha vista, una acción para "
+"abrir la consola y una nueva definición de la opción del menú principal para agregar "
+"la acción del tablero de instrumentos"
 
 # 72f84114004f4952a94a5e489719d8c6
 #: ../../howtos/backend.rst:1692
-msgid ""
-"Available dashboard styles are ``1``, ``1-1``, ``1-2``, ``2-1`` and ``1-1-1``"
+msgid "Available dashboard styles are ``1``, ``1-1``, ``1-2``, ``2-1`` and ``1-1-1``"
 msgstr "Disponemos los estilos son ``1``, ``1-1``, ``1-2``, ``2-1`` and ``1-1-1``"
 
 # 6205b4e0dfe8449f8589c4277dc1a8db
 #: ../../howtos/backend.rst:1695
 msgid "Update ``openacademy/__manifest__.py`` to reference the new data file"
 msgstr ""
-"Actualizar ``openacademy/__manifest__.py`` para hacer referencia al nuevo archivo "
-"de datos"
+"Actualizar ``openacademy/__manifest__.py`` para hacer referencia al nuevo archivo de "
+"datos"
 
 # 1bf0b93aef374ef68dc261da61a1bc41
 #: ../../howtos/backend.rst:1701
@@ -3271,8 +3195,7 @@ msgstr "WebServices"
 #: ../../howtos/backend.rst:1703
 msgid "The web-service module offer a common interface for all web-services :"
 msgstr ""
-"El módulo de servicios web ofrece una interfaz común para todos los servicios-"
-"web:"
+"El módulo de servicios web ofrece una interfaz común para todos los servicios-web:"
 
 # 3a2776197170468fbd984ddecc9a318d
 #: ../../howtos/backend.rst:1705
@@ -3287,8 +3210,8 @@ msgstr "JSON-RPC"
 # 346ceabb7fd24002a747bf8c82b7951c
 #: ../../howtos/backend.rst:1708
 msgid ""
-"Business objects can also be accessed via the distributed object mechanism. They "
-"can all be modified via the client interface with contextual views."
+"Business objects can also be accessed via the distributed object mechanism. They can "
+"all be modified via the client interface with contextual views."
 msgstr ""
 "Objetos de negocio también se pueden acceder mediante el mecanismo de objetos "
 "distribuidos. Ellos pueden ser modificables mediante la interfaz de cliente con "
@@ -3297,11 +3220,11 @@ msgstr ""
 # a4287f5de51f4d94b139b6bfcdf68b9d
 #: ../../howtos/backend.rst:1712
 msgid ""
-"Odoo is accessible through XML-RPC/JSON-RPC interfaces, for which libraries "
-"exist in many languages."
+"Odoo is accessible through XML-RPC/JSON-RPC interfaces, for which libraries exist in "
+"many languages."
 msgstr ""
-"Odoo es accesible a través de interfaces XML-RPC/JSON-RPC, hay bibliotecas en "
-"muchos lenguajes."
+"Odoo es accesible a través de interfaces XML-RPC/JSON-RPC, hay bibliotecas en muchos "
+"lenguajes."
 
 # 80ef7bbaee2d4e5c874bbac5bbf7192b
 #: ../../howtos/backend.rst:1716
@@ -3311,11 +3234,11 @@ msgstr "Librería XML-RPC"
 # fec379786cf84245b670fa2dd994ed43
 #: ../../howtos/backend.rst:1718
 msgid ""
-"The following example is a Python program that interacts with an Odoo server "
-"with the library ``xmlrpclib``::"
+"The following example is a Python program that interacts with an Odoo server with the "
+"library ``xmlrpclib``::"
 msgstr ""
-"En el siguiente ejemplo es un programa Python que interactúa con un servidor de "
-"Odoo con la biblioteca ``xmlrpclib``::"
+"En el siguiente ejemplo es un programa Python que interactúa con un servidor de Odoo "
+"con la biblioteca ``xmlrpclib``::"
 
 # e49d93179c0847a894c9d1154ece4611
 #: ../../howtos/backend.rst:1737
@@ -3325,23 +3248,22 @@ msgstr "Añadir un nuevo servicio al cliente"
 # 40cdacac2bff4f10963b2fa889293baf
 #: ../../howtos/backend.rst:1739
 msgid ""
-"Write a Python program able to send XML-RPC requests to a PC running Odoo "
-"(yours, or your instructor's). This program should display all the sessions, and "
-"their corresponding number of seats. It should also create a new session for one "
-"of the courses."
+"Write a Python program able to send XML-RPC requests to a PC running Odoo (yours, or "
+"your instructor's). This program should display all the sessions, and their "
+"corresponding number of seats. It should also create a new session for one of the "
+"courses."
 msgstr ""
-"Escribir un programa de Python capaz de enviar peticiones XML-RPC a un PC Odoo "
-"(tuyo o de tu instructor). Este programa debe mostrar todas las sesiones y su "
-"correspondiente número de asientos. También debe crear una nueva sesión para uno "
-"de los cursos."
+"Escribir un programa de Python capaz de enviar peticiones XML-RPC a un PC Odoo (tuyo "
+"o de tu instructor). Este programa debe mostrar todas las sesiones y su "
+"correspondiente número de asientos. También debe crear una nueva sesión para uno de "
+"los cursos."
 
 # 269dcf43b8b54b3c8b9f776a31d98483
 #: ../../howtos/backend.rst:1775
-msgid ""
-"Instead of using a hard-coded course id, the code can look up a course by name::"
+msgid "Instead of using a hard-coded course id, the code can look up a course by name::"
 msgstr ""
-"En lugar de utilizar un id de curso en el código, el código puede buscar un "
-"curso por nombre::"
+"En lugar de utilizar un id de curso en el código, el código puede buscar un curso por "
+"nombre::"
 
 # ec235b2227f848198b838aede893c800
 #: ../../howtos/backend.rst:1786
@@ -3351,17 +3273,17 @@ msgstr "Biblioteca de JSON-RPC"
 # 32a05ae914374887a58d524d94a7e966
 #: ../../howtos/backend.rst:1788
 msgid ""
-"The following example is a Python program that interacts with an Odoo server "
-"with the standard Python libraries ``urllib2`` and ``json``::"
+"The following example is a Python program that interacts with an Odoo server with the "
+"standard Python libraries ``urllib2`` and ``json``::"
 msgstr ""
-"En el siguiente ejemplo es un programa Python que interactúa con un servidor de "
-"Odoo con las bibliotecas estándar de Python ``urllib2`` and ``json``::"
+"En el siguiente ejemplo es un programa Python que interactúa con un servidor de Odoo "
+"con las bibliotecas estándar de Python ``urllib2`` and ``json``::"
 
 # 18b7a60642ba427c916a070141f9b180
 #: ../../howtos/backend.rst:1825
 msgid ""
-"Here is the same program, using the library `jsonrpclib <https://pypi.python.org/"
-"pypi/jsonrpclib>`_::"
+"Here is the same program, using the library `jsonrpclib <https://pypi.python.org/pypi/"
+"jsonrpclib>`_::"
 msgstr ""
 "Aquí está el mismo programa, utilizando la biblioteca `jsonrpclib <https://pypi."
 "python.org/pypi/jsonrpclib>`_::"
@@ -3374,11 +3296,11 @@ msgstr "Los ejemplos pueden ser fácilmente adaptados de XML-RPC a JSON-RPC."
 # 1ffee3fa3c5c4a7081c2fb438eee94fd
 #: ../../howtos/backend.rst:1854
 msgid ""
-"There are a number of high-level APIs in various languages to access Odoo "
-"systems without *explicitly* going through XML-RPC or JSON-RPC, such as:"
+"There are a number of high-level APIs in various languages to access Odoo systems "
+"without *explicitly* going through XML-RPC or JSON-RPC, such as:"
 msgstr ""
-"Hay una serie de APIs de alto nivel en varios idiomas para acceder a los "
-"sistemas de Odoo sin *explícitamente* pasando por XML-RPC o JSON-RPC, tales como:"
+"Hay una serie de APIs de alto nivel en varios idiomas para acceder a los sistemas de "
+"Odoo sin *explícitamente* pasando por XML-RPC o JSON-RPC, tales como:"
 
 # b9f089e9008b419e83caa2bc1a2da517
 #: ../../howtos/backend.rst:1857
@@ -3409,11 +3331,11 @@ msgstr "https://github.com/abhishek-jaiswal/php-openerp-lib"
 #: ../../howtos/backend.rst:1863
 #, fuzzy
 msgid ""
-"it is possible to :attr:`disable the automatic creation of some fields <odoo."
-"models.Model._log_access>`"
+"it is possible to :attr:`disable the automatic creation of some fields <odoo.models."
+"Model._log_access>`"
 msgstr ""
-"Es posible :attr:`desactivar la creación automática de algunos campos <odoo."
-"models.Model._log_access>`"
+"Es posible :attr:`desactivar la creación automática de algunos campos <odoo.models."
+"Model._log_access>`"
 
 # 0ca6deaeabef43518ee68ea7844b104b
 #: ../../howtos/backend.rst:1865
@@ -3422,20 +3344,19 @@ msgid ""
 "authentication and security mechanisms."
 msgstr ""
 "Escribir consultas SQL directas es totalmente posible, pero requiere muchísimo "
-"cuidado, ya que ignora todos los mecanismos de seguridad y autenticación de Odoo "
-"lo que te puede abrir la puerta a errores importantes en la integridad de tus "
-"datos."
+"cuidado, ya que ignora todos los mecanismos de seguridad y autenticación de Odoo lo "
+"que te puede abrir la puerta a errores importantes en la integridad de tus datos."
 
 #~ msgid ""
-#~ "Models can be configured by setting a number of attributes at their "
-#~ "definition. The most important attribute is :attr:`~openerp.models.Model."
-#~ "_name` which is required and defines the name for the model in the Odoo "
-#~ "system. Here is a minimally complete definition of a model::"
+#~ "Models can be configured by setting a number of attributes at their definition. "
+#~ "The most important attribute is :attr:`~openerp.models.Model._name` which is "
+#~ "required and defines the name for the model in the Odoo system. Here is a "
+#~ "minimally complete definition of a model::"
 #~ msgstr ""
 #~ "Los modelos pueden configurarse mediante el establecimiento de una serie de "
-#~ "atributos en su definición. El atributo más importante es :attr:`~openerp."
-#~ "models.Model._name` el cual es requerido y define el nombre del modelo en "
-#~ "Odoo. Aquí está una definición mínima de un modelo::"
+#~ "atributos en su definición. El atributo más importante es :attr:`~openerp.models."
+#~ "Model._name` el cual es requerido y define el nombre del modelo en Odoo. Aquí está "
+#~ "una definición mínima de un modelo::"
 
 #~ msgid "replaces the matched element by the ``xpath``'s body"
 #~ msgstr "sustituye el elemento emparejado por el cuerpo de ``xpath``"
@@ -3448,25 +3369,24 @@ msgstr ""
 
 #~ msgid ""
 #~ "Wizards describe interactive sessions with the user (or dialog boxes) through "
-#~ "dynamic forms. A wizard is simply a model that extends the class :class:"
-#~ "`~openerp.models.TransientModel` instead of :class:`~openerp.models.Model`. "
-#~ "The class :class:`~openerp.models.TransientModel` extends :class:`~openerp."
-#~ "models.Model` and reuse all its existing mechanisms, with the following "
-#~ "particularities:"
+#~ "dynamic forms. A wizard is simply a model that extends the class :class:`~openerp."
+#~ "models.TransientModel` instead of :class:`~openerp.models.Model`. The class :class:"
+#~ "`~openerp.models.TransientModel` extends :class:`~openerp.models.Model` and reuse "
+#~ "all its existing mechanisms, with the following particularities:"
 #~ msgstr ""
-#~ "Asistentes describen sesiones interactivas con el usuario (o cuadros de "
-#~ "diálogo) a través de formularios dinámicos. Un asistente es simplemente un "
-#~ "modelo que hereda la clase :class:`~openerp.models.TransientModel`  en vez de "
-#~ "la clase :class:`~openerp.models.Model`. La clase :class:`~openerp.models."
-#~ "TransientModel` extiende la clase :class:`~openerp.models.Model` y reutiliza "
-#~ "todos sus mecanismos, con las siguientes particularidades:"
+#~ "Asistentes describen sesiones interactivas con el usuario (o cuadros de diálogo) a "
+#~ "través de formularios dinámicos. Un asistente es simplemente un modelo que hereda "
+#~ "la clase :class:`~openerp.models.TransientModel`  en vez de la clase :class:"
+#~ "`~openerp.models.Model`. La clase :class:`~openerp.models.TransientModel` extiende "
+#~ "la clase :class:`~openerp.models.Model` y reutiliza todos sus mecanismos, con las "
+#~ "siguientes particularidades:"
 
 #~ msgid ""
 #~ "The GNU gettext format (Portable Object) used by Odoo is integrated into "
 #~ "LaunchPad, making it an online collaborative translation platform."
 #~ msgstr ""
-#~ "El formato gettext de GNU (Objeto Portátil) utilizado por Odoo está integrado "
-#~ "a Transifex ``https://www.transifex.com/odoo``, la cual es una plataforma de "
+#~ "El formato gettext de GNU (Objeto Portátil) utilizado por Odoo está integrado a "
+#~ "Transifex ``https://www.transifex.com/odoo``, la cual es una plataforma de "
 #~ "traducción colaborativa en línea."
 
 #~ msgid "https://pypi.python.org/pypi/oersted/"
