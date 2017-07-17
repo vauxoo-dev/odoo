@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-14 00:34-0500\n"
-"PO-Revision-Date: 2017-07-16 20:47-0500\n"
+"PO-Revision-Date: 2017-07-16 20:53-0500\n"
 "Last-Translator: Moisés López <moylop260@vauxoo.com>\n"
 "Language-Team: Vauxoo <info@vauxoo.com>\n"
 "MIME-Version: 1.0\n"
@@ -382,9 +382,8 @@ msgstr ":attr:`~odoo.fields.Field.index` (``bool``, default: ``False``)"
 
 # fc7295275bed4f309137c34ea201b283
 #: ../../howtos/backend.rst:169
-#, fuzzy
 msgid "Requests that Odoo create a `database index`_ on the column."
-msgstr "Solicita la creación de un índice `database index`_ en la columna"
+msgstr "Solicita a Odoo la creación de un índice `database index`_ en la columna."
 
 # b548383f5f164519b667562d2bfa9254
 #: ../../howtos/backend.rst:172
@@ -434,9 +433,8 @@ msgstr ":attr:`~odoo.fields.Model.id` (:class:`~odoo.fields.Id`)"
 
 # 6628118739d3439b895842b53ee90479
 #: ../../howtos/backend.rst:189
-#, fuzzy
 msgid "The unique identifier for a record in its model."
-msgstr "Identificador único para un registro en su modelo"
+msgstr "El identificador único para un registro en su modelo."
 
 # 73a16c544c15451e8c3fc349428c3cc3
 #: ../../howtos/backend.rst:190
@@ -455,9 +453,8 @@ msgstr ":attr:`~odoo.fields.Model.create_uid` (:class:`~odoo.fields.Many2one`)"
 
 # 0e2eebaa25a94e87b21fccda32ae5cc5
 #: ../../howtos/backend.rst:193
-#, fuzzy
 msgid "User who created the record."
-msgstr "usuario que creó el registro"
+msgstr "Usuario quien creó el registro."
 
 # 8c548b5f80194a63865c95109964cf32
 #: ../../howtos/backend.rst:194
@@ -476,9 +473,8 @@ msgstr ":attr:`~odoo.fields.Model.write_uid` (:class:`~odoo.fields.Many2one`)"
 
 # c3df65bb55fa41f19c6fbc2c04b8fdcf
 #: ../../howtos/backend.rst:197
-#, fuzzy
 msgid "user who last modified the record."
-msgstr "Último usuario que modificó el registro"
+msgstr "usuario quien hizo la última modificación del registro."
 
 # 5241d68b9c154b989fb795772aa21fb9
 #: ../../howtos/backend.rst:200
@@ -780,13 +776,12 @@ msgstr "Formularios se utilizan para crear y editar registros individuales."
 
 # 96d9bd8b878e45f0863801669b27bfd7
 #: ../../howtos/backend.rst:367
-#, fuzzy
 msgid ""
 "Their root element is ``<form>``. They are composed of high-level structure elements "
 "(groups, notebooks) and interactive elements (buttons and fields):"
 msgstr ""
-"El elemento raíz es ``<form>``. Se compone de una estructura de alto nivel (*groups, "
-"notebooks*) y los elementos interactivos (*buttons y fields*):"
+"Su elemento raíz es ``<form>``. Ellos son compuestos de una estructura de alto nivel "
+"(groups, notebooks) y los elementos interactivos (buttons y fields):"
 
 # a08f127259f84630955211abae0e420f
 #: ../../howtos/backend.rst:396
@@ -1472,7 +1467,6 @@ msgstr ""
 
 # 816ecdc8152046918d1acba8fcdcb966
 #: ../../howtos/backend.rst:758
-#, fuzzy
 msgid ""
 "To create a computed field, create a field and set its attribute :attr:`~odoo.fields."
 "Field.compute` to the name of a method. The computation method should simply set the "
@@ -1517,7 +1511,6 @@ msgstr "Dependencias"
 
 # e72203eac3154687a70cb1f7c0534740
 #: ../../howtos/backend.rst:794
-#, fuzzy
 msgid ""
 "The value of a computed field usually depends on the values of other fields on the "
 "computed record. The ORM expects the developer to specify those dependencies on the "
@@ -1526,7 +1519,7 @@ msgid ""
 "dependencies have been modified::"
 msgstr ""
 "El valor de un campo calculado generalmente depende de los valores de otros campos en "
-"el registro computado. El ORM espera que el programador  especifique estas "
+"el registro calculado. El ORM espera que el programador  especifique estas "
 "dependencias en el método de cálculo con el decorador :func:`~odoo.api.depends`. Las "
 "dependencias dadas son utilizadas por el ORM para desencadenar el recálculo del campo "
 "cada vez que se han modificado algunas de sus dependencias::"
@@ -1712,7 +1705,6 @@ msgstr "Restricciones"
 
 # 80c40679902349cbb66c14de25e1919a
 #: ../../howtos/backend.rst:917
-#, fuzzy
 msgid ""
 "Odoo provides two ways to set up automatically verified invariants: :func:`Python "
 "constraints <odoo.api.constrains>` and :attr:`SQL constraints <odoo.models.Model."
@@ -1753,7 +1745,6 @@ msgstr ""
 
 # 9526cbc6cb9b4a6abe9e81187caadde2
 #: ../../howtos/backend.rst:945
-#, fuzzy
 msgid ""
 "SQL constraints are defined through the model attribute :attr:`~odoo.models.Model."
 "_sql_constraints`. The latter is assigned to a list of triples of strings ``(name, "
