@@ -322,7 +322,7 @@ class PurchaseOrder(models.Model):
 
     @api.multi
     def button_approve(self, force=False):
-        self.write({'state': 'purchase'})
+        self.write({'state': 'purchase', 'date_approve': fields.Date.context_today(self)})
         self._create_picking()
         if self.company_id.po_lock == 'lock':
             self.write({'state': 'done'})
@@ -765,10 +765,10 @@ class PurchaseOrderLine(models.Model):
         self.product_uom = self.product_id.uom_po_id or self.product_id.uom_id
         result['domain'] = {'product_uom': [('category_id', '=', self.product_id.uom_id.category_id.id)]}
 
-        product_lang = self.product_id.with_context({
-            'lang': self.partner_id.lang,
-            'partner_id': self.partner_id.id,
-        })
+        product_lang = self.product_id.with_context(
+            lang=self.partner_id.lang,
+            partner_id=self.partner_id.id,
+        )
         self.name = product_lang.display_name
         if product_lang.description_purchase:
             self.name += '\n' + product_lang.description_purchase
