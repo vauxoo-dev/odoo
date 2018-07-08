@@ -15,14 +15,28 @@ class ProductProduct(models.Model):
             ('state', 'in', ['sale', 'done']),
             ('product_id', 'in', self.ids),
         ]
+        sale_line_datas = self.env['sale.order.line'].read_group(
+            domain, ['product_id', 'product_uom', 'product_uom_qty'],
+            ['product_id', 'product_uom'], lazy=False)
+
+        uoms = self.env['product.uom']
+        products = self.env['product.product']
+        prefetch = self._prefetch
+        for sale_line_data in sale_line_datas:
+            # Fill prefetch with all the ids to get its data using one query
+            product_ids |= products.browse(
+                sale_line_data['product_id'][0], prefetch=prefetch)
+            uoms |= uoms.browse(
+                    sale_line_data['product_uom'][0], prefetch=prefetch)
+
         self.update({'sales_count': 0})
-        uom = self.env['product.uom']
-        for group in self.env['sale.order.line'].read_group(domain, ['product_id', 'product_uom', 'product_uom_qty'], ['product_id', 'product_uom'], lazy=False):
-            product = self.browse(group['product_id'][0])
-            uom = uom.browse(group['product_uom'][0])
+        for sale_line_data in sale_line_datas:
+            product = products.browse(sale_line_data['product_id'][0], prefetch=prefetch)
+            uom = uoms.browse(sale_line_data['product_uom'][0], prefetch=prefetch)
             if uom != product.uom_id:
-                group['product_uom_qty'] = uom._compute_quantity(group['product_uom_qty'], product.uom_id)
-            product['sales_count'] += group['product_uom_qty']
+                sale_line_data['product_uom_qty'] = uom._compute_quantity(
+                    sale_line_data['product_uom_qty'], product.uom_id)
+            product['sales_count'] += sale_line_data['product_uom_qty']
 
     sales_count = fields.Integer(compute='_sales_count', string='# Sales')
 
