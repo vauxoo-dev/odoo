@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * sale
-#
+# 
 # Translators:
 # Kari Lindgren <kari.lindgren@emsystems.fi>, 2016
 # Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2016
@@ -27,10 +27,10 @@ msgstr ""
 "PO-Revision-Date: 2018-03-08 13:18+0000\n"
 "Last-Translator: Jukka Paulin <jukka.paulin@gmail.com>, 2017\n"
 "Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: sale
@@ -420,6 +420,11 @@ msgstr "Sallii tuotteille eri yksiköiden valinnan ja ylläpidon"
 #: model:ir.model.fields,help:sale.field_account_config_settings_group_analytic_account_for_sales
 msgid "Allows you to specify an analytic account on sales orders."
 msgstr "Sallii kustannuspaikan määrittämisen myyntitilaukselle."
+
+#. module: sale
+#: model:ir.ui.view,arch_db:sale.report_invoice_layouted
+msgid "Amount"
+msgstr "Määrä"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team_sales_to_invoice_amount
@@ -1011,7 +1016,7 @@ msgstr "Laskuta myyntitilaus"
 #: model:ir.model.fields,field_description:sale.field_sale_order_invoice_status
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_invoice_status
 msgid "Invoice Status"
-msgstr "Laskun tila"
+msgstr "Laskutuksen tila"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_crm_team_invoiced_target
@@ -1145,6 +1150,8 @@ msgid ""
 "It is forbidden to modify the following fields in a locked order:\n"
 "%s"
 msgstr ""
+"Et voi muokata seuraavia kenttiä lukitulla tilauksella:\n"
+"%s"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_advance_payment_inv___last_update
@@ -2032,6 +2039,8 @@ msgstr "Lähetä sähköpostilla"
 #: selection:sale.config.settings,module_website_quote:0
 msgid "Send quotations your customer can approve & pay online (advanced)"
 msgstr ""
+"Lähetä tarjouksia, jotka asiakas voi hyväksyä ja maksaa verkkosivuilla "
+"(edistynyt toiminto)"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_layout_category_sequence
@@ -2540,6 +2549,8 @@ msgid ""
 "Your next actions should flow efficiently: confirm the Quotation\n"
 "                to a Sale Order, then create the Invoice and collect the Payment."
 msgstr ""
+"Seuraavat toimesi etenevät tehokkaasti: vahvista tarjous\n"
+"                 myyntitilaukseksi, luo lasku ja huolehdi laskun maksusta."
 
 #. module: sale
 #: model:ir.actions.act_window,help:sale.act_res_partner_2_sale_order
@@ -2548,6 +2559,8 @@ msgid ""
 "Your next actions should flow efficiently: confirm the Quotation to a Sale "
 "Order, then create the Invoice and collect the Payment."
 msgstr ""
+"Seuraavat toimesi etenevät tehokkaasti: vahvista tarjous myyntitilaukseksi, "
+"luo lasku ja huolehdi laskun maksusta."
 
 #. module: sale
 #: model:ir.model,name:sale.model_account_config_settings

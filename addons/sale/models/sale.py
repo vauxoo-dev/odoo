@@ -59,7 +59,7 @@ class SaleOrder(models.Model):
             # Search for invoices which have been 'cancelled' (filter_refund = 'modify' in
             # 'account.invoice.refund')
             # use like as origin may contains multiple references (e.g. 'SO01, SO02')
-            refunds = invoice_ids.search([('origin', 'like', order.name)]).filtered(lambda r: r.type in ['out_invoice', 'out_refund'])
+            refunds = invoice_ids.search([('origin', 'like', order.name), ('company_id', '=', order.company_id.id)]).filtered(lambda r: r.type in ['out_invoice', 'out_refund'])
             invoice_ids |= refunds.filtered(lambda r: order.name in [origin.strip() for origin in r.origin.split(',')])
             # Search for refunds as well
             refund_ids = self.env['account.invoice'].browse()
@@ -334,6 +334,9 @@ class SaleOrder(models.Model):
         precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
         invoices = {}
         references = {}
+        invoices_origin = {}
+        invoices_name = {}
+
         for order in self:
             group_key = order.id if grouped else (order.partner_invoice_id.id, order.currency_id.id)
             for line in order.order_line.sorted(key=lambda l: l.qty_to_invoice < 0):
@@ -344,13 +347,14 @@ class SaleOrder(models.Model):
                     invoice = inv_obj.create(inv_data)
                     references[invoice] = order
                     invoices[group_key] = invoice
+                    invoices_origin[group_key] = [invoice.origin]
+                    invoices_name[group_key] = [invoice.name]
                 elif group_key in invoices:
-                    vals = {}
-                    if order.name not in invoices[group_key].origin.split(', '):
-                        vals['origin'] = invoices[group_key].origin + ', ' + order.name
-                    if order.client_order_ref and order.client_order_ref not in invoices[group_key].name.split(', ') and order.client_order_ref != invoices[group_key].name:
-                        vals['name'] = invoices[group_key].name + ', ' + order.client_order_ref
-                    invoices[group_key].write(vals)
+                    if order.name not in invoices_origin[group_key]:
+                        invoices_origin[group_key].append(order.name)
+                    if order.client_order_ref and order.client_order_ref not in invoices_name[group_key]:
+                        invoices_name[group_key].append(order.client_order_ref)
+
                 if line.qty_to_invoice > 0:
                     line.invoice_line_create(invoices[group_key].id, line.qty_to_invoice)
                 elif line.qty_to_invoice < 0 and final:
@@ -359,6 +363,10 @@ class SaleOrder(models.Model):
             if references.get(invoices.get(group_key)):
                 if order not in references[invoices[group_key]]:
                     references[invoice] = references[invoice] | order
+
+        for group_key in invoices:
+            invoices[group_key].write({'name': ', '.join(invoices_name[group_key]),
+                                       'origin': ', '.join(invoices_origin[group_key])})
 
         if not invoices:
             raise UserError(_('There is no invoicable line.'))
@@ -502,19 +510,14 @@ class SaleOrder(models.Model):
         res = {}
         currency = self.currency_id or self.company_id.currency_id
         for line in self.order_line:
-            base_tax = 0
+            price_reduce = line.price_unit * (1.0 - line.discount / 100.0)
+            taxes = line.tax_id.compute_all(price_reduce, quantity=line.product_uom_qty, product=line.product_id, partner=self.partner_shipping_id)['taxes']
             for tax in line.tax_id:
                 group = tax.tax_group_id
                 res.setdefault(group, 0.0)
-                # FORWARD-PORT UP TO SAAS-17
-                price_reduce = line.price_unit * (1.0 - line.discount / 100.0)
-                taxes = tax.compute_all(price_reduce + base_tax, quantity=line.product_uom_qty,
-                                         product=line.product_id, partner=self.partner_shipping_id)['taxes']
                 for t in taxes:
-                    res[group] += t['amount']
-                if tax.include_base_amount:
-                    base_tax += tax.compute_all(price_reduce + base_tax, quantity=1, product=line.product_id,
-                                                partner=self.partner_shipping_id)['taxes'][0]['amount']
+                    if t['id'] == tax.id or t['id'] in tax.children_tax_ids.ids:
+                        res[group] += t['amount']
         res = sorted(res.items(), key=lambda l: l[0].sequence)
         res = map(lambda l: (l[0].name, l[1]), res)
         return res
@@ -656,7 +659,7 @@ class SaleOrderLine(models.Model):
             if line.state != 'sale' or not line.product_id._need_procurement():
                 continue
             qty = 0.0
-            for proc in line.procurement_ids:
+            for proc in line.procurement_ids.filtered(lambda r: r.state != 'cancel'):
                 qty += proc.product_qty
             if float_compare(qty, line.product_uom_qty, precision_digits=precision) >= 0:
                 continue

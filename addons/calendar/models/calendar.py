@@ -816,8 +816,8 @@ class Meeting(models.Model):
                 startdate = startdate.astimezone(pytz.utc)  # Convert to UTC
                 meeting.start = fields.Datetime.to_string(startdate)
             else:
-                meeting.start = meeting.start_datetime
-                meeting.stop = meeting.stop_datetime
+                meeting.write({'start': meeting.start_datetime,
+                               'stop': meeting.stop_datetime})
 
     @api.depends('byday', 'recurrency', 'final_date', 'rrule_type', 'month_by', 'interval', 'count', 'end_type', 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su', 'day', 'week_list')
     def _compute_rrule(self):
@@ -841,8 +841,8 @@ class Meeting(models.Model):
 
     @api.multi
     def _compute_color_partner(self):
-        for meeting in self.sudo():
-            meeting.color_partner_id = meeting.user_id.partner_id.id
+        for meeting in self:
+            meeting.color_partner_id = meeting.sudo().user_id.partner_id.id
 
     @api.constrains('start_datetime', 'stop_datetime', 'start_date', 'stop_date')
     def _check_closing_date(self):
@@ -858,6 +858,14 @@ class Meeting(models.Model):
             start = fields.Datetime.from_string(self.start_datetime)
             self.start = self.start_datetime
             self.stop = fields.Datetime.to_string(start + timedelta(hours=self.duration))
+
+    @api.onchange('start_date')
+    def _onchange_start_date(self):
+        self.start = self.start_date
+
+    @api.onchange('stop_date')
+    def _onchange_stop_date(self):
+        self.stop = self.stop_date
 
     ####################################################
     # Calendar Business, Reccurency, ...

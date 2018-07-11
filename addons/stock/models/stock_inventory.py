@@ -96,6 +96,13 @@ class Inventory(models.Model):
         else:
             self.total_qty = 0
 
+    @api.multi
+    def unlink(self):
+        for inventory in self:
+            if inventory.state == 'done':
+                raise UserError(_('You cannot delete a validated inventory adjustement.'))
+        return super(Inventory, self).unlink()
+
     @api.model
     def _selection_filter(self):
         """ Get the list of filter allowed according to the options checked
@@ -334,7 +341,7 @@ class InventoryLine(models.Model):
     # TDE FIXME: necessary ? -> replace by location_id
     prodlot_name = fields.Char(
         'Serial Number Name',
-        related='prod_lot_id.name', store=True)
+        related='prod_lot_id.name', store=True, readonly=True)
     company_id = fields.Many2one(
         'res.company', 'Company', related='inventory_id.company_id',
         index=True, readonly=True, store=True)

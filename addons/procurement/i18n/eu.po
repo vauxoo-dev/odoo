@@ -4,9 +4,10 @@
 # 
 # Translators:
 # oihane <oihanecruce@gmail.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux, 2017
 # Esther Martín Menéndez <esthermartin001@gmail.com>, 2017
 # Gorka Toledo <gorka.toledo@gmail.com>, 2017
+# Naomi Hidalgo <naomihid96@gmail.com>, 2017
 # ibinka lete <ilete@fpbidasoa.net>, 2017
 # Ainara Galdona Usatorre <ainaragaldona@avanzosc.es>, 2017
 # Eneko <eastigarraga@codesyntax.com>, 2018
@@ -48,7 +49,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_rule_action
 msgid "Action"
-msgstr ""
+msgstr "Ekintza"
 
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_rule_active
@@ -98,7 +99,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:procurement.procurement_order_action_product_product_stat
 #: model:ir.actions.act_window,help:procurement.procurement_order_action_product_template_stat
 msgid "Click to create a procurement order."
-msgstr ""
+msgstr "Egin klik hornikuntza eskaera bat sortzeko. "
 
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_order_company_id
@@ -140,7 +141,7 @@ msgstr "Noiz sortua"
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_group_move_type
 msgid "Delivery Type"
-msgstr ""
+msgstr "Banaketa mota "
 
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_order_name
@@ -158,17 +159,17 @@ msgstr "Izena erakutsi"
 #. module: procurement
 #: selection:procurement.order,state:0
 msgid "Done"
-msgstr "Done"
+msgstr "Eginda "
 
 #. module: procurement
 #: selection:procurement.order,state:0
 msgid "Exception"
-msgstr "Exception"
+msgstr "Salbuespen"
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter
 msgid "Exceptions"
-msgstr ""
+msgstr "Salbuespenak "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.procurement_form_view
@@ -178,7 +179,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.procurement_form_view
 msgid "Extra Information"
-msgstr ""
+msgstr "Informazio gehigarria "
 
 #. module: procurement
 #: selection:procurement.rule,group_propagation_option:0
@@ -193,7 +194,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_rule_filter
 msgid "Global"
-msgstr ""
+msgstr "Orokorra "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter
@@ -251,12 +252,12 @@ msgstr "Noiz eguneratua"
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter
 msgid "Late"
-msgstr ""
+msgstr "Berandu "
 
 #. module: procurement
 #: selection:procurement.rule,group_propagation_option:0
 msgid "Leave Empty"
-msgstr ""
+msgstr "Utzi hutsik "
 
 #. module: procurement
 #: model:ir.actions.act_window,help:procurement.procurement_order_action_exceptions
@@ -307,14 +308,14 @@ msgstr "Lehenetsi"
 #: model:ir.ui.view,arch_db:procurement.procurement_form_view
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter
 msgid "Procurement"
-msgstr "Procurement"
+msgstr "Hornikuntza "
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.procurement_action5
 #: model:ir.actions.act_window,name:procurement.procurement_order_action_exceptions
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter
 msgid "Procurement Exceptions"
-msgstr ""
+msgstr "Hornikuntza salbuespenak "
 
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_order_group_id
@@ -324,14 +325,14 @@ msgstr "Hornikuntza taldea"
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.procurement_tree_view
 msgid "Procurement Lines"
-msgstr ""
+msgstr "Hornikuntza lerroak"
 
 #. module: procurement
 #: model:ir.actions.act_window,name:procurement.procurement_action
 #: model:ir.actions.act_window,name:procurement.procurement_order_action_product_product_stat
 #: model:ir.actions.act_window,name:procurement.procurement_order_action_product_template_stat
 msgid "Procurement Orders"
-msgstr ""
+msgstr "Hornikuntza eskaerak "
 
 #. module: procurement
 #: model:ir.model,name:procurement.model_procurement_group
@@ -342,12 +343,12 @@ msgstr ""
 #: model:ir.model,name:procurement.model_procurement_rule
 #: model:ir.ui.view,arch_db:procurement.view_procurement_rule_form
 msgid "Procurement Rule"
-msgstr ""
+msgstr "Hornikuntza Araua "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_rule_tree
 msgid "Procurement Rules"
-msgstr ""
+msgstr "Hornikuntza arauak "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.procurement_group_form_view
@@ -381,12 +382,12 @@ msgstr "Produktuaren Neurtze Unitatea"
 #. module: procurement
 #: selection:procurement.rule,group_propagation_option:0
 msgid "Propagate"
-msgstr ""
+msgstr "Hedatu "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_rule_form
 msgid "Propagation Options"
-msgstr ""
+msgstr "Hedatzeko aukerak "
 
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_rule_group_propagation_option
@@ -418,7 +419,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_order_rule_id
 msgid "Rule"
-msgstr ""
+msgstr "Araua "
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.procurement_form_view
@@ -444,7 +445,7 @@ msgstr ""
 #. module: procurement
 #: model:ir.model.fields,field_description:procurement.field_procurement_order_date_planned
 msgid "Scheduled Date"
-msgstr ""
+msgstr "Programatutako data"
 
 #. module: procurement
 #: model:ir.ui.view,arch_db:procurement.view_procurement_filter

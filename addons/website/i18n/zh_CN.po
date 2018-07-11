@@ -15,13 +15,14 @@
 # 老窦 北京 <2662059195@qq.com>, 2018
 # e2f <projects@e2f.com>, 2018
 # e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
+# Maie <m@maie.name>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 13:27+0000\n"
 "PO-Revision-Date: 2017-06-23 13:27+0000\n"
-"Last-Translator: e2f_cn c5 <jarvisn@ecinnovations.com>, 2018\n"
+"Last-Translator: Maie <m@maie.name>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1352,7 +1353,7 @@ msgstr ""
 #: code:addons/website/static/src/js/website.editor.js:137
 #, python-format
 msgid "Create page '%s'"
-msgstr "创建网页 '%s' "
+msgstr "创建页面 '%s' "
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_create_uid
@@ -1401,7 +1402,7 @@ msgstr "仪表板"
 #: model:ir.model.fields,field_description:website.field_website_config_settings_default_lang_id
 #: model:ir.model.fields,field_description:website.field_website_default_lang_id
 msgid "Default Language"
-msgstr ""
+msgstr "默认语言"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_default_lang_code
@@ -1433,7 +1434,7 @@ msgstr "删除上面的图像，或用说明消息的图像来代替。点击图
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_references
 msgid "Demo Logo"
-msgstr ""
+msgstr "演示 Logo"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq_collapse
@@ -1553,7 +1554,7 @@ msgstr "向右拖动菜单创建子菜单"
 #: code:addons/website/static/src/js/website.tour.banner.js:35
 #, python-format
 msgid "Drag another block in your page, below the cover."
-msgstr ""
+msgstr "在封面下面，在您的页面中拖动另一个块。"
 
 #. module: website
 #. openerp-web
@@ -1764,6 +1765,8 @@ msgid ""
 "For example, use pictures to help break up large areas of text by altering\n"
 "                                    Text-Image and Image-Text blocks. If you prefer icons, use the Features or Feature Grid blocks."
 msgstr ""
+"例如，通过变动 \n"
+" 文本-图像和图像-文本块，使用图片帮助大面积文本分散开来。如果您比较喜欢图标，请使用功能或功能网格区块。"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1835,7 +1838,7 @@ msgstr "GitHub账号"
 #: code:addons/website/static/src/js/website.snippets.editor.js:35
 #, python-format
 msgid "Go to Link"
-msgstr ""
+msgstr "转到链接"
 
 #. module: website
 #. openerp-web
@@ -1885,12 +1888,12 @@ msgstr "谷歌业务"
 #: model:ir.ui.view,arch_db:website.company_description
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
 msgid "Google Maps"
-msgstr ""
+msgstr "Google 地图"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_google_maps_api_key
 msgid "Google Maps API Key"
-msgstr ""
+msgstr "Google 地图 API 密钥"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2558,7 +2561,7 @@ msgstr "网页"
 #: code:addons/website/models/website.py:307
 #, python-format
 msgid "Page <b>%s</b> contains a link to this page"
-msgstr "<b/>"
+msgstr "页面 <b>%s</b> 包含跳转链接"
 
 #. module: website
 #. openerp-web
@@ -2848,7 +2851,7 @@ msgstr "重置模板"
 #. module: website
 #: model:res.groups,name:website.group_website_publisher
 msgid "Restricted Editor"
-msgstr ""
+msgstr "受限编辑器"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -3091,7 +3094,7 @@ msgstr "告诉客户<br/>这一功能的价值"
 #: code:addons/website/models/website.py:312
 #, python-format
 msgid "Template <b>%s (id:%s)</b> contains a link to this page"
-msgstr "<b/>"
+msgstr "模板 <b>%s (id:%s)</b> 含跳转链接"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.500
@@ -3249,7 +3252,7 @@ msgstr "网页未找到，如果你是管理员你可以创建它"
 #: code:addons/website/models/website.py:326
 #, python-format
 msgid "This page is in the menu <b>%s</b>"
-msgstr "<b/>"
+msgstr "该页面位于菜单 <b>%s</b>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -3888,7 +3891,7 @@ msgstr "你好像对此分析帐户没有访问权限."
 msgid ""
 "You have many blocks available: References, Quotes Slider, Twitter "
 "Scroller,etc."
-msgstr ""
+msgstr "您有许多可用块：参考、报价滑块、Twitter 滚动条等。"
 
 #. module: website
 #. openerp-web
