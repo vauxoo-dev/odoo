@@ -115,7 +115,7 @@ def init_logger():
     resetlocale()
 
     # create a format for log messages and dates
-    format = '%(asctime)s %(pid)s %(levelname)s %(dbname)s %(name)s: %(message)s'
+    format = '%(levelname)s %(dbname)s %(name)s: %(message)s'
     # Normal Handler on stderr
     handler = logging.StreamHandler()
 
