@@ -512,7 +512,10 @@ def route(route=None, **kw):
             routing['routes'] = routes
         @functools.wraps(f)
         def response_wrap(*args, **kw):
-            response = f(*args, **kw)
+            try:
+                response = f(*args, **kw)
+            except TypeError:
+                return ''
             if isinstance(response, Response) or f.routing_type == 'json':
                 return response
 
