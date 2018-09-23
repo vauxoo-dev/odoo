@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="payment_conekta.payment_acquirer_conekta" model="payment.acquirer">
+        <field name="name">Conekta</field>
+        <field name="provider">conekta</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="view_template_id" ref="payment_conekta.conekta_acquirer_button"/>
+        <field name="image" type="base64" file="payment_conekta/static/src/img/conekta_icon.png"/>
+        <field name="environment">test</field>
+        <field name="pre_msg"><![CDATA[
+<p>Your payment will be processed after you click on Pay Now button.</p>]]></field>
+        <field name="website_published">True</field>
+        <field name="conekta_public_key">key_FYRbSGG18rSqnNZqjiQzagA</field>
+        <field name="conekta_private_key">key_L9DRqz64M7xDr4z7e1wqFQ</field>
+        <field name="save_token">always</field>
+        <field name="payment_flow">s2s</field>
+        <field name="registration_view_template_id" ref="conekta_s2s_form"/>
+        <field name="payment_icon_ids" eval='[(6, 0, [ref("payment.payment_icon_cc_mastercard"),
+                                                      ref("payment.payment_icon_cc_visa"),
+                                                      ref("payment.payment_icon_cc_american_express")])]'/>
+    </record>
+</odoo>
