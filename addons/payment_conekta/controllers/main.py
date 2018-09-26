@@ -31,7 +31,7 @@ class ConektaController(http.Controller):
         res = {
             'result': True,
             'id': 1,
-            'short_name': post.get('cc_number'),
+            'short_name': post.get('conekta_cc_number'),
             '3d_secure': False,
             'verified': False,
         }

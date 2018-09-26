@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
     _name = 'sale.order'
     _inherit = 'sale.order'
 
-    payment_tx_status = fields.Boolean(compute='_compute_payment_tx_status')
+    # payment_tx_status = fields.Boolean(compute='_compute_payment_tx_status')
 
     # @api.depends('payment_tx_id')
     def _compute_payment_tx_status(self):

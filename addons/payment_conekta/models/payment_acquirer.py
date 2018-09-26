@@ -4,6 +4,7 @@
 import logging
 
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 try:
@@ -27,7 +28,7 @@ class AcquirerConekta(models.Model):
     @api.model
     def conekta_s2s_form_process(self, data):
         payment_token = self.env['payment.token'].sudo().create({
-            'name': data['cc_number'],
+            'name': data['conekta_cc_number'],
             'acquirer_ref': data['token_id'],
             'acquirer_id': int(data['acquirer_id']),
             'partner_id': int(data['partner_id'])
@@ -38,7 +39,7 @@ class AcquirerConekta(models.Model):
     def conekta_s2s_form_validate(self, data):
         self.ensure_one()
         # mandatory fields
-        for field_name in ["cc_number"]:
+        for field_name in ["conekta_cc_number"]:
             if not data.get(field_name):
                 return False
         return True
@@ -129,13 +130,13 @@ class PaymentTransactionStripe(models.Model):
             self.write({
                 'state': 'error',
                 'state_message': error,
-                'date_validate': fields.datetime.now(),
+                'date': fields.datetime.now(),
             })
             return False
         if tree.status == 'paid':
             self.write({
                 'state': 'done',
-                'date_validate': fields.datetime.now(),
+                'date': fields.datetime.now(),
                 'acquirer_reference': tree.id,
             })
             self.execute_callback()

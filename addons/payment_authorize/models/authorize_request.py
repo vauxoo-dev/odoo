@@ -189,7 +189,7 @@ class AuthorizeAPI():
                 err_msg = err.find('text').text
                 raise UserError(
                     "Authorize.net Error:\nCode: %s\nMessage: %s"
-                    % (err_code, err_msg)
+                    % (err_code, err_ms)
                 )
 
         res = dict()

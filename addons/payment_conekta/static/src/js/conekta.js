@@ -41,14 +41,14 @@ odoo.define("payment_conekta.payment", function (require) {
             acquirer_id = $acquirer_radio.data('acquirer-id'),
             acquirer_form = $form.find('#o_payment_add_token_acq_' + acquirer_id),
             partner_id = $('input[name=partner_id]').val(),
-            cc_number = $('input[name=cc_number]').val();
+            conekta_cc_number = $('input[name=conekta_cc_number]').val();
             acquirer_form.append($("<input type='hidden' name='token_id'>").val(token.id));
             ajax.jsonRpc('/payment/conekta/s2s/create_json_3ds', 'call', {
                 'token': token.id,
                 'token_id': token.id,
                 'acquirer_id': acquirer_id,
                 'partner_id': partner_id,
-                'cc_number': cc_number}).then(function(response) {
+                'conekta_cc_number': conekta_cc_number}).then(function(response) {
                 if (response.result == true) {
                     acquirer_form.append($("<input type='hidden' name='payment_token_id'>").val(response.id));
                 } else {
