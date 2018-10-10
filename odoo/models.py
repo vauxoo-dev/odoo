@@ -1050,7 +1050,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                 except ValueError:
                     # in case of overridden id column
                     dbid = record['.id']
-                if not self.search(domain=[('id', '=', dbid)]):
+                if not self.search([('id', '=', dbid)]):
                     log(dict(extras,
                         type='error',
                         record=stream.index,
