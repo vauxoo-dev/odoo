@@ -24,7 +24,7 @@ DFTL_METHODS_DOMAIN = {
     'read_group': 1,
     '_read_group_raw': 1,
     '_where_calc': 1,
-    'search_read': 1
+    'search_read': 1,
 
     '_read_group_format_result': 3,
 }
