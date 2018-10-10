@@ -17,14 +17,15 @@ DFTL_METHODS_DOMAIN = {
     'search': 0,
     'search_count': 0,
     '_search': 0,
+    '_read_group_fill_results': 0,
 
     'name_search': 1,
     '_name_search': 1,
-    '_read_group_fill_results': 1,
-    'read_group': 1,
-    '_read_group_raw': 1,
-    '_where_calc': 1,
-    'search_read': 1,
+
+    'read_group': 0,
+    '_read_group_raw': 0,
+    '_where_calc': 0,
+    'search_read': 0,
 
     '_read_group_format_result': 3,
 }
@@ -190,7 +191,7 @@ class OdooBaseChecker(checkers.BaseChecker):
         current_file_bname = os.path.basename(self.linter.current_file)
         if not (isinstance(node, astroid.Call) and
                 isinstance(node.func, astroid.Attribute) and
-                node.func.attrname in ('search', 'search_count') and
+                node.func.attrname in DFTL_METHODS_DOMAIN and
                 not current_file_bname.startswith('test_')):
             return
         infered = checkers.utils.safe_infer(node.func)
@@ -204,6 +205,7 @@ class OdooBaseChecker(checkers.BaseChecker):
         if not domain_node:
             return
         print(self.linter.current_file, node.lineno, domain_node)
+        import pdb;pdb.set_trace()
 
     @checkers.utils.check_messages('sql-injection', 'domain-injection')
     def visit_call(self, node):
