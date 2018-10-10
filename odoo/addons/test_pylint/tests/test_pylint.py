@@ -131,6 +131,9 @@ class TestPyLint(TransactionCase):
             if not module_path.startswith(join(tools.config['root_path'], 'addons')):
                 paths.append(module_path)
 
+        # BORRAR ESTA LINEA DE CODIGO
+        self.ENABLED_CODES = ['domain-injection']
+
         options = [
             '--rcfile=%s' % os.devnull,
             '--disable=all',

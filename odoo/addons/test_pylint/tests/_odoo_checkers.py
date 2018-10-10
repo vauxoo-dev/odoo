@@ -59,7 +59,12 @@ class OdooBaseChecker(checkers.BaseChecker):
             'sql-injection',
             'See http://www.bobby-tables.com try using '
             'execute(query, tuple(params))',
-        )
+        ),
+        'E8502': (
+            'Possible domain injection risk.',
+            'domain-injection',
+            'Check odoo guidelines.',
+        ),
     }
 
     def _get_cursor_name(self, node):
@@ -140,10 +145,62 @@ class OdooBaseChecker(checkers.BaseChecker):
                     break
         return is_concatenation
 
-    @checkers.utils.check_messages('sql-injection')
+    def _get_domain_arg(self, node):
+        # original_method using domains
+        # def search(self, args, offset=0, limit=None, order=None, count=False):
+        # def search_count(self, args):
+        # def _search(self, args, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
+
+        # def name_search(self, name='', args=None, operator='ilike', limit=100):
+        # def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
+
+        # def _read_group_fill_results(self, domain, groupby, remaining_groupbys,
+        # def read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+        # def _read_group_raw(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+        # def _where_calc(self, domain, active_test=True):
+        # def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
+        # def _read_group_format_result(self, data, annotated_groupbys, groupby, domain):
+
+        func_name = node.func.attrname
+        keywords = {kw.arg: kw.value for kw in node.keywords or []}
+        domain_arg = keywords.get('domain') or keywords.get('args')
+        if domain_arg:
+            return domain_arg
+        if func_name in ['search', 'search_count', '_search']:
+            pos = 0
+            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
+        elif func_name in ['name_search', '_name_search',
+                           '_read_group_fill_results', 'read_group',
+                           '_read_group_raw', '_where_calc', 'search_read']:
+            pos = 1
+            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
+        elif func_name == '_read_group_format_result':
+            pos = 3
+            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
+        return domain_arg
+
+    def _check_domain_injection_risky(self, node):
+        current_file_bname = os.path.basename(self.linter.current_file)
+        if not (isinstance(node, astroid.Call) and
+                isinstance(node.func, astroid.Attribute) and
+                node.func.attrname in ('search', 'search_count') and
+                not current_file_bname.startswith('test_')):
+            return
+        infered = checkers.utils.safe_infer(node.func)
+        if (infered is None or infered is astroid.Uninferable or
+            not isinstance(infered, astroid.BoundMethod)):
+            return
+        infered_name = "%s.%s" % (infered.bound.root().name, infered.bound.name)
+        if infered_name != 'odoo.models.BaseModel':
+            return
+        domain_node = self._get_domain_arg(node)
+
+    @checkers.utils.check_messages('sql-injection', 'domain-injection')
     def visit_call(self, node):
         if self._check_sql_injection_risky(node):
             self.add_message('sql-injection', node=node)
+        if self._check_domain_injection_risky(node):
+            self.add_message('domain-injection', node=node)
 
 
 def register(linter):
