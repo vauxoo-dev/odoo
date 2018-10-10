@@ -12,6 +12,22 @@ DFTL_CURSOR_EXPR = [
     'self.cr',  # controllers and test
     'cr',  # old api
 ]
+DFTL_METHODS_DOMAIN = {
+    # method using domain and position of the argument
+    'search': 0,
+    'search_count': 0,
+    '_search': 0,
+
+    'name_search': 1,
+    '_name_search': 1,
+    '_read_group_fill_results': 1,
+    'read_group': 1,
+    '_read_group_raw': 1,
+    '_where_calc': 1,
+    'search_read': 1
+
+    '_read_group_format_result': 3,
+}
 
 
 class PEP3110TokenChecker(checkers.BaseTokenChecker):
@@ -166,17 +182,8 @@ class OdooBaseChecker(checkers.BaseChecker):
         domain_arg = keywords.get('domain') or keywords.get('args')
         if domain_arg:
             return domain_arg
-        if func_name in ['search', 'search_count', '_search']:
-            pos = 0
-            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
-        elif func_name in ['name_search', '_name_search',
-                           '_read_group_fill_results', 'read_group',
-                           '_read_group_raw', '_where_calc', 'search_read']:
-            pos = 1
-            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
-        elif func_name == '_read_group_format_result':
-            pos = 3
-            domain_arg = len(node.args) >= pos + 1 and node.args[pos]
+        pos = DFTL_METHODS_DOMAIN.get(func_name)
+        domain_arg = pos and len(node.args) >= pos + 1 and node.args[pos]
         return domain_arg
 
     def _check_domain_injection_risky(self, node):
