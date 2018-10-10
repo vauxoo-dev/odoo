@@ -201,6 +201,7 @@ class OdooBaseChecker(checkers.BaseChecker):
         if infered_name != 'odoo.models.BaseModel':
             return
         domain_node = self._get_domain_arg(node)
+        print(current_file_bname, node.lineno, domain_node)
 
     @checkers.utils.check_messages('sql-injection', 'domain-injection')
     def visit_call(self, node):
