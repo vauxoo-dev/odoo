@@ -188,6 +188,8 @@ class OdooBaseChecker(checkers.BaseChecker):
         return domain_arg
 
     def _check_domain_injection_risky(self, node):
+        if 'stock_account/models/product.py' in self.linter.current_file and 'search' in node.as_string():
+            import pdb;pdb.set_trace()
         current_file_bname = os.path.basename(self.linter.current_file)
         if not (isinstance(node, astroid.Call) and
                 isinstance(node.func, astroid.Attribute) and
@@ -198,14 +200,14 @@ class OdooBaseChecker(checkers.BaseChecker):
         if (infered is None or infered is astroid.Uninferable or
             not isinstance(infered, astroid.BoundMethod)):
             return
-        infered_name = "%s.%s" % (infered.bound.root().name, infered.bound.name)
-        if infered_name != 'odoo.models.BaseModel':
-            return
+        # infered_name = "%s.%s" % (infered.bound.root().name, infered.bound.name)
+        # if infered_name != 'odoo.models.BaseModel':
+        #     return
         domain_node = self._get_domain_arg(node)
         if not domain_node:
             return
         print(self.linter.current_file, node.lineno, domain_node)
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
 
     @checkers.utils.check_messages('sql-injection', 'domain-injection')
     def visit_call(self, node):
