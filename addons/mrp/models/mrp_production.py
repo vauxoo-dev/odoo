@@ -418,18 +418,19 @@ class MrpProduction(models.Model):
     def _adjust_procure_method(self):
         try:
             mto_route = self.env['stock.warehouse']._get_mto_route()
-        except:
-            mto_route = False
+        except UserError:
+            mto_route = self.env['stock.warehouse.rule']
         for move in self.move_raw_ids:
             product = move.product_id
-            routes = product.route_ids + product.route_from_categ_ids
+            routes = product.route_ids | product.route_from_categ_ids
             # TODO: optimize with read_group?
-            pull = self.env['procurement.rule'].search([('route_id', 'in', [x.id for x in routes]), ('location_src_id', '=', move.location_id.id),
-                                                        ('location_id', '=', move.location_dest_id.id)], limit=1)
+            pull = self.env['procurement.rule'].search([
+                ('route_id', 'in', routes.ids),
+                ('location_src_id', '=', move.location_id.id),
+                ('location_id', '=', move.location_dest_id.id)], limit=1)
             if pull and (pull.procure_method == 'make_to_order'):
                 move.procure_method = pull.procure_method
-            elif not pull: # If there is no make_to_stock rule either
-                if mto_route and mto_route.id in [x.id for x in routes]:
+            if not pull mto_route & routes: # If there is no make_to_stock rule either
                     move.procure_method = 'make_to_order'
 
     @api.multi
