@@ -556,9 +556,14 @@ class AccountBankStatementLine(models.Model):
             raise UserError(_('A selected statement line was already reconciled with an account move.'))
 
         # Fully reconciled moves are just linked to the bank statement
+
         total = self.amount
+        company = self.company_id
+        date = self.date or fields.Date.today()
+        currency = self.currency_id or statement_currency
+        company_total = currency._convert(total, company_currency, company, date)
         for aml_rec in payment_aml_rec:
-            total -= aml_rec.debit - aml_rec.credit
+            company_total -= aml_rec.debit - aml_rec.credit
             aml_rec.with_context(check_move_validity=False).write({'statement_line_id': self.id})
             counterpart_moves = (counterpart_moves | aml_rec.move_id)
             if aml_rec.journal_id.post_at_bank_rec and aml_rec.payment_id and aml_rec.move_id.state == 'draft':
@@ -570,6 +575,8 @@ class AccountBankStatementLine(models.Model):
                 # We check the paid status of the invoices reconciled with this payment
                 for invoice in aml_rec.payment_id.reconciled_invoice_ids:
                     self._check_invoice_state(invoice)
+
+        total = company_currency._convert(company_total, currency, company, date)
 
         # Create move line(s). Either matching an existing journal entry (eg. invoice), in which
         # case we reconcile the existing and the new move lines together, or being a write-off.
@@ -614,8 +621,6 @@ class AccountBankStatementLine(models.Model):
 
             # Complete dicts to create both counterpart move lines and write-offs
             to_create = (counterpart_aml_dicts + new_aml_dicts)
-            company = self.company_id
-            date = self.date or fields.Date.today()
             for aml_dict in to_create:
                 aml_dict['move_id'] = move.id
                 aml_dict['partner_id'] = self.partner_id.id
