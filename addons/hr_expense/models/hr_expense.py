@@ -507,6 +507,11 @@ class HrExpenseSheet(models.Model):
     def _default_bank_journal_id(self):
         return self.env['account.journal'].search([('type', 'in', ['cash', 'bank'])], limit=1)
 
+    def _get_payment_mode_selection(self):
+        """The options are consistent with hr.expense"""
+        return self.env['hr.expense'].fields_get().get(
+            'payment_mode').get('selection')
+
     name = fields.Char('Expense Report Summary', required=True)
     expense_line_ids = fields.One2many('hr.expense', 'sheet_id', string='Expense Lines', states={'approve': [('readonly', True)], 'done': [('readonly', True)], 'post': [('readonly', True)]}, copy=False)
     state = fields.Selection([
@@ -519,7 +524,7 @@ class HrExpenseSheet(models.Model):
     ], string='Status', index=True, readonly=True, track_visibility='onchange', copy=False, default='draft', required=True, help='Expense Report State')
     employee_id = fields.Many2one('hr.employee', string="Employee", required=True, readonly=True, states={'draft': [('readonly', False)]}, default=lambda self: self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1))
     address_id = fields.Many2one('res.partner', string="Employee Home Address")
-    payment_mode = fields.Selection([("own_account", "Employee (to reimburse)"), ("company_account", "Company")], related='expense_line_ids.payment_mode', default='own_account', readonly=True, string="Paid By")
+    payment_mode = fields.Selection(_get_payment_mode_selection, related='expense_line_ids.payment_mode', default='own_account', readonly=True, string="Paid By")
     user_id = fields.Many2one('res.users', 'Manager', readonly=True, copy=False, states={'draft': [('readonly', False)]}, track_visibility='onchange', oldname='responsible_id')
     total_amount = fields.Monetary('Total Amount', currency_field='currency_id', compute='_compute_amount', store=True, digits=dp.get_precision('Account'))
     company_id = fields.Many2one('res.company', string='Company', readonly=True, states={'draft': [('readonly', False)]}, default=lambda self: self.env.user.company_id)
