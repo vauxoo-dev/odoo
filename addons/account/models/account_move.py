@@ -51,17 +51,19 @@ class AccountMove(models.Model):
                 ('move_id', '=', move.id),
                 ('account_id.user_type_id.type', 'in', ('receivable',
                                                         'payable'))])
-            # TODO: Future version read group for all moves
+            if not aml_rec_pay:
+                continue
             aml_rec_pay_res = aml_rec_pay.read_group(
                 [('id', 'in', aml_rec_pay.ids)],
-                ['debit', 'credit'], [])
+                ['debit', 'credit'], [])[0]
             total_amount = abs(
-                aml_rec_pay_res['debit'] - aml_rec_pay_res['credit'])
+                (aml_rec_pay_res.get('debit') or 0) -
+                (aml_rec_pay_res.get('credit') or 0))
 
             domain = ['|', ('credit_move_id', 'in', aml_rec_pay.ids),
                       ('debit_move_id', 'in', aml_rec_pay.ids)]
             total_reconciled = self.env['account.partial.reconcile'].read_group(
-                domain, ['amount'], [])['amount']
+                domain, ['amount'], [])[0]['amount'] or 0
             precision_currency = move.currency_id or move.company_id.currency_id
             if float_is_zero(total_amount, precision_rounding=precision_currency.rounding):
                 move.matched_percentage = 1.0
@@ -111,7 +113,7 @@ class AccountMove(models.Model):
     amount = fields.Monetary(compute='_amount_compute', store=True)
     narration = fields.Text(string='Internal Note')
     company_id = fields.Many2one('res.company', related='journal_id.company_id', string='Company', store=True, readonly=True)
-    matched_percentage = fields.Float('Percentage Matched', compute='_compute_matched_percentage', digits=0, store=True, readonly=True, help="Technical field used in cash basis method")
+    matched_percentage = fields.Float('Percentage Matched', default=1, compute='_compute_matched_percentage', digits=0, store=True, readonly=True, help="Technical field used in cash basis method")
     # Dummy Account field to search on account.move by account_id
     dummy_account_id = fields.Many2one('account.account', related='line_ids.account_id', string='Account', store=False, readonly=True)
     tax_cash_basis_rec_id = fields.Many2one(
