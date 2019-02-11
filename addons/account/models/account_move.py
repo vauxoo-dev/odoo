@@ -47,14 +47,21 @@ class AccountMove(models.Model):
         involve journal items on receivable or payable accounts.
         """
         for move in self:
-            total_amount = 0.0
-            total_reconciled = 0.0
-            for line in move.line_ids:
-                if line.account_id.user_type_id.type in ('receivable', 'payable'):
-                    amount = abs(line.debit - line.credit)
-                    total_amount += amount
-                    for partial_line in (line.matched_debit_ids + line.matched_credit_ids):
-                        total_reconciled += partial_line.amount
+            aml_rec_pay = self.env['account.move.line'].search([
+                ('move_id', '=', move.id),
+                ('account_id.user_type_id.type', 'in', ('receivable',
+                                                        'payable'))])
+            # TODO: Future version read group for all moves
+            aml_rec_pay_res = aml_rec_pay.read_group(
+                [('id', 'in', aml_rec_pay.ids)],
+                ['debit', 'credit'], [])
+            total_amount = abs(
+                aml_rec_pay_res['debit'] - aml_rec_pay_res['credit'])
+
+            domain = ['|', ('credit_move_id', 'in', aml_rec_pay.ids),
+                      ('debit_move_id', 'in', aml_rec_pay.ids)]
+            total_reconciled = self.env['account.partial.reconcile'].read_group(
+                domain, ['amount'], [])['amount']
             precision_currency = move.currency_id or move.company_id.currency_id
             if float_is_zero(total_amount, precision_rounding=precision_currency.rounding):
                 move.matched_percentage = 1.0
@@ -662,7 +669,7 @@ class AccountMoveLine(models.Model):
     @api.model
     def get_reconciliation_proposition(self, account_id, partner_id=False):
         """ Returns two lines whose amount are opposite """
-        
+
         target_currency = (self.currency_id and self.amount_currency) and self.currency_id or self.company_id.currency_id
         partner_id_condition = partner_id and 'AND a.partner_id = %(partner_id)s' or ''
 
@@ -848,7 +855,7 @@ class AccountMoveLine(models.Model):
                 amount_currency = line.amount_currency
 
             target_currency = target_currency or company_currency
-            
+
             ctx = context.copy()
             ctx.update({'date': target_date or line.date})
             # Use case:
@@ -857,13 +864,13 @@ class AccountMoveLine(models.Model):
             # 1)    25      0            0            NULL
             # 2)    17      0           25             EUR
             # 3)    33      0           25             YEN
-            # 
+            #
             # If we ask to see the information in the reconciliation widget in company currency, we want to see
             # The following informations
             # 1) 25 USD (no currency information)
             # 2) 17 USD [25 EUR] (show 25 euro in currency information, in the little bill)
             # 3) 33 USD [25 YEN] (show 25 yen in currencu information)
-            # 
+            #
             # If we ask to see the information in another currency than the company let's say EUR
             # 1) 35 EUR [25 USD]
             # 2) 25 EUR (no currency information)
