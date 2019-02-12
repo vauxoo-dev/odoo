@@ -1716,6 +1716,7 @@ class AccountPartialReconcile(models.Model):
         self.ensure_one()
         move_date = self.debit_move_id.date
         newly_created_move = self.env['account.move']
+        newly_created_move_lines = self.env['account.move.line']
         for move in (self.debit_move_id.move_id, self.credit_move_id.move_id):
             #move_date is the max of the 2 reconciled items
             if move_date < move.date:
@@ -1735,7 +1736,7 @@ class AccountPartialReconcile(models.Model):
                         if not newly_created_move:
                             newly_created_move = self._create_tax_basis_move()
                         #create cash basis entry for the tax line
-                        to_clear_aml = self.env['account.move.line'].with_context(check_move_validity=False).create({
+                        to_clear_aml = self.env['account.move.line'].with_context(check_move_validity=False).new({
                             'name': line.move_id.name,
                             'debit': abs(rounded_amt) if rounded_amt < 0 else 0.0,
                             'credit': rounded_amt if rounded_amt > 0 else 0.0,
@@ -1746,8 +1747,9 @@ class AccountPartialReconcile(models.Model):
                             'move_id': newly_created_move.id,
                             'partner_id': line.partner_id.id,
                             })
+                        newly_created_move_lines |= to_clear_aml
                         # Group by cash basis account and tax
-                        self.env['account.move.line'].with_context(check_move_validity=False).create({
+                        newly_created_move_lines |= self.env['account.move.line'].with_context(check_move_validity=False).new({
                             'name': line.name,
                             'debit': rounded_amt if rounded_amt > 0 else 0.0,
                             'credit': abs(rounded_amt) if rounded_amt < 0 else 0.0,
@@ -1770,7 +1772,7 @@ class AccountPartialReconcile(models.Model):
                         #create cash basis entry for the base
                         for tax in line.tax_ids:
                             account_id = self._get_tax_cash_basis_base_account(line, tax)
-                            self.env['account.move.line'].with_context(check_move_validity=False).create({
+                            newly_created_move_lines |= self.env['account.move.line'].with_context(check_move_validity=False).new({
                                 'name': line.name,
                                 'debit': rounded_amt > 0 and rounded_amt or 0.0,
                                 'credit': rounded_amt < 0 and abs(rounded_amt) or 0.0,
@@ -1782,7 +1784,7 @@ class AccountPartialReconcile(models.Model):
                                 'amount_currency': self.amount_currency and line.currency_id.round(line.amount_currency * amount / line.balance) or 0.0,
                                 'partner_id': line.partner_id.id,
                             })
-                            self.env['account.move.line'].with_context(check_move_validity=False).create({
+                            newly_created_move_lines |= self.env['account.move.line'].with_context(check_move_validity=False).new({
                                 'name': line.name,
                                 'credit': rounded_amt > 0 and rounded_amt or 0.0,
                                 'debit': rounded_amt < 0 and abs(rounded_amt) or 0.0,
@@ -1794,6 +1796,7 @@ class AccountPartialReconcile(models.Model):
                                 'partner_id': line.partner_id.id,
                             })
         if newly_created_move:
+            newly_created_move.line_ids |= newly_created_move_lines
             if move_date > (self.company_id.period_lock_date or '0000-00-00') and newly_created_move.date != move_date:
                 # The move date should be the maximum date between payment and invoice (in case
                 # of payment in advance). However, we should make sure the move date is not
