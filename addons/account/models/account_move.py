@@ -1505,7 +1505,7 @@ class AccountPartialReconcile(models.Model):
             # update the percentage before as the move can be part of
             # multiple partial reconciliations
             percentage_before_rec[move.id] = percentage_after
-
+            to_reconciles = []
             for line in move.line_ids:
                 if not line.tax_exigible:
                     #amount is the current cash_basis amount minus the one before the reconciliation
@@ -1521,9 +1521,9 @@ class AccountPartialReconcile(models.Model):
                             'name': line.move_id.name,
                             'debit': abs(rounded_amt) if rounded_amt < 0 else 0.0,
                             'credit': rounded_amt if rounded_amt > 0 else 0.0,
-                            'account_id': line.account_id.id,
-                            'analytic_account_id': line.analytic_account_id.id,
-                            'analytic_tag_ids': line.analytic_tag_ids.ids,
+                            'account_id': line.account_id,
+                            'analytic_account_id': line.analytic_account_id,
+                            'analytic_tag_ids': line.analytic_tag_ids,
                             'tax_exigible': True,
                             'amount_currency': line.amount_currency and line.currency_id.round(-line.amount_currency * amount / line.balance) or 0.0,
                             'currency_id': line.currency_id.id,
@@ -1531,6 +1531,7 @@ class AccountPartialReconcile(models.Model):
                             'partner_id': line.partner_id.id,
                             })
                         newly_created_move_lines |= to_clear_aml
+                        newly_created_move_lines[-1].analytic_tag_ids = line.analytic_tag_ids  # FIXME: *2many are deleted using |=
                         # Group by cash basis account and tax
                         newly_created_move_lines |= self.env['account.move.line'].with_context(check_move_validity=False).new({
                             'name': line.name,
@@ -1546,10 +1547,14 @@ class AccountPartialReconcile(models.Model):
                             'move_id': newly_created_move.id,
                             'partner_id': line.partner_id.id,
                         })
+                        newly_created_move_lines[-1].analytic_tag_ids = line.analytic_tag_ids  # FIXME: *2many are deleted using |=
+                        # print("parte 1")
+                        # __import__('pdb').set_trace()
                         if line.account_id.reconcile:
                             #setting the account to allow reconciliation will help to fix rounding errors
                             to_clear_aml |= line
-                            to_clear_aml.reconcile()
+                            to_clear_aml[0].analytic_tag_ids = line.analytic_tag_ids  # FIXME: *2many are deleted using |=
+                            to_reconciles.append(to_clear_aml)
 
                     if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
                         if not newly_created_move:
@@ -1569,6 +1574,7 @@ class AccountPartialReconcile(models.Model):
                                 'amount_currency': self.amount_currency and line.currency_id.round(line.amount_currency * amount / line.balance) or 0.0,
                                 'partner_id': line.partner_id.id,
                             })
+                            newly_created_move_lines[-1].tax_ids = tax  # FIXME: Using "newly_created_move_lines |=" the tax_ids is deleted
                             newly_created_move_lines |= self.env['account.move.line'].with_context(check_move_validity=False).new({
                                 'name': line.name,
                                 'credit': rounded_amt > 0 and rounded_amt or 0.0,
@@ -1580,8 +1586,11 @@ class AccountPartialReconcile(models.Model):
                                 'amount_currency': self.amount_currency and line.currency_id.round(-line.amount_currency * amount / line.balance) or 0.0,
                                 'partner_id': line.partner_id.id,
                             })
+                            # print("parte 2")
+                            # __import__('pdb').set_trace()
 
         if newly_created_move:
+            # __import__('pdb').set_trace()
             newly_created_move.line_ids |= newly_created_move_lines
             if move_date > (self.company_id.period_lock_date or date.min) and newly_created_move.date != move_date:
                 # The move date should be the maximum date between payment and invoice (in case
@@ -1591,6 +1600,8 @@ class AccountPartialReconcile(models.Model):
                 newly_created_move.write({'date': move_date})
             # post move
             newly_created_move.post()
+        for to_reconcile in to_reconciles:
+            to_reconcile.reconcile()
 
     def _create_tax_basis_move(self):
         # Check if company_journal for cash basis is set if not, raise exception
