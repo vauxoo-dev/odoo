@@ -510,7 +510,8 @@ class AccountInvoice(models.Model):
                 self.type == 'in_invoice' and self.state == 'draft' and _('Vendor Bill') or \
                 self.type == 'in_invoice' and self.state in ('open','in_payment','paid') and _('Vendor Bill - %s') % (self.number) or \
                 self.type == 'in_refund' and self.state == 'draft' and _('Vendor Credit Note') or \
-                self.type == 'in_refund' and _('Vendor Credit Note - %s') % (self.number)
+                self.type == 'in_refund' and _('Vendor Credit Note - %s') % (self.number) or \
+                "%s-%s" % (self.state, self.move_name)
 
     @api.model
     def create(self, vals):
