@@ -1971,7 +1971,7 @@ class TestReconciliation(AccountingTestCase):
         })
         fx_move_02.post()
 
-        invoice_id.assign_outstanding_credit(fx_02_payable_line.id)
+        invoice_id.register_payment(fx_02_payable_line)
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Gains must not affected Invoice residual')
