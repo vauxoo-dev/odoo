@@ -2054,19 +2054,21 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rcv.id,
             'debit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_expense_account.id,
             'credit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
-        fx_move_01.post()
 
-        invoice_id.assign_outstanding_credit(fx_01_receivable_line.id)
+        invoice_id.register_payment(fx_01_receivable_line)
+        # Force a moving without currency after assign outstanding credit
+        fx_01_receivable_line.write({'amount_currency': 0, 'currency_id': False})
+        fx_move_01.post()
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Losses must not affected Invoice residual')
@@ -2081,19 +2083,21 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rcv.id,
             'credit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_income_account.id,
             'debit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
+
+        invoice_id.register_payment(fx_02_receivable_line)
         fx_move_02.post()
 
-        invoice_id.assign_outstanding_credit(fx_02_receivable_line.id)
+        self.pretty_print_journal_item(fx_move_02 | fx_move_01 | invoice_id.move_id)
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Gains must not affected Invoice residual')
@@ -2204,21 +2208,20 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'credit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_expense_account.id,
             'debit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_01.post()
 
         (purchase_payable_line0 | fx_01_payable_line).reconcile()
-        self.pretty_print_journal_item(fx_move_01)
-        self.pretty_print_journal_item(purchase_move)
+        self.pretty_print_journal_item(purchase_move | fx_move_01)
         self.assertEquals(
             purchase_payable_line0.amount_residual_currency, -6149.16,
             'Exchange Difference Losses must not affected amount residual currency')
@@ -2233,32 +2236,32 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'debit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_income_account.id,
             'credit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_02.post()
 
         (purchase_payable_line0 | fx_02_payable_line).reconcile()
-        self.pretty_print_journal_item(fx_move_02)
-        self.pretty_print_journal_item(purchase_move)
+        self.pretty_print_journal_item(purchase_move | fx_move_02)
         self.assertEquals(
             purchase_payable_line0.amount_residual_currency, -6149.16,
             'Exchange Difference Gains must not affected amount residual currency')
 
-    def pretty_print_journal_item(self, account_move):
-        print("\n" + account_move.name + '-'*10)
-        print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
-            'id', 'account', '$amount', '€debit', '€credit', '€residual', '$residual', 'mat_debit', 'mat_credit'))
-        for line in account_move.line_ids:
-            print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
-                line.id, line.account_id.code, line.amount_currency, line.debit, line.credit, line.amount_residual,
-                line.amount_residual_currency,
-                ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
-                ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line).ids,))
+    def pretty_print_journal_item(self, account_moves):
+        for account_move in account_moves:
+            print("\n" + account_move.name + '-'*10)
+            print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+                'id', 'account', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit'))
+            for line in account_move.line_ids:
+                print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+                    line.id, line.account_id.code, line.amount_currency, line.debit, line.credit, line.amount_residual,
+                    line.amount_residual_currency, line.currency_id.name,
+                    ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
+                    ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line).ids,))
