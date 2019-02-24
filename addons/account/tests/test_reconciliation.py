@@ -2188,6 +2188,7 @@ class TestReconciliation(AccountingTestCase):
         })
         purchase_move.post()
 
+        self.pretty_print_journal_item(purchase_move)
         self.assertEquals(purchase_payable_line0.amount_residual_currency, -6149.16,
                           "It's not possible we just approved this journal item")
 
@@ -2216,6 +2217,8 @@ class TestReconciliation(AccountingTestCase):
         fx_move_01.post()
 
         (purchase_payable_line0 | fx_01_payable_line).reconcile()
+        self.pretty_print_journal_item(fx_move_01)
+        self.pretty_print_journal_item(purchase_move)
         self.assertEquals(
             purchase_payable_line0.amount_residual_currency, -6149.16,
             'Exchange Difference Losses must not affected amount residual currency')
@@ -2243,6 +2246,18 @@ class TestReconciliation(AccountingTestCase):
         fx_move_02.post()
 
         (purchase_payable_line0 | fx_02_payable_line).reconcile()
+        self.pretty_print_journal_item(fx_move_02)
+        self.pretty_print_journal_item(purchase_move)
         self.assertEquals(
             purchase_payable_line0.amount_residual_currency, -6149.16,
             'Exchange Difference Gains must not affected amount residual currency')
+
+    def pretty_print_journal_item(self, account_move):
+        print("\n" + account_move.name + '-'*10)
+        print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+            'id', 'account', '$amount', '€debit', '€credit', '€residual', '$residual', 'mat_debit', 'mat_credit'))
+        for line in account_move.line_ids:
+            print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+                line.id, line.account_id.code, line.amount_currency, line.debit, line.credit, line.amount_residual,
+                line.amount_residual_currency, (line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')).ids,
+                (line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')).ids,))
