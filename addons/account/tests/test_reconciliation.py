@@ -2097,3 +2097,152 @@ class TestReconciliation(AccountingTestCase):
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Gains must not affected Invoice residual')
+
+    def test_reconciliation_fx_gain_loss_to_aml(self):
+        """
+        Company's Currency EUR
+
+        Having issued an account move line at date Nov-21-2018 as:
+
+        Accounts         Amount Currency         Debit(EUR)       Credit(EUR)
+        ---------------------------------------------------------------------
+        Expenses            5,301.00 USD         106,841.65              0.00
+        Taxes                 848.16 USD          17,094.66              0.00
+            Payables       -6,149.16 USD               0.00        123,936.31
+
+        On Nov-30-2018 user issues an FX Journal Entry as required by law:
+
+        Accounts         Amount Currency         Debit(EUR)       Credit(EUR)
+        ---------------------------------------------------------------------
+        FX Losses               0.00 USD           1,572.96             0.00
+            Payables            0.00 USD               0.00         1,572.96
+
+        On Dec-31-2018 user issues an FX Journal Entry as required by law:
+
+        Accounts         Amount Currency         Debit(EUR)       Credit(EUR)
+        ---------------------------------------------------------------------
+        Payables                0.00 USD           4,475.97             0.00
+            FX Gains            0.00 USD               0.00         4,475.97
+
+        After applying FX to Invoice residual shall remain the same.
+        """
+
+        company = self.env.ref('base.main_company')
+        company.country_id = self.ref('base.us')
+
+        aml_obj = self.env['account.move.line'].with_context(
+            check_move_validity=False)
+
+        self.env['res.currency.rate'].create({
+            'name': '2018-11-21',
+            'rate': 1.0/20.1550,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id
+        })
+        self.env['res.currency.rate'].create({
+            'name': '2018-11-30',
+            'rate': 1.0/20.4108,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id
+        })
+        self.env['res.currency.rate'].create({
+            'name': '2018-12-31',
+            'rate': 1.0/19.6829,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id
+        })
+
+        # Purchase
+        aml_obj = self.env['account.move.line'].with_context(
+                check_move_validity=False)
+        purchase_move = self.env['account.move'].create({
+           'name': 'purchase',
+           'journal_id': self.purchase_journal.id,
+        })
+
+        aml_obj.create({
+           'name': 'expenseTaxed',
+           'account_id': self.expense_account.id,
+           'debit': 106841.65,
+           'move_id': purchase_move.id,
+           'tax_ids': [(4, self.tax_cash_basis.id, False)],
+           'currency_id': self.currency_usd_id,
+           'amount_currency': 5301.00,
+        })
+        aml_obj.create({
+           'name': 'TaxLine',
+           'account_id': self.tax_waiting_account.id,
+           'debit': 17094.66,
+           'move_id': purchase_move.id,
+           'tax_line_id': self.tax_cash_basis.id,
+           'currency_id': self.currency_usd_id,
+           'amount_currency': 848.16,
+        })
+        purchase_payable_line0 = aml_obj.create({
+           'name': 'Payable',
+           'account_id': self.account_rsa.id,
+           'credit': 123936.31,
+           'move_id': purchase_move.id,
+           'currency_id': self.currency_usd_id,
+           'amount_currency': -6149.16,
+        })
+        purchase_move.post()
+
+        self.assertEquals(purchase_payable_line0.amount_residual_currency, -6149.16,
+                          "It's not possible we just approved this journal item")
+
+        self.assertEquals(purchase_payable_line0.currency_id.id, self.currency_usd_id)
+
+        # FX 01 Move
+        fx_move_01 = self.env['account.move'].create({
+            'date': '2018-11-30',
+            'name': 'FX 01',
+            'journal_id': self.fx_journal.id,
+        })
+        fx_01_payable_line = aml_obj.create({
+            'account_id': self.account_rsa.id,
+            'credit': 1572.96,
+            'move_id': fx_move_01.id,
+            'currency_id': self.currency_usd_id,
+            'amount_currency': 0.00,
+        })
+        aml_obj.create({
+            'account_id': self.diff_expense_account.id,
+            'debit': 1572.96,
+            'move_id': fx_move_01.id,
+            'currency_id': self.currency_usd_id,
+            'amount_currency': 0.00,
+        })
+        fx_move_01.post()
+
+        (purchase_payable_line0 | fx_01_payable_line).reconcile()
+        self.assertEquals(
+            purchase_payable_line0.amount_residual_currency, -6149.16,
+            'Exchange Difference Losses must not affected amount residual currency')
+
+        # FX 02 Move
+        fx_move_02 = self.env['account.move'].create({
+            'date': '2018-12-31',
+            'name': 'FX 02',
+            'journal_id': self.fx_journal.id,
+        })
+        fx_02_payable_line = aml_obj.create({
+            'account_id': self.account_rsa.id,
+            'debit': 1740.82,
+            'move_id': fx_move_02.id,
+            'currency_id': self.currency_usd_id,
+            'amount_currency': 0.00,
+        })
+        aml_obj.create({
+            'account_id': self.diff_income_account.id,
+            'credit': 1740.82,
+            'move_id': fx_move_02.id,
+            'currency_id': self.currency_usd_id,
+            'amount_currency': 0.00,
+        })
+        fx_move_02.post()
+
+        (purchase_payable_line0 | fx_02_payable_line).reconcile()
+        self.assertEquals(
+            purchase_payable_line0.amount_residual_currency, -6149.16,
+            'Exchange Difference Gains must not affected amount residual currency')
