@@ -2066,8 +2066,6 @@ class TestReconciliation(AccountingTestCase):
         })
 
         invoice_id.register_payment(fx_01_receivable_line)
-        # Force a moving without currency after assign outstanding credit
-        fx_01_receivable_line.write({'amount_currency': 0, 'currency_id': False})
         fx_move_01.post()
         self.assertEquals(
             invoice_id.residual, 6149.16,
