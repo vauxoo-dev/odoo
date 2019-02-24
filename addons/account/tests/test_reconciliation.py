@@ -2259,5 +2259,6 @@ class TestReconciliation(AccountingTestCase):
         for line in account_move.line_ids:
             print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
                 line.id, line.account_id.code, line.amount_currency, line.debit, line.credit, line.amount_residual,
-                line.amount_residual_currency, (line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')).ids,
-                (line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')).ids,))
+                line.amount_residual_currency,
+                ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line.id).ids,
+                ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line.id).ids,))
