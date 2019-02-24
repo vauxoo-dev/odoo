@@ -519,10 +519,8 @@ class AccountMoveLine(models.Model):
                 # If line is a debit (sign = 1), do the opposite.
                 sign_partial_line = sign if partial_line.credit_move_id == line else (-1 * sign)
                 exchange = (
-                    (partial_line.credit_move_id.currency_id
-                     and not partial_line.credit_move_id.amount_currency and partial_line.debit_move_id.invoice_id) or
-                    (partial_line.debit_move_id.currency_id
-                     and not partial_line.debit_move_id.amount_currency and partial_line.credit_move_id.invoice_id))
+                    (not partial_line.credit_move_id.currency_id and not partial_line.credit_move_id.amount_currency) or
+                    (not partial_line.debit_move_id.currency_id and not partial_line.debit_move_id.amount_currency))
 
                 amount += sign_partial_line * partial_line.amount
                 #getting the date of the matched item to compute the amount_residual in currency
@@ -836,8 +834,8 @@ class AccountMoveLine(models.Model):
             credit_move = credit_moves[0]
             company_currency = debit_move.company_id.currency_id
             # We need those temporary value otherwise the computation might be wrong below
-            exchange = ((debit_move.currency_id and not debit_move.amount_currency and credit_move.invoice_id) or
-                        (credit_move.currency_id and not credit_move.amount_currency and debit_move.invoice_id))
+            exchange = ((not debit_move.currency_id and not debit_move.amount_currency) or
+                        (not credit_move.currency_id and not credit_move.amount_currency))
             temp_amount_residual = min(debit_move.amount_residual, -credit_move.amount_residual)
             temp_amount_residual_currency = min(debit_move.amount_residual_currency,
                                                 -credit_move.amount_residual_currency) if not exchange else 0
