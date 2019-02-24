@@ -1932,14 +1932,14 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'credit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_expense_account.id,
             'debit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_01.post()
@@ -1959,19 +1959,19 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'debit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_income_account.id,
             'credit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_02.post()
 
-        invoice_id.assign_outstanding_credit(fx_02_payable_line.id)
+        invoice_id.register_payment(fx_02_payable_line)
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Gains must not affected Invoice residual')
@@ -2054,19 +2054,19 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rcv.id,
             'debit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_expense_account.id,
             'credit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_01.post()
 
-        invoice_id.assign_outstanding_credit(fx_01_receivable_line.id)
+        invoice_id.register_payment(fx_01_receivable_line)
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Losses must not affected Invoice residual')
@@ -2081,19 +2081,19 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rcv.id,
             'credit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_income_account.id,
             'debit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_02.post()
 
-        invoice_id.assign_outstanding_credit(fx_02_receivable_line.id)
+        invoice_id.register_payment(fx_02_receivable_line)
         self.assertEquals(
             invoice_id.residual, 6149.16,
             'Exchange Difference Gains must not affected Invoice residual')
@@ -2203,14 +2203,14 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'credit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_expense_account.id,
             'debit': 1572.96,
             'move_id': fx_move_01.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_01.post()
@@ -2230,14 +2230,14 @@ class TestReconciliation(AccountingTestCase):
             'account_id': self.account_rsa.id,
             'debit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         aml_obj.create({
             'account_id': self.diff_income_account.id,
             'credit': 1740.82,
             'move_id': fx_move_02.id,
-            'currency_id': self.currency_usd_id,
+            'currency_id': False,
             'amount_currency': 0.00,
         })
         fx_move_02.post()
