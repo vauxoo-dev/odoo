@@ -36,11 +36,15 @@ class AccountMove(models.Model):
     @api.multi
     @api.depends('line_ids.debit', 'line_ids.credit')
     def _amount_compute(self):
+        line_ids = self.exists().line_ids.exists().ids
+        if not line_ids:
+            return
+
+        debit_moves = self.env['account.move.line'].read_group([
+            ('id', 'in', line_ids)], ['debit'], ['move_id'])
+        debit_moves_dict = {dm['move_id'][0]: dm['debit'] for dm in debit_moves}
         for move in self:
-            total = 0.0
-            for line in move.line_ids:
-                total += line.debit
-            move.amount = total
+            move.amount = debit_moves_dict.get(move.id)
 
     @api.depends('line_ids.debit', 'line_ids.credit', 'line_ids.matched_debit_ids.amount', 'line_ids.matched_credit_ids.amount', 'line_ids.account_id.user_type_id.type')
     def _compute_matched_percentage(self):
@@ -1555,7 +1559,8 @@ class AccountPartialReconcile(models.Model):
         self.ensure_one()
         move_date = self.debit_move_id.date
         newly_created_move = self.env['account.move']
-        with self.env.norecompute():
+        moves2recompute = (newly_created_move | self.debit_move_id.move_id | self.credit_move_id.move_id)
+        with moves2recompute.env.norecompute():
             for move in (self.debit_move_id.move_id, self.credit_move_id.move_id):
                 #move_date is the max of the 2 reconciled items
                 if move_date < move.date:
@@ -1639,7 +1644,11 @@ class AccountPartialReconcile(models.Model):
                                     'amount_currency': self.amount_currency and line.currency_id.round(-line.amount_currency * amount / line.balance) or 0.0,
                                     'partner_id': line.partner_id.id,
                                 })
-        self.recompute()
+                # move.recompute()
+            # newly_created_move.recompute()
+        # moves2recompute.recompute()
+        moves2recompute.recompute()
+        # self.recompute()
         if newly_created_move:
             if move_date > (self.company_id.period_lock_date or date.min) and newly_created_move.date != move_date:
                 # The move date should be the maximum date between payment and invoice (in case
