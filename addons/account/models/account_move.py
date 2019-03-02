@@ -1547,7 +1547,8 @@ class AccountPartialReconcile(models.Model):
         self.ensure_one()
         move_date = self.debit_move_id.date
         newly_created_move = self.env['account.move']
-        with self.env.norecompute():
+        moves2recompute = (newly_created_move | self.debit_move_id.move_id | self.credit_move_id.move_id)
+        with moves2recompute.env.norecompute():
             for move in (self.debit_move_id.move_id, self.credit_move_id.move_id):
                 #move_date is the max of the 2 reconciled items
                 if move_date < move.date:
@@ -1631,7 +1632,7 @@ class AccountPartialReconcile(models.Model):
                                     'amount_currency': self.amount_currency and line.currency_id.round(-line.amount_currency * amount / line.balance) or 0.0,
                                     'partner_id': line.partner_id.id,
                                 })
-        self.recompute()
+        moves2recompute.recompute()
         if newly_created_move:
             if move_date > (self.company_id.period_lock_date or date.min) and newly_created_move.date != move_date:
                 # The move date should be the maximum date between payment and invoice (in case
