@@ -414,7 +414,7 @@ class AccountMove(models.Model):
     def reverse_moves(self, date=None, journal_id=None, auto=False):
         date = date or fields.Date.today()
         reversed_moves = self.env['account.move']
-        for ac_move in self:
+        for ac_move in self.with_context(reversing_moves=True):
             #unreconcile all lines reversed
             aml = ac_move.line_ids.filtered(lambda x: x.account_id.reconcile or x.account_id.internal_type == 'liquidity')
             aml.remove_move_reconcile()
@@ -824,7 +824,7 @@ class AccountMoveLine(models.Model):
         """
         (debit_moves + credit_moves).read([field])
         to_create = []
-        cash_basis = debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable') or False
+        cash_basis = not self._context.get('reversing_moves') and (debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable')) or False
         cash_basis_percentage_before_rec = {}
         dc_vals ={}
         while (debit_moves and credit_moves):
