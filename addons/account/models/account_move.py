@@ -952,7 +952,8 @@ class AccountMoveLine(models.Model):
             #add writeoff line to reconcile algorithm and finish the reconciliation
             remaining_moves = (remaining_moves + writeoff_to_reconcile).auto_reconcile_lines()
         # Check if reconciliation is total or needs an exchange rate entry to be created
-        (self + writeoff_to_reconcile).check_full_reconcile()
+        if not self._context.get('skip_full_reconcile_check'):
+            (self + writeoff_to_reconcile).check_full_reconcile()
         return True
 
     def _create_writeoff(self, writeoff_vals):
@@ -1602,6 +1603,8 @@ class AccountPartialReconcile(models.Model):
                             if line.account_id.reconcile:
                                 #setting the account to allow reconciliation will help to fix rounding errors
                                 to_clear_aml |= line
+                                if percentage_after < 1.0:
+                                    to_clear_aml = to_clear_aml.with_context(skip_full_reconcile_check=True)
                                 to_clear_aml.reconcile()
 
                         if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
