@@ -414,7 +414,7 @@ class AccountMove(models.Model):
     def reverse_moves(self, date=None, journal_id=None, auto=False):
         date = date or fields.Date.today()
         reversed_moves = self.env['account.move']
-        for ac_move in self.with_context(reversing_moves=True):
+        for ac_move in self:
             #unreconcile all lines reversed
             aml = ac_move.line_ids.filtered(lambda x: x.account_id.reconcile or x.account_id.internal_type == 'liquidity')
             aml.remove_move_reconcile()
@@ -824,7 +824,7 @@ class AccountMoveLine(models.Model):
         """
         (debit_moves + credit_moves).read([field])
         to_create = []
-        cash_basis = not self._context.get('reversing_moves') and (debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable')) or False
+        cash_basis = debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable') or False
         cash_basis_percentage_before_rec = {}
         dc_vals ={}
         while (debit_moves and credit_moves):
@@ -887,7 +887,8 @@ class AccountMoveLine(models.Model):
 
             for after_rec_dict in cash_basis_subjected:
                 new_rec = part_rec.create(after_rec_dict)
-                if cash_basis:
+                # if the pair belongs to move being reverted, do not create CABA entry
+                if cash_basis and not (new_rec.debit_move_id + new_rec.credit_move_id).mapped('move_id').mapped('reverse_entry_id'):
                     new_rec.create_tax_cash_basis_entry(cash_basis_percentage_before_rec)
         self.recompute()
 
