@@ -770,7 +770,9 @@ class AccountMoveLine(models.Model):
         total_amount_currency = 0
         maxdate = date.min
         to_balance = {}
+        cash_basis_partial = self.env['account.partial.reconcile']
         for aml in amls:
+            cash_basis_partial |= aml.move_id.tax_cash_basis_rec_id
             total_debit += aml.debit
             total_credit += aml.credit
             maxdate = max(aml.date, maxdate)
@@ -785,15 +787,28 @@ class AccountMoveLine(models.Model):
                     to_balance[aml.currency_id] = [self.env['account.move.line'], 0]
                 to_balance[aml.currency_id][0] += aml
                 to_balance[aml.currency_id][1] += aml.amount_residual != 0 and aml.amount_residual or aml.amount_residual_currency
+
         # Check if reconciliation is total
         # To check if reconciliation is total we have 3 differents use case:
         # 1) There are multiple currency different than company currency, in that case we check using debit-credit
         # 2) We only have one currency which is different than company currency, in that case we check using amount_currency
         # 3) We have only one currency and some entries that don't have a secundary currency, in that case we check debit-credit
         #   or amount_currency.
+        # 4) Cash basis full reconciliation
+        #     - either none of the moves are cash basis reconciled, and we proceed
+        #     - or some moves are cash basis reconciled and we make sure they are all fully reconciled
+
         digits_rounding_precision = amls[0].company_id.currency_id.rounding
-        if (currency and float_is_zero(total_amount_currency, precision_rounding=currency.rounding)) or \
-            (multiple_currency and float_compare(total_debit, total_credit, precision_rounding=digits_rounding_precision) == 0):
+        if (
+                (
+                    not cash_basis_partial or (cash_basis_partial and all([p >= 1.0 for p in amls._get_matched_percentage().values()]))
+                ) and
+                (
+                    currency and float_is_zero(total_amount_currency, precision_rounding=currency.rounding) or
+                    multiple_currency and float_compare(total_debit, total_credit, precision_rounding=digits_rounding_precision) == 0
+                )
+        ):
+
             exchange_move_id = False
             # Eventually create a journal entry to book the difference due to foreign currency's exchange rate that fluctuates
             if to_balance and any([not float_is_zero(residual, precision_rounding=digits_rounding_precision) for aml, residual in to_balance.values()]):
@@ -952,8 +967,7 @@ class AccountMoveLine(models.Model):
             #add writeoff line to reconcile algorithm and finish the reconciliation
             remaining_moves = (remaining_moves + writeoff_to_reconcile).auto_reconcile_lines()
         # Check if reconciliation is total or needs an exchange rate entry to be created
-        if not self._context.get('skip_full_reconcile_check'):
-            (self + writeoff_to_reconcile).check_full_reconcile()
+        (self + writeoff_to_reconcile).check_full_reconcile()
         return True
 
     def _create_writeoff(self, writeoff_vals):
@@ -1603,8 +1617,6 @@ class AccountPartialReconcile(models.Model):
                             if line.account_id.reconcile:
                                 #setting the account to allow reconciliation will help to fix rounding errors
                                 to_clear_aml |= line
-                                if percentage_after < 1.0:
-                                    to_clear_aml = to_clear_aml.with_context(skip_full_reconcile_check=True)
                                 to_clear_aml.reconcile()
 
                         if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
