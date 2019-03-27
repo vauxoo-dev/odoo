@@ -1949,6 +1949,18 @@ class TestReconciliationExec(TestReconciliation):
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id,
         })
+        self.env['res.currency.rate'].create({
+            'name': time.strftime('%Y-02-01'),
+            'rate': 1/18.0,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id,
+        })
+        self.env['res.currency.rate'].create({
+            'name': time.strftime('%Y-03-01'),
+            'rate': 1/16.0,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id,
+        })
         amount = 50
         invoice = self.create_invoice(
             type='out_invoice', invoice_amount=amount,
@@ -1956,6 +1968,7 @@ class TestReconciliationExec(TestReconciliation):
         invoice.journal_id.update_posted = True
         invoice.action_cancel()
         invoice.state = 'draft'
+        invoice.date_invoice = time.strftime('%Y-01-01')
         invoice.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice.compute_taxes()
@@ -1967,6 +1980,7 @@ class TestReconciliationExec(TestReconciliation):
         invoice_nc1.journal_id.update_posted = True
         invoice_nc1.action_cancel()
         invoice_nc1.state = 'draft'
+        invoice.date_invoice = time.strftime('%Y-02-01')
         invoice_nc1.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice_nc1.compute_taxes()
@@ -1978,6 +1992,7 @@ class TestReconciliationExec(TestReconciliation):
         invoice_nc2.journal_id.update_posted = True
         invoice_nc2.action_cancel()
         invoice_nc2.state = 'draft'
+        invoice.date_invoice = time.strftime('%Y-03-01')
         invoice_nc2.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice_nc2.compute_taxes()
