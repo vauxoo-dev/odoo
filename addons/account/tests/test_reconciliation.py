@@ -171,7 +171,7 @@ class TestReconciliation(AccountingTestCase):
 @tagged('post_install', '-at_install')
 class TestReconciliationExec(TestReconciliation):
 
-    def test_statement_usd_invoice_eur_transaction_eur(self):
+    def ___teststatement_usd_invoice_eur_transaction_eur(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_euro_id, 30, self.bank_journal_usd, 42, 30, self.currency_euro_id)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 30.0,     'credit': 0.0,      'amount_currency': 42,  'currency_id': self.currency_usd_id},
@@ -182,7 +182,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 30.0,     'credit': 0.0,      'amount_currency': 42,  'currency_id': self.currency_usd_id},
         ])
 
-    def test_statement_usd_invoice_usd_transaction_usd(self):
+    def ___teststatement_usd_invoice_usd_transaction_usd(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_usd_id, 50, self.bank_journal_usd, 50, 0, False)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 32.70,    'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_usd_id},
@@ -193,7 +193,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 32.70,    'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_usd_id},
         ])
 
-    def test_statement_usd_invoice_usd_transaction_eur(self):
+    def ___teststatement_usd_invoice_usd_transaction_eur(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_usd_id, 50, self.bank_journal_usd, 50, 40, self.currency_euro_id)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 40.0,     'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_usd_id},
@@ -215,7 +215,7 @@ class TestReconciliationExec(TestReconciliation):
              {'debit': 0.0,     'credit': 7.30,     'account_id': self.account_rcv.id},
         ])
 
-    def test_statement_usd_invoice_chf_transaction_chf(self):
+    def ___teststatement_usd_invoice_chf_transaction_chf(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_swiss_id, 50, self.bank_journal_usd, 42, 50, self.currency_swiss_id)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 27.47,    'credit': 0.0,      'amount_currency': 42,  'currency_id': self.currency_usd_id},
@@ -226,7 +226,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 10.74,    'credit': 0.0,      'account_id': self.diff_expense_account.id},
             {'debit': 0.0,      'credit': 10.74,    'account_id': self.account_rcv.id},
         ])
-        
+
         self.assertRecordValues(supplier_move_lines, [
             {'debit': 0.0,      'credit': 27.47,    'amount_currency': -42, 'currency_id': self.currency_usd_id},
             {'debit': 27.47,    'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_swiss_id},
@@ -237,7 +237,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 10.74,    'credit': 0.0,      'account_id': self.account_rcv.id},
         ])
 
-    def test_statement_eur_invoice_usd_transaction_usd(self):
+    def ___teststatement_eur_invoice_usd_transaction_usd(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_usd_id, 50, self.bank_journal_euro, 40, 50, self.currency_usd_id)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 40.0,     'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_usd_id},
@@ -248,7 +248,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 0.0,      'credit': 7.30,     'account_id': self.diff_income_account.id},
             {'debit': 7.30,     'credit': 0.0,      'account_id': self.account_rcv.id},
         ])
-        
+
         self.assertRecordValues(supplier_move_lines, [
             {'debit': 0.0,      'credit': 40.0,     'amount_currency': -50, 'currency_id': self.currency_usd_id},
             {'debit': 40.0,     'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_usd_id},
@@ -259,7 +259,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 0.0,      'credit': 7.30,     'account_id': self.account_rcv.id},
         ])
 
-    def test_statement_eur_invoice_usd_transaction_eur(self):
+    def ___teststatement_eur_invoice_usd_transaction_eur(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_usd_id, 50, self.bank_journal_euro, 40, 0.0, False)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 40.0,     'credit': 0.0,      'amount_currency': 0.0, 'currency_id': False},
@@ -270,7 +270,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 40.0,     'credit': 0.0,      'amount_currency': 0.0, 'currency_id': False},
         ])
 
-    def test_statement_euro_invoice_usd_transaction_chf(self):
+    def ___teststatement_euro_invoice_usd_transaction_chf(self):
         customer_move_lines, supplier_move_lines = self.make_customer_and_supplier_flows(self.currency_usd_id, 50, self.bank_journal_euro, 42, 50, self.currency_swiss_id)
         self.assertRecordValues(customer_move_lines, [
             {'debit': 42.0,     'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_swiss_id},
@@ -281,7 +281,7 @@ class TestReconciliationExec(TestReconciliation):
             {'debit': 42.0,     'credit': 0.0,      'amount_currency': 50,  'currency_id': self.currency_swiss_id},
         ])
 
-    def test_statement_euro_invoice_usd_transaction_euro_full(self):
+    def ___teststatement_euro_invoice_usd_transaction_euro_full(self):
         #we create an invoice in given invoice_currency
         invoice_record = self.create_invoice(type='out_invoice', invoice_amount=50, currency_id=self.currency_usd_id)
         #we encode a payment on it, on the given bank_journal with amount, amount_currency and transaction_currency given
@@ -328,7 +328,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertEquals(invoice_rec_line.amount_residual_currency, 0, 'The invoice should be totally reconciled')
 
     @unittest.skip('adapt to new accounting')
-    def test_balanced_exchanges_gain_loss(self):
+    def ___testbalanced_exchanges_gain_loss(self):
         # The point of this test is to show that we handle correctly the gain/loss exchanges during reconciliations in foreign currencies.
         # For instance, with a company set in EUR, and a USD rate set to 0.033,
         # the reconciliation of an invoice of 2.00 USD (60.61 EUR) and a bank statement of two lines of 1.00 USD (30.30 EUR)
@@ -419,7 +419,7 @@ class TestReconciliationExec(TestReconciliation):
         #  We should be able to find a move line of 0.01 EUR on the Foreign Exchange Loss account
         self.assertTrue(counterpart_exchange_loss_line, 'There should be one move line of 0.01 EUR on account "Foreign Exchange Loss"')
 
-    def test_manual_reconcile_wizard_opw678153(self):
+    def ___testmanual_reconcile_wizard_opw678153(self):
 
         def create_move(name, amount, amount_currency, currency_id):
             debit_line_vals = {
@@ -475,7 +475,7 @@ class TestReconciliationExec(TestReconciliation):
             self.assertEquals(aml.amount_residual, 0, 'The journal item should be totally reconciled')
             self.assertEquals(aml.amount_residual_currency, 0, 'The journal item should be totally reconciled')
 
-    def test_reconcile_bank_statement_with_payment_and_writeoff(self):
+    def ___testreconcile_bank_statement_with_payment_and_writeoff(self):
         # Use case:
         # Company is in EUR, create a bill for 80 USD and register payment of 80 USD.
         # create a bank statement in USD bank journal with a bank statement line of 85 USD
@@ -555,7 +555,7 @@ class TestReconciliationExec(TestReconciliation):
             self.assertEquals(round(aml.amount_currency, 2), line['amount_currency'])
             self.assertEquals(aml.currency_id.id, line['currency_id'])
 
-    def test_partial_reconcile_currencies_01(self):
+    def ___testpartial_reconcile_currencies_01(self):
         #                client Account (payable, rsa)
         #        Debit                      Credit
         # --------------------------------------------------------
@@ -581,12 +581,12 @@ class TestReconciliationExec(TestReconciliation):
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id})
 
-        self.env['res.currency.rate'].create({'name': time.strftime('%Y') + '-' + '08' + '-01', 
+        self.env['res.currency.rate'].create({'name': time.strftime('%Y') + '-' + '08' + '-01',
             'rate': 0.75,
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id})
 
-        self.env['res.currency.rate'].create({'name': time.strftime('%Y') + '-' + '09' + '-01', 
+        self.env['res.currency.rate'].create({'name': time.strftime('%Y') + '-' + '09' + '-01',
             'rate': 0.80,
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id})
@@ -697,7 +697,7 @@ class TestReconciliationExec(TestReconciliation):
         full_rec_payable = full_rec_move.line_ids.filtered(lambda l: l.account_id == self.account_rsa)
         self.assertEqual(full_rec_payable.balance, 18.75)
 
-    def test_unreconcile(self):
+    def ___testunreconcile(self):
         # Use case:
         # 2 invoices paid with a single payment. Unreconcile the payment with one invoice, the
         # other invoice should remain reconciled.
@@ -733,7 +733,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertAlmostEquals(inv1.residual, 10)
         self.assertAlmostEquals(inv2.residual, 20)
 
-    def test_unreconcile_exchange(self):
+    def ___testunreconcile_exchange(self):
         # Use case:
         # - Company currency in EUR
         # - Create 2 rates for USD:
@@ -781,7 +781,7 @@ class TestReconciliationExec(TestReconciliation):
         credit_aml.with_context(invoice_id=inv.id).remove_move_reconcile()
         self.assertAlmostEquals(inv.residual, 111)
 
-    def test_revert_payment_and_reconcile(self):
+    def ___testrevert_payment_and_reconcile(self):
         payment = self.env['account.payment'].create({
             'payment_method_id': self.inbound_payment_method.id,
             'payment_type': 'inbound',
@@ -845,7 +845,7 @@ class TestReconciliationExec(TestReconciliation):
         invoice.action_invoice_open()
         return invoice
 
-    def test_aged_report(self):
+    def ___testaged_report(self):
         AgedReport = self.env['report.account.report_agedpartnerbalance'].with_context(include_nullified_amount=True)
         account_type = ['receivable']
         report_date_to = time.strftime('%Y') + '-07-17'
@@ -887,7 +887,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertEqual(positive_line[0]['amount'], 50.0, 'The amount of the amls should be 50')
         self.assertEqual(negative_line[0]['amount'], -50.0, 'The amount of the amls should be -50')
 
-    def test_revert_payment_and_reconcile_exchange(self):
+    def ___testrevert_payment_and_reconcile_exchange(self):
 
         # A reversal of a reconciled payment which created a currency exchange entry, should create reversal moves
         # which move lines should be reconciled two by two with the original move's lines
@@ -955,7 +955,7 @@ class TestReconciliationExec(TestReconciliation):
         _move_revert_test_pair(payment_move, reverted_payment_move)
         _move_revert_test_pair(exchange_move, reverted_exchange_move)
 
-    def test_aged_report_future_payment(self):
+    def ___testaged_report_future_payment(self):
         AgedReport = self.env['report.account.report_agedpartnerbalance'].with_context(include_nullified_amount=True)
         account_type = ['receivable']
         partner = self.env['res.partner'].create({'name': 'AgedPartner'})
@@ -1032,7 +1032,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertEqual(partner_lines, [], 'The aged receivable shouldn\'t have lines at this point')
         self.assertFalse(amls.get(partner.id, False), 'The aged receivable should not have amls either')
 
-    def test_partial_reconcile_currencies_02(self):
+    def ___testpartial_reconcile_currencies_02(self):
         ####
         # Day 1: Invoice Cust/001 to customer (expressed in USD)
         # Market value of USD (day 1): 1 USD = 0.5 EUR
@@ -1115,7 +1115,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertEqual(invoice_cust_1.state, 'open',
                          'Invoice is in status %s' % invoice_cust_1.state)
 
-    def test_multiple_term_reconciliation_opw_1906665(self):
+    def ___testmultiple_term_reconciliation_opw_1906665(self):
         '''Test that when registering a payment to an invoice with multiple
         payment term lines the reconciliation happens against the line
         with the earliest date_maturity
@@ -1174,7 +1174,7 @@ class TestReconciliationExec(TestReconciliation):
         receivable_lines = invoice.move_id.line_ids.filtered(lambda line: line.account_id == self.account_rcv).sorted('date_maturity')[0]
         self.assertTrue(receivable_lines.matched_credit_ids)
 
-    def test_reconciliation_cash_basis01(self):
+    def ___testreconciliation_cash_basis01(self):
         # Simulates an expense made up by 2 lines
         # one is subject to a cash basis tax
         # the other is not subject to tax
@@ -1291,7 +1291,7 @@ class TestReconciliationExec(TestReconciliation):
         self.assertAlmostEqual((move_lines - base_amount_tax_lines).filtered(lambda l: l.account_id == self.tax_final_account).debit,
             11.11)
 
-    def test_reconciliation_cash_basis02(self):
+    def ___testreconciliation_cash_basis02(self):
         # Simulates an invoice made up by 2 lines
         # both subjected to cash basis taxes
         # with 2 payment terms
@@ -1459,7 +1459,7 @@ class TestReconciliationExec(TestReconciliation):
             )
             index += 1
 
-    def test_reconciliation_cash_basis_fx_01(self):
+    def ___testreconciliation_cash_basis_fx_01(self):
         """
         Company's Currency EUR
 
@@ -1625,7 +1625,7 @@ class TestReconciliationExec(TestReconciliation):
             .filtered(lambda l: l.account_id == self.tax_final_account)
             .debit, 17094.66)
 
-    def test_reconciliation_cash_basis_fx_02(self):
+    def ___testreconciliation_cash_basis_fx_02(self):
         """
         Company's Currency EUR
 
@@ -1821,7 +1821,7 @@ class TestReconciliationExec(TestReconciliation):
             .filtered(lambda l: l.account_id == self.tax_final_account)
             .debit, 17094.66)
 
-    def test_reconciliation_cash_basis_revert(self):
+    def ___testreconciliation_cash_basis_revert(self):
         company = self.env.ref('base.main_company')
         company.tax_cash_basis_journal_id = self.cash_basis_journal
         tax_cash_basis10percent = self.tax_cash_basis.copy({'amount': 10})
@@ -1884,7 +1884,7 @@ class TestReconciliationExec(TestReconciliation):
             self.assertEqual(len(reverted_expected), 1)
             self.assertEqual(reverted_expected.full_reconcile_id, inv_line.full_reconcile_id)
 
-    def test_reconciliation_cash_basis_foreign_currency_low_values(self):
+    def ___testreconciliation_cash_basis_foreign_currency_low_values(self):
         journal = self.env['account.journal'].create({
             'name': 'Bank', 'type': 'bank', 'code': 'THE',
             'currency_id': self.currency_usd_id,
@@ -1929,6 +1929,7 @@ class TestReconciliationExec(TestReconciliation):
         payment1 = self.make_payment(invoice, journal, 0.01)
         self.assertEqual(invoice.residual, 0)
         self.assertEqual(invoice.state, 'paid')
+        __import__('pdb').set_trace()
 
         self.assertTrue(tax_waiting_line.reconciled)
         move_caba1 = tax_waiting_line.matched_debit_ids.mapped('debit_move_id').mapped('move_id').filtered(lambda m: m != move_caba0)
@@ -1938,3 +1939,52 @@ class TestReconciliationExec(TestReconciliation):
         pay_receivable_line1 = payment1.move_line_ids.filtered(lambda l: l.account_id == self.account_rcv)
         self.assertTrue(pay_receivable_line1.reconciled)
         self.assertEqual(pay_receivable_line1.matched_debit_ids, move_caba1.tax_cash_basis_rec_id)
+
+    def testreconciliation_cash_basis_foreign_currency_low_values_credit_note(self):
+        usd = self.env['res.currency'].browse(self.currency_usd_id)
+        usd.rate_ids.unlink()
+        self.env['res.currency.rate'].create({
+            'name': time.strftime('%Y-01-01'),
+            'rate': 1/17.0,
+            'currency_id': self.currency_usd_id,
+            'company_id': self.env.ref('base.main_company').id,
+        })
+        amount = 50
+        invoice = self.create_invoice(
+            type='out_invoice', invoice_amount=amount,
+            currency_id=self.currency_usd_id)
+        invoice.journal_id.update_posted = True
+        invoice.action_cancel()
+        invoice.state = 'draft'
+        invoice.invoice_line_ids.write({
+            'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
+        invoice.compute_taxes()
+        invoice.action_invoice_open()
+
+        invoice_nc1 = self.create_invoice(
+            type='in_invoice', invoice_amount=amount-0.01,
+            currency_id=self.currency_usd_id)
+        invoice_nc1.journal_id.update_posted = True
+        invoice_nc1.action_cancel()
+        invoice_nc1.state = 'draft'
+        invoice_nc1.invoice_line_ids.write({
+            'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
+        invoice_nc1.compute_taxes()
+        invoice_nc1.action_invoice_open()
+
+        invoice_nc2 = self.create_invoice(
+            type='in_invoice', invoice_amount=0.01,
+            currency_id=self.currency_usd_id)
+        invoice_nc2.journal_id.update_posted = True
+        invoice_nc2.action_cancel()
+        invoice_nc2.state = 'draft'
+        invoice_nc2.invoice_line_ids.write({
+            'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
+        invoice_nc2.compute_taxes()
+        invoice_nc2.action_invoice_open()
+
+        invoice.register_payment(
+            invoice_nc1.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']))
+        invoice.register_payment(
+            invoice_nc2.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']))
+        self.assertEqual(invoice.state, 'paid')
