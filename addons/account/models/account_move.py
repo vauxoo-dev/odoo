@@ -1631,7 +1631,10 @@ class AccountPartialReconcile(models.Model):
                             if line.account_id.reconcile:
                                 #setting the account to allow reconciliation will help to fix rounding errors
                                 to_clear_aml |= line
-                                self.pretty_print_journal_item(((to_clear_aml.mapped('matched_debit_ids.debit_move_id') | to_clear_aml.mapped('matched_debit_ids.credit_move_id')) | to_clear_aml).mapped('move_id'))
+                                amls = to_clear_aml.mapped('move_id.line_ids')
+                                amls |= (amls.mapped('matched_debit_ids.debit_move_id') | amls.mapped('matched_debit_ids.credit_move_id') |
+                                         amls.mapped('matched_credit_ids.debit_move_id') | amls.mapped('matched_credit_ids.credit_move_id'))
+                                self.pretty_print_journal_item(amls.mapped('move_id'))
                                 to_clear_aml.reconcile()
 
                         if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
