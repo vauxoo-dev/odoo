@@ -1941,50 +1941,63 @@ class TestReconciliationExec(TestReconciliation):
         self.assertEqual(pay_receivable_line1.matched_debit_ids, move_caba1.tax_cash_basis_rec_id)
 
     def testreconciliation_cash_basis_foreign_currency_low_values_credit_note(self):
+        self.env.user.company_id.country_id = self.env.ref('base.mx')
+        self.env.user.company_id.currency_id.rate_ids.unlink()
+        self.tax_cash_basis.amount = 16.0
+        self.env.ref('product.decimal_price').write({'digits': 6})
         usd = self.env['res.currency'].browse(self.currency_usd_id)
         usd.rate_ids.unlink()
         self.env['res.currency.rate'].create({
             'name': time.strftime('%Y-01-01'),
-            'rate': 1/17.0,
+            'rate': 1.0/19.6566036353,
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id,
         })
         self.env['res.currency.rate'].create({
             'name': time.strftime('%Y-02-01'),
-            'rate': 1/18.0,
+            'rate': 1.0/19.6072988343,
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id,
         })
         self.env['res.currency.rate'].create({
             'name': time.strftime('%Y-03-01'),
-            'rate': 1/16.0,
+            'rate': 1/19.0,
             'currency_id': self.currency_usd_id,
             'company_id': self.env.ref('base.main_company').id,
         })
-        amount = 50
         invoice = self.create_invoice(
-            type='out_invoice', invoice_amount=amount,
+            type='out_invoice', invoice_amount=1,
             currency_id=self.currency_usd_id)
         invoice.journal_id.update_posted = True
         invoice.action_cancel()
         invoice.state = 'draft'
-        invoice.date_invoice = time.strftime('%Y-01-01')
+        invoice.date_invoice = time.strftime('%Y-01-02')
+        invoice.date = time.strftime('%Y-01-02')
+        invoice.invoice_line_ids[0].write({
+            'price_unit': 707.62,
+            'quantity': 2,
+        })
+        line2 = invoice.invoice_line_ids[0].copy()
+        line2.write({
+            'price_unit': 230.99,
+            'quantity': 1,
+        })
         invoice.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice.compute_taxes()
         invoice.action_invoice_open()
 
-        invoice_nc1 = self.create_invoice(
-            type='in_invoice', invoice_amount=amount-0.01,
-            currency_id=self.currency_usd_id)
-        invoice_nc1.journal_id.update_posted = True
-        invoice_nc1.action_cancel()
+        invoice_nc1 = invoice.copy({'type': 'in_invoice'})
         invoice_nc1.state = 'draft'
-        invoice.date_invoice = time.strftime('%Y-02-01')
+        invoice_nc1.date_invoice = time.strftime('%Y-02-02')
+        invoice_nc1.date = time.strftime('%Y-02-02')
+        invoice_nc1.invoice_line_ids[0].write({'price_unit': 707.616})
+        invoice_nc1.invoice_line_ids[1].write({'price_unit': 230.9888})
         invoice_nc1.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice_nc1.compute_taxes()
         invoice_nc1.action_invoice_open()
+        __import__('pdb').set_trace()
 
         invoice_nc2 = self.create_invoice(
             type='in_invoice', invoice_amount=0.01,
@@ -1992,14 +2005,14 @@ class TestReconciliationExec(TestReconciliation):
         invoice_nc2.journal_id.update_posted = True
         invoice_nc2.action_cancel()
         invoice_nc2.state = 'draft'
-        invoice.date_invoice = time.strftime('%Y-03-01')
+        invoice.date_invoice = time.strftime('%Y-03-02')
+        invoice.date = time.strftime('%Y-03-02')
         invoice_nc2.invoice_line_ids.write({
             'invoice_line_tax_ids': [(6, 0, [self.tax_cash_basis.id])]})
         invoice_nc2.compute_taxes()
         invoice_nc2.action_invoice_open()
-
-        invoice.register_payment(
-            invoice_nc1.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']))
-        invoice.register_payment(
-            invoice_nc2.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']))
+        invoice.assign_outstanding_credit(
+            invoice_nc1.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']).id)
+        invoice.assign_outstanding_credit(
+            invoice_nc2.move_id.line_ids.filtered(lambda r: r.account_id.internal_type in ['receivable', 'payable']).id)
         self.assertEqual(invoice.state, 'paid')

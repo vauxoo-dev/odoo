@@ -1560,6 +1560,20 @@ class AccountPartialReconcile(models.Model):
     def _get_amount_tax_cash_basis(self, amount, line):
         return line.company_id.currency_id.round(amount)
 
+    def pretty_print_journal_item(self, account_moves):
+        for account_move in account_moves:
+            print("\n" + account_move.name + '-'*10)
+            print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+                'id', 'account', 'acc_type', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconcile'))
+            for line in account_move.line_ids:
+                print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+                    line.id, line.account_id.code, line.account_id.internal_type,
+                    round(line.amount_currency, 2), round(line.debit, 2), round(line.credit, 2), round(line.amount_residual, 2),
+                    round(line.amount_residual_currency, 2), line.currency_id.name,
+                    ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
+                    ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line).ids,
+                    line.reconciled))
+
     def create_tax_cash_basis_entry(self, percentage_before_rec):
         self.ensure_one()
         move_date = self.debit_move_id.date
@@ -1617,6 +1631,7 @@ class AccountPartialReconcile(models.Model):
                             if line.account_id.reconcile:
                                 #setting the account to allow reconciliation will help to fix rounding errors
                                 to_clear_aml |= line
+                                self.pretty_print_journal_item(((to_clear_aml.mapped('matched_debit_ids.debit_move_id') | to_clear_aml.mapped('matched_debit_ids.credit_move_id')) | to_clear_aml).mapped('move_id'))
                                 to_clear_aml.reconcile()
 
                         if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
