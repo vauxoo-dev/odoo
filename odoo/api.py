@@ -45,6 +45,7 @@ __all__ = [
     'call_kw',
 ]
 
+import threading
 import logging
 from collections import defaultdict, Mapping
 from contextlib import contextmanager
@@ -55,6 +56,7 @@ from weakref import WeakSet
 from decorator import decorate, decorator
 from werkzeug.local import Local, release_local
 
+from odoo import registry
 from odoo.tools import frozendict, classproperty, StackMap
 from odoo.exceptions import CacheMiss
 
@@ -1176,6 +1178,45 @@ class SpecialValue(object):
 
     def __init__(self, getter):
         self.get = getter
+
+
+def run_after_commit(method):
+    """Decorate a method that must be executed after a commit
+    It is useful for cases where you can not rollback the process.
+    E.g. send email, sign invoice, web services methods for other systems...
+    Such a method::
+
+        @api.run_after_commit
+        @api.multi
+        def method(self):
+            ...
+    """
+    def after_commit_method_wrapper(self, *args, **kwargs):
+        dbname = self.env.cr.dbname
+        user_id = self.env.uid
+        record_ids = self.ids[:]
+        context = self.env.context.copy()
+        model_name = self._name
+
+        def after_commit_method():
+            db_registry = registry(dbname)
+            with Environment.manage(), db_registry.cursor() as new_cr:
+                new_env = Environment(new_cr, user_id, context)
+                records = new_env[model_name].browse(record_ids)
+                return method(records, *args, **kwargs)
+        return after_commit_method
+
+    def after_commit_wrapper(method, self, *args, **kwargs):
+        if (not self.env.context.get('run_after_commit', True) or
+                getattr(threading.currentThread(), 'testing', False)):
+            _logger.info("Method %s.%s called immediately", self, method)
+            return method(self, *args, **kwargs)
+        _logger.info("Method %s.%s will be called after commit", self, method)
+        self.env.cr.after(
+            'commit', after_commit_method_wrapper(self, *args, **kwargs))
+    wrapper = decorator(after_commit_wrapper, method)
+    wrapper._api = 'run_after_commit'
+    return wrapper
 
 
 # keep those imports here in order to handle cyclic dependencies correctly
