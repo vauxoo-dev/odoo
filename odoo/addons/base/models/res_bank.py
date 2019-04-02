@@ -51,12 +51,12 @@ class Bank(models.Model):
                 domain = ['&'] + domain
         bank_ids = self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
         return self.browse(bank_ids).name_get()
-        
+
     @api.onchange('country')
     def _onchange_country_id(self):
         if self.country and self.country != self.state.country_id:
             self.state = False
-            
+
     @api.onchange('state')
     def _onchange_state(self):
         if self.state.country_id:
@@ -91,7 +91,7 @@ class ResPartnerBank(models.Model):
     qr_code_valid = fields.Boolean(string="Has all required arguments", compute="_validate_qr_code_arguments")
 
     _sql_constraints = [
-        ('unique_number', 'unique(sanitized_acc_number, company_id)', 'Account Number must be unique'),
+        # ('unique_number', 'unique(sanitized_acc_number, company_id)', 'Account Number must be unique'),
     ]
 
     @api.depends('acc_number')
