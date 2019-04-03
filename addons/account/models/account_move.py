@@ -1565,16 +1565,16 @@ class AccountPartialReconcile(models.Model):
     def pretty_print_journal_item(self, account_moves):
         for account_move in account_moves:
             print("\n%s" % account_move.name_get())
-            print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s" % (
-                'id', 'account', 'acc_type', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconcile'))
+            print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%10s" % (
+                'id', 'account', 'acc_type', 'acc_reconc', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconciled', 'tax_exibility', 'tax'))
             for line in account_move.line_ids:
-                print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s" % (
-                    line.id, line.account_id.code + ' - ' + line.account_id.name[:30], line.account_id.internal_type,
+                print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%10s" % (
+                    line.id, line.account_id.code + ' - ' + line.account_id.name[:30], line.account_id.internal_type, line.account_id.reconcile,
                     round(line.amount_currency, 2), round(line.debit, 2), round(line.credit, 2), round(line.amount_residual, 2),
                     round(line.amount_residual_currency, 2), line.currency_id.name,
                     ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
                     ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line).ids,
-                    line.reconciled))
+                    line.reconciled, line.tax_ids.mapped('tax_exigibility'), line.tax_ids.mapped('name')))
 
     def create_tax_cash_basis_entry(self, percentage_before_rec):
         self.ensure_one()
