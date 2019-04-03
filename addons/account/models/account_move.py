@@ -1564,7 +1564,7 @@ class AccountPartialReconcile(models.Model):
 
     def pretty_print_journal_item(self, account_moves):
         msg_fmt = "%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%25s\t%10s"
-        for account_move in account_moves:
+        for account_move in account_moves.search([('id', 'in', account_moves.ids)], order='id ASC'):
             print("\n%s" % account_move.name_get())
             print(msg_fmt % (
                 'id', 'account', 'acc_type', 'acc_reconc', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconciled', 'tax_exibility', 'tax', 'tax_acc_reconc'))
