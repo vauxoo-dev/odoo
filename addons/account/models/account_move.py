@@ -1563,18 +1563,19 @@ class AccountPartialReconcile(models.Model):
         return line.company_id.currency_id.round(amount)
 
     def pretty_print_journal_item(self, account_moves):
+        msg_fmt = "%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%25s\t%10s"
         for account_move in account_moves:
             print("\n%s" % account_move.name_get())
-            print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%10s" % (
-                'id', 'account', 'acc_type', 'acc_reconc', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconciled', 'tax_exibility', 'tax'))
+            print(msg_fmt % (
+                'id', 'account', 'acc_type', 'acc_reconc', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconciled', 'tax_exibility', 'tax', 'tax_acc_reconc'))
             for line in account_move.line_ids:
-                print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s\t%10s\t%10s" % (
+                print(msg_fmt % (
                     line.id, line.account_id.code + ' - ' + line.account_id.name[:30], line.account_id.internal_type, line.account_id.reconcile,
                     round(line.amount_currency, 2), round(line.debit, 2), round(line.credit, 2), round(line.amount_residual, 2),
                     round(line.amount_residual_currency, 2), line.currency_id.name,
                     ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
                     ((line.mapped('matched_credit_ids.credit_move_id') | line.mapped('matched_credit_ids.debit_move_id')) - line).ids,
-                    line.reconciled, line.tax_ids.mapped('tax_exigibility'), line.tax_ids.mapped('name')))
+                    line.reconciled, line.tax_ids.mapped('tax_exigibility'), line.tax_ids.mapped('name'), line.tax_ids.mapped('account_id.reconcile')))
 
     def create_tax_cash_basis_entry(self, percentage_before_rec):
         self.ensure_one()
