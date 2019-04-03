@@ -535,6 +535,8 @@ class AccountMoveLine(models.Model):
 
             #computing the `reconciled` field.
             reconciled = False
+            # if line.id == 456325:
+            #     __import__('pdb').set_trace()
             digits_rounding_precision = line.company_id.currency_id.rounding
             if (line.matched_debit_ids or line.matched_credit_ids) and float_is_zero(amount, precision_rounding=digits_rounding_precision):
                 if line.currency_id and line.amount_currency:
@@ -1562,12 +1564,12 @@ class AccountPartialReconcile(models.Model):
 
     def pretty_print_journal_item(self, account_moves):
         for account_move in account_moves:
-            print("\n" + account_move.name + '-'*10)
-            print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
+            print("\n%s" % account_move.name_get())
+            print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s" % (
                 'id', 'account', 'acc_type', '$amount', '€debit', '€credit', '€residual', '$residual', 'currency', 'mat_debit', 'mat_credit', 'reconcile'))
             for line in account_move.line_ids:
-                print("%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s" % (
-                    line.id, line.account_id.code, line.account_id.internal_type,
+                print("%10s\t%41s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%10s\t%24s\t%24s\t%10s" % (
+                    line.id, line.account_id.code + ' - ' + line.account_id.name[:30], line.account_id.internal_type,
                     round(line.amount_currency, 2), round(line.debit, 2), round(line.credit, 2), round(line.amount_residual, 2),
                     round(line.amount_residual_currency, 2), line.currency_id.name,
                     ((line.mapped('matched_debit_ids.debit_move_id') | line.mapped('matched_debit_ids.credit_move_id')) - line).ids,
@@ -1634,8 +1636,12 @@ class AccountPartialReconcile(models.Model):
                                 amls = to_clear_aml.mapped('move_id.line_ids')
                                 amls |= (amls.mapped('matched_debit_ids.debit_move_id') | amls.mapped('matched_debit_ids.credit_move_id') |
                                          amls.mapped('matched_credit_ids.debit_move_id') | amls.mapped('matched_credit_ids.credit_move_id'))
+                                # amls |= self.env['account.move'].browse(85258).line_ids
+                                print("*******Pretty Print Called to reconcile %s" % (to_clear_aml.name_get()))
                                 self.pretty_print_journal_item(amls.mapped('move_id'))
-                                __import__('pdb').set_trace()
+                                amls._amount_residual()
+                                # self.pretty_print_journal_item(amls.mapped('move_id'))
+                                # __import__('pdb').set_trace()
                                 to_clear_aml.reconcile()
 
                         if any([tax.tax_exigibility == 'on_payment' for tax in line.tax_ids]):
