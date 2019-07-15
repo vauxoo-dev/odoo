@@ -11,10 +11,10 @@ Minimal set of accounts to start to work in Perú.
 
 The usage of this CoA must refer to the official documentation on MEF.
 
-https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_EMPRESARIAL.pdf 
+https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_EMPRESARIAL.pdf
     """,
-    'depends': ['account'],
     'author': ['Vauxoo, Odoo'],
+    'depends': ['account', 'base_address_city'],
     'data': [
         'data/account_types.xml',
         'data/l10n_pe_chart_data.xml',
@@ -23,5 +23,6 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/l10n_pe_chart_post_data.xml',
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
+        'data/res.city.csv'
     ],
 }
