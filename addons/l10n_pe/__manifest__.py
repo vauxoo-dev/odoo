@@ -14,7 +14,7 @@ The usage of this CoA must refer to the official documentation on MEF.
 https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_EMPRESARIAL.pdf
     """,
     'author': ['Vauxoo, Odoo'],
-    'depends': ['account', 'base_address_city'],
+    'depends': ['account'],
     'data': [
         'data/account_types.xml',
         'data/l10n_pe_chart_data.xml',
@@ -23,6 +23,5 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/l10n_pe_chart_post_data.xml',
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
-        'data/res.city.csv'
     ],
 }
