@@ -23,5 +23,6 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/l10n_pe_chart_post_data.xml',
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
+        'data/account_data.xml'
     ],
 }
