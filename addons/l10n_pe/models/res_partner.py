@@ -7,7 +7,7 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     l10n_pe_edi_district = fields.Many2one(
-        'res.district', string='District',
+        'l10n.pe.district', string='District',
         help='Districts are part of a province or city.')
 
     def l10n_pe_edi_get_customer_vat(self):

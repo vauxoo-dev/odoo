@@ -1,4 +1,4 @@
-"id","country_id:id","state_id:id","name","code"
+"id","country_id:id","state_id:id","name","l10n_pe_code"
 city_pe_0101,base.pe,base.state_pe_01,"Chachapoyas","0101"
 city_pe_0102,base.pe,base.state_pe_01,"Bagua","0102"
 city_pe_0103,base.pe,base.state_pe_01,"Bongara","0103"

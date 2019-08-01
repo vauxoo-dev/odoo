@@ -7,5 +7,5 @@ from odoo import fields, models
 class City(models.Model):
     _inherit = "res.city"
 
-    code = fields.Char(string='City Code', help='The city code.',
-                       required=True)
+    l10n_pe_code = fields.Char('Code', help='This code will help with the '
+                               'identification of each city in Peru.')
