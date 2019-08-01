@@ -19,7 +19,7 @@
                         <label for="street_number2" class="oe_edit_only"/>
                         <field name="street_number2" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
                     </div>
-                    <field name="l10n_pe_edi_district" placeholder="District..."/>
+                    <field name="l10n_pe_district" placeholder="District..."/>
                     <field name="city" placeholder="Province..." invisible="1"/>
                     <field name="city_id" placeholder="Province..." />
                     <field name="state_id" class="o_address_state" placeholder="State..." options='{"no_open": True}'/>

@@ -1,11 +1,10 @@
-# Copyright 2019 Vauxoo (https://www.vauxoo.com) <info@vauxoo.com>
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models
 
 
-class District(models.Model):
-    _name = 'l10n.pe.district'
+class L10nPeResCityDistrict(models.Model):
+    _name = 'l10n_pe.res.city.district'
     _description = 'District'
     _order = 'name'
 

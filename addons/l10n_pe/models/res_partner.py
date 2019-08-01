@@ -1,13 +1,12 @@
-# Copyright 2019 Vauxoo (https://www.vauxoo.com) <info@vauxoo.com>
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 from odoo import fields, models
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    l10n_pe_edi_district = fields.Many2one(
-        'l10n.pe.district', string='District',
+    l10n_pe_district = fields.Many2one(
+        'l10n_pe.res.city.district', string='District',
         help='Districts are part of a province or city.')
 
     def l10n_pe_edi_get_customer_vat(self):
