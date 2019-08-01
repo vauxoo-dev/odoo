@@ -1,5 +1,4 @@
-# Copyright 2019 Vauxoo (https://www.vauxoo.com) <info@vauxoo.com>
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Peru - Accounting',
     "version": "2.0",
@@ -31,7 +30,7 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
         'data/res.city.csv',
-        'data/l10n.pe.district.csv',
+        'data/l10n_pe.res.city.district.csv',
         'data/res_country_data.xml',
         'views/res_partner_view.xml',
     ],
