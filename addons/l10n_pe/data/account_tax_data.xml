@@ -159,8 +159,6 @@
       <field name="amount_type">percent</field>
       <field name="type_tax_use">sale</field>
       <field name="sequence">2</field>
-      <field name="account_id" ref="chart401111"/>
-      <field name="refund_account_id" ref="chart401111"/>
       <field name="tax_group_id" ref="tax_group_2"/>
     </record>
 
@@ -172,8 +170,6 @@
       <field name="amount_type">percent</field>
       <field name="type_tax_use">sale</field>
       <field name="sequence">1</field>
-      <field name="account_id" ref="chart401111"/>
-      <field name="refund_account_id" ref="chart401111"/>
       <field name="tax_group_id" ref="tax_group_18"/>
     </record>
 
@@ -185,8 +181,6 @@
       <field name="sequence">2</field>
       <field name="amount_type">percent</field>
       <field name="type_tax_use">purchase</field>
-      <field name="account_id" ref="chart401111"/>
-      <field name="refund_account_id" ref="chart401111"/>
       <field name="tax_group_id" ref="tax_group_2"/>
     </record>
 
@@ -198,8 +192,6 @@
       <field name="sequence">1</field>
       <field name="amount_type">percent</field>
       <field name="type_tax_use">purchase</field>
-      <field name="account_id" ref="chart401111"/>
-      <field name="refund_account_id" ref="chart401111"/>
       <field name="tax_group_id" ref="tax_group_18"/>
     </record>
 

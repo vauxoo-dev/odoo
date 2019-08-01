@@ -31,7 +31,7 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
         'data/res.city.csv',
-        'data/res.district.csv',
+        'data/l10n.pe.district.csv',
         'data/res_country_data.xml',
         'views/res_partner_view.xml',
     ],
