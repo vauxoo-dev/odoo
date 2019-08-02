@@ -18,7 +18,8 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'account',
         'base_vat',
         'base_address_extended',
-        'base_address_city'
+        'base_address_city',
+        'l10n_latam_base',
     ],
     'data': [
         'security/ir.model.access.csv',
