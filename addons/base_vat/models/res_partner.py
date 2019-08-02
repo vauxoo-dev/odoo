@@ -85,9 +85,7 @@ _ref_vat = {
     'mx': 'ABC123456T1B',
     'nl': 'NL123456782B90',
     'no': 'NO123456785',
-    'pe': '\n - PER10254824220 \n - PED10254824 \n - PEE102548242201'
-    '\n - PEPPERU10254 \n - PEC102548242201234 \n - PEB102548242201234'
-    '\n - PET102548242201234 \n - PEI102548242201234 \n - PEA102548242201234',
+    'pe': '\n - 10254824220',
     'pl': 'PL1234567883',
     'pt': 'PT123456789',
     'ro': 'RO1234567897',
@@ -316,16 +314,12 @@ class ResPartner(models.Model):
         return check == int(vat[8])
 
     # Peruvian VAT validation, contributed by Vauxoo
-    @staticmethod
-    def check_digit_dni(vat):
-        """Calculate the possible check digits for the DNI."""
-        weights = (3, 2, 7, 6, 5, 4, 3, 2)
-        digit = sum(w * int(n) for w, n in zip(weights, vat)) % 11
-        return '65432110987'[digit] + 'KJIHGFEDCBA'[digit]
-
-    @staticmethod
-    def check_digit_ruc(vat):
-        """Calculate the check digit."""
+    def check_vat_pe(self, vat):
+        """Method to check the Peruvian VAT"""
+        # Verify RUC
+        if (len(vat) != 11 and not isinstance(vat, int) and
+           vat[:2] not in('10', '15', '17', '20')):
+            return False
         factor = '5432765432'
         sum_fac_vat = 0
         dig_check = False
@@ -335,50 +329,6 @@ class ResPartner(models.Model):
         subtraction = 11 - (sum_fac_vat % 11)
         dig_check = {10: 0, 11: 1}
         return int(vat[10]) == dig_check.get(subtraction, subtraction)
-
-    def check_vat_pe(self, vat):
-        """Method to check the Peruvian VAT"""
-
-        vat_type, vat = (vat and len(vat) >= 2 and
-                         (vat[0].upper(), vat[1:]) or (False, False))
-
-        # Convert the VAT to the minimal representation.
-        vat = vat.replace('-', '').strip().upper()
-        vat_types_list = ['D', 'R', 'P', 'E', 'C', 'B', 'T', 'I', 'A']
-        if not vat_type or vat_type not in vat_types_list:
-            return False
-        elif vat_type == 'D':
-            # Verify Peruvian DNI
-            # https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/pe/cui.py
-            if (len(vat) not in (8, 9) and not isinstance(vat, int) and
-               vat[-1] not in self.check_digit_dni(vat)):
-                return False
-            return True
-        elif vat_type == 'R':
-            # verify RUC
-            if (len(vat) != 11 and not isinstance(vat, int) and
-               vat[:2] not in('10', '15', '17', '20')):
-                return False
-            return self.check_digit_ruc(vat)
-        elif vat_type == 'P':
-            # Verify Peruvian Passport
-            # https://epbs.migraciones.gob.pe/sistema-de-bloqueo/resources/images/passport.png
-            if len(vat) > 12:
-                return False
-            return bool(re.fullmatch(r'PERU[0-9]{5,6}', vat, re.IGNORECASE))
-        elif vat_type == 'E':
-            # Verify Alien Registration Card
-            # http://cpe.sunat.gob.pe/sites/default/files/inline-files/Copia%20de%20AjustesValidacionesCPEv20190624_1.xlsx
-            return len(vat) < 13
-        else:
-            # Verify the following types of VAT:
-            # - Diplomatic Identify Card
-            # - Identity document of the country of residence
-            # - Tax Identification Number - TIN
-            # - IdentificationNumber - IN,
-            # - Andean Immigration Card (TAM, Spanish acronym)
-            # http://cpe.sunat.gob.pe/sites/default/files/inline-files/Copia%20de%20AjustesValidacionesCPEv20190624_1.xlsx
-            return len(vat) < 16
 
     # VAT validation in Turkey, contributed by # Levent Karakas @ Eska Yazilim A.S.
     def check_vat_tr(self, vat):
