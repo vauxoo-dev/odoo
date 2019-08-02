@@ -34,6 +34,5 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
         'data/l10n_pe.res.city.district.csv',
         'data/res_country_data.xml',
         'data/l10n_latam_identification_type_data.xml',
-        'views/res_partner_view.xml',
     ],
 }
