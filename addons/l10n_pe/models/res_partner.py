@@ -11,7 +11,7 @@ class ResPartner(models.Model):
         'l10n_pe.res.city.district', string='District',
         help='Districts are part of a province or city.')
 
-    def l10n_pe_edi_get_customer_vat(self):
+    def l10n_pe_get_customer_vat(self):
         """Based on current vat validation and implementation, the following
         logic set the code associated and its vat without prefix
         chat on its vat field.
@@ -31,35 +31,32 @@ class ResPartner(models.Model):
         (*) types are supported in odoo core module base_vat
         """
         self.ensure_one()
-        if self.country_id != self.env.ref('base.pe'):
-            return {"vat_number": self.vat, "vat_code": '0'}
         if not self.vat:
-            return {"vat_type": 'D', "vat_number": '00000000', "vat_code": '1'}
-        vat_number = self.vat
-        vat_type = self.l10n_latam_identification_type_id.l10n_pe_vat_type
-        vat_codes = {'R': '6', 'D': '1', 'P': '7', 'E': '4',
-                     'C': 'A', 'B': 'B', 'T': 'C', 'I': 'D', 'A': 'E'}
-        vat_code = vat_codes.get(vat_type)
-        return {"vat_type": vat_type, "vat_number": vat_number,
-                "vat_code": vat_code}
+            return {"vat_number": '00000000', "vat_code": '1'}
+        return {"vat_number": self.vat,
+                "vat_code": (self.l10n_latam_identification_type_id
+                             .l10n_pe_vat_code)}
 
     @api.constrains('vat', 'l10n_pe_latam_identification_type_id')
     def check_vat(self):
-        """Description"""
-        partners_without_vat = self.filtered(lambda partner: not partner.l10n_latam_identification_type_id.is_vat)
+        """Method to validate all the document types of VAT in Peru."""
+        partners_without_vat = self.filtered(
+            lambda partner: not (partner.l10n_latam_identification_type_id
+                                 .is_vat))
 
         for partner in partners_without_vat:
-            vat_type = partner.l10n_latam_identification_type_id.l10n_pe_vat_type
+            vat_code = (partner.l10n_latam_identification_type_id
+                        .l10n_pe_vat_code)
             vat = partner.vat
             # Verify Peruvian DNI
-            if vat_type == 'D':
+            if vat_code == '1':
                 if self.check_dni(vat):
                     continue
                 raise ValidationError(
                     _("The DNI is incorrect. \n - Lenght must be 8 or 9. \n"
                       " - Needs to be an integer. \n - The last digit must be"
                       " valid."))
-            elif vat_type == 'P':
+            elif vat_code == '7':
                 # Verify Peruvian Passport
                 # https://epbs.migraciones.gob.pe/sistema-de-bloqueo/resources/images/passport.png
                 if len(vat) > 12:
@@ -70,7 +67,7 @@ class ResPartner(models.Model):
                 raise ValidationError(
                     _("The standard of the Peruvian Passport is 'PERUXXXXX' or"
                       "'PERUXXXXXX'. The X represent a numeric value."))
-            elif vat_type == 'E':
+            elif vat_code == '4':
                 # Verify Alien Registration Card
                 # http://cpe.sunat.gob.pe/sites/default/files/inline-files/Copia%20de%20AjustesValidacionesCPEv20190624_1.xlsx
                 if len(vat) < 13:
@@ -95,7 +92,8 @@ class ResPartner(models.Model):
     def check_dni(self, vat):
         """Verifying the DNI, and also calculating the possible check digits
         for it.
-        https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/pe/cui.py"""
+        https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/pe/cui.py
+        """
 
         if len(vat) not in (8, 9) and not isinstance(vat, int):
             return False
