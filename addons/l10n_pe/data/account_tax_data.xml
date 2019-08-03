@@ -156,7 +156,6 @@
       <field name="name">IGV 2% Venta</field>
       <field name="description">IGV 2% Venta</field>
       <field name="amount">2</field>
-      <field name="amount_type">percent</field>
       <field name="type_tax_use">sale</field>
       <field name="sequence">2</field>
       <field name="tax_group_id" ref="tax_group_2"/>
@@ -167,7 +166,6 @@
       <field name="name">IGV 18% Venta</field>
       <field name="description">IGV 18% Venta</field>
       <field name="amount">18</field>
-      <field name="amount_type">percent</field>
       <field name="type_tax_use">sale</field>
       <field name="sequence">1</field>
       <field name="tax_group_id" ref="tax_group_18"/>
@@ -179,7 +177,6 @@
       <field name="description">Percepción IGV 2%</field>
       <field name="amount">2</field>
       <field name="sequence">2</field>
-      <field name="amount_type">percent</field>
       <field name="type_tax_use">purchase</field>
       <field name="tax_group_id" ref="tax_group_2"/>
     </record>
@@ -190,7 +187,6 @@
       <field name="description">IGV 18% Compra</field>
       <field name="amount">18</field>
       <field name="sequence">1</field>
-      <field name="amount_type">percent</field>
       <field name="type_tax_use">purchase</field>
       <field name="tax_group_id" ref="tax_group_18"/>
     </record>
@@ -200,7 +196,6 @@
         <field name="name">IVAP 4% Venta</field>
         <field name="description">IVAP 4%</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_ivap"/>
     </record>
@@ -210,7 +205,6 @@
         <field name="name">ISC 50% Venta</field>
         <field name="description">ISC 50%</field>
         <field name="amount">50</field>
-        <field name="amount_type">percent</field>
         <field name="price_include">False</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_isc"/>
@@ -221,7 +215,6 @@
         <field name="name">ICBPER .10 Venta</field>
         <field name="description">ICBPER .10</field>
         <field name="amount">.1</field>
-        <field name="amount_type">fixed</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_icbper"/>
     </record>
@@ -231,7 +224,6 @@
         <field name="name">EXPORTACIÓN 17% Venta</field>
         <field name="description">EXPORTACIÓN 17%</field>
         <field name="amount">17</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_exp"/>
     </record>
@@ -241,7 +233,6 @@
         <field name="name">GRATUITO 0% Venta</field>
         <field name="description">GRATUITO 0%</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_free"/>
     </record>
@@ -251,7 +242,6 @@
         <field name="name">EXONERADO 0% Venta</field>
         <field name="description">EXONERADO 0%</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_exo"/>
     </record>
@@ -261,7 +251,6 @@
         <field name="name">INAFECTO 0% Venta</field>
         <field name="description">INAFECTO 0%</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_ina"/>
     </record>
@@ -271,7 +260,6 @@
         <field name="name">OTROS 30% Venta</field>
         <field name="description">OTROS 30%</field>
         <field name="amount">30</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_others"/>
     </record>
@@ -282,7 +270,6 @@
         <field name="name">Percepción Venta Interna (Porcentaje 2%)</field>
         <field name="description">Percepción Venta Interna (Porcentaje 2%)</field>
         <field name="amount">2</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_perceptions"/>
     </record>
@@ -292,7 +279,6 @@
         <field name="name">Percepción a la adquisición de combustible (Porcentaje 1%)</field>
         <field name="description">Percepción a la adquisición de combustible (Porcentaje 1%)</field>
         <field name="amount">1</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_perceptions"/>
     </record>
@@ -302,7 +288,6 @@
         <field name="name">Percepción realizada al agente de percepción con tasa especial (Porcentaje 0.5%)</field>
         <field name="description">Percepción realizada al agente de percepción con tasa especial (Porcentaje 0.5%)</field>
         <field name="amount">0.5</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_perceptions"/>
     </record>
@@ -312,7 +297,6 @@
         <field name="name">Azúcar y melaza de caña (Tasa 10%)</field>
         <field name="description">Azúcar y melaza de caña (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_001"/>
     </record>
@@ -321,7 +305,6 @@
         <field name="name">Arroz (Tasa 0%)</field>
         <field name="description">Arroz (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_002"/>
     </record>
@@ -330,7 +313,6 @@
         <field name="name">Alcohol etílico (Tasa 10%)</field>
         <field name="description">Alcohol etílico (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_003"/>
     </record>
@@ -339,7 +321,6 @@
         <field name="name">Recursos hidrobiológicos (Tasa 4%)</field>
         <field name="description">Recursos hidrobiológicos (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_004"/>
     </record>
@@ -348,7 +329,6 @@
         <field name="name">Maíz amarillo duro (Tasa 4%)</field>
         <field name="description">Maíz amarillo duro (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_005"/>
     </record>
@@ -357,7 +337,6 @@
         <field name="name">Caña de azúcar (Tasa 10%)</field>
         <field name="description">Caña de azúcar (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_007"/>
     </record>
@@ -366,7 +345,6 @@
         <field name="name">Madera (Tasa 4%)</field>
         <field name="description">Madera (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_008"/>
     </record>
@@ -375,7 +353,6 @@
         <field name="name">Arena y piedra (Tasa 10%)</field>
         <field name="description">Arena y piedra (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_009"/>
     </record>
@@ -384,7 +361,6 @@
         <field name="name">Residuos, subproductos, desechos, recortes y desperdicios (Tasa 15%)</field>
         <field name="description">Residuos, subproductos, desechos, recortes y desperdicios (Tasa 15%)</field>
         <field name="amount">15</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_010"/>
     </record>
@@ -393,7 +369,6 @@
         <field name="name">Bienes gravados con el IGV, o renuncia a la exoneración (Tasa 0%)</field>
         <field name="description">Bienes gravados con el IGV, o renuncia a la exoneración (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_011"/>
     </record>
@@ -402,7 +377,6 @@
         <field name="name">Intermediación laboral y tercerización (Tasa 10%)</field>
         <field name="description">Intermediación laboral y tercerización (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_012"/>
     </record>
@@ -411,7 +385,6 @@
         <field name="name">Animales vivos (Tasa 0%)</field>
         <field name="description">Animales vivos (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_013"/>
     </record>
@@ -420,7 +393,6 @@
         <field name="name">Carnes y despojos comestibles (Tasa 4%)</field>
         <field name="description">Carnes y despojos comestibles (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_014"/>
     </record>
@@ -429,7 +401,6 @@
         <field name="name">Abonos, cueros y pieles de origen animal (Tasa 0%)</field>
         <field name="description">Abonos, cueros y pieles de origen animal (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_015"/>
     </record>
@@ -438,7 +409,6 @@
         <field name="name">Aceite de pescado (Tasa 0%)</field>
         <field name="description">Aceite de pescado (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_016"/>
     </record>
@@ -447,7 +417,6 @@
         <field name="name">Harina, polvo y “pellets” de pescado, crustáceos, moluscos y demás invertebrados acuáticos (Tasa 4%)</field>
         <field name="description">Harina, polvo y “pellets” de pescado, crustáceos, moluscos y demás invertebrados acuáticos (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_017"/>
     </record>
@@ -456,7 +425,6 @@
         <field name="name">Arrendamiento de bienes muebles (Tasa 10%)</field>
         <field name="description">Arrendamiento de bienes muebles (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_019"/>
     </record>
@@ -465,7 +433,6 @@
         <field name="name">Mantenimiento y reparación de bienes muebles (Tasa 10%)</field>
         <field name="description">Mantenimiento y reparación de bienes muebles (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_020"/>
     </record>
@@ -474,7 +441,6 @@
         <field name="name">Movimiento de carga (Tasa 10%)</field>
         <field name="description">Movimiento de carga (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_021"/>
     </record>
@@ -483,7 +449,6 @@
         <field name="name">Otros servicios empresariales (Tasa 10%)</field>
         <field name="description">Otros servicios empresariales (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_022"/>
     </record>
@@ -492,7 +457,6 @@
         <field name="name">Leche (Tasa 4%)</field>
         <field name="description">Leche (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_023"/>
     </record>
@@ -501,7 +465,6 @@
         <field name="name">Comisión mercantil (Tasa 10%)</field>
         <field name="description">Comisión mercantil (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_024"/>
     </record>
@@ -510,7 +473,6 @@
         <field name="name">Fabricación de bienes por encargo (Tasa 10%)</field>
         <field name="description">Fabricación de bienes por encargo (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_025"/>
     </record>
@@ -519,7 +481,6 @@
         <field name="name">Servicio de transporte de personas (Tasa 10%)</field>
         <field name="description">Servicio de transporte de personas (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_026"/>
     </record>
@@ -528,7 +489,6 @@
         <field name="name">Servicio de transporte de carga (Tasa 4%)</field>
         <field name="description">Servicio de transporte de carga (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_027"/>
     </record>
@@ -537,7 +497,6 @@
         <field name="name">Transporte de pasajeros (Tasa 0%)</field>
         <field name="description">Transporte de pasajeros (Tasa 0%)</field>
         <field name="amount">0</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_028"/>
     </record>
@@ -546,7 +505,6 @@
         <field name="name">Contratos de construcción (Tasa 4%)</field>
         <field name="description">Contratos de construcción (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_030"/>
     </record>
@@ -555,7 +513,6 @@
         <field name="name">Oro gravado con el IGV (Tasa 10%)</field>
         <field name="description">Oro gravado con el IGV (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_031"/>
     </record>
@@ -564,7 +521,6 @@
         <field name="name">Minerales metálicos no auríferos (Tasa 10%)</field>
         <field name="description">Minerales metálicos no auríferos (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_034"/>
     </record>
@@ -573,7 +529,6 @@
         <field name="name">Bienes exonerados del IGV (Tasa 1.5%)</field>
         <field name="description">Bienes exonerados del IGV (Tasa 1.5%)</field>
         <field name="amount">1.5</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_035"/>
     </record>
@@ -582,7 +537,6 @@
         <field name="name">Oro y demás minerales metálicos exonerados del IGV (Tasa 1.5%)</field>
         <field name="description">Oro y demás minerales metálicos exonerados del IGV (Tasa 1.5%)</field>
         <field name="amount">1.5</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_036"/>
     </record>
@@ -591,7 +545,6 @@
         <field name="name">Demás servicios gravados con el IGV (Tasa 10%)</field>
         <field name="description">Demás servicios gravados con el IGV (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_037"/>
     </record>
@@ -600,7 +553,6 @@
         <field name="name">Minerales no metálicos (Tasa 10%)</field>
         <field name="description">Minerales no metálicos (Tasa 10%)</field>
         <field name="amount">10</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_039"/>
     </record>
@@ -609,7 +561,6 @@
         <field name="name">Bien inmueble gravado con IGV (Tasa 4%)</field>
         <field name="description">Bien inmueble gravado con IGV (Tasa 4%)</field>
         <field name="amount">4</field>
-        <field name="amount_type">percent</field>
         <field name="type_tax_use">sale</field>
         <field name="tax_group_id" ref="tax_group_detraction_040"/>
     </record>

@@ -15,7 +15,6 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
     'author': 'Vauxoo, Odoo',
     'license': 'LGPL-3',
     'depends': [
-        'account',
         'base_vat',
         'base_address_extended',
         'base_address_city',
@@ -23,6 +22,7 @@ https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_E
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/account_tax_view.xml',
         'data/account_types.xml',
         'data/l10n_pe_chart_data.xml',
         'data/account.group.csv',
