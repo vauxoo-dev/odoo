@@ -4,20 +4,13 @@
     "version": "2.0",
     'summary': "PCGE Simplified",
     'category': 'Localization',
-    'description': """
-Minimal set of accounts to start to work in Perú.
-=================================================
-
-The usage of this CoA must refer to the official documentation on MEF.
-
-https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_EMPRESARIAL.pdf
-    """,
     'author': 'Vauxoo, Odoo',
     'license': 'LGPL-3',
     'depends': [
         'base_vat',
         'base_address_extended',
         'base_address_city',
+        'account_tax_python',
         'l10n_latam_base',
     ],
     'data': [
