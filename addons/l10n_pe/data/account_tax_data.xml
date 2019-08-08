@@ -74,29 +74,4 @@
             }),
         ]"/>
     </record>
-<!--    <record id="tax_group_fre" model="account.tax.group">-->
-<!--        <field name="name">FRE</field>-->
-<!--        <field name="sequence">0</field>-->
-<!--    </record>-->
-<!--    <record id="sale_tax_igv_18" model="account.tax.template">-->
-<!--      <field name="chart_template_id" ref="pe_chart_template"/>-->
-<!--      <field name="name">ISC</field>-->
-<!--      <field name="description">0%</field>-->
-<!--      <field name="amount">0.0</field>-->
-<!--      <field name="type_tax_use">sale</field>-->
-<!--      <field name="sequence">0</field>-->
-<!--      <field name="tax_group_id" ref="tax_group_exc"/>-->
-<!--    </record>-->
-<!--    <record id="tax_group_vat" model="account.tax.group">-->
-<!--        <field name="name">VAT</field>-->
-<!--        <field name="sequence">0</field>-->
-<!--    </record>-->
-<!--    <record id="tax_group_oth" model="account.tax.group">-->
-<!--        <field name="name">OTH</field>-->
-<!--        <field name="sequence">0</field>-->
-<!--    </record>-->
-<!--    <record id="tax_group_fre" model="account.tax.group">-->
-<!--        <field name="name">FRE</field>-->
-<!--        <field name="sequence">0</field>-->
-<!--    </record>-->
 </odoo>
