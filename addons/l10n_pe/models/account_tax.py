@@ -23,9 +23,8 @@ class AccountTax(models.Model):
         ('O', 'Services outside scope of tax'),
         ('S', 'Standard rate'),
         ('Z', 'Zero rated goods')], 'EDI UNECE code',
-        help="Follow the UN/ECE 5305 standard from the United Nations "
-             "Economic Commission for Europe for more information \n"
-             "http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
+        help="Follow the UN/ECE 5305 standard from the United Nations Economic Commission for Europe for more "
+             "information http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
     )
 
 
@@ -49,7 +48,6 @@ class AccountTaxTemplate(models.Model):
         ('O', 'Services outside scope of tax'),
         ('S', 'Standard rate'),
         ('Z', 'Zero rated goods')], 'EDI UNECE code',
-        help="Follow the UN/ECE 5305 standard from the United Nations "
-             "Economic Commission for Europe for more information \n"
-             "http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
+        help="Follow the UN/ECE 5305 standard from the United Nations Economic Commission for Europe for more "
+             "information  http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
     )

@@ -30,7 +30,7 @@ class AccountTaxPython(models.Model):
         self.ensure_one()
         if self.amount_type == 'code':
             company = self.env.company
-            localdict = {'base_amount': base_amount, 'price_unit':price_unit, 'quantity': quantity, 'product':product, 'partner':partner, 'company': company}
+            localdict = {'base_amount': base_amount, 'price_unit': price_unit, 'quantity': quantity, 'product':product, 'partner':partner, 'company': company}
             safe_eval(self.python_compute, localdict, mode="exec", nocopy=True)
             return localdict['result']
         return super(AccountTaxPython, self)._compute_amount(base_amount, price_unit, quantity, product, partner)
