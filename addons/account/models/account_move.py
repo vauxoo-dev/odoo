@@ -102,7 +102,7 @@ class AccountMove(models.Model):
         help='If this checkbox is ticked, it means that the user was not sure of all the related informations at the time of the creation of the move and that the move needs to be checked again.')
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, readonly=True,
         states={'draft': [('readonly', False)]},
-        domain=lambda self: [('company_id', '=', self.env.company.id)],
+        domain="[('company_id', '=', company_id)]",
         default=_get_default_journal)
     company_id = fields.Many2one(string='Company', store=True, readonly=True,
         related='journal_id.company_id')
@@ -116,6 +116,7 @@ class AccountMove(models.Model):
         states={'draft': [('readonly', False)]})
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True,
         states={'draft': [('readonly', False)]},
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
         string='Customer/Vendor')
     commercial_partner_id = fields.Many2one('res.partner', string='Commercial Entity', store=True, readonly=True,
         compute='_compute_commercial_partner_id')
@@ -163,6 +164,7 @@ class AccountMove(models.Model):
     # ==== Business fields ====
     fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', readonly=True,
         states={'draft': [('readonly', False)]},
+        domain="[('company_id', '=', company_id)]",
         help="Fiscal positions are used to adapt taxes and accounts for particular customers or sales orders/invoices. "
              "The default value comes from the customer.")
     invoice_user_id = fields.Many2one('res.users', readonly=True, copy=False, tracking=True,
@@ -170,10 +172,10 @@ class AccountMove(models.Model):
         string='Salesperson',
         default=lambda self: self.env.user)
     invoice_payment_state = fields.Selection(selection=[
-            ('not_paid', 'Not Paid'),
-            ('in_payment', 'In Payment'),
-            ('paid', 'paid')
-        ], string='Payment Status', store=True, readonly=True, copy=False, tracking=True,
+        ('not_paid', 'Not Paid'),
+        ('in_payment', 'In Payment'),
+        ('paid', 'Paid')],
+        string='Payment Status', store=True, readonly=True, copy=False, tracking=True,
         compute='_compute_amount')
     invoice_date = fields.Date(string='Invoice/Bill Date', readonly=True, index=True, copy=False,
         states={'draft': [('readonly', False)]},
@@ -194,6 +196,7 @@ class AccountMove(models.Model):
         help="The document(s) that generated the invoice.")
     invoice_payment_term_id = fields.Many2one('account.payment.term', string='Payment Terms',
         readonly=True, states={'draft': [('readonly', False)]},
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
         help="If you use payment terms, the due date will be computed automatically at the generation "
              "of accounting entries. If you keep the payment terms and the due date empty, it means direct payment. "
              "The payment terms may compute several due dates, for example 50% now, 50% in one month.")
@@ -204,7 +207,7 @@ class AccountMove(models.Model):
         states={'draft': [('readonly', False)]})
     invoice_partner_bank_id = fields.Many2one('res.partner.bank', string='Bank Account',
         help='Bank Account Number to which the invoice will be paid. A Company bank account if this is a Customer Invoice or Vendor Credit Note, otherwise a Partner bank account number.',
-        readonly=True, states={'draft': [('readonly', False)]})
+        readonly=True, states={'draft': [('readonly', False)]}, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
     invoice_incoterm_id = fields.Many2one('account.incoterms', string='Incoterm',
         default=_get_default_invoice_incoterm,
         help='International Commercial Terms are a series of predefined commercial terms used in international transactions.')
@@ -219,6 +222,7 @@ class AccountMove(models.Model):
 
     # ==== Vendor bill fields ====
     invoice_vendor_bill_id = fields.Many2one('account.move', store=False,
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
         string='Vendor Bill',
         help="Auto-complete from a past bill.")
     invoice_source_email = fields.Char(string='Source Email', tracking=True)
@@ -254,12 +258,10 @@ class AccountMove(models.Model):
     @api.onchange('invoice_date')
     def _onchange_invoice_date(self):
         if self.invoice_date:
-            self.invoice_date_due = self.date = self.invoice_date
+            if not self.invoice_date_due and not self.invoice_payment_term_id:
+                self.invoice_date_due = self.invoice_date
+            self.date = self.invoice_date
             self._onchange_currency()
-
-    @api.onchange('invoice_date_due')
-    def _onchange_invoice_date_due(self):
-        self._recompute_dynamic_lines()
 
     @api.onchange('journal_id')
     def _onchange_journal(self):
@@ -1346,7 +1348,9 @@ class AccountMove(models.Model):
             line.currency_id = line_currency
 
             # Shortcut to load the demo data.
-            if not line.account_id:
+            # Doing line.account_id triggers a default_get(['account_id']) that could returns a result.
+            # A section / note must not have an account_id set.
+            if 'account_id' not in line._cache and not line.display_type:
                 line.account_id = line._get_computed_account()
                 if not line.account_id:
                     if self.is_sale_document(include_receipts=True):
@@ -1822,6 +1826,8 @@ class AccountMove(models.Model):
 
     def post(self):
         for move in self:
+            if not move.line_ids.filtered(lambda line: not line.display_type):
+                raise UserError(_('You need to add a line before posting.'))
             if move.auto_post and move.date > fields.Date.today():
                 date_msg = move.date.strftime(self.env['res.lang']._lang_get(self.env.user.lang).date_format)
                 raise UserError(_("This move is configured to be auto-posted on %s" % date_msg))
@@ -2127,7 +2133,7 @@ class AccountMoveLine(models.Model):
 
     # ==== Tax fields ====
     tax_ids = fields.Many2many('account.tax', string='Taxes')
-    tax_line_id = fields.Many2one('account.tax', string='Originator tax', ondelete='restrict', store=True,
+    tax_line_id = fields.Many2one('account.tax', string='Originator Tax', ondelete='restrict', store=True,
         compute='_compute_tax_line_id')
     tax_group_id = fields.Many2one(related='tax_line_id.tax_group_id', string='Originator tax group',
         readonly=True, store=True,

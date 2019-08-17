@@ -31,8 +31,8 @@ class SaleOrder(models.Model):
     warehouse_id = fields.Many2one(
         'stock.warehouse', string='Warehouse',
         required=True, readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
-        default=_default_warehouse_id)
-    picking_ids = fields.One2many('stock.picking', 'sale_id', string='Pickings')
+        default=_default_warehouse_id, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
+    picking_ids = fields.One2many('stock.picking', 'sale_id', string='Transfers')
     delivery_count = fields.Integer(string='Delivery Orders', compute='_compute_picking_ids')
     procurement_group_id = fields.Many2one('procurement.group', 'Procurement Group', copy=False)
     effective_date = fields.Date("Effective Date", compute='_compute_effective_date', store=True, help="Completion date of the first delivery order.")
@@ -231,7 +231,7 @@ class SaleOrderLine(models.Model):
             if line.order_id.commitment_date:
                 date = line.order_id.commitment_date
             else:
-                confirm_date = line.order_id.confirmation_date if line.order_id.state in ['sale', 'done'] else datetime.now()
+                confirm_date = line.order_id.date_order if line.order_id.state in ['sale', 'done'] else datetime.now()
                 date = confirm_date + timedelta(days=line.customer_lead or 0.0)
             grouped_lines[(warehouse.id, date)] |= line
 

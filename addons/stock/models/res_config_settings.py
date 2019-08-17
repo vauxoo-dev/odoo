@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class ResConfigSettings(models.TransientModel):
@@ -28,6 +29,7 @@ class ResConfigSettings(models.TransientModel):
     group_warning_stock = fields.Boolean("Warnings for Stock", implied_group='stock.group_warning_stock')
     module_stock_picking_batch = fields.Boolean("Batch Pickings")
     module_stock_barcode = fields.Boolean("Barcode Scanner")
+    module_delivery = fields.Boolean("Delivery Methods")
     module_delivery_dhl = fields.Boolean("DHL USA")
     module_delivery_fedex = fields.Boolean("FedEx")
     module_delivery_ups = fields.Boolean("UPS")
@@ -53,6 +55,13 @@ class ResConfigSettings(models.TransientModel):
     def _onchange_group_stock_production_lot(self):
         if not self.group_stock_production_lot:
             self.group_lot_on_delivery_slip = False
+        tracked_products = self.env['product.template'].search([('tracking', 'in', ['lot', 'serial']),])
+        if not self.group_stock_production_lot and tracked_products:
+            names = ", ".join(tracked_products.mapped('display_name') if len(tracked_products) <= 10
+                    else tracked_products[:10].mapped('display_name') + ["..."])
+            raise UserError(_("You should not remove the 'lots and serial numbers' "
+                              "option while the following products are still tracked by lot "
+                              "or serial number:\n %s") % names)
 
     @api.onchange('group_stock_adv_location')
     def onchange_adv_location(self):
