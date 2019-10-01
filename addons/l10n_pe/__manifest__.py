@@ -23,8 +23,10 @@
         'data/account_tax_data.xml',
         'data/account_chart_template_data.xml',
         'data/res.city.csv',
+        'data/l10n_pe.product.gtin.csv',
         'data/l10n_pe.res.city.district.csv',
         'data/res_country_data.xml',
         'data/l10n_latam_identification_type_data.xml',
+        'views/product_view.xml',
     ],
 }
