@@ -293,6 +293,9 @@ class ResPartner(models.Model):
 
     # Peruvian VAT validation, contributed by Vauxoo
     def check_vat_pe(self, vat):
+        # If the VAT is a DNI(Documento Nacional de Identidad) we only validate that it's 8 in length that is the only validation we need
+        if len(vat) == 8:
+            return True
         if len(vat) != 11 or not vat.isdigit():
             return False
         dig_check = 11 - (sum([int('5432765432'[f]) * int(vat[f]) for f in range(0, 10)]) % 11)
