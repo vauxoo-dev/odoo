@@ -92,7 +92,7 @@ var _t = core._t;
  */
 var StatementModel = BasicModel.extend({
     avoidCreate: false,
-    quickCreateFields: ['account_id', 'amount', 'analytic_account_id', 'label', 'tax_id'],
+    quickCreateFields: ['account_id', 'amount', 'analytic_account_id', 'label', 'tax_id', 'analytic_tag_ids'],
 
     /**
      * @override
@@ -318,7 +318,7 @@ var StatementModel = BasicModel.extend({
      */
     getStatementLines: function () {
         var self = this;
-        var linesToDisplay = _.pick(this.lines, function(value, key, object) { 
+        var linesToDisplay = _.pick(this.lines, function(value, key, object) {
             if (value.visible === true && self.alreadyDisplayed.indexOf(key) === -1) {
                 self.alreadyDisplayed.push(key);
                 return object;
@@ -442,7 +442,7 @@ var StatementModel = BasicModel.extend({
     },
     /**
      * RPC method to load informations on lines
-     * 
+     *
      * @param {Array} ids ids of bank statement line passed to rpc call
      * @param {Array} excluded_ids list of move_line ids that needs to be excluded from search
      * @returns {Deferred}
@@ -461,7 +461,7 @@ var StatementModel = BasicModel.extend({
      * Add lines into the propositions from the reconcile model
      * Can add 2 lines, and each with its taxes. The second line become editable
      * in the create mode.
-     * 
+     *
      * @see 'updateProposition' method for more informations about the
      * 'amount_type'
      *
@@ -472,7 +472,7 @@ var StatementModel = BasicModel.extend({
     quickCreateProposition: function (handle, reconcileModelId) {
         var line = this.getLine(handle);
         var reconcileModel = _.find(this.reconcileModels, function (r) {return r.id === reconcileModelId;});
-        var fields = ['account_id', 'amount', 'amount_type', 'analytic_account_id', 'journal_id', 'label', 'tax_id'];
+        var fields = ['account_id', 'amount', 'amount_type', 'analytic_account_id', 'journal_id', 'label', 'tax_id', 'analytic_tag_ids'];
         this._blurProposition(handle);
 
         var focus = this._formatQuickCreate(line, _.pick(reconcileModel, fields));
@@ -590,7 +590,7 @@ var StatementModel = BasicModel.extend({
      * Change the value of the editable proposition line or create a new one.
      *
      * If the editable line comes from a reconcile model with 2 lines
-     * and their 'amount_type' is "percent" 
+     * and their 'amount_type' is "percent"
      * and their total equals 100% (this doesn't take into account the taxes
      * who can be included or not)
      * Then the total is recomputed to have 100%.
@@ -600,6 +600,7 @@ var StatementModel = BasicModel.extend({
      * @returns {Deferred}
      */
     updateProposition: function (handle, values) {
+        var self = this;
         var line = this.getLine(handle);
         var prop = _.last(_.filter(line.reconciliation_proposition, '__focus'));
         if (!prop) {
@@ -607,7 +608,27 @@ var StatementModel = BasicModel.extend({
             line.reconciliation_proposition.push(prop);
         }
         _.each(values, function (value, fieldName) {
-            prop[fieldName] = values[fieldName];
+            // prop[fieldName] = values[fieldName];
+            if (fieldName === 'analytic_tag_ids') {
+                console.log("Entro en analytic_tag_ids")
+                switch (value.operation) {
+                    case "ADD_M2M":
+                        console.log("Entro en analytic_tag_ids/ADD_M2M")
+                        if (!_.findWhere(prop.analytic_tag_ids, {id: value.ids.id})) {
+                            prop.analytic_tag_ids.push(value.ids);
+                            console.log("Agrego ADD_M2M %O: ", value)
+                        }
+                        break;
+                    case "FORGET":
+                        var id = self.localData[value.ids[0]].ref;
+                        prop.analytic_tag_ids = _.filter(prop.analytic_tag_ids, function (val) {
+                            return val.id !== id;
+                        });
+                        break;
+                }
+            } else {
+                prop[fieldName] = values[fieldName];
+            }
         });
         if ('account_id' in values) {
             prop.account_code = prop.account_id ? this.accounts[prop.account_id.id] : '';
@@ -886,7 +907,7 @@ var StatementModel = BasicModel.extend({
         });
     },
     /**
-     * 
+     *
      *
      * @private
      * @param {string} handle
@@ -911,6 +932,16 @@ var StatementModel = BasicModel.extend({
      */
     _formatNameGet: function (value) {
         return value ? (value.id ? value : {'id': value[0], 'display_name': value[1]}) : false;
+    },
+     _formatMany2ManyTags: function (value) {
+        var res = [];
+        for (var i=0, len=value.length; i<len; i++) {
+            res[i] = {data: {'id': value[i][0], 'display_name': value[i][1]
+            }};
+        }
+        console.log("Format M2M %O: ", res);
+        console.log(res);
+        return res;
     },
     /**
      * Format each propositions (amount, label, account_id)
@@ -1005,6 +1036,7 @@ var StatementModel = BasicModel.extend({
             'account_id': account,
             'account_code': account ? this.accounts[account.id] : '',
             'analytic_account_id': this._formatNameGet(values.analytic_account_id),
+            'analytic_tag_ids': this._formatMany2ManyTags(values.analytic_tag_ids || []),
             'journal_id': this._formatNameGet(values.journal_id),
             'tax_id': this._formatNameGet(values.tax_id),
             'debit': 0,
@@ -1119,6 +1151,7 @@ var StatementModel = BasicModel.extend({
             // But since we need to change the amount (and thus its semantics) into base_amount
             // It might be useful to have a trace in the RPC for debugging purposes
             computed_with_tax: prop.computed_with_tax,
+            analytic_tag_ids: [[6, null, _.pluck(prop.analytic_tag_ids, 'id')]]
         };
         if (!isNaN(prop.id)) {
             result.counterpart_aml_id = prop.id;
@@ -1141,7 +1174,7 @@ var StatementModel = BasicModel.extend({
  * datas allowing manual reconciliation
  */
 var ManualModel = StatementModel.extend({
-    quickCreateFields: ['account_id', 'journal_id', 'amount', 'analytic_account_id', 'label', 'tax_id'],
+    quickCreateFields: ['account_id', 'journal_id', 'amount', 'analytic_account_id', 'label', 'tax_id', 'analytic_tag_ids'],
 
     //--------------------------------------------------------------------------
     // Public
@@ -1403,7 +1436,7 @@ var ManualModel = StatementModel.extend({
 
     /**
      * override change the balance type to display or not the reconcile button
-     * 
+     *
      * @override
      * @private
      * @param {Object} line
@@ -1452,7 +1485,7 @@ var ManualModel = StatementModel.extend({
     },
     /**
      * override to add journal_id
-     * 
+     *
      * @override
      * @private
      * @param {Object} line
@@ -1468,6 +1501,7 @@ var ManualModel = StatementModel.extend({
                 prop.debit = prop.debit !== 0 ? 0 : tmp_value;
                 prop.amount = -prop.amount;
                 prop.journal_id = self._formatNameGet(prop.journal_id || line.journal_id);
+                prop.analytic_tag_ids = self._formatMany2ManyTags(prop.analytic_tag_ids || line.analytic_tag_ids);
             });
         }
     },

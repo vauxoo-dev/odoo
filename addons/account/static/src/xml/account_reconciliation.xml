@@ -193,6 +193,10 @@
                 <td class="o_td_label">Amount</td>
                 <td class="o_td_field"></td>
             </tr>
+            <tr class="create_analytic_tag_ids">
+                <td class="o_td_label">Analytic Tags</td>
+                <td class="o_td_field"></td>
+            </tr>
         </tbody>
     </table>
     <div class="add_line_container">
@@ -209,8 +213,8 @@
         <td class="cell_label">
             <t t-if="line.partner_id &amp;&amp; line.partner_id !== state.st_line.partner_id">
                 <t t-if="line.partner_name.length">
-                    <t t-esc="line.partner_name"/>: 
-                </t>   
+                    <t t-esc="line.partner_name"/>:
+                </t>
             </t>
             <t t-esc="line.label || line.name"/>
             <t t-if="line.ref &amp;&amp; line.ref.length"> : </t>

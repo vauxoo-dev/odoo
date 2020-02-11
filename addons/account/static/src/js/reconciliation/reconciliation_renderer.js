@@ -442,6 +442,7 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
                 this._renderCreate(state);
             }
             var data = this.model.get(this.handleCreateRecord).data;
+            /**
             this.model.notifyChanges(this.handleCreateRecord, state.createForm).then(function () {
                 var record = self.model.get(self.handleCreateRecord);
                 _.each(self.fields, function (field, fieldName) {
@@ -451,6 +452,20 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
                         field.reset(record);
                     }
                 });
+            });
+            **/
+            this.model.notifyChanges(this.handleCreateRecord, state.createForm);
+            this.model.notifyChanges(this.handleCreateRecord, {analytic_tag_ids: {operation: 'REPLACE_WITH', ids: []}});
+            _.each(state.createForm.analytic_tag_ids, function (tag) {
+                self.model.notifyChanges(self.handleCreateRecord, {analytic_tag_ids: {operation: 'ADD_M2M', ids: tag}});
+            });
+            var record = this.model.get(this.handleCreateRecord);
+            _.each(this.fields, function (field, fieldName) {
+                if (self._avoidFieldUpdate[fieldName]) return;
+                if (fieldName === "partner_id") return;
+                if ((data[fieldName] || state.createForm[fieldName]) && !_.isEqual(state.createForm[fieldName], data[fieldName])) {
+                    field.reset(record);
+                }
             });
         }
         this.$('.create .add_line').toggle(!!state.balance.amount_currency);
@@ -525,6 +540,10 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
         }, {
             type: 'float',
             name: 'amount',
+        }, {
+            relation: 'account.analytic.tag',
+            type: 'many2many',
+            name: 'analytic_tag_ids',
         }], {
             account_id: {
                 string: _t("Account"),
@@ -554,6 +573,9 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
             self.fields.amount = new basic_fields.FieldFloat(self,
                 'amount', record, {mode: 'edit'});
 
+            self.fields.analytic_tag_ids = new relational_fields.FieldMany2ManyTags(self,
+                'analytic_tag_ids', record, {mode: 'edit'});
+
             var $create = $(qweb.render("reconciliation.line.create", {'state': state}));
             self.fields.account_id.appendTo($create.find('.create_account_id .o_td_field'))
                 .then(addRequiredStyle.bind(self, self.fields.account_id));
@@ -564,6 +586,7 @@ var LineRenderer = Widget.extend(FieldManagerMixin, {
                 .then(addRequiredStyle.bind(self, self.fields.label));
             self.fields.amount.appendTo($create.find('.create_amount .o_td_field'))
                 .then(addRequiredStyle.bind(self, self.fields.amount));
+            self.fields.analytic_tag_ids.appendTo($create.find('.create_analytic_tag_ids .o_td_field'));
             self.$('.create').append($create);
 
             function addRequiredStyle(widget) {
