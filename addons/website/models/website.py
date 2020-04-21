@@ -830,6 +830,18 @@ class Website(models.Model):
         res = urls.url_parse(self.domain)
         return 'http://' + self.domain if not res.scheme else self.domain
 
+    @tools.ormcache('self.id')
+    def _get_cached_values(self):
+        self.ensure_one()
+        return {
+            'user_id': self.user_id.id,
+            'company_id': self.company_id.id,
+            'default_lang_id': self.default_lang_id.id,
+        }
+
+    def _get_cached(self, field):
+        return self._get_cached_values()[field]
+
 
 class SeoMetadata(models.AbstractModel):
 
