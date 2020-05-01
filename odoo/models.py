@@ -62,6 +62,7 @@ from .tools.misc import CountingStream, clean_context, DEFAULT_SERVER_DATETIME_F
 from .tools.translate import _
 from .tools import date_utils
 from .tools import populate
+from .fields import Datetime
 
 _logger = logging.getLogger(__name__)
 _schema = logging.getLogger(__name__ + '.schema')
@@ -740,16 +741,20 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                 (record, to_xid(record.id))
                 for record in self
             )
-
+        utcnow = datetime.datetime.utcnow().strftime(DEFAULT_SERVER_DATETIME_FORMAT)
         xids.update(
             (r.id, (modname, '%s_%s_%s' % (
                 r._table,
                 r.id,
                 uuid.uuid4().hex[:8],
+                utcnow,
+                self.env.uid,
+                utcnow,
+                self.env.uid,
             )))
             for r in missing
         )
-        fields = ['module', 'model', 'name', 'res_id']
+        fields = ['module', 'model', 'name', 'res_id', 'create_date', 'create_uid', 'write_date', 'write_uid']
 
         # disable eventual async callback / support for the extent of
         # the COPY FROM, as these are apparently incompatible
