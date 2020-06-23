@@ -18,6 +18,14 @@ import re
 INTEGRITY_HASH_MOVE_FIELDS = ('date', 'journal_id', 'company_id')
 INTEGRITY_HASH_LINE_FIELDS = ('debit', 'credit', 'account_id', 'partner_id')
 
+def virtual_conversion(amount_residual, virtual_residual_currency, balance, amount_currency, currency_id):
+    """Method that allows to computed a Rule of Three"""
+    res = virtual_residual_currency * balance / amount_currency
+    return abs(
+        amount_residual
+        if float_compare(amount_residual, res, precision_rounding=currency_id.rounding) == 0
+        else currency_id.round(res))
+
 
 def calc_check_digits(number):
     """Calculate the extra digits that should be appended to the number to make it a valid number.
@@ -3627,91 +3635,392 @@ class AccountMoveLine(models.Model):
                     'exchange_move_id': exchange_move_id,
                 })
 
-    def _reconcile_lines(self, debit_moves, credit_moves, field):
-        """ This function loops on the 2 recordsets given as parameter as long as it
-            can find a debit and a credit to reconcile together. It returns the recordset of the
-            account move lines that were not reconciled during the process.
-        """
+    def check_aml_removal(self, aml_to_check):
+        """This method allows to verify if a Journal Item has been fully depleted"""
+        aml_obj = self.env['account.move.line']
+        currency_rounding = aml_to_check.company_id.currency_id.rounding
+        return (
+            aml_to_check
+            if float_is_zero(aml_to_check.amount_residual_currency, precision_rounding=currency_rounding) and
+            float_is_zero(aml_to_check.amount_residual, precision_rounding=currency_rounding)
+            else aml_obj)
+
+    def _reconcile_local_currency_lines(self, debit_move, credit_move):
+        """This method allows performing reconciliation between lines in local currency"""
+        currency_id = False
+        amount_residual = amount_residual_currency = counter_amount_residual = counter_amount_residual_currency = 0
+        amount_residual, to_remove = min(
+            (debit_move.amount_residual, debit_move),
+            (-credit_move.amount_residual, credit_move)
+        )
+        if to_remove == debit_move:
+            debit_move.amount_residual = 0
+            counter_amount_residual = amount_residual
+            credit_move.amount_residual += counter_amount_residual
+        if to_remove == credit_move:
+            credit_move.amount_residual = 0
+            counter_amount_residual = amount_residual
+            debit_move.amount_residual -= counter_amount_residual
+        return (currency_id, amount_residual, amount_residual_currency, counter_amount_residual,
+                counter_amount_residual_currency, to_remove)
+
+    def _reconcile_multiple_foreign_currency_lines(self, debit_move, credit_move):
+        """This method allows performing reconciliation between lines in two different foreign currencies"""
+        # /!\ NOTE: This is the most challenging reconciliation.
+        # /!\ NOTE: In order to avoid arbitrarily selecting any of both debit's or credit's currency. We select the
+        # currency of the first record to be due.
+        leading_aml = min(
+            (debit_move.date_maturity or debit_move.date, debit_move.date, debit_move),
+            (credit_move.date_maturity or credit_move.date, credit_move.date, credit_move))[2]
+        currency_id = leading_aml.currency_id
+        amount_residual = amount_residual_currency = 0
+        company_currency = leading_aml.company_id.currency_id
+
+        if credit_move == leading_aml:
+            virtual_residual_currency = debit_move.currency_id._convert(
+                debit_move.amount_residual_currency, currency_id, debit_move.company_id, debit_move.date)
+            virtual_amount_currency = debit_move.currency_id._convert(
+                debit_move.amount_currency, currency_id, debit_move.company_id, debit_move.date)
+            amount_residual_currency, amount_residual, to_remove = min(
+                (virtual_residual_currency, debit_move.amount_residual, debit_move),
+                (-credit_move.amount_residual_currency, -credit_move.amount_residual, credit_move)
+            )
+        elif debit_move == leading_aml:
+            virtual_residual_currency = credit_move.currency_id._convert(
+                credit_move.amount_residual_currency, currency_id, credit_move.company_id, credit_move.date)
+            virtual_amount_currency = credit_move.currency_id._convert(
+                credit_move.amount_currency, currency_id, credit_move.company_id, credit_move.date)
+            amount_residual_currency, amount_residual, to_remove = min(
+                (debit_move.amount_residual_currency, debit_move.amount_residual, debit_move),
+                (-virtual_residual_currency, -credit_move.amount_residual, credit_move)
+            )
+        # /!\ NOTE: As we are dealing with a virtual_residual_currency we have to check in which case we are going to
+        # use is to make the proper conversions
+        if to_remove == debit_move:
+            counter_amount_residual_currency = abs(debit_move.amount_residual_currency)
+            debit_move.amount_residual = debit_move.amount_residual_currency = 0
+            if debit_move == leading_aml:
+                counter_amount_residual_currency = virtual_conversion(
+                    credit_move.amount_residual_currency, amount_residual_currency, credit_move.amount_currency,
+                    virtual_amount_currency, company_currency)
+                credit_move.amount_residual_currency += counter_amount_residual_currency
+                counter_amount_residual = virtual_conversion(
+                    credit_move.amount_residual, counter_amount_residual_currency, credit_move.balance,
+                    credit_move.amount_currency, company_currency)
+                credit_move.amount_residual += counter_amount_residual
+            if credit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    credit_move.amount_residual, amount_residual_currency, credit_move.balance,
+                    credit_move.amount_currency, company_currency)
+                credit_move.amount_residual += counter_amount_residual
+                credit_move.amount_residual_currency += amount_residual_currency
+        if to_remove == credit_move:
+            counter_amount_residual_currency = abs(credit_move.amount_residual_currency)
+            credit_move.amount_residual = credit_move.amount_residual_currency = 0
+            if credit_move == leading_aml:
+                counter_amount_residual_currency = virtual_conversion(
+                    debit_move.amount_residual_currency, amount_residual_currency, debit_move.amount_currency,
+                    virtual_amount_currency, company_currency)
+                debit_move.amount_residual_currency -= counter_amount_residual_currency
+                counter_amount_residual = virtual_conversion(
+                    debit_move.amount_residual, counter_amount_residual_currency, debit_move.balance,
+                    debit_move.amount_currency, company_currency)
+                debit_move.amount_residual -= counter_amount_residual
+            if debit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    debit_move.amount_residual, amount_residual_currency, debit_move.balance,
+                    debit_move.amount_currency, company_currency)
+                debit_move.amount_residual -= counter_amount_residual
+                debit_move.amount_residual_currency -= amount_residual_currency
+        return (currency_id, amount_residual, amount_residual_currency, counter_amount_residual,
+                counter_amount_residual_currency, to_remove)
+
+    def _reconcile_single_foreign_currency_lines(self, debit_move, credit_move):
+        """This method allows performing reconciliation between lines in the same foreign currency"""
+        currency_id = debit_move.currency_id
+        amount_residual = amount_residual_currency = counter_amount_residual_currency = 0
+        amount_residual_currency, amount_residual, to_remove = min(
+            (debit_move.amount_residual_currency, debit_move.amount_residual, debit_move),
+            (-credit_move.amount_residual_currency, -credit_move.amount_residual, credit_move)
+        )
+        if to_remove == debit_move:
+            debit_move.amount_residual = debit_move.amount_residual_currency = 0
+            if float_is_zero(
+                    credit_move.amount_residual_currency + amount_residual_currency,
+                    precision_rounding=credit_move.company_id.currency_id.rounding):
+                counter_amount_residual = abs(credit_move.amount_residual)
+            else:
+                counter_amount_residual = virtual_conversion(
+                    -credit_move.amount_residual, amount_residual_currency, credit_move.balance,
+                    credit_move.amount_currency, credit_move.currency_id)
+            credit_move.amount_residual += counter_amount_residual
+            credit_move.amount_residual_currency += amount_residual_currency
+        if to_remove == credit_move:
+            credit_move.amount_residual = credit_move.amount_residual_currency = 0
+            if float_is_zero(
+                    debit_move.amount_residual_currency + amount_residual_currency,
+                    precision_rounding=debit_move.company_id.currency_id.rounding):
+                counter_amount_residual = abs(debit_move.amount_residual)
+            else:
+                counter_amount_residual = virtual_conversion(
+                    -debit_move.amount_residual, amount_residual_currency, debit_move.balance,
+                    debit_move.amount_currency, debit_move.currency_id)
+            counter_amount_residual = virtual_conversion(
+                debit_move.amount_residual, amount_residual_currency, debit_move.balance,
+                debit_move.amount_currency, debit_move.currency_id)
+            debit_move.amount_residual -= counter_amount_residual
+            debit_move.amount_residual_currency -= amount_residual_currency
+        return (currency_id, amount_residual, amount_residual_currency, counter_amount_residual,
+                counter_amount_residual_currency, to_remove)
+
+    def _reconcile_local_and_foreign_currency_lines(self, debit_move, credit_move):
+        """This method allows performing reconciliation between a line in local currency and another one in foreign
+        currency"""
+        leading_aml = debit_move if debit_move.currency_id else credit_move
+        currency_id = leading_aml.currency_id
+        amount_residual = amount_residual_currency = counter_amount_residual_currency = 0
+        company_currency = leading_aml.company_id.currency_id
+
+        if credit_move == leading_aml:
+            virtual_residual_currency = company_currency._convert(
+                debit_move.amount_residual, currency_id, debit_move.company_id, debit_move.date)
+            virtual_amount_currency = company_currency._convert(
+                debit_move.balance, currency_id, debit_move.company_id, debit_move.date)
+            amount_residual_currency, amount_residual, to_remove = min(
+                (virtual_residual_currency, debit_move.amount_residual, debit_move),
+                (-credit_move.amount_residual_currency, -credit_move.amount_residual, credit_move)
+            )
+        elif debit_move == leading_aml:
+            virtual_residual_currency = company_currency._convert(
+                -credit_move.amount_residual, currency_id, credit_move.company_id, credit_move.date)
+            virtual_amount_currency = company_currency._convert(
+                credit_move.balance, currency_id, credit_move.company_id, credit_move.date)
+            amount_residual_currency, amount_residual, to_remove = min(
+                (debit_move.amount_residual_currency, debit_move.amount_residual, debit_move),
+                (virtual_residual_currency, -credit_move.amount_residual, credit_move)
+            )
+        # /!\ NOTE: As we are dealing with a virtual_residual_currency we have to check in which case we are going to
+        # use is to make the proper conversions
+        if to_remove == debit_move:
+            debit_move.amount_residual = debit_move.amount_residual_currency = 0
+            if debit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    credit_move.amount_residual, amount_residual_currency, credit_move.balance,
+                    virtual_amount_currency, currency_id)
+                credit_move.amount_residual += counter_amount_residual
+                credit_move.amount_residual_currency = 0
+            if credit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    credit_move.amount_residual, amount_residual_currency, credit_move.balance,
+                    credit_move.amount_currency, currency_id)
+                credit_move.amount_residual += counter_amount_residual
+                credit_move.amount_residual_currency += amount_residual_currency
+        if to_remove == credit_move:
+            credit_move.amount_residual = credit_move.amount_residual_currency = 0
+            if credit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    debit_move.amount_residual, amount_residual_currency, debit_move.balance,
+                    virtual_amount_currency, currency_id)
+                debit_move.amount_residual -= counter_amount_residual
+                debit_move.amount_residual_currency = 0
+            if debit_move == leading_aml:
+                counter_amount_residual = virtual_conversion(
+                    debit_move.amount_residual, amount_residual_currency, debit_move.balance,
+                    debit_move.amount_currency, currency_id)
+                debit_move.amount_residual -= counter_amount_residual
+                debit_move.amount_residual_currency -= amount_residual_currency
+        return (currency_id, amount_residual, amount_residual_currency, counter_amount_residual,
+                counter_amount_residual_currency, to_remove)
+
+    def _get_fx_partial_reconcile_data(
+            self, amount_residual, counter_amount_residual, debit_move, credit_move, to_remove):
+        fx_line = ''
+        to_reconcile_on_fx = self.env['account.move.line']
+        fx_amount = abs(amount_residual - counter_amount_residual)
+        if counter_amount_residual > amount_residual:
+            fx_line = 'debit' if to_remove == debit_move else 'credit'
+            to_reconcile_on_fx = credit_move if to_remove == debit_move else debit_move
+        if counter_amount_residual < amount_residual:
+            fx_line = 'credit' if to_remove == debit_move else 'debit'
+            to_reconcile_on_fx = debit_move if to_remove == debit_move else credit_move
+        amount_residual = min((amount_residual, counter_amount_residual))
+        return fx_line, to_reconcile_on_fx, fx_amount
+
+    def _reconcile_debit_and_credit(self, debit_move, credit_move):
+        """This is just a routing method that redirects the flow to the regarding case of reconciliation"""
+        fnc = self._reconcile_local_currency_lines
+        if debit_move.currency_id and credit_move.currency_id and debit_move.currency_id == credit_move.currency_id:
+            if not debit_move.amount_currency and not credit_move.amount_currency:
+                fnc = self._reconcile_local_currency_lines
+            else:
+                fnc = self._reconcile_single_foreign_currency_lines
+        if debit_move.currency_id and credit_move.currency_id and debit_move.currency_id != credit_move.currency_id:
+            fnc = self._reconcile_multiple_foreign_currency_lines
+        if not debit_move.currency_id and not credit_move.currency_id:
+            fnc = self._reconcile_local_currency_lines
+        if bool(debit_move.currency_id) != bool(credit_move.currency_id):
+            fnc = self._reconcile_local_and_foreign_currency_lines
+        return fnc(debit_move, credit_move)
+
+    def _do_the_cash_basis_thing(
+            self, cash_basis, to_create, cash_basis_percentage_before_rec, cash_basis_percentage_after_rec, dc_vals):
+        """This method was spun off to be able to call it on demand/silence it. While reviewing the way residual
+        fields are overridden and recomputed"""
+        cash_basis_subjected = []
+        part_rec = self.env['account.partial.reconcile']
+        with self.env.norecompute():
+            for partial_rec_dict in to_create:
+                debit_move, credit_move, amount_residual_currency = dc_vals[
+                    partial_rec_dict['debit_move_id'], partial_rec_dict['credit_move_id']]
+                # /!\ NOTE: Exchange rate differences shouldn't create cash basis entries
+                # i. e: we don't really receive/give money in a customer/provider fashion
+                # Since those are not subjected to cash basis computation we process them first
+                if not amount_residual_currency and debit_move.currency_id and credit_move.currency_id:
+                    part_rec.create(partial_rec_dict)
+                else:
+                    cash_basis_subjected.append(partial_rec_dict)
+
+            for after_rec_dict in cash_basis_subjected:
+                new_rec = part_rec.create(after_rec_dict)
+                # if the pair belongs to move being reverted, do not create CABA entry
+                if (cash_basis and not
+                        (new_rec.debit_move_id + new_rec.credit_move_id)
+                        .mapped('move_id.reversal_move_id')):
+                    new_rec.create_tax_cash_basis_entry(
+                        cash_basis_percentage_before_rec[new_rec.debit_move_id.id, new_rec.credit_move_id.id],
+                        cash_basis_percentage_after_rec[new_rec.debit_move_id.id, new_rec.credit_move_id.id],
+                    )
+        self.recompute()
+
+    def _create_partial_reconciliation_exchange_diff_entry(self, move, fx_line, fx_amount, currency_id, aml):
+        aml_obj = self.env['account.move.line']
+
+        # create the line that will be reconciled to aml
+        line_to_rec = aml_obj.with_context(check_move_validity=False).create({
+            'name': _('Currency exchange rate difference'),
+            'debit': fx_amount if fx_line == 'debit' else 0.0,
+            'credit': fx_amount if fx_line == 'credit' else 0.0,
+            'account_id': aml.account_id.id,
+            'move_id': move.id,
+            'journal_id': move.journal_id.id,
+            'currency_id': currency_id.id,
+            'amount_currency': 0.0,
+            'partner_id': aml.partner_id.id,
+        })
+        line_to_rec.amount_residual = line_to_rec.amount_residual_currency = 0
+        line_to_rec.reconciled = True
+        # create the counterpart on exchange gain/loss account
+        fx_journal = move.company_id.currency_exchange_journal_id
+        aml_obj.with_context(check_move_validity=False).create({
+            'name': _('Currency exchange rate difference'),
+            'debit': fx_amount if fx_line == 'credit' else 0.0,
+            'credit': fx_amount if fx_line == 'debit' else 0.0,
+            'account_id': (fx_journal.default_debit_account_id.id
+                           if fx_line == 'credit' else fx_journal.default_credit_account_id.id),
+            'move_id': move.id,
+            'journal_id': move.journal_id.id,
+            'currency_id': aml.currency_id.id,
+            'amount_currency': 0.0,
+            'partner_id': aml.partner_id.id,
+        })
+
+        return {
+            'debit_move_id': line_to_rec.id if fx_line == 'debit' else aml.id,
+            'credit_move_id': line_to_rec.id if fx_line == 'credit' else aml.id,
+            'amount': abs(fx_amount),
+            'amount_currency': 0.0,
+            'currency_id': currency_id.id,
+            'exchange_move_id': move.id,
+        }
+
+    def _process_partial_reconciliation_exchange_diff(
+            self, currency_id, amount_residual, counter_amount_residual, debit_move, credit_move, to_remove):
+        fx_line, to_reconcile_on_fx, fx_amount = self._get_fx_partial_reconcile_data(
+            amount_residual, counter_amount_residual, debit_move, credit_move, to_remove)
+        apr_obj = apr_ids = self.env['account.partial.reconcile']
+        if fx_line:
+            fx_move_vals = self.env['account.full.reconcile']._prepare_exchange_diff_move(
+                move_date=max((debit_move.date, credit_move.date)), company=debit_move.company_id)
+            fx_move_vals['ref'] = _('Reconciling - Debit: %s - Credit: %s') % (debit_move.name, credit_move.name)
+            fx_move = self.env['account.move'].create(fx_move_vals)
+            res = self._create_partial_reconciliation_exchange_diff_entry(
+                fx_move, fx_line, fx_amount, currency_id, to_reconcile_on_fx)
+            fx_move.post()
+            apr_ids = apr_obj.create(res)
+        return apr_ids
+
+    def _temporal_reconciling_method(self, debit_moves, credit_moves, field):
+        """This method will be eventually renamed and/or refactored and/or deleted"""
         (debit_moves + credit_moves).read([field])
         to_create = []
-        cash_basis = debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable') or False
+        cash_basis = False
+        if debit_moves and debit_moves[0].account_id.internal_type in ('receivable', 'payable'):
+            cash_basis = True
         cash_basis_percentage_before_rec = {}
-        dc_vals ={}
+        cash_basis_percentage_after_rec = {}
+        dc_vals = {}
         while (debit_moves and credit_moves):
             debit_move = debit_moves[0]
             credit_move = credit_moves[0]
-            company_currency = debit_move.company_id.currency_id
-            # We need those temporary value otherwise the computation might be wrong below
-            temp_amount_residual = min(debit_move.amount_residual, -credit_move.amount_residual)
-            temp_amount_residual_currency = min(debit_move.amount_residual_currency, -credit_move.amount_residual_currency)
-            dc_vals[(debit_move.id, credit_move.id)] = (debit_move, credit_move, temp_amount_residual_currency)
-            amount_reconcile = min(debit_move[field], -credit_move[field])
-
-            #Remove from recordset the one(s) that will be totally reconciled
-            # For optimization purpose, the creation of the partial_reconcile are done at the end,
-            # therefore during the process of reconciling several move lines, there are actually no recompute performed by the orm
-            # and thus the amount_residual are not recomputed, hence we have to do it manually.
-            if amount_reconcile == debit_move[field]:
-                debit_moves -= debit_move
-            else:
-                debit_moves[0].amount_residual -= temp_amount_residual
-                debit_moves[0].amount_residual_currency -= temp_amount_residual_currency
-
-            if amount_reconcile == -credit_move[field]:
-                credit_moves -= credit_move
-            else:
-                credit_moves[0].amount_residual += temp_amount_residual
-                credit_moves[0].amount_residual_currency += temp_amount_residual_currency
-            #Check for the currency and amount_currency we can set
-            currency = False
-            amount_reconcile_currency = 0
-            if field == 'amount_residual_currency':
-                currency = credit_move.currency_id.id
-                amount_reconcile_currency = temp_amount_residual_currency
-                amount_reconcile = temp_amount_residual
-            elif bool(debit_move.currency_id) != bool(credit_move.currency_id):
-                # If only one of debit_move or credit_move has a secondary currency, also record the converted amount
-                # in that secondary currency in the partial reconciliation. That allows the exchange difference entry
-                # to be created, in case it is needed. It also allows to compute the amount residual in foreign currency.
-                currency = debit_move.currency_id or credit_move.currency_id
-                currency_date = debit_move.currency_id and credit_move.date or debit_move.date
-                amount_reconcile_currency = company_currency._convert(amount_reconcile, currency, debit_move.company_id, currency_date)
-                currency = currency.id
 
             if cash_basis:
                 tmp_set = debit_move | credit_move
-                cash_basis_percentage_before_rec.update(tmp_set._get_matched_percentage())
+                cash_basis_percentage_before_rec[debit_move.id, credit_move.id] = tmp_set._get_matched_percentage()
+
+            currency_id, amount_residual, amount_reconcile_currency, counter_amount_residual, counter_amount_currency, to_remove = (  # noqa
+                self._reconcile_debit_and_credit(debit_move, credit_move))
+            fx_apr = self._process_partial_reconciliation_exchange_diff(
+                currency_id, amount_residual, counter_amount_residual, debit_move, credit_move, to_remove)
+
+            if cash_basis:
+                tmp_set = debit_move | credit_move
+                cash_basis_percentage_after_rec[debit_move.id, credit_move.id] = tmp_set._get_matched_percentage()
+
+            dc_vals[(debit_move.id, credit_move.id)] = (debit_move, credit_move, amount_reconcile_currency)
+
+            amount_reconcile = min((amount_residual, counter_amount_residual))
+            debit_to_remove = self.check_aml_removal(debit_move)
+            credit_to_remove = self.check_aml_removal(credit_move)
+
+            debit_move.reconciled = bool(debit_to_remove)
+            credit_move.reconciled = bool(credit_to_remove)
+
+            debit_moves -= debit_to_remove
+            credit_moves -= credit_to_remove
 
             to_create.append({
                 'debit_move_id': debit_move.id,
                 'credit_move_id': credit_move.id,
                 'amount': amount_reconcile,
                 'amount_currency': amount_reconcile_currency,
-                'currency_id': currency,
+                'counter_amount_currency': counter_amount_currency,
+                'currency_id': currency_id.id if currency_id else False,
+                'exchange_rec_id': fx_apr.id if fx_apr else False,
             })
 
-        cash_basis_subjected = []
-        part_rec = self.env['account.partial.reconcile']
-        for partial_rec_dict in to_create:
-            debit_move, credit_move, amount_residual_currency = dc_vals[partial_rec_dict['debit_move_id'], partial_rec_dict['credit_move_id']]
-            # /!\ NOTE: Exchange rate differences shouldn't create cash basis entries
-            # i. e: we don't really receive/give money in a customer/provider fashion
-            # Since those are not subjected to cash basis computation we process them first
-            if not amount_residual_currency and debit_move.currency_id and credit_move.currency_id:
-                part_rec.create(partial_rec_dict)
-            else:
-                cash_basis_subjected.append(partial_rec_dict)
+        self._do_the_cash_basis_thing(
+            cash_basis, to_create, cash_basis_percentage_before_rec, cash_basis_percentage_after_rec, dc_vals)
 
-        for after_rec_dict in cash_basis_subjected:
-            new_rec = part_rec.create(after_rec_dict)
-            # if the pair belongs to move being reverted, do not create CABA entry
-            if cash_basis and not (
-                    new_rec.debit_move_id.move_id == new_rec.credit_move_id.move_id.reversed_entry_id
-                    or
-                    new_rec.credit_move_id.move_id == new_rec.debit_move_id.move_id.reversed_entry_id
-            ):
-                new_rec.create_tax_cash_basis_entry(cash_basis_percentage_before_rec)
-        return debit_moves+credit_moves
+        return debit_moves + credit_moves
+
+    def _reconcile_lines(self, debit_moves, credit_moves, field):
+        """ This method has been left here for backwards compatibility and to capture the cases of reconciliation
+        while developing the concept in this module. It is expected that eventually this method will disappear.
+        """
+        all_moves = (debit_moves | credit_moves)
+        if all_moves[0].currency_id and all([
+                x.amount_currency and x.currency_id == all_moves[0].currency_id for x in all_moves]):
+            return self._temporal_reconciling_method(debit_moves, credit_moves, field)
+        if all_moves[0].currency_id and all([
+                not x.amount_currency and x.currency_id == all_moves[0].currency_id for x in all_moves]):
+            return self._temporal_reconciling_method(debit_moves, credit_moves, field)
+        if not all_moves[0].currency_id and all([x.currency_id == all_moves[0].currency_id for x in all_moves]):
+            return self._temporal_reconciling_method(debit_moves, credit_moves, field)
+        if len(all_moves.mapped('currency_id')) == 1 and any([not x.currency_id for x in all_moves]):
+            return self._temporal_reconciling_method(debit_moves, credit_moves, field)
+        if len(all_moves.mapped('currency_id')) > 1:
+            return self._temporal_reconciling_method(debit_moves, credit_moves, field)
+        raise ValidationError(_("Reconciliation Case not yet implemented"))
 
     def auto_reconcile_lines(self):
         # Create list of debit and list of credit move ordered by date-currency
@@ -4129,6 +4438,20 @@ class AccountPartialReconcile(models.Model):
     max_date = fields.Date(string='Max Date of Matched Lines', compute='_compute_max_date',
         readonly=True, copy=False, store=True,
         help='Technical field used to determine at which date this reconciliation needs to be shown on the aged receivable/payable reports.')
+    counter_amount_currency = fields.Monetary(
+        string="Counter Amount in Foreign Currency",
+        help="Technical field used to keep track of the Amount that was reconciled in a foreign currency"
+        "when two journal items which are not in company's currency. This amount value is in currency of"
+        "journal item that is not leading. The leading journal item is the one which has the same currency"
+        "than the Partial Reconciliation. This fields is only used when two items are in currency different"
+        "than the Company's currency and they in different currencies among themselves.")
+    exchange_move_id = fields.Many2one(
+        'account.move', copy=False, readonly=True,
+        help='The Journal Entry created for a Exchange Rate Difference will be linked here.')
+    exchange_rec_id = fields.Many2one(
+        'account.partial.reconcile', copy=False, readonly=True,
+        string='Exchange Diff. Partial Reconciliation',
+        help="Technical field used to keep track of the Exchange Rate Partial Reconciliation.")
 
     @api.depends('debit_move_id.date', 'credit_move_id.date')
     def _compute_max_date(self):
@@ -4255,7 +4578,7 @@ class AccountPartialReconcile(models.Model):
             # probably already sent to the estate.
             newly_created_move.write({'date': move_date})
 
-    def create_tax_cash_basis_entry(self, percentage_before_rec):
+    def create_tax_cash_basis_entry(self, percentage_before_rec, percentage_after_rec):
         self.ensure_one()
         move_date = self.debit_move_id.date
         newly_created_move = self.env['account.move']
