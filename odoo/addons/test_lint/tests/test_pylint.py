@@ -51,6 +51,12 @@ class TestPyLint(TransactionCase):
         _logger.info("pylint version: %s", pylint.__version__)
         import astroid
         _logger.info("astroid version: %s", astroid.__version__)
+        from pylint import config;
+        pylintrc = config.find_pylintrc()
+        _logger.info("pylintrc %s", pylintrc)
+        if pylintrc and os.path.isfile(pylintrc):
+            with open(pylintrc) as pylintrc_f:
+                _logger.info("pylintrc content\n%s", pylintrc_f.read())
         if pylint is None:
             self._skip_test('please install pylint')
         required_pylint_version = LooseVersion('1.6.4')
