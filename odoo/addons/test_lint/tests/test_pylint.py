@@ -48,6 +48,9 @@ class TestPyLint(TransactionCase):
         self.skipTest(reason)
 
     def test_pylint(self):
+        _logger.info("pylint version: %s", pylint.__version__)
+        import astroid
+        _logger.info("astroid version: %s", astroid.__version__)
         if pylint is None:
             self._skip_test('please install pylint')
         required_pylint_version = LooseVersion('1.6.4')
