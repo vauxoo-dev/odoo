@@ -84,6 +84,15 @@ class TestPyLint(TransactionCase):
 
         pypath = HERE + os.pathsep + os.environ.get('PYTHONPATH', '')
         env = dict(os.environ, PYTHONPATH=pypath)
+        pylint_bin = tools.which('pylint')
+        process = subprocess.Popen(
+            [pylint_bin, '--version'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            env=env)
+        out, err = process.communicate()
+        _logger.info("pylint --version\n%s", out.decode('UTF-8'))
+
         try:
             pylint_bin = tools.which('pylint')
             process = subprocess.Popen(
