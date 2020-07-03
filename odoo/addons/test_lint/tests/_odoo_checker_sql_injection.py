@@ -108,14 +108,17 @@ class OdooBaseChecker(checkers.BaseChecker):
             node.func.attrname in ('execute', 'executemany') and
             # cursor expr (see above)
             self._get_cursor_name(node.func) in DFTL_CURSOR_EXPR and
-            # cr.execute("select * from %s" % foo, [bar]) -> probably a good reason for string formatting
-            len(node.args) <= 1 and
             # ignore in test files, probably not accessible
             not current_file_bname.startswith('test_')
         ):
             return False
+        for node_arg in node.args:
+            is_concatenation = self._check_concatenation(node_arg)
+            if is_concatenation:
+                break
         first_arg = node.args[0]
-        is_concatenation = self._check_concatenation(first_arg)
+        if isinstance(first_arg, (astroid.Tuple, astroid.List)):
+            first_arg = first_arg.elts[0] if first_arg.elts else first_arg
         # if first parameter is a variable, check how it was built instead
         if (not is_concatenation and isinstance(first_arg, (astroid.Name, astroid.Subscript))):
 
