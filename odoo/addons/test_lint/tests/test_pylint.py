@@ -80,8 +80,6 @@ class TestPyLint(TransactionCase):
             '--load-plugins=pylint.extensions.bad_builtin,_odoo_checkers,_odoo_checker_sql_injection',
             '--bad-functions=%s' % ','.join(self.BAD_FUNCTIONS),
             '--deprecated-modules=%s' % ','.join(self.BAD_MODULES)
-            # tmp ugly patch more info https://github.com/odoo/odoo/pull/54012#issuecomment-653276988
-            '--ignore=test_mass_mailing,mass_mailing',
         ]
 
         pypath = HERE + os.pathsep + os.environ.get('PYTHONPATH', '')
