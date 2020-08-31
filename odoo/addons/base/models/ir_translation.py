@@ -806,6 +806,7 @@ class IrTranslation(models.Model):
                     base_lang_code = lang_code.split('_')[0]
 
                 # Step 1: for sub-languages, load base language first (e.g. es_CL.po is loaded over es.po)
+                _logger.info('module %s: ---- loading base translation file %s for language %s', module_name, base_lang_code or '', lang)
                 if base_lang_code:
                     base_trans_file = get_module_resource(module_name, 'i18n', base_lang_code + '.po')
                     if base_trans_file:
