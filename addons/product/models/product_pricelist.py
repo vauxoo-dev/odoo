@@ -185,6 +185,7 @@ class Pricelist(models.Model):
             price = 0.0
 
             price_uom = self.env['uom.uom'].browse([qty_uom_id])
+            new_rule = False
             for rule in items:
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
@@ -210,8 +211,10 @@ class Pricelist(models.Model):
                         continue
 
                 if rule.base == 'pricelist' and rule.base_pricelist_id:
-                    price_tmp = rule.base_pricelist_id.with_context(other_pricelist=True)._compute_price_rule(
-                        [(product, qty, partner)])[product.id][0]  # TDE: 0 = price, 1 = rule
+                    info_rule = rule.base_pricelist_id.with_context(other_pricelist=True)._compute_price_rule(
+                        [(product, qty, partner)])  # TDE: 0 = price, 1 = rule
+                    price_tmp = info_rule[product.id][0]
+                    new_rule = (info_rule.get('rule_%i' % product.id) and info_rule['rule_%i' % product.id][0]) and info_rule['rule_%i' % product.id][0] or info_rule[product.id][1]
                     price = rule.base_pricelist_id.currency_id._convert(price_tmp, self.currency_id, self.env.user.company_id, date, round=False)
                     if not price:
                         continue
@@ -238,6 +241,8 @@ class Pricelist(models.Model):
                 price = product.price_compute('list_price')[product.id]
 
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
+            rule = new_rule or (suitable_rule and suitable_rule.id or False)
+            results['rule_%i' % product.id] = (rule, 0)
 
         return results
 
