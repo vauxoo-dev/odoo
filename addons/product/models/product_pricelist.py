@@ -123,43 +123,8 @@ class Pricelist(models.Model):
         if not products:
             return {}
 
-        categ_ids = {}
-        for p in products:
-            categ = p.categ_id
-            while categ:
-                categ_ids[categ.id] = True
-                categ = categ.parent_id
-        categ_ids = list(categ_ids)
+        items = self._compute_price_rule_get_items(products, date)
 
-        is_product_template = products[0]._name == "product.template"
-        if is_product_template:
-            prod_tmpl_ids = [tmpl.id for tmpl in products]
-            # all variants of all products
-            prod_ids = [p.id for p in
-                        list(chain.from_iterable([t.product_variant_ids for t in products]))]
-        else:
-            prod_ids = [product.id for product in products]
-            prod_tmpl_ids = [product.product_tmpl_id.id for product in products]
-
-        # Load all rules
-        self._cr.execute(
-            'SELECT item.id '
-            'FROM product_pricelist_item AS item '
-            'LEFT JOIN product_category AS categ '
-            'ON item.categ_id = categ.id '
-            'WHERE (item.product_tmpl_id IS NULL OR item.product_tmpl_id = any(%s))'
-            'AND (item.product_id IS NULL OR item.product_id = any(%s))'
-            'AND (item.categ_id IS NULL OR item.categ_id = any(%s)) '
-            'AND (item.pricelist_id = %s) '
-            'AND (item.date_start IS NULL OR item.date_start<=%s) '
-            'AND (item.date_end IS NULL OR item.date_end>=%s)'
-            'ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc',
-            (prod_tmpl_ids, prod_ids, categ_ids, self.id, date, date))
-        # NOTE: if you change `order by` on that query, make sure it matches
-        # _order from model to avoid inconstencies and undeterministic issues.
-
-        item_ids = [x[0] for x in self._cr.fetchall()]
-        items = self.env['product.pricelist.item'].browse(item_ids)
         results = {}
         for product, qty, partner in products_qty_partner:
             results[product.id] = 0.0
@@ -178,9 +143,8 @@ class Pricelist(models.Model):
                     # Ignored - incompatible UoM in context, use default product UoM
                     pass
 
-            # if Public user try to access standard price from website sale, need to call price_compute.
             # TDE SURPRISE: product can actually be a template
-            price = product.price_compute('list_price')[product.id]
+            price = self._get_rule_first_product_price(product)
 
             price_uom = self.env['uom.uom'].browse([qty_uom_id])
             for rule in items:
@@ -191,17 +155,114 @@ class Pricelist(models.Model):
                 price = price_tmp
                 suitable_rule = rule
                 break
-            # Final price conversion into pricelist currency
-            if suitable_rule and suitable_rule.compute_price != 'fixed' and suitable_rule.base != 'pricelist':
-                if suitable_rule.base == 'standard_price':
-                    cur = product.cost_currency_id
-                else:
-                    cur = product.currency_id
-                price = cur._convert(price, self.currency_id, self.env.user.company_id, date, round=False)
+
+            # Get the final price, it will be converted to the pricelist currency if is need it.
+            price = self._get_final_rule_price(suitable_rule, product, price, date)
 
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
 
         return results
+
+    def _get_rule_first_product_price(self, product):
+        """Method to obtain the first price for a product, this will the standard price of the product, to allow
+        the Public user acces from the website sale.
+        """
+        return product.price_compute('list_price')[product.id]
+
+    @api.multi
+    def _get_final_rule_price(self, suitable_rule, product, price, date):
+        """Method to get the final price, if there is a suitable rule and the suitable rule is not based on a
+        pricelist or has a fixed value we are going to convert the price from the Product's Cost Currency or the
+        Product's Currency to the pricelist currency.
+        If none of the conditions are met, the price will be returned without change.
+        """
+        self.ensure_one()
+        if suitable_rule and suitable_rule.compute_price != 'fixed' and suitable_rule.base != 'pricelist':
+            cur = product.cost_currency_id if suitable_rule.base == 'standard_price' else product.currency_id
+            price = cur._convert(price, self.currency_id, self.env.user.company_id, date, round=False)
+        return price
+
+    def _get_price_rule_item_sql_order_by(self):
+        """Method to get the `order by` sentence of how we are going obtain the items.
+        NOTE: if you change `order by` on this query, make sure it matches _order from the model
+        (`product.pricelist.item`) to avoid inconstencies and undeterministic issues.
+        """
+        return """item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc"""
+
+    def _get_price_rule_item_sql_where(self):
+        """Method to obtain the Sentece WHERE that is needed when obtaining of the items on the method
+        `_compute_price_rule_get_items`.
+        NOTE: if add more sentences on this query, please make sure it matches the params on the method below
+        `_get_price_rule_item_sql_where_params` to avoid inconstencies and undeterministic issues.
+        """
+        return """
+            (item.product_tmpl_id IS NULL OR item.product_tmpl_id = any(%s))
+            AND (item.product_id IS NULL OR item.product_id = any(%s))
+            AND (item.categ_id IS NULL OR item.categ_id = any(%s))
+            AND (item.pricelist_id = %s)
+            AND (item.date_start IS NULL OR item.date_start<=%s)
+            AND (item.date_end IS NULL OR item.date_end>=%s)
+            """
+
+    @api.multi
+    def _get_price_rule_item_sql_where_params(self, products, date):
+        """Method to obtain the parameters for the sentece WHERE that is needed when obtaining of the items on the
+        method `_compute_price_rule_get_items`.
+        NOTE: if add more params please make sure it matches the sentence WHERE on the method above
+        `_get_price_rule_item_sql_where` to avoid inconstencies and undeterministic issues.
+
+        It receives the products and the date for this items, so we can obtain the templates and categories for
+        these products.
+        """
+        self.ensure_one()
+        categ_ids = {}
+        for p in products:
+            categ = p.categ_id
+            while categ:
+                categ_ids[categ.id] = True
+                categ = categ.parent_id
+        categ_ids = list(categ_ids)
+
+        is_product_template = products[0]._name == "product.template"
+        if is_product_template:
+            prod_tmpl_ids = [tmpl.id for tmpl in products]
+            # all variants of all products
+            prod_ids = [p.id for p in
+                        list(chain.from_iterable([t.product_variant_ids for t in products]))]
+        else:
+            prod_ids = [product.id for product in products]
+            prod_tmpl_ids = [product.product_tmpl_id.id for product in products]
+
+        return (prod_tmpl_ids, prod_ids, categ_ids, self.id, date, date)
+
+    @api.multi
+    def _compute_price_rule_get_items(self, products, date):
+        """Method to obtain the items that match the products, categories, dates and pricelist on the compute of the
+        method `_compute_price_rule`. It receives the products and the date for this items.
+        """
+        self.ensure_one()
+        sql = """
+            SELECT
+                item.id
+            FROM
+                product_pricelist_item AS item
+                LEFT JOIN product_category AS categ
+                ON item.categ_id = categ.id
+            WHERE
+                %s
+            ORDER BY
+                %s
+            """ % (self._get_price_rule_item_sql_where(), self._get_price_rule_item_sql_order_by())
+
+        # Load all rules
+        self._cr.execute(
+            sql,
+            self._get_price_rule_item_sql_where_params(products, date)
+        )
+
+        item_ids = [x[0] for x in self._cr.fetchall()]
+        items = self.env['product.pricelist.item'].browse(item_ids)
+        return items
 
     # New methods: product based
     def get_products_price(self, products, quantities, partners, date=False, uom_id=False):
@@ -510,6 +571,7 @@ class PricelistItem(models.Model):
                 price = min(price, price_limit + price_max_margin)
         return price
 
+    @api.multi
     def _check_pricelist_rule(self, product, qty, uom_id, partner, date, qty_in_product_uom, price_uom):
         """Method to check if the item is a suitable one for the quantity that is going to be need it, a certain
         product, uom, and partner if all the conditions pass we are returning the rule's price for the product.
