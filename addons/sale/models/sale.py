@@ -1527,15 +1527,7 @@ class SaleOrderLine(models.Model):
             self.price_unit = 0.0
             return
         if self.order_id.pricelist_id and self.order_id.partner_id:
-            product = self.product_id.with_context(
-                lang=self.order_id.partner_id.lang,
-                partner=self.order_id.partner_id,
-                quantity=self.product_uom_qty,
-                date=self.order_id.date_order,
-                pricelist=self.order_id.pricelist_id.id,
-                uom=self.product_uom.id,
-                fiscal_position=self.env.context.get('fiscal_position')
-            )
+            product = self._get_product_with_context()
             self.price_unit = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
 
     @api.multi
@@ -1614,6 +1606,20 @@ class SaleOrderLine(models.Model):
             'tax_id', 'analytic_tag_ids'
         ]
 
+    def _get_product_with_context(self):
+        """
+        """
+        return self.product_id.with_context(
+            lang=self.order_id.partner_id.lang,
+            partner=self.order_id.partner_id,
+            quantity=self.product_uom_qty,
+            date=self.order_id.date_order,
+            pricelist=self.order_id.pricelist_id.id,
+            uom=self.product_uom.id,
+            fiscal_position=self.env.context.get('fiscal_position'),
+            sale_order_line_id=self,
+        )
+
     @api.onchange('product_id', 'price_unit', 'product_uom', 'product_uom_qty', 'tax_id')
     def _onchange_discount(self):
         if not (self.product_id and self.product_uom and
@@ -1623,15 +1629,7 @@ class SaleOrderLine(models.Model):
             return
 
         self.discount = 0.0
-        product = self.product_id.with_context(
-            lang=self.order_id.partner_id.lang,
-            partner=self.order_id.partner_id,
-            quantity=self.product_uom_qty,
-            date=self.order_id.date_order,
-            pricelist=self.order_id.pricelist_id.id,
-            uom=self.product_uom.id,
-            fiscal_position=self.env.context.get('fiscal_position')
-        )
+        product = self._get_product_with_context()
 
         product_context = dict(self.env.context, partner_id=self.order_id.partner_id.id, date=self.order_id.date_order, uom=self.product_uom.id)
 

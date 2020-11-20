@@ -253,6 +253,11 @@ class Pricelist(models.Model):
 
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
 
+        # print("-----------")
+        # print("ORIGINAL")
+        # print(results)
+        # print(self.env.context)
+        # print("-----------")
         return results
 
     # New methods: product based
