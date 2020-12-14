@@ -56,11 +56,15 @@ class AccountEdiDocument(models.Model):
         """
 
         # Classify jobs by (edi_format, edi_doc.state, doc_type, move.company_id)
-        to_process = {}
+        to_process = {
+            'invoice': {},
+            'payment': {},
+        }
         if 'blocked_level' in self.env['account.edi.document']._fields:
             documents = self.filtered(lambda d: d.state in ('to_send', 'to_cancel') and d.blocked_level != 'error')
         else:
             documents = self.filtered(lambda d: d.state in ('to_send', 'to_cancel'))
+
         for edi_doc in documents:
             move = edi_doc.move_id
             edi_format = edi_doc.edi_format_id
@@ -71,23 +75,20 @@ class AccountEdiDocument(models.Model):
             else:
                 continue
 
-            custom_key = edi_format._get_batch_key(edi_doc.move_id)
-            key = (edi_format, edi_doc.state, doc_type, move.company_id, custom_key)
-            to_process.setdefault(key, self.env['account.edi.document'])
-            to_process[key] |= edi_doc
-
-        # Order payments/invoice and create batches.
-        result = []
-        payments = []
-        for key, documents in to_process.items():
-            edi_format, state, doc_type, company_id, custom_key = key
-            target = result if doc_type == 'invoice' else payments
-            if edi_format._support_batching(documents.move_id, state, company_id):
-                target.append((documents, doc_type))
+            if edi_format._support_batching(move=move, state=edi_doc.state):
+                custom_key = edi_format._get_batch_key(move, edi_doc.state)
+                key = tuple([edi_format, edi_doc.state, move.company_id] + list(custom_key))
             else:
-                target.extend((doc, doc_type) for doc in documents)
-        result.extend(payments)
-        return result
+                key = (edi_doc.id,)
+
+            if key in to_process[doc_type]:
+                to_process[doc_type][key] |= edi_doc
+            else:
+                to_process[doc_type][key] = edi_doc
+
+        res = [(docs, 'invoice') for docs in to_process['invoice'].values()]
+        res += [(docs, 'payment') for docs in to_process['payment'].values()]
+        return res
 
     @api.model
     def _convert_to_old_jobs_format(self, jobs):
@@ -177,10 +178,11 @@ class AccountEdiDocument(models.Model):
                     if not old_attachment.res_model or not old_attachment.res_id:
                         attachments_to_unlink |= old_attachment
 
-                elif not move_result.get('success'):
+                else:
+                    error = move_result.get('error', False)
                     document.write({
-                        'error': move_result.get('error', False),
-                        'blocked_level': move_result.get('blocked_level', DEFAULT_BLOCKING_LEVEL) if document.error else False,
+                        'error': error,
+                        'blocked_level': move_result.get('blocked_level', DEFAULT_BLOCKING_LEVEL) if error else False,
                     })
 
             if invoice_ids_to_cancel:

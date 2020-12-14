@@ -110,7 +110,6 @@ class AccountEdiTestCommon(AccountTestInvoicingCommon):
             documents_to_return = documents_to_return.filtered(lambda x: x.edi_format_id.code in formats_to_return)
 
         attachments = documents_to_return.attachment_id
-
         data_str_list = []
         for attachment in attachments.with_context(bin_size=False):
             data_str_list.append(base64.decodebytes(attachment.datas))

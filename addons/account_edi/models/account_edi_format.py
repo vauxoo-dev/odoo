@@ -98,7 +98,7 @@ class AccountEdiFormat(models.Model):
         # TO OVERRIDE
         return False
 
-    def _support_batching(self, moves=None, state=None, company_id=None):
+    def _support_batching(self, move=None, state=None):
         """ Indicate if we can send multiple documents in the same time to the web services.
         If True, the _post_%s_edi methods will get multiple documents in the same time.
         Otherwise, these methods will be called with only one record at a time.
@@ -108,7 +108,7 @@ class AccountEdiFormat(models.Model):
         # TO OVERRIDE
         return False
 
-    def _get_batch_key(self, move):
+    def _get_batch_key(self, move, state):
         """ Returns a tuple that will be used as key to partitionnate the invoices/payments when creating batches
         with multiple invoices/payments.
         The type of move (invoice or payment), its company_id, its edi state and the edi_format are used by default, if
