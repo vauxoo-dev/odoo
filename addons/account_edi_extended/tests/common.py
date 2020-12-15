@@ -17,7 +17,7 @@ def _generate_mocked_support_batching(support_batching):
     return lambda edi_format, moves, state, company_id: support_batching
 
 
-def _mocked_get_batch_key(edi_format, move):
+def _mocked_get_batch_key(edi_format, move, state):
     return ()
 
 

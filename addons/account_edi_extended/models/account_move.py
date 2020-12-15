@@ -40,7 +40,7 @@ class AccountMove(models.Model):
         self.action_process_edi_web_services()
 
     def button_abandon_cancel_posted_posted_moves(self):
-        '''Mark the edi.document related to this move to be canceled.
+        '''Cancel the request for cancellation of the EDI.
         '''
         documents = self.env['account.edi.document']
         for move in self:
