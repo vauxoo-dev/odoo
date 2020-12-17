@@ -108,7 +108,7 @@ class AccountEdiFormat(models.Model):
         # TO OVERRIDE
         return False
 
-    def _get_batch_key(self, move, state):
+    def _get_batch_key(self, move):
         """ Returns a tuple that will be used as key to partitionnate the invoices/payments when creating batches
         with multiple invoices/payments.
         The type of move (invoice or payment), its company_id, its edi state and the edi_format are used by default, if
