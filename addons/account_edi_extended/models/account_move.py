@@ -9,6 +9,8 @@ class AccountMove(models.Model):
 
     edi_show_abandon_cancel_button = fields.Boolean(
         compute='_compute_edi_show_abandon_cancel_button')
+    edi_error_message = fields.Html(compute='_compute_edi_error_count_message')
+    edi_error_level = fields.Selection(selection=[('info', 'Info'), ('warning', 'Warning'), ('error', 'Error')], compute='_compute_edi_error_count_message')
 
     @api.depends(
         'edi_document_ids',
@@ -34,6 +36,28 @@ class AccountMove(models.Model):
                                                        and move.is_invoice(include_receipts=True)
                                                        and doc.edi_format_id._is_required_for_invoice(move)
                                                        for doc in move.edi_document_ids])
+
+    @api.depends('edi_error_count', 'edi_document_ids.error', 'edi_document_ids.blocked_level')
+    def _compute_edi_error_count_message(self):
+        for move in self:
+            if move.edi_error_count == 0:
+                move.edi_error_message = None
+                move.edi_error_level = None
+            elif move.edi_error_count == 1:
+                error_doc = move.edi_document_ids.filtered(lambda d: d.error)
+                move.edi_error_message = error_doc.error
+                move.edi_error_level = error_doc.blocked_level
+            else:
+                error_levels = set([doc.blocked_level for doc in move.edi_document_ids])
+                if 'error' in error_levels:
+                    move.edi_error_message = str(move.edi_error_count) + _(" Electronic invoicing error(s)")
+                    move.edi_error_level = 'error'
+                elif 'warning' in error_levels:
+                    move.edi_error_message = str(move.edi_error_count) + _(" Electronic invoicing warning(s)")
+                    move.edi_error_level = 'warning'
+                else:
+                    move.edi_error_message = str(move.edi_error_count) + _(" Electronic invoicing info(s)")
+                    move.edi_error_level = 'info'
 
     def action_retry_edi_documents_error(self):
         self.edi_document_ids.write({'error': False, 'blocked_level': False})

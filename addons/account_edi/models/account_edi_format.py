@@ -98,7 +98,7 @@ class AccountEdiFormat(models.Model):
         # TO OVERRIDE
         return False
 
-    def _support_batching(self, move=None, state=None):
+    def _support_batching(self, move=None, state=None, company=None):
         """ Indicate if we can send multiple documents in the same time to the web services.
         If True, the _post_%s_edi methods will get multiple documents in the same time.
         Otherwise, these methods will be called with only one record at a time.
