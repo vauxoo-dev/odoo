@@ -136,7 +136,7 @@ class AccountEdiFormat(models.Model):
         :returns:           A dictionary with the invoice as key and as value, another dictionary:
         * attachment:       The attachment representing the invoice in this edi_format if the edi was successfully posted.
         * error:            An error if the edi was not successfully posted.
-        * blocked_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
+        * blocking_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
         """
         # TO OVERRIDE
         self.ensure_one()
@@ -150,7 +150,7 @@ class AccountEdiFormat(models.Model):
         :returns:           A dictionary with the invoice as key and as value, another dictionary:
         * success:          True if the invoice was successfully cancelled.
         * error:            An error if the edi was not successfully cancelled.
-        * blocked_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
+        * blocking_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
         """
         # TO OVERRIDE
         self.ensure_one()
@@ -164,7 +164,7 @@ class AccountEdiFormat(models.Model):
         :returns:           A dictionary with the payment as key and as value, another dictionary:
         * attachment:       The attachment representing the payment in this edi_format if the edi was successfully posted.
         * error:            An error if the edi was not successfully posted.
-        * blocked_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
+        * blocking_level:    (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
         """
         # TO OVERRIDE
         self.ensure_one()
@@ -178,7 +178,7 @@ class AccountEdiFormat(models.Model):
         :returns:         A dictionary with the payment as key and as value, another dictionary:
         * success:        True if the payment was successfully cancelled.
         * error:          An error if the edi was not successfully cancelled.
-        * blocked_level:  (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
+        * blocking_level:  (optional, requires account_edi_extended) How bad is the error (how should the edi flow be blocked ?)
         """
         # TO OVERRIDE
         self.ensure_one()
