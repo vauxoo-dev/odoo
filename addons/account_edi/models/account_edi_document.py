@@ -77,11 +77,11 @@ class AccountEdiDocument(models.Model):
             to_process[key] |= edi_doc
 
         # Order payments/invoice and create batches.
-        result = []
+        invoices = []
         payments = []
         for key, documents in to_process.items():
             edi_format, state, doc_type, company_id, custom_key = key
-            target = result if doc_type == 'invoice' else payments
+            target = invoices if doc_type == 'invoice' else payments
             batch = self.env['account.edi.document']
             for doc in documents:
                 if edi_format._support_batching(move=doc.move_id, state=state, company=company_id):
@@ -90,8 +90,7 @@ class AccountEdiDocument(models.Model):
                     target.append((doc, doc_type))
             if batch:
                 target.append((batch, doc_type))
-        result.extend(payments)
-        return result
+        return invoices + payments
 
     @api.model
     def _convert_to_old_jobs_format(self, jobs):
