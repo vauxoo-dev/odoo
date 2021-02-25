@@ -188,10 +188,12 @@ class Pricelist(models.Model):
             for rule in items:
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
-                if is_product_template:
+
+                if product._name == "product.template":
                     if rule.product_tmpl_id and product.id != rule.product_tmpl_id.id:
                         continue
-                    if rule.product_id and not (product.product_variant_count == 1 and product.product_variant_id.id == rule.product_id.id):
+                    if rule.product_id and not (
+                    product.product_variant_count == 1 and product.product_variant_id.id == rule.product_id.id):
                         # product rule acceptable on template if has only one variant
                         continue
                 else:
@@ -210,20 +212,42 @@ class Pricelist(models.Model):
                         continue
 
                 if rule.base == 'pricelist' and rule.base_pricelist_id:
-                    price_tmp = rule.base_pricelist_id.with_context(other_pricelist=True)._compute_price_rule(
-                        [(product, qty, partner)])[product.id][0]  # TDE: 0 = price, 1 = rule
+                    results_data = rule.base_pricelist_id.with_context(other_pricelist=True)._compute_price_rule([(product, qty, partner)])
+                    price_tmp = results_data[product.id][0]  # TDE: 0 = price, 1 = rule
+
                     price = rule.base_pricelist_id.currency_id._convert(price_tmp, self.currency_id, self.env.user.company_id, date, round=False)
+                    if results_data.get('rule_product_id_%s' % product.id):
+                        results['rule_product_id_%s' % product.id] = results_data.get('rule_product_id_%s' % product.id)
+                    
+                    if results_data.get('supplierinfo_id_%s' % product.id):
+                        results['supplierinfo_id_%s' % product.id] = results_data.get('supplierinfo_id_%s' % product.id)
+
+                    company = rule.env.user.company_id
+                    custom_rate = product._context.get('agreement_custom_rate', 1.0)
+                    to_cur = rule.pricelist_id.currency_id
+                    from_cur = rule.base_pricelist_id.currency_id
+                    if to_cur != from_cur and custom_rate != 1.0:
+                        if to_cur == company.currency_id and from_cur == company.index_based_currency_id:
+                            price = custom_rate * price_tmp
+                        if to_cur == company.index_based_currency_id and from_cur == company.currency_id:
+                            price = price_tmp / custom_rate
+
                     if not price:
                         continue
                 else:
                     # if base option is public price take sale price else cost price of product
                     # price_compute returns the price in the context UoM, i.e. qty_uom_id
                     price = product.price_compute(rule.base)[product.id]
+                    results['rule_product_id_%s' % product.id] = (price, rule.id)
 
                 if price is not False:
                     price = rule._compute_price(price, price_uom, product, quantity=qty, partner=partner)
-                    suitable_rule = rule
+
+                if price is False:
+                    continue
+                suitable_rule = rule
                 break
+
             # Final price conversion into pricelist currency
             if suitable_rule and suitable_rule.compute_price != 'fixed' and suitable_rule.base != 'pricelist':
                 if suitable_rule.base == 'standard_price':
