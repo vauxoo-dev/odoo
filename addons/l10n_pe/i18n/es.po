@@ -74,20 +74,10 @@ msgid "EDI peruvian code"
 msgstr "Código de Tributo"
 
 #. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_exo
-msgid "EXO"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__9997
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_tax_code__9997
 msgid "EXO - Exonerated"
 msgstr "EXO - Exonerado"
-
-#. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_exp
-msgid "EXP"
-msgstr ""
 
 #. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__9995
@@ -119,7 +109,7 @@ msgid ""
 "for Europe for more information "
 "http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
 msgstr ""
-"Estandard UN/ECE 5305 de las Comisión Económica de las Naciones Unidas para Europa"
+"Estándar UN/ECE 5305 de las Comisión Económica de las Naciones Unidas para Europa"
 "para mas información consulta este enlace"
 "http://www.unece.org/trade/untdid/d08a/tred/tred5305.htm"
 
@@ -128,16 +118,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_unece_category__g
 msgid "Free export item, tax not charged"
 msgstr "Articulo de exportación, libre de impuestos."
-
-#. module: l10n_pe
-#: model:l10n_pe.res.city.district,name:l10n_pe.district_pe_200202
-msgid "Frias"
-msgstr ""
-
-#. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_gra
-msgid "GRA"
-msgstr ""
 
 #. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__9996
@@ -152,31 +132,10 @@ msgid "ICBPER - Plastic bag tax"
 msgstr "ICBPER - Impuesto a la bolsa plastica"
 
 #. module: l10n_pe
-#: model:ir.model.fields,field_description:l10n_pe.field_account_move_line__id
-#: model:ir.model.fields,field_description:l10n_pe.field_account_tax__id
-#: model:ir.model.fields,field_description:l10n_pe.field_account_tax_template__id
-#: model:ir.model.fields,field_description:l10n_pe.field_l10n_latam_identification_type__id
-#: model:ir.model.fields,field_description:l10n_pe.field_l10n_pe_res_city_district__id
-#: model:ir.model.fields,field_description:l10n_pe.field_res_city__id
-#: model:ir.model.fields,field_description:l10n_pe.field_res_partner__id
-msgid "ID"
-msgstr ""
-
-#. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_igv
-msgid "IGV"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__1000
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_tax_code__1000
 msgid "IGV - General Sales Tax"
 msgstr "IGV - IGV Impuesto General a las Ventas"
-
-#. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_ina
-msgid "INA"
-msgstr ""
 
 #. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__9998
@@ -185,36 +144,16 @@ msgid "INA - Unaffected"
 msgstr "INA - Inafecto"
 
 #. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_isc
-msgid "ISC"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__2000
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_tax_code__2000
 msgid "ISC - Selective Excise Tax"
 msgstr "ISC - Impuesto Selectivo al Consumo"
 
 #. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_ivap
-msgid "IVAP"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__1016
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_tax_code__1016
 msgid "IVAP - Tax on Sale Paddy Rice"
 msgstr "IVAP - Impuesto a la Venta Arroz Pilado"
-
-#. module: l10n_pe
-#: model:l10n_latam.identification.type,name:l10n_pe.it_IN
-msgid "Identification Number"
-msgstr ""
-
-#. module: l10n_pe
-#: model:ir.model,name:l10n_pe.model_l10n_latam_identification_type
-msgid "Identification Types"
-msgstr ""
 
 #. module: l10n_pe
 #: model:l10n_latam.identification.type,name:l10n_pe.it_IDCR
@@ -253,11 +192,6 @@ msgid "Non-Domiciled Tax Document"
 msgstr "Documento tributario no domiciliado, sin RUC"
 
 #. module: l10n_pe
-#: model:account.tax.group,name:l10n_pe.tax_group_other
-msgid "OTROS"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_tax_code__9999
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax_template__l10n_pe_edi_tax_code__9999
 msgid "OTROS - Other taxes"
@@ -291,19 +225,9 @@ msgid "Street Name..."
 msgstr "Nombre de la calle..."
 
 #. module: l10n_pe
-#: model_terms:ir.ui.view,arch_db:l10n_pe.pe_partner_address_form
-msgid "Street2"
-msgstr ""
-
-#. module: l10n_pe
 #: model:ir.model,name:l10n_pe.model_account_tax
 msgid "Tax"
 msgstr "Impuesto"
-
-#. module: l10n_pe
-#: model:l10n_latam.identification.type,name:l10n_pe.it_TIN
-msgid "Tax Identification Number"
-msgstr ""
 
 #. module: l10n_pe
 #: model:ir.model.fields,help:l10n_pe.field_res_city__l10n_pe_code
@@ -314,11 +238,6 @@ msgstr "Este código ayudará con la identificación de cada ciudad en Perú."
 #: model:ir.model.fields,help:l10n_pe.field_l10n_pe_res_city_district__code
 msgid "This code will help with the identification of each district in Peru."
 msgstr "Este código ayudará con la identificación de cada distrito en Perú."
-
-#. module: l10n_pe
-#: model_terms:ir.ui.view,arch_db:l10n_pe.pe_partner_address_form
-msgid "ZIP"
-msgstr ""
 
 #. module: l10n_pe
 #: model:ir.model.fields.selection,name:l10n_pe.selection__account_tax__l10n_pe_edi_unece_category__z
