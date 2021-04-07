@@ -30,8 +30,12 @@ import itertools
 import io
 import logging
 import operator
+import os
+import threading
+import sys
 import pytz
 import re
+import traceback
 import uuid
 from collections import defaultdict, MutableMapping, OrderedDict
 from contextlib import closing
@@ -61,6 +65,8 @@ from .tools.translate import _
 _logger = logging.getLogger(__name__)
 _schema = logging.getLogger(__name__ + '.schema')
 _unlink = logging.getLogger(__name__ + '.unlink')
+_logger_clear_caches = logging.getLogger(__name__ + '.clear_caches')
+CLEAR_CACHE_VERBOSE = os.environ.get('ODOO_CLEAR_CACHE_VERBOSE')
 
 regex_order = re.compile('^(\s*([a-z0-9:_]+|"[a-z0-9:_]+")(\s+(desc|asc))?\s*(,|$))+(?<!,)$', re.I)
 regex_object_name = re.compile(r'^[a-z0-9_.]+$')
@@ -68,6 +74,12 @@ regex_pg_name = re.compile(r'^[a-z_][a-z0-9_$]*$', re.I)
 onchange_v7 = re.compile(r"^([a-zA-Z]\w+)\((.*)\)$")
 
 AUTOINIT_RECALCULATE_STORED_FIELDS = 1000
+
+ad_paths = []
+for ad in tools.config['addons_path'].split(',') + sys.path:
+    ad = os.path.normcase(os.path.abspath(tools.ustr(ad.strip())))
+    if ad and ad not in ad_paths:
+        ad_paths.append(ad)
 
 def check_object_name(name):
     """ Check if the given name is a valid model name.
@@ -1636,6 +1648,16 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         ``tools.ormcache`` or ``tools.ormcache_multi``.
         """
         cls.pool._clear_cache()
+        if (getattr(threading.currentThread(), 'testing', False) or
+            cls.pool.in_test_mode() or config.get('test_enable') or not CLEAR_CACHE_VERBOSE):
+            return
+        tcbks = traceback.extract_stack(limit=10)[:-1]
+        tcbk_str = ''
+        for path, line, method, sentence in tcbks:
+            tcbk_str += "\n%s:%s (%s)" % (path, line, method)
+        for ad_path in ad_paths:
+            tcbk_str = tcbk_str.replace(ad_path + '/', '')
+        _logger_clear_caches.info("%s cleared cache from:%s", cls._name, tcbk_str)
 
     @api.model
     def _read_group_fill_results(self, domain, groupby, remaining_groupbys,
