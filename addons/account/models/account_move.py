@@ -381,7 +381,8 @@ class AccountMove(models.Model):
     def button_cancel(self):
         for move in self:
             if not move.journal_id.update_posted:
-                raise UserError(_('You cannot modify a posted entry of this journal.\nFirst you should set the journal to allow cancelling entries.'))
+                err_msg = _('Journal name (id): %s (%s)') % (move.journal_id.name, str(move.journal_id.id))
+                raise UserError(_('You cannot modify a posted entry of this journal.\nFirst you should set the journal to allow cancelling entries.\n%s.') % err_msg)
             # We remove all the analytics entries for this journal
             move.mapped('line_ids.analytic_line_ids').unlink()
         if self.ids:
@@ -1731,10 +1732,10 @@ class AccountPartialReconcile(models.Model):
                 for line in move.line_ids:
                     if not line.tax_exigible:
                         #amount is the current cash_basis amount minus the one before the reconciliation
-                        if percentage_after == 1.0 and line.amount_residual:
+                        amount = line.balance * percentage_after - line.balance * percentage_before
+                        if percentage_after == 1.0 and percentage_before > 0.0 and line.amount_residual < 0 and amount < 0 and float_compare(line.amount_residual, amount, precision_rounding=line.company_id.currency_id.rounding) < 0:
+                            # when registering the final payment we use directly the amount_residual to correct rounding issues
                             amount = line.amount_residual
-                        else:
-                            amount = line.balance * percentage_after - line.balance * percentage_before
                         rounded_amt = self._get_amount_tax_cash_basis(amount, line)
                         if float_is_zero(rounded_amt, precision_rounding=line.company_id.currency_id.rounding):
                             continue

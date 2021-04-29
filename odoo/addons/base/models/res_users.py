@@ -257,10 +257,6 @@ class Users(models.Model):
     name = fields.Char(related='partner_id.name', inherited=True, readonly=False)
     email = fields.Char(related='partner_id.email', inherited=True, readonly=False)
 
-    _sql_constraints = [
-        ('login_key', 'UNIQUE (login)',  'You can not have two users with the same login !')
-    ]
-
     def init(self):
         cr = self.env.cr
 
@@ -592,6 +588,10 @@ class Users(models.Model):
     def _get_login_domain(self, login):
         return [('login', '=', login)]
 
+    @api.model
+    def _get_login_order(self):
+        return self._order
+
     @classmethod
     def _login(cls, db, login, password):
         if not password:
@@ -601,7 +601,7 @@ class Users(models.Model):
             with cls.pool.cursor() as cr:
                 self = api.Environment(cr, SUPERUSER_ID, {})[cls._name]
                 with self._assert_can_auth():
-                    user = self.search(self._get_login_domain(login))
+                    user = self.search(self._get_login_domain(login), order=self._get_login_order(), limit=1)
                     if not user:
                         raise AccessDenied()
                     user = user.sudo(user.id)
