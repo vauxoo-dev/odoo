@@ -3476,7 +3476,7 @@ class AccountMoveLine(models.Model):
                     company_id=record.move_id.company_id.id
                 )
                 if rec:
-                    record.analytic_account_id = rec.analytic_id
+                    record.analytic_account_id = record.analytic_account_id or rec.analytic_id
 
     @api.depends('product_id', 'account_id', 'partner_id', 'date')
     def _compute_analytic_tag_ids(self):
@@ -3491,7 +3491,7 @@ class AccountMoveLine(models.Model):
                     company_id=record.move_id.company_id.id
                 )
                 if rec:
-                    record.analytic_tag_ids = rec.analytic_tag_ids
+                    record.analytic_tag_ids = record.analytic_tag_ids or rec.analytic_tag_ids
 
     def _get_price_total_and_subtotal(self, price_unit=None, quantity=None, discount=None, currency=None, product=None, partner=None, taxes=None, move_type=None):
         self.ensure_one()
