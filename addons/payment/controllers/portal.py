@@ -254,9 +254,7 @@ class WebsitePayment(http.Controller):
         if not acquirers:
             acquirers = env['payment.acquirer'].search(acquirer_domain)
 
-        # s2s mode will always generate a token, which we don't want for public users
-        valid_flows = ['form', 's2s'] if not user._is_public() else ['form']
-        values['acquirers'] = [acq for acq in acquirers if acq.payment_flow in valid_flows]
+        values['acquirers'] = acquirers._get_valid_acquirers_current_user()
         if partner_id:
             values['pms'] = request.env['payment.token'].search([
                 ('acquirer_id', 'in', acquirers.ids),
