@@ -544,6 +544,13 @@ class PaymentAcquirer(models.Model):
                 'tag': 'reload',
             }
 
+    def _get_valid_acquirers_current_user(self):
+        """s2s mode will always generate a token, which we don't want for public users"""
+        valid_flows = ['form'] if self.env.user._is_public() else ['form', 's2s']
+        valid_acquirers = [acq for acq in self if acq.payment_flow in valid_flows]
+        return valid_acquirers
+
+
 class PaymentIcon(models.Model):
     _name = 'payment.icon'
     _description = 'Payment Icon'
