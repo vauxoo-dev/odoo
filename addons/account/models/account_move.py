@@ -3729,6 +3729,8 @@ class AccountMoveLine(models.Model):
 
     @api.constrains('account_id', 'tax_ids', 'tax_line_id', 'reconciled')
     def _check_off_balance(self):
+        if not self._context.get('check_move_validity', True):
+            return
         checked_moves = set()
         # /!\ NOTE: We have to cycle through the whole Journal Entry from the
         # Journal Item because self could be coming from several Journal
