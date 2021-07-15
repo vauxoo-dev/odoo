@@ -1832,6 +1832,7 @@ class AccountMove(models.Model):
             ids = [res[0] for res in query_res]
             sums = [res[1] for res in query_res]
             raise UserError(_("Cannot create unbalanced journal entry. Ids: %s\nDifferences debit - credit: %s") % (ids, sums))
+        moves.mapped('line_ids')._check_off_balance()
 
     def _check_fiscalyear_lock_date(self):
         for move in self:
@@ -3976,17 +3977,21 @@ class AccountMoveLine(models.Model):
                 raise UserError(_("You cannot use this account (%s) in this journal, check the section 'Control-Access' under "
                                   "tab 'Advanced Settings' on the related journal.", account.display_name))
 
-    @api.constrains('account_id', 'tax_ids', 'tax_line_id', 'reconciled')
     def _check_off_balance(self):
+        """Changing the original method so that it no longer works as a constraint.
+        This method must be executed at the same time the method _check_balance of account.move, when a line is
+        added or the entry is posted.
+        """
         checked_moves = set()
         # /!\ NOTE: We have to cycle through the whole Journal Entry from the
         # Journal Item because self could be coming from several Journal
         # Entries
         for line in self:
-            if line.move_id.id in checked_moves:
+            if line.move_id.id in checked_moves or line.account_id.internal_group != 'off_balance':
                 continue
             checked_moves.add(line.move_id.id)
-
+            if any(True for ln in line.move_id.line_ids if ln.tax_ids or ln.tax_line_id):
+                raise UserError(_('You cannot use taxes on lines with an Off-Balance account'))
             # /!\ NOTE: I have come to realize that testing for off_balance is
             # transitive to test for balance accounts. That is testing for one
             # is equal to testing for the other
@@ -4002,15 +4007,12 @@ class AccountMoveLine(models.Model):
                     '''
                     This Journal Entry is not allowed. Thought the whole Journal Entry is balanced
                     Off-balance & Balance equity must not be mixed.
-
                         Off-Balance Account X (dr)         1000
                             Balance Account 2 (cr)                      1000
                         ----------------------------------------------------
                         Balance Account 1 (dr)              700
                             Off-Balance Account Y (cr)                   700
-
                     The Following Journal Entry is allowed to be done:
-
                         Balance Account 1 (dr)             1000
                             Balance Account 2 (cr)                      1000
                         ----------------------------------------------------
@@ -4018,10 +4020,6 @@ class AccountMoveLine(models.Model):
                             Off-Balance Account Y (cr)                   700
                     '''
                     ))
-            if any(True for l in line.move_id.line_ids if l.tax_ids or l.tax_line_id):
-                raise UserError(_('You cannot use taxes on lines with an Off-Balance account'))
-            if any(True for l in line.move_id.line_ids if l.reconciled):
-                raise UserError(_('Lines from "Off-Balance Sheet" accounts cannot be reconciled'))
 
     def _affect_tax_report(self):
         self.ensure_one()
