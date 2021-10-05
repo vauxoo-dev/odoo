@@ -282,12 +282,17 @@ class MergePartnerAutomatic(models.TransientModel):
         if self.env.is_admin():
             extra_checks = False
 
+        skip_validations = self._context.get('merging_from_cron')
+
         Partner = self.env['res.partner']
         partner_ids = Partner.browse(partner_ids).exists()
         if len(partner_ids) < 2:
             return
 
         if len(partner_ids) > 3:
+            if skip_validations:
+                _logger.warning("For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed.")
+                return False
             raise UserError(_("For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed."))
 
         # check if the list of partners to merge contains child/parent relation
@@ -295,6 +300,9 @@ class MergePartnerAutomatic(models.TransientModel):
         for partner_id in partner_ids:
             child_ids |= Partner.search([('id', 'child_of', [partner_id.id])]) - partner_id
         if partner_ids & child_ids:
+            if skip_validations:
+                _logger.warning("You cannot merge a contact with one of his parent.")
+                return False
             raise UserError(_("You cannot merge a contact with one of his parent."))
 
         if extra_checks and len(set(partner.email for partner in partner_ids)) > 1:
@@ -329,6 +337,8 @@ class MergePartnerAutomatic(models.TransientModel):
 
         # delete source partner, since they are merged
         src_partners.write({src_partners._active_name: False})
+
+        return True
 
     def _log_merge_operation(self, src_partners, dst_partner):
         _logger.info('(uid = %s) merged the partners %r with %s', self._uid, src_partners.ids, dst_partner.id)
@@ -637,9 +647,11 @@ class MergePartnerAutomatic(models.TransientModel):
                 'target': 'new',
             }
 
-        self._merge(self.partner_ids.ids, self.dst_partner_id)
+        res = self._merge(self.partner_ids.ids, self.dst_partner_id)
 
         if self.current_line_id:
             self.current_line_id.unlink()
 
+        if self._context.get('merging_from_cron') and not res:
+            return res
         return self._action_next_screen()
