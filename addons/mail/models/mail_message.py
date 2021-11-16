@@ -241,8 +241,9 @@ class Message(models.Model):
         if not self.env['res.users'].has_group('base.group_user'):
             args = expression.AND([self._get_search_domain_share(), args])
         # Perform a super with count as False, to have the ids, not a counter
+        # and using limit=1 in order to avoid MemoryError to only manage a boolean
         ids = super(Message, self)._search(
-            args, offset=offset, limit=limit, order=order,
+            args, offset=offset, limit=1, order=order,
             count=False, access_rights_uid=access_rights_uid)
         if not ids and count:
             return 0
@@ -260,7 +261,13 @@ class Message(models.Model):
         self.env['mail.notification'].flush(['mail_message_id', 'res_partner_id'])
         self.env['mail.channel'].flush(['channel_message_ids'])
         self.env['mail.channel.partner'].flush(['channel_id', 'partner_id'])
-        for sub_ids in self._cr.split_for_in_conditions(ids):
+
+        sub_query_obj = super(Message, self)._search(
+            args, offset=offset, limit=limit, order=order,
+            count=False, access_rights_uid=access_rights_uid)
+        subquery_str = self.env.cr.mogrify(*sub_query_obj.select()).decode('UTF-8')
+        offset = 0
+        while True:
             self._cr.execute("""
                 SELECT DISTINCT m.id, m.model, m.res_id, m.author_id, m.message_type,
                                 COALESCE(partner_rel.res_partner_id, needaction_rel.res_partner_id),
@@ -276,9 +283,14 @@ class Message(models.Model):
                 ON channel.id = channel_rel.mail_channel_id
                 LEFT JOIN "mail_channel_partner" channel_partner
                 ON channel_partner.channel_id = channel.id AND channel_partner.partner_id = %%(pid)s
-
-                WHERE m.id = ANY (%%(ids)s)""" % self._table, dict(pid=pid, ids=list(sub_ids)))
-            for id, rmod, rid, author_id, message_type, partner_id, channel_id in self._cr.fetchall():
+                WHERE m.id IN (%s)
+                OFFSET %%(offset)s LIMIT %%(limit)s
+                """ % (self._table, subquery_str), dict(pid=pid, offset=offset, limit=self.env.cr.IN_MAX))
+            res = self._cr.fetchall()
+            if not res:
+                break
+            offset += self.env.cr.IN_MAX
+            for id, rmod, rid, author_id, message_type, partner_id, channel_id in res:
                 if author_id == pid:
                     author_ids.add(id)
                 elif partner_id == pid:
@@ -295,9 +307,7 @@ class Message(models.Model):
         if count:
             return len(final_ids)
         else:
-            # re-construct a list based on ids, because set did not keep the original order
-            id_list = [id for id in ids if id in final_ids]
-            return id_list
+            return list(final_ids)
 
     @api.model
     def _find_allowed_model_wise(self, doc_model, doc_dict):
