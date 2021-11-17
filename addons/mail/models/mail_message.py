@@ -266,8 +266,48 @@ class Message(models.Model):
             args, offset=offset, limit=limit, order=order,
             count=False, access_rights_uid=access_rights_uid)
         subquery_str = self.env.cr.mogrify(*sub_query_obj.select()).decode('UTF-8')
-        offset = 0
-        while True:
+        # TODO: Add order by clause
+        # TODO: Add count for count case
+        if count:
+            self._cr.execute("""
+                SELECT COUNT(DISTINCT m.id) AS message_count, m.model, m.message_type, ARRAY_AGG(DISTINCT m.res_id) AS res_ids
+                FROM "%s" m
+                LEFT JOIN "mail_message_res_partner_rel" partner_rel
+                ON partner_rel.mail_message_id = m.id AND partner_rel.res_partner_id = %%(pid)s
+                LEFT JOIN "mail_message_res_partner_needaction_rel" needaction_rel
+                ON needaction_rel.mail_message_id = m.id AND needaction_rel.res_partner_id = %%(pid)s
+                LEFT JOIN "mail_message_mail_channel_rel" channel_rel
+                ON channel_rel.mail_message_id = m.id
+                LEFT JOIN "mail_channel" channel
+                ON channel.id = channel_rel.mail_channel_id
+                LEFT JOIN "mail_channel_partner" channel_partner
+                ON channel_partner.channel_id = channel.id AND channel_partner.partner_id = %%(pid)s
+                WHERE m.id IN (%s)
+                  AND (m.author_id = %%(pid)s OR
+                       COALESCE(partner_rel.res_partner_id, needaction_rel.res_partner_id) = %%(pid)s
+                       OR channel_partner.channel_id IS NOT NULL
+                       OR m.message_type != 'user_notification'
+                      )
+                GROUP BY m.model, m.message_type
+                """ % (self._table, subquery_str), dict(pid=pid))
+            res = self._cr.fetchall()
+            total_message_ids_count = 0
+            for message_ids_count, rmod, message_type, rids in res:
+                if model
+            [r[0] for r in res]
+            # TODO: Compute find_allowed_doc_ids in count
+            import ipdb;ipdb.set_trace()
+            return res[0]
+            # for id, rmod, rid, author_id, message_type, partner_id, channel_id in res:
+            #     if author_id == pid:
+            #         author_ids.add(id)
+            #     elif partner_id == pid:
+            #         partner_ids.add(id)
+            #     elif channel_id:
+            #         channel_ids.add(id)
+            #     elif rmod and rid and message_type != 'user_notification':
+            #         model_ids.setdefault(rmod, {}).setdefault(rid, set()).add(id)
+        else:
             self._cr.execute("""
                 SELECT DISTINCT m.id, m.model, m.res_id, m.author_id, m.message_type,
                                 COALESCE(partner_rel.res_partner_id, needaction_rel.res_partner_id),
@@ -284,12 +324,8 @@ class Message(models.Model):
                 LEFT JOIN "mail_channel_partner" channel_partner
                 ON channel_partner.channel_id = channel.id AND channel_partner.partner_id = %%(pid)s
                 WHERE m.id IN (%s)
-                OFFSET %%(offset)s LIMIT %%(limit)s
-                """ % (self._table, subquery_str), dict(pid=pid, offset=offset, limit=self.env.cr.IN_MAX))
+                """ % (self._table, subquery_str), dict(pid=pid))
             res = self._cr.fetchall()
-            if not res:
-                break
-            offset += self.env.cr.IN_MAX
             for id, rmod, rid, author_id, message_type, partner_id, channel_id in res:
                 if author_id == pid:
                     author_ids.add(id)
@@ -300,13 +336,9 @@ class Message(models.Model):
                 elif rmod and rid and message_type != 'user_notification':
                     model_ids.setdefault(rmod, {}).setdefault(rid, set()).add(id)
 
-        allowed_ids = self._find_allowed_doc_ids(model_ids)
+            allowed_ids = self._find_allowed_doc_ids(model_ids)
 
-        final_ids = author_ids | partner_ids | channel_ids | allowed_ids
-
-        if count:
-            return len(final_ids)
-        else:
+            final_ids = author_ids | partner_ids | channel_ids | allowed_ids
             return list(final_ids)
 
     @api.model
