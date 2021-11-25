@@ -290,10 +290,7 @@ class MergePartnerAutomatic(models.TransientModel):
             return
 
         if len(partner_ids) > 3:
-            if skip_validations:
-                _logger.warning("For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed.")
-                return False
-            raise UserError(_("For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed."))
+            _logger.warning("A merging with more than 3 contacts together will be processed.")
 
         # check if the list of partners to merge contains child/parent relation
         child_ids = self.env['res.partner']
