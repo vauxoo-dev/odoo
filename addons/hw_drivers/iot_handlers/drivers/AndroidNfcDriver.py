@@ -22,8 +22,8 @@ class AndroidNFCDriver(Driver):
     connection_type = 'android'
     available_layouts = []
 
-    def __init__(self, identifier, device):
-        super(AndroidNFCDriver, self).__init__(identifier, device)
+    def __init__(self, identifier, device_dict):
+        super(AndroidNFCDriver, self).__init__(identifier, device_dict)
         self.device_connection = 'direct'
         self.device_name = self._set_name()
 
@@ -37,12 +37,8 @@ class AndroidNFCDriver(Driver):
         implement Android Versions verifications.
         Used on hw_drivers/interface.py when updating devices.
         """
-        for cfg in device:
-            for itf in cfg:
-                if itf.bInterfaceClass == 3 and itf.bInterfaceProtocol != 2:
-                    device.interface_protocol = itf.bInterfaceProtocol
-                    return True
-        return False
+        # TODO: implement
+        return True
 
     @classmethod
     def get_status(self):
@@ -65,27 +61,9 @@ class AndroidNFCDriver(Driver):
                 _logger.error('A error encountered : %s ' % e)
 
     def _set_name(self):
-        try:
-            manufacturer = util.get_string(self.dev, self.dev.iManufacturer)
-            product = util.get_string(self.dev, self.dev.iProduct)
-            return ("%s - %s") % (manufacturer, product)
-        except ValueError as e:
-            _logger.warning(e)
-            return _('Unknown input device')
-
-    def run(self):
-        try:
-            # TODO: How to get by loop the nfc readings?
-            for event in self.input_device.read_loop():
-                if self._stopped.isSet():
-                    break
-                if event.type == evdev.ecodes.EV_KEY:
-                    data = evdev.categorize(event)
-                elif data.keystate == 1:
-                    self.key_input(data.scancode)
-
-        except Exception as err:
-            _logger.warning(err)
+        # TODO: implement
+        # self.dev is a dict that is get from get_devices from Android Interface
+        return _('Android Unknown input device')
 
     def _action_default(self, data):
         self.data['value'] = ''
@@ -128,24 +106,51 @@ class AndroidNFCController(http.Controller):
         return None
 
     @http.route('/hw_proxy/android/nfc', type='json', auth='none', cors='*')
-    def scan_nfc_tag(self):
+    def scan_nfc_tag(self, android_identifier, nfc_tag, **post):
+        """Here we can expect following structure:
+            {
+                'identifier': 'nfc_tag_value'
+            }
+        """
+        _logger.error("%s" % repr(post))
+        _logger.error("%s" % repr(android_identifier))
+        _logger.error("%s" % repr(nfc_tag))
         # http hook were tablet should send their tags read
+        # self.data['value'] = ''
         # event_manager.device_changed(self)
-        scanners = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "nfc"]
-        if scanners:
-            return scanners[0].read_next_nfc_tag()
-        time.sleep(5)
-        return None
+
+        file_path = Path.home() / 'android-nfc-scans.conf'
+        if file_path.exists():
+            data = json.loads(file_path.read_text())
+        else:
+            data = {}
+        data[android_identifier] = nfc_tag
+        helpers.write_file('android-nfc-scans.conf', json.dumps(data))
+        return True
 
     @http.route('/hw_proxy/add/android', type='json', auth='none', cors='*')
     def add_android_nfc_reader(self, android_identifier, **post):
         """Here somehow I need to save this information send by the Android Tablet and convert it as an device"""
         _logger.error("%s" % repr(post))
+        _logger.error("%s" % repr(android_identifier))
+
+        if not self.validate_token(post):
+            return False
+
         file_path = Path.home() / 'android-devices.conf'
         if file_path.exists():
             data = json.loads(file_path.read_text())
         else:
             data = {}
+        if android_identifier in data:
+            return True
         data[android_identifier] = True
         helpers.write_file('android-devices.conf', json.dumps(data))
-        return "Hola"
+        return True
+
+    def validate_token(self, data):
+        if not data.get('token') or False:
+            return False
+        token = data.get('token')
+        db_uuid = helpers.read_file_first_line('odoo-db-uuid.conf')
+        return db_uuid == token
