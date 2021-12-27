@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import json
+import logging
 from pathlib import Path
 
 from odoo.addons.hw_drivers.interface import Interface
+
+_logger = logging.getLogger(__name__)
 
 
 class AndroidNFCInterface(Interface):
@@ -17,7 +20,7 @@ class AndroidNFCInterface(Interface):
         else:
             data = {}
         for key, value in data.items():
-            identifier = "nfc_" % value
+            identifier = "nfc_%s" % key
             iot_device = {
                 key: value,
             }

@@ -1,14 +1,14 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import evdev
 import json
+import datetime
 import logging
 import time
 import urllib3
-from usb import util
 from pathlib import Path
+from threading import Lock
 
-from odoo import http, _
+from odoo import http, _, fields
 from odoo.addons.hw_drivers.controllers.proxy import proxy_drivers
 from odoo.addons.hw_drivers.driver import Driver
 from odoo.addons.hw_drivers.event_manager import event_manager
@@ -26,6 +26,9 @@ class AndroidNFCDriver(Driver):
         super(AndroidNFCDriver, self).__init__(identifier, device_dict)
         self.device_connection = 'direct'
         self.device_name = self._set_name()
+        # TODO: Not sure this is necessary
+        self.device_type = 'nfc'
+        self.read_nfc_lock = Lock()
 
         self._actions.update({
             '': self._action_default,
@@ -65,29 +68,45 @@ class AndroidNFCDriver(Driver):
         # self.dev is a dict that is get from get_devices from Android Interface
         return _('Android Unknown input device')
 
+    def run(self):
+        try:
+            while not self._stopped.isSet():
+                data = {}
+                file_path = Path.home() / 'android-nfc-scans.conf'
+                if file_path.exists():
+                    raw_json = file_path.read_text()
+                    if not raw_json:
+                        continue
+                    data = json.loads(raw_json)
+                for andriod_id, values in data.items():
+                    timestamp = fields.Datetime.to_datetime(values['time'])
+                    timestamp = datetime.datetime.timestamp(timestamp)
+                if timestamp > time.time() - 5:
+                    event_manager.device_changed(self)
+        except Exception as err:
+            print("%s" % repr(err))
+            _logger.warning(err)
+
     def _action_default(self, data):
         self.data['value'] = ''
         event_manager.device_changed(self)
 
     def read_next_nfc_tag(self):
-        """Get the value of the last barcode that was scanned but not sent yet
-        and not older than 5 seconds. This function is used in Community, when
-        we don't have access to the IoTLongpolling.
-
-        Returns:
-            str: The next barcode to be read or an empty string.
+        """Get the value of the last nfc tag that was scanned but not sent yet
+        and not older than 5 seconds.
         """
-        # TODO: Implement reading nfc already sent by Android NFC readers
-
-        # Previous query still running, stop it by sending a fake barcode
-        if self.read_barcode_lock.locked():
-            self._barcodes.put((time.time(), ""))
-
-        with self.read_barcode_lock:
+        with self.read_nfc_lock:
             try:
-                timestamp, barcode = self._barcodes.get(True, 55)
+                data = {}
+                file_path = Path.home() / 'android-nfc-scans.conf'
+                if file_path.exists():
+                    data = json.loads(file_path.read_text())
+                for andriod_id, values in data.items():
+                    tag = values['tag']
+                    timestamp = fields.Datetime.to_datetime(values['time'])
+                    timestamp = datetime.datetime.timestamp(timestamp)
                 if timestamp > time.time() - 5:
-                    return barcode
+                    return tag
             except Exception:
                 return ''
 
@@ -96,12 +115,11 @@ proxy_drivers['android'] = AndroidNFCDriver
 
 
 class AndroidNFCController(http.Controller):
-    @http.route('/hw_proxy/android', type='json', auth='none', cors='*')
+    @http.route('/hw_proxy/nfc', type='json', auth='none', cors='*')
     def get_nfc_tag(self):
-        # Provide Nfc tags already scanned
-        scanners = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "nfc"]
-        if scanners:
-            return scanners[0].read_next_nfc_tag()
+        android = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "nfc"]
+        if android:
+            return android[0].read_next_nfc_tag()
         time.sleep(5)
         return None
 
@@ -109,30 +127,32 @@ class AndroidNFCController(http.Controller):
     def scan_nfc_tag(self, android_identifier, nfc_tag, **post):
         """Here we can expect following structure:
             {
-                'identifier': 'nfc_tag_value'
+            'identifier': {'tag': 'nfc_scanned_tag', 'time': 'TIME when tag was registered'}
             }
         """
-        _logger.error("%s" % repr(post))
-        _logger.error("%s" % repr(android_identifier))
-        _logger.error("%s" % repr(nfc_tag))
-        # http hook were tablet should send their tags read
-        # self.data['value'] = ''
-        # event_manager.device_changed(self)
+        # TODO: Remove this loggers, they are here because debugging
+        _logger.info("%s" % repr(post))
+        _logger.info("nfc_%s" % repr(android_identifier))
+        _logger.info("%s" % repr(nfc_tag))
 
         file_path = Path.home() / 'android-nfc-scans.conf'
         if file_path.exists():
             data = json.loads(file_path.read_text())
         else:
             data = {}
-        data[android_identifier] = nfc_tag
+        data['nfc_%s' % android_identifier] = {
+            'tag': nfc_tag,
+            'time': fields.Datetime.to_string(fields.Datetime.now())
+        }
         helpers.write_file('android-nfc-scans.conf', json.dumps(data))
         return True
 
     @http.route('/hw_proxy/add/android', type='json', auth='none', cors='*')
     def add_android_nfc_reader(self, android_identifier, **post):
         """Here somehow I need to save this information send by the Android Tablet and convert it as an device"""
-        _logger.error("%s" % repr(post))
-        _logger.error("%s" % repr(android_identifier))
+        # TODO: Remove this loggers, they are here because debugging
+        _logger.info("%s" % repr(post))
+        _logger.info("%s" % repr(android_identifier))
 
         if not self.validate_token(post):
             return False
