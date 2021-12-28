@@ -5,7 +5,10 @@
     'author': 'Vauxoo',
     'summary': 'Add Android devices communication capabilities',
     'website': 'http://www.vauxoo.com',
-    'depends': ['iot'],
+    'depends': ['pos_iot'],
     'license': 'LGPL-3',
     'auto_install': True,
+    'data': [
+        'views/pos_config_views.xml',
+    ],
 }

@@ -114,6 +114,7 @@ proxy_drivers['android'] = AndroidNFCDriver
 class AndroidNFCController(http.Controller):
     @http.route('/hw_proxy/nfc', type='json', auth='none', cors='*')
     def get_nfc_tag(self):
+        """Proxy to retrieve latest nfc tag scanned"""
         android = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "android"]
         if android:
             return android[0].read_next_nfc_tag()
@@ -122,7 +123,8 @@ class AndroidNFCController(http.Controller):
 
     @http.route('/hw_proxy/android/nfc', type='json', auth='none', cors='*')
     def scan_nfc_tag(self, android_identifier, nfc_tag, **post):
-        """Here we can expect following structure:
+        """Here we can only save new scans made by android devices
+        Here we can expect following structure:
             {
             'identifier': {'tag': 'nfc_scanned_tag', 'time': 'TIME when tag was registered'}
             }
