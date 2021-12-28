@@ -27,7 +27,7 @@ class AndroidNFCDriver(Driver):
         self.device_connection = 'direct'
         self.device_name = self._set_name()
         # TODO: Not sure this is necessary
-        self.device_type = 'nfc'
+        self.device_type = 'android'
         self.read_nfc_lock = Lock()
 
         self._actions.update({
@@ -46,7 +46,7 @@ class AndroidNFCDriver(Driver):
     @classmethod
     def get_status(self):
         """Allows `hw_proxy.Proxy` to retrieve the status of the scanners"""
-        status = 'connected' if any(iot_devices[d].device_type == "nfc" for d in iot_devices) else 'disconnected'
+        status = 'connected' if any(iot_devices[d].device_type == "android" for d in iot_devices) else 'disconnected'
         return {'status': status, 'messages': ''}
 
     @classmethod
@@ -117,7 +117,7 @@ proxy_drivers['android'] = AndroidNFCDriver
 class AndroidNFCController(http.Controller):
     @http.route('/hw_proxy/nfc', type='json', auth='none', cors='*')
     def get_nfc_tag(self):
-        android = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "nfc"]
+        android = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "android"]
         if android:
             return android[0].read_next_nfc_tag()
         time.sleep(5)
