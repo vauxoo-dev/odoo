@@ -24,7 +24,7 @@ class AndroidNFCDriver(Driver):
 
     def __init__(self, identifier, device_dict):
         super(AndroidNFCDriver, self).__init__(identifier, device_dict)
-        self.device_connection = 'direct'
+        self.device_connection = 'network'
         self.device_name = self._set_name()
         # TODO: Not sure this is necessary
         self.device_type = 'android'
