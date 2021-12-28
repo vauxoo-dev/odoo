@@ -51,7 +51,6 @@ class AndroidNFCDriver(Driver):
 
     @classmethod
     def send_layouts_list(cls):
-        # Reuse this to notify Odoo about new drivers
         server = helpers.get_odoo_server_url()
         if server:
             urllib3.disable_warnings()
@@ -64,9 +63,7 @@ class AndroidNFCDriver(Driver):
                 _logger.error('A error encountered : %s ' % e)
 
     def _set_name(self):
-        # TODO: implement
-        # self.dev is a dict that is get from get_devices from Android Interface
-        return _('Android Unknown input device')
+        return _('Android: %s') % self.device_identifier
 
     def run(self):
         try:
