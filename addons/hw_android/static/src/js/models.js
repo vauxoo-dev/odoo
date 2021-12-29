@@ -23,12 +23,14 @@ odoo.define('hw_android.models', function (require) {
         },
     }]);
 
-    models.PosModel.include({
+    var _super_order = models.Order.prototype;
+    models.Order = models.Order.extend({
         connect_to_proxy: function () {
+            var result = _super_order.connect_to_proxy.apply(this, arguments);
             if (this.config.iface_android_via_proxy) {
                 this.barcode_reader.connect_to_android_proxy();
             }
-            return this._super.apply(this, arguments);
+            return result;
         },
     });
 
