@@ -73,15 +73,17 @@ class AndroidNFCDriver(Driver):
                 if file_path.exists():
                     raw_json = file_path.read_text()
                     if not raw_json:
-                        continue
+                        break
                     data = json.loads(raw_json)
                 for andriod_id, values in data.items():
+                    tag = values['tag']
                     timestamp = fields.Datetime.to_datetime(values['time'])
                     timestamp = datetime.datetime.timestamp(timestamp)
-                if timestamp > time.time() - 5:
-                    event_manager.device_changed(self)
+                    if timestamp > time.time() - 1:
+                        _logger.info("NFC TAG input")
+                        self.data['value'] = tag
+                        event_manager.device_changed(self)
         except Exception as err:
-            print("%s" % repr(err))
             _logger.warning(err)
 
     def _action_default(self, data):
@@ -126,13 +128,11 @@ class AndroidNFCController(http.Controller):
         """Here we can only save new scans made by android devices
         Here we can expect following structure:
             {
-            'identifier': {'tag': 'nfc_scanned_tag', 'time': 'TIME when tag was registered'}
+                'identifier': {'tag': 'nfc_scanned_tag', 'time': 'TIME when tag was registered'}
             }
         """
         # TODO: Remove this loggers, they are here because debugging
-        _logger.info("%s" % repr(post))
-        _logger.info("nfc_%s" % repr(android_identifier))
-        _logger.info("%s" % repr(nfc_tag))
+        _logger.info("nfc_%s", android_identifier)
 
         file_path = Path.home() / 'android-nfc-scans.conf'
         if file_path.exists():
@@ -149,10 +149,6 @@ class AndroidNFCController(http.Controller):
     @http.route('/hw_proxy/add/android', type='json', auth='none', cors='*')
     def add_android_nfc_reader(self, android_identifier, **post):
         """Here somehow I need to save this information send by the Android Tablet and convert it as an device"""
-        # TODO: Remove this loggers, they are here because debugging
-        _logger.info("%s" % repr(post))
-        _logger.info("%s" % repr(android_identifier))
-
         if not self.validate_token(post):
             return False
 
