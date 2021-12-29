@@ -5,16 +5,17 @@ var BarcodeReader = require('point_of_sale.BarcodeReader');
 
 BarcodeReader.include({
     connect_to_android_proxy: function () {
-        if (this.env.pos.iot_device_proxies.android) {
-            this.env.pos.iot_device_proxies.android.add_listener(function (barcode) {
-                this.scan(barcode.value);
+        var self = this;
+        if (this.pos.iot_device_proxies.android) {
+            this.pos.iot_device_proxies.android.add_listener(function (barcode) {
+                self.scan(barcode.value);
             });
         }
     },
 
     disconnect_from_android_proxy: function () {
-        if (this.env.pos.iot_device_proxies.android) {
-            this.env.pos.iot_device_proxies.android.remove_listener();
+        if (this.pos.iot_device_proxies.android) {
+            this.pos.iot_device_proxies.android.remove_listener();
         }
     },
 });
