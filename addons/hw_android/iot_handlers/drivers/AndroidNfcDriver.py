@@ -76,10 +76,11 @@ class AndroidNFCDriver(Driver):
                         break
                     data = json.loads(raw_json)
                 for andriod_id, values in data.items():
+                    # TODO: Decrypt the tag once we have the decryption logic
                     tag = values['tag']
                     timestamp = fields.Datetime.to_datetime(values['time'])
                     timestamp = datetime.datetime.timestamp(timestamp)
-                    if timestamp > time.time() - 1:
+                    if timestamp > time.time() - 10:
                         _logger.info("NFC TAG input")
                         self.data['value'] = tag
                         event_manager.device_changed(self)
