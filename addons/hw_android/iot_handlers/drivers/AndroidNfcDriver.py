@@ -1,21 +1,50 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import json
 import datetime
+import json
 import logging
 import time
-import urllib3
 from pathlib import Path
 from threading import Lock
 
-from odoo import http, _, fields
+import urllib3
+
+from odoo import _, fields, http
 from odoo.addons.hw_drivers.controllers.proxy import proxy_drivers
 from odoo.addons.hw_drivers.driver import Driver
 from odoo.addons.hw_drivers.event_manager import event_manager
 from odoo.addons.hw_drivers.main import iot_devices
 from odoo.addons.hw_drivers.tools import helpers
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 _logger = logging.getLogger(__name__)
+
+
+class MyHandler(FileSystemEventHandler):
+    def __init__(self, driver):
+        super(MyHandler).__init__()
+        _logger.info("Init")
+        self.driver = driver
+
+    def on_modified(self, event):
+        data = {}
+        file_path = Path.home() / 'android-nfc-scans.log'
+        if file_path.exists():
+            try:
+                raw_json = file_path.read_text()
+                data = json.loads(raw_json)
+            except Exception:
+                _logger.error("Malformed file: android-nfc-scans.log")
+        values = data.get(self.driver.device_identifier)
+        if values:
+            # TODO: Decrypt the tag once we have the decryption logic
+            tag = values['tag']
+            timestamp = fields.Datetime.to_datetime(values['time'])
+            timestamp = datetime.datetime.timestamp(timestamp)
+            if timestamp > time.time() - 5:
+                self.driver.data['value'] = tag
+                event_manager.device_changed(self.driver)
 
 
 class AndroidNFCDriver(Driver):
@@ -26,10 +55,9 @@ class AndroidNFCDriver(Driver):
         super(AndroidNFCDriver, self).__init__(identifier, device_dict)
         self.device_connection = 'network'
         self.device_name = self._set_name()
-        # TODO: Not sure this is necessary
         self.device_type = 'android'
+        self.observer = False
         self.read_nfc_lock = Lock()
-
         self._actions.update({
             '': self._action_default,
         })
@@ -60,30 +88,30 @@ class AndroidNFCDriver(Driver):
                 pm.request('POST', server, fields={'available_layouts': json.dumps(cls.available_layouts)})
             except Exception as e:
                 _logger.error('Could not reach configured server')
-                _logger.error('A error encountered : %s ' % e)
+                _logger.error('A error encountered : %s ', e)
 
     def _set_name(self):
         return _('Android: %s') % self.device_identifier
 
     def run(self):
         try:
-            while not self._stopped.isSet():
-                data = {}
-                file_path = Path.home() / 'android-nfc-scans.conf'
-                if file_path.exists():
-                    raw_json = file_path.read_text()
-                    if not raw_json:
-                        break
-                    data = json.loads(raw_json)
-                for andriod_id, values in data.items():
-                    # TODO: Decrypt the tag once we have the decryption logic
-                    tag = values['tag']
-                    timestamp = fields.Datetime.to_datetime(values['time'])
-                    timestamp = datetime.datetime.timestamp(timestamp)
-                    if timestamp > time.time() - 10:
-                        _logger.info("NFC TAG input")
-                        self.data['value'] = tag
-                        event_manager.device_changed(self)
+            _logger.info("Watchdog setup")
+            if not self.observer:
+                event_handler = MyHandler(self)
+                self.observer = Observer()
+                _logger.info("Setup observer")
+                file_path = Path.home() / 'android-nfc-scans.log'
+                if not file_path.exists():
+                    helpers.write_file('android-nfc-scans.log', json.dumps({}))
+                self.observer.schedule(event_handler,  path=file_path._str,  recursive=False)
+                self.observer.start()
+
+                try:
+                    while not self._stopped.isSet():
+                        time.sleep(1)
+                except KeyboardInterrupt:
+                    self.observer.stop()
+                self.observer.join()
         except Exception as err:
             _logger.warning(err)
 
@@ -91,39 +119,11 @@ class AndroidNFCDriver(Driver):
         self.data['value'] = ''
         event_manager.device_changed(self)
 
-    def read_next_nfc_tag(self):
-        """Get the value of the last nfc tag that was scanned but not sent yet
-        and not older than 5 seconds.
-        """
-        with self.read_nfc_lock:
-            try:
-                data = {}
-                file_path = Path.home() / 'android-nfc-scans.conf'
-                if file_path.exists():
-                    data = json.loads(file_path.read_text())
-                for andriod_id, values in data.items():
-                    tag = values['tag']
-                    timestamp = fields.Datetime.to_datetime(values['time'])
-                    timestamp = datetime.datetime.timestamp(timestamp)
-                if timestamp > time.time() - 5:
-                    return tag
-            except Exception:
-                return ''
-
 
 proxy_drivers['android'] = AndroidNFCDriver
 
 
 class AndroidNFCController(http.Controller):
-    @http.route('/hw_proxy/nfc', type='json', auth='none', cors='*')
-    def get_nfc_tag(self):
-        """Proxy to retrieve latest nfc tag scanned"""
-        android = [iot_devices[d] for d in iot_devices if iot_devices[d].device_type == "android"]
-        if android:
-            return android[0].read_next_nfc_tag()
-        time.sleep(5)
-        return None
-
     @http.route('/hw_proxy/android/nfc', type='json', auth='none', cors='*')
     def scan_nfc_tag(self, android_identifier, nfc_tag, **post):
         """Here we can only save new scans made by android devices
@@ -132,19 +132,19 @@ class AndroidNFCController(http.Controller):
                 'identifier': {'tag': 'nfc_scanned_tag', 'time': 'TIME when tag was registered'}
             }
         """
-        # TODO: Remove this loggers, they are here because debugging
-        _logger.info("nfc_%s", android_identifier)
-
-        file_path = Path.home() / 'android-nfc-scans.conf'
+        data = {}
+        file_path = Path.home() / 'android-nfc-scans.log'
         if file_path.exists():
-            data = json.loads(file_path.read_text())
-        else:
-            data = {}
+            try:
+                data = json.loads(file_path.read_text())
+            except Exception:
+                _logger.error("Malformed file: android-nfc-scans.log")
+
         data['nfc_%s' % android_identifier] = {
             'tag': nfc_tag,
             'time': fields.Datetime.to_string(fields.Datetime.now())
         }
-        helpers.write_file('android-nfc-scans.conf', json.dumps(data))
+        helpers.write_file('android-nfc-scans.log', json.dumps(data))
         return True
 
     @http.route('/hw_proxy/add/android', type='json', auth='none', cors='*')
@@ -152,12 +152,13 @@ class AndroidNFCController(http.Controller):
         """Here somehow I need to save this information send by the Android Tablet and convert it as an device"""
         if not self.validate_token(post):
             return False
-
+        data = {}
         file_path = Path.home() / 'android-devices.conf'
         if file_path.exists():
-            data = json.loads(file_path.read_text())
-        else:
-            data = {}
+            try:
+                data = json.loads(file_path.read_text())
+            except Exception:
+                _logger.error("Malformed file: android-devices.conf")
         if android_identifier in data:
             return True
         data[android_identifier] = True
