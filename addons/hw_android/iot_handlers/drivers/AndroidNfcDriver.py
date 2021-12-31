@@ -15,6 +15,7 @@ from odoo.addons.hw_drivers.driver import Driver
 from odoo.addons.hw_drivers.event_manager import event_manager
 from odoo.addons.hw_drivers.main import iot_devices
 from odoo.addons.hw_drivers.tools import helpers
+from odoo.addons.hw_drivers.iot_handlers.drivers.visionline_connector import Visionline
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
@@ -26,6 +27,10 @@ class MyHandler(FileSystemEventHandler):
         super(MyHandler).__init__()
         _logger.info("Init")
         self.driver = driver
+
+    def decode_tag(self, tag):
+        vision_line = Visionline()
+        return vision_line.decode_tag(tag)
 
     def on_modified(self, event):
         data = {}
@@ -43,6 +48,8 @@ class MyHandler(FileSystemEventHandler):
             timestamp = fields.Datetime.to_datetime(values['time'])
             timestamp = datetime.datetime.timestamp(timestamp)
             if timestamp > time.time() - 5:
+                # decoded_tag = self.decode_tag(tag)
+                # self.driver.data['value'] = decoded_tag
                 self.driver.data['value'] = tag
                 event_manager.device_changed(self.driver)
 
@@ -94,6 +101,8 @@ class AndroidNFCDriver(Driver):
         return _('Android: %s') % self.device_identifier
 
     def run(self):
+        # TODO: check if we need setup a watch dog per device and file per devices instead of
+        # one file for all devices scanning tags inputs
         try:
             _logger.info("Watchdog setup")
             if not self.observer:
