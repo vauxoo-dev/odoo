@@ -190,6 +190,14 @@ class PosSession(models.Model):
                 raise UserError(_("Some Cash Registers are already posted. Please reset them to new in order to close the session.\n"
                                   "Cash Registers: %r", list(statement.name for statement in closed_statement_ids)))
 
+    def _check_invoices_are_posted(self):
+        unposted_invoices = self.order_ids.account_move.filtered(lambda x: x.state != 'posted')
+        if unposted_invoices:
+            raise UserError(_('You cannot close the POS when invoices are not posted.\n'
+                              'Invoices: %s') % str.join('\n',
+                                                         ['%s - %s' % (invoice.name, invoice.state) for invoice in
+                                                          unposted_invoices]))
+
     @api.model
     def create(self, values):
         config_id = values.get('config_id') or self.env.context.get('default_config_id')
@@ -318,6 +326,7 @@ class PosSession(models.Model):
             if self.state == 'closed':
                 raise UserError(_('This session is already closed.'))
             self._check_if_no_draft_orders()
+            self._check_invoices_are_posted()
             if self.update_stock_at_closing:
                 self._create_picking_at_end_of_session()
             # Users without any accounting rights won't be able to create the journal entry. If this
@@ -503,7 +512,7 @@ class PosSession(models.Model):
                     sales[sale_key] = self._update_amounts(sales[sale_key], {'amount': line['amount']}, line['date_order'])
                     # Combine tax lines
                     for tax in line['taxes']:
-                        tax_key = (tax['account_id'], tax['tax_repartition_line_id'], tax['id'], tuple(tax['tag_ids']))
+                        tax_key = (tax['account_id'] or line['income_account_id'], tax['tax_repartition_line_id'], tax['id'], tuple(tax['tag_ids']))
                         order_taxes[tax_key] = self._update_amounts(
                             order_taxes[tax_key],
                             {'amount': tax['amount'], 'base_amount': tax['base']},
@@ -1051,7 +1060,7 @@ class PosSession(models.Model):
         fully_reconciled_lines = reconcilable_lines.filtered(lambda aml: aml.full_reconcile_id)
         partially_reconciled_lines = reconcilable_lines - fully_reconciled_lines
 
-        cash_move_lines = self.env['account.move.line'].search([('statement_id', '=', self.cash_register_id.id)])
+        cash_move_lines = self.env['account.move.line'].search([('statement_id', 'in', self.statement_ids.ids)])
 
         ids = (non_reconcilable_lines.ids
                 + fully_reconciled_lines.mapped('full_reconcile_id').mapped('reconciled_line_ids').ids

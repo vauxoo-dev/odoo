@@ -21,6 +21,7 @@ import passlib.context
 import pytz
 from lxml import etree
 from lxml.builder import E
+from psycopg2 import sql
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
@@ -998,6 +999,10 @@ class Users(models.Model):
             return 'base/static/img/user-slash.png'
         return super()._get_placeholder_filename(field=field)
 
+    def _mfa_type(self):
+        """ If an MFA method is enabled, returns its type as a string. """
+        return
+
     def _mfa_url(self):
         """ If an MFA method is enabled, returns the URL for its second step. """
         return
@@ -1624,7 +1629,7 @@ class APIKeys(models.Model):
 
     def init(self):
         # pylint: disable=sql-injection
-        self.env.cr.execute("""
+        self.env.cr.execute(sql.SQL("""
         CREATE TABLE IF NOT EXISTS {table} (
             id serial primary key,
             name varchar not null,
@@ -1635,7 +1640,12 @@ class APIKeys(models.Model):
             create_date timestamp without time zone DEFAULT (now() at time zone 'utc')
         );
         CREATE INDEX IF NOT EXISTS res_users_apikeys_user_id_index_idx ON {table} (user_id, index);
-        """.format(table=self._table, index_size=INDEX_SIZE))
+        """).format(
+            table=sql.Identifier(self._table),
+            index_size=sql.Placeholder('index_size')
+        ), {
+            'index_size': INDEX_SIZE
+        })
 
     @check_identity
     def remove(self):

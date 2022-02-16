@@ -152,7 +152,7 @@ class AccountEdiFormat(models.Model):
         if invoice.l10n_it_einvoice_id:
             invoice.l10n_it_einvoice_id.unlink()
         res = invoice.invoice_generate_xml()
-        if len(invoice.commercial_partner_id.l10n_it_pa_index or '') == 6:
+        if invoice._is_commercial_partner_pa():
             invoice.message_post(
                 body=(_("Invoices for PA are not managed by Odoo, you can download the document and send it on your own."))
             )
@@ -276,8 +276,7 @@ class AccountEdiFormat(models.Model):
 
             # Setup the context for the Invoice Form
             invoice_ctx = invoice.with_company(company) \
-                                 .with_context(default_move_type=move_type,
-                                               account_predictive_bills_disable_prediction=True)
+                                 .with_context(default_move_type=move_type)
 
             # move could be a single record (editing) or be empty (new).
             with Form(invoice_ctx) as invoice_form:

@@ -16,7 +16,7 @@
 # Max-Milan Stoyanov, 2020
 # Andreas Schmidt <schmigo@gmail.com>, 2021
 # alexander.heyber <alexander.heyber@manatec.de>, 2021
-# Friederike Fasterling-Nesselbosch, 2021
+# Friederike Fasterling-Nesselbosch, 2022
 # 
 msgid ""
 msgstr ""
@@ -24,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 15:41+0000\n"
 "PO-Revision-Date: 2020-09-07 08:20+0000\n"
-"Last-Translator: Friederike Fasterling-Nesselbosch, 2021\n"
+"Last-Translator: Friederike Fasterling-Nesselbosch, 2022\n"
 "Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,6 +58,8 @@ msgstr ", .oe_country_events, .s_speaker_bio"
 #, python-format
 msgid "<b>Drag and Drop</b> this snippet below the event title."
 msgstr ""
+"Ziehen Sie dieses Snippet per <b>Drag & Drop</b> unter den Titel des "
+"Ereignisses."
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_complete
@@ -330,6 +332,11 @@ msgid ""
 "founded TinyERP. This was the first phase of OpenERP which would later "
 "became Odoo, the most installed open-source business software worldwide."
 msgstr ""
+"Bereits im Alter von 13 Jahren begann John DOE, erste Geschäftsanwendungen "
+"für Kunden zu entwickeln. Nachdem er das Bauingenieurwesen gemeistert hatte,"
+" gründete er TinyERP. Dies war die erste Phase von OpenERP, das später zu "
+"Odoo wurde, der weltweit am häufigsten installierten Open-Source-Business-"
+"Software."
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_attendee_details
@@ -412,7 +419,7 @@ msgstr "Community"
 #: model:ir.model.fields,field_description:website_event.field_event_type__community_menu
 #: model:ir.model.fields.selection,name:website_event.selection__website_event_menu__menu_type__community
 msgid "Community Menu"
-msgstr ""
+msgstr "Community-Menü"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.s_speaker_bio
@@ -564,7 +571,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website_event.field_event_event__subtitle
 #: model_terms:ir.ui.view,arch_db:website_event.event_details
 msgid "Event Subtitle"
-msgstr ""
+msgstr "Veranstaltungsuntertitel"
 
 #. module: website_event
 #: model:ir.model,name:website_event.model_event_type
@@ -627,7 +634,7 @@ msgstr "Der folgende Inhalt wird für alle Veranstaltungen angezeigt werden."
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
 msgid "Get the direction"
-msgstr ""
+msgstr "Wegbeschreibung"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
@@ -659,7 +666,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event__is_ongoing
 msgid "Is Ongoing"
-msgstr ""
+msgstr "Laufend"
 
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event__is_participating
@@ -917,7 +924,7 @@ msgstr "Verkauf endet am"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
 msgid "Sales start on"
-msgstr ""
+msgstr "Verkauf beginnt am"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.layout
@@ -953,12 +960,12 @@ msgstr "Leider sind ist diese Veranstaltung nicht mehr verfügbar."
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
 msgid "Start -"
-msgstr ""
+msgstr "Start -"
 
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event__start_today
 msgid "Start Today"
-msgstr ""
+msgstr "Heute Starten"
 
 #. module: website_event
 #: model:ir.model.fields,help:website_event.field_event_event__website_url
@@ -987,7 +994,7 @@ msgstr "Ticket #"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
 msgid "Ticket Sales starting on"
-msgstr ""
+msgstr "Ticketverkauf beginnt am"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
@@ -1091,7 +1098,7 @@ msgstr "Website-Menü"
 #. module: website_event
 #: model:ir.ui.menu,name:website_event.menu_website_event_menu
 msgid "Website Menus"
-msgstr ""
+msgstr "Website-Menü"
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_event_view_form
@@ -1136,12 +1143,13 @@ msgstr ""
 #. module: website_event
 #: model:ir.model.fields,help:website_event.field_event_event__is_done
 msgid "Whether event is finished"
-msgstr ""
+msgstr "Ob die Veranstaltung beendet ist"
 
 #. module: website_event
 #: model:ir.model.fields,help:website_event.field_event_event__start_today
 msgid "Whether event is going to start today if still not ongoing"
 msgstr ""
+"Ob die Veranstaltung heute beginnen wird, wenn sie noch nicht begonnen hat"
 
 #. module: website_event
 #. openerp-web
@@ -1151,6 +1159,8 @@ msgid ""
 "With the Edit button, you can <b>customize</b> the web page visitors will "
 "see when registering."
 msgstr ""
+"Mit der Schaltfläche <b>Bearbeiten</b> können Sie die Website anpassen, die "
+"Besucher bei der Registrierung sehen."
 
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.registration_template
@@ -1160,4 +1170,4 @@ msgstr "verfügbar)"
 #. module: website_event
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
 msgid "iCal/Outlook"
-msgstr ""
+msgstr "iCal/Outlook"
