@@ -8,7 +8,8 @@ import os
 import os.path
 import platform
 import random
-import selectors
+import select
+import math
 import signal
 import socket
 import subprocess
@@ -62,7 +63,6 @@ from ..tests import loader, runner
 
 _logger = logging.getLogger(__name__)
 
-select = selectors.DefaultSelector
 
 SLEEP_INTERVAL = 60     # 1 min
 
@@ -430,13 +430,15 @@ class ThreadedServer(CommonServer):
 
         from odoo.addons.base.models.ir_cron import ir_cron
         conn = odoo.sql_db.db_connect('postgres')
-        with conn.cursor() as cr, select() as sel:
+        with conn.cursor() as cr:
             pg_conn = cr._cnx
             cr.execute("LISTEN cron_trigger")
             cr.commit()
-            sel.register(pg_conn, selectors.EVENT_READ)
+            sel = select.poll()
+            sel.register(pg_conn, select.POLLIN)
             while True:
-                sel.select(timeout=SLEEP_INTERVAL + number)
+                timeout = math.ceil((SLEEP_INTERVAL + number) * 1e3)
+                sel.poll(timeout)
                 time.sleep(number / 100)
                 pg_conn.poll()
 
@@ -836,16 +838,17 @@ class PreforkServer(CommonServer):
             # map of fd -> worker
             fds = {w.watchdog_pipe[0]: w for w in self.workers.values()}
             # check for ping or internal wakeups
-            with select() as sel:
-                for fd in fds:
-                    sel.register(fd, selectors.EVENT_READ)
-                sel.register(self.pipe[0], selectors.EVENT_READ)
-                events = sel.select(timeout=self.beat)
-                for key, _mask in events:
-                    # update worker watchdogs
-                    if key.fd in fds:
-                        fds[key.fd].watchdog_time = time.time()
-                    empty_pipe(key.fd)
+            sel = select.poll()
+            for fd in fds:
+                sel.register(fd, select.POLLIN)
+            sel.register(self.pipe[0], select.POLLIN)
+            timeout = math.ceil(self.beat * 1e3)
+            events = sel.poll(timeout)
+            for fd, _mask in events:
+                # update worker watchdogs
+                if fd in fds:
+                    fds[fd].watchdog_time = time.time()
+                empty_pipe(fd)
         except InterruptedError:
             pass
 
@@ -967,13 +970,14 @@ class Worker(object):
 
     def sleep(self):
         try:
-            with select() as sel:
-                sel.register(self.multi.socket, selectors.EVENT_READ)
-                sel.register(self.wakeup_fd_r, selectors.EVENT_READ)
-                sel.select(timeout=self.multi.beat)
+            sel = select.poll()
+            sel.register(self.multi.socket, select.POLLIN)
+            sel.register(self.wakeup_fd_r, select.POLLIN)
+            timeout = math.ceil(self.multi.beat * 1e3)
+            sel.poll(timeout)
 
-                # clear wakeup pipe if we were interrupted
-                empty_pipe(self.wakeup_fd_r)
+            # clear wakeup pipe if we were interrupted
+            empty_pipe(self.wakeup_fd_r)
         except InterruptedError:
             pass
 
@@ -1124,14 +1128,15 @@ class WorkerCron(Worker):
 
             # simulate interruptible sleep with select(wakeup_fd, timeout)
             try:
-                with select() as sel:
-                    sel.register(self.wakeup_fd_r, selectors.EVENT_READ)
-                    sel.register(self.dbcursor._cnx, selectors.EVENT_READ)
-                    sel.select(timeout=interval)
-                    # clear pg_conn/wakeup pipe if we were interrupted
-                    time.sleep(self.pid / 100 % .1)
-                    self.dbcursor._cnx.poll()
-                    empty_pipe(self.wakeup_fd_r)
+                sel = select.poll()
+                sel.register(self.wakeup_fd_r, select.POLLIN)
+                sel.register(self.dbcursor._cnx, select.POLLIN)
+                timeout = math.ceil(interval * 1e3)
+                sel.poll(timeout)
+                # clear pg_conn/wakeup pipe if we were interrupted
+                time.sleep(self.pid / 100 % .1)
+                self.dbcursor._cnx.poll()
+                empty_pipe(self.wakeup_fd_r)
             except InterruptedError:
                 pass
 
