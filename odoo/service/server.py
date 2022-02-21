@@ -63,8 +63,9 @@ from ..tests import loader, runner
 
 _logger = logging.getLogger(__name__)
 
-
-SLEEP_INTERVAL = 60     # 1 min
+SLEEP_INTERVAL = 60  # 1 min
+# poll uses ms instead of s
+SLEEP_INTERVAL_MS = math.ceil(SLEEP_INTERVAL * 1e3)  # 1 min
 
 def memory_info(process):
     """
@@ -437,8 +438,7 @@ class ThreadedServer(CommonServer):
             sel = select.poll()
             sel.register(pg_conn, select.POLLIN)
             while True:
-                timeout = math.ceil((SLEEP_INTERVAL + number) * 1e3)
-                sel.poll(timeout)
+                sel.poll(SLEEP_INTERVAL_MS)
                 time.sleep(number / 100)
                 pg_conn.poll()
 
@@ -701,7 +701,7 @@ class PreforkServer(CommonServer):
         if self.cron_timeout == -1:
             self.cron_timeout = self.timeout
         # working vars
-        self.beat = 4
+        self.beat = math.ceil(4 * 1e3)
         self.socket = None
         self.workers_http = {}
         self.workers_cron = {}
@@ -842,8 +842,7 @@ class PreforkServer(CommonServer):
             for fd in fds:
                 sel.register(fd, select.POLLIN)
             sel.register(self.pipe[0], select.POLLIN)
-            timeout = math.ceil(self.beat * 1e3)
-            events = sel.poll(timeout)
+            events = sel.poll(self.beat)
             for fd, _mask in events:
                 # update worker watchdogs
                 if fd in fds:
@@ -973,8 +972,7 @@ class Worker(object):
             sel = select.poll()
             sel.register(self.multi.socket, select.POLLIN)
             sel.register(self.wakeup_fd_r, select.POLLIN)
-            timeout = math.ceil(self.multi.beat * 1e3)
-            sel.poll(timeout)
+            sel.poll(self.multi.beat)
 
             # clear wakeup pipe if we were interrupted
             empty_pipe(self.wakeup_fd_r)
@@ -1124,15 +1122,14 @@ class WorkerCron(Worker):
     def sleep(self):
         # Really sleep once all the databases have been processed.
         if self.db_index == 0:
-            interval = SLEEP_INTERVAL + self.pid % 10   # chorus effect
+            interval = SLEEP_INTERVAL_MS + math.ceil((self.pid % 10) * 1e3)   # chorus effect
 
             # simulate interruptible sleep with select(wakeup_fd, timeout)
             try:
                 sel = select.poll()
                 sel.register(self.wakeup_fd_r, select.POLLIN)
                 sel.register(self.dbcursor._cnx, select.POLLIN)
-                timeout = math.ceil(interval * 1e3)
-                sel.poll(timeout)
+                sel.poll(interval)
                 # clear pg_conn/wakeup pipe if we were interrupted
                 time.sleep(self.pid / 100 % .1)
                 self.dbcursor._cnx.poll()
