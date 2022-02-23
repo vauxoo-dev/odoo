@@ -145,14 +145,15 @@ class ResPartner(models.Model):
 
     @api.constrains('vat', 'country_id')
     def check_vat(self):
+        partners_with_vat = self.filtered('vat')
+        if not partners_with_vat:
+            return
         if self.env.context.get('company_id'):
             company = self.env['res.company'].browse(self.env.context['company_id'])
         else:
             company = self.env.company
         eu_countries = self.env.ref('base.europe').country_ids
-        for partner in self:
-            if not partner.vat:
-                continue
+        for partner in partners_with_vat:
 
             if company.vat_check_vies and partner.commercial_partner_id.country_id in eu_countries:
                 # force full VIES online check
