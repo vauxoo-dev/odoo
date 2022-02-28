@@ -381,6 +381,24 @@ class ResPartner(models.Model):
             else:
                 partner.currency_id = self.env.company.currency_id
 
+    @api.model
+    def _default_rank(self, field_name):
+        search_partner_mode = self.env.context.get('res_partner_search_mode')
+        if search_partner_mode:
+            is_customer = search_partner_mode == 'customer'
+            is_supplier = search_partner_mode == 'supplier'
+            if is_customer:
+                return 'customer_rank' == field_name
+            elif is_supplier:
+                return 'supplier_rank' == field_name
+
+    def _default_supplier_rank(self):
+        return self._default_rank('suppler_rank')
+
+    def _default_customer_rank(self):
+        return self._default_rank('customer_rank')
+
+
     credit = fields.Monetary(compute='_credit_debit_get', search=_credit_search,
         string='Total Receivable', help="Total amount this customer owes you.")
     debit = fields.Monetary(compute='_credit_debit_get', search=_debit_search, string='Total Payable',
@@ -430,8 +448,8 @@ class ResPartner(models.Model):
     invoice_warn_msg = fields.Text('Message for Invoice')
     # Computed fields to order the partners as suppliers/customers according to the
     # amount of their generated incoming/outgoing account moves
-    supplier_rank = fields.Integer(default=0, copy=False)
-    customer_rank = fields.Integer(default=0, copy=False)
+    supplier_rank = fields.Integer(default=_default_supplier_rank, copy=False)
+    customer_rank = fields.Integer(default=_default_customer_rank, copy=False)
 
     def _get_name_search_order_by_fields(self):
         res = super()._get_name_search_order_by_fields()
@@ -484,19 +502,6 @@ class ResPartner(models.Model):
             ('state', '=', 'posted')
         ], limit=1)
         return can_edit_vat and not (bool(has_invoice))
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        search_partner_mode = self.env.context.get('res_partner_search_mode')
-        is_customer = search_partner_mode == 'customer'
-        is_supplier = search_partner_mode == 'supplier'
-        if search_partner_mode:
-            for vals in vals_list:
-                if is_customer and 'customer_rank' not in vals:
-                    vals['customer_rank'] = 1
-                elif is_supplier and 'supplier_rank' not in vals:
-                    vals['supplier_rank'] = 1
-        return super().create(vals_list)
 
     def _increase_rank(self, field, n=1):
         if self.ids and field in ['customer_rank', 'supplier_rank']:
