@@ -78,15 +78,24 @@ odoo.define('pos_restaurant.TipScreen', function (require) {
                  * since all the rewards has been applied.
                  */
                 order.off('rewards-updated', _callbackAfterTip);
+                const paymentline = this.env.pos.get_order().get_paymentlines()[0];
+                /**
+                 * We change the amount of the first payment line, to have the tip amount.
+                 * Then, if we have a payment terminal in the payment method, we send the
+                 * adjusment.
+                 */
+                paymentline.set_amount(paymentline.amount + amount);
+                if (paymentline.payment_method.payment_terminal) {
+                    await paymentline.payment_method.payment_terminal.send_payment_adjust(paymentline.cid);
+                }
+                /**
+                 * Now that we have finalized making all adjustments to the order,
+                 * we can set it to finalized.
+                 */
                 order.finalized = true;
                 /**
                  * All the rest of the code within `_callbackAfterTip`, has been kept intact.
                  */
-                const paymentline = this.env.pos.get_order().get_paymentlines()[0];
-                if (paymentline.payment_method.payment_terminal) {
-                    paymentline.amount += amount;
-                    await paymentline.payment_method.payment_terminal.send_payment_adjust(paymentline.cid);
-                }
                 // set_tip calls add_product which sets the new line as the selected_orderline
                 const tip_line = order.selected_orderline;
                 await this.rpc({
