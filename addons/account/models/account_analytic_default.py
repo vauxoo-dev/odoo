@@ -15,6 +15,7 @@ class AccountAnalyticDefault(models.Model):
     analytic_id = fields.Many2one('account.analytic.account', string='Analytic Account')
     analytic_tag_ids = fields.Many2many('account.analytic.tag', string='Analytic Tags')
     product_id = fields.Many2one('product.product', string='Product', ondelete='cascade', help="Select a product which will use analytic account specified in analytic default (e.g. create new customer invoice or Sales order if we select this product, it will automatically take this as an analytic account)")
+    product_tmpl_id = fields.Many2one('product.template', string='Product Template', ondelete='cascade', help="Select a product template which will use analytic account specified in analytic default (e.g. create new customer invoice or Sales order if we select this product template, it will automatically take this as an analytic account)")
     partner_id = fields.Many2one('res.partner', string='Partner', ondelete='cascade', help="Select a partner which will use analytic account specified in analytic default (e.g. create new customer invoice or Sales order if we select this partner, it will automatically take this as an analytic account)")
     account_id = fields.Many2one('account.account', string='Account', ondelete='cascade', help="Select an accounting account which will use analytic account specified in analytic default (e.g. create new customer invoice or Sales order if we select this account, it will automatically take this as an analytic account)")
     user_id = fields.Many2one('res.users', string='User', ondelete='cascade', help="Select a user which will use analytic account specified in analytic default.")
@@ -32,6 +33,11 @@ class AccountAnalyticDefault(models.Model):
         domain = []
         if product_id:
             domain += ['|', ('product_id', '=', product_id)]
+            domain += [
+                '|',
+                    ('product_tmpl_id', '=', self.env['product.product'].browse(product_id).product_tmpl_id.id),
+                    ('product_tmpl_id', '=', False)
+            ]
         domain += [('product_id', '=', False)]
         if partner_id:
             domain += ['|', ('partner_id', '=', partner_id)]
@@ -53,6 +59,7 @@ class AccountAnalyticDefault(models.Model):
         for rec in self.search(domain):
             index = 0
             if rec.product_id: index += 1
+            if rec.product_tmpl_id: index += 1
             if rec.partner_id: index += 1
             if rec.account_id: index += 1
             if rec.company_id: index += 1

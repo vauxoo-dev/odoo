@@ -9,6 +9,7 @@
                     <field name="analytic_id" required="0" groups="analytic.group_analytic_accounting"/>
                     <field name="analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags"/>
                     <field name="product_id"/>
+                    <field name="product_tmpl_id"/>
                     <field name="partner_id"/>
                     <field name="user_id"/>
                     <field name="account_id"/>
@@ -31,6 +32,7 @@
                         <field name="analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags" string="Tags"/>
                         <separator string="Conditions" colspan="4"/>
                         <field name="product_id"/>
+                        <field name="product_tmpl_id"/>
                         <field name="partner_id"/>
                         <field name="user_id"/>
                         <field name="account_id"/>
@@ -52,6 +54,7 @@
                     <field name="date_start"/>
                     <field name="date_stop"/>
                     <field name="product_id"/>
+                    <field name="product_tmpl_id"/>
                     <field name="partner_id"/>
                     <field name="user_id"/>
                     <templates>
@@ -62,6 +65,7 @@
                                 </div>
                                 <div t-if="record.date_start.value"><i class="fa fa-calendar"></i> From <field name="date_start"/> <t t-if="record.date_stop.value">to <field name="date_stop"/></t></div>
                                 <div t-if="record.product_id.value"><strong>Product</strong> <field name="product_id"/> </div>
+                                <div t-if="record.product_tmpl_id.value"><strong>Product Template</strong> <field name="product_tmpl_id"/> </div>
                                 <div t-if="record.partner_id.value"><strong>Customer</strong> <field name="partner_id"/> </div>
                                 <div class="float-right">
                                     <field name="user_id" widget="many2one_avatar_user"/>
@@ -81,6 +85,7 @@
                     <field name="date_stop"/>
                     <field name="analytic_id" groups="analytic.group_analytic_accounting"/>
                     <field name="product_id"/>
+                    <field name="product_tmpl_id"/>
                     <field name="partner_id"/>
                     <field name="user_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
@@ -88,6 +93,7 @@
                         <filter string="User" name="user" context="{'group_by':'user_id'}" help="User"/>
                         <filter string="Partner" name="partner" context="{'group_by':'partner_id'}" help="Partner"/>
                         <filter string="Product" name="product" context="{'group_by':'product_id'}" help="Product" />
+                        <filter string="Product Template" name="product_tmpl" context="{'group_by':'product_tmpl_id'}" help="Product Template" />
                         <filter string="Analytic Account" name="analyticacc" context="{'group_by':'analytic_id'}" help="Analytic Account" groups="analytic.group_analytic_accounting"/>
                         <filter string="Company" name="company" context="{'group_by':'company_id'}" groups="base.group_multi_company" />
                     </group>
