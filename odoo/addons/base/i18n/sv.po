@@ -21,6 +21,7 @@
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2021
 # Victor Ekström, 2021
 # Chrille Hedberg <hedberg.chrille@gmail.com>, 2021
+# Robin Calvin, 2022
 # Simon S, 2022
 # 
 msgid ""
@@ -11631,6 +11632,8 @@ msgid ""
 "Be aware that editing the architecture of a standard view is not advised, since the changes will be overwritten during future module updates.<br/>\n"
 "                        We recommend applying modifications to standard views through inherited views or customization with Odoo Studio."
 msgstr ""
+"Observera att redigering av arkitekturen för en standard-vy inte rekommenderas pga att ändringarna kommer att skrivas över under framtida moduluppdateringar.<br/>\n"
+"                        Vi rekommenderar applicering av modifieringar av standard-vyer genom ärvda vyer eller anpassning med Odoo Studio."
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_country__name_position__before
@@ -12669,7 +12672,7 @@ msgstr "Comoros"
 #: model_terms:ir.ui.view,arch_db:base.view_company_tree
 #: model_terms:ir.ui.view,arch_db:base.view_res_partner_filter
 msgid "Companies"
-msgstr "Företag"
+msgstr "Bolag"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
@@ -12696,7 +12699,7 @@ msgstr "Antal företag"
 #: model_terms:ir.ui.view,arch_db:base.view_users_search
 #, python-format
 msgid "Company"
-msgstr "Företag"
+msgstr "Bolag"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.onboarding_company_step
@@ -14534,7 +14537,7 @@ msgstr "Djibouti"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.onboarding_container
 msgid "Do you want to remove this configuration panel?"
-msgstr ""
+msgstr "Vill du ta bort den här konfigurationspanelen?"
 
 #. module: base
 #: model:res.partner.title,name:base.res_partner_title_doctor
@@ -17413,6 +17416,9 @@ msgid ""
 "If you enable this option, existing translations (including custom ones) "
 "will be overwritten and replaced by those in this file"
 msgstr ""
+"Om du aktiverar det här alternativet kommer befintliga översättningar "
+"(inklusive anpassade översättningar) att skrivas över och ersättas av "
+"översättningarna i den här filen."
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_menu__groups_id
@@ -24630,7 +24636,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.onboarding_container
 msgid "Remove Configuration Tips"
-msgstr ""
+msgstr "Ta bort konfigurationstips"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
@@ -28778,7 +28784,7 @@ msgstr "Användare"
 #. module: base
 #: model:ir.ui.menu,name:base.menu_users
 msgid "Users & Companies"
-msgstr "Användare & företag"
+msgstr "Användare & bolag"
 
 #. module: base
 #: model:ir.model,name:base.model_res_users_log

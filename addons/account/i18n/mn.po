@@ -13,7 +13,7 @@
 # Onii Onii <onii0223@yahoo.com>, 2020
 # Minj P <pminj322@gmail.com>, 2020
 # Otgonbayar.A <gobi.mn@gmail.com>, 2020
-# Khishigbat Ganbold <khishigbat@asterisk-tech.mn>, 2020
+# hish, 2020
 # nurbakhit nurka <nurbakhit@bumanit.mn>, 2020
 # tserendavaa tsogtoo <tseegii011929@gmail.com>, 2020
 # Sanjaajamts Badamjunai <b.sanjaajamtsfc@gmail.com>, 2020
@@ -25,8 +25,8 @@
 # Nomin Erdenchimeg <nomin.bmde@gmail.com>, 2021
 # tumenjargal hadbaatar <tumenjargal7903@gmail.com>, 2021
 # Munkhbaatar g <muuguu17@gmail.com>, 2021
-# Bayarkhuu Bataa, 2021
 # Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2021
+# Bayarkhuu Bataa, 2022
 # 
 msgid ""
 msgstr ""
@@ -34,7 +34,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 10:15+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Baskhuu Lodoikhuu <baskhuujacara@gmail.com>, 2021\n"
+"Last-Translator: Bayarkhuu Bataa, 2022\n"
 "Language-Team: Mongolian (https://www.transifex.com/odoo/teams/41243/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6606,6 +6606,14 @@ msgstr "Нэхэмжлэлийн татвар"
 msgid ""
 "Invoice and credit note distribution should each contain exactly one line "
 "for the base."
+msgstr ""
+
+#. module: account
+#: code:addons/account/models/account_tax.py:0
+#, python-format
+msgid ""
+"Invoice and credit note repartition should have at least one tax repartition"
+" line."
 msgstr ""
 
 #. module: account
@@ -14724,7 +14732,7 @@ msgstr "дуусах"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "to check"
-msgstr "Шалгах"
+msgstr "шалгах"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_tour_upload_bill_email_confirm
