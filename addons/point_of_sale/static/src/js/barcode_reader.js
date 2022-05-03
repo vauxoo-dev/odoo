@@ -19,6 +19,7 @@ var BarcodeReader = core.Class.extend({
     init: function (attributes) {
         this.mutex = new Mutex();
         this.pos = attributes.pos;
+        this.pos.show_barcode_error_modal = true;
         this.action_callbacks = {};
         this.exclusive_callbacks = {};
         this.proxy = attributes.proxy;
@@ -110,13 +111,25 @@ var BarcodeReader = core.Class.extend({
         const callbacks = Object.keys(this.exclusive_callbacks).length
             ? this.exclusive_callbacks
             : this.action_callbacks;
-        let parsed_result = this.barcode_parser.parse_barcode(code);
-        if (Array.isArray(parsed_result)) {
-            [...callbacks.gs1].map(cb => cb(parsed_result));
-        } else {
-            if (callbacks[parsed_result.type]) {
+        // TODO: Fix this since gs1 nomenclatures could return more than one results
+        // https://github.com/odoo-dev/odoo/blob/a764f029514a45a77f4fb977ee1306a510aeefa2/addons/barcodes_gs1_nomenclature/static/src/js/barcode_parser.js#L105
+        // This conflicts with the actual patch that try to find all the rules applying to the barcode
+        // in order to ensure the proper fiding of it.
+        let parsed_results = this.barcode_parser.parse_barcode(code);
+        if (! Array.isArray(parsed_results)) {
+            parsed_results = [parsed_results];
+        }
+        parsed_results_loop: for (const [index, parsed_result] of parsed_results.entries()) {
+            let is_last_index = index + 1 === parsed_results.length;
+            this.pos.show_barcode_error_modal = is_last_index;
+            if (callbacks.gs1) {
+                [...callbacks.gs1].map(cb => cb([parsed_result]));
+            } else if (callbacks[parsed_result.type]) {
                 for (const cb of callbacks[parsed_result.type]) {
-                    await cb(parsed_result);
+                    let result_callback = await cb(parsed_result);
+                    if (result_callback) {
+                        break parsed_results_loop;
+                    }
                 }
             } else if (callbacks.error) {
                 [...callbacks.error].map(cb => cb(parsed_result));
