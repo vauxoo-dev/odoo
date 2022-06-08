@@ -2813,7 +2813,7 @@ class BaseModel(metaclass=MetaModel):
                     (name, make_type(field), field.string)
                     for name, field in self._fields.items()
                     if name != 'id' and field.store and field.column_type
-                ])
+                ], self.is_transient())
 
             if self._parent_store:
                 if not tools.column_exists(cr, self._table, 'parent_path'):
@@ -2832,7 +2832,10 @@ class BaseModel(metaclass=MetaModel):
                     continue
                 if field.manual and not update_custom_fields:
                     continue            # don't update custom fields
-                new = field.update_db(self, columns)
+                if field.type == 'many2many':
+                    new = field.update_db(self, columns, self.is_transient())
+                else:
+                    new = field.update_db(self, columns)
                 if new and field.compute:
                     fields_to_compute.append(field.name)
 

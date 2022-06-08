@@ -48,13 +48,13 @@ def table_kind(cr, tablename):
     cr.execute(query, (tablename,))
     return cr.fetchone()[0] if cr.rowcount else None
 
-def create_model_table(cr, tablename, comment=None, columns=()):
+def create_model_table(cr, tablename, comment=None, columns=(), is_transient=None):
     """ Create the table for a model. """
     colspecs = ['id SERIAL NOT NULL'] + [
         '"{}" {}'.format(columnname, columntype)
         for columnname, columntype, columncomment in columns
     ]
-    cr.execute('CREATE TABLE "{}" ({}, PRIMARY KEY(id))'.format(tablename, ", ".join(colspecs)))
+    cr.execute('CREATE {} TABLE "{}" ({}, PRIMARY KEY(id))'.format("UNLOGGED" if is_transient else "", tablename, ", ".join(colspecs)))
 
     queries, params = [], []
     if comment:
