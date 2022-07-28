@@ -169,13 +169,16 @@ class MergePartnerAutomatic(models.TransientModel):
                             """
                             self._cr.execute(query, (dst_partner.id,))
                             # NOTE JEM : shouldn't we fetch the data ?
-                except psycopg2.Error:
+                except psycopg2.Error as e:
                     # updating fails, most likely due to a violated unique constraint
                     # keeping record with nonexistent partner_id is useless, better delete it
-                    query = 'DELETE FROM "%(table)s" WHERE "%(column)s" IN %%s' % query_dic
-                    self._cr.execute(query, (tuple(src_partners.ids),))
+                    msg="""An error has ocurred meanwhile foreign keys were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                    self.env.cr.rollback()
+                    _logger.error(msg)
+                    return False
 
         self.invalidate_cache()
+        return True
 
     @api.model
     def _update_reference_fields(self, src_partners, dst_partner):
@@ -188,25 +191,28 @@ class MergePartnerAutomatic(models.TransientModel):
         def update_records(model, src, field_model='model', field_id='res_id'):
             Model = self.env[model] if model in self.env else None
             if Model is None:
-                return
+                return True
             records = Model.sudo().search([(field_model, '=', 'res.partner'), (field_id, '=', src.id)])
             try:
                 with mute_logger('odoo.sql_db'), self._cr.savepoint(), self.env.clear_upon_failure():
                     records.sudo().write({field_id: dst_partner.id})
                     records.flush()
-            except psycopg2.Error:
+                    return True
+            except psycopg2.Error as e:
                 # updating fails, most likely due to a violated unique constraint
                 # keeping record with nonexistent partner_id is useless, better delete it
-                records.sudo().unlink()
+                msg="""An error has ocurred meanwhile reference fields were updated \n Destination Record: %s \nSource Records: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                self.env.cr.rollback()
+                _logger.error(msg)
+                return False
 
         update_records = functools.partial(update_records)
 
+        models2update = {'ir.calendar': 'model_id.model', 'ir.attachment': 'res_model', 'mail.followers': 'res_model', 'mail.message': 'model', 'ir.model.data': 'model'}
         for partner in src_partners:
-            update_records('calendar', src=partner, field_model='model_id.model')
-            update_records('ir.attachment', src=partner, field_model='res_model')
-            update_records('mail.followers', src=partner, field_model='res_model')
-            update_records('mail.message', src=partner)
-            update_records('ir.model.data', src=partner)
+            for model, field in models2update.items():
+                if not update_records(model, src=partner, field_model=field):
+                    return False
 
         records = self.env['ir.model.fields'].search([('ttype', '=', 'reference')])
         for record in records.sudo():
@@ -228,6 +234,7 @@ class MergePartnerAutomatic(models.TransientModel):
                 records_ref.sudo().write(values)
 
         self.flush()
+        return True
 
     def _get_summable_fields(self):
         """ Returns the list of fields that should be summed when merging partners
@@ -287,7 +294,7 @@ class MergePartnerAutomatic(models.TransientModel):
         Partner = self.env['res.partner']
         partner_ids = Partner.browse(partner_ids).exists()
         if len(partner_ids) < 2:
-            return
+            return 'error'
 
         if len(partner_ids) > 3:
             _logger.warning("A merging with more than 3 contacts together will be processed.")
@@ -299,7 +306,7 @@ class MergePartnerAutomatic(models.TransientModel):
         if partner_ids & child_ids:
             if skip_validations:
                 _logger.warning("You cannot merge a contact with one of his parent.")
-                return False
+                return 'error'
             raise UserError(_("You cannot merge a contact with one of his parent."))
 
         if extra_checks and len(set(partner.email for partner in partner_ids)) > 1:
@@ -326,8 +333,10 @@ class MergePartnerAutomatic(models.TransientModel):
             })
 
         # call sub methods to do the merge
-        self._update_foreign_keys(src_partners, dst_partner)
-        self._update_reference_fields(src_partners, dst_partner)
+        if not self._update_foreign_keys(src_partners, dst_partner):
+            return 'rollback'
+        if not self._update_reference_fields(src_partners, dst_partner):
+            return 'rollback'
         self._update_values(src_partners, dst_partner)
 
         self._log_merge_operation(src_partners, dst_partner)
@@ -335,7 +344,7 @@ class MergePartnerAutomatic(models.TransientModel):
         # delete source partner, since they are merged
         src_partners.write({src_partners._active_name: False})
 
-        return True
+        return 'ok'
 
     def _log_merge_operation(self, src_partners, dst_partner):
         _logger.info('(uid = %s) merged the partners %r with %s', self._uid, src_partners.ids, dst_partner.id)
@@ -646,9 +655,9 @@ class MergePartnerAutomatic(models.TransientModel):
 
         res = self._merge(self.partner_ids.ids, self.dst_partner_id)
 
-        if self.current_line_id:
+        if res and res != 'rollback' and self.current_line_id:
             self.current_line_id.unlink()
 
-        if self._context.get('merging_from_cron') and not res:
+        if self._context.get('merging_from_cron') and res != 'ok':
             return res
         return self._action_next_screen()
