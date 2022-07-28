@@ -168,11 +168,12 @@ class MergePartnerAutomatic(models.TransientModel):
                             """
                             self._cr.execute(query, (dst_partner.id,))
                             # NOTE JEM : shouldn't we fetch the data ?
-                except psycopg2.Error:
+                except psycopg2.Error as e:
                     # updating fails, most likely due to a violated unique constraint
                     # keeping record with nonexistent partner_id is useless, better delete it
-                    query = 'DELETE FROM "%(table)s" WHERE "%(column)s" IN %%s' % query_dic
-                    self._cr.execute(query, (tuple(src_partners.ids),))
+                    msg="""An error has ocurred meanwhile foreign keys were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                    _logger.error(msg)
+                    raise UserError(_(msg))
 
         self.invalidate_cache()
 
@@ -193,10 +194,12 @@ class MergePartnerAutomatic(models.TransientModel):
                 with mute_logger('odoo.sql_db'), self._cr.savepoint(), self.env.clear_upon_failure():
                     records.sudo().write({field_id: dst_partner.id})
                     records.flush()
-            except psycopg2.Error:
+            except psycopg2.Error as e:
                 # updating fails, most likely due to a violated unique constraint
                 # keeping record with nonexistent partner_id is useless, better delete it
-                records.sudo().unlink()
+                msg="""An error has ocurred meanwhile reference fields were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                _logger.error(msg)
+                raise UserError(_(msg))
 
         update_records = functools.partial(update_records)
 
