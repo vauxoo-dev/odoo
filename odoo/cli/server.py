@@ -135,6 +135,7 @@ def main(args):
     csv.field_size_limit(500 * 1024 * 1024)
 
     preload = []
+    print("DB name:", config['db_name'])
     if config['db_name']:
         preload = config['db_name'].split(',')
         for db_name in preload:
@@ -152,6 +153,8 @@ def main(args):
                     raise err
             except odoo.service.db.DatabaseExists:
                 pass
+    else:
+        print("no DB name")
 
     if config["translate_out"]:
         export_translation()

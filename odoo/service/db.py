@@ -95,14 +95,17 @@ def _initialize_db(id, db_name, demo, lang, user_password, login='admin', countr
         _logger.exception('CREATE DATABASE failed:')
 
 def _create_empty_database(name):
+    print("Creating database:", name)
     db = odoo.sql_db.db_connect('postgres')
     with closing(db.cursor()) as cr:
         chosen_template = odoo.tools.config['db_template']
         cr.execute("SELECT datname FROM pg_database WHERE datname = %s",
                    (name,), log_exceptions=False)
         if cr.fetchall():
+            print("database %r already exists!" % (name,))
             raise DatabaseExists("database %r already exists!" % (name,))
         else:
+            print("created")
             cr.autocommit(True)     # avoid transaction block
 
             # 'C' collate is only safe with template0, but provides more useful indexes
@@ -113,13 +116,18 @@ def _create_empty_database(name):
             ))
 
     if odoo.tools.config['unaccent']:
+        print("Enabling unaccent")
         try:
             db = odoo.sql_db.db_connect(name)
             with closing(db.cursor()) as cr:
                 cr.execute("CREATE EXTENSION IF NOT EXISTS unaccent")
                 cr.commit()
-        except psycopg2.Error:
+            print("Unaccent enabled")
+        except psycopg2.Error as err:
+            print("Except: %s" % err)
             pass
+    else:
+        print("Unaccent: not enabled by config: %s" % odoo.tools.config['unaccent'])
 
 @check_db_management_enabled
 def exp_create_database(db_name, demo, lang, user_password='admin', login='admin', country_code=None, phone=None):
