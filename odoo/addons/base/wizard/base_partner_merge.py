@@ -198,9 +198,14 @@ class MergePartnerAutomatic(models.TransientModel):
             except psycopg2.Error as e:
                 # updating fails, most likely due to a violated unique constraint
                 # keeping record with nonexistent partner_id is useless, better delete it
-                msg="""An error has ocurred meanwhile reference fields were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
-                _logger.error(msg)
-                raise UserError(msg)
+                # An example of this is with partners that have followers in common:
+                if model == "mail.followers" and e.pgcode == psycopg2.errorcodes.UNIQUE_VIOLATION:
+                    records.sudo().unlink()
+                else:
+                    # Everything else is not expected and should fail.
+                    msg="""An error has ocurred meanwhile reference fields were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                    _logger.error(msg)
+                    raise UserError(msg)
 
         update_records = functools.partial(update_records)
 
