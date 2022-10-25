@@ -600,6 +600,10 @@ actual arch.
         self.env.cr.execute(query, [self.id] + where_params + where_params)
         view_ids = [r[0] for r in self.env.cr.fetchall()]
 
+        
+        # if self.id == 1532:
+        #     import pdb; pdb.set_trace();
+
         if self.pool._init and not self._context.get('load_all_views'):
             # check that all found ids have a corresponding xml_id in a loaded module
             check_view_ids = self._context.get('check_view_ids') or []
@@ -613,6 +617,9 @@ actual arch.
 
         def accessible(view):
             return not view.groups_id or (view.groups_id & self.env.user.groups_id)
+
+        # if self.id == 1532:
+        #     import pdb; pdb.set_trace();
 
         return self.browse(view_ids).sudo().filtered(accessible)
 
@@ -804,9 +811,13 @@ actual arch.
             parent_view = root.inherit_id.read_combined(fields=fields)
             arch_tree = etree.fromstring(parent_view['arch'])
             arch_tree = self.browse(parent_view['id']).apply_inheritance_specs(arch_tree, view_arch)
+        
 
         # and apply inheritance
         arch = root.apply_view_inheritance(arch_tree, self.model)
+
+        # if self.id ==  2223:
+        #     import pdb; pdb.set_trace();
 
         return dict(view_data, arch=etree.tostring(arch, encoding='unicode'))
 

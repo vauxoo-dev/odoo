@@ -139,6 +139,7 @@ options.registry.NavTabsStyle = options.Class.extend({
      * @see this.selectClass for parameters
      */
     setDirection: function (previewMode, widgetValue, params) {
+        debugger;
         const isVertical = widgetValue === 'vertical';
         this.$target.toggleClass('row s_col_no_resize s_col_no_bgcolor', isVertical);
         this.$target.find('.s_tabs_nav:first .nav').toggleClass('flex-column', isVertical);

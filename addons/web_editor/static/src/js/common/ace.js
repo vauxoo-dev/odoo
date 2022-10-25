@@ -222,6 +222,7 @@ var ViewEditor = Widget.extend({
 
         this.aceEditor = window.ace.edit(this.$viewEditor[0]);
         this.aceEditor.setTheme('ace/theme/monokai');
+        debugger;
         this.$editor = this.$('.ace_editor');
 
         var refX = 0;

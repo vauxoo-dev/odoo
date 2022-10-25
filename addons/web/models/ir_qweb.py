@@ -93,6 +93,7 @@ class Image(models.AbstractModel):
         atts["data-zoom-image"] = src_zoom
         atts["data-no-post-process"] = options.get('data-no-post-process')
 
+        # import pdb; pdb.set_trace()
         atts = self.env['ir.qweb']._post_processing_att('img', atts, options.get('template_options'))
 
         img = ['<img']

@@ -1,0 +1,63 @@
+From ba1e6ba495775f09c2675981684b769654e0e6b5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fernanda=20Hern=C3=A1ndez?= <fernanda@vauxoo.com>
+Date: Mon, 3 May 2021 23:14:14 +0000
+Subject: [PATCH]  [IMP] models.py: Method search_read propagate kwargs to read
+ method
+
+Currently the method `read` uses by default the parameter `load='classic_read')`
+  - `self.read(fields, load='classic_read')`
+
+So, it computes `name_get` for all m2o fields for all records in `self`.
+
+If you want to avoid computing the `name_get` to save time and process
+You can use an empty string in load parameter:
+ - e.g. `self.read(..., load='')`
+
+The method `self.search_read` call to `search` and `read` methods
+but `search_read` method is not possible to assign `load=''` argument
+(or other arguments of the method `read`)
+ - e.g. `self.search_read(..., load='')`
+
+So, you need to use 2 lines of code:
+records = self.search(...)
+records.read(..., load='')
+
+This commit changes `search_read` method to receive all keyword arguments of the method `read`
+So, you can use `self.search_read(..., load='')` and the `read` parameter will be propagated
+
+Got it from https://github.com/odoo/odoo/pull/46391
+---
+ odoo/models.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/odoo/models.py b/odoo/models.py
+index 0150fd6ee0196..ab73274790135 100644
+--- a/odoo/models.py
++++ b/odoo/models.py
+@@ -4762,7 +4762,7 @@ def is_transient(cls):
+         return cls._transient
+ 
+     @api.model
+-    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None):
++    def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None, **read_kwargs):
+         """Perform a :meth:`search` followed by a :meth:`read`.
+ 
+         :param domain: Search domain, see ``args`` parameter in :meth:`search`.
+@@ -4775,6 +4775,8 @@ def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None
+             Defaults to no limit.
+         :param order: Columns to sort result, see ``order`` parameter in :meth:`search`.
+             Defaults to no sort.
++        :param read_kwargs: All read keywords arguments used to call read(..., **read_kwargs) method
++            E.g. you can use search_read(..., load='') in order to avoid computing name_get
+         :return: List of dictionaries containing the asked fields.
+         :rtype: list(dict).
+         """
+@@ -4795,7 +4797,7 @@ def search_read(self, domain=None, fields=None, offset=0, limit=None, order=None
+             del context['active_test']
+             records = records.with_context(context)
+ 
+-        result = records.read(fields)
++        result = records.read(fields, **read_kwargs)
+         if len(result) <= 1:
+             return result
+ 

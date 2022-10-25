@@ -49,6 +49,7 @@ class Assets(models.AbstractModel):
 
         # Bundle is 'assets_common' as this route is only meant to update
         # variables scss files
+        # import pdb; pdb.set_trace();
         self.save_asset(url, 'web.assets_common', updatedFileContent, 'scss')
 
     def _get_custom_attachment(self, custom_url, op='='):

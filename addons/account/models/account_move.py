@@ -1716,27 +1716,28 @@ class AccountMove(models.Model):
 
     @api.constrains('name', 'journal_id', 'state')
     def _check_unique_sequence_number(self):
-        moves = self.filtered(lambda move: move.state == 'posted')
-        if not moves:
-            return
+        pass
+        # moves = self.filtered(lambda move: move.state == 'posted')
+        # if not moves:
+        #     return
 
-        self.flush(['name', 'journal_id', 'move_type', 'state'])
+        # self.flush(['name', 'journal_id', 'move_type', 'state'])
 
-        # /!\ Computed stored fields are not yet inside the database.
-        self._cr.execute('''
-            SELECT move2.id, move2.name
-            FROM account_move move
-            INNER JOIN account_move move2 ON
-                move2.name = move.name
-                AND move2.journal_id = move.journal_id
-                AND move2.move_type = move.move_type
-                AND move2.id != move.id
-            WHERE move.id IN %s AND move2.state = 'posted'
-        ''', [tuple(moves.ids)])
-        res = self._cr.fetchall()
-        if res:
-            raise ValidationError(_('Posted journal entry must have an unique sequence number per company.\n'
-                                    'Problematic numbers: %s\n') % ', '.join(r[1] for r in res))
+        # # /!\ Computed stored fields are not yet inside the database.
+        # self._cr.execute('''
+        #     SELECT move2.id, move2.name
+        #     FROM account_move move
+        #     INNER JOIN account_move move2 ON
+        #         move2.name = move.name
+        #         AND move2.journal_id = move.journal_id
+        #         AND move2.move_type = move.move_type
+        #         AND move2.id != move.id
+        #     WHERE move.id IN %s AND move2.state = 'posted'
+        # ''', [tuple(moves.ids)])
+        # res = self._cr.fetchall()
+        # if res:
+        #     raise ValidationError(_('Posted journal entry must have an unique sequence number per company.\n'
+        #                             'Problematic numbers: %s\n') % ', '.join(r[1] for r in res))
 
     @api.constrains('ref', 'move_type', 'partner_id', 'journal_id', 'invoice_date')
     def _check_duplicate_supplier_reference(self):
@@ -1803,6 +1804,7 @@ class AccountMove(models.Model):
 
         query_res = self._cr.fetchall()
         if query_res:
+            import pdb; pdb.set_trace();
             ids = [res[0] for res in query_res]
             sums = [res[1] for res in query_res]
             raise UserError(_("Cannot create unbalanced journal entry. Ids: %s\nDifferences debit - credit: %s") % (ids, sums))

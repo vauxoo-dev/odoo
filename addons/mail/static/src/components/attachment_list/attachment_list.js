@@ -16,6 +16,7 @@ class AttachmentList extends Component {
      * @override
      */
     constructor(...args) {
+        debugger;
         super(...args);
         useShouldUpdateBasedOnProps({
             compareDepth: {

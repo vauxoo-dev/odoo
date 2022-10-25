@@ -436,6 +436,7 @@ var FormRenderer = BasicRenderer.extend({
     _renderButtonBox: function (node) {
         var self = this;
         var $result = $('<' + node.tag + '>', {class: 'o_not_full'});
+        // debugger;
 
         // The rendering of buttons may be async (see renderFieldWidget), so we
         // must wait for the buttons to be ready (and their modifiers to be
@@ -472,6 +473,7 @@ var FormRenderer = BasicRenderer.extend({
             // Get the unfolded buttons according to window size
             var nb_buttons = self._renderButtonBoxNbButtons();
             var unfolded_buttons = visible_buttons.slice(0, nb_buttons).concat(invisible_buttons);
+            // debugger;
 
             // Get the folded buttons
             var folded_buttons = visible_buttons.slice(nb_buttons);
@@ -516,6 +518,7 @@ var FormRenderer = BasicRenderer.extend({
     * @returns {integer}
     */
     _renderButtonBoxNbButtons: function () {
+        // debugger;
         return [2, 2, 2, 4][config.device.size_class] || 7;
     },
     /**

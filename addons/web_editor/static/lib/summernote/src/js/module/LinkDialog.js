@@ -105,6 +105,7 @@ define([
      * @param {Object} layoutInfo
      */
     this.show = function (layoutInfo) {
+      debugger;
       var $editor = layoutInfo.editor(),
           $dialog = layoutInfo.dialog(),
           $editable = layoutInfo.editable(),

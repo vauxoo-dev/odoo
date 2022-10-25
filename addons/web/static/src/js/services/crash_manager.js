@@ -373,6 +373,7 @@ var RedirectWarningHandler = Widget.extend(ExceptionHandler, {
 core.crash_registry.add('odoo.exceptions.RedirectWarning', RedirectWarningHandler);
 
 function session_expired(cm) {
+    debugger;
     return {
         display: function () {
             const notif = {

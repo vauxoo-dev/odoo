@@ -89,6 +89,7 @@ publicWidget.registry.PaymentForm = publicWidget.Widget.extend({
      * @param {jQuery} $form
      */
     getFormData: function ($form) {
+        debugger;
         var unindexed_array = $form.serializeArray();
         var indexed_array = {};
 
@@ -168,6 +169,7 @@ publicWidget.registry.PaymentForm = publicWidget.Widget.extend({
      * @param {Event} ev
      */
     payEvent: function (ev) {
+        debugger;
         ev.preventDefault();
         var form = this.el;
         var checked_radio = this.$('input[type="radio"]:checked');
@@ -364,6 +366,7 @@ publicWidget.registry.PaymentForm = publicWidget.Widget.extend({
      * @param {Event} ev
      */
     addPmEvent: function (ev) {
+        debugger;
         ev.stopPropagation();
         ev.preventDefault();
         var checked_radio = this.$('input[type="radio"]:checked');

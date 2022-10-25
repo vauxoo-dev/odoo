@@ -52,6 +52,8 @@
          * the listeners callback.
          */
         trigger(eventType, ...args) {
+            // if (this.subscriptions)
+            //     debugger;
             const subs = this.subscriptions[eventType] || [];
             for (let i = 0, iLen = subs.length; i < iLen; i++) {
                 const sub = subs[i];

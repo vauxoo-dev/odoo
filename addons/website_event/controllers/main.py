@@ -159,6 +159,7 @@ class WebsiteEventController(http.Controller):
             'search_tags': search_tags,
             'keep': keep,
         }
+        print(current_date)
 
         if searches['date'] == 'old':
             # the only way to display this content is to set date=old so it must be canonical
@@ -209,6 +210,7 @@ class WebsiteEventController(http.Controller):
             raise werkzeug.exceptions.NotFound()
 
         values = self._prepare_event_register_values(event, **post)
+        # import pdb; pdb.set_trace();
         return request.render("website_event.event_description_full", values)
 
     def _prepare_event_register_values(self, event, **post):

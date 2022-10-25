@@ -613,6 +613,7 @@ define([
      * @param {Object} options
      */
     this.createLink = function ($editable, linkInfo, options) {
+      debugger;
       var linkUrl = linkInfo.url;
       var linkText = linkInfo.text;
       var isNewWindow = linkInfo.isNewWindow;
@@ -687,6 +688,7 @@ define([
      * @return {String} [return.url=""]
      */
     this.getLinkInfo = function ($editable) {
+      debugger;
       // ODOO MODIFICATION START
       var selection;
       var currentSelection = null;

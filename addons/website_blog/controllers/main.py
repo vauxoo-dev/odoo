@@ -211,6 +211,8 @@ class WebsiteBlog(http.Controller):
         '''/blog/<model("blog.blog"):blog>/<model("blog.post", "[('blog_id','=',blog.id)]"):blog_post>''',
     ], type='http', auth="public", website=True, sitemap=True)
     def blog_post(self, blog, blog_post, tag_id=None, page=1, enable_editor=None, **post):
+
+        # import pdb; pdb.set_trace()
         """ Prepare all values to display the blog.
 
         :return dict values: values for the templates, containing

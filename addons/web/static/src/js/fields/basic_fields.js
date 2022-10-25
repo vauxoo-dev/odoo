@@ -1431,6 +1431,7 @@ var FieldText = InputField.extend(TranslatableFieldMixin, {
     start: function () {
         if (this.mode === 'edit') {
             dom.autoresize(this.$el, this.autoResizeOptions);
+            debugger;
             if (this.field.translate) {
                 this.$el = this.$el.add(this._renderTranslateButton());
                 this.$el.addClass('o_field_translate');
@@ -3404,6 +3405,7 @@ var AceEditor = DebouncedField.extend({
      * @returns {Promise}
      */
     start: function () {
+        debugger;
         this._startAce(this.$('.ace-view-editor')[0]);
         return this._super.apply(this, arguments);
     },

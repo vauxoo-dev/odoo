@@ -372,7 +372,7 @@ class SaleOrder(models.Model):
 
     @api.onchange('partner_id')
     def onchange_partner_id(self):
-        """
+        """ 
         Update the following fields when the partner is changed:
         - Pricelist
         - Payment terms

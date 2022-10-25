@@ -125,6 +125,7 @@ renderer.createPalette = function ($container, options) {
 
 var fn_tplPopovers = renderer.tplPopovers;
 renderer.tplPopovers = function (lang, options) {
+    // debugger;
     var $popover = $(fn_tplPopovers.call(this, lang, options));
 
     var $imagePopover = $popover.find('.note-image-popover');

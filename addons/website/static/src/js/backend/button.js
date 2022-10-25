@@ -100,6 +100,7 @@ var WidgetWebsiteButtonIcon = AbstractField.extend({
      * @private
      */
     _onClick: function () {
+        debugger;
         this.trigger_up('button_clicked', {
             attrs: {
                 type: 'object',

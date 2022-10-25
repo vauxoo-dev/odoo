@@ -43,6 +43,7 @@ ListRenderer.include({
      * @param {boolean} params.isMultiEditable
      */
     init: function (parent, state, params) {
+        // debugger;
         this._super.apply(this, arguments);
 
         this.editable = params.editable;
@@ -573,6 +574,7 @@ ListRenderer.include({
      * @private
      */
     _computeDefaultWidths: function () {
+        // debugger;
         const isListEmpty = !this._hasVisibleRecords(this.state);
         const relativeWidths = [];
         this.columns.forEach(column => {
@@ -1171,6 +1173,7 @@ ListRenderer.include({
      */
     _renderRow: function (record, index) {
         var $row = this._super.apply(this, arguments);
+        // debugger;
         if (this.addTrashIcon) {
             var $icon = this.isMany2Many ?
                 $('<button>', {'class': 'fa fa-times', 'name': 'unlink', 'aria-label': _t('Unlink row ') + (index + 1)}) :
@@ -1631,6 +1634,7 @@ ListRenderer.include({
      * @param {MouseEvent} event
      */
     _onRemoveIconClick: function (event) {
+        // debugger;
         event.stopPropagation();
         var $row = $(event.target).closest('tr');
         var id = $row.data('id');

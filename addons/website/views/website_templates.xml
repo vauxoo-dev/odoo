@@ -102,7 +102,6 @@
                 </t>
             </t>
         </t>
-
         <t t-if="request and request.is_frontend_multilang and website">
             <t t-set="alternate_languages" t-value="website._get_alternate_languages(canonical_params=canonical_params)"/>
             <t t-foreach="alternate_languages" t-as="lg">

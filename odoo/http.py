@@ -603,6 +603,8 @@ class JsonRequest(WebRequest):
         # regular jsonrpc2
         request = self.httprequest.get_data().decode(self.httprequest.charset)
 
+        # import pdb; pdb.set_trace();
+
         # Read POST content or POST Form Data named "request"
         try:
             self.jsonrequest = json.loads(request)
@@ -610,6 +612,8 @@ class JsonRequest(WebRequest):
             msg = 'Invalid JSON data: %r' % (request,)
             _logger.info('%s: %s', self.httprequest.path, msg)
             raise werkzeug.exceptions.BadRequest(msg)
+
+        # import pdb; pdb.set_trace();
 
         self.params = dict(self.jsonrequest.get("params", {}))
         self.context = self.params.pop('context', dict(self.session.context))

@@ -102,6 +102,7 @@ const DynamicSnippet = publicWidget.Widget.extend({
      * @private
      */
     _fetchData: function () {
+        // debugger;
         if (this._isConfigComplete()) {
             return this._rpc(
                 {

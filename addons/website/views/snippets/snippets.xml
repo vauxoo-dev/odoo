@@ -423,6 +423,15 @@
             <we-button data-select-count="5">5</we-button>
             <we-button data-select-count="6">6</we-button>
         </we-select>
+        <!-- <we-select string="Columns" data-no-preview="true">
+            <we-button data-select-count2="0" data-name="zero_cols_opt">None</we-button>
+            <we-button data-select-count2="1">1</we-button>
+            <we-button data-select-count2="2">2</we-button>
+            <we-button data-select-count2="3">3</we-button>
+            <we-button data-select-count2="4">4</we-button>
+            <we-button data-select-count2="5">5</we-button>
+            <we-button data-select-count2="6">6</we-button>
+        </we-select> -->
     </div>
 
     <!-- Move snippets around -->

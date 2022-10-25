@@ -246,6 +246,7 @@ class Http(models.AbstractModel):
 
     @classmethod
     def _serve_page(cls):
+        # import pdb; pdb.set_trace();
         req_page = request.httprequest.path
         page_domain = [('url', '=', req_page)] + request.website.website_domain()
 
@@ -284,6 +285,7 @@ class Http(models.AbstractModel):
                     pass
 
             _, ext = os.path.splitext(req_page)
+            # import pdb; pdb.set_trace();
             response = request.render(page.view_id.id, {
                 'deletable': True,
                 'main_object': page,

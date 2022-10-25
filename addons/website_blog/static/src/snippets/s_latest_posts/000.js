@@ -15,6 +15,7 @@ publicWidget.registry.js_get_posts = publicWidget.Widget.extend({
      * @override
      */
     start: function () {
+        // debugger;
         var self = this;
         const data = self.$target[0].dataset;
         const limit = parseInt(data.postsLimit) || 4;

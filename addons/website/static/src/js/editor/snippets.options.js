@@ -1448,7 +1448,8 @@ options.registry.layout_column = options.Class.extend({
      *
      * @see this.selectClass for parameters
      */
-    selectCount: async function (previewMode, widgetValue, params) {
+    selectCount2: async function (previewMode, widgetValue, params) {
+        debugger;
         const previousNbColumns = this.$('> .row').children().length;
         let $row = this.$('> .row');
         if (!$row.length) {
@@ -2183,6 +2184,15 @@ options.registry.Box = options.Class.extend({
             this.$target[0].style.setProperty('box-shadow', '');
         }
     },
+
+    selectDataAttribute: function (previewMode, widgetValue, params) {
+        // debugger;
+            this._super.apply(this, arguments);
+            if (params.attributeName === "template_id") {
+                this._setOptionValue("is_subscription", params.is_subscription);
+                this._setOptionValue("subscription_id", params.subscription_id);
+            }
+        },
 
     //--------------------------------------------------------------------------
     // Private

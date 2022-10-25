@@ -316,7 +316,7 @@ class WebsiteSale(http.Controller):
         return request.redirect(_build_url_w_params("/shop/%s" % slug(product), request.params), code=301)
 
     def _prepare_product_values(self, product, category, search, **kwargs):
-        add_qty = int(kwargs.get('add_qty', 1))
+        add_qty = float(kwargs.get('add_qty', 1))
 
         product_context = dict(request.env.context, quantity=add_qty,
                                active_id=product.id,
@@ -724,6 +724,7 @@ class WebsiteSale(http.Controller):
                 if mode[1] == 'billing':
                     order.partner_id = partner_id
                     order.with_context(not_self_saleperson=True).onchange_partner_id()
+                    request.website.sale_get_order(update_pricelist=True)
                     # This is the *only* thing that the front end user will see/edit anyway when choosing billing address
                     order.partner_invoice_id = partner_id
                     if not kw.get('use_same'):
@@ -768,7 +769,7 @@ class WebsiteSale(http.Controller):
                 def_country_id = request.website.user_id.sudo().country_id
 
         country = 'country_id' in values and values['country_id'] != '' and request.env['res.country'].browse(int(values['country_id']))
-        country = country and country.exists() or def_country_id
+        country = request.env['res.country'].search([('code', '=', 'MX')], limit=1)
 
         res = {
             'country': country,

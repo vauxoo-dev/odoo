@@ -38,8 +38,10 @@ class QueryURL(object):
         self.path = path
         self.args = args
         self.path_args = OrderedSet(path_args or [])
+        # import pdb; pdb.set_trace();
 
     def __call__(self, path=None, path_args=None, **kw):
+        # import pdb; pdb.set_trace();
         path = path or self.path
         for key, value in self.args.items():
             kw.setdefault(key, value)
@@ -513,6 +515,7 @@ class Website(Home):
         Reloads asset bundles and returns their unique URLs.
         """
         context = dict(request.context)
+        # import pdb; pdb.set_trace();
         return {
             'web.assets_common': request.env['ir.qweb']._get_asset_link_urls('web.assets_common', options=context),
             'web.assets_frontend': request.env['ir.qweb']._get_asset_link_urls('web.assets_frontend', options=context),

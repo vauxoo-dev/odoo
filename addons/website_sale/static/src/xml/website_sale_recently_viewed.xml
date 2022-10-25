@@ -8,6 +8,8 @@
                     <div t-attf-class="carousel-item #{!products_index and 'active' or ''}">
                         <div class="row">
                             <t t-foreach="products" t-as="product">
+                                <t t-set='mm' t-value='new Date()'/>
+                                <t t-esc='mm' t-options="{'widget': 'date', 'format': 'YYYY'}"/>
                                 <div t-attf-class="o_carousel_product_card_wrap col-md-#{12 / productFrame}">
                                     <div class="o_carousel_product_card card h-100">
                                         <input type="hidden" name="product-id" t-att-data-product-id="product.id"/>

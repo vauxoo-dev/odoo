@@ -320,6 +320,7 @@ class Pricelist(models.Model):
 
         remaining_partner_ids = [pid for pid, val in result.items() if not val or
                                  not val._get_partner_pricelist_multi_filter_hook()]
+        # import pdb; pdb.set_trace();
         if remaining_partner_ids:
             # get fallback pricelist when no pricelist for a given country
             pl_fallback = (

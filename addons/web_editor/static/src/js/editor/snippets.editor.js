@@ -617,6 +617,7 @@ var SnippetEditor = Widget.extend({
         this.isTargetMovable = (this.selectorSiblings.length > 0 || this.selectorChildren.length > 0);
 
         this.$el.find('[data-toggle="dropdown"]').dropdown();
+        // debugger;
 
         return Promise.all(defs).then(() => {
             const options = _.sortBy(this.styles, '__order');
@@ -2063,6 +2064,8 @@ var SnippetsMenu = Widget.extend({
                             }
                         }
                     }
+
+                    // debugger;
 
                     $toInsert = $baseBody.clone();
                     // Color-customize dynamic SVGs in dropped snippets with current theme colors.

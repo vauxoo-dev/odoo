@@ -32,6 +32,7 @@ class AuthorizeController(http.Controller):
 
     @http.route(['/payment/authorize/s2s/create_json_3ds'], type='json', auth='public', csrf=False)
     def authorize_s2s_create_json_3ds(self, verify_validity=False, **kwargs):
+        # import pdb; pdb.set_trace();
         token = False
         acquirer = request.env['payment.acquirer'].browse(int(kwargs.get('acquirer_id')))
 

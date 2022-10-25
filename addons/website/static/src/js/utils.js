@@ -116,6 +116,7 @@ function onceAllImagesLoaded($element, $excluded) {
         if (img.complete || $excluded && ($excluded.is(img) || $excluded.has(img).length)) {
             return; // Already loaded
         }
+        // debugger;
         var def = new Promise(function (resolve, reject) {
             $(img).one('load', function () {
                 resolve();

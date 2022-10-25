@@ -96,7 +96,7 @@
                         </t>
                         <!-- Download button -->
                         <t t-if="props.isDownloadable and !attachment.isTemporary">
-                            <div class="o_Attachment_asideItem o_Attachment_asideItemDownload" t-on-click="_onClickDownload" title="Download">
+                            <div group="base.group_no_one" class="o_Attachment_asideItem o_Attachment_asideItemDownload" t-on-click="_onClickDownload" title="Download">
                                 <i class="fa fa-download"/>
                             </div>
                         </t>

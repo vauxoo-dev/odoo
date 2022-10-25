@@ -201,6 +201,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Promise}
      */
     attachTo: function (target) {
+        // debugger;
         var self = this;
         this.setElement(target.$el || target);
         return this.willStart().then(function () {

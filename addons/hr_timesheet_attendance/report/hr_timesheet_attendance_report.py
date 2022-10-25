@@ -8,6 +8,8 @@ class TimesheetAttendance(models.Model):
     _name = 'hr.timesheet.attendance.report'
     _auto = False
     _description = 'Timesheet Attendance Report'
+    _rec_name = 'order_ref'
+    _order = 'order_date DESC, order_ref DESC'
 
     user_id = fields.Many2one('res.users')
     date = fields.Date()

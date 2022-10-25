@@ -157,12 +157,12 @@ class SaleOrder(models.Model):
 
         try:
             if add_qty:
-                add_qty = int(add_qty)
+                add_qty = float(add_qty)
         except ValueError:
             add_qty = 1
         try:
             if set_qty:
-                set_qty = int(set_qty)
+                set_qty = float(set_qty)
         except ValueError:
             set_qty = 0
         quantity = 0
@@ -264,6 +264,13 @@ class SaleOrder(models.Model):
                 })
             product_with_context = self.env['product.product'].with_context(product_context).with_company(order.company_id.id)
             product = product_with_context.browse(product_id)
+            # Version of islamic
+            values['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(
+                order_line._get_display_price(product),
+                order_line.product_id.taxes_id,
+                order_line.tax_id,
+                self.company_id
+            )
 
             order_line.write(values)
 

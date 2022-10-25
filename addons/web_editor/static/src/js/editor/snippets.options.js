@@ -4718,6 +4718,7 @@ registry.VersionControl = SnippetOptionWidget.extend({
             snippetName: this.$target[0].dataset.snippet,
             onSuccess: snippetVersions => {
                 const isUpToDate = snippetVersions && ['vjs', 'vcss', 'vxml'].every(key => this.$target[0].dataset[key] === snippetVersions[key]);
+                // debugger;
                 if (!isUpToDate) {
                     this.$el.prepend(qweb.render('web_editor.outdated_block_message'));
                 }

@@ -335,6 +335,7 @@ class View(models.Model):
             domain = ['&', ('key', '=', xml_id)] + current_website.website_domain()
 
             view = self.sudo().search(domain, order='website_id', limit=1)
+
             if not view:
                 _logger.warning("Could not find view object with xml_id '%s'", xml_id)
                 raise ValueError('View %r in website %r not found' % (xml_id, self._context['website_id']))

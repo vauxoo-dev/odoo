@@ -36,6 +36,7 @@ var EventRegistrationForm = Widget.extend({
     on_click: function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
+        debugger;
         var $form = $(ev.currentTarget).closest('form');
         var $button = $(ev.currentTarget).closest('[type="submit"]');
         var post = {};
