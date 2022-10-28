@@ -172,9 +172,13 @@ class MergePartnerAutomatic(models.TransientModel):
                 except psycopg2.Error as e:
                     # updating fails, most likely due to a violated unique constraint
                     # keeping record with nonexistent partner_id is useless, better delete it
-                    msg="""An error has ocurred meanwhile foreign keys were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
-                    _logger.error(msg)
-                    raise UserError(msg)
+                    if e.pgcode == psycopg2.errorcodes.UNIQUE_VIOLATION:
+                        query = 'DELETE FROM "%(table)s" WHERE "%(column)s" IN %%s' % query_dic
+                        self._cr.execute(query, (tuple(src_partners.ids),))
+                    else:
+                        msg="""An error has ocurred meanwhile foreign keys were updated \n Destination Record: %s \nSource Record: %s, \nError: %s""" % (dst_partner.id, tuple(src_partners.ids), e)
+                        _logger.error(msg)
+                        raise UserError(msg)
 
         self.invalidate_cache()
 
@@ -199,7 +203,7 @@ class MergePartnerAutomatic(models.TransientModel):
                 # updating fails, most likely due to a violated unique constraint
                 # keeping record with nonexistent partner_id is useless, better delete it
                 # An example of this is with partners that have followers in common:
-                if model == "mail.followers" and e.pgcode == psycopg2.errorcodes.UNIQUE_VIOLATION:
+                if e.pgcode == psycopg2.errorcodes.UNIQUE_VIOLATION:
                     records.sudo().unlink()
                 else:
                     # Everything else is not expected and should fail.
