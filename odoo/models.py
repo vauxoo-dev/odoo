@@ -33,6 +33,7 @@ import logging
 import operator
 import pytz
 import re
+import traceback
 import uuid
 from collections import defaultdict, OrderedDict
 from collections.abc import MutableMapping
@@ -68,6 +69,7 @@ from .tools.lru import LRU
 _logger = logging.getLogger(__name__)
 _schema = logging.getLogger(__name__ + '.schema')
 _unlink = logging.getLogger(__name__ + '.unlink')
+_logger_clear_caches = logging.getLogger(__name__ + '.clear_caches')
 
 regex_order = re.compile('^(\s*([a-z0-9:_]+|"[a-z0-9:_]+")(\s+(desc|asc))?\s*(,|$))+(?<!,)$', re.I)
 regex_object_name = re.compile(r'^[a-z0-9_.]+$')
@@ -1972,6 +1974,9 @@ class BaseModel(metaclass=MetaModel):
         ``tools.ormcache`` or ``tools.ormcache_multi``.
         """
         cls.pool._clear_cache()
+        tcbk = traceback.extract_stack()
+        tcbk_str = '\n'.join(repr(v).replace('<FrameSummary file ', '', 1) for v in tcbk)
+        _logger_clear_caches.info("%s cleared cache from:\n%s", cls._name, tcbk_str)
 
     @api.model
     def _read_group_expand_full(self, groups, domain, order):
