@@ -178,7 +178,10 @@ models.PosModel = models.PosModel.extend({
         if (orders_to_sync.length) {
             this.set_synch('connecting', orders_to_sync.length);
             this._save_to_server(orders_to_sync, {'draft': true}).then(function (server_ids) {
-                server_ids.forEach(server_id => self.update_table_order(server_id, table_orders));
+                server_ids.forEach(server_id => {
+                    self.validated_orders_name_server_id_map[server_id.pos_reference] = server_id.id;
+                    self.update_table_order(server_id, table_orders);
+                });
                 if (!ids_to_remove.length) {
                     self.set_synch('connected');
                 } else {
