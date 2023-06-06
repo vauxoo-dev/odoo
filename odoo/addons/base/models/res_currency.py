@@ -183,6 +183,9 @@ class Currency(models.Model):
     def _get_conversion_rate(self, from_currency, to_currency, company, date):
         currency_rates = (from_currency + to_currency)._get_rates(company, date)
         res = currency_rates.get(to_currency.id) / currency_rates.get(from_currency.id)
+        if self._context.get('dp_custom') or self._context.get('website_id'):
+            dp = self.env['decimal.precision'].precision_get('Rate Precision')
+            res = round(res, dp)
         return res
 
     def _convert(self, from_amount, to_currency, company, date, round=True):
