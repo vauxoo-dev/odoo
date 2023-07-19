@@ -133,7 +133,8 @@ class SaleOrder(models.Model):
                     discount = 0
                     pu = price
         else:
-            pu = product.price
+            # The price is already available without the need for calculations, so we take it directly from website_public_lst_price_usd
+            pu = product.website_public_lst_price_usd 
             if order.pricelist_id and order.partner_id:
                 order_line = order._cart_find_product_line(product.id)
                 if order_line:
