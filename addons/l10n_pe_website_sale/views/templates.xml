@@ -121,7 +121,7 @@
             <attribute name="id">state_id</attribute>
         </select>
         <xpath expr="//input[@name='city']/.." position="attributes">
-            <attribute name="t-attf-class" add="d-none" separator=" " />
+            <!--attribute name="t-attf-class" add="d-none" separator=" " /-->
         </xpath>
     </template>
 
