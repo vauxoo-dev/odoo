@@ -45,7 +45,7 @@
         <!-- show city -->
         <div
             t-attf-class="mb-3 #{error.get('city_id') and 'o_has_error' or ''} col-lg-6 div_city_id"
-            t-att-style="not state and 'display: none'"
+            t-attf-style="#{(country and country.code != 'PE') and 'display: none' or ''}"
         >
             <label class="col-form-label" for="city_id">City</label>
             <select
@@ -111,17 +111,16 @@
         </label>
         <xpath expr="//select[@name='state_id']/.." position="after">
             <div class="w-100" />
-            <t t-if="mode[1] == 'billing'">
                 <t t-if="res_company.country_id.code == 'PE'">
                     <t t-call="l10n_pe_website_sale.partner_address_info" />
                 </t>
-            </t>
         </xpath>
         <select name="state_id" position="attributes">
             <attribute name="id">state_id</attribute>
         </select>
-        <xpath expr="//input[@name='city']/.." position="attributes">
-            <!--<attribute name="t-attf-class" add="d-none" separator=" " />-->
+        <!-- Sets the country code for every country option -->
+        <xpath expr="//t[@t-foreach='countries']//option" position="attributes">
+            <attribute name="t-att-code">c.code</attribute>
         </xpath>
     </template>
 

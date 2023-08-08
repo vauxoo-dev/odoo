@@ -1,80 +1,90 @@
-odoo.define("l10n_pe_website_sale.website_sale", function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var _ = require("web.utils");
-    var websiteSale = require("website_sale.website_sale");
-    var publicWidget = require("web.public.widget");
+import { WebsiteSale } from "@website_sale/js/website_sale";
 
-    publicWidget.registry.WebsiteSale = websiteSale.WebsiteSale.extend({
-        events: _.extend({}, websiteSale.WebsiteSale.prototype.events, {
-            'change select[name="state_id"]': "_onChangeState",
-            'change select[name="city_id"]': "_onChangeCity",
-        }),
-        _changeState: function () {
-            if (!$("#state_id").val()) {
-                return;
+WebsiteSale.include({
+    events: Object.assign({}, WebsiteSale.prototype.events, {
+        "change select[name='state_id']": "_onChangeState",
+        "change select[name='city_id']": "_onChangeCity",
+    }),
+    start: function () {
+        this.selectCities = $("select[name='city_id']");
+        this.selectDistricts = $("select[name='l10n_pe_district']");
+        this.cityBlock = $(".div_city");
+        return this._super.apply(this, arguments);
+    },
+    _changeState: function () {
+        if (!$("#state_id").val()) {
+            return;
+        }
+        this._rpc({
+            route: "/shop/state_infos/" + $("#state_id").val(),
+            params: {
+                mode: $("#country_id").attr("mode"),
+            },
+        }).then(data => {
+            // populate cities and display
+            if (data.cities.length) {
+                this.selectCities.html("");
+                this.selectCities.append($("<option>").text("City..."));
+                $.each(data.cities, (c) => {
+                    let opt = $("<option>").text(data.cities[c][1]).attr("value", data.cities[c][0]).attr("data-code", data.cities[c][2]);
+                    this.selectCities.append(opt);
+                });
+                this.selectCities.parent("div").show();
+            } else {
+                this.selectCities.val("").parent("div").hide();
             }
-            this._rpc({
-                route: "/shop/state_infos/" + $("#state_id").val(),
-                params: {
-                    mode: $("#country_id").attr("mode"),
-                },
-            }).then(function (data) {
-                // populate cities and display
-                var selectCities = $("select[name='city_id']");
-                var selectDistricts = $("select[name='l10n_pe_district']");
-                if (data.cities.length) {
-                    selectCities.html("");
-                    selectCities.append($("<option>").text("City..."));
-                    _.each(data.cities, function (c) {
-                        var opt = $("<option>").text(c[1]).attr("value", c[0]).attr("data-code", c[2]);
-                        selectCities.append(opt);
-                    });
-                    selectCities.parent("div").show();
-                } else {
-                    selectCities.val("").parent("div").hide();
-                }
-                selectDistricts.val("").parent("div").hide();
-            });
-        },
-        _changeCity: function () {
-            if (!$("#city_id").val()) {
-                return;
+            this.selectDistricts.val("").parent("div").hide();
+        });
+    },
+    _changeCity: function () {
+        if (!$("#city_id").val()) {
+            return;
+        }
+        this._rpc({
+            route: "/shop/city_infos/" + $("#city_id").val(),
+            params: {
+                mode: $("#country_id").attr("mode"),
+            },
+        }).then(data => {
+            // populate districts and display
+            if (data.districts.length) {
+                this.selectDistricts.html("");
+                $.each(data.districts, (d) => {
+                    let opt = $("<option>").text(data.districts[d][1]).attr("value", data.districts[d][0]).attr("data-code", data.districts[d][2]);
+                    this.selectDistricts.append(opt);
+                });
+                this.selectDistricts.parent("div").show();
+            } else {
+                this.selectDistricts.val("").parent("div").hide();
             }
-            this._rpc({
-                route: "/shop/city_infos/" + $("#city_id").val(),
-                params: {
-                    mode: $("#country_id").attr("mode"),
-                },
-            }).then(function (data) {
-                // populate districts and display
-                var selectDistricts = $("select[name='l10n_pe_district']");
-                if (data.districts.length) {
-                    selectDistricts.html("");
-                    _.each(data.districts, function (d) {
-                        var opt = $("<option>").text(d[1]).attr("value", d[0]).attr("data-code", d[2]);
-                        selectDistricts.append(opt);
-                    });
-                    selectDistricts.parent("div").show();
-                } else {
-                    selectDistricts.val("").parent("div").hide();
-                }
-            });
-        },
-        _onChangeState: function (ev) {
-            if (!this.$(".checkout_autoformat").length) {
-                return;
-            }
-            this._changeState();
-        },
-        _onChangeCity: function (ev) {
-            if (!this.$(".checkout_autoformat").length) {
-                return;
-            }
-            this._changeCity();
-        },
-    });
-    return {
-        WebsiteSale: publicWidget.registry.WebsiteSale,
-    };
+        });
+    },
+    _onChangeState: function (ev) {
+        if (!this.$(".checkout_autoformat").length) {
+            return;
+        }
+        this._changeState();
+    },
+    _onChangeCity: function (ev) {
+        if (!this.$(".checkout_autoformat").length) {
+            return;
+        }
+        this._changeCity();
+    },
+    _onChangeCountry: function (ev) {
+        this._super(...arguments);
+        let selectedCountry = $(ev.currentTarget).find("option:selected").attr("code");
+
+        if (selectedCountry == "PE"){
+            this.cityBlock.addClass("d-none");
+        }
+        else if (selectedCountry != "PE"){
+            this.cityBlock.find("input").val("");
+            this.cityBlock.removeClass("d-none");
+            this.selectCities.val("").parent("div").hide();
+            this.selectDistricts.val("").parent("div").hide();
+        }
+    },
 });

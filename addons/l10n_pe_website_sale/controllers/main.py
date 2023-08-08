@@ -7,10 +7,26 @@ from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 class L10nPEWebsiteSale(WebsiteSale):
     def _get_mandatory_fields_billing(self, country_id=False):
-        """Extend mandatory fields to add new identification and responsibility fields when company is Peru"""
+        """Extend mandatory fields to add new identification, responsibility
+        city_id and distrcit fields when company is Peru"""
         res = super()._get_mandatory_fields_billing(country_id)
+        if country_id:
+            country = request.env['res.country'].browse(country_id)
+        if country and country == request.env.ref("base.pe"):
+            res += ["city_id", "l10n_pe_district"]
+            res.remove("city")
         if request.website.sudo().company_id.country_id.code == "PE":
             res += ["l10n_latam_identification_type_id", "vat"]
+        return res
+
+    def _get_mandatory_fields_shipping(self, country_id=False):
+        """Extend mandatory fields to add city_id and district fields when the selected country is Peru"""
+        res = super()._get_mandatory_fields_shipping(country_id)
+        if country_id:
+            country = request.env['res.country'].browse(country_id)
+        if country and country == request.env.ref("base.pe"):
+            res += ["city_id", "l10n_pe_district"]
+            res.remove("city")
         return res
 
     def _get_country_related_render_values(self, kw, render_values):
