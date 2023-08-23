@@ -136,10 +136,17 @@ odoo.define('point_of_sale.PaymentScreen', function (require) {
                 this.currentOrder.set_tip(parse.float(payload));
             }
         }
-        toggleIsToShip() {
-            // click_ship
-            this.currentOrder.set_to_ship(!this.currentOrder.is_to_ship());
-            this.render(true);
+        async toggleShippingDatePicker() {
+            if (!this.currentOrder.getShippingDate()) {
+                const { confirmed, payload: shippingDate } = await this.showPopup("DatePickerPopup", {
+                    title: this.env._t("Select the shipping date"),
+                });
+                if (confirmed) {
+                    this.currentOrder.setShippingDate(shippingDate);
+                }
+            } else {
+                this.currentOrder.setShippingDate(false);
+            }
         }
         deletePaymentLine(event) {
             var self = this;
@@ -313,7 +320,7 @@ odoo.define('point_of_sale.PaymentScreen', function (require) {
                 return false;
             }
 
-            if ((this.currentOrder.is_to_invoice() || this.currentOrder.is_to_ship()) && !this.currentOrder.get_partner()) {
+            if ((this.currentOrder.is_to_invoice() || this.currentOrder.getShippingDate()) && !this.currentOrder.get_partner()) {
                 const { confirmed } = await this.showPopup('ConfirmPopup', {
                     title: this.env._t('Please select the Customer'),
                     body: this.env._t(
@@ -327,7 +334,7 @@ odoo.define('point_of_sale.PaymentScreen', function (require) {
             }
 
             let partner = this.currentOrder.get_partner()
-            if (this.currentOrder.is_to_ship() && !(partner.name && partner.street && partner.city && partner.country_id)) {
+            if (this.currentOrder.getShippingDate() && !(partner.name && partner.street && partner.city && partner.country_id)) {
                 this.showPopup('ErrorPopup', {
                     title: this.env._t('Incorrect address for shipping'),
                     body: this.env._t('The selected customer needs an address.'),

@@ -30,6 +30,9 @@ odoo.define('point_of_sale.OrderReceipt', function(require) {
         get receiptEnv () {
           return this._receiptEnv;
         }
+        get shippingDate() {
+            return this.receiptEnv.shippingDate
+        }
         isSimple(line) {
             return (
                 line.discount === 0 &&

@@ -313,12 +313,22 @@ odoo.define('pos_sale.SaleOrderManagementScreen', function (require) {
             const sale_order = await this.rpc({
                 model: 'sale.order',
                 method: 'read',
-                args: [[id],['order_line', 'partner_id', 'pricelist_id', 'fiscal_position_id', 'amount_total', 'amount_untaxed', 'amount_unpaid', 'partner_shipping_id', 'partner_invoice_id']],
+                args: [[id],['order_line', 'partner_id', 'pricelist_id', 'fiscal_position_id', 'amount_total', 'amount_untaxed', 'amount_unpaid', 'partner_shipping_id', 'partner_invoice_id', 'picking_ids',]],
                 context: this.env.session.user_context,
             });
 
             const sale_lines = await this._getSOLines(sale_order[0].order_line);
             sale_order[0].order_line = sale_lines;
+
+            const picking_id = await this.rpc({
+                model: 'stock.picking',
+                method: 'read',
+                args: [
+                    [sale_order[0].picking_ids[0]],
+                    ['scheduled_date'],
+                ],
+              });
+            sale_order[0].shipping_date = picking_id[0].scheduled_date;
 
             return sale_order[0];
         }
