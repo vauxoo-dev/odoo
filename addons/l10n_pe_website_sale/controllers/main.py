@@ -79,15 +79,15 @@ class L10nPEWebsiteSale(WebsiteSale):
         methods=["POST"],
         website=True,
     )
-    def state_infos(self, state, mode, **kw):
+    def state_infos(self, state, **kw):
         return dict(
-            cities=[(c.id, c.name, c.l10n_pe_code) for c in state.get_website_sale_cities(mode=mode)],
+            cities=[(c.id, c.name, c.l10n_pe_code) for c in state.get_website_sale_cities()],
         )
 
     @http.route(
         ['/shop/city_infos/<model("res.city"):city>'], type="json", auth="public", methods=["POST"], website=True
     )
-    def city_infos(self, city, mode, **kw):
+    def city_infos(self, city, **kw):
         return dict(
-            districts=[(d.id, d.name, d.code) for d in city.get_website_sale_districts(mode=mode)],
+            districts=[(d.id, d.name, d.code) for d in city.get_website_sale_districts()],
         )

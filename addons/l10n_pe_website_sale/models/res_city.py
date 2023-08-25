@@ -6,5 +6,5 @@ from odoo import models
 class City(models.Model):
     _inherit = "res.city"
 
-    def get_website_sale_districts(self, mode="billing"):
+    def get_website_sale_districts(self):
         return self.env["l10n_pe.res.city.district"].sudo().search([("city_id", "=", self.id)])

@@ -1,5 +1,4 @@
 /** @odoo-module **/
-
 import { WebsiteSale } from "@website_sale/js/website_sale";
 
 WebsiteSale.include({
@@ -8,83 +7,103 @@ WebsiteSale.include({
         "change select[name='city_id']": "_onChangeCity",
     }),
     start: function () {
-        this.selectCities = $("select[name='city_id']");
-        this.selectDistricts = $("select[name='l10n_pe_district']");
-        this.cityBlock = $(".div_city");
+        this.selectCities = document.querySelector("select[name='city_id']");
+        this.selectDistricts = document.querySelector("select[name='l10n_pe_district']");
+        this.cityBlock = document.querySelector(".div_city");
+        this.autoFormat = document.querySelector(".checkout_autoformat");
+        this.selectedState = document.querySelector("select[name='state_id']");
         return this._super.apply(this, arguments);
     },
     _changeState: function () {
-        if (!$("#state_id").val()) {
+        if (!document.getElementById("state_id").value) {
             return;
         }
         this._rpc({
-            route: "/shop/state_infos/" + $("#state_id").val(),
-            params: {
-                mode: $("#country_id").attr("mode"),
-            },
+            route: "/shop/state_infos/" + document.getElementById("state_id").value,
         }).then(data => {
             // populate cities and display
             if (data.cities.length) {
-                this.selectCities.html("");
-                this.selectCities.append($("<option>").text("City..."));
-                $.each(data.cities, (c) => {
-                    let opt = $("<option>").text(data.cities[c][1]).attr("value", data.cities[c][0]).attr("data-code", data.cities[c][2]);
-                    this.selectCities.append(opt);
+                this.selectCities.innerHTML = "";
+                let option = document.createElement("option");
+                option.textContent = "City...";
+                this.selectCities.appendChild(option);
+                data.cities.forEach(city => {
+                    let opt = document.createElement("option");
+                    opt.textContent = city[1];
+                    opt.value = city[0];
+                    opt.setAttribute("data-code", city[2]);
+                    this.selectCities.appendChild(opt);
                 });
-                this.selectCities.parent("div").show();
+                this.selectCities.parentElement.style.display = "block";
             } else {
-                this.selectCities.val("").parent("div").hide();
+                this.selectCities.value = "";
+                this.selectCities.parentElement.style.display = "none";
             }
-            this.selectDistricts.val("").parent("div").hide();
+            this.selectDistricts.value = "";
+            this.selectDistricts.parentElement.style.display = "none";
         });
     },
     _changeCity: function () {
-        if (!$("#city_id").val()) {
+        if (!document.getElementById("city_id").value) {
             return;
         }
         this._rpc({
-            route: "/shop/city_infos/" + $("#city_id").val(),
-            params: {
-                mode: $("#country_id").attr("mode"),
-            },
+            route: "/shop/city_infos/" + document.getElementById("city_id").value,
         }).then(data => {
             // populate districts and display
             if (data.districts.length) {
-                this.selectDistricts.html("");
-                $.each(data.districts, (d) => {
-                    let opt = $("<option>").text(data.districts[d][1]).attr("value", data.districts[d][0]).attr("data-code", data.districts[d][2]);
-                    this.selectDistricts.append(opt);
+                this.selectDistricts.innerHTML = "";
+                data.districts.forEach(district => {
+                    let opt = document.createElement("option");
+                    opt.textContent = district[1];
+                    opt.value = district[0];
+                    opt.setAttribute("data-code", district[2]);
+                    this.selectDistricts.appendChild(opt);
                 });
-                this.selectDistricts.parent("div").show();
+                this.selectDistricts.parentElement.style.display = "block";
             } else {
-                this.selectDistricts.val("").parent("div").hide();
+                this.selectDistricts.value = "";
+                this.selectDistricts.parentElement.style.display = "none";
             }
         });
     },
     _onChangeState: function (ev) {
-        if (!this.$(".checkout_autoformat").length) {
+        if (!this.autoFormat.length) {
             return;
         }
         this._changeState();
     },
     _onChangeCity: function (ev) {
-        if (!this.$(".checkout_autoformat").length) {
+        if (!this.autoFormat.length) {
             return;
         }
         this._changeCity();
     },
     _onChangeCountry: function (ev) {
         this._super(...arguments);
-        let selectedCountry = $(ev.currentTarget).find("option:selected").attr("code");
 
-        if (selectedCountry == "PE"){
-            this.cityBlock.addClass("d-none");
-        }
-        else if (selectedCountry != "PE"){
-            this.cityBlock.find("input").val("");
-            this.cityBlock.removeClass("d-none");
-            this.selectCities.val("").parent("div").hide();
-            this.selectDistricts.val("").parent("div").hide();
+        // si el div de state se muestra hacer trigger del change state
+
+        // Create a new 'change' event en JS
+        // var event = new Event('change');
+        // this.selectedState.dispatchEvent(event);
+
+        // jquery
+        $(this.selectedState).change();
+
+        let selectedCountry = ev.currentTarget.options[ev.currentTarget.selectedIndex].getAttribute("code");
+
+        if (selectedCountry == "PE") {
+            this.cityBlock.classList.add("d-none");
+        } else if (selectedCountry != "PE") {
+            this.cityBlock.querySelectorAll("input").forEach(input => {
+                input.value = "";
+            });
+            this.cityBlock.classList.remove("d-none");
+            this.selectCities.value = "";
+            this.selectCities.parentElement.style.display = "none";
+            this.selectDistricts.value = "";
+            this.selectDistricts.parentElement.style.display = "none";
         }
     },
 });

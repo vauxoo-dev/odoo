@@ -3,13 +3,11 @@
 
     <function model="ir.model.fields" name="formbuilder_whitelist">
         <value>res.partner</value>
-        <value
-            eval="[
+        <value eval="[
             'city_id',
             'l10n_latam_identification_type_id',
             'l10n_pe_district',
-        ]"
-        />
+        ]"/>
     </function>
 
 </odoo>
