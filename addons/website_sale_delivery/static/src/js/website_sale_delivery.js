@@ -12,7 +12,6 @@ odoo.define('website_sale_delivery.checkout', function (require) {
     var $pay_button = $('#o_payment_form_pay');
     var $deliveryInputs = $("input[name='delivery_type']")
 
-
     var _onCarrierUpdateAnswer = function(result) {
         var $amount_delivery = $('#order_delivery span.oe_currency_value');
         var $amount_untaxed = $('#order_total_untaxed span.oe_currency_value');
@@ -54,12 +53,12 @@ odoo.define('website_sale_delivery.checkout', function (require) {
     };
 
     var _onCarrierClick = function(ev) {
-        $deliveryInputs.prop('disabled', true);
         $pay_button.data('disabled_reasons', $pay_button.data('disabled_reasons') || {});
         $pay_button.data('disabled_reasons').carrier_selection = true;
         $pay_button.prop('disabled', true);
         var carrier_id = $(ev.currentTarget).val();
         var values = {'carrier_id': carrier_id};
+        $deliveryInputs.prop('disabled', true);
         dp.add(ajax.jsonRpc('/shop/update_carrier', 'call', values))
           .then(_onCarrierUpdateAnswer);
     };
