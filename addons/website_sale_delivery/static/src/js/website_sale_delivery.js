@@ -10,6 +10,8 @@ odoo.define('website_sale_delivery.checkout', function (require) {
 
     /* Handle interactive carrier choice + cart update */
     var $pay_button = $('#o_payment_form_pay');
+    var $deliveryInputs = $("input[name='delivery_type']")
+
 
     var _onCarrierUpdateAnswer = function(result) {
         var $amount_delivery = $('#order_delivery span.oe_currency_value');
@@ -48,9 +50,11 @@ odoo.define('website_sale_delivery.checkout', function (require) {
             $amount_tax.text(result.new_amount_tax);
             $amount_total.text(result.new_amount_total);
         }
+        $deliveryInputs.prop('disabled', false);
     };
 
     var _onCarrierClick = function(ev) {
+        $deliveryInputs.prop('disabled', true);
         $pay_button.data('disabled_reasons', $pay_button.data('disabled_reasons') || {});
         $pay_button.data('disabled_reasons').carrier_selection = true;
         $pay_button.prop('disabled', true);
