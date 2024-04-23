@@ -46,8 +46,12 @@ class TestSequenceConcurrency(TransactionCase):
         self.product = self.env.ref("product.product_delivery_01")
         self.partner = self.env.ref("base.res_partner_12")
         self.date = fields.Date.to_date("1985-04-14")
+        self.partner2 = self.env.ref("base.res_partner_1")
 
-    def _create_invoice_form(self, env, post=True):
+    def _create_invoice_form(self, env, post=True, partner=None):
+        if partner is None:
+            # Use another partner to bypass "increase_rank" lock error
+            partner = self.partner
         if release.version == "13.0":
             # It is not compatible for v14.0
             # issue related with attachments
@@ -55,7 +59,7 @@ class TestSequenceConcurrency(TransactionCase):
         else:
             ctx = {"default_move_type": "out_invoice"}
         with Form(env["account.move"].with_context(**ctx)) as invoice_form:
-            invoice_form.partner_id = self.partner
+            invoice_form.partner_id = partner
             invoice_form.invoice_date = self.date
             with invoice_form.invoice_line_ids.new() as line_form:
                 line_form.product_id = self.product
@@ -359,6 +363,28 @@ class TestSequenceConcurrency(TransactionCase):
                     )
                 else:
                     raise
+
+    def _new_cr(self):
+        return self.env.registry.cursor()
+
+    def test_sequence_concurrency_92_invoices(self):
+        """Creating concurrent invoices should not raises errors"""
+        with self._new_cr() as cr0, self._new_cr() as cr1, self._new_cr() as cr2:
+            env0 = api.Environment(cr0, SUPERUSER_ID, {})
+            env1 = api.Environment(cr1, SUPERUSER_ID, {})
+            env2 = api.Environment(cr2, SUPERUSER_ID, {})
+            for cr in [cr0, cr1, cr2]:
+                # Set 10s timeout in order to avoid waiting for release locks a long time
+                cr.execute("SET LOCAL statement_timeout = '10s'")
+
+            # Create "last move" to lock
+            invoice = self._create_invoice_form(env0)
+            self.addCleanup(self._clean_moves, invoice.ids)
+            env0.cr.commit()
+            with env1.cr.savepoint(), env2.cr.savepoint():
+                self._create_invoice_form(env1)
+                # Using another partner to bypass "increase_rank" lock error
+                self._create_invoice_form(env2, partner=self.partner2)
 
     @tools.mute_logger("odoo.sql_db")
     def test_sequence_concurrency_95_pay2inv_inv2pay(self):
