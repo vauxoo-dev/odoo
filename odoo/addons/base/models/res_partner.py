@@ -979,9 +979,12 @@ class Partner(models.Model):
                         result[record.type] = record.id
                     if len(result) == len(adr_pref):
                         return result
-                    to_scan = [c for c in record.child_ids
-                                 if c not in visited
-                                 if not c.is_company] + to_scan
+                    domain = [("id", "not in", [i.id for i in visited]),
+                              ("parent_id", "=", record.id), ("is_company", "=", False)]
+                    for address_type in adr_pref - set(result):
+                        new_address = self.search(domain + [("type", "=", address_type)], limit=1)
+                        if new_address:
+                            to_scan.append(new_address)
 
                 # Continue scanning at ancestor if current_partner is not a commercial entity
                 if current_partner.is_company or not current_partner.parent_id:
