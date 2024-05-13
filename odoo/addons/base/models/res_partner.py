@@ -962,34 +962,42 @@ class Partner(models.Model):
         then continuing the search at the ancestors that are within the same company boundaries.
         Defaults to partners of type ``'default'`` when the exact type is not found, or to the
         provided partner itself if no type ``'default'`` is found either. """
+        self.check_access_rights('read')
         adr_pref = set(adr_pref or [])
         if 'contact' not in adr_pref:
             adr_pref.add('contact')
+        if not self.ids:
+            return {}.fromkeys(adr_pref, False)
         result = {}
-        visited = set()
-        for partner in self:
-            current_partner = partner
-            while current_partner:
-                to_scan = [current_partner]
-                # Scan descendants, DFS
-                while to_scan:
-                    record = to_scan.pop(0)
-                    visited.add(record)
-                    if record.type in adr_pref and not result.get(record.type):
-                        result[record.type] = record.id
-                    if len(result) == len(adr_pref):
-                        return result
-                    domain = [("id", "not in", [i.id for i in visited]),
-                              ("parent_id", "=", record.id), ("is_company", "=", False)]
-                    for address_type in adr_pref - set(result):
-                        new_address = self.search(domain + [("type", "=", address_type)], limit=1)
-                        if new_address:
-                            to_scan.append(new_address)
+        query = """
+            WITH RECURSIVE descendants AS (
+                SELECT *, 1::INT AS depth
+                FROM res_partner AS parent
+                WHERE parent_id IN %%(partner_ids)s
 
-                # Continue scanning at ancestor if current_partner is not a commercial entity
-                if current_partner.is_company or not current_partner.parent_id:
-                    break
-                current_partner = current_partner.parent_id
+                UNION ALL
+
+                SELECT p.*, d.depth + 1 AS depth
+                FROM res_partner p
+                JOIN descendants d
+                  ON p.parent_id = d.id
+                WHERE p.active IS TRUE
+                  AND (p.is_company IS FALSE OR p.is_company IS NULL)
+                  AND p.type IN %%(adr_pref)s
+
+                -- TODO: Get domain query with company, ACL, context active
+                -- domain = [("is_company", "=", False), ("type", "in", list(adr_pref))]
+                -- query = self._where_calc(domain)
+                -- self._apply_ir_rules(query)
+                -- _, query_where, query_params = query.get_sql()
+            )
+            SELECT DISTINCT ON (type)
+            type, id
+            FROM descendants
+            ORDER BY type, depth, %s
+        """
+        self.env.cr.execute(query % self._order, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
+        result = dict(self.env.cr.fetchall())
 
         # default to type 'contact' or the partner itself
         default = result.get('contact', self.id or False)
