@@ -362,52 +362,62 @@ class TestBase(TransactionCaseWithUserDemo):
     def test_50_res_partner_address_get_all(self):
         """Test delivery and contact combinations for 3 levels based on csv file"""
         partner = self.env["res.partner"]
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         with file_open(os.path.join(os.path.realpath(os.path.dirname(__file__)), "partner_address_type.csv")) as fcomb:
             reader = csv.DictReader(fcomb)
-            for record in reader:
+            for line, record in enumerate(reader, start=2):
                 self.env.cr.execute("SAVEPOINT temp_partner")
                 main = partner.create({
-                    'name': 'Main Level',
+                    'name': f'Main Level {line}',
                     'parent_id': None,
                     'type': record["main_level"],
-                    'is_company': record["main_level_is_company"],
+                    'is_company': record["main_level_is_company"].lower() == "true",
                 })
 
                 child_level11 = partner.create({
-                    'name': 'child_level11',
+                    'name': f'child_level11 {line}',
                     'parent_id': main.id,
                     'type': record["child_level11"],
-                    'is_company': record["child_level11_is_company"],
+                    'is_company': record["child_level11_is_company"].lower() == "true",
                 })
                 child_level12 = partner.create({
-                    'name': 'child_level12',
+                    'name': f'child_level12 {line}',
                     'parent_id': main.id,
                     'type': record["child_level12"],
-                    'is_company': record["child_level12_is_company"],
+                    'is_company': record["child_level12_is_company"].lower() == "true",
                 })
-
                 child_level21 = partner.create({
-                    'name': 'child_level21',
+                    'name': f'child_level21 {line}',
                     'parent_id': child_level11.id,
                     'type': record["child_level21"],
-                    'is_company': record["child_level21_is_company"],
+                    'is_company': record["child_level21_is_company"].lower() == "true",
                 })
                 child_level22 = partner.create({
-                    'name': 'child_level22',
+                    'name': f'child_level22 {line}',
                     'parent_id': child_level11.id,
                     'type': record["child_level22"],
-                    'is_company': record["child_level22_is_company"],
+                    'is_company': record["child_level22_is_company"].lower() == "true",
                 })
                 partner_id_names = {main.id: "main", child_level11.id:"child_level11", child_level12.id: "child_level12", child_level21.id:"child_level21", child_level22.id:"child_level22"}
 
                 res = main.address_get(["delivery"])
-                for key in ["contact", "delivery", None]:
+                children = main.search([("id", "child_of", main.id)])
+                children_data = children.read(["name", "is_company", "type", "parent_id"])
+                for key in ["contact", "delivery"]:
                     partner_id = res.get(key)
                     value = partner_id_names.get(partner_id)
-                    print(f"{value},", end='')
+                    # import pdb;pdb.set_trace()
+                    self.assertEqual(value, record[key], f"The partner_type {key} returns different results expected {record[key]} but {value} found. Current structure {children_data}")
+                    # print(f"{value},", end='')
                     # values[key] = partner_id_names[value]
-                print()
+                # import pdb;pdb.set_trace()
+                # print()
+                # children = main.search([("id", "child_of", main.id)])
+                # print(children.mapped("type"))
+                # print(children.mapped("is_company"))
+                # if "delivery" in main.search([("id", "child_of", main.id)]).mapped("type"):
+                #     import pdb;pdb.set_trace()
+                #     print("hola")
                 # print(record.values())
                 # print(res)
                 # print(values)
