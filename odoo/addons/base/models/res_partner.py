@@ -969,6 +969,7 @@ class Partner(models.Model):
         if not self.ids:
             return {}.fromkeys(adr_pref, False)
         result = {}
+        # TODO: flush
         query = """
             WITH RECURSIVE descendants AS (
                 SELECT *, 1::INT AS depth

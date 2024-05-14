@@ -2,6 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import ast
+import csv
+import os
 
 from textwrap import dedent
 
@@ -9,7 +11,7 @@ from odoo import SUPERUSER_ID, Command
 from odoo.exceptions import RedirectWarning, UserError, ValidationError
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase, BaseCase
-from odoo.tools import mute_logger
+from odoo.tools import file_open, mute_logger
 from odoo.tools.safe_eval import safe_eval, const_eval, expr_eval
 from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
 
@@ -356,6 +358,60 @@ class TestBase(TransactionCaseWithUserDemo):
         branch11.write({'type': 'contact'})
         self.assertEqual(leaf111.address_get([]),
                         {'contact': branch11.id}, 'Invalid address resolution, branch11 should now be contact')
+    
+    def test_50_res_partner_address_get_all(self):
+        """Test delivery and contact combinations for 3 levels based on csv file"""
+        partner = self.env["res.partner"]
+        import pdb;pdb.set_trace()
+        with file_open(os.path.join(os.path.realpath(os.path.dirname(__file__)), "partner_address_type.csv")) as fcomb:
+            reader = csv.DictReader(fcomb)
+            for record in reader:
+                self.env.cr.execute("SAVEPOINT temp_partner")
+                main = partner.create({
+                    'name': 'Main Level',
+                    'parent_id': None,
+                    'type': record["main_level"],
+                    'is_company': record["main_level_is_company"],
+                })
+
+                child_level11 = partner.create({
+                    'name': 'child_level11',
+                    'parent_id': main.id,
+                    'type': record["child_level11"],
+                    'is_company': record["child_level11_is_company"],
+                })
+                child_level12 = partner.create({
+                    'name': 'child_level12',
+                    'parent_id': main.id,
+                    'type': record["child_level12"],
+                    'is_company': record["child_level12_is_company"],
+                })
+
+                child_level21 = partner.create({
+                    'name': 'child_level21',
+                    'parent_id': child_level11.id,
+                    'type': record["child_level21"],
+                    'is_company': record["child_level21_is_company"],
+                })
+                child_level22 = partner.create({
+                    'name': 'child_level22',
+                    'parent_id': child_level11.id,
+                    'type': record["child_level22"],
+                    'is_company': record["child_level22_is_company"],
+                })
+                partner_id_names = {main.id: "main", child_level11.id:"child_level11", child_level12.id: "child_level12", child_level21.id:"child_level21", child_level22.id:"child_level22"}
+
+                res = main.address_get(["delivery"])
+                for key in ["contact", "delivery", None]:
+                    partner_id = res.get(key)
+                    value = partner_id_names.get(partner_id)
+                    print(f"{value},", end='')
+                    # values[key] = partner_id_names[value]
+                print()
+                # print(record.values())
+                # print(res)
+                # print(values)
+                self.env.cr.execute("ROLLBACK TO SAVEPOINT temp_partner")
 
     def test_commercial_partner_nullcompany(self):
         """ The commercial partner is the first/nearest ancestor-or-self which
