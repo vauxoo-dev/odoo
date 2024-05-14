@@ -1001,10 +1001,10 @@ class Partner(models.Model):
         """
         self.env.cr.execute(query % self._order, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
         result = dict(self.env.cr.fetchall())
-        if self.name == "Main Level 329":
-            import ipdb;ipdb.set_trace()
-            print(self.env.cr.query.decode('UTF-8'))
-            # self.env["res.partner"].browse(result["delivery"]).read(["name", "is_company", "type", "parent_id"])
+        # if self.name == "Main Level 329":
+        #     import ipdb;ipdb.set_trace()
+        #     print(self.env.cr.query.decode('UTF-8'))
+        #     # self.env["res.partner"].browse(result["delivery"]).read(["name", "is_company", "type", "parent_id"])
 
         # default to type 'contact' or the partner itself
         default = result.get('contact', self.id or False)
