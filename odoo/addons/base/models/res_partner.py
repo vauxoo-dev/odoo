@@ -969,31 +969,21 @@ class Partner(models.Model):
         if not self.ids:
             return {}.fromkeys(adr_pref, False)
         result = {}
-        self.flush()
+        self.flush(["parent_id", "is_company", "active", "type", "display_name"])
         query = """
             WITH RECURSIVE descendants AS (
-                SELECT *, 1::INT AS depth,
-                    -- 1::BIGINT AS row_number
-                    id::TEXT AS path
+                SELECT *, 1::INT AS depth, id::TEXT AS path
                 FROM res_partner AS parent
                 WHERE id IN %%(partner_ids)s
 
                 UNION ALL
 
-                SELECT p.*, d.depth + 1 AS depth,
-                    -- ROW_NUMBER() OVER (ORDER BY p.display_name ASC, p.id DESC) AS row_number
-                    d.path || '>' || p.id::TEXT AS path
+                SELECT p.*, d.depth + 1 AS depth, d.path || '>' || p.id::TEXT AS path
                 FROM res_partner p
                 JOIN descendants d
                   ON p.parent_id = d.id
                 WHERE (p.is_company IS FALSE OR p.is_company IS NULL)
                     AND p.active IS TRUE
-                    -- AND p.type IN %%(adr_pref)s
-                -- TODO: Get domain query with company, ACL, context active
-                -- domain = [("is_company", "=", False), ("type", "in", list(adr_pref))]
-                -- query = self._where_calc(domain)
-                -- self._apply_ir_rules(query)
-                -- _, query_where, query_params = query.get_sql()
             )
             SELECT DISTINCT ON (type)
             type, id
@@ -1001,14 +991,19 @@ class Partner(models.Model):
             WHERE type IN %%(adr_pref)s
             ORDER BY type, path, %(order)s
         """
-        import ipdb;ipdb.set_trace()
+        # import ipdb;ipdb.set_trace()
         self.env.cr.execute(query % {"order": self._order}, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
         result = dict(self.env.cr.fetchall())
         # if self.name == "Main Level 329":
         #     import ipdb;ipdb.set_trace()
         #     print(self.env.cr.query.decode('UTF-8'))
         #     # self.env["res.partner"].browse(result["delivery"]).read(["name", "is_company", "type", "parent_id"])
-
+        # TODO: Get parents
+        # TODO: Get domain query with company, ACL, context active
+        # -- domain = [("is_company", "=", False), ("type", "in", list(adr_pref))]
+        # -- query = self._where_calc(domain)
+        # -- self._apply_ir_rules(query)
+        # -- _, query_where, query_params = query.get_sql()
         # default to type 'contact' or the partner itself
         default = result.get('contact', self.id or False)
         for adr_type in adr_pref:

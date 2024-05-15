@@ -370,8 +370,8 @@ class TestBase(TransactionCaseWithUserDemo):
                 #     continue
                 # if line != 335:
                 #     continue
-                if line != 1085:
-                    continue
+                # if line != 1085:
+                    # continue
                 self.env.cr.execute("SAVEPOINT temp_partner")
                 main = partner.create({
                     'name': f'Main Level {line}',
