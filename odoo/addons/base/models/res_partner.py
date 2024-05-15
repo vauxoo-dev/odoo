@@ -968,42 +968,51 @@ class Partner(models.Model):
             adr_pref.add('contact')
         if not self.ids:
             return {}.fromkeys(adr_pref, False)
-        result = {}
         self.flush(["parent_id", "is_company", "active", "type", "display_name"])
-        query = """
-            WITH RECURSIVE descendants AS (
-                SELECT *, 1::INT AS depth, id::TEXT AS path
-                FROM res_partner AS parent
-                WHERE id IN %%(partner_ids)s
+        query = """WITH RECURSIVE descendants AS (
+            SELECT *, 1::INT AS depth, id::TEXT AS path
+            FROM res_partner AS parent
+            WHERE id = %%(partner_id)s
 
-                UNION ALL
+            UNION ALL
 
-                SELECT p.*, d.depth + 1 AS depth, d.path || '>' || p.id::TEXT AS path
-                FROM res_partner p
-                JOIN descendants d
-                  ON p.parent_id = d.id
-                WHERE (p.is_company IS FALSE OR p.is_company IS NULL)
-                    AND p.active IS TRUE
-            )
-            SELECT DISTINCT ON (type)
-            type, id
-            FROM descendants
-            WHERE type IN %%(adr_pref)s
-            ORDER BY type, path, %(order)s
+            SELECT p.*, d.depth + 1 AS depth, d.path || '>' || p.id::TEXT AS path
+            FROM res_partner p
+            JOIN descendants d
+            ON p.parent_id = d.id
+            WHERE (p.is_company IS FALSE OR p.is_company IS NULL)
+                AND p.active IS TRUE
+                AND p.id NOT IN %%(visited)s
+        )
+        SELECT DISTINCT ON (type)
+        type, id
+        FROM descendants
+        WHERE type IN %%(adr_pref)s
+        ORDER BY type, path, %(order)s
         """
-        # import ipdb;ipdb.set_trace()
-        self.env.cr.execute(query % {"order": self._order}, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
-        result = dict(self.env.cr.fetchall())
-        # if self.name == "Main Level 329":
-        #     import ipdb;ipdb.set_trace()
-        #     print(self.env.cr.query.decode('UTF-8'))
-        #     # self.env["res.partner"].browse(result["delivery"]).read(["name", "is_company", "type", "parent_id"])
-        # TODO: Get parents
-        # TODO: Get domain query with company, ACL, context active
-        # -- domain = [("is_company", "=", False), ("type", "in", list(adr_pref))]
-        # -- query = self._where_calc(domain)
-        # -- self._apply_ir_rules(query)
-        # -- _, query_where, query_params = query.get_sql()
+        # TODO: Get domain ACL query
+        #   query = self._where_calc(domain)
+        #   self._apply_ir_rules(query)
+        #   _, query_where, query_params = query.get_sql()
+        result = {}
+        visited = set()
+        for partner in self:
+            current_partner = partner
+            while current_partner:
+                self.env.cr.execute(query % {"order": self._order}, {"partner_id": current_partner.id, "adr_pref": tuple(adr_pref), "visited": tuple(visited or [0])})
+                partner_types_ids = dict(self.env.cr.fetchall())
+                visited.add(current_partner)
+                for partner_type, partner_id in partner_types_ids.items():
+                    if partner_type in adr_pref and not result.get(partner_type):
+                        result[partner_type] = partner_id
+                if len(result) == len(adr_pref):
+                    return result
+
+                # Continue scanning at ancestor if current_partner is not a commercial entity
+                if current_partner.is_company or not current_partner.parent_id:
+                    break
+                current_partner = current_partner.parent_id
+
         # default to type 'contact' or the partner itself
         default = result.get('contact', self.id or False)
         for adr_type in adr_pref:
