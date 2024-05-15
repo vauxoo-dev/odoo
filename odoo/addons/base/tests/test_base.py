@@ -366,6 +366,12 @@ class TestBase(TransactionCaseWithUserDemo):
         with file_open(os.path.join(os.path.realpath(os.path.dirname(__file__)), "partner_address_type.csv")) as fcomb:
             reader = csv.DictReader(fcomb)
             for line, record in enumerate(reader, start=2):
+                # if line != 329:
+                #     continue
+                # if line != 335:
+                #     continue
+                if line != 1085:
+                    continue
                 self.env.cr.execute("SAVEPOINT temp_partner")
                 main = partner.create({
                     'name': f'Main Level {line}',
@@ -400,6 +406,7 @@ class TestBase(TransactionCaseWithUserDemo):
                 })
                 partner_id_names = {main.id: "main", child_level11.id:"child_level11", child_level12.id: "child_level12", child_level21.id:"child_level21", child_level22.id:"child_level22"}
 
+                # import ipdb;ipdb.set_trace()
                 res = main.address_get(["delivery"])
                 children = main.search([("id", "child_of", main.id)])
                 children_data = children.read(["name", "is_company", "type", "parent_id"])
@@ -407,10 +414,10 @@ class TestBase(TransactionCaseWithUserDemo):
                     partner_id = res.get(key)
                     value = partner_id_names.get(partner_id)
                     # import pdb;pdb.set_trace()
-                    if value != record[key]:
-                        print(f'"{main.name}", ', end='')
+                    # if value != record[key]:
+                    #     print(f'"{main.name}", ', end='')
                     # if main.name not in ["Main Level 329", "Main Level 335"]:
-                    #     self.assertEqual(value, record[key], f"The partner_type {key} returns different results expected {record[key]} but {value} found. Current structure {children_data}")
+                    self.assertEqual(value, record[key], f"The partner_type {key} returns different results expected {record[key]} but {value} found. Current structure {children_data}")
                     # print(f"{value},", end='')
                     # values[key] = partner_id_names[value]
                 # import pdb;pdb.set_trace()

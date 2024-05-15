@@ -972,19 +972,23 @@ class Partner(models.Model):
         self.flush()
         query = """
             WITH RECURSIVE descendants AS (
-                SELECT *, 1::INT AS depth
+                SELECT *, 1::INT AS depth,
+                    -- 1::BIGINT AS row_number
+                    id::TEXT AS path
                 FROM res_partner AS parent
                 WHERE id IN %%(partner_ids)s
 
                 UNION ALL
 
-                SELECT p.*, d.depth + 1 AS depth
+                SELECT p.*, d.depth + 1 AS depth,
+                    -- ROW_NUMBER() OVER (ORDER BY p.display_name ASC, p.id DESC) AS row_number
+                    d.path || '>' || p.id::TEXT AS path
                 FROM res_partner p
                 JOIN descendants d
                   ON p.parent_id = d.id
                 WHERE (p.is_company IS FALSE OR p.is_company IS NULL)
                     AND p.active IS TRUE
-                    AND p.type IN %%(adr_pref)s
+                    -- AND p.type IN %%(adr_pref)s
                 -- TODO: Get domain query with company, ACL, context active
                 -- domain = [("is_company", "=", False), ("type", "in", list(adr_pref))]
                 -- query = self._where_calc(domain)
@@ -994,12 +998,11 @@ class Partner(models.Model):
             SELECT DISTINCT ON (type)
             type, id
             FROM descendants
-            -- WHERE active IS TRUE
-                -- AND (is_company IS FALSE OR is_company IS NULL OR depth=1)
-                -- AND type IN %%(adr_pref)s
-            ORDER BY type, depth, %s
+            WHERE type IN %%(adr_pref)s
+            ORDER BY type, path, %(order)s
         """
-        self.env.cr.execute(query % self._order, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
+        import ipdb;ipdb.set_trace()
+        self.env.cr.execute(query % {"order": self._order}, {"partner_ids": tuple(self.ids), "adr_pref": tuple(adr_pref)})
         result = dict(self.env.cr.fetchall())
         # if self.name == "Main Level 329":
         #     import ipdb;ipdb.set_trace()
