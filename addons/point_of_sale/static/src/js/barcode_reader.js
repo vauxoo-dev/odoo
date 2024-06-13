@@ -111,30 +111,29 @@ var BarcodeReader = core.Class.extend({
         const callbacks = Object.keys(this.exclusive_callbacks).length
             ? this.exclusive_callbacks
             : this.action_callbacks;
-        // TODO: Fix this since gs1 nomenclatures could return more than one results
-        // https://github.com/odoo-dev/odoo/blob/a764f029514a45a77f4fb977ee1306a510aeefa2/addons/barcodes_gs1_nomenclature/static/src/js/barcode_parser.js#L105
-        // This conflicts with the actual patch that try to find all the rules applying to the barcode
-        // in order to ensure the proper fiding of it.
         let parsed_results = this.barcode_parser.parse_barcode(code);
         if (! Array.isArray(parsed_results)) {
             parsed_results = [parsed_results];
         }
-        parsed_results_loop: for (const [index, parsed_result] of parsed_results.entries()) {
-            let is_last_index = index + 1 === parsed_results.length;
-            this.pos.show_barcode_error_modal = is_last_index;
-            if (callbacks.gs1) {
-                [...callbacks.gs1].map(cb => cb([parsed_result]));
-            } else if (callbacks[parsed_result.type]) {
-                for (const cb of callbacks[parsed_result.type]) {
-                    let result_callback = await cb(parsed_result);
-                    if (result_callback) {
-                        break parsed_results_loop;
+        let gs1_parsed_results = parsed_results.filter((result) => !!result.rule.gs1_content_type)
+        if (gs1_parsed_results.length){
+            [...callbacks.gs1].map(cb => cb(gs1_parsed_results));
+        }else {
+            parsed_results_loop: for (const [index, parsed_result] of parsed_results.filter((result) => !result.rule.gs1_content_type).entries()) {
+                let is_last_index = index + 1 === parsed_results.length;
+                this.pos.show_barcode_error_modal = is_last_index;
+                if (callbacks[parsed_result.type]) {
+                    for (const cb of callbacks[parsed_result.type]) {
+                        let result_callback = await cb(parsed_result);
+                        if (result_callback) {
+                            break parsed_results_loop;
+                        }
                     }
+                } else if (callbacks.error) {
+                    [...callbacks.error].map(cb => cb(parsed_result));
+                } else {
+                    console.warn('Ignored Barcode Scan:', parsed_result);
                 }
-            } else if (callbacks.error) {
-                [...callbacks.error].map(cb => cb(parsed_result));
-            } else {
-                console.warn('Ignored Barcode Scan:', parsed_result);
             }
         }
     },
