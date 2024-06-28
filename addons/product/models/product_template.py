@@ -737,13 +737,19 @@ class ProductTemplate(models.Model):
         value to input), indeed single value attributes can be used to filter
         products among others based on that attribute/value.
         """
-        attr_lines_data = self.env["product.template.attribute.line"].read_group(
-            [("product_tmpl_id", "in", self.ids), ("value_ids", "!=", False)],
-            ["ids:array_agg(id)"],
-            ["product_tmpl_id"],
-        )
+        # Similar to https://github.com/odoo/odoo/blob/b2eabe8f/addons/delivery/models/stock_picking.py#L90
+        attr_lines_data = {
+            i["product_tmpl_id"][0]: i["ids"]
+            for i in self.env["product.template.attribute.line"].read_group(
+                [("product_tmpl_id", "in", self.ids), ("value_ids", "!=", False)],
+                ["ids:array_agg(id)"],
+                ["product_tmpl_id"],
+                lazy=False,
+                orderby="id",
+            )
+        }
         for record in self:
-            record.valid_product_template_attribute_line_ids = attr_lines_data[record.id]["ids"]
+            record.valid_product_template_attribute_line_ids = attr_lines_data.get(record.id)
 
     def _get_possible_variants(self, parent_combination=None):
         """Return the existing variants that are possible.
