@@ -737,8 +737,13 @@ class ProductTemplate(models.Model):
         value to input), indeed single value attributes can be used to filter
         products among others based on that attribute/value.
         """
+        attr_lines_data = self.env["product.template.attribute.line"].read_group(
+            [("product_tmpl_id", "in", self.ids), ("value_ids", "!=", False)],
+            ["ids:array_agg(id)"],
+            ["product_tmpl_id"],
+        )
         for record in self:
-            record.valid_product_template_attribute_line_ids = record.attribute_line_ids.filtered(lambda ptal: ptal.value_ids)
+            record.valid_product_template_attribute_line_ids = attr_lines_data[record.id]["ids"]
 
     def _get_possible_variants(self, parent_combination=None):
         """Return the existing variants that are possible.
