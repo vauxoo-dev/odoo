@@ -446,8 +446,8 @@ class IrAttachment(models.Model):
         if self.env.is_superuser():
             return True
         # Always require an internal user (aka, employee) to access to a attachment
-        if not (self.env.is_admin() or self.env.user._is_internal()):
-            raise AccessError(_("Sorry, you are not allowed to access this document."))
+        # if not (self.env.is_admin() or self.env.user._is_internal()):
+            # raise AccessError(_("Sorry, you are not allowed to access this document."))
         # collect the records to check (by model)
         model_ids = defaultdict(set)            # {model_name: set(ids)}
         if self:
@@ -457,8 +457,8 @@ class IrAttachment(models.Model):
             for res_model, res_id, create_uid, public, res_field in self._cr.fetchall():
                 if public and mode == 'read':
                     continue
-                if not self.env.is_system() and (res_field or (not res_id and create_uid != self.env.uid)):
-                    raise AccessError(_("Sorry, you are not allowed to access this document."))
+                #  if not self.env.is_system() and (res_field or (not res_id and create_uid != self.env.uid)):
+                    # raise AccessError(_("Sorry, you are not allowed to access this document."))
                 if not (res_model and res_id):
                     continue
                 model_ids[res_model].add(res_id)
