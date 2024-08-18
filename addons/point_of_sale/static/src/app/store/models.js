@@ -272,11 +272,27 @@ export class Product extends PosModel {
     }
     isPricelistItemUsable(item, date) {
         const categories = this.parent_category_ids.concat(this.categ.id);
-        return (
+        let is_usable = (
             (!item.categ_id || categories.includes(item.categ_id[0])) &&
             (!item.date_start || deserializeDate(item.date_start) <= date) &&
             (!item.date_end || deserializeDate(item.date_end) >= date)
         );
+        if (
+            is_usable
+            && item.base == "pricelist"
+            && item.base_pricelist_id
+        ) {
+            const sub_pricelist = this.pos.pricelists.find(
+                (pricelist) => pricelist.id === item.base_pricelist_id[0]
+            );
+            const sub_items = sub_pricelist
+                ? (this.applicablePricelistItems[sub_pricelist.id] || []).filter((sub_item) =>
+                    this.isPricelistItemUsable(sub_item, date)
+                )
+                : [];
+            return !!sub_items.length;
+        }
+        return is_usable;
     }
     // Port of _get_product_price on product.pricelist.
     //
