@@ -211,6 +211,12 @@ CSRF_TOKEN_SALT = 60 * 60 * 24 * 365
 # The default lang to use when the browser doesn't specify it
 DEFAULT_LANG = 'en_US'
 
+# Allowed domains to have a cross-site session_id cookie
+ALLOWED_DOMAINS_CROSS_COOKIE = []
+
+# Domain for the cross-site session_id cookie
+CROSS_COOKIE_DOMAIN = "website.local.com"
+
 # The dictionary to initialise a new session with.
 def get_default_session():
     return {
@@ -1192,6 +1198,8 @@ class FutureResponse:
         if request.db and not request.env['ir.http']._is_allowed_cookie(cookie_type):
             expires = 0
             max_age = 0
+        if key == 'session_id' and not domain and request.httprequest.url in ALLOWED_DOMAINS_CROSS_COOKIE:
+            domain = CROSS_COOKIE_DOMAIN
         werkzeug.Response.set_cookie(self, key, value=value, max_age=max_age, expires=expires, path=path, domain=domain, secure=secure, httponly=httponly, samesite=samesite)
 
 
