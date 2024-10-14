@@ -23,6 +23,16 @@ class TestSyncOdoo2Google(TestSyncGoogle):
         self.google_service = GoogleCalendarService(self.env['google.service'])
         # Make sure this test will work for the next 30 years
         self.env['ir.config_parameter'].set_param('google_calendar.sync.range_days', 10000)
+        self.user1 = self.env['res.users'].create({
+            'name': 'user1',
+            'login': 'user1',
+            'email': 'user1@odoo.com',
+        })
+        self.private_partner = self.env['res.partner'].create({
+            'name': 'Private Contact',
+            'email': 'private_email@example.com',
+            'type': 'private',
+        })
 
     @patch_api
     def test_event_creation(self):
@@ -798,3 +808,19 @@ class TestSyncOdoo2Google(TestSyncGoogle):
             'extendedProperties': {'shared': {'%s_odoo_id' % self.env.cr.dbname: recurrence.id}},
             'transparency': 'opaque',
         }, timeout=3)
+
+    @patch_api
+    def test_partner_type_change(self):
+        user = self.user1
+        event = self.env['calendar.event'].create({
+            'name': "Private Event",
+            'user_id': user.id,
+            'start': datetime(2020, 1, 13, 16, 55),
+            'stop': datetime(2020, 1, 13, 19, 55),
+            'partner_ids': [(4, self.private_partner.id)],
+            'privacy': 'private',
+            'need_sync': False,
+        })
+        event = event.with_user(user)
+        event.env.invalidate_all()
+        event._sync_odoo2google(self.google_service)
