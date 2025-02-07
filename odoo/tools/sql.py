@@ -223,6 +223,7 @@ SQL_ORDER_BY_TYPE = defaultdict(lambda: 16, {
     'bool': 7,          # 1 byte aligned on 1 byte
     'timestamp': 8,     # 8 bytes aligned on 8 bytes
     'float8': 9,        # 8 bytes aligned on 8 bytes
+    'int8': 10,         # 8 bytes aligned on 8 bytes
 })
 
 

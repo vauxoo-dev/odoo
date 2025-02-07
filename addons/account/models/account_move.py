@@ -1037,10 +1037,16 @@ class AccountMove(models.Model):
                         source_line.move_id AS source_move_id,
                         account.account_type AS source_line_account_type,
                         ARRAY_AGG(counterpart_move.move_type) AS counterpart_move_types,
-                        COALESCE(BOOL_AND(COALESCE(pay.is_matched, FALSE))
+                        COALESCE(BOOL_AND(
+                            COALESCE(pay.is_matched, FALSE)
+                            )
                             FILTER (WHERE counterpart_move.payment_id IS NOT NULL), TRUE) AS all_payments_matched,
-                        BOOL_OR(COALESCE(BOOL(pay.id), FALSE)) as has_payment,
-                        BOOL_OR(COALESCE(BOOL(counterpart_move.statement_line_id), FALSE)) as has_st_line
+                        BOOL_OR(COALESCE(
+                            pay.id IS NOT NULL, FALSE)
+                            ) AS has_payment,
+                        BOOL_OR(COALESCE(
+                            counterpart_move.statement_line_id IS NOT NULL, FALSE)
+                            ) AS has_st_line
                     FROM account_partial_reconcile part
                     JOIN account_move_line source_line ON source_line.id = part.{source_field}_move_id
                     JOIN account_account account ON account.id = source_line.account_id
