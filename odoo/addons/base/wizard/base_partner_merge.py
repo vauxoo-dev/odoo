@@ -12,7 +12,8 @@ import datetime
 from odoo import api, fields, models, Command
 from odoo import SUPERUSER_ID, _
 from odoo.exceptions import ValidationError, UserError
-from odoo.tools import mute_logger
+from odoo.tools import mute_logger, str2bool
+
 
 _logger = logging.getLogger('odoo.addons.base.partner.merge')
 
@@ -115,8 +116,9 @@ class MergePartnerAutomatic(models.TransientModel):
         # this guarantees cache consistency
         self.env.invalidate_all()
 
+        ignore_tables = dst_partner._context.get('ignore_tables_fk')
         for table, column in relations:
-            if 'base_partner_merge_' in table:  # ignore two tables
+            if 'base_partner_merge_' in table or (ignore_tables and table in ignore_tables):  # ignore two tables
                 continue
 
             # get list of columns of current table (exept the current fk column)
@@ -177,10 +179,23 @@ class MergePartnerAutomatic(models.TransientModel):
                 with mute_logger('odoo.sql_db'), self._cr.savepoint():
                     records.sudo().write({field_id: dst_partner.id})
                     records.env.flush_all()
-            except psycopg2.Error:
-                # updating fails, most likely due to a violated unique constraint
-                # keeping record with nonexistent partner_id is useless, better delete it
-                records.sudo().unlink()
+            except psycopg2.Error as e:
+                # If updating fails and record's model is in the ones allowed to delete in case
+                # of unique violation error then delete it, in case is not in allowed ones or
+                # postgresql error is not unique violation, then raise an error
+                model_names_to_delete = self.env['ir.config_parameter'].sudo().get_param("base.models_allowed_to_unlink_partner_merge", "")
+                model_names_to_delete = [m.strip() for m in model_names_to_delete.split(",") if m.strip()]
+                allow_unlink = (records._name in model_names_to_delete and e.pgcode == psycopg2.errorcodes.UNIQUE_VIOLATION)
+                if not model_names_to_delete or allow_unlink:
+                    records.sudo().unlink()
+                elif model_names_to_delete:
+                    # Everything else is not expected and should fail.
+                    msg = _("""An error has occurred meanwhile reference fields were updated:
+                            \nDestination Record: %s
+                            \nSource Record: %s
+                            \nError: %s""", dst_partner.id, tuple(src_partners.ids), e)
+                    _logger.error(msg)
+                    raise UserError(msg)
 
         update_records = functools.partial(update_records)
 
@@ -275,6 +290,8 @@ class MergePartnerAutomatic(models.TransientModel):
             :param dst_partner : record of destination res.partner
             :param extra_checks: pass False to bypass extra sanity check (e.g. email address)
         """
+        # This context is used to don't show errors, only in loggers to allow continue from the cron job
+        skip_raise_errors = self._context.get("skip_validation_merging_more_contacts_together")
         # super-admin can be used to bypass extra checks
         if self.env.is_admin():
             extra_checks = False
@@ -284,7 +301,7 @@ class MergePartnerAutomatic(models.TransientModel):
         if len(partner_ids) < 2:
             return
 
-        if len(partner_ids) > 3:
+        if len(partner_ids) > 3 and not skip_raise_errors:
             raise UserError(_("For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed."))
 
         # check if the list of partners to merge contains child/parent relation
@@ -322,8 +339,12 @@ class MergePartnerAutomatic(models.TransientModel):
 
         self._log_merge_operation(src_partners, dst_partner)
 
-        # delete source partner, since they are merged
-        src_partners.unlink()
+        # check parameter to determine if the source partner should be deleted or archived
+        archive_src_partners = str2bool(self.env["ir.config_parameter"].sudo().get_param("base.archive_merged_src_partners"))
+        if archive_src_partners:
+            src_partners.write({src_partners._active_name: False})
+        else:
+            src_partners.unlink()
 
     def _log_merge_operation(self, src_partners, dst_partner):
         _logger.info('(uid = %s) merged the partners %r with %s', self._uid, src_partners.ids, dst_partner.id)
