@@ -241,7 +241,8 @@ class IrAttachment(models.Model):
                 filepath = checklist[fname]
                 if fname not in whitelist:
                     try:
-                        os.unlink(self._full_path(fname))
+                        # os.unlink(self._full_path(fname))
+                        _logger.info("Not removing file %s", self._full_path(fname))
                         _logger.debug("_file_gc unlinked %s", self._full_path(fname))
                         removed += 1
                     except OSError:
