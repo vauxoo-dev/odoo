@@ -265,6 +265,11 @@ class IrAttachment(models.Model):
         return res
 
     def copy(self, default=None):
+        cached_default = dict(default or {})
+        result = self.env['ir.attachment']
         for attachment in self:
             index_content_cache[attachment.checksum] = attachment.index_content
-        return super().copy(default=default)
+            per_record_default = dict(cached_default)
+            per_record_default.setdefault('index_content', attachment.index_content)
+            result |= super(IrAttachment, attachment).copy(default=per_record_default)
+        return result
