@@ -34,6 +34,7 @@ class TestBaseAutomationQueryCount(TransactionCase):
                 "filter_pre_domain": "[('active', '=', True)]",
                 "model_id": self.partner_model.id,
                 "name": "Test MX Automation",
+                "trigger_field_ids": [self.field_country.id],
                 "trigger": "on_create_or_write",
                 "state": "object_write",
                 "fields_lines": [
@@ -42,7 +43,7 @@ class TestBaseAutomationQueryCount(TransactionCase):
                         0,
                         {
                             "col1": self.field_ref.id,
-                            "type": "value",
+                            "evaluation_type": "value",
                             "value": "test mx",
                         },
                     )
