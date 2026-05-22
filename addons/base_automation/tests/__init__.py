@@ -3,3 +3,4 @@
 
 from . import test_models
 from . import test_base_automation
+from . import test_performance
