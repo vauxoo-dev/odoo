@@ -391,8 +391,8 @@ class Import(models.TransientModel):
                     _logger.warning("Failed to read file '%s' (transient id %s) using file extension", self.file_name, self.id)
 
         if req:
-            raise ImportError(_("Unable to load \"{extension}\" file: requires Python module \"{modname}\"").format(extension=file_extension, modname=req))
-        raise ValueError(_("Unsupported file format \"{}\", import only supports CSV, ODS, XLS and XLSX").format(self.file_type))
+            raise ImportError(_("Unable to load \"{extension}\" file: requires Python module \"{modname}\"".format(extension=file_extension, modname=req)))
+        raise ValueError(_("Unsupported file format \"{}\", import only supports CSV, ODS, XLS and XLSX".format(self.file_type)))
 
     def _read_xls(self, options):
         book = xlrd.open_workbook(file_contents=self.file or b'')
