@@ -261,6 +261,7 @@ def table_kind(cr, tablename: str) -> TableKind | None:
 # on 1 byte, columns aligned on 8 bytes(values have been chosen to minimize
 # padding in rows; unknown column types are put last)
 SQL_ORDER_BY_TYPE = defaultdict(lambda: 16, {
+    'int8': 0,          # 8 bytes aligned on 8 bytes
     'int4': 1,          # 4 bytes aligned on 4 bytes
     'varchar': 2,       # variable aligned on 4 bytes
     'date': 3,          # 4 bytes aligned on 4 bytes
@@ -276,7 +277,7 @@ SQL_ORDER_BY_TYPE = defaultdict(lambda: 16, {
 def create_model_table(cr, tablename, comment=None, columns=()):
     """ Create the table for a model. """
     colspecs = [
-        SQL('id SERIAL NOT NULL'),
+        SQL('id BIGSERIAL NOT NULL'),
         *(SQL("%s %s", SQL.identifier(colname), SQL(coltype)) for colname, coltype, _ in columns),
         SQL('PRIMARY KEY(id)'),
     ]

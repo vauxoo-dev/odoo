@@ -1015,7 +1015,7 @@ class Registry(Mapping[str, type["BaseModel"]]):
             for table_name in signaling_tables:
                 if table_name not in existing_sig_tables:
                     cr.execute(SQL(
-                        "CREATE TABLE %s (id SERIAL PRIMARY KEY, date TIMESTAMP DEFAULT now())",
+                        "CREATE TABLE %s (id BIGSERIAL PRIMARY KEY, date TIMESTAMP DEFAULT now())",
                         SQL.identifier(table_name),
                     ))
                     cr.execute(SQL("INSERT INTO %s DEFAULT VALUES", SQL.identifier(table_name)))

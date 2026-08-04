@@ -1536,9 +1536,9 @@ class ResUsersApikeys(models.Model):
         table = SQL.identifier(self._table)
         self.env.cr.execute(SQL("""
         CREATE TABLE IF NOT EXISTS %(table)s (
-            id serial primary key,
+            id bigserial primary key,
             name varchar not null,
-            user_id integer not null REFERENCES res_users(id) ON DELETE CASCADE,
+            user_id bigint not null REFERENCES res_users(id) ON DELETE CASCADE,
             scope varchar,
             expiration_date timestamp without time zone,
             index varchar(%(index_size)s) not null CHECK (char_length(index) = %(index_size)s),
