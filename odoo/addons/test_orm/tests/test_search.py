@@ -1793,7 +1793,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_city"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -1808,9 +1808,9 @@ class TestFlushSearch(TransactionCase):
     def test_flush_fields_in_subdomain(self):
         with self.assertQueries(['''
             UPDATE "test_orm_city"
-            SET "country_id" = "__tmp"."country_id"::"int4",
+            SET "country_id" = "__tmp"."country_id"::"int8",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "country_id", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -1830,7 +1830,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_country"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_country"."id" = "__tmp"."id"
         ''', '''
@@ -1851,9 +1851,9 @@ class TestFlushSearch(TransactionCase):
 
         with self.assertQueries(['''
             UPDATE "test_orm_city"
-            SET "country_id" = "__tmp"."country_id"::"int4",
+            SET "country_id" = "__tmp"."country_id"::"int8",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "country_id", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -1875,9 +1875,9 @@ class TestFlushSearch(TransactionCase):
 
         with self.assertQueries(['''
             UPDATE "test_orm_payment"
-            SET "move_id" = "__tmp"."move_id"::"int4",
+            SET "move_id" = "__tmp"."move_id"::"int8",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "move_id", "write_date", "write_uid")
             WHERE "test_orm_payment"."id" = "__tmp"."id"
         ''', '''
@@ -1895,7 +1895,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_move"
             SET "tag_repeat" = "__tmp"."tag_repeat"::"int4",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "tag_repeat", "write_date", "write_uid")
             WHERE "test_orm_move"."id" = "__tmp"."id"
         ''', '''
@@ -1923,7 +1923,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_city"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -1940,7 +1940,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_city"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -1957,7 +1957,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_country"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_country"."id" = "__tmp"."id"
         ''', '''
@@ -1975,9 +1975,9 @@ class TestFlushSearch(TransactionCase):
 
         with self.assertQueries(['''
             UPDATE "test_orm_city"
-            SET "country_id" = "__tmp"."country_id"::"int4",
+            SET "country_id" = "__tmp"."country_id"::"int8",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "country_id", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -2008,7 +2008,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_city"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
@@ -2024,7 +2024,7 @@ class TestFlushSearch(TransactionCase):
             UPDATE "test_orm_city"
             SET "name" = "__tmp"."name"::"varchar",
                 "write_date" = "__tmp"."write_date"::"timestamp",
-                "write_uid" = "__tmp"."write_uid"::"int4"
+                "write_uid" = "__tmp"."write_uid"::"int8"
             FROM (VALUES %s) AS "__tmp"("id", "name", "write_date", "write_uid")
             WHERE "test_orm_city"."id" = "__tmp"."id"
         ''', '''
