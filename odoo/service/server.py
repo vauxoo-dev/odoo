@@ -1621,6 +1621,27 @@ def start(preload=None, stop=False):
     load_server_wide_modules()
     import odoo.http  # noqa: PLC0415
 
+    if platform.system() == "Linux" and sys.maxsize > 2**32 and "MIMALLOC_ARENA_RESERVE" not in os.environ:
+        # CPython bundles mimalloc since 3.13 [1]. mimalloc reserves address space one arena at a
+        # time, and on 64bit platforms an arena is 1GiB [2]. Loading a registry with a few hundred
+        # modules is enough to trigger that reservation. The pages are never touched, so resident
+        # memory is unaffected, but they do count against RLIMIT_AS, which is what
+        # set_limit_memory_hard() uses to enforce limit_memory_hard. A worker then dies on whatever
+        # allocates next -- "can't start new thread", or a MemoryError in an unrelated place --
+        # while its actual memory usage is well under the limit.
+        #
+        # This is the same class of problem as the glibc arenas handled below, and the mitigation
+        # mirrors it: cap the reservation unless MIMALLOC_ARENA_RESERVE is already set. 128MiB is
+        # mimalloc's own default for the case where address space is scarce (the 32bit branch of
+        # [2]), which is exactly the situation limit_memory_hard creates.
+        #
+        # mimalloc reads its options lazily, on the first arena reservation, so setting the
+        # variable here -- before any registry is loaded -- still takes effect.
+        #
+        # [1] https://github.com/python/cpython/tree/v3.13.0/Objects/mimalloc
+        # [2] https://github.com/python/cpython/blob/v3.14.0/Objects/mimalloc/options.c#L86-L90
+        os.environ["MIMALLOC_ARENA_RESERVE"] = str(2**17)  # KiB, i.e. 128MiB
+
     if odoo.evented:
         server = GeventServer(odoo.http.root)
     elif config['workers']:
