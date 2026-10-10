@@ -230,7 +230,7 @@ SQL_ORDER_BY_TYPE = defaultdict(lambda: 16, {
 def create_model_table(cr, tablename, comment=None, columns=()):
     """ Create the table for a model. """
     colspecs = [
-        SQL('id SERIAL NOT NULL'),
+        SQL('id BIGSERIAL NOT NULL'),
         *(SQL("%s %s", SQL.identifier(colname), SQL(coltype)) for colname, coltype, _ in columns),
         SQL('PRIMARY KEY(id)'),
     ]
