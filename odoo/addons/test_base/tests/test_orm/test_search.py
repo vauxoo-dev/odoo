@@ -151,13 +151,11 @@ class TestSubqueries(TransactionCase):
         with self.assertQueries(["""
             SELECT "test_orm_multi"."id"
             FROM "test_orm_multi"
-            WHERE ("test_orm_multi"."partner" IS NULL OR "test_orm_multi"."partner" NOT IN (
-                SELECT "test_orm_partner"."id"
+            WHERE NOT EXISTS (SELECT 1 FROM (SELECT "test_orm_partner"."id"
                 FROM "test_orm_partner"
                 WHERE ("test_orm_partner"."email" LIKE %s
                     AND "test_orm_partner"."name" LIKE %s
-                )
-            ))
+                )) AS "test_orm_multi__partner__exists" WHERE "test_orm_multi__partner__exists"."id" = "test_orm_multi"."partner")
             ORDER BY "test_orm_multi"."id"
         """]):
             self.env['test_orm.multi'].search([
@@ -166,17 +164,72 @@ class TestSubqueries(TransactionCase):
                     ('partner.email', 'like', '@example.com'),
             ])
 
+    def test_not_any_many2one_self_reference(self):
+        """ `not any` on a many2one pointing to its own model uses a distinct
+        alias for the subquery, and still matches records without a parent. """
+        Partner = self.env['test_orm.partner']
+        parent_a, parent_b = Partner.create([{'name': 'parent a'}, {'name': 'parent b'}])
+        child_a, child_b = Partner.create([
+            {'name': 'child a', 'parent_id': parent_a.id},
+            {'name': 'child b', 'parent_id': parent_b.id},
+        ])
+        domain = [
+            ('id', 'in', (parent_a | parent_b | child_a | child_b).ids),
+            ('parent_id', 'not any', [('name', '=', 'parent a')]),
+        ]
+        # warmup
+        Partner.search(domain)
+
+        with self.assertQueries(["""
+            SELECT "test_orm_partner"."id"
+            FROM "test_orm_partner"
+            WHERE ("test_orm_partner"."active" IS TRUE
+                AND "test_orm_partner"."id" IN %s
+                AND NOT EXISTS (
+                    SELECT 1 FROM (
+                        SELECT "test_orm_partner"."id"
+                        FROM "test_orm_partner"
+                        WHERE "test_orm_partner"."name" IN %s
+                    ) AS "test_orm_partner__parent_id__exists"
+                    WHERE "test_orm_partner__parent_id__exists"."id" = "test_orm_partner"."parent_id"
+                ))
+            ORDER BY "test_orm_partner"."id"
+        """]):
+            found = Partner.search(domain)
+        self.assertEqual(found, parent_a | parent_b | child_b)
+
+    def test_not_any_many2one_required(self):
+        """ A required many2one cannot be NULL: the `NOT EXISTS` is the whole
+        condition, so that PostgreSQL can plan it as an anti join. """
+        Bank = self.env['test_orm.domain_expression.partner.bank']
+        # warmup
+        Bank.search([('partner_id', 'not any', [('name', '=', 'jack')])])
+
+        with self.assertQueries(["""
+            SELECT "test_orm_domain_expression_partner_bank"."id"
+            FROM "test_orm_domain_expression_partner_bank"
+            WHERE NOT EXISTS (
+                SELECT 1 FROM (
+                    SELECT "test_orm_domain_expression_partner"."id"
+                    FROM "test_orm_domain_expression_partner"
+                    WHERE "test_orm_domain_expression_partner"."name" IN %s
+                ) AS "test_orm_domain_expression_partner_bank__partner_id__exists"
+                WHERE "test_orm_domain_expression_partner_bank__partner_id__exists"."id"
+                    = "test_orm_domain_expression_partner_bank"."partner_id"
+            )
+            ORDER BY "test_orm_domain_expression_partner_bank"."id"
+        """]):
+            Bank.search([('partner_id', 'not any', [('name', '=', 'jack')])])
+
     def test_not_or_many2one_with_subfield(self):
         with self.assertQueries(["""
             SELECT "test_orm_multi"."id"
             FROM "test_orm_multi"
-            WHERE ("test_orm_multi"."partner" IS NULL OR "test_orm_multi"."partner" NOT IN (
-                SELECT "test_orm_partner"."id"
+            WHERE NOT EXISTS (SELECT 1 FROM (SELECT "test_orm_partner"."id"
                 FROM "test_orm_partner"
                 WHERE ("test_orm_partner"."email" LIKE %s
                     OR "test_orm_partner"."name" LIKE %s
-                )
-            ))
+                )) AS "test_orm_multi__partner__exists" WHERE "test_orm_multi__partner__exists"."id" = "test_orm_multi"."partner")
             ORDER BY "test_orm_multi"."id"
         """]):
             self.env['test_orm.multi'].search([
@@ -210,11 +263,9 @@ class TestSubqueries(TransactionCase):
         with self.assertQueries(["""
             SELECT "test_orm_multi"."id"
             FROM "test_orm_multi"
-            WHERE ("test_orm_multi"."partner" IS NULL OR "test_orm_multi"."partner" NOT IN (
-                SELECT "test_orm_partner"."id"
+            WHERE NOT EXISTS (SELECT 1 FROM (SELECT "test_orm_partner"."id"
                 FROM "test_orm_partner"
-                WHERE ("test_orm_partner"."email" LIKE %s OR "test_orm_partner"."name" LIKE %s)
-            ))
+                WHERE ("test_orm_partner"."email" LIKE %s OR "test_orm_partner"."name" LIKE %s)) AS "test_orm_multi__partner__exists" WHERE "test_orm_multi__partner__exists"."id" = "test_orm_multi"."partner")
             ORDER BY "test_orm_multi"."id"
         """]):
             self.env['test_orm.multi'].search([
@@ -646,6 +697,39 @@ class TestSearchRelated(TransactionCase):
             ORDER BY "test_orm_related"."id"
         """]):
             model.search([('foo_bar_sudo_id.name', '=', 'a')])
+
+    def test_related_negative_operator_equivalence(self):
+        """ A negative operator on a non-stored related field is the complement
+        of the positive one: `foo_name != 'a'`, `!(foo_name = 'a')` and
+        `foo_id not any [name = 'a']` return the same records, NULL included. """
+        Related = self.env['test_orm.related'].with_user(self.env.ref('base.user_admin'))
+        foo_a, foo_b, foo_null = self.env['test_orm.related_foo'].create([
+            {'name': 'a'}, {'name': 'b'}, {'name': False},
+        ])
+        records = Related.create([
+            {'foo_id': foo_a.id},
+            {'foo_id': foo_b.id},
+            {'foo_id': foo_null.id},
+            {'foo_id': False},
+        ])
+        in_scope = [('id', 'in', records.ids)]
+        for negative, positive in [
+            (('foo_name', '!=', 'a'), ('foo_name', '=', 'a')),
+            (('foo_name', 'not in', ['a']), ('foo_name', 'in', ['a'])),
+            (('foo_name', 'not ilike', 'a'), ('foo_name', 'ilike', 'a')),
+        ]:
+            with self.subTest(domain=negative):
+                found = Related.search(in_scope + [negative])
+                self.assertEqual(found, records - Related.search(in_scope + [positive]))
+                self.assertEqual(found, Related.search(in_scope + ['!', positive]))
+        self.assertEqual(
+            Related.search(in_scope + [('foo_name', '!=', 'a')]),
+            Related.search(in_scope + [('foo_id', 'not any', [('name', '=', 'a')])]),
+        )
+        self.assertEqual(
+            Related.search(in_scope + [('foo_name', '!=', 'a')]),
+            records[1:],
+        )
 
     def test_related_many2many(self):
         model = self.env['test_orm.related'].with_user(self.env.ref('base.user_admin'))
@@ -1189,13 +1273,9 @@ class TestSearchRelated(TransactionCase):
         with self.assertQueries(["""
             SELECT "test_orm_related"."id"
             FROM "test_orm_related"
-            WHERE (
-                "test_orm_related"."foo_id" IS NULL OR "test_orm_related"."foo_id" NOT IN (
-                    SELECT "test_orm_related_foo"."id"
+            WHERE NOT EXISTS (SELECT 1 FROM (SELECT "test_orm_related_foo"."id"
                     FROM "test_orm_related_foo"
-                    WHERE "test_orm_related_foo"."name" IN %s
-                )
-            )
+                    WHERE "test_orm_related_foo"."name" IN %s) AS "test_orm_related__foo_id__exists" WHERE "test_orm_related__foo_id__exists"."id" = "test_orm_related"."foo_id")
             ORDER BY "test_orm_related"."id"
         """]):
             model.search([('foo_name', '!=', 'a')])
@@ -1241,13 +1321,13 @@ class TestSearchRelated(TransactionCase):
         with self.assertQueries(["""
             SELECT "test_orm_related"."id"
             FROM "test_orm_related"
-            WHERE (
-                "test_orm_related"."foo_id" IS NULL OR
-                "test_orm_related"."foo_id" NOT IN (
+            WHERE NOT EXISTS (
+                SELECT 1 FROM (
                     SELECT "test_orm_related_foo"."id"
                     FROM "test_orm_related_foo"
                     WHERE "test_orm_related_foo"."name" IN %s
-                )
+                ) AS "test_orm_related__foo_id__exists"
+                WHERE "test_orm_related__foo_id__exists"."id" = "test_orm_related"."foo_id"
             )
             ORDER BY "test_orm_related"."id"
         """]):
@@ -1286,11 +1366,9 @@ class TestSearchRelated(TransactionCase):
         with self.assertQueries(["""
             SELECT "test_orm_related"."id"
             FROM "test_orm_related"
-            WHERE ("test_orm_related"."foo_id" IS NULL OR "test_orm_related"."foo_id" NOT IN (
-                SELECT "test_orm_related_foo"."id"
+            WHERE NOT EXISTS (SELECT 1 FROM (SELECT "test_orm_related_foo"."id"
                 FROM "test_orm_related_foo"
-                WHERE "test_orm_related_foo"."name" IN %s
-            ))
+                WHERE "test_orm_related_foo"."name" IN %s) AS "test_orm_related__foo_id__exists" WHERE "test_orm_related__foo_id__exists"."id" = "test_orm_related"."foo_id")
             ORDER BY "test_orm_related"."id"
         """]):
             model.search([('foo_name_sudo', '!=', 'a')])
