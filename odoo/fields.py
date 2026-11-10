@@ -1065,6 +1065,9 @@ class Field(MetaField('DummyField', (object,), {})):
                 "Table %r: column %r kept as %s", model._table, self.name, column['udt_name'],
             )
             return
+        if column['udt_name'] == 'int8' and self.db_column_type(model)[0] == 'int4':
+            _schema.debug("Table %r: column %r kept as int8", model._table, self.name)
+            return
         if column['is_nullable'] == 'NO':
             sql.drop_not_null(model._cr, model._table, self.name)
         self._convert_db_column(model, column)
